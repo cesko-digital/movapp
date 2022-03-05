@@ -1,1 +1,331 @@
-[{"cz":"doktor","ua":"лікар","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Potřebuji doktora.","ua":"мені потрібен лікар","ua_transcription":"","cz_transcription":"","type":""},{"cz":"hlava","ua":"голова","ua_transcription":"","cz_transcription":"","type":""},{"cz":"oko / oči","ua":"око/очі","ua_transcription":"","cz_transcription":"","type":""},{"cz":"nos","ua":"ніс","ua_transcription":"","cz_transcription":"","type":""},{"cz":"ústa","ua":"рот","ua_transcription":"","cz_transcription":"","type":""},{"cz":"ucho / uši","ua":"вухо/вуха","ua_transcription":"","cz_transcription":"","type":""},{"cz":"krk","ua":"горло","ua_transcription":"","cz_transcription":"","type":""},{"cz":"rameno / ramena","ua":"плече/плечі","ua_transcription":"","cz_transcription":"","type":""},{"cz":"paže / paže","ua":"рука/руки (передпліччя)","ua_transcription":"","cz_transcription":"","type":""},{"cz":"ruka / ruce","ua":"рука/руки(долоні)","ua_transcription":"","cz_transcription":"","type":""},{"cz":"hrudník","ua":"груди (грудна клітка)","ua_transcription":"","cz_transcription":"","type":""},{"cz":"břicho","ua":"живіт","ua_transcription":"","cz_transcription":"","type":""},{"cz":"záda","ua":"спина","ua_transcription":"","cz_transcription":"","type":""},{"cz":"zadek","ua":"попа (сідниці)","ua_transcription":"","cz_transcription":"","type":""},{"cz":"noha / nohy","ua":"нога/ноги","ua_transcription":"","cz_transcription":"","type":""},{"cz":"prst / prsty","ua":"палець/пальці","ua_transcription":"","cz_transcription":"","type":""},{"cz":"dlaň / dlaně","ua":"долоня/долоні","ua_transcription":"","cz_transcription":"","type":""},{"cz":"chodidlo / chodidla","ua":"стопа/стопи","ua_transcription":"","cz_transcription":"","type":""},{"cz":"zub / zuby","ua":"зуб/зуби","ua_transcription":"","cz_transcription":"","type":""},{"cz":"žaludek","ua":"шлунок","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Bolí mě...","ua":"у мене болить...","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Bolí ji / ho...","ua":"у неї/нього болить..","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Svědí mě...","ua":"у мене свербить (чешеться)...","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Svědí ji / ho...","ua":"у неї/нього свербить (чешеться)","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Mám teplotu...","ua":"у мене температура","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Má teplotu...","ua":"у неї/нього температура","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Zvracím...","ua":"мене нудить","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Zvrací...","ua":"її/його нудить","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Mám průjem...","ua":"у мене понос","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Má průjem...","ua":"у неї/нього понос","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Není mi dobře.","ua":"Мені погано","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Není jí / mu dobře.","ua":"їй/йому погано","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Jsem nemocná/nemocný.","ua":"Я хвора/хворий.","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Praskla mi voda.","ua":"у мене відійшли води","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Dítě kope.","ua":"дитина штовхається","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Krvácím.","ua":"у мене кровотеча","ua_transcription":"","cz_transcription":"","type":""},{"cz":"(On / Ona) krvácí.","ua":"у нього/неї кровотеча","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Mám alergii na...","ua":"у мене алергія на ..","ua_transcription":"","cz_transcription":"","type":""},{"cz":"léky","ua":"ліки","ua_transcription":"","cz_transcription":"","type":""},{"cz":"pyly","ua":"пилок","ua_transcription":"","cz_transcription":"","type":""},{"cz":"prach","ua":"пил","ua_transcription":"","cz_transcription":"","type":""},{"cz":"zvířata","ua":"тварин","ua_transcription":"","cz_transcription":"","type":""},{"cz":"Potřebuji...","ua":"Мені потрібні","ua_transcription":"","cz_transcription":"","type":""},{"cz":"léky (na bolest)","ua":"ліки (від болю)","ua_transcription":"","cz_transcription":"","type":""},{"cz":"mast (na ekzém)","ua":"мазь (від екземи)","ua_transcription":"","cz_transcription":"","type":""},{"cz":"sirup (na kašel)","ua":"сироп (від кашлю)","ua_transcription":"","cz_transcription":"","type":""}]
+[
+  {
+    "cz": "doktor",
+    "ua": "лікар",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Potřebuji doktora.",
+    "ua": "мені потрібен лікар",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "hlava",
+    "ua": "голова",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "oko / oči",
+    "ua": "око/очі",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "nos",
+    "ua": "ніс",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "ústa",
+    "ua": "рот",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "ucho / uši",
+    "ua": "вухо/вуха",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "krk",
+    "ua": "горло",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "rameno / ramena",
+    "ua": "плече/плечі",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "paže / paže",
+    "ua": "рука/руки (передпліччя)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "ruka / ruce",
+    "ua": "рука/руки(долоні)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "hrudník",
+    "ua": "груди (грудна клітка)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "břicho",
+    "ua": "живіт",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "záda",
+    "ua": "спина",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "zadek",
+    "ua": "попа (сідниці)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "noha / nohy",
+    "ua": "нога/ноги",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "prst / prsty",
+    "ua": "палець/пальці",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "dlaň / dlaně",
+    "ua": "долоня/долоні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "chodidlo / chodidla",
+    "ua": "стопа/стопи",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "zub / zuby",
+    "ua": "зуб/зуби",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "žaludek",
+    "ua": "шлунок",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Bolí mě...",
+    "ua": "у мене болить...",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Bolí ji / ho...",
+    "ua": "у неї/нього болить..",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Svědí mě...",
+    "ua": "у мене свербить (чешеться)...",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Svědí ji / ho...",
+    "ua": "у неї/нього свербить (чешеться)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Mám teplotu...",
+    "ua": "у мене температура",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Má teplotu...",
+    "ua": "у неї/нього температура",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Zvracím...",
+    "ua": "мене нудить",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Zvrací...",
+    "ua": "її/його нудить",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Mám průjem...",
+    "ua": "у мене понос",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Má průjem...",
+    "ua": "у неї/нього понос",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Není mi dobře.",
+    "ua": "Мені погано",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Není jí / mu dobře.",
+    "ua": "їй/йому погано",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jsem nemocná/nemocný.",
+    "ua": "Я хвора/хворий.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Praskla mi voda.",
+    "ua": "у мене відійшли води",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Dítě kope.",
+    "ua": "дитина штовхається",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Krvácím.",
+    "ua": "у мене кровотеча",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "(On / Ona) krvácí.",
+    "ua": "у нього/неї кровотеча",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Mám alergii na...",
+    "ua": "у мене алергія на ..",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "léky",
+    "ua": "ліки",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "pyly",
+    "ua": "пилок",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "prach",
+    "ua": "пил",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "zvířata",
+    "ua": "тварин",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Potřebuji...",
+    "ua": "Мені потрібні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "léky (na bolest)",
+    "ua": "ліки (від болю)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "mast (na ekzém)",
+    "ua": "мазь (від екземи)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "sirup (na kašel)",
+    "ua": "сироп (від кашлю)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  }
+]
