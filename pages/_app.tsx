@@ -1,8 +1,14 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import { ScrollToTop } from '../components/basecomponents/ScrollToTop';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  return (
+    <>
+      <Component {...pageProps} />
+      <ScrollToTop />
+    </>
+  );
+};
 
-export default MyApp
+export default MyApp;

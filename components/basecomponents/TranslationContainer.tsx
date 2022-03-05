@@ -1,5 +1,4 @@
 import React from 'react';
-import ReverseIcon from '../../public/icons/reverse.svg';
 import PlayIcon from '../../public/icons/play.svg';
 
 export interface Translation {
@@ -10,12 +9,7 @@ export interface Translation {
   type: string;
 }
 
-export const TranslationContainer = ({
-  cz,
-  ua,
-  ua_transcription,
-  cz_transcription,
-}: Translation): JSX.Element => {
+export const TranslationContainer = ({ cz, ua, ua_transcription, cz_transcription }: Translation): JSX.Element => {
   return (
     <div className="grid grid-cols-[40%_40%] gap-[10%] items-center my-2 py-2 border-b-[1px] border-b-slate-200">
       <div className="flex justify-between items-center">
