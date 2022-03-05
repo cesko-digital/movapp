@@ -1,0 +1,268 @@
+[
+  {
+    "cz": "jméno",
+    "ua": "ім'я",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "příjmení",
+    "ua": "прізвище",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "datum narození",
+    "ua": "дата народження",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "věk",
+    "ua": "вік",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "pohlaví",
+    "ua": "стать",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "žena",
+    "ua": "жінка",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "muž",
+    "ua": "чоловік",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "stav",
+    "ua": "сімейний стан",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "svobodný / svobodná",
+    "ua": "неодружений / незаміжня",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "ženatý / vdaná",
+    "ua": "одружений / одружена",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "rozvedený / rozvedená",
+    "ua": "розлучений / розлучена",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "vdoven / vdova",
+    "ua": "вдівець / вдова",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "národnost",
+    "ua": "національність",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "ukrajinská",
+    "ua": "українське",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "občanství",
+    "ua": "громадянство",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Ukrajina",
+    "ua": "Україна",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "místo narození",
+    "ua": "місто народження",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "město",
+    "ua": "місто",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "trvalé bydliště",
+    "ua": "місце реєстрації",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "ulice",
+    "ua": "вулиця",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "číslo popisné",
+    "ua": "номер будинку",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "PSČ",
+    "ua": "індекс",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "přechodné bydliště",
+    "ua": "місце тимчасового проживання",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "korespondenční adresa",
+    "ua": "адреса для кореспонденції",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "e-mailová adresa",
+    "ua": "е-мейл адреса",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "telefonní číslo",
+    "ua": "номер телефону",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "rodný list",
+    "ua": "свідоцтво про народження",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "pas",
+    "ua": "паспорт",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "občanský průkaz",
+    "ua": "посвідчення особи (ай ді карта)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "počet dětí",
+    "ua": "кількість дітей",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "žádost o [...]",
+    "ua": "заява на...",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "podat [žádost]",
+    "ua": "подати заяву на...",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "poslat [žádost]",
+    "ua": "відправити заяву",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "formulář",
+    "ua": "формуляр",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "podpis",
+    "ua": "підпис",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "vyplnit [formulář]",
+    "ua": "заповнити (формуляр)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "podepsat [formulář]",
+    "ua": "підписати (формуляр)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "domluvit si schůzku",
+    "ua": "домовитись про зустріч",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  }
+]

@@ -1,0 +1,408 @@
+[
+  {
+    "cz": "Ahoj",
+    "ua": "Привіт",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Dobrý den",
+    "ua": "Добрий день",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Nashledanou",
+    "ua": "До побачення",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Děkuji / díky",
+    "ua": "Дякую",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Prosím",
+    "ua": "Будь ласка",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Promiň",
+    "ua": "Пробач",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jmenuji se...",
+    "ua": "Мене звуть",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jak se máš?",
+    "ua": "Як справи?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jsem ráda, že jsi tady.",
+    "ua": "Я рада, що ти тут.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Pojď si s námi hrát.",
+    "ua": "Ходімо гратися з нами",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jdeme na koberec.",
+    "ua": "Ходімо на килимок",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jdeme ven na zahradu / na hřiště.",
+    "ua": "Йдемо на вулицю/майданчик",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Vezmi si / obleč si",
+    "ua": "Вдягнися",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "tričko",
+    "ua": "кофту, футболку",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "kalhoty/tepláky/leginy",
+    "ua": "штани/теплі спортивні штани/лосини",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "bačkory",
+    "ua": "капці",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "pyžamo",
+    "ua": "піжаму",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "mikinu",
+    "ua": "кофту з довгими рукавами",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "svetr",
+    "ua": "светр",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "bundu",
+    "ua": "куртку",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "čepici",
+    "ua": "шапочку",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "rukavice",
+    "ua": "рукавички",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "boty",
+    "ua": "чоботи",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Pojď se najíst.",
+    "ua": "Іди поїж",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Máme svačinu.",
+    "ua": "Час перекусити.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Máme oběd.",
+    "ua": "Обід",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Umyjeme si ruce.",
+    "ua": "Миємо руки",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Máš hlad?",
+    "ua": "Ти голодний/а?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Co máš rád?",
+    "ua": "Що ти любиш?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Chutná ti to?",
+    "ua": "Тобі подобається (смакує)?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Ochutnej, je to dobré.",
+    "ua": "Спробуй, це смачно",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Dáš si chleba?",
+    "ua": "Хочеш хліб?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Dáš si polévku?",
+    "ua": "Хочеш суп?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jdeme odpočívat / spát.",
+    "ua": "Йдемо відпочивати/спати.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Vyčisti si zuby.",
+    "ua": "Почисти зуби",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Potřebuješ jít na záchod?",
+    "ua": "Тобі потрібно в туалет?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Potřebuješ čůrat?",
+    "ua": "Хочеш пісяти?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Pojď se vyčůrat.",
+    "ua": "Піди попісяй",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "To je tvoje postel.",
+    "ua": "Це твоє ліжко",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Budeme číst pohádku.",
+    "ua": "Читаємо казку",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Poslouchej.",
+    "ua": "Послухай",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Vezmi si s sebou svoji hračku.",
+    "ua": "Візьми з собою свою іграшку",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Budeme cvičit.",
+    "ua": "Робимо розминку",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Dívej se.",
+    "ua": "Подивися",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Udělej to také.",
+    "ua": "Зроби так",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "S čím si chceš hrát?",
+    "ua": "З чим хочеш погратися?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Vezmeš si zvířátka?",
+    "ua": "Візьмеш тваринку?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "... kostky?",
+    "ua": "... кубики?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "... panenky?",
+    "ua": "...ляльку?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "... autíčka?",
+    "ua": "...машинку?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "... vláček?",
+    "ua": "...поїзд?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Chceš si kreslit?",
+    "ua": "Хочеш малювати олівцями?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Chceš si malovat?",
+    "ua": "Хочеш малювати фарбами?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Chceš si modelovat?",
+    "ua": "Хочеш ліпити з пластиліну?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jsi šikovný, jde ti to skvěle.",
+    "ua": "Ти молодець, у тебе гарно виходить.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "To se mi moc líbí.",
+    "ua": "Це мені дуже подобається!",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Maminka brzy přijde.",
+    "ua": "Мама скоро прийде",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Zavoláme mamince / babičce?",
+    "ua": "Подзвонимо мамі/бабусі?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  }
+]

@@ -1,0 +1,800 @@
+[
+  {
+    "cz": "paní ředitelka / pan ředitel",
+    "ua": "директриса/директор",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "paní učitelka / pan učitel",
+    "ua": "вчителька/вчитель",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "paní asistentka / pan asistent",
+    "ua": "асистентка/асистент",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Paní učitelko! / Pane učiteli! (oslovení)",
+    "ua": "Пані вчителько/ Пане учителю! (звертання)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "třídní schůzky",
+    "ua": "батьківські збори",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "vyučování",
+    "ua": "навчання",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "hodina",
+    "ua": "урок",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Hodina začíná.",
+    "ua": "Починається урок",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Hodina končí.",
+    "ua": "Закінчується урок",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Zvoní.",
+    "ua": "Дзвоник",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Postavte se.",
+    "ua": "Встаньте",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Posaďte se.",
+    "ua": "Сідайте",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Nachystejte si věci.",
+    "ua": "Приготуйте речі",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "přestávka",
+    "ua": "перерва",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "omluvenka",
+    "ua": "письмове вибачення (повідомлення про відсутність на уроці)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Máš omluvenku?",
+    "ua": "Є письмове вибачення?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Mám / Nemám omluvenku.",
+    "ua": "Маю/не маю письмове вибачення",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "šatna",
+    "ua": "роздягальня",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "skříňka",
+    "ua": "шафка",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "klíček od skříňky",
+    "ua": "ключ від шафки",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "bačkory (přezůvky)",
+    "ua": "капці (змінне взуття)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "třída",
+    "ua": "клас",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "tabule",
+    "ua": "дошка",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "lavice",
+    "ua": "парта",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "rozvrh hodin",
+    "ua": "розклад занять",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "matematika (matika)",
+    "ua": "математика",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "čeština",
+    "ua": "чеська мова",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "angličtina",
+    "ua": "англійська мова",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "němčina",
+    "ua": "німецька мова",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "španělština",
+    "ua": "іспанська мова",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "francouzština",
+    "ua": "французька мова",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "prvouka",
+    "ua": "Людина і Світ",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "přírodověda",
+    "ua": "природознавство",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "vlastivěda",
+    "ua": "країнознавство",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "výtvarná výchova (výtvarka)",
+    "ua": "малювання (художнє виховання)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "hudební výchova (hudebka)",
+    "ua": "музика(музичне виховання)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "tělesná výchova (tělák)",
+    "ua": "фізична культура (фіз-ра)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "informatika (počítače)",
+    "ua": "інформатика (комп'ютерна техніка)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "zeměpis (zemák)",
+    "ua": "географія",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "dějepis (děják)",
+    "ua": "історія",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "fyzika",
+    "ua": "фізика",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "chemie",
+    "ua": "хімія",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "občanská výchova (občanka)",
+    "ua": "правознавство",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "svačina",
+    "ua": "перекус (в коробочці, його їдять на великій перерві)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "oběd",
+    "ua": "обід",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jdeme na oběd.",
+    "ua": "Йдемо на обід",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Vem si...",
+    "ua": "Візьми собі",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "jídlo",
+    "ua": "їжу",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "pití",
+    "ua": "напій",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Chceš přidat?",
+    "ua": "Добавки?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "aktovka (batoh)",
+    "ua": "ранець (рюкзак)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "desky",
+    "ua": "дошки",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "sešit / sešity",
+    "ua": "зошит/зошити",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "učebnice",
+    "ua": "підручник",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "pracovní sešit (pracák)",
+    "ua": "робочий зошит",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "žákovská knížka (žákajda)",
+    "ua": "щоденник",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "penál",
+    "ua": "пенал",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "pero",
+    "ua": "ручка",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "tužka / tužky",
+    "ua": "олівець/олівці",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "pastelka / pastelky",
+    "ua": "кольоровий олівець/олівці",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "fixa / fixy",
+    "ua": "фломастер/фломастери",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "guma",
+    "ua": "ґумка",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "ořezávátko",
+    "ua": "точилка",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "nůžky",
+    "ua": "ножиці",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "lepidlo",
+    "ua": "клей",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "pravítko",
+    "ua": "лінійка",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "kružítko",
+    "ua": "циркуль",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Napiš.",
+    "ua": "Напиши",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Píšeme.",
+    "ua": "Пишемо",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Nakresli.",
+    "ua": "Намалюй",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Kreslíme.",
+    "ua": "Малюємо",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Vybarvi.",
+    "ua": "Зафарбуй",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Podtrhni.",
+    "ua": "Підкресли",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Zakroužkuj.",
+    "ua": "Обведи.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Řekni.",
+    "ua": "Скажи",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Čti. / Čteme.",
+    "ua": "Читай/читаємо",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Vem si...",
+    "ua": "Візьми",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Znáš...",
+    "ua": "Знаєш... (+ іменник: ім'я дорогу, т.д.)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Víš...",
+    "ua": "Знаєш (+ речення: що треба робити)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "družina",
+    "ua": "група продовженого дня",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "paní vychovatelka / pan vychovatel",
+    "ua": "вихователька/вихователь",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Chodím do družiny.",
+    "ua": "Ходжу в группу подовженого дня",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jdeme do družiny.",
+    "ua": "Ходімо на группу подовженого дня",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Kdy půjde domů?",
+    "ua": "Коли (він/вона) піде додому?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Půjde v...",
+    "ua": "Піде о ...",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Kdy půjdeš domů?",
+    "ua": "Коли ти йдеш додому?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Půjdu v...",
+    "ua": "Піду о ...",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Kdo tě / ji / ho vyzvedne?",
+    "ua": "Хто тебе/її/його забирає?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jdeme na hřiště.",
+    "ua": "Ходімо на майданчик",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Dávej pozor.",
+    "ua": "Зверни увагу! Обережно!",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Tam nechodíme.",
+    "ua": "Там не можна ходити",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Pojď sem!",
+    "ua": "Підійди!",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Budeme si číst.",
+    "ua": "Будемо читати",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Poslouchej.",
+    "ua": "Послухай",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Budeme vyrábět.",
+    "ua": "Будемо робити (щось руками)",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Budeme zpívat.",
+    "ua": "Будемо співати",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Budeme si hrát.",
+    "ua": "Будемо гратися",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jak se jmenuješ?",
+    "ua": "Як тебе звати?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Já jsem...",
+    "ua": "Я...",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jak se máš?",
+    "ua": "Як справи?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "(Mám se) dobře.",
+    "ua": "Добре",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Nemám se dobře.",
+    "ua": "Погано",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Musím na záchod.",
+    "ua": "Мені потрібно в туалет",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Promiňte./Omlouvám se.",
+    "ua": "Вибачте!",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Je to tady / tam.",
+    "ua": "Це тут/там.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Dej to tam.",
+    "ua": "Поклади туди.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Jde ti to moc dobře.",
+    "ua": "У тебе чудово виходить!",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Pokračuj.",
+    "ua": "Продовжуй!",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Výborně!",
+    "ua": "Відмінно!",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "To je moc dobré!",
+    "ua": "Дуже добре!",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Zkus to znovu.",
+    "ua": "Спробуй ще раз.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Podívej se sem.",
+    "ua": "Подивися сюди.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Pomůžu ti.",
+    "ua": "Я тобі допоможу.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Máš radost? Já mám radost!",
+    "ua": "Ти радієш? Я радію!",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  }
+]

@@ -1,0 +1,268 @@
+[
+  {
+    "cz": "Kolik je hodin?",
+    "ua": "Котра година?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Je [sedm] hodin.",
+    "ua": "Сьома година",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Je čtvrt na [pět].",
+    "ua": "Чверть на п'яту.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Je půl [páté].",
+    "ua": "Пів п'ятої",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Je tři čtvrtě na [pět].",
+    "ua": "за чверть шоста.",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "",
+    "ua": "",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Kdy mám přijít?",
+    "ua": "Коли мені прийти?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "Kdy to mám udělat?",
+    "ua": "Коли я маю це зробити?",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "",
+    "ua": "",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "V pondělí.",
+    "ua": "в понеділок",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "úterý",
+    "ua": "вівторок",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "středa (LOK: středu)",
+    "ua": "середа, в середу",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "čtvrtek",
+    "ua": "четвер",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "pátek",
+    "ua": "п'ятниця",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "sobota (LOK: sobotu)",
+    "ua": "субота, в суботу",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "neděle (LOK: neděli)",
+    "ua": "неділя, в неділю",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "V [sedm] hodin.",
+    "ua": "О сьомій",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "",
+    "ua": "",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "předevčírem",
+    "ua": "позавчора",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "včera",
+    "ua": "вчора",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "dnes",
+    "ua": "сьогодні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "zítra",
+    "ua": "завтра",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "pozítří",
+    "ua": "післязавтра",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "teď",
+    "ua": "зараз",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "později",
+    "ua": "пізніше",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "",
+    "ua": "",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "leden (LOK: v lednu)",
+    "ua": "січень , в січні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "únor (LOK: v únoru)",
+    "ua": "лютий, в лютому",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "březen (LOK: v březnu)",
+    "ua": "березень, в березні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "duben (LOK: v dubnu)",
+    "ua": "квітень, в квітні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "květen (LOK: v květnu)",
+    "ua": "!!! травень, в травні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "červen (LOK: v červnu)",
+    "ua": "червень, в червні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "červenec (LOK: v červenci)",
+    "ua": "липень, в липні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "srpen (LOK: v srpnu)",
+    "ua": "серпень, в серпні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "září",
+    "ua": "вересень",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "říjen (LOK: v říjnu)",
+    "ua": "жовтень, в жовтні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "listopad (LOK: v listopadu)",
+    "ua": "листопад, в листопаді",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  },
+  {
+    "cz": "prosinec (LOK: v prosinci)",
+    "ua": "грудень, в грудні",
+    "ua_transcription": "",
+    "cz_transcription": "",
+    "type": ""
+  }
+]
