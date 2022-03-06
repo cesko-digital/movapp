@@ -2,15 +2,14 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { HEADER_NAVIGATION } from '../../../data/headerNavigation';
-import { LOCALES } from '../../../data/locales';
+import { HEADER_NAVIGATION } from '../../../../data/headerNavigation';
+import { LOCALES } from '../../../../data/locales';
 
 export const Header = () => {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
   const router = useRouter();
-
   return (
-    <div className=" bg-primary-blue w-full h-14">
+    <div className=" bg-primary-blue w-full h-14 hidden sm:block">
       <div className="max-w-4xl m-auto flex h-full justify-between items-center ">
         {/* Will be reaplaced by logo */}
         <p className="text-white mx-2 w-full">UACZ language app</p>
@@ -30,11 +29,11 @@ export const Header = () => {
             })}
           </ul>
         </nav>
-        {LOCALES.map(({ name }, index) => {
+        {LOCALES.map(({ name, locale }, index) => {
           return (
-            <Link key={index} href={router.asPath} locale={name}>
+            <Link key={index} href={router.asPath} locale={locale}>
               <a>
-                <span className={`text-white cursor-pointer mx-2 `} key={index}>
+                <span className={`text-white cursor-pointer mx-2 ${i18n.language === locale && 'text-primary-yellow'}`} key={index}>
                   {name}
                 </span>
               </a>

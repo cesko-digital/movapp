@@ -1,8 +1,10 @@
 export const LOCALES = [
   {
-    name: 'ua',
+    name: 'Укр',
+    locale: 'ua',
   },
   {
-    name: 'cz',
+    name: 'Česky',
+    locale: 'cz',
   },
 ];

@@ -51,15 +51,16 @@ const Dictionary = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen px-2 sm:px-4">
       <div className="flex items-center">
         <SearchInput
+          className="w-full md:w-auto "
           placeholder={t('dictionary_page.search_placeholder')}
           type="text"
           value={search}
           onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch((e.target as HTMLInputElement).value)}
         />
-        <Button className="ml-5" text={t('dictionary_page.search_button')} />
+        <Button className="ml-5 hidden md:block " text={t('dictionary_page.search_button')} />
       </div>
       <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
       {translations.filter(filterBySearch).map((category, index) => {
