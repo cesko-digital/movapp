@@ -13,7 +13,11 @@ export const Header = () => {
     <header className=" bg-primary-blue w-full sticky top-0 h-14 hidden sm:block">
       <div className="max-w-4xl m-auto flex h-full justify-between items-center ">
         {/* Will be reaplaced by logo */}
-        <AppLogo className="w-48 h-8" />
+        <Link href={'/'}>
+          <a>
+            <AppLogo className="w-48 h-8" />
+          </a>
+        </Link>
         <nav className="w-full">
           <ul className="flex justify-end items-center pr-10">
             {HEADER_NAVIGATION.map(({ name, link }, index) => {
