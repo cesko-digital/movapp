@@ -26,21 +26,21 @@ export const TranslationContainer = ({
   const czTranslation = getHighlightedText(cz, searchText);
 
   return (
-    <div className="grid grid-cols-[40%_2%_40%] gap-[8%] items-center my-2 py-2 border-b-[1px] border-b-slate-200 bg-primary-grey">
+    <div className="sm:grid sm:grid-cols-[40%_2%_40%] sm:gap-[8%] sm:items-center my-4 sm:my-2 p-2 border-b-[1px] border-b-slate-200 bg-primary-grey">
       {/* CZ translation  */}
-      <div className="flex justify-between items-center p-2">
+      <div className="flex justify-between items-center py-2 ">
         <div>
-          <p className="self-start w-full">{czTranslation}</p>
+          <p className="self-start w-full font-semibold">{czTranslation}</p>
           <p className="text-gray-500">{cz_transcription}</p>
         </div>
         <PlayIcon className="cursor-pointer" />
       </div>
       {/* Divider */}
-      <div className="h-full w-0 border-1 border-[#D2D2D2]"></div>
+      <div className="w-full h-0 sm:h-full sm:w-0 border-1 border-[#D2D2D2]"></div>
       {/* UA translation  */}
-      <div className="flex justify-between items-center p-2">
+      <div className="flex justify-between py-2 items-center ">
         <div>
-          <p className="w-full">{uaTranslation}</p>
+          <p className="w-full font-semibold">{uaTranslation}</p>
           <p className="text-gray-500">{ua_transcription}</p>
         </div>
         <PlayIcon className="cursor-pointer" />

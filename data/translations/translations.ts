@@ -1,18 +1,18 @@
-import { Translation } from '../components/basecomponents/TranslationContainer';
+import { Translation } from '../../components/basecomponents/TranslationContainer';
 // JSON translation files
-import Cas from '../new-translations/cas.json';
-import HromadnaDoprava from '../new-translations/hromadna-doprava.json';
-import ZOO from '../new-translations/zoo.json';
-import NaNakupu from '../new-translations/na-nakupu.json';
-import NaUrade from '../new-translations/na-urade.json';
-import ObleceniDrogerie from '../new-translations/obleceni-drogerie.json';
-import Penize from '../new-translations/penize.json';
-import Rodina from '../new-translations/rodina.json';
-import Doctor from '../new-translations/doctor.json';
-import VDomacnosti from '../new-translations/vdomacnosti.json';
-import VeMeste from '../new-translations/vemeste.json';
-import VeSkole from '../new-translations/veskole.json';
-import VeSkolce from '../new-translations/veskolce.json';
+import Cas from './cas.json';
+import HromadnaDoprava from './hromadna-doprava.json';
+import ZOO from './zoo.json';
+import NaNakupu from './na-nakupu.json';
+import NaUrade from './na-urade.json';
+import ObleceniDrogerie from './obleceni-drogerie.json';
+import Penize from './penize.json';
+import Rodina from './rodina.json';
+import Doctor from './doctor.json';
+import VDomacnosti from './vdomacnosti.json';
+import VeMeste from './vemeste.json';
+import VeSkole from './veskole.json';
+import VeSkolce from './veskolce.json';
 
 export interface TranslationsType {
   category_name_cz: string;

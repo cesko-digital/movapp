@@ -6,6 +6,7 @@ import { HEADER_NAVIGATION } from '../../../../data/headerNavigation';
 import { LOCALES } from '../../../../data/locales';
 import BurgerIcon from '../../../../public/icons/burger.svg';
 import CloseIcon from '../../../../public/icons/close.svg';
+import AppLogo from '../../../../public/movapp-logo.svg';
 
 export const MobileHeader = () => {
   const [showNavigation, setShowNavigation] = useState(false);
@@ -25,8 +26,8 @@ export const MobileHeader = () => {
   }, [router, showNavigation]);
 
   return (
-    <div className="sm:hidden sticky top-0 h-10 bg-primary-blue w-full flex justify-between items-center px-2">
-      <div>MOVAPP</div>
+    <div className="sm:hidden sticky top-0 h-14 bg-primary-blue w-full flex justify-between items-center px-2">
+      <AppLogo className="w-36 h-20" />
       <ul className="flex w-full justify-end pr-5 items-center">
         {LOCALES.map(({ name, locale }, index) => {
           return (
@@ -43,7 +44,7 @@ export const MobileHeader = () => {
       </div>
       {/* Navigation dropdown */}
       {showNavigation && (
-        <div className="bg-primary-blue absolute py-5 top-10 w-full left-0">
+        <div className="bg-primary-blue absolute py-5 top-14 w-full left-0">
           <ul>
             {HEADER_NAVIGATION.map(({ name, link }, index) => {
               return (
