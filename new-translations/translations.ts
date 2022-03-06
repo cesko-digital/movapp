@@ -14,7 +14,7 @@ import VeMeste from '../new-translations/vemeste.json';
 import VeSkole from '../new-translations/veskole.json';
 import VeSkolce from '../new-translations/veskolce.json';
 
-interface TranslationsType {
+export interface TranslationsType {
   category_name_cz: string;
   category_name_ua: string;
   translations: Translation[];

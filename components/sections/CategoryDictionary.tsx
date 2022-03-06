@@ -3,13 +3,14 @@ import { Translation, TranslationContainer } from '../basecomponents/Translation
 
 interface CategoryDictionaryProps {
   translations: Translation[];
+  searchText: string;
 }
 
-export const CategoryDictionary = ({ translations }: CategoryDictionaryProps): JSX.Element => {
+export const CategoryDictionary = ({ translations, searchText }: CategoryDictionaryProps): JSX.Element => {
   return (
     <>
       {translations.map((translation, index) => {
-        return <TranslationContainer key={index} {...translation} />;
+        return <TranslationContainer key={index} {...translation} searchText={searchText} />;
       })}
     </>
   );

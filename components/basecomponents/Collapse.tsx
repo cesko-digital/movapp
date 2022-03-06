@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import ChevronDown from '../../public/icons/chevron-down.svg';
 
 interface CollapseProps {
-  title: string;
+  title: string | ReactElement;
   children: React.ReactNode;
 }
 
@@ -10,7 +10,7 @@ export const Collapse = ({ title, children }: CollapseProps): JSX.Element => {
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="shadow-around rounded-md p-4 my-2">
-      <div className="flex justify-between font-bold" onClick={() => setExpanded(!expanded)}>
+      <div className="flex justify-between " onClick={() => setExpanded(!expanded)}>
         <div>
           <p>{title}</p>
         </div>
