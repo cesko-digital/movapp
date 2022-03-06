@@ -33,7 +33,7 @@ export const TranslationContainer = ({
           <p className="self-start w-full font-semibold">{czTranslation}</p>
           <p className="text-gray-500">{cz_transcription}</p>
         </div>
-        <PlayIcon className="cursor-pointer" />
+        <PlayIcon className="cursor-pointer " />
       </div>
       {/* Divider */}
       <div className="w-full h-0 sm:h-full sm:w-0 border-1 border-[#D2D2D2]"></div>

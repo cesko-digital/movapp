@@ -44,8 +44,8 @@ export const MobileHeader = () => {
       </div>
       {/* Navigation dropdown */}
       {showNavigation && (
-        <div className="bg-primary-blue absolute py-5 top-14 w-full left-0">
-          <ul>
+        <div className="bg-primary-blue z-50 absolute py-5 top-14 w-full left-0">
+          <ul className="z-50">
             {HEADER_NAVIGATION.map(({ name, link }, index) => {
               return (
                 <Link key={index} href={link}>
