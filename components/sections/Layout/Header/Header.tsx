@@ -10,7 +10,7 @@ export const Header = () => {
   const { t, i18n } = useTranslation('common');
   const router = useRouter();
   return (
-    <div className=" bg-primary-blue w-full sticky top-0 h-14 hidden sm:block">
+    <header className=" bg-primary-blue w-full sticky top-0 h-14 hidden sm:block">
       <div className="max-w-4xl m-auto flex h-full justify-between items-center ">
         {/* Will be reaplaced by logo */}
         <AppLogo className="w-48 h-8" />
@@ -42,6 +42,6 @@ export const Header = () => {
           );
         })}
       </div>
-    </div>
+    </header>
   );
 };

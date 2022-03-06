@@ -26,7 +26,7 @@ export const MobileHeader = () => {
   }, [router, showNavigation]);
 
   return (
-    <div className="sm:hidden sticky top-0 h-14 bg-primary-blue w-full flex justify-between items-center px-2">
+    <header className="sm:hidden sticky top-0 h-14 bg-primary-blue w-full flex justify-between items-center px-2">
       <AppLogo className="w-36 h-20" />
       <ul className="flex w-full justify-end pr-5 items-center">
         {LOCALES.map(({ name, locale }, index) => {
@@ -60,6 +60,6 @@ export const MobileHeader = () => {
           </ul>
         </div>
       )}
-    </div>
+    </header>
   );
 };
