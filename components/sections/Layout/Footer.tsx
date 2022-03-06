@@ -1,22 +1,22 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import React from 'react';
-import { FOOTER_NAVIGATION } from '../../../../data/footerNavigation';
+import { FOOTER_NAVIGATION } from '../../../data/footerNavigation';
 
 export const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer className="hidden sm:block bg-primary-black">
-      <div className="max-w-4xl m-auto py-5">
-        <p className="text-primary-yellow text-center font-extrabold text-2xl mt-4 mb-6">#StandWithUkraine</p>
-        <div className="flex justify-between items-center">
+    <footer className="bg-primary-black">
+      <div className="max-w-4xl m-auto p-2 sm:py-5 ">
+        <p className="text-primary-yellow text-center font-extrabold text-xl sm:text-2xl mt-2 sm:mt-4 mb-2 sm:mb-6">#StandWithUkraine</p>
+        <div className="flex flex-col sm:flex-row justify-between items-center">
           {FOOTER_NAVIGATION.map(({ title, link, description }, index) => {
             return (
               <Link key={index} href={link}>
                 <a target={'_blank'}>
-                  <div>
-                    <p className="text-white text-center font-semibold my-2">{title}</p>
-                    <p className="text-white text-center font-extralight text-sm">{t(description)}</p>
+                  <div className="py-1">
+                    <p className="text-white text-center text-sm sm:text-base font-semibold my-2">{title}</p>
+                    <p className="text-white text-center font-extralight text-xs sm:text-sm">{t(description)}</p>
                   </div>
                 </a>
               </Link>
