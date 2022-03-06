@@ -30,12 +30,12 @@ export const Header = () => {
             })}
           </ul>
         </nav>
-        {LOCALES.map((locale, index) => {
+        {LOCALES.map(({ name }, index) => {
           return (
-            <Link key={index} href={router.asPath} locale={locale.name}>
+            <Link key={index} href={router.asPath} locale={name}>
               <a>
-                <span className="text-white cursor-pointer mx-2" key={index}>
-                  {locale.name.toUpperCase()}
+                <span className={`text-white cursor-pointer mx-2 `} key={index}>
+                  {name}
                 </span>
               </a>
             </Link>

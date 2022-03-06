@@ -51,8 +51,8 @@ const Dictionary = () => {
   };
 
   return (
-    <div className="">
-      <div className="flex items-center my-5">
+    <div className="min-h-screen">
+      <div className="flex items-center">
         <SearchInput
           placeholder={t('dictionary_page.search_placeholder')}
           type="text"
@@ -61,6 +61,7 @@ const Dictionary = () => {
         />
         <Button className="ml-5" text={t('dictionary_page.search_button')} />
       </div>
+      <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
       {translations.filter(filterBySearch).map((category, index) => {
         const categoryName = `${category.category_name_ua}` + ' - ' + `${category.category_name_cz}`;
         let title: string | ReactElement = categoryName;

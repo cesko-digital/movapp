@@ -9,7 +9,9 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <div>
       <Header />
-      <main className="max-w-4xl m-auto">{children}</main>
+      <main className="bg-primary-grey py-5">
+        <div className="max-w-4xl m-auto">{children}</div>
+      </main>
     </div>
   );
 };

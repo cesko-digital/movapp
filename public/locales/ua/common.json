@@ -7,6 +7,7 @@
   },
   "dictionary_page": {
     "search_button": "Найти",
-    "search_placeholder": "Знайти слово"
+    "search_placeholder": "Знайти слово",
+    "subtitle": "Виберіть категорію"
   }
 }
