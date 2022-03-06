@@ -1,8 +1,5 @@
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       boxShadow: {
@@ -14,6 +11,13 @@ module.exports = {
         xxl: ' 0px 8px 8px -4px rgba(16, 24, 40, 0.04), 0px 24px 48px -12px rgba(16, 24, 40, 0.25)',
         xxxl: '0px 8px 8px -4px rgba(16, 24, 40, 0.04), 0px 24px 48px -12px rgba(16, 24, 40, 0.25)',
         around: '5px 5px 12px rgba(16, 24, 40, 0.25)',
+      },
+      colors: {
+        'primary-blue': '#001B70',
+        'primary-yellow': '#FFEB00',
+        'primary-red': '#E42D00',
+        'primary-grey': '#F5F5F5',
+        'primary-black': '#2D2D2D',
       },
     },
   },

@@ -3,6 +3,7 @@ import { Collapse } from '../../components/basecomponents/Collapse';
 import { CategoryDictionary } from '../../components/sections/CategoryDictionary';
 import { translations, TranslationsType } from '../../new-translations/translations';
 import { getHighlightedText } from '../../utils/getHighlightedText';
+export { getStaticProps } from '../../utils/localization';
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
@@ -45,7 +46,7 @@ const Dictionary = () => {
   };
 
   return (
-    <div className="max-w-4xl m-auto">
+    <div className="">
       <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
       {translations.filter(filterBySearch).map((category, index) => {
         const categoryName = `${category.category_name_ua}` + ' - ' + `${category.category_name_cz}`;
