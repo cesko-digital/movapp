@@ -25,7 +25,7 @@ export const MobileHeader = () => {
   }, [router, showNavigation]);
 
   return (
-    <div className="sm:hidden relative h-10 bg-primary-blue w-full flex justify-between items-center px-2">
+    <div className="sm:hidden sticky top-0 h-10 bg-primary-blue w-full flex justify-between items-center px-2">
       <div>MOVAPP</div>
       <ul className="flex w-full justify-end pr-5 items-center">
         {LOCALES.map(({ name, locale }, index) => {
@@ -43,7 +43,7 @@ export const MobileHeader = () => {
       </div>
       {/* Navigation dropdown */}
       {showNavigation && (
-        <div className="bg-primary-blue absolute top-10 w-full left-0">
+        <div className="bg-primary-blue absolute py-5 top-10 w-full left-0">
           <ul>
             {HEADER_NAVIGATION.map(({ name, link }, index) => {
               return (
