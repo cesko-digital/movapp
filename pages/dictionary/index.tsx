@@ -1,5 +1,8 @@
+import { useTranslation } from 'next-i18next';
 import React, { ReactElement, useState } from 'react';
+import { Button } from '../../components/basecomponents/Button';
 import { Collapse } from '../../components/basecomponents/Collapse';
+import { SearchInput } from '../../components/basecomponents/Input';
 import { CategoryDictionary } from '../../components/sections/CategoryDictionary';
 import { translations, TranslationsType } from '../../new-translations/translations';
 import { getHighlightedText } from '../../utils/getHighlightedText';
@@ -7,6 +10,8 @@ export { getStaticProps } from '../../utils/localization';
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
+
+  const { t } = useTranslation();
 
   const filterBySearch = ({ category_name_cz, category_name_ua, translations }: TranslationsType) => {
     const UACategoryName = category_name_ua.toLowerCase();
@@ -47,11 +52,18 @@ const Dictionary = () => {
 
   return (
     <div className="">
-      <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+      <div className="flex items-center my-5">
+        <SearchInput
+          placeholder={t('dictionary_page.search_placeholder')}
+          type="text"
+          value={search}
+          onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch((e.target as HTMLInputElement).value)}
+        />
+        <Button className="ml-5" text={t('dictionary_page.search_button')} />
+      </div>
       {translations.filter(filterBySearch).map((category, index) => {
         const categoryName = `${category.category_name_ua}` + ' - ' + `${category.category_name_cz}`;
         let title: string | ReactElement = categoryName;
-
         if (search.trim()) {
           title = getHighlightedText(categoryName, search);
         }

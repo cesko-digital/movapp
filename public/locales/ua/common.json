@@ -4,5 +4,9 @@
     "exercises_link_name": "Завдання",
     "about_link_name": "Про нас",
     "contacts_link_name": "Контакти"
+  },
+  "dictionary_page": {
+    "search_button": "Найти",
+    "search_placeholder": "Знайти слово"
   }
 }

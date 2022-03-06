@@ -4,5 +4,9 @@
     "exercises_link_name": "Cvičení",
     "about_link_name": "O nás",
     "contacts_link_name": "Kontakty"
+  },
+  "dictionary_page": {
+    "search_button": "Hledat",
+    "search_placeholder": "Hledaný výraz"
   }
 }

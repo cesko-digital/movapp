@@ -19,6 +19,9 @@ module.exports = {
         'primary-grey': '#F5F5F5',
         'primary-black': '#2D2D2D',
       },
+      borderWidth: {
+        1: '1px',
+      },
     },
   },
   plugins: [],

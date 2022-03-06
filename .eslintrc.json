@@ -5,11 +5,7 @@
     "es6": true,
     "node": true
   },
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -20,6 +16,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
+    "react/display-name": "off",
     "no-console": "warn",
     "no-unused-vars": "warn",
     "quotes": ["off"],
