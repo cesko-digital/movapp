@@ -3,11 +3,11 @@ import PlayIcon from '../../public/icons/play.svg';
 import { getHighlightedText } from '../../utils/getHighlightedText';
 
 export interface Translation {
-  cz: string;
-  ua: string;
+  cz_translation: string;
+  ua_translation: string;
   ua_transcription: string;
   cz_transcription: string;
-  type: string;
+  // type: string;
 }
 
 interface TranslationContainerProps extends Translation {
@@ -15,15 +15,21 @@ interface TranslationContainerProps extends Translation {
 }
 
 export const TranslationContainer = ({
-  cz,
-  ua,
+  cz_translation,
+  ua_translation,
   ua_transcription,
   cz_transcription,
   searchText,
 }: TranslationContainerProps): JSX.Element => {
-  const uaTranslation = getHighlightedText(ua, searchText);
+  const uaTranslation = getHighlightedText(ua_translation, searchText);
 
-  const czTranslation = getHighlightedText(cz, searchText);
+  const czTranslation = getHighlightedText(cz_translation, searchText);
+
+  const handleTranslationAudioPlay = (language: string, text: string) => {
+    const source = `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;
+    const audio = new Audio(source);
+    audio.play();
+  };
 
   return (
     <div className="sm:grid sm:grid-cols-[40%_2%_40%] sm:gap-[8%] sm:items-center my-4 sm:my-2 p-2 border-b-[1px] border-b-slate-200 bg-primary-grey">
@@ -33,7 +39,7 @@ export const TranslationContainer = ({
           <p className="self-start w-full font-semibold">{czTranslation}</p>
           <p className="text-gray-500">{cz_transcription}</p>
         </div>
-        <PlayIcon className="cursor-pointer " />
+        <PlayIcon onClick={() => handleTranslationAudioPlay('cs', cz_translation)} className="cursor-pointer " />
       </div>
       {/* Divider */}
       <div className="w-full h-0 sm:h-full sm:w-0 border-1 border-[#D2D2D2]"></div>
@@ -43,7 +49,7 @@ export const TranslationContainer = ({
           <p className="w-full font-semibold">{uaTranslation}</p>
           <p className="text-gray-500">{ua_transcription}</p>
         </div>
-        <PlayIcon className="cursor-pointer" />
+        <PlayIcon onClick={() => handleTranslationAudioPlay('uk', ua_translation)} className="cursor-pointer" />
       </div>
     </div>
   );

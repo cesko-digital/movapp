@@ -1,331 +1,288 @@
 [
   {
-    "cz": "doktor",
-    "ua": "лікар",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "doktor",
+    "cz_transcription": "доктор",
+    "ua_translation": "лікар",
+    "ua_transcription": "likar"
   },
   {
-    "cz": "Potřebuji doktora.",
-    "ua": "мені потрібен лікар",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Potřebuji doktora.",
+    "cz_transcription": "Потржебуї доктора",
+    "ua_translation": "Мені потрібен лікар",
+    "ua_transcription": "Meni potriben likar"
   },
   {
-    "cz": "hlava",
-    "ua": "голова",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "hlava",
+    "cz_transcription": "глава",
+    "ua_translation": "голова",
+    "ua_transcription": "holova"
   },
   {
-    "cz": "oko / oči",
-    "ua": "око/очі",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "oko / oči",
+    "cz_transcription": "око / очи",
+    "ua_translation": "око / очі",
+    "ua_transcription": "oko / oči"
   },
   {
-    "cz": "nos",
-    "ua": "ніс",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "nos",
+    "cz_transcription": "нос",
+    "ua_translation": "ніс",
+    "ua_transcription": "nis"
   },
   {
-    "cz": "ústa",
-    "ua": "рот",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "ústa",
+    "cz_transcription": "уста",
+    "ua_translation": "рот",
+    "ua_transcription": "rot"
   },
   {
-    "cz": "ucho / uši",
-    "ua": "вухо/вуха",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "ucho / uši",
+    "cz_transcription": "ухо / уши",
+    "ua_translation": "вухо / вуха",
+    "ua_transcription": "vucho / vucha"
   },
   {
-    "cz": "krk",
-    "ua": "горло",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "krk",
+    "cz_transcription": "крк",
+    "ua_translation": "горло",
+    "ua_transcription": "horlo"
   },
   {
-    "cz": "rameno / ramena",
-    "ua": "плече/плечі",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "rameno / ramena",
+    "cz_transcription": "рамено / рамена",
+    "ua_translation": "плече / плечі",
+    "ua_transcription": "pleče / pleči"
   },
   {
-    "cz": "paže / paže",
-    "ua": "рука/руки (передпліччя)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "paže / paže",
+    "cz_transcription": "паже / паже",
+    "ua_translation": "рука / руки (передпліччя)",
+    "ua_transcription": "ruka / ruky (peredpliččja)"
   },
   {
-    "cz": "ruka / ruce",
-    "ua": "рука/руки(долоні)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "ruka / ruce",
+    "cz_transcription": "рука / руце",
+    "ua_translation": "рука / руки (долоні)",
+    "ua_transcription": "ruka / ruky (doloni)"
   },
   {
-    "cz": "hrudník",
-    "ua": "груди (грудна клітка)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "hrudník",
+    "cz_transcription": "сируп (на кашел)",
+    "ua_translation": "груди (грудна клітка)",
+    "ua_transcription": "hrudy (hrudna klitka)"
   },
   {
-    "cz": "břicho",
-    "ua": "живіт",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "břicho",
+    "cz_transcription": "бржихо",
+    "ua_translation": "живіт",
+    "ua_transcription": "žyvit"
   },
   {
-    "cz": "záda",
-    "ua": "спина",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "záda",
+    "cz_transcription": "зада",
+    "ua_translation": "спина",
+    "ua_transcription": "spyna"
   },
   {
-    "cz": "zadek",
-    "ua": "попа (сідниці)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "zadek",
+    "cz_transcription": "задек",
+    "ua_translation": "попа (сідниці)",
+    "ua_transcription": "popa (sidnyci)"
   },
   {
-    "cz": "noha / nohy",
-    "ua": "нога/ноги",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "noha / nohy",
+    "cz_transcription": "нога / ноги",
+    "ua_translation": "нога / ноги",
+    "ua_transcription": "noha / nohy"
   },
   {
-    "cz": "prst / prsty",
-    "ua": "палець/пальці",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "prst / prsty",
+    "cz_transcription": "прст / прсти",
+    "ua_translation": "палець / пальці",
+    "ua_transcription": "palec’ / pal’ci"
   },
   {
-    "cz": "dlaň / dlaně",
-    "ua": "долоня/долоні",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "dlaň / dlaně",
+    "cz_transcription": "длань / дланє",
+    "ua_translation": "долоня / долоні",
+    "ua_transcription": "doloňa / doloni"
   },
   {
-    "cz": "chodidlo / chodidla",
-    "ua": "стопа/стопи",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "chodidlo / chodidla",
+    "cz_transcription": "ходідло / ходідла",
+    "ua_translation": "стопа / стопи",
+    "ua_transcription": "stopa / stopy"
   },
   {
-    "cz": "zub / zuby",
-    "ua": "зуб/зуби",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "zub / zuby",
+    "cz_transcription": "зуб / зуби",
+    "ua_translation": "зуб / зуби",
+    "ua_transcription": "zub / zuby"
+  },
+
+  {
+    "cz_translation": "žaludek",
+    "cz_transcription": "жалудек",
+    "ua_translation": "шлунок",
+    "ua_transcription": "šlunok"
+  },
+
+  {
+    "cz_translation": "Bolí mě...",
+    "cz_transcription": "Болі мнє",
+    "ua_translation": "у мене болить...",
+    "ua_transcription": "U mene boliť"
   },
   {
-    "cz": "žaludek",
-    "ua": "шлунок",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Bolí ji / ho...",
+    "cz_transcription": "Болі ї / го",
+    "ua_translation": "у неї / нього болить...",
+    "ua_transcription": "U neji / ňoho boliť"
   },
   {
-    "cz": "Bolí mě...",
-    "ua": "у мене болить...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Svědí mě...",
+    "cz_transcription": "Свєді мнє",
+    "ua_translation": "у мене свербить (чешеться)...",
+    "ua_transcription": "U mene sverby’t (češeťsja)"
   },
   {
-    "cz": "Bolí ji / ho...",
-    "ua": "у неї/нього болить..",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Svědí ji / ho...",
+    "cz_transcription": "Сдєді ї / го",
+    "ua_translation": "у неї/нього свербить (чешеться)...",
+    "ua_transcription": "U neji / ňoho sverbyť (češeťsja)"
   },
   {
-    "cz": "Svědí mě...",
-    "ua": "у мене свербить (чешеться)...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Mám teplotu...",
+    "cz_transcription": "Мам теплоту",
+    "ua_translation": "у мене температура",
+    "ua_transcription": "U mene temperatura"
   },
   {
-    "cz": "Svědí ji / ho...",
-    "ua": "у неї/нього свербить (чешеться)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Má teplotu...",
+    "cz_transcription": "Ма теплоту",
+    "ua_translation": "у неї / нього температура",
+    "ua_transcription": "U neji / ňoho temperatura"
   },
   {
-    "cz": "Mám teplotu...",
-    "ua": "у мене температура",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Zvracím...",
+    "cz_transcription": "Зврацім",
+    "ua_translation": "мене нудить",
+    "ua_transcription": "mene nudyť"
   },
   {
-    "cz": "Má teplotu...",
-    "ua": "у неї/нього температура",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Zvrací...",
+    "cz_transcription": "Звраці",
+    "ua_translation": "її / його нудить",
+    "ua_transcription": "jiji / joho nudyť"
   },
   {
-    "cz": "Zvracím...",
-    "ua": "мене нудить",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Mám průjem...",
+    "cz_transcription": "Мам пруєм",
+    "ua_translation": "у мене понос",
+    "ua_transcription": "U mene ponos"
   },
   {
-    "cz": "Zvrací...",
-    "ua": "її/його нудить",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Má průjem...",
+    "cz_transcription": "Ма пруєм",
+    "ua_translation": "у неї/нього понос",
+    "ua_transcription": "U neji / ňoho ponos"
   },
   {
-    "cz": "Mám průjem...",
-    "ua": "у мене понос",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Není mi dobře.",
+    "cz_transcription": "Нені ми добрже",
+    "ua_translation": "Мені погано",
+    "ua_transcription": "Meni pohano"
   },
   {
-    "cz": "Má průjem...",
-    "ua": "у неї/нього понос",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Není jí / mu dobře.",
+    "cz_transcription": "Нені ї / му добрже",
+    "ua_translation": "їй/йому погано",
+    "ua_transcription": "jij / jomu pohano"
   },
   {
-    "cz": "Není mi dobře.",
-    "ua": "Мені погано",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jsem nemocná/nemocný.",
+    "cz_transcription": "Йсем немоцна / немоцни",
+    "ua_translation": "Я хвора / хворий.",
+    "ua_transcription": "Ja chvora / chvoryj"
   },
   {
-    "cz": "Není jí / mu dobře.",
-    "ua": "їй/йому погано",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Praskla mi voda.",
+    "cz_transcription": "Праскла ми вода",
+    "ua_translation": "у мене відійшли води",
+    "ua_transcription": "U mene vidijšly vody"
   },
   {
-    "cz": "Jsem nemocná/nemocný.",
-    "ua": "Я хвора/хворий.",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Dítě kope.",
+    "cz_transcription": "Дітє копе",
+    "ua_translation": "дитина штовхається",
+    "ua_transcription": "dytyna štovchajeťsja"
   },
   {
-    "cz": "Praskla mi voda.",
-    "ua": "у мене відійшли води",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Krvácím.",
+    "cz_transcription": "Крвацім",
+    "ua_translation": "у мене кровотеча",
+    "ua_transcription": "U mene krovoteča"
   },
   {
-    "cz": "Dítě kope.",
-    "ua": "дитина штовхається",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "(On / Ona) krvácí.",
+    "cz_transcription": "(Он / она) крваці",
+    "ua_translation": "у нього / неї кровотеча",
+    "ua_transcription": "U ňoho / neji krovoteča"
+  },
+
+  {
+    "cz_translation": "Mám alergii na...",
+    "cz_transcription": "Мам алерґії на",
+    "ua_translation": "у мене алергія на...",
+    "ua_transcription": "U mene alerhija na"
   },
   {
-    "cz": "Krvácím.",
-    "ua": "у мене кровотеча",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "léky",
+    "cz_transcription": "леки",
+    "ua_translation": "ліки",
+    "ua_transcription": "liky"
   },
   {
-    "cz": "(On / Ona) krvácí.",
-    "ua": "у нього/неї кровотеча",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "pyly",
+    "cz_transcription": "пили",
+    "ua_translation": "пилок",
+    "ua_transcription": "pylok"
   },
   {
-    "cz": "Mám alergii na...",
-    "ua": "у мене алергія на ..",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "prach",
+    "cz_transcription": "прах",
+    "ua_translation": "пил",
+    "ua_transcription": "pyl"
   },
   {
-    "cz": "léky",
-    "ua": "ліки",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "zvířata",
+    "cz_transcription": "звіржата",
+    "ua_translation": "тварин",
+    "ua_transcription": "tvaryn"
+  },
+
+  {
+    "cz_translation": "Potřebuji...",
+    "cz_transcription": "Потржебуї",
+    "ua_translation": "Мені потрібні...",
+    "ua_transcription": "Meni potribni"
   },
   {
-    "cz": "pyly",
-    "ua": "пилок",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "léky (na bolest)",
+    "cz_transcription": "леки (на болест)",
+    "ua_translation": "ліки (від болю)",
+    "ua_transcription": "liky (vid bolju)"
   },
   {
-    "cz": "prach",
-    "ua": "пил",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "mast (na ekzém)",
+    "cz_transcription": "маст (на екзем)",
+    "ua_translation": "мазь (від екземи)",
+    "ua_transcription": "maz’ (vid ekzemy)"
   },
   {
-    "cz": "zvířata",
-    "ua": "тварин",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "Potřebuji...",
-    "ua": "Мені потрібні",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "léky (na bolest)",
-    "ua": "ліки (від болю)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "mast (na ekzém)",
-    "ua": "мазь (від екземи)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "sirup (na kašel)",
-    "ua": "сироп (від кашлю)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "sirup (na kašel)",
+    "cz_transcription": "сіруп (на кашел)",
+    "ua_translation": "сироп (від кашлю)",
+    "ua_transcription": "syrop (vid kašlju)"
   }
 ]

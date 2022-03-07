@@ -1,79 +1,70 @@
 [
   {
-    "cz": "Kde si mohu směnit cz?",
-    "ua": "Де можна обміняти ua?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Kde si mohu směnit peníze?",
+    "cz_transcription": "Ґде сі могу смнєніт пенізе",
+    "ua_translation": "Де можна обміняти гроші?",
+    "ua_transcription": "De možna obmiňaty hroši"
   },
   {
-    "cz": "Kde najdu...",
-    "ua": "Де можна знайти...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Kde najdu...",
+    "cz_transcription": "Ґде найду",
+    "ua_translation": "Де можна знайти...",
+    "ua_transcription": "De možna znajty"
   },
   {
-    "cz": "Mohu platit kartou?",
-    "ua": "Можна заплатити картою?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Mohu platit kartou?",
+    "cz_transcription": "Могу платіт картоу",
+    "ua_translation": "Можна заплатити картою?",
+    "ua_transcription": "Možna zaplatyty kartoju"
   },
   {
-    "cz": "Mohu platit hotově?",
-    "ua": "Можна заплатити готівкою?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Mohu platit hotově?",
+    "cz_transcription": "Могу платіт готовє",
+    "ua_translation": "Можна заплатити готівкою?",
+    "ua_transcription": "Možna zaplatyty hotivkoju"
+  },
+
+  {
+    "cz_translation": "banka (AKK: banku)",
+    "cz_transcription": "банка (АКК банку)",
+    "ua_translation": "банк",
+    "ua_transcription": "bank"
   },
   {
-    "cz": "banka (AKK: banku)",
-    "ua": "банк",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "bankomat",
+    "cz_transcription": "банкомат",
+    "ua_translation": "банкомат",
+    "ua_transcription": "bankomat"
   },
   {
-    "cz": "bankomat",
-    "ua": "банкомат",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "směnárna (AKK: směnárnu)",
+    "cz_transcription": "смнєнарна (АКК смнєнарну)",
+    "ua_translation": "обмін валют",
+    "ua_transcription": "obmin valjut"
+  },
+
+  {
+    "cz_translation": "Potřebuji si vyzvednout cz_translation.",
+    "cz_transcription": "Потржебуї визведноут пенізе",
+    "ua_translation": "Мені потрібно зняти гроші",
+    "ua_transcription": "Meni potribno zňaty hroši"
   },
   {
-    "cz": "směnárna (AKK: směnárnu)",
-    "ua": "обмін валют",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Moje karta nefunguje.",
+    "cz_transcription": "Моє карта нефунґує",
+    "ua_translation": "Моя банківська карта не працює",
+    "ua_transcription": "Moja bankivs’ka karta ne pracjuje"
   },
   {
-    "cz": "Potřebuji si vyzvednout cz.",
-    "ua": "Мені потрібно зняти ua",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Potřebuji si založit účet.",
+    "cz_transcription": "Потржебуї сі заложит учет",
+    "ua_translation": "Мені потрібно відкрити рахунок",
+    "ua_transcription": "Meni potribno vidkryty rachunok"
   },
   {
-    "cz": "Moje karta nefunguje.",
-    "ua": "Моя банківська карта не працює",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "Potřebuji si založit účet.",
-    "ua": "Мені потрібно відкрити рахунок",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "Potřebuji převést cz z účtu ... na účet...",
-    "ua": "Мені потрібно перевести ua з рахунку... на рахунок...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Potřebuji převést cz_translation z účtu ... na účet...",
+    "cz_transcription": "Потржебуї пржевест пенізе с учту ... на учет",
+    "ua_translation": "Мені потрібно перевести гроші з рахунку... на рахунок...",
+    "ua_transcription": "Meni potribno perevesty hroši z rachunku… na rachunok…"
   }
 ]

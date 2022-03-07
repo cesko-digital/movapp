@@ -1,135 +1,111 @@
 [
   {
-    "cz": "Mohu si uvařit / udělat...",
-    "ua": "Можу приготувати/зробити ...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Mohu si uvařit / udělat...",
+    "cz_transcription": "Могу сі уваржіт / удєлат",
+    "ua_translation": "Можу приготувати/зробити ...",
+    "ua_transcription": "Možu prihotuvaty / zrobyty"
   },
   {
-    "cz": "Mohu použít...",
-    "ua": "Можу взяти...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Mohu použít...",
+    "cz_transcription": "Могу поужіт",
+    "ua_translation": "Можу взяти...",
+    "ua_transcription": "Možu vzjaty"
   },
   {
-    "cz": "Mohu použít...",
-    "ua": "Можна скористатись...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Mohu použít...",
+    "cz_transcription": "Могу поужіт",
+    "ua_translation": "Можна скористатись...",
+    "ua_transcription": "Možna skorystatys’"
   },
   {
-    "cz": "Máte...",
-    "ua": "у Вас є...?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Máte...",
+    "cz_transcription": "Мате",
+    "ua_translation": "у Вас є...?",
+    "ua_transcription": "u vas je"
+  },
+
+  {
+    "cz_translation": "nabíječka (AKK: nabíječku)",
+    "cz_transcription": "набієчка (АКК набієчку)",
+    "ua_translation": "зарядка для мобільного",
+    "ua_transcription": "zarjadka dlja mobil’noho"
   },
   {
-    "cz": "Nemáte...",
-    "ua": "",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "žehlička (AKK: žehličku)",
+    "cz_transcription": "жегличка (АКК жегличку)",
+    "ua_translation": "праска",
+    "ua_transcription": "praska"
   },
   {
-    "cz": "nabíječka (AKK: nabíječku)",
-    "ua": "зарядка для мобільного",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "lednička (AKK: ledničku)",
+    "cz_transcription": "леднічка (АКК леднічку)",
+    "ua_translation": "холодильник",
+    "ua_transcription": "cholodyl’nyk"
   },
   {
-    "cz": "žehlička (AKK: žehličku)",
-    "ua": "праска",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "varná konvice (AKK: varnou konvici)",
+    "cz_transcription": "варна конвице (АКК варноу конвици)",
+    "ua_translation": "електричний чайник",
+    "ua_transcription": "elektryčnyj čajnyk"
   },
   {
-    "cz": "lednička (AKK: ledničku)",
-    "ua": "холодильник",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "hrnek / hrnky",
+    "cz_transcription": "грнек / грнки",
+    "ua_translation": "чашка/чашки",
+    "ua_transcription": "čaška / čašky"
   },
   {
-    "cz": "varná konvice (AKK: varnou konvici)",
-    "ua": "електричний чайник",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "talíř / talíře",
+    "cz_transcription": "талірж / талірже",
+    "ua_translation": "тарілка/тарілки",
+    "ua_transcription": "tarilka / tarilky"
   },
   {
-    "cz": "hrnek / hrnky",
-    "ua": "чашка/чашки",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "příbor",
+    "cz_transcription": "пржібог",
+    "ua_translation": "столовий прибор",
+    "ua_transcription": "stolovyj prybor"
   },
   {
-    "cz": "talíř / talíře",
-    "ua": "тарілка/тарілки",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "lžíce",
+    "cz_transcription": "лжіце",
+    "ua_translation": "ложка",
+    "ua_transcription": "ložka"
   },
   {
-    "cz": "příbor",
-    "ua": "столовий прибор",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "vidlička / vidličky",
+    "cz_transcription": "видличка / видлички",
+    "ua_translation": "виделка/виделки",
+    "ua_transcription": "vydelka / vydelky"
   },
   {
-    "cz": "lžíce",
-    "ua": "ложка",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "nůž / nože",
+    "cz_transcription": "нуш / ноже",
+    "ua_translation": "ніж/ножі",
+    "ua_transcription": "niž / noži"
   },
   {
-    "cz": "vidlička / vidličky",
-    "ua": "виделка/виделки",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "hrnec",
+    "cz_transcription": "грнец",
+    "ua_translation": "каструля",
+    "ua_transcription": "kastrulja"
   },
   {
-    "cz": "nůž / nože",
-    "ua": "ніж/ножі",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "pánev",
+    "cz_transcription": "панеф",
+    "ua_translation": "пательня/сковорода",
+    "ua_transcription": "patel’ňa / skovoroda"
   },
   {
-    "cz": "hrnec",
-    "ua": "каструля",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "vařečka (AKK: vařečku)",
+    "cz_transcription": "варжечка (АКК варжечку)",
+    "ua_translation": "мішалка/лопатка",
+    "ua_transcription": "mišalka / lopatka"
   },
   {
-    "cz": "pánev",
-    "ua": "пательня/сковорода",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "vařečka (AKK: vařečku)",
-    "ua": "мішалка/лопатка",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "naběračka (AKK: naběračku)",
-    "ua": "полоник",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "naběračka (AKK: naběračku)",
+    "cz_transcription": "набєрачка (АКК набєрачку)",
+    "ua_translation": "полоник",
+    "ua_transcription": "polonyk"
   }
 ]

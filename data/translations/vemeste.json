@@ -1,177 +1,158 @@
 [
   {
-    "cz": "ukrajinské velvyslanectví",
-    "ua": "українське посольство",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "ukrajinské velvyslanectví",
+    "cz_transcription": "українске велвисланецтві",
+    "ua_translation": "українське посольство",
+    "ua_transcription": "ukrajins’ke posol’stvo"
   },
   {
-    "cz": "Ministerstvo vnitra ČR",
-    "ua": "МВС Чехії",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Ministerstvo vnitra ČR",
+    "cz_transcription": "министерство внітра ЧР",
+    "ua_translation": "МВС Чехії",
+    "ua_transcription": "em ve es Čechiji"
   },
   {
-    "cz": "obchod",
-    "ua": "магазин",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "obchod",
+    "cz_transcription": "обход",
+    "ua_translation": "магазин",
+    "ua_transcription": "mahazyn"
   },
   {
-    "cz": "supermarket",
-    "ua": "супермаркет",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "supermarket",
+    "cz_transcription": "супермаркет",
+    "ua_translation": "супермаркет",
+    "ua_transcription": "supermarket"
   },
   {
-    "cz": "potraviny",
-    "ua": "магазин їжі",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "potraviny",
+    "cz_transcription": "потравини",
+    "ua_translation": "магазин їжі",
+    "ua_transcription": "mahazyn jiži"
   },
   {
-    "cz": "drogerie (AKK: drogerii)",
-    "ua": "магазин побутової хімії",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "drogerie (AKK: drogerii)",
+    "cz_transcription": "дроґериє (АКК дроґериї)",
+    "ua_translation": "магазин побутової хімії",
+    "ua_transcription": "mahazyn pobutovoji chimiji"
   },
   {
-    "cz": "oblečení",
-    "ua": "одяг",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "oblečení",
+    "cz_transcription": "облечені",
+    "ua_translation": "одяг",
+    "ua_transcription": "oďah"
   },
   {
-    "cz": "papírnictví",
-    "ua": "канцтовари",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "papírnictví",
+    "cz_transcription": "папірніцтві",
+    "ua_translation": "канцтовари",
+    "ua_transcription": "kanctovary"
   },
   {
-    "cz": "nákupní centrum",
-    "ua": "торгівельний цент",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "nákupní centrum",
+    "cz_transcription": "накупні центрум",
+    "ua_translation": "торгівельний цент",
+    "ua_transcription": "torhivel’nyj cent"
   },
   {
-    "cz": "lékárna (AKK: lékárnu)",
-    "ua": "!!! аптека",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "lékárna (AKK: lékárnu)",
+    "cz_transcription": "лекарна (АКК лекарну)",
+    "ua_translation": "!!! аптека",
+    "ua_transcription": "apteka"
   },
   {
-    "cz": "nemocnice",
-    "ua": "!!! лікарня",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "nemocnice",
+    "cz_transcription": "немоцніце",
+    "ua_translation": "!!! лікарня",
+    "ua_transcription": "likarňa"
   },
   {
-    "cz": "Hledám...",
-    "ua": "шукаю...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Hledám...",
+    "cz_transcription": "Гледам",
+    "ua_translation": "Шукаю...",
+    "ua_transcription": "šukaju"
   },
   {
-    "cz": "Potřebuji...",
-    "ua": "мені потрібно...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Potřebuji...",
+    "cz_transcription": "Потржебуї",
+    "ua_translation": "Мені потрібно...",
+    "ua_transcription": "meni potribno"
   },
   {
-    "cz": "Kde najdu...",
-    "ua": "як знайти...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Kde najdu...",
+    "cz_transcription": "Ґде найду",
+    "ua_translation": "Як знайти...",
+    "ua_transcription": "jak znajty"
   },
   {
-    "cz": "Jak se dostanu na / k...",
-    "ua": "Як дістатись до...?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jak se dostanu na / k...",
+    "cz_transcription": "Як се достану на / к",
+    "ua_translation": "Як дістатись до...?",
+    "ua_transcription": "jak distatys’ do"
   },
   {
-    "cz": "Jaká je adresa...",
-    "ua": "Яка адреса у ..?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jaká je adresa...",
+    "cz_transcription": "Яка є адреса",
+    "ua_translation": "Яка адреса у ..?",
+    "ua_transcription": "jaka adresa u"
   },
   {
-    "cz": "Kde je nejbližší [nemocnice]...",
-    "ua": "Де найближча (лікарня)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Kde je nejbližší [nemocnice]...",
+    "cz_transcription": "Ґде є нейбліжші немоцніце",
+    "ua_translation": "Де найближча (лікарня)",
+    "ua_transcription": "de najbližča (likarňa)"
   },
   {
-    "cz": "náměstí (AKK: náměstí)",
-    "ua": "площа (майдан)",
-    "ua_transcription": "",
+    "cz_translation": "",
     "cz_transcription": "",
-    "type": ""
+    "ua_translation": "",
+    "ua_transcription": ""
   },
   {
-    "cz": "zastávka tramvaje (AKK: zastávku)",
-    "ua": "зупинка трамваю",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "náměstí (AKK: náměstí)",
+    "cz_transcription": "намнєсті (АКК намнєсті)",
+    "ua_translation": "площа (майдан)",
+    "ua_transcription": "plošča / majdan"
   },
   {
-    "cz": "zastávka autobusu (AKK: zastávku)",
-    "ua": "зупинка автобуса",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "zastávka tramvaje (AKK: zastávku)",
+    "cz_transcription": "заставка трамває (АКК заставку)",
+    "ua_translation": "зупинка трамваю",
+    "ua_transcription": "zupinka tramvaju"
   },
   {
-    "cz": "stanice metra (AKK: stanici)",
-    "ua": "станція метро",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "zastávka autobusu (AKK: zastávku)",
+    "cz_transcription": "заставка аутобусу (АКК заставку)",
+    "ua_translation": "зупинка автобуса",
+    "ua_transcription": "zupinka avtobusa"
   },
   {
-    "cz": "nádraží",
-    "ua": "вокзал",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "stanice metra (AKK: stanici)",
+    "cz_transcription": "станіце метра (АКК станіци)",
+    "ua_translation": "станція метро",
+    "ua_transcription": "stancija metro"
   },
   {
-    "cz": "park",
-    "ua": "парк",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "nádraží",
+    "cz_transcription": "надражі",
+    "ua_translation": "вокзал",
+    "ua_transcription": "vokzal"
   },
   {
-    "cz": "hřiště",
-    "ua": "дитячий майданчик",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "park",
+    "cz_transcription": "парк",
+    "ua_translation": "парк",
+    "ua_transcription": "park"
   },
   {
-    "cz": "restaurace",
-    "ua": "ресторан",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "hřiště",
+    "cz_transcription": "гржіштє",
+    "ua_translation": "дитячий майданчик",
+    "ua_transcription": "dyťačij majdančik"
+  },
+  {
+    "cz_translation": "restaurace (AKK: restauraci)",
+    "cz_transcription": "рестаураце (АКК рестаураці)",
+    "ua_translation": "ресторан",
+    "ua_transcription": "restoran"
   }
 ]

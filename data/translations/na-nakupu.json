@@ -1,254 +1,218 @@
 [
   {
-    "cz": "čaj",
-    "ua": "чай",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "čaj",
+    "cz_transcription": "чай",
+    "ua_translation": "чай",
+    "ua_transcription": "čaj"
   },
   {
-    "cz": "(mletá) káva",
-    "ua": "(молота) кава",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "(mletá) káva",
+    "cz_transcription": "(млета) кава",
+    "ua_translation": "(молота) кава",
+    "ua_transcription": "(molota) kava"
   },
   {
-    "cz": "(instantní) káva",
-    "ua": "розчинна кава",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "(instantní) káva",
+    "cz_transcription": "(інстантні) кава",
+    "ua_translation": "розчинна кава",
+    "ua_transcription": "rozčinna kava"
   },
   {
-    "cz": "šťáva (sirup)",
-    "ua": "сік (нектар)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "šťáva (sirup)",
+    "cz_transcription": "штява (сіруп)",
+    "ua_translation": "сік (нектар)",
+    "ua_transcription": "sik (nektar)"
   },
   {
-    "cz": "mléko",
-    "ua": "молоко",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "mléko",
+    "cz_transcription": "млеко",
+    "ua_translation": "молоко",
+    "ua_transcription": "moloko"
   },
   {
-    "cz": "chléb",
-    "ua": "хліб",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "chléb",
+    "cz_transcription": "хлеб",
+    "ua_translation": "хліб",
+    "ua_transcription": "chlib"
   },
   {
-    "cz": "houska (AKK: housku) / housky",
-    "ua": "булочка (несолодка)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "houska (AKK: housku) / housky",
+    "cz_transcription": "гоуска (АКК гоуску) / гоуски",
+    "ua_translation": "булочка (несолодка)",
+    "ua_transcription": "buločka (nesolodka)"
   },
   {
-    "cz": "rohlík / rohlíky",
-    "ua": "круасан (чеський, несолодкий)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "rohlík / rohlíky",
+    "cz_transcription": "роглік / рогліки",
+    "ua_translation": "круасан (чеський, несолодкий)",
+    "ua_transcription": "kruasan (čes’kij, nesolodkyj)"
   },
   {
-    "cz": "šunka (AKK: šunku)",
-    "ua": "шинка",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "šunka (AKK: šunku)",
+    "cz_transcription": "шунка (АКК шунку)",
+    "ua_translation": "шинка",
+    "ua_transcription": "šinka"
   },
   {
-    "cz": "salám",
-    "ua": "салямі",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "salám",
+    "cz_transcription": "салам",
+    "ua_translation": "салямі",
+    "ua_transcription": "saljami"
   },
   {
-    "cz": "sýr",
-    "ua": "сир",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "sýr",
+    "cz_transcription": "сир",
+    "ua_translation": "сир",
+    "ua_transcription": "syr"
   },
   {
-    "cz": "máslo",
-    "ua": "масло вершкове",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "máslo",
+    "cz_transcription": "масло",
+    "ua_translation": "масло вершкове",
+    "ua_transcription": "maslo verškove"
   },
   {
-    "cz": "brambory",
-    "ua": "картопля",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "brambory",
+    "cz_transcription": "брамбори",
+    "ua_translation": "картопля",
+    "ua_transcription": "kartoplja"
   },
   {
-    "cz": "cibule (AKK: cibuli)",
-    "ua": "цибуля",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "cibule (AKK: cibuli)",
+    "cz_transcription": "цібуле (АКК цібулі)",
+    "ua_translation": "цибуля",
+    "ua_transcription": "cibulja"
   },
   {
-    "cz": "rýže (AKK: rýži)",
-    "ua": "рис",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "rýže (AKK: rýži)",
+    "cz_transcription": "риже (АКК рижі)",
+    "ua_translation": "рис",
+    "ua_transcription": "rys"
   },
   {
-    "cz": "maso",
-    "ua": "м'ясо",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "maso",
+    "cz_transcription": "масо",
+    "ua_translation": "м'ясо",
+    "ua_transcription": "mjaso"
   },
   {
-    "cz": "vepřové maso",
-    "ua": "свинина",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "vepřové maso",
+    "cz_transcription": "вепржове масо",
+    "ua_translation": "свинина",
+    "ua_transcription": "svynyna"
   },
   {
-    "cz": "kuřecí maso",
-    "ua": "курятина",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "kuřecí maso",
+    "cz_transcription": "куржеці масо",
+    "ua_translation": "курятина",
+    "ua_transcription": "kurjatyna"
   },
   {
-    "cz": "hovězí maso",
-    "ua": "яловичина",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "hovězí maso",
+    "cz_transcription": "говєзі масо",
+    "ua_translation": "яловичина",
+    "ua_transcription": "jalovyčyna"
   },
   {
-    "cz": "zelenina",
-    "ua": "овочі",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "zelenina",
+    "cz_transcription": "зеленіна",
+    "ua_translation": "овочі",
+    "ua_transcription": "ovoči"
   },
   {
-    "cz": "rajčata (20 dkg rajčat)",
-    "ua": "помідори",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "rajčata (20 dkg rajčat)",
+    "cz_transcription": "райчата",
+    "ua_translation": "помідори",
+    "ua_transcription": "pomidory"
   },
   {
-    "cz": "paprika (AKK: papriku) / papriky",
-    "ua": "перець /перці",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "paprika (AKK: papriku) / papriky",
+    "cz_transcription": "паприка (АКК папріку) / паприки",
+    "ua_translation": "перець / перці",
+    "ua_transcription": "perec’ / perci"
   },
   {
-    "cz": "okurka (AKK: okurku) / okurky",
-    "ua": "огірок/огірки",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "okurka (AKK: okurku) / okurky",
+    "cz_transcription": "окурка (АКК окурку) / окурки",
+    "ua_translation": "огірок/огірки",
+    "ua_transcription": "ohirok / ohirky"
   },
   {
-    "cz": "fazolky",
-    "ua": "квасоля",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "fazolky",
+    "cz_transcription": "фазолки",
+    "ua_translation": "квасоля",
+    "ua_transcription": "kvasolja"
   },
   {
-    "cz": "lilek",
-    "ua": "баклажан",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "lilek",
+    "cz_transcription": "лилек",
+    "ua_translation": "баклажан",
+    "ua_transcription": "baklažan"
   },
   {
-    "cz": "ovoce",
-    "ua": "!!! фрукти",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "ovoce",
+    "cz_transcription": "овоце",
+    "ua_translation": "!!! фрукти",
+    "ua_transcription": "frukty"
   },
   {
-    "cz": "pomeranč / pomeranče",
-    "ua": "апельсин /апельсини",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "pomeranč / pomeranče",
+    "cz_transcription": "померанч / померанче",
+    "ua_translation": "апельсин / апельсини",
+    "ua_transcription": "apel’syn / apel’syny"
   },
   {
-    "cz": "jablko / jablka",
-    "ua": "яблуко/яблука",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "jablko / jablka",
+    "cz_transcription": "яблко / яблка",
+    "ua_translation": "яблуко / яблука",
+    "ua_transcription": "jabluko / jabluka"
   },
   {
-    "cz": "mandarinka / mandarinky",
-    "ua": "мандарин/мандарини",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "mandarinka / mandarinky",
+    "cz_transcription": "мандаринка / мандаринки",
+    "ua_translation": "мандарин / мандарини",
+    "ua_transcription": "madaryn / mandaryny"
   },
   {
-    "cz": "(hroznové) víno",
-    "ua": "вино",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "(hroznové) víno",
+    "cz_transcription": "(грознове) віно",
+    "ua_translation": "вино",
+    "ua_transcription": "vyno"
   },
   {
-    "cz": "dvacet deka (20 dkg)",
-    "ua": "200 грам",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "dvacet deka (20 dkg)",
+    "cz_transcription": "двацет дека",
+    "ua_translation": "200 грам",
+    "ua_transcription": "200 hram"
   },
   {
-    "cz": "třicet deka (30 dkg)",
-    "ua": "300 грам",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "třicet deka (30 dkg)",
+    "cz_transcription": "тржицет дека",
+    "ua_translation": "300 грам",
+    "ua_transcription": "300 hram"
   },
   {
-    "cz": "čtyřicet deka (40 dkg)",
-    "ua": "400 грам",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "čtyřicet deka (40 dkg)",
+    "cz_transcription": "чтиржицет дека",
+    "ua_translation": "400 грам",
+    "ua_transcription": "400 hram"
   },
   {
-    "cz": "půl kila (0,5 kg)",
-    "ua": "півкіло",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "půl kila (0,5 kg)",
+    "cz_transcription": "пул кила",
+    "ua_translation": "півкіло",
+    "ua_transcription": "piukilo"
   },
   {
-    "cz": "Potřebuji...",
-    "ua": "Мені, будь ласка...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Potřebuji...",
+    "cz_transcription": "Потржебуї",
+    "ua_translation": "Мені, будь ласка...",
+    "ua_transcription": "Meni, bu’d laska"
   },
   {
-    "cz": "Kolik to stojí?",
-    "ua": "скільки коштує?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Kolik to stojí?",
+    "cz_transcription": "Колик то стої",
+    "ua_translation": "Скільки коштує?",
+    "ua_transcription": "skil’ky koštuje"
   }
 ]

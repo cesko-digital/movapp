@@ -1,93 +1,84 @@
 [
   {
-    "cz": "Jak si mám zařídit...",
-    "ua": "Як я можу отримати...?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jak si mám zařídit...",
+    "cz_transcription": "Як сі мам заржідіт",
+    "ua_translation": "Як я можу отримати...?",
+    "ua_transcription": "Jak ja možu otrymaty"
   },
   {
-    "cz": "Kde si mohu zařídit...",
-    "ua": "Де я можу отримати...?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Kde si mohu zařídit...",
+    "cz_transcription": "Ґде сі могу заржідіт",
+    "ua_translation": "Де я можу отримати...?",
+    "ua_transcription": "De ja možu otrymaty"
   },
   {
-    "cz": "Jaké dokumenty potřebuji pro...",
-    "ua": "Які документи потрібні для. .?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jaké dokumenty potřebuji pro...",
+    "cz_transcription": "Яке документи потржебуї про",
+    "ua_translation": "Які документи потрібні для. .?",
+    "ua_transcription": "Jaki dokumenty potribni dlja"
   },
   {
-    "cz": "Kde najdu...",
-    "ua": "Де я можу знайти...?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Kde najdu...",
+    "cz_transcription": "Ґде найду",
+    "ua_translation": "Де я можу знайти...?",
+    "ua_transcription": "De ja možu znajty"
+  },
+
+  {
+    "cz_translation": "Kde musím nosit respirátor?",
+    "cz_transcription": "Ґде мусім носит респиратор",
+    "ua_translation": "Де необхідно носити респіратор?",
+    "ua_transcription": "De neobchidno nosyty respirator?"
   },
   {
-    "cz": "Kde musím nosit respirátor?",
-    "ua": "Де необхідно носити респіратор?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jsem v karanténě.",
+    "cz_transcription": "Сем ф карантенє",
+    "ua_translation": "я на карантині",
+    "ua_transcription": "ja na karantyni"
   },
   {
-    "cz": "Jsem v karanténě.",
-    "ua": "я на карантині",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jsem v izolaci.",
+    "cz_transcription": "Сем ф изолаци",
+    "ua_translation": "я на ізоляції",
+    "ua_transcription": "ja na izoljaciji"
+  },
+
+  {
+    "cz_translation": "Jaké je telefonní číslo na...?",
+    "cz_transcription": "Яке є телефоні чісло на",
+    "ua_translation": "Який телефонний номер...?",
+    "ua_transcription": "Jakyj telefonnyj nomer"
+  },
+
+  {
+    "cz_translation": "bankovní účet",
+    "cz_transcription": "банковні учет",
+    "ua_translation": "банківський рахунок",
+    "ua_transcription": "bankivs’kyj rachunok"
   },
   {
-    "cz": "Jsem v izolaci.",
-    "ua": "я на ізоляції",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "pojištění",
+    "cz_transcription": "поїштєні",
+    "ua_translation": "страхування",
+    "ua_transcription": "strachuvanňa"
   },
   {
-    "cz": "Jaké je telefonní číslo na...?",
-    "ua": "Який телефонний номер...?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "tramvajenka (AKK: tramvajenku)",
+    "cz_transcription": "трамваєнка (АКК трамваєнку)",
+    "ua_translation": "проїзний квиток",
+    "ua_transcription": "projiznyj kvytok"
+  },
+
+  {
+    "cz_translation": "Narodila jsem se...",
+    "cz_transcription": "Народіла сем се",
+    "ua_translation": "народилася",
+    "ua_transcription": "narodylasja"
   },
   {
-    "cz": "bankovní účet",
-    "ua": "банківський рахунок",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "pojištění",
-    "ua": "страхування",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "tramvajenka (AKK: tramvajenku)",
-    "ua": "проїзний квиток",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "Narodila jsem se...",
-    "ua": "народилася",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
-  },
-  {
-    "cz": "Narodila / Narodil se...",
-    "ua": "Вона народилася/він народився",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Narodila / Narodil se...",
+    "cz_transcription": "Народіла / Народіл се",
+    "ua_translation": "Вона народилася/він народився",
+    "ua_transcription": "Vona narodylasja / vin narodyusja"
   }
 ]
