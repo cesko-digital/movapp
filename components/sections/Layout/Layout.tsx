@@ -11,7 +11,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <div>
       <Header />
-      <main className="bg-primary-grey py-8 min-h-screen">
+      <main className="bg-primary-grey py-8 min-h-screen px-2 sm:px-4">
         <div className="max-w-4xl m-auto">{children}</div>
       </main>
       <Footer />

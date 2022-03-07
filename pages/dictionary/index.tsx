@@ -56,7 +56,7 @@ const Dictionary = () => {
       <Head>
         <meta name="referrer" content="no-referrer" />
       </Head>
-      <div className="min-h-screen px-2 sm:px-4">
+      <div className="min-h-screen ">
         <div className="flex items-center">
           <SearchInput
             className="w-full md:w-auto "
