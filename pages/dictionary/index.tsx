@@ -17,34 +17,30 @@ const Dictionary = () => {
   const filterBySearch = ({ category_name_cz, category_name_ua, translations }: TranslationsType) => {
     const UACategoryName = category_name_ua.toLowerCase();
     const CZCategoryName = category_name_cz.toLowerCase();
+
+    const searchText = search
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+
     const matchesCategoryTitle =
       CZCategoryName.normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
-        .includes(
-          search
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .toLowerCase(),
-        ) ||
+        .includes(searchText) ||
       UACategoryName.normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
-        .includes(
-          search
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .toLowerCase(),
-        );
+        .includes(searchText);
 
     const matchesTranslations = translations.filter(({ cz_translation, ua_translation }) => {
       return (
         cz_translation
           .normalize('NFD')
           .replace(/[\u0300-\u036f]/g, '')
-          .includes(search) ||
+          .includes(searchText) ||
         ua_translation
           .normalize('NFD')
           .replace(/[\u0300-\u036f]/g, '')
-          .includes(search)
+          .includes(searchText)
       );
     });
 
