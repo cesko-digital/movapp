@@ -1,800 +1,694 @@
 [
   {
-    "cz": "paní ředitelka / pan ředitel",
-    "ua": "директриса/директор",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "paní ředitelka / pan ředitel",
+    "cz_transcription": "пані ржедітелка / пан ржедітел",
+    "ua_translation": "директриса/директор",
+    "ua_transcription": "dyrektrysa / dyrektor"
   },
   {
-    "cz": "paní učitelka / pan učitel",
-    "ua": "вчителька/вчитель",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "paní učitelka / pan učitel",
+    "cz_transcription": "пані учителка / пан учител",
+    "ua_translation": "вчителька/вчитель",
+    "ua_transcription": "učyteľka / učyteľ"
   },
   {
-    "cz": "paní asistentka / pan asistent",
-    "ua": "асистентка/асистент",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "paní asistentka / pan asistent",
+    "cz_transcription": "пані асистентка / пан асистент",
+    "ua_translation": "асистентка/асистент",
+    "ua_transcription": "asystentka / asystent"
   },
   {
-    "cz": "Paní učitelko! / Pane učiteli! (oslovení)",
-    "ua": "Пані вчителько/ Пане учителю! (звертання)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Paní učitelko! / Pane učiteli! (oslovení)",
+    "cz_transcription": "Пані учителко / Пане учители",
+    "ua_translation": "Пані вчителько/ Пане учителю! (звертання)",
+    "ua_transcription": "Pani učyteľko! / Pane učytelju!"
   },
   {
-    "cz": "třídní schůzky",
-    "ua": "батьківські збори",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "třídní schůzky",
+    "cz_transcription": "тржидні схуски",
+    "ua_translation": "батьківські збори",
+    "ua_transcription": "baťkiuski zbory"
   },
   {
-    "cz": "vyučování",
-    "ua": "навчання",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "vyučování",
+    "cz_transcription": "виучовані",
+    "ua_translation": "навчання",
+    "ua_transcription": "naučanňa"
   },
   {
-    "cz": "hodina",
-    "ua": "урок",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "hodina",
+    "cz_transcription": "годіна",
+    "ua_translation": "урок",
+    "ua_transcription": "urok"
   },
   {
-    "cz": "Hodina začíná.",
-    "ua": "Починається урок",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Hodina začíná.",
+    "cz_transcription": "Годіна зачіна",
+    "ua_translation": "Починається урок",
+    "ua_transcription": "Počynajeťsja urok."
   },
   {
-    "cz": "Hodina končí.",
-    "ua": "Закінчується урок",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Hodina končí.",
+    "cz_transcription": "Годіна кончі",
+    "ua_translation": "Закінчується урок",
+    "ua_transcription": "Zakinčujeťsja urok."
   },
   {
-    "cz": "Zvoní.",
-    "ua": "Дзвоник",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Zvoní.",
+    "cz_transcription": "Звоні",
+    "ua_translation": "Дзвоник",
+    "ua_transcription": "Dzvonyk."
   },
   {
-    "cz": "Postavte se.",
-    "ua": "Встаньте",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Postavte se.",
+    "cz_transcription": "Постафте се",
+    "ua_translation": "Встаньте",
+    "ua_transcription": "Ustaňte."
   },
   {
-    "cz": "Posaďte se.",
-    "ua": "Сідайте",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Posaďte se.",
+    "cz_transcription": "Посатьте се",
+    "ua_translation": "Сідайте",
+    "ua_transcription": "Sidajte."
   },
   {
-    "cz": "Nachystejte si věci.",
-    "ua": "Приготуйте речі",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Nachystejte si věci.",
+    "cz_transcription": "Нахистейте си вєци",
+    "ua_translation": "Приготуйте речі",
+    "ua_transcription": "Prihotujte reči."
   },
   {
-    "cz": "přestávka",
-    "ua": "перерва",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "přestávka",
+    "cz_transcription": "пржестафка",
+    "ua_translation": "перерва",
+    "ua_transcription": "pererva"
   },
   {
-    "cz": "omluvenka",
-    "ua": "письмове вибачення (повідомлення про відсутність на уроці)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "omluvenka",
+    "cz_transcription": "омлувенка",
+    "ua_translation": "письмове вибачення (повідомлення про відсутність на уроці)",
+    "ua_transcription": "pis’move vybačenňa"
   },
   {
-    "cz": "Máš omluvenku?",
-    "ua": "Є письмове вибачення?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Máš omluvenku?",
+    "cz_transcription": "Маш омлувенку",
+    "ua_translation": "Є письмове вибачення?",
+    "ua_transcription": "Je pis’move vybačenňa?"
   },
   {
-    "cz": "Mám / Nemám omluvenku.",
-    "ua": "Маю/не маю письмове вибачення",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Mám / Nemám omluvenku.",
+    "cz_transcription": "Мам / Немам омлувенку",
+    "ua_translation": "Маю/не маю письмове вибачення",
+    "ua_transcription": "Maju / ne maju pis’move vybačenňa."
   },
+
   {
-    "cz": "šatna",
-    "ua": "роздягальня",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "šatna",
+    "cz_transcription": "шатна",
+    "ua_translation": "роздягальня",
+    "ua_transcription": "rozďahaľňa"
   },
   {
-    "cz": "skříňka",
-    "ua": "шафка",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "skříňka",
+    "cz_transcription": "скржинька",
+    "ua_translation": "шафка",
+    "ua_transcription": "šafka"
   },
   {
-    "cz": "klíček od skříňky",
-    "ua": "ключ від шафки",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "klíček od skříňky",
+    "cz_transcription": "клічек од скржиньки",
+    "ua_translation": "ключ від шафки",
+    "ua_transcription": "ključ vid šafky"
   },
   {
-    "cz": "bačkory (přezůvky)",
-    "ua": "капці (змінне взуття)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "bačkory (přezůvky)",
+    "cz_transcription": "бачкори (пржезуфки)",
+    "ua_translation": "капці (змінне взуття)",
+    "ua_transcription": "kapci (zminne vzutťa)"
   },
   {
-    "cz": "třída",
-    "ua": "клас",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "třída",
+    "cz_transcription": "тржида",
+    "ua_translation": "клас",
+    "ua_transcription": "klas"
   },
   {
-    "cz": "tabule",
-    "ua": "дошка",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "tabule",
+    "cz_transcription": "табуле",
+    "ua_translation": "дошка",
+    "ua_transcription": "doška"
   },
   {
-    "cz": "lavice",
-    "ua": "парта",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "lavice",
+    "cz_transcription": "лавице",
+    "ua_translation": "парта",
+    "ua_transcription": "parta"
   },
+
   {
-    "cz": "rozvrh hodin",
-    "ua": "розклад занять",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "rozvrh hodin",
+    "cz_transcription": "розврх годін",
+    "ua_translation": "розклад занять",
+    "ua_transcription": "rozklad zaňať"
   },
   {
-    "cz": "matematika (matika)",
-    "ua": "математика",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "matematika (matika)",
+    "cz_transcription": "математика (матика)",
+    "ua_translation": "математика",
+    "ua_transcription": "matematyka"
   },
   {
-    "cz": "čeština",
-    "ua": "чеська мова",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "čeština",
+    "cz_transcription": "чештіна",
+    "ua_translation": "чеська мова",
+    "ua_transcription": "čes’ka mova"
   },
   {
-    "cz": "angličtina",
-    "ua": "англійська мова",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "angličtina",
+    "cz_transcription": "анґличтіна",
+    "ua_translation": "англійська мова",
+    "ua_transcription": "anhlijs’ka mova"
   },
   {
-    "cz": "němčina",
-    "ua": "німецька мова",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "němčina",
+    "cz_transcription": "нємчина",
+    "ua_translation": "німецька мова",
+    "ua_transcription": "nimec’ka mova"
   },
   {
-    "cz": "španělština",
-    "ua": "іспанська мова",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "španělština",
+    "cz_transcription": "шпанєлштіна",
+    "ua_translation": "іспанська мова",
+    "ua_transcription": "ispans’ka mova"
   },
   {
-    "cz": "francouzština",
-    "ua": "французька мова",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "francouzština",
+    "cz_transcription": "францоуштіна",
+    "ua_translation": "французька мова",
+    "ua_transcription": "francuz’ka mova"
   },
   {
-    "cz": "prvouka",
-    "ua": "Людина і Світ",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "prvouka",
+    "cz_transcription": "првоука",
+    "ua_translation": "Людина і Світ",
+    "ua_transcription": "Ljudyna i Svit"
   },
   {
-    "cz": "přírodověda",
-    "ua": "природознавство",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "přírodověda",
+    "cz_transcription": "пржиродовєда",
+    "ua_translation": "природознавство",
+    "ua_transcription": "pryrodoznaustvo"
   },
   {
-    "cz": "vlastivěda",
-    "ua": "країнознавство",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "vlastivěda",
+    "cz_transcription": "властівєда",
+    "ua_translation": "країнознавство",
+    "ua_transcription": "krajinoznaustvo"
   },
   {
-    "cz": "výtvarná výchova (výtvarka)",
-    "ua": "малювання (художнє виховання)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "výtvarná výchova (výtvarka)",
+    "cz_transcription": "вітварна віхова (вітварка)",
+    "ua_translation": "малювання (художнє виховання)",
+    "ua_transcription": "maljuvanňa (chudožně vychovanňa)"
   },
   {
-    "cz": "hudební výchova (hudebka)",
-    "ua": "музика(музичне виховання)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "hudební výchova (hudebka)",
+    "cz_transcription": "гудебні віхова (гудепка)",
+    "ua_translation": "музика(музичне виховання)",
+    "ua_transcription": "muzyka (muzyčne vychovanňa)"
   },
   {
-    "cz": "tělesná výchova (tělák)",
-    "ua": "фізична культура (фіз-ра)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "tělesná výchova (tělák)",
+    "cz_transcription": "тєлесна віхова (тєлак)",
+    "ua_translation": "фізична культура (фіз-ра)",
+    "ua_transcription": "fizyčna kul’tura (fiz-ra)"
   },
   {
-    "cz": "informatika (počítače)",
-    "ua": "інформатика (комп'ютерна техніка)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "informatika (počítače)",
+    "cz_transcription": "информатика (почитаче)",
+    "ua_translation": "інформатика (комп'ютерна техніка)",
+    "ua_transcription": "informatyka (kompjuterna techňika)"
   },
   {
-    "cz": "zeměpis (zemák)",
-    "ua": "географія",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "zeměpis (zemák)",
+    "cz_transcription": "земнєпис (земак)",
+    "ua_translation": "географія",
+    "ua_transcription": "heohrafija"
   },
   {
-    "cz": "dějepis (děják)",
-    "ua": "історія",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "dějepis (děják)",
+    "cz_transcription": "дєєпис (дєяк)",
+    "ua_translation": "історія",
+    "ua_transcription": "istorija"
   },
   {
-    "cz": "fyzika",
-    "ua": "фізика",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "fyzika",
+    "cz_transcription": "физика",
+    "ua_translation": "фізика",
+    "ua_transcription": "fizyka"
   },
   {
-    "cz": "chemie",
-    "ua": "хімія",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "chemie",
+    "cz_transcription": "хемиє",
+    "ua_translation": "хімія",
+    "ua_transcription": "chimija"
   },
   {
-    "cz": "občanská výchova (občanka)",
-    "ua": "правознавство",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "občanská výchova (občanka)",
+    "cz_transcription": "опчанска віхова (опчанка)",
+    "ua_translation": "правознавство",
+    "ua_transcription": "pravoznaustvo"
   },
+
   {
-    "cz": "svačina",
-    "ua": "перекус (в коробочці, його їдять на великій перерві)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "svačina",
+    "cz_transcription": "свачина",
+    "ua_translation": "перекус (в коробочці, його їдять на великій перерві)",
+    "ua_transcription": "perekus"
   },
   {
-    "cz": "oběd",
-    "ua": "обід",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "oběd",
+    "cz_transcription": "обєт",
+    "ua_translation": "обід",
+    "ua_transcription": "obid"
   },
   {
-    "cz": "Jdeme na oběd.",
-    "ua": "Йдемо на обід",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jdeme na oběd.",
+    "cz_transcription": "Деме на обєт",
+    "ua_translation": "Йдемо на обід",
+    "ua_transcription": "Jdemo na obid."
   },
   {
-    "cz": "Vem si...",
-    "ua": "Візьми собі",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Vem si...",
+    "cz_transcription": "Вем си",
+    "ua_translation": "Візьми собі",
+    "ua_transcription": "Viz'my sobi"
   },
   {
-    "cz": "jídlo",
-    "ua": "їжу",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "jídlo",
+    "cz_transcription": "їдло",
+    "ua_translation": "їжу",
+    "ua_transcription": "jiža"
   },
   {
-    "cz": "pití",
-    "ua": "напій",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "pití",
+    "cz_transcription": "питі",
+    "ua_translation": "напій",
+    "ua_transcription": "napij"
   },
   {
-    "cz": "Chceš přidat?",
-    "ua": "Добавки?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Chceš přidat?",
+    "cz_transcription": "Хцеш пржидат",
+    "ua_translation": "Добавки?",
+    "ua_transcription": "Dobauky?"
   },
+
   {
-    "cz": "aktovka (batoh)",
-    "ua": "ранець (рюкзак)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "aktovka (batoh)",
+    "cz_transcription": "актофка (батох)",
+    "ua_translation": "ранець (рюкзак)",
+    "ua_transcription": "ranec’ (rjukzak)"
   },
   {
-    "cz": "desky",
-    "ua": "дошки",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "desky",
+    "cz_transcription": "дески",
+    "ua_translation": "дошки",
+    "ua_transcription": "došky"
   },
   {
-    "cz": "sešit / sešity",
-    "ua": "зошит/зошити",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "sešit / sešity",
+    "cz_transcription": "сешит / сешити",
+    "ua_translation": "зошит/зошити",
+    "ua_transcription": "zošyt / zošyty"
   },
   {
-    "cz": "učebnice",
-    "ua": "підручник",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "učebnice",
+    "cz_transcription": "учебніце",
+    "ua_translation": "підручник",
+    "ua_transcription": "pidručnyk"
   },
   {
-    "cz": "pracovní sešit (pracák)",
-    "ua": "робочий зошит",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "pracovní sešit (pracák)",
+    "cz_transcription": "працовні сешит (працак)",
+    "ua_translation": "робочий зошит",
+    "ua_transcription": "robočyj zošyt"
   },
   {
-    "cz": "žákovská knížka (žákajda)",
-    "ua": "щоденник",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "žákovská knížka (žákajda)",
+    "cz_transcription": "жакофска кнішка (жакайда)",
+    "ua_translation": "щоденник",
+    "ua_transcription": "ščodennyk"
   },
   {
-    "cz": "penál",
-    "ua": "пенал",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "penál",
+    "cz_transcription": "пенал",
+    "ua_translation": "пенал",
+    "ua_transcription": "penal"
   },
   {
-    "cz": "pero",
-    "ua": "ручка",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "pero",
+    "cz_transcription": "перо",
+    "ua_translation": "ручка",
+    "ua_transcription": "ručka"
   },
   {
-    "cz": "tužka / tužky",
-    "ua": "олівець/олівці",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "tužka / tužky",
+    "cz_transcription": "тушка / тушки",
+    "ua_translation": "олівець/олівці",
+    "ua_transcription": "olivec’ / oliuci"
   },
   {
-    "cz": "pastelka / pastelky",
-    "ua": "кольоровий олівець/олівці",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "pastelka / pastelky",
+    "cz_transcription": "пастелка / пастелки",
+    "ua_translation": "кольоровий олівець/олівці",
+    "ua_transcription": "koľorovyj olivec’ / oliuci"
   },
   {
-    "cz": "fixa / fixy",
-    "ua": "фломастер/фломастери",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "fixa / fixy",
+    "cz_transcription": "фикса / фикси",
+    "ua_translation": "фломастер/фломастери",
+    "ua_transcription": "flomaster / flomastery"
   },
   {
-    "cz": "guma",
-    "ua": "ґумка",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "guma",
+    "cz_transcription": "ґума",
+    "ua_translation": "ґумка",
+    "ua_transcription": "gumka"
   },
   {
-    "cz": "ořezávátko",
-    "ua": "точилка",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "ořezávátko",
+    "cz_transcription": "оржезаватко",
+    "ua_translation": "точилка",
+    "ua_transcription": "točylka"
   },
   {
-    "cz": "nůžky",
-    "ua": "ножиці",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "nůžky",
+    "cz_transcription": "нушки",
+    "ua_translation": "ножиці",
+    "ua_transcription": "nožyci"
   },
   {
-    "cz": "lepidlo",
-    "ua": "клей",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "lepidlo",
+    "cz_transcription": "лепидло",
+    "ua_translation": "клей",
+    "ua_transcription": "klej"
   },
   {
-    "cz": "pravítko",
-    "ua": "лінійка",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "pravítko",
+    "cz_transcription": "правітко",
+    "ua_translation": "лінійка",
+    "ua_transcription": "linijka"
   },
   {
-    "cz": "kružítko",
-    "ua": "циркуль",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "kružítko",
+    "cz_transcription": "кружітко",
+    "ua_translation": "циркуль",
+    "ua_transcription": "cyrkul’"
   },
+
   {
-    "cz": "Napiš.",
-    "ua": "Напиши",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Napiš.",
+    "cz_transcription": "Напиш",
+    "ua_translation": "Напиши",
+    "ua_transcription": "Napyšy."
   },
   {
-    "cz": "Píšeme.",
-    "ua": "Пишемо",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Píšeme.",
+    "cz_transcription": "Пішеме",
+    "ua_translation": "Пишемо",
+    "ua_transcription": "Pyšemo."
   },
   {
-    "cz": "Nakresli.",
-    "ua": "Намалюй",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Nakresli.",
+    "cz_transcription": "Накресли",
+    "ua_translation": "Намалюй",
+    "ua_transcription": "Namaljuj."
   },
   {
-    "cz": "Kreslíme.",
-    "ua": "Малюємо",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Kreslíme.",
+    "cz_transcription": "Кресліме",
+    "ua_translation": "Малюємо",
+    "ua_transcription": "Maljujemo."
   },
   {
-    "cz": "Vybarvi.",
-    "ua": "Зафарбуй",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Vybarvi.",
+    "cz_transcription": "Вибарви",
+    "ua_translation": "Зафарбуй",
+    "ua_transcription": "Zafarbuj."
   },
   {
-    "cz": "Podtrhni.",
-    "ua": "Підкресли",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Podtrhni.",
+    "cz_transcription": "Поттргні",
+    "ua_translation": "Підкресли",
+    "ua_transcription": "Pidkresly."
   },
   {
-    "cz": "Zakroužkuj.",
-    "ua": "Обведи.",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Zakroužkuj.",
+    "cz_transcription": "Закроушкуй",
+    "ua_translation": "Обведи.",
+    "ua_transcription": "Obvedy."
   },
   {
-    "cz": "Řekni.",
-    "ua": "Скажи",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Řekni.",
+    "cz_transcription": "Ржекні",
+    "ua_translation": "Скажи",
+    "ua_transcription": "Skažy."
   },
   {
-    "cz": "Čti. / Čteme.",
-    "ua": "Читай/читаємо",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Čti. / Čteme.",
+    "cz_transcription": "Чті / Чтеме",
+    "ua_translation": "Читай/читаємо",
+    "ua_transcription": "Čytaj. / Čytajemo."
   },
   {
-    "cz": "Vem si...",
-    "ua": "Візьми",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Vem si...",
+    "cz_transcription": "Вем си",
+    "ua_translation": "Візьми",
+    "ua_transcription": "Viz’my…"
   },
   {
-    "cz": "Znáš...",
-    "ua": "Знаєш... (+ іменник: ім'я дорогу, т.д.)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Znáš...",
+    "cz_transcription": "Знаш",
+    "ua_translation": "Знаєш... (+ іменник: ім'я дорогу, т.д.)",
+    "ua_transcription": "Znaješ…"
   },
   {
-    "cz": "Víš...",
-    "ua": "Знаєш (+ речення: що треба робити)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Víš...",
+    "cz_transcription": "Віш",
+    "ua_translation": "Знаєш (+ речення: що треба робити)",
+    "ua_transcription": "Znaješ…"
   },
+
   {
-    "cz": "družina",
-    "ua": "група продовженого дня",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "družina",
+    "cz_transcription": "дружина",
+    "ua_translation": "група продовженого дня",
+    "ua_transcription": "hrupa prodouženoho dňa"
   },
   {
-    "cz": "paní vychovatelka / pan vychovatel",
-    "ua": "вихователька/вихователь",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "paní vychovatelka / pan vychovatel",
+    "cz_transcription": "пані вихователка / пан виховател",
+    "ua_translation": "вихователька/вихователь",
+    "ua_transcription": "vychovatel’ka / vychovatel’"
   },
   {
-    "cz": "Chodím do družiny.",
-    "ua": "Ходжу в группу подовженого дня",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Chodím do družiny.",
+    "cz_transcription": "Ходім до дружини",
+    "ua_translation": "Ходжу в группу подовженого дня",
+    "ua_transcription": "Chodžu v hrupu prodouženoho dňa."
   },
   {
-    "cz": "Jdeme do družiny.",
-    "ua": "Ходімо на группу подовженого дня",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jdeme do družiny.",
+    "cz_transcription": "Деме до дружини",
+    "ua_translation": "Ходімо на группу подовженого дня",
+    "ua_transcription": "Chodimo na hrupu prodouženoho dňa."
   },
   {
-    "cz": "Kdy půjde domů?",
-    "ua": "Коли (він/вона) піде додому?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Kdy půjde domů?",
+    "cz_transcription": "Ґди пуде дому",
+    "ua_translation": "Коли (він/вона) піде додому?",
+    "ua_transcription": "Koly (vin / vona) pide dodomu?"
   },
   {
-    "cz": "Půjde v...",
-    "ua": "Піде о ...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Půjde v...",
+    "cz_transcription": "Пуде в",
+    "ua_translation": "Піде о ...",
+    "ua_transcription": "Pide o..."
   },
   {
-    "cz": "Kdy půjdeš domů?",
-    "ua": "Коли ти йдеш додому?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Kdy půjdeš domů?",
+    "cz_transcription": "Ґди пудеш дому",
+    "ua_translation": "Коли ти йдеш додому?",
+    "ua_transcription": "Koly ty jdeš dodomu?"
   },
   {
-    "cz": "Půjdu v...",
-    "ua": "Піду о ...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Půjdu v...",
+    "cz_transcription": "Пуду в",
+    "ua_translation": "Піду о ...",
+    "ua_transcription": "Pidu o…"
   },
   {
-    "cz": "Kdo tě / ji / ho vyzvedne?",
-    "ua": "Хто тебе/її/його забирає?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Kdo tě / ji / ho vyzvedne?",
+    "cz_transcription": "Ґдо тє / ї / го визведне",
+    "ua_translation": "Хто тебе/її/його забирає?",
+    "ua_transcription": "Chto tebe / jiji / joho zabyraje?"
   },
   {
-    "cz": "Jdeme na hřiště.",
-    "ua": "Ходімо на майданчик",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jdeme na hřiště.",
+    "cz_transcription": "Деме на гржіштє",
+    "ua_translation": "Ходімо на майданчик",
+    "ua_transcription": "Chodimo na majdančyk."
   },
   {
-    "cz": "Dávej pozor.",
-    "ua": "Зверни увагу! Обережно!",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Dávej pozor.",
+    "cz_transcription": "Давей позор",
+    "ua_translation": "Зверни увагу! Обережно!",
+    "ua_transcription": "Zverny uvahu! Oberežno!"
   },
   {
-    "cz": "Tam nechodíme.",
-    "ua": "Там не можна ходити",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Tam nechodíme.",
+    "cz_transcription": "Там неходіме",
+    "ua_translation": "Там не можна ходити",
+    "ua_transcription": "Tam ne možna chodyty."
   },
   {
-    "cz": "Pojď sem!",
-    "ua": "Підійди!",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Pojď sem!",
+    "cz_transcription": "Поть сем",
+    "ua_translation": "Підійди!",
+    "ua_transcription": "Pidijdy!"
   },
   {
-    "cz": "Budeme si číst.",
-    "ua": "Будемо читати",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Budeme si číst.",
+    "cz_transcription": "Будеме си чіст",
+    "ua_translation": "Будемо читати",
+    "ua_transcription": "Budemo čytaty."
   },
   {
-    "cz": "Poslouchej.",
-    "ua": "Послухай",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Poslouchej.",
+    "cz_transcription": "Послоухей",
+    "ua_translation": "Послухай",
+    "ua_transcription": "Posluchaj."
   },
   {
-    "cz": "Budeme vyrábět.",
-    "ua": "Будемо робити (щось руками)",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Budeme vyrábět.",
+    "cz_transcription": "Будеме вирабєт",
+    "ua_translation": "Будемо робити (щось руками)",
+    "ua_transcription": "Budemo robyty (ščos’ rukamy)."
   },
   {
-    "cz": "Budeme zpívat.",
-    "ua": "Будемо співати",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Budeme zpívat.",
+    "cz_transcription": "Будеме співат",
+    "ua_translation": "Будемо співати",
+    "ua_transcription": "Budemo spivaty."
   },
   {
-    "cz": "Budeme si hrát.",
-    "ua": "Будемо гратися",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Budeme si hrát.",
+    "cz_transcription": "Будеме си грат",
+    "ua_translation": "Будемо гратися",
+    "ua_transcription": "Budemo hratysja."
   },
+
   {
-    "cz": "Jak se jmenuješ?",
-    "ua": "Як тебе звати?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jak se jmenuješ?",
+    "cz_transcription": "Як се менуєш",
+    "ua_translation": "Як тебе звати?",
+    "ua_transcription": "Jak tebe zvaty?"
   },
   {
-    "cz": "Já jsem...",
-    "ua": "Я...",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Já jsem...",
+    "cz_transcription": "Я сем",
+    "ua_translation": "Я...",
+    "ua_transcription": "Ja…"
   },
   {
-    "cz": "Jak se máš?",
-    "ua": "Як справи?",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jak se máš?",
+    "cz_transcription": "Як се маш",
+    "ua_translation": "Як справи?",
+    "ua_transcription": "Jak spravy?"
   },
   {
-    "cz": "(Mám se) dobře.",
-    "ua": "Добре",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "(Mám se) dobře.",
+    "cz_transcription": "Мам се добрже",
+    "ua_translation": "Добре",
+    "ua_transcription": "Dobre."
   },
   {
-    "cz": "Nemám se dobře.",
-    "ua": "Погано",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Nemám se dobře.",
+    "cz_transcription": "Немам се добрже",
+    "ua_translation": "Погано",
+    "ua_transcription": "Pohano."
   },
   {
-    "cz": "Musím na záchod.",
-    "ua": "Мені потрібно в туалет",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Musím na záchod.",
+    "cz_transcription": "Мусим на захот",
+    "ua_translation": "Мені потрібно в туалет",
+    "ua_transcription": "Meni potribno v tualet."
   },
   {
-    "cz": "Promiňte./Omlouvám se.",
-    "ua": "Вибачте!",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Promiňte. / Omlouvám se.",
+    "cz_transcription": "Проминьте / Омлоувам се",
+    "ua_translation": "Вибачте!",
+    "ua_transcription": "Vybačte!"
   },
   {
-    "cz": "Je to tady / tam.",
-    "ua": "Це тут/там.",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Je to tady / tam.",
+    "cz_transcription": "Є то тади / там",
+    "ua_translation": "Це тут/там.",
+    "ua_transcription": "Ce tut / tam."
   },
   {
-    "cz": "Dej to tam.",
-    "ua": "Поклади туди.",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Dej to tam.",
+    "cz_transcription": "Дей то там",
+    "ua_translation": "Поклади туди.",
+    "ua_transcription": "Poklady tudy."
   },
+
   {
-    "cz": "Jde ti to moc dobře.",
-    "ua": "У тебе чудово виходить!",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Jde ti to moc dobře.",
+    "cz_transcription": "Де ті то моц добрже",
+    "ua_translation": "У тебе чудово виходить!",
+    "ua_transcription": "U tebe čudovo vychodyť!"
   },
   {
-    "cz": "Pokračuj.",
-    "ua": "Продовжуй!",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Pokračuj.",
+    "cz_transcription": "Покрачуй",
+    "ua_translation": "Продовжуй!",
+    "ua_transcription": "Prodoužuj!"
   },
   {
-    "cz": "Výborně!",
-    "ua": "Відмінно!",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Výborně!",
+    "cz_transcription": "Виборнє",
+    "ua_translation": "Відмінно!",
+    "ua_transcription": "Vidminno!"
   },
   {
-    "cz": "To je moc dobré!",
-    "ua": "Дуже добре!",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "To je moc dobré!",
+    "cz_transcription": "То є моц добре",
+    "ua_translation": "Дуже добре!",
+    "ua_transcription": "Duže dobre!"
   },
   {
-    "cz": "Zkus to znovu.",
-    "ua": "Спробуй ще раз.",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Zkus to znovu.",
+    "cz_transcription": "Скус то знову",
+    "ua_translation": "Спробуй ще раз.",
+    "ua_transcription": "Sprobuj šče raz."
   },
   {
-    "cz": "Podívej se sem.",
-    "ua": "Подивися сюди.",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Podívej se sem.",
+    "cz_transcription": "Подівей се сем",
+    "ua_translation": "Подивися сюди.",
+    "ua_transcription": "Podyvysja cjudy."
   },
   {
-    "cz": "Pomůžu ti.",
-    "ua": "Я тобі допоможу.",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Pomůžu ti.",
+    "cz_transcription": "Помужу ті",
+    "ua_translation": "Я тобі допоможу.",
+    "ua_transcription": "Ja tobi dopomožu."
   },
   {
-    "cz": "Máš radost? Já mám radost!",
-    "ua": "Ти радієш? Я радію!",
-    "ua_transcription": "",
-    "cz_transcription": "",
-    "type": ""
+    "cz_translation": "Máš radost? Já mám radost!",
+    "cz_transcription": "Маш радост? Я мам радост!",
+    "ua_translation": "Ти радієш? Я радію!",
+    "ua_transcription": "Ty radiješ? Ja radiju!"
   }
 ]

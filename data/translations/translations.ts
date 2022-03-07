@@ -2,7 +2,7 @@ import { Translation } from '../../components/basecomponents/TranslationContaine
 // JSON translation files
 import Cas from './cas.json';
 import HromadnaDoprava from './hromadna-doprava.json';
-import ZOO from './zoo.json';
+import Zoo from './zoo.json';
 import NaNakupu from './na-nakupu.json';
 import NaUrade from './na-urade.json';
 import ObleceniDrogerie from './obleceni-drogerie.json';
@@ -31,21 +31,21 @@ export const translations: TranslationsType[] = [
     category_name_cz: 'Hromadná doprava',
     translations: HromadnaDoprava,
   },
-  // {
-  //   category_name_ua: 'Їдемо в зоопарк',
-  //   category_name_cz: 'Jedeme do ZOO',
-  //   translations: ZOO,
-  // },
+  {
+    category_name_ua: 'Їдемо в зоопарк',
+    category_name_cz: 'Jedeme do ZOO',
+    translations: Zoo,
+  },
   {
     category_name_ua: 'Покупки',
     category_name_cz: 'Na nákupu',
     translations: NaNakupu,
   },
-  // {
-  //   category_name_cz: 'Na úřadě',
-  //   category_name_ua: 'В органах влади',
-  //   translations: NaUrade,
-  // },
+  {
+    category_name_cz: 'Na úřadě',
+    category_name_ua: 'В органах влади',
+    translations: NaUrade,
+  },
   {
     category_name_cz: 'Oblečení + drogerie',
     category_name_ua: 'Одяг + побутова хімія (косметика)',
@@ -77,14 +77,14 @@ export const translations: TranslationsType[] = [
     category_name_ua: 'У місті',
     translations: VeMeste,
   },
-  // {
-  //   category_name_cz: 'Ve škole',
-  //   category_name_ua: 'У школі',
-  //   translations: VeSkole,
-  // },
-  // {
-  //   category_name_cz: 'Ve školce',
-  //   category_name_ua: 'У дитсадку',
-  //   translations: VeSkolce,
-  // },
+  {
+    category_name_cz: 'Ve škole',
+    category_name_ua: 'У школі',
+    translations: VeSkole,
+  },
+  {
+    category_name_cz: 'Ve školce',
+    category_name_ua: 'У дитсадку',
+    translations: VeSkolce,
+  },
 ];
