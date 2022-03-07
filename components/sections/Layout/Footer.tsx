@@ -30,7 +30,12 @@ export const Footer = () => {
               Github
             </a>
           </Link>{' '}
-          | Obsah tohoto webu je přístupný pod licencí Creative Commons CC BY-NC 4.0
+          | Obsah tohoto webu je přístupný pod licencí
+            <Link href={'https://creativecommons.org/licenses/by-nc/4.0/'}>
+              <a target={'_blank'} className="underline" title="Creative Commons - Uveďte původ-Neužívejte komerčně 4.0">
+                CC BY-NC 4.0 Mezinárodní
+              </a>
+            </Link>
         </p>
       </div>
     </footer>
