@@ -8,7 +8,6 @@ const Home: NextPage = () => {
       <Head>
         <title>Movapp.cz – aby se Češi a Ukrajinci snadno domluvili</title>
         <meta name="description" content="Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou." />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
     </div>
   );
