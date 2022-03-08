@@ -10,12 +10,12 @@ interface CollapseProps {
 export const Collapse = ({ title, children }: CollapseProps): JSX.Element => {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div className="bg-white p-4 border-b-1 border-b-primary-grey ">
-      <div className="grid grid-cols-[90%_10%] items-center " onClick={() => setExpanded(!expanded)}>
+    <div className="bg-white  p-4 border-b-1 border-b-primary-grey ">
+      <div className="grid  grid-cols-[90%_10%] items-center " onClick={() => setExpanded(!expanded)}>
         <div>
           <p className="text-primary-blue text-lg font-bold">{title}</p>
         </div>
-        {expanded ? <ChevronDown /> : <ChevronRight />}
+        <div className="justify-self-end cursor-pointer">{expanded ? <ChevronDown /> : <ChevronRight />}</div>
       </div>
       {children && expanded && <div className="my-2 ">{children}</div>}
     </div>
