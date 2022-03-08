@@ -11,7 +11,7 @@ const Home: NextPage = () => {
           name="description"
           content="Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="twitter:title" content="Movapp.cz – aby se Češi a Ukrajinci snadno domluvili" />
       </Head>
     </div>
   );
