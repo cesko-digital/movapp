@@ -13,29 +13,35 @@ interface SeparatorOption {
   value: string;
   displayValue?: JSX.Element;
 }
+
 const TRANSLATION_SEPARATORS: SeparatorOption[] = [
   { id: 'transl_comma', name: 'comma', value: ',' },
   { id: 'transl_semicolor', name: 'semicolon', value: ';' },
-  { id: 'trans_tab', name: 'tab', value: '    ', displayValue: <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> },
+  { id: 'trans_tab', name: 'tab', value: '    ', displayValue: <span>(&nbsp;&nbsp;&nbsp;&nbsp;)</span> },
 ];
+const TRANS_SEP_CUSTOM = 'trans_custom';
 
 const PHRASE_SEPARATORS: SeparatorOption[] = [
-  { id: 'phrase_newLine', name: 'new line', value: '\n' },
+  { id: 'phrase_newLine', name: 'new line', value: '\n', displayValue: <span></span> },
   { id: 'phrase_semicolor', name: 'semicolon', value: ';' },
 ];
+const PHRASE_SEP_CUSTOM = 'phrase_custom';
 
 export const ExportTranslations = ({ translations, category }: ExportTranslationsProps) => {
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
   const [customTranslationSeparator, setCustomTranslationSeparator] = useState('');
   const [phraseSeparator, setPhraseSeparator] = useState(PHRASE_SEPARATORS[0].value);
+  const [customPhraseSeparator, setCustomPhraseSeparator] = useState('');
 
-  const translSep = translationSeparator === 'custom' ? customTranslationSeparator : translationSeparator;
+  const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
+  const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
   const data = new Blob(
-    translations.map((translation) => `${translation.cz_translation}${translSep} ${translation.ua_translation}${phraseSeparator}`),
+    translations.map((translation) => `${translation.cz_translation}${translSep} ${translation.ua_translation}${phraseSep}`),
     { type: 'text/plain' },
   );
   const downloadLink = window.URL.createObjectURL(data);
   const fileName = `${category}.txt`;
+
   return (
     <>
       <h2>Download phrases</h2>
@@ -52,25 +58,26 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
             onChange={() => setTranslationSeparator(option.value)}
           />
           <label htmlFor={option.id} className="ml-2">
-            {option.name} ({option.displayValue ?? option.value})
+            {option.name} {option.displayValue ?? `(${option.value})`}
           </label>
           <br />
         </>
       ))}
       <input
         type="radio"
-        id={'custom'}
+        id={TRANS_SEP_CUSTOM}
         name={'translationSeparator'}
-        value={'custom'}
-        checked={translationSeparator === 'custom'}
-        onChange={() => setTranslationSeparator('custom')}
+        value={TRANS_SEP_CUSTOM}
+        checked={translationSeparator === TRANS_SEP_CUSTOM}
+        onChange={() => setTranslationSeparator(TRANS_SEP_CUSTOM)}
       />
-      <label htmlFor={'custom'} className="ml-2">
+      <label htmlFor={TRANS_SEP_CUSTOM} className="ml-2">
         Custom{' '}
-        {translationSeparator === 'custom' && (
+        {translationSeparator === TRANS_SEP_CUSTOM && (
           <input
             type="text"
             maxLength={50}
+            value={customTranslationSeparator}
             className="rounded-md md:rounded-lg py-1 px-3 text-dark-700 border-1 border-primary-blue outline-none shadow-s"
             onChange={(e) => setCustomTranslationSeparator(e.target.value)}
           ></input>
@@ -91,11 +98,32 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
             onChange={() => setPhraseSeparator(option.value)}
           />
           <label htmlFor={option.id} className="ml-2">
-            {option.name} ({option.displayValue ?? option.value})
+            {option.name} {option.displayValue ?? `(${option.value})`}
           </label>
           <br />
         </>
       ))}
+      <input
+        type="radio"
+        id={PHRASE_SEP_CUSTOM}
+        name={'phraseSeparator'}
+        value={PHRASE_SEP_CUSTOM}
+        checked={phraseSeparator === PHRASE_SEP_CUSTOM}
+        onChange={() => setPhraseSeparator(PHRASE_SEP_CUSTOM)}
+      />
+      <label htmlFor={PHRASE_SEP_CUSTOM} className="ml-2">
+        Custom{' '}
+        {phraseSeparator === PHRASE_SEP_CUSTOM && (
+          <input
+            type="text"
+            maxLength={50}
+            value={customPhraseSeparator}
+            className="rounded-md md:rounded-lg py-1 px-3 text-dark-700 border-1 border-primary-blue outline-none shadow-s"
+            onChange={(e) => setCustomPhraseSeparator(e.target.value)}
+          ></input>
+        )}
+      </label>
+      <br />
 
       <div>
         <a download={fileName} href={downloadLink} className="underline cursor-pointer">
