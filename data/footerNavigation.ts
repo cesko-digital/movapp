@@ -10,7 +10,7 @@ export const FOOTER_NAVIGATION = [
     link: 'https://www.pomahejukrajine.cz',
   },
   {
-    title: 'česko.digital',
+    title: 'Česko.Digital',
     description: 'footer.czech_digital',
     link: 'https://cesko.digital',
   },
