@@ -26,12 +26,12 @@ const PHRASE_SEPARATORS: SeparatorOption[] = [
 
 export const ExportTranslations = ({ translations, category }: ExportTranslationsProps) => {
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
+  const [customTranslationSeparator, setCustomTranslationSeparator] = useState('');
   const [phraseSeparator, setPhraseSeparator] = useState(PHRASE_SEPARATORS[0].value);
 
+  const translSep = translationSeparator === 'custom' ? customTranslationSeparator : translationSeparator;
   const data = new Blob(
-    translations.map(
-      (translation) => `${translation.cz_translation}${translationSeparator} ${translation.ua_translation}${phraseSeparator}`,
-    ),
+    translations.map((translation) => `${translation.cz_translation}${translSep} ${translation.ua_translation}${phraseSeparator}`),
     { type: 'text/plain' },
   );
   const downloadLink = window.URL.createObjectURL(data);
@@ -39,7 +39,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
   return (
     <>
       <h2>Download phrases</h2>
-      <h3>Separator between the phrase and translation</h3>
+      <h3 className="my-4">Separator between the phrase and translation</h3>
 
       {TRANSLATION_SEPARATORS.map((option) => (
         <>
@@ -57,8 +57,28 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
           <br />
         </>
       ))}
+      <input
+        type="radio"
+        id={'custom'}
+        name={'translationSeparator'}
+        value={'custom'}
+        checked={translationSeparator === 'custom'}
+        onChange={() => setTranslationSeparator('custom')}
+      />
+      <label htmlFor={'custom'} className="ml-2">
+        Custom{' '}
+        {translationSeparator === 'custom' && (
+          <input
+            type="text"
+            maxLength={50}
+            className="rounded-md md:rounded-lg py-1 px-3 text-dark-700 border-1 border-primary-blue outline-none shadow-s"
+            onChange={(e) => setCustomTranslationSeparator(e.target.value)}
+          ></input>
+        )}
+      </label>
+      <br />
 
-      <h3>Separator between phrases</h3>
+      <h3 className="my-4">Separator between phrases:</h3>
 
       {PHRASE_SEPARATORS.map((option) => (
         <>
@@ -79,7 +99,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
 
       <div>
         <a download={fileName} href={downloadLink} className="underline cursor-pointer">
-          <Button text="Download phrases" />
+          <Button text="Download phrases" className="my-6" />
         </a>
       </div>
       <div>
