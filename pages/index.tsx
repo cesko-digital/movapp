@@ -1,19 +1,20 @@
+import { useTranslation } from 'next-i18next';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 export { getStaticProps } from '../utils/localization';
 
 const Home: NextPage = () => {
+  const { t } = useTranslation();
   return (
-    <div className="max-w-3xl m-auto">
+    <>
       <Head>
-        <title>Movapp.cz – aby se Češi a Ukrajinci snadno domluvili</title>
-        <meta
-          name="description"
-          content="Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou."
-        />
-        <meta name="twitter:title" content="Movapp.cz – aby se Češi a Ukrajinci snadno domluvili" />
+        <title>{t('seo.homepage_page_title')}</title>
+        <meta name="description" content={t('seo.homepage_page_description')} />
+        <meta name="twitter:title" content={t('seo.homepage_page_title')} />
       </Head>
-    </div>
+      <div className="max-w-3xl m-auto">
+      </div>
+    </>
   );
 };
 
