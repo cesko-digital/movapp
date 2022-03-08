@@ -55,6 +55,8 @@ const Dictionary = () => {
     <>
       <Head>
         <meta name="referrer" content="no-referrer" />
+        <title>Ukrajinsko-Český slovník | Movapp.cz</title>
+        <meta name="description" content="Základní česko-ukrajinská slovíčka a fráze rozdělená podle životních situací. Vytvářeno s láskou." />
       </Head>
       <div className="min-h-screen ">
         <div className="flex items-center">
