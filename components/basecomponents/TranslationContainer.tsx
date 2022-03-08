@@ -14,6 +14,11 @@ interface TranslationContainerProps extends Translation {
   searchText: string;
 }
 
+/**
+ *  Displays list of translations in opened collapse component
+ *
+ * @returns
+ */
 export const TranslationContainer = ({
   cz_translation,
   ua_translation,
@@ -21,9 +26,9 @@ export const TranslationContainer = ({
   cz_transcription,
   searchText,
 }: TranslationContainerProps): JSX.Element => {
-  const uaTranslation = getHighlightedText(ua_translation, searchText);
+  const uaTranslation = searchText ? getHighlightedText(ua_translation, searchText) : ua_translation;
 
-  const czTranslation = getHighlightedText(cz_translation, searchText);
+  const czTranslation = searchText ? getHighlightedText(cz_translation, searchText) : cz_translation;
 
   const handleTranslationAudioPlay = (language: string, text: string) => {
     const source = `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;
@@ -35,7 +40,7 @@ export const TranslationContainer = ({
     <div className="sm:grid sm:grid-cols-[40%_2%_40%] sm:gap-[8%] sm:items-center my-4 sm:my-2 p-2 border-b-[1px] border-b-slate-200 bg-primary-grey">
       {/* CZ translation  */}
       <div className="flex justify-between items-center py-2 ">
-        <div>
+        <div className="w-full">
           <p className="self-start w-full font-semibold">{czTranslation}</p>
           <p className="text-gray-500">{cz_transcription}</p>
         </div>
@@ -44,8 +49,8 @@ export const TranslationContainer = ({
       {/* Divider */}
       <div className="w-full h-0 sm:h-full sm:w-0 border-1 border-[#D2D2D2]"></div>
       {/* UA translation  */}
-      <div className="flex justify-between py-2 items-center ">
-        <div>
+      <div className="flex justify-between self-center  py-2 items-center ">
+        <div className="w-full pr-4">
           <p className="w-full font-semibold">{uaTranslation}</p>
           <p className="text-gray-500">{ua_transcription}</p>
         </div>

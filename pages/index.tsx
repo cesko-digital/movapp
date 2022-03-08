@@ -7,7 +7,10 @@ const Home: NextPage = () => {
     <div className="max-w-3xl m-auto">
       <Head>
         <title>Movapp.cz – aby se Češi a Ukrajinci snadno domluvili</title>
-        <meta name="description" content="Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou." />
+        <meta
+          name="description"
+          content="Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou."
+        />
       </Head>
     </div>
   );
