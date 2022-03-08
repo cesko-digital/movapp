@@ -63,12 +63,6 @@ const About = () => {
         t={t}
         components={[<LinkText href="https://cesko.digital/" target="_blank" />]}
       />
-      <div className="py-4">
-        <h2 className="mb-2 text-primary-blue font-bold text-2xl">{t('about_page.contacts_title')}</h2>
-        <p>
-          Martin Hassman <p> email@email.cz</p> <p>+420 123 456 789</p>
-        </p>
-      </div>
     </div>
   );
 };
