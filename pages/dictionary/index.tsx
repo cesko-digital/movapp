@@ -51,9 +51,9 @@ const Dictionary = () => {
     <>
       <Head>
         <meta name="referrer" content="no-referrer" />
-        <title>Ukrajinsko-Český slovník | Movapp.cz</title>
-        <meta name="description" content="Základní česko-ukrajinská slovíčka a fráze rozdělená podle životních situací. Vytvářeno s láskou." />
-        <meta name="twitter:title" content="Ukrajinsko-Český slovník | Movapp.cz" />
+        <title>{t('seo.dictionary_page_title')}</title>
+        <meta name="description" content={t('seo.dictionary_page_description')} />
+        <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
       </Head>
       <div className="min-h-screen ">
         <div className="flex items-center">

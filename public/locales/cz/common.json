@@ -37,5 +37,9 @@
     "community_description": "Projekt Movapp vzniká v komunitě expertních dobrovolníků <0>Česko.Digital.</0>",
     "join_title": "Přidejte se",
     "join_description": "Chcete-li se stát členem týmu dobovolníků a pomáhat nám na dalším rozvoji projektu, vyplňte formulář na <0>cesko.digital/join</0> a přidejte se do Slacku. Najdete nás v kanálu <strong>ua-jazykova-aplikace</strong> (komunikujeme česky, slovensky, anglicky, a trochu také ukrajinsky)."
+  },
+  "seo": {
+    "dictionary_page_title": "Ukrajinsko-Český slovník | Movapp.cz",
+    "dictionary_page_description": "Základní česko-ukrajinská slovíčka a fráze rozdělená podle životních situací. Vytvářeno s láskou."
   }
 }
