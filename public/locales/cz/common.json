@@ -27,5 +27,15 @@
     "stand_with_ukraine_description": "<0>Stojíme za Ukrajinou</0> je iniciativa dobrovolníků napříč organizacemi a spolky. Jsme běžní řadoví občané, kterým není lhostejná současná situace související s válečným konfliktem vedeným Ruskem proti suverénní demokratické Ukrajině. Tato iniciativa vznikla přirozeně, vyrůstá z dlouhodobé podpory Ukrajiny po anexi Krymu, s eskalací napětí začala být ve veřejném prostoru zřejmá 19. února 2022 a od té doby organicky roste.",
     "czech_digital_title": "Česko.Digital",
     "czech_digital_description": "<0>Česko.Digital</0> je komunita expertních dobrovolníků z mnoha oborů od IT přes projektové řízení až po marketing, kteří ve svém volném čase pomáhají státu a nestátním organizacím a mění tak Česko k lepšímu. Komunitu Česko.Digital založili v roce 2019 Jakub Nešetřil, Radka Horáková a Eva Pavlíková."
+  },
+  "contacts_page": {
+    "email_contact_title": "Kontaktní email:",
+    "email_contact_link": "movapp.cz@gmail.com",
+    "social_media": {
+      "social_media_title": "Najdete nás také na sociálních sítích:"
+    },
+    "community_description": "Projekt Movapp vzniká v komunitě expertních dobrovolníků <0>Česko.Digital.</0>",
+    "join_title": "Přidejte se",
+    "join_description": "Chcete-li se stát členem týmu dobovolníků a pomáhat nám na dalším rozvoji projektu, vyplňte formulář na <0>cesko.digital/join</0> a přidejte se do Slacku. Najdete nás v kanálu <strong>ua-jazykova-aplikace</strong> (komunikujeme česky, slovensky, anglicky, a trochu také ukrajinsky)."
   }
 }
