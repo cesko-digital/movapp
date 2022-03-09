@@ -11,6 +11,7 @@ export { getStaticProps } from '../../utils/localization';
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
+  const [audioIsPlaying, setAudioIsPlaying] = useState(false);
 
   const { t } = useTranslation();
 
@@ -75,7 +76,12 @@ const Dictionary = () => {
           }
           return (
             <Collapse key={index} title={title}>
-              <CategoryDictionary searchText={search} translations={category.translations} />
+              <CategoryDictionary
+                audioIsPlaying={audioIsPlaying}
+                setAudioIsPlaying={setAudioIsPlaying}
+                searchText={search}
+                translations={category.translations}
+              />
             </Collapse>
           );
         })}

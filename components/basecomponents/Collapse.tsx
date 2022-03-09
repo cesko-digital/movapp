@@ -15,7 +15,9 @@ export const Collapse = ({ title, children }: CollapseProps): JSX.Element => {
         <div>
           <p className="text-primary-blue text-lg font-bold">{title}</p>
         </div>
-        <div className="justify-self-end cursor-pointer">{expanded ? <ChevronDown className="fill-primary-red" /> : <ChevronRight className="fill-primary-red" />}</div>
+        <div className="justify-self-end cursor-pointer">
+          {expanded ? <ChevronDown className="fill-primary-red" /> : <ChevronRight className="fill-primary-red" />}
+        </div>
       </div>
       {children && expanded && <div className="my-2 ">{children}</div>}
     </div>
