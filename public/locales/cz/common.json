@@ -19,6 +19,7 @@
     "box_movapp_description_bottom": "Najdete tu přehled základních komunikačních frází v češtině a ukrajinštině. Brzy přidáme nástroje k jejich procvičování a rozcestník na materiály k učení."
   },
   "dictionary_page": {
+    "title": "Ukrajinsko-Český slovníček",
     "search_button": "Hledat",
     "search_placeholder": "Hledaný výraz",
     "subtitle": "Vyberte si oblast"
@@ -37,6 +38,7 @@
     "czech_digital_description": "<0>Česko.Digital</0> je komunita expertních dobrovolníků z mnoha oborů od IT přes projektové řízení až po marketing, kteří ve svém volném čase pomáhají státu a nestátním organizacím a mění tak Česko k lepšímu. Komunitu Česko.Digital založili v roce 2019 Jakub Nešetřil, Radka Horáková a Eva Pavlíková."
   },
   "contacts_page": {
+    "title": "Kontakty",
     "email_contact_title": "Kontaktní email:",
     "email_contact_link": "movapp.cz@gmail.com",
     "social_media": {

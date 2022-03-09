@@ -41,7 +41,7 @@ const About = () => {
         <meta name="twitter:title" content={t('seo.about_page_title')} />
       </Head>
       <div className="max-w-7xl m-auto">
-        <h1 className={`${heading_style} mb-6`}>
+        <h1 className="text-primary-blue">
           <Trans className="block my-2">{t('about_page.title')}</Trans>
         </h1>
         <h2 className={heading_style}>
