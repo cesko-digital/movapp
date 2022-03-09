@@ -7,12 +7,12 @@ export interface Translation {
   ua_translation: string;
   ua_transcription: string;
   cz_transcription: string;
-  setAudioIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
-  audioIsPlaying: boolean;
 }
 
 interface TranslationContainerProps extends Translation {
   searchText: string;
+  setAudioIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  audioIsPlaying: boolean;
 }
 
 /**
