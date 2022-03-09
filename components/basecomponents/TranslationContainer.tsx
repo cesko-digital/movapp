@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PlayIcon from '../../public/icons/play.svg';
 import { getHighlightedText } from '../../utils/getHighlightedText';
 
@@ -11,8 +11,8 @@ export interface Translation {
 
 interface TranslationContainerProps extends Translation {
   searchText: string;
-  setAudioIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
-  audioIsPlaying: boolean;
+  setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
+  player: HTMLAudioElement | null;
 }
 
 /**
@@ -26,24 +26,24 @@ export const TranslationContainer = ({
   ua_transcription,
   cz_transcription,
   searchText,
-  setAudioIsPlaying,
-  audioIsPlaying,
+  setPlayer,
+  player,
 }: TranslationContainerProps): JSX.Element => {
   const uaTranslation = searchText ? getHighlightedText(ua_translation, searchText) : ua_translation;
 
-  const player = useRef<HTMLAudioElement>();
-
   const czTranslation = searchText ? getHighlightedText(cz_translation, searchText) : cz_translation;
-
   const handleTranslationAudioPlay = (language: string, text: string) => {
+    // stops player if something is currently playing
+    if (player) {
+      player.pause();
+      player.currentTime = 0;
+    }
     const source = `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;
     const audio = new Audio(source);
-    player.current = audio;
-    audio.onended = () => {
-      setAudioIsPlaying(false);
-    };
+
+    // setPlayer in order to track if something is playing when next player is triggered
+    setPlayer(audio);
     audio.play();
-    setAudioIsPlaying(true);
   };
 
   return (
@@ -55,7 +55,7 @@ export const TranslationContainer = ({
           <p className="text-gray-500">{cz_transcription}</p>
         </div>
         <PlayIcon
-          onClick={() => (audioIsPlaying ? {} : handleTranslationAudioPlay('cs', cz_translation))}
+          onClick={() => handleTranslationAudioPlay('cs', cz_translation)}
           className="cursor-pointer active:scale-75 transition-all duration-300"
         />
       </div>
@@ -67,7 +67,7 @@ export const TranslationContainer = ({
           <p className="w-full font-semibold">{uaTranslation}</p>
           <p className="text-gray-500">{ua_transcription}</p>
         </div>
-        <PlayIcon onClick={() => (audioIsPlaying ? {} : handleTranslationAudioPlay('uk', ua_translation))} className="cursor-pointer" />
+        <PlayIcon onClick={() => handleTranslationAudioPlay('uk', ua_translation)} className="cursor-pointer" />
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ export { getStaticProps } from '../../utils/localization';
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
-  const [audioIsPlaying, setAudioIsPlaying] = useState(false);
+  const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
 
   const { t } = useTranslation();
 
@@ -56,7 +56,8 @@ const Dictionary = () => {
         <meta name="description" content={t('seo.dictionary_page_description')} />
         <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
       </Head>
-      <div className="min-h-screen max-w-7xl m-auto">
+      <div className="min-h-screen max-w-7xl m-auto sm:py-10 px-2 sm:px-4">
+        <h1 className="text-primary-blue">{t('dictionary_page.title')}</h1>
         <div className="flex items-center">
           <SearchInput
             className="w-full md:w-auto "
@@ -76,12 +77,7 @@ const Dictionary = () => {
           }
           return (
             <Collapse key={index} title={title}>
-              <CategoryDictionary
-                audioIsPlaying={audioIsPlaying}
-                setAudioIsPlaying={setAudioIsPlaying}
-                searchText={search}
-                translations={category.translations}
-              />
+              <CategoryDictionary setPlayer={setPlayer} player={player} searchText={search} translations={category.translations} />
             </Collapse>
           );
         })}

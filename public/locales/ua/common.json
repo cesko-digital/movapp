@@ -20,6 +20,7 @@
   },
   "dictionary_page": {
     "search_button": "Знайти",
+    "title": "Ukrajinsko-Český slovníček",
     "search_placeholder": "Знайти слово",
     "subtitle": "Виберіть категорію"
   },
@@ -37,6 +38,7 @@
     "czech_digital_description": "<0>Česko.Digital</0> – це спільнота експертів-волонтерів з багатьох сфер, таких як ІT, управління проектами, маркетинг, які у вільний час допомагають державі та неурядовим організаціям. Таким чином вони змінюють Чехію на краще. Спільнота Česko.Digital була заснована у 2019 році Якубом Нешетржилом, Радкою Гораковою та Євою Павліковою."
   },
   "contacts_page": {
+    "title": "Kontakty",
     "email_contact_title": "Контактна електронна адреса:",
     "email_contact_link": "movapp.cz@gmail.com",
     "social_media": {

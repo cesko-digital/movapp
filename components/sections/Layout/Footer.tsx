@@ -13,7 +13,7 @@ export const Footer = () => {
           {FOOTER_NAVIGATION.map(({ title, link, description }, index) => {
             return (
               <Link key={index} href={link}>
-                <a target={'_blank'}>
+                <a target={'_blank'} className="sm:w-2/6">
                   <div className="py-1">
                     <p className="text-white text-center text-sm sm:text-base font-semibold my-2">{title}</p>
                     <p className="text-white text-center font-extralight text-xs sm:text-sm">{t(description)}</p>
