@@ -2,6 +2,7 @@ import { useTranslation } from 'next-i18next';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 export { getStaticProps } from '../utils/localization';
+import Link from 'next/link';
 import DictionaryIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
 
@@ -21,12 +22,20 @@ const Home: NextPage = () => {
         <div className="max-w-7xl bg-white p-12 flex flex-wrap md:flex-nowrap shadow-xxl mt-[-6rem]">
           <div className="md:w-2/6 mb-8 mr-8 pr-8 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
             <DictionaryIcon className="w-6 mb-2" />
-            <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">{t('homepage.box_dictionary_title')}</h2>
+            <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
+            <Link href={'/dictionary'}>
+              {t('homepage.box_dictionary_title')}
+            </Link>
+            </h2>
             <p>{t('homepage.box_dictionary_description')}</p>
           </div>
           <div className="sm:w-4/6 md:w-3/6 mb-8 ">
             <MovappIcon className="w-8 mb-2" />
-            <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">{t('homepage.box_movapp_title')}</h2>
+            <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
+            <Link href={'/about'}>
+              {t('homepage.box_movapp_title')}
+            </Link>
+            </h2>
             <p className="mb-2">{t('homepage.box_movapp_description_top')}</p>
             <p><em>{t('homepage.box_movapp_description_bottom')}</em></p>
           </div>
