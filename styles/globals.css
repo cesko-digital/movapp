@@ -35,3 +35,13 @@ h2 {
     margin: 1rem 0;
   }
 }
+
+.homepage-box {
+  position: relative;
+}
+
+.homepage-box a:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
