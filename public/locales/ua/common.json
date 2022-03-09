@@ -6,21 +6,21 @@
     "contacts_link_name": "Контакти"
   },
   "footer": {
-    "stand_with_ukraine_description": "Nezávislý informační rozcestník",
-    "help_ukraine_description": "Portál pro zprostředkování nabídek pomoci",
-    "czech_digital": "Skrz jedničky a nuly měníme Česko k lepšímu"
+    "stand_with_ukraine_description": "Незалежний інформаційний довідник",
+    "help_ukraine_description": "Майданчик з пропозиціями допомоги",
+    "czech_digital": "Через одиниці і нулі змінюємо Чехію на краще"
   },
   "homepage": {
     "title": "Вивчіть основи чеської та української мови для повсякденного життя",
     "box_dictionary_title": "Словник",
     "box_dictionary_description": "Вивчіть сотні базових слів та фраз, читаючи й слухаючи. Слова та фрази розділені на категорії відповідно до життєвих ситуацій.",
-    "box_movapp_title": "Movapp це…",
-    "box_movapp_description_top": "\"Мова\" [mova] означає українською мова. Movapp — це додаток для вивчення мови. Метою Movapp.cz є полегшення спілкування між чехами та українцями.",
+    "box_movapp_title": "Movapp це...",
+    "box_movapp_description_top": " \"Мова\" [mova] означає українською мова. Movapp — це додаток для вивчення мови. Метою Movapp.cz є полегшення спілкування між чехами та українцями.",
     "box_movapp_description_bottom": "Тут ви знайдете список базових чесько-українських слів та фраз. Незабаром ми додамо інструменти для практики цих фраз."
   },
   "dictionary_page": {
+    "search_button": "Знайти",
     "title": "Ukrajinsko-Český slovníček",
-    "search_button": "Найти",
     "search_placeholder": "Знайти слово",
     "subtitle": "Виберіть категорію"
   },
@@ -49,13 +49,13 @@
     "join_description": "Якщо ви хочете стати членом команди волонтерів і допомогти нам розвивати проект, заповніть форму на <0>cesko.digital/join</0> та приєднайтеся до нашого Slack. Ви можете знайти нас на каналі <strong>ua-jazykova-aplikace</strong> (спілкуємося чеською, словацькою, англійською а також трохи українською)."
   },
   "seo": {
-    "homepage_page_title": "Movapp.cz – aby se Češi a Ukrajinci snadno domluvili",
-    "homepage_page_description": "Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou.",
+    "homepage_page_title": "Movapp.cz – аби спілкування між чехами та українцями стало простішим",
+    "homepage_page_description": "Список базових чесько-українських слів і фраз та інструменти для практики цих фраз. Посилання на інші навчальні матеріали. Створено волонтерами з любов’ю.",
     "dictionary_page_title": "Українсько-Чеський словник | Movapp.cz",
-    "dictionary_page_description": "Základní česko-ukrajinská slovíčka a fráze rozdělená podle životních situací. Vytvářeno s láskou.",
-    "contacts_page_title": "Kontakty | Movapp.cz",
-    "contacts_page_description": "Chcete se stát členem týmu a pomáhat na dalším rozvoji projektu?",
-    "about_page_title": "O nás | Movapp.cz",
-    "about_page_description": "Projekt vznikl v rámci iniciativy Stojíme za Ukrajinou v komunitě experních dobrovolníků Česko.Digital."
+    "dictionary_page_description": "Базові чесько-українські слова та фрази розділені на категорії відповідно до життєвих ситуацій. Створено з любов’ю.",
+    "contacts_page_title": "Контакти | Movapp.cz",
+    "contacts_page_description": "Бажаєте стати учасником команди та сприяти подальшому розвитку проекту?",
+    "about_page_title": "Хто ми | Movapp.cz",
+    "about_page_description": "Проєкт, створений в рамках ініціативи Stojíme za Ukrajinou в спільноті експертів-волонтерів Česko.Digital."
   }
 }
