@@ -56,7 +56,7 @@ const Dictionary = () => {
         <meta name="description" content={t('seo.dictionary_page_description')} />
         <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
       </Head>
-      <div className="min-h-screen max-w-7xl m-auto">
+      <div className="min-h-screen max-w-7xl m-auto sm:py-10 px-2 sm:px-4">
         <h1 className="text-primary-blue">{t('dictionary_page.title')}</h1>
         <div className="flex items-center">
           <SearchInput

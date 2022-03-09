@@ -20,7 +20,7 @@ const Home: NextPage = () => {
       <div className="bg-homepage-hero bg-center pt-20 pb-[10rem] pl-4 pr-4 bg-cover">
         <h1 className="text-center max-w-3xl m-auto pt-12 pb-12 text-primary-blue text-[2.5rem] leading-snug">{t('homepage.title')}</h1>
       </div>
-      <div className="max-w-7xl m-auto">
+      <div className="max-w-7xl m-auto px-2 sm:px-4">
         <div className="max-w-7xl bg-white p-12 flex flex-wrap md:flex-nowrap shadow-xxl mt-[-6rem]">
           <div className="homepage-box group hover:text-primary-blue md:w-2/6 mb-8 mr-8 pr-8 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
             <DictionaryIcon className="w-6 mb-2 group-hover:fill-primary-red" />
