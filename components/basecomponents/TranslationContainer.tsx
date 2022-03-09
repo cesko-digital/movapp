@@ -52,7 +52,7 @@ export const TranslationContainer = ({
       <div className="flex justify-between items-center py-2 ">
         <div className="w-full">
           <p className="self-start w-full font-semibold">{czTranslation}</p>
-          <p className="text-gray-500">{cz_transcription}</p>
+          {cz_transcription && <p className="text-gray-500">{`[ ${cz_transcription} ]`}</p>}
         </div>
         <PlayIcon
           onClick={() => handleTranslationAudioPlay('cs', cz_translation)}
@@ -65,7 +65,7 @@ export const TranslationContainer = ({
       <div className="flex justify-between self-center  py-2 items-center ">
         <div className="w-full pr-4">
           <p className="w-full font-semibold">{uaTranslation}</p>
-          <p className="text-gray-500">{ua_transcription}</p>
+          {ua_transcription && <p className="text-gray-500">{`[ ${ua_transcription} ]`}</p>}
         </div>
         <PlayIcon onClick={() => handleTranslationAudioPlay('uk', ua_translation)} className="cursor-pointer" />
       </div>
