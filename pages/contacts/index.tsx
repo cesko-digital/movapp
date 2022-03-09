@@ -17,7 +17,7 @@ const Contacts = () => {
         <meta name="description" content={t('seo.contacts_page_description')} />
         <meta name="twitter:title" content={t('seo.contacts_page_title')} />
       </Head>
-      <div>
+      <div className="max-w-7xl m-auto">
         <h2 className={`${heading_style}`}>
           <Trans>{t('contacts_page.email_contact_title')}</Trans>
         </h2>

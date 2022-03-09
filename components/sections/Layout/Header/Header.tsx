@@ -11,7 +11,7 @@ export const Header = () => {
   const router = useRouter();
   return (
     <header className=" bg-primary-blue w-full sticky top-0 h-14 hidden sm:block">
-      <div className="max-w-4xl m-auto flex h-full justify-between items-center ">
+      <div className="max-w-7xl m-auto flex h-full justify-between items-center ">
         {/* Will be reaplaced by logo */}
         <Link href={'/'}>
           <a>

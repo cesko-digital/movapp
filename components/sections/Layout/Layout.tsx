@@ -12,7 +12,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
     <div>
       <Header />
       <main className="bg-primary-grey pt-0 pb-8 sm:py-8 min-h-screen px-2 sm:px-4">
-        <div className="max-w-4xl m-auto">{children}</div>
+        <div className="m-auto">{children}</div>
       </main>
       <Footer />
     </div>
