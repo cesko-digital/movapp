@@ -3,6 +3,8 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 export { getStaticProps } from '../utils/localization';
 import Link from 'next/link';
+import Image from 'next/image'
+import HeartsUkraine from '../public/hearts-for-ukraine.png'
 import DictionaryIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
 
@@ -42,7 +44,7 @@ const Home: NextPage = () => {
             </p>
           </div>
           <div className="sm:w-2/6 md:w-1/6 mb-8 flex justify-end">
-            <img src="/hearts-for-ukraine.png" className="self-center" />
+            <Image src={HeartsUkraine} alt="Česká a Ukrajinská vlajka v srdcích." className="self-center" />
           </div>
         </div>
       </div>
