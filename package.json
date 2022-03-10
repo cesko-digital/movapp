@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.3",
+    "@headlessui/react": "^1.5.0",
     "@svgr/webpack": "^6.2.1",
     "eslint-config-prettier": "^8.5.0",
     "marked": "^4.0.12",
