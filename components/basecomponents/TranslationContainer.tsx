@@ -51,7 +51,7 @@ export const TranslationContainer = ({
       {/* CZ translation  */}
       <div className="flex justify-between items-center py-2 ">
         <div className="w-full">
-          <p className="self-start w-full font-semibold">{czTranslation}</p>
+          <p className="self-start w-full font-bold">{czTranslation}</p>
           {cz_transcription && <p className="text-gray-500">{`[ ${cz_transcription} ]`}</p>}
         </div>
         <PlayIcon
