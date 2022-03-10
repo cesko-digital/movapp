@@ -1,21 +1,21 @@
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { HEADER_NAVIGATION } from '../../../../data/headerNavigation';
 import { LOCALES } from '../../../../data/locales';
-import AppLogo from '../../../../public/movapp-logo.svg';
+import AppLogo from '../../../../public/movapp-logo.png';
 
 export const Header = () => {
   const { t, i18n } = useTranslation('common');
   const router = useRouter();
   return (
-    <header className=" bg-primary-blue w-full sticky top-0 h-14 hidden sm:block">
+    <header className=" bg-primary-blue w-full sticky top-0 z-10 h-14 hidden sm:block">
       <div className="max-w-7xl m-auto flex h-full justify-between items-center ">
-        {/* Will be reaplaced by logo */}
         <Link href={'/'}>
-          <a>
-            <AppLogo className="w-48 h-8" />
+          <a className="logo">
+            <Image src={AppLogo} width={150} height={44} alt="Movapp logo" />
           </a>
         </Link>
         <nav className="w-full">

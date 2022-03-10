@@ -1,4 +1,5 @@
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -6,7 +7,7 @@ import { HEADER_NAVIGATION } from '../../../../data/headerNavigation';
 import { LOCALES } from '../../../../data/locales';
 import BurgerIcon from '../../../../public/icons/burger.svg';
 import CloseIcon from '../../../../public/icons/close.svg';
-import AppLogo from '../../../../public/movapp-logo.svg';
+import AppLogo from '../../../../public/movapp-logo.png';
 
 export const MobileHeader = () => {
   const [showNavigation, setShowNavigation] = useState(false);
@@ -26,10 +27,10 @@ export const MobileHeader = () => {
   }, [router, showNavigation]);
 
   return (
-    <header className="sm:hidden sticky top-0 h-14 bg-primary-blue w-full flex justify-between items-center px-2">
+    <header className="sm:hidden sticky top-0 h-14 bg-primary-blue z-10 w-full flex justify-between items-center px-2">
       <Link href={'/'}>
-        <a>
-          <AppLogo className="w-36 h-20" />
+        <a className="logo">
+          <Image src={AppLogo} width={150} height={45} alt="Movapp logo" />
         </a>
       </Link>
       <ul className="flex w-full justify-end pr-5 items-center">

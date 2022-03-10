@@ -47,7 +47,7 @@ export const TranslationContainer = ({
   };
 
   return (
-    <div className="sm:grid sm:grid-cols-[40%_2%_40%] sm:gap-[8%]   sm:items-center my-4 sm:my-2 p-2 border-b-[1px] border-b-slate-200 bg-primary-grey">
+    <div className="sm:grid sm:grid-cols-[40%_2%_40%] sm:gap-[8%]  sm:items-center  border-1 p-2 border-b-[1px] border-b-slate-200 bg-primary-grey">
       {/* CZ translation  */}
       <div className="flex justify-between items-center py-2 ">
         <div className="w-full">

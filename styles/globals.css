@@ -41,7 +41,12 @@ h2 {
 }
 
 .homepage-box a:after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
+}
+
+/** removes white space under an image */
+.logo span {
+  display: block !important;
 }
