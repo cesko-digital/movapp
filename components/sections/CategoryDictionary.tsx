@@ -4,13 +4,15 @@ import { Translation, TranslationContainer } from '../basecomponents/Translation
 interface CategoryDictionaryProps {
   translations: Translation[];
   searchText: string;
+  setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
+  player: HTMLAudioElement | null;
 }
 
-export const CategoryDictionary = ({ translations, searchText }: CategoryDictionaryProps): JSX.Element => {
+export const CategoryDictionary = ({ translations, setPlayer, player, searchText }: CategoryDictionaryProps): JSX.Element => {
   return (
     <>
       {translations.map((translation, index) => {
-        return <TranslationContainer key={index} {...translation} searchText={searchText} />;
+        return <TranslationContainer player={player} setPlayer={setPlayer} key={index} {...translation} searchText={searchText} />;
       })}
     </>
   );

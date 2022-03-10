@@ -8,15 +8,15 @@ export const Footer = () => {
   return (
     <footer className="bg-primary-black">
       <div className="max-w-4xl m-auto p-2 sm:py-5 ">
-        <p className="text-primary-yellow text-center font-extrabold text-xl sm:text-2xl mt-2 sm:mt-4 mb-2 sm:mb-6">#StandWithUkraine</p>
+        <p className="text-primary-yellow text-center font-black text-xl sm:text-2xl mt-2 sm:mt-4 mb-2 sm:mb-6">#StandWithUkraine</p>
         <div className="flex flex-col sm:flex-row justify-between items-center">
           {FOOTER_NAVIGATION.map(({ title, link, description }, index) => {
             return (
               <Link key={index} href={link}>
-                <a target={'_blank'}>
+                <a target={'_blank'} className="sm:w-2/6">
                   <div className="py-1">
-                    <p className="text-white text-center text-sm sm:text-base font-semibold my-2">{title}</p>
-                    <p className="text-white text-center font-extralight text-xs sm:text-sm">{t(description)}</p>
+                    <p className="text-white text-center text-sm sm:text-base font-bold my-2">{title}</p>
+                    <p className="text-white text-center font-light text-xs sm:text-sm">{t(description)}</p>
                   </div>
                 </a>
               </Link>

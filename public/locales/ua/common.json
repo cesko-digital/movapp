@@ -5,19 +5,57 @@
     "about_link_name": "Про нас",
     "contacts_link_name": "Контакти"
   },
+  "footer": {
+    "stand_with_ukraine_description": "Незалежний інформаційний довідник",
+    "help_ukraine_description": "Майданчик з пропозиціями допомоги",
+    "czech_digital": "Через одиниці і нулі змінюємо Чехію на краще"
+  },
+  "homepage": {
+    "title": "Вивчіть основи чеської та української мови для повсякденного життя",
+    "box_dictionary_title": "Словник",
+    "box_dictionary_description": "Вивчіть сотні базових слів та фраз, читаючи й слухаючи. Слова та фрази розділені на категорії відповідно до життєвих ситуацій.",
+    "box_movapp_title": "Movapp це...",
+    "box_movapp_description_top": " \"Мова\" [mova] означає українською мова. Movapp — це додаток для вивчення мови. Метою Movapp.cz є полегшення спілкування між чехами та українцями.",
+    "box_movapp_description_bottom": "Тут ви знайдете список базових чесько-українських слів та фраз. Незабаром ми додамо інструменти для практики цих фраз."
+  },
   "dictionary_page": {
-    "search_button": "Найти",
+    "search_button": "Знайти",
+    "title": "Ukrajinsko-Český slovníček",
     "search_placeholder": "Знайти слово",
     "subtitle": "Виберіть категорію"
   },
-  "footer": {
-    "stand_with_ukraine_description": "Nezávislý informační rozcestník",
-    "help_ukraine_description": "Portál pro zprostředkování nabídek pomoci",
-    "czech_digital": "Skrz jedničky a nuly měníme Česko k lepšímu"
-  },
   "about_page": {
-    "description_1": "Stojíme za Ukrajinou je iniciativa dobrovolníků napříč organizacemi a spolky. Jsme běžní řadoví občané, kterým není lhostejná současná situace související s válečným konfliktem vedeným Ruskem proti suverénní demokratické Ukrajině. Tato iniciativa vznikla přirozeně, vyrůstá z dlouhodobé podpory Ukrajiny po anexi Krymu, s eskalací napětí začala být ve veřejném prostoru zřejmá 19. února 2022 a od té doby organicky roste. Nezávislý informační rozcestník Stojíme za Ukrajinou je společným projektem této iniciativy a svou podporu a zázemí mu poskytlo Česko.Digital a solidpixels.",
-    "description_2": "Jedná se o živé stránky, které jsou průběžně vylepšovány. Informační rozcestník vzniká samoorganizačním principem ve spolupráci řady partnerů a dobrovolníků. Seznam zapojených lidí a organizací budeme průběžně doplňovat. Dochází k enormní vlně solidarity a snahy pomoci. Sladění takto velkého množství lidí v tak krátkém čase je velkou výzvou, na které průběžně pracujeme. Nepochybujeme však, že při jejím řešení obstojíme. Společně sloužíme vyššímu záměru - pomoci zvládnout extrémní situaci, ve které se nachází lidé na Ukrajině a s nimi i celý demokratický svět včetně České republiky.",
-    "contacts_title": "Контакти"
+    "title": "<strong>Movapp.cz</strong> – це проект, який створено в рамках ініціативи <strong>Stojíme za Ukrajinou</strong> в спільноті експертів-волонтерів <strong>Česko.Digital.</strong>",
+    "movapp_goal_title": "<strong>Мета Movapp.cz</strong>",
+    "movapp_goal_description": "Метою Movapp.cz є полегшення спілкування між чехами та українцями. На першому етапі було опубліковано список базових чесько-українських фраз. На наступних етапах ми плануємо створити інструменти для практики цих фраз. Також ми будемо додавати посилання на інші інструменти та матеріали, які допоможуть вам у вивченні української та чеської мови.",
+    "why_movapp_title": "<strong>Чому Movapp?</strong>",
+    "why_movapp_description": "Мова [mova] означає українською мова. Movapp — це додаток для вивчення мови. <br/><br/> Movapp доступний безплатно і створений як програмне забезпечення з відкритим кодом за ліцензією MIT, а це означає, що ви можете не тільки безплатно використовувати його, але й модифікувати (якщо маєте навички програмування). <br/><br/> Текстовий вміст Movapp (тобто слова та фрази для вивчення чеської та української мови) доступний за <0>ліцензією CC BY-NC 4.0</0> (походження – не використовувати в комерційних цілях 4.0), що означає, що ви можете використовувати їх для власних потреб без будь-яких обмеження. Якщо ви бажаєте розповсюдити їх (в оригінальному або зміненому вигляді), ви можете зробити це лише некомерційним способом та з указанням авторів. <br/><br/> Оригінальним автором <1>списку базових чесько-українських слів та фраз</1> є Тереза ​​Яворницька та Євгенія Валова (EDUA Group). Цей набір підтримується та розповсюджується командою Movapp.",
+    "our_team_title": "<strong>Наша команда</strong>",
+    "our_team_description": "Основними членами команди Movapp.cz є: Мартін Хассман, Олег Антоняк, Тетяна Читилова, Петр Іллек, Валерія Куна та Моніка Фабрьова. Їм також допомагають інші волонтери. <br/><br/> Ви хочете нам допомогти із вмістом чи взяти участь у проєкті? <br/> <0>Контактуйте нас</0>",
+    "stand_with_ukraine_title": "Stojíme za Ukrajinou",
+    "stand_with_ukraine_description": "<0>Stojíme za Ukrajinou</0> – це ініціатива, створена волонтерами з різних організацій та спілок. Ми - звичайні громадяни, яким небайдужа нинішня ситуація, спричинена військовим конфліктом, розв'язаним Росією проти суверенної демократичної України. Ця ініціатива закономірно виникла та розвинулася на базі нашої довготривалої підтримки України після анексії Криму, через ескалацією напруги, що відбулася в публічному просторі 19 лютого 2022 і, відтоді, лише зростає.",
+    "czech_digital_title": "Česko.Digital",
+    "czech_digital_description": "<0>Česko.Digital</0> – це спільнота експертів-волонтерів з багатьох сфер, таких як ІT, управління проектами, маркетинг, які у вільний час допомагають державі та неурядовим організаціям. Таким чином вони змінюють Чехію на краще. Спільнота Česko.Digital була заснована у 2019 році Якубом Нешетржилом, Радкою Гораковою та Євою Павліковою."
+  },
+  "contacts_page": {
+    "title": "Kontakty",
+    "email_contact_title": "Контактна електронна адреса:",
+    "email_contact_link": "movapp.cz@gmail.com",
+    "social_media": {
+      "social_media_title": "Ми у соціальних мережах:"
+    },
+    "community_description": "Проєкт Movapp створений за підтримки експертів-волонтерів <0>Česko.Digital.</0>",
+    "join_title": "Приєднуйтесь",
+    "join_description": "Якщо ви хочете стати членом команди волонтерів і допомогти нам розвивати проект, заповніть форму на <0>cesko.digital/join</0> та приєднайтеся до нашого Slack. Ви можете знайти нас на каналі <strong>ua-jazykova-aplikace</strong> (спілкуємося чеською, словацькою, англійською а також трохи українською)."
+  },
+  "seo": {
+    "homepage_page_title": "Movapp.cz – аби спілкування між чехами та українцями стало простішим",
+    "homepage_page_description": "Список базових чесько-українських слів і фраз та інструменти для практики цих фраз. Посилання на інші навчальні матеріали. Створено волонтерами з любов’ю.",
+    "dictionary_page_title": "Українсько-Чеський словник | Movapp.cz",
+    "dictionary_page_description": "Базові чесько-українські слова та фрази розділені на категорії відповідно до життєвих ситуацій. Створено з любов’ю.",
+    "contacts_page_title": "Контакти | Movapp.cz",
+    "contacts_page_description": "Бажаєте стати учасником команди та сприяти подальшому розвитку проекту?",
+    "about_page_title": "Хто ми | Movapp.cz",
+    "about_page_description": "Проєкт, створений в рамках ініціативи Stojíme za Ukrajinou в спільноті експертів-волонтерів Česko.Digital."
   }
 }

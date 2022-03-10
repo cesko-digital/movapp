@@ -36,8 +36,8 @@
     "ua_transcription": "chlib"
   },
   {
-    "cz_translation": "houska (AKK: housku) / housky",
-    "cz_transcription": "гоуска (АКК гоуску) / гоуски",
+    "cz_translation": "houska / housky",
+    "cz_transcription": "гоуска / гоуски",
     "ua_translation": "булочка (несолодка)",
     "ua_transcription": "buločka (nesolodka)"
   },
@@ -48,8 +48,8 @@
     "ua_transcription": "kruasan (čes’kij, nesolodkyj)"
   },
   {
-    "cz_translation": "šunka (AKK: šunku)",
-    "cz_transcription": "шунка (АКК шунку)",
+    "cz_translation": "šunka",
+    "cz_transcription": "шунка",
     "ua_translation": "шинка",
     "ua_transcription": "šinka"
   },
@@ -78,14 +78,14 @@
     "ua_transcription": "kartoplja"
   },
   {
-    "cz_translation": "cibule (AKK: cibuli)",
-    "cz_transcription": "цібуле (АКК цібулі)",
+    "cz_translation": "cibule",
+    "cz_transcription": "цібуле",
     "ua_translation": "цибуля",
     "ua_transcription": "cibulja"
   },
   {
-    "cz_translation": "rýže (AKK: rýži)",
-    "cz_transcription": "риже (АКК рижі)",
+    "cz_translation": "rýže",
+    "cz_transcription": "риже",
     "ua_translation": "рис",
     "ua_transcription": "rys"
   },
@@ -126,14 +126,14 @@
     "ua_transcription": "pomidory"
   },
   {
-    "cz_translation": "paprika (AKK: papriku) / papriky",
-    "cz_transcription": "паприка (АКК папріку) / паприки",
+    "cz_translation": "paprika / papriky",
+    "cz_transcription": "паприка / паприки",
     "ua_translation": "перець / перці",
     "ua_transcription": "perec’ / perci"
   },
   {
-    "cz_translation": "okurka (AKK: okurku) / okurky",
-    "cz_transcription": "окурка (АКК окурку) / окурки",
+    "cz_translation": "okurka / okurky",
+    "cz_transcription": "окурка / окурки",
     "ua_translation": "огірок/огірки",
     "ua_transcription": "ohirok / ohirky"
   },

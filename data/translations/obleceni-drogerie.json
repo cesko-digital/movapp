@@ -1,210 +1,177 @@
 [
   {
-    "cz_translation": "Kolik je hodin?",
-    "cz_transcription": "Колик є годін",
-    "ua_translation": "Котра година?",
-    "ua_transcription": "Kotra hodyna"
+    "cz_translation": "tričko / trička",
+    "cz_transcription": "тричко / тричка",
+    "ua_translation": "кофта/кофти",
+    "ua_transcription": "kofta / kofty"
   },
   {
-    "cz_translation": "Je [sedm] hodin.",
-    "cz_transcription": "Є седум годін",
-    "ua_translation": "Сьома година",
-    "ua_transcription": "Sjoma hodyna"
+    "cz_translation": "kalhoty",
+    "cz_transcription": "калготи",
+    "ua_translation": "штани",
+    "ua_transcription": "štany"
   },
   {
-    "cz_translation": "Je čtvrt na [pět].",
-    "cz_transcription": "Є чтврт на пєт",
-    "ua_translation": "Чверть на п'яту.",
-    "ua_transcription": "Čverť na pjatu"
+    "cz_translation": "prádlo",
+    "cz_transcription": "прадло",
+    "ua_translation": "білизна",
+    "ua_transcription": "bilyzna"
   },
   {
-    "cz_translation": "Je půl [páté].",
-    "cz_transcription": "Є пул пате",
-    "ua_translation": "Пів п'ятої",
-    "ua_transcription": "Piu pjatoji"
+    "cz_translation": "ponožky",
+    "cz_transcription": "поношки",
+    "ua_translation": "шкарпетки",
+    "ua_transcription": "škarpetky"
   },
   {
-    "cz_translation": "Je tři čtvrtě na [pět].",
-    "cz_transcription": "Є тржи чтвртє за пєт",
-    "ua_translation": "за чверть шоста.",
-    "ua_transcription": "za čverť šosta"
-  },
-
-  {
-    "cz_translation": "Kdy mám přijít?",
-    "cz_transcription": "Ґди мам пржіїт",
-    "ua_translation": "Коли мені прийти?",
-    "ua_transcription": "Koly meni pryjty"
+    "cz_translation": "mikina / mikiny",
+    "cz_transcription": "микина / микини",
+    "ua_translation": "кофта з довгими рукавами",
+    "ua_transcription": "kofta z douhymy rukavamy"
   },
   {
-    "cz_translation": "Kdy to mám udělat?",
-    "cz_transcription": "Ґди то мам удєлат",
-    "ua_translation": "Коли я маю це зробити?",
-    "ua_transcription": "Koly ja maju ce zrobyty"
-  },
-
-  {
-    "cz_translation": "V pondělí.",
-    "cz_transcription": "Ф пондєлі",
-    "ua_translation": "в понеділок",
-    "ua_transcription": "v ponedilok"
+    "cz_translation": "svetr / svetry",
+    "cz_transcription": "светр / светри",
+    "ua_translation": "светр/светри",
+    "ua_transcription": "svetr / svetry"
   },
   {
-    "cz_translation": "úterý",
-    "cz_transcription": "утери",
-    "ua_translation": "вівторок",
-    "ua_transcription": "vivtorok"
+    "cz_translation": "(zimní) bunda / (zimní) bundy",
+    "cz_transcription": "зимні бунда / зимні бунди",
+    "ua_translation": "(зимова) куртка/ куртки",
+    "ua_transcription": "(zimova) kurtka / kurtky"
   },
   {
-    "cz_translation": "středa (LOK: středu)",
-    "cz_transcription": "стржеда (ЛОК ве стржеду)",
-    "ua_translation": "середа, в середу",
-    "ua_transcription": "sereda, v seredu"
+    "cz_translation": "čepice",
+    "cz_transcription": "чепице",
+    "ua_translation": "шапка",
+    "ua_transcription": "šapka"
   },
   {
-    "cz_translation": "čtvrtek",
-    "cz_transcription": "чтвртек (ЛОК ве чтвртек)",
-    "ua_translation": "четвер",
-    "ua_transcription": "četver"
+    "cz_translation": "rukavice",
+    "cz_transcription": "рукавице",
+    "ua_translation": "рукавиці",
+    "ua_transcription": "rukavyci"
   },
   {
-    "cz_translation": "pátek",
-    "cz_transcription": "патек",
-    "ua_translation": "п'ятниця",
-    "ua_transcription": "pjatnycja"
+    "cz_translation": "pyžamo",
+    "cz_transcription": "пижамо",
+    "ua_translation": "піжама",
+    "ua_transcription": "pižama"
   },
   {
-    "cz_translation": "sobota (LOK: sobotu)",
-    "cz_transcription": "собота (ЛОК ф соботу)",
-    "ua_translation": "субота, в суботу",
-    "ua_transcription": "subota, v subotu"
+    "cz_translation": "(zimní) boty",
+    "cz_transcription": "зимні боти",
+    "ua_translation": "(зимові) чоботи",
+    "ua_transcription": "(zymovi) čoboty"
   },
   {
-    "cz_translation": "neděle (LOK: neděli)",
-    "cz_transcription": "недєле (ЛОК в недєли)",
-    "ua_translation": "неділя, в неділю",
-    "ua_transcription": "nedilja, v nedilju"
+    "cz_translation": "bačkory",
+    "cz_transcription": "бачкори",
+    "ua_translation": "капці",
+    "ua_transcription": "kapci"
   },
   {
-    "cz_translation": "V [sedm] hodin.",
-    "cz_transcription": "Ф седум годін",
-    "ua_translation": "О сьомій",
-    "ua_transcription": "O sjomij"
-  },
-
-  {
-    "cz_translation": "předevčírem",
-    "cz_transcription": "пржедефчірем",
-    "ua_translation": "позавчора",
-    "ua_transcription": "pozavčora"
+    "cz_translation": "dudlík",
+    "cz_transcription": "дудлік",
+    "ua_translation": "соска",
+    "ua_transcription": "soska"
   },
   {
-    "cz_translation": "včera",
-    "cz_transcription": "фчера",
-    "ua_translation": "вчора",
-    "ua_transcription": "včora"
+    "cz_translation": "pleny",
+    "cz_transcription": "плени",
+    "ua_translation": "пелюшки",
+    "ua_transcription": "peljušky"
+  },
+  
+  {
+    "cz_translation": "mýdlo",
+    "cz_transcription": "мидло",
+    "ua_translation": "мило",
+    "ua_transcription": "mylo"
   },
   {
-    "cz_translation": "dnes",
-    "cz_transcription": "днес",
-    "ua_translation": "сьогодні",
-    "ua_transcription": "sjohodni"
+    "cz_translation": "šampon",
+    "cz_transcription": "шампон",
+    "ua_translation": "шампунь",
+    "ua_transcription": "šampuň"
   },
   {
-    "cz_translation": "zítra",
-    "cz_transcription": "зітра",
-    "ua_translation": "завтра",
-    "ua_transcription": "zavtra"
+    "cz_translation": "krém",
+    "cz_transcription": "крем",
+    "ua_translation": "крем",
+    "ua_transcription": "krem"
   },
   {
-    "cz_translation": "pozítří",
-    "cz_transcription": "позітржі",
-    "ua_translation": "післязавтра",
-    "ua_transcription": "pisljazavtra"
+    "cz_translation": "kartáček na zuby",
+    "cz_transcription": "картачек на зуби",
+    "ua_translation": "зубна щітка",
+    "ua_transcription": "zubna ščitka"
   },
   {
-    "cz_translation": "teď",
-    "cz_transcription": "теть",
-    "ua_translation": "зараз",
-    "ua_transcription": "zaraz"
+    "cz_translation": "(zubní) pasta",
+    "cz_transcription": "зубні паста",
+    "ua_translation": "зубна паста",
+    "ua_transcription": "zubna pasta"
   },
   {
-    "cz_translation": "později",
-    "cz_transcription": "поздєї",
-    "ua_translation": "пізніше",
-    "ua_transcription": "pizniše"
-  },
-
-  {
-    "cz_translation": "leden (LOK: v lednu)",
-    "cz_transcription": "леден (ЛОК в ледну)",
-    "ua_translation": "січень, в січні",
-    "ua_transcription": "sičeň, v sični"
+    "cz_translation": "vložky",
+    "cz_transcription": "влошки",
+    "ua_translation": "прокладки",
+    "ua_transcription": "prokladky"
   },
   {
-    "cz_translation": "únor (LOK: v únoru)",
-    "cz_transcription": "унор (ЛОК ф унору)",
-    "ua_translation": "лютий, в лютому",
-    "ua_transcription": "ljutyj, v ljutomu"
+    "cz_translation": "tampony",
+    "cz_transcription": "тампони",
+    "ua_translation": "тампони",
+    "ua_transcription": "tampony"
   },
   {
-    "cz_translation": "březen (LOK: v březnu)",
-    "cz_transcription": "бржезен (ЛОК в бржезну)",
-    "ua_translation": "березень, в березні",
-    "ua_transcription": "berezeň, v berezni"
+    "cz_translation": "toaletní papír",
+    "cz_transcription": "тоалетні папір",
+    "ua_translation": "туалетний папір",
+    "ua_transcription": "tualetnyj papir"
   },
   {
-    "cz_translation": "duben (LOK: v dubnu)",
-    "cz_transcription": "дубен (ЛОК в дубну)",
-    "ua_translation": "квітень, в квітні",
-    "ua_transcription": "kviteň, v kvitni"
+    "cz_translation": "ručník / ručníky",
+    "cz_transcription": "ручнік / ручніки",
+    "ua_translation": "рушник",
+    "ua_transcription": "rušnyk"
   },
   {
-    "cz_translation": "květen (LOK: v květnu)",
-    "cz_transcription": "квєтен (ЛОК ф квєтну)",
-    "ua_translation": "!!! травень, в травні",
-    "ua_transcription": "traveň, v travni"
+    "cz_translation": "utěrka / utěrky",
+    "cz_transcription": "утєрка / утєрки",
+    "ua_translation": "кухонний рушник",
+    "ua_transcription": "kuchonnyj rušnyk"
   },
   {
-    "cz_translation": "červen (LOK: v červnu)",
-    "cz_transcription": "червен (ЛОК ф червну)",
-    "ua_translation": "червень, в червні",
-    "ua_transcription": "červeň, v červni"
+    "cz_translation": "ložní prádlo",
+    "cz_transcription": "ложні прадло",
+    "ua_translation": "постільна білизна",
+    "ua_transcription": "postil’na bilyzna"
   },
   {
-    "cz_translation": "červenec (LOK: v červenci)",
-    "cz_transcription": "червенец (ЛОК ф червенци)",
-    "ua_translation": "липень, в липні",
-    "ua_transcription": "lipeň, v lipni"
+    "cz_translation": "kapesník / kapesníky",
+    "cz_transcription": "капеснік / капесніки",
+    "ua_translation": "хустинка/хустинки",
+    "ua_transcription": "chustynka / chustynky"
   },
   {
-    "cz_translation": "srpen (LOK: v srpnu)",
-    "cz_transcription": "српен (ЛОК ф српну)",
-    "ua_translation": "серпень, в серпні",
-    "ua_transcription": "serpeň, v serpni"
+    "cz_translation": "polštář / polštáře",
+    "cz_transcription": "полштарж / полштарже",
+    "ua_translation": "подушка/подушки",
+    "ua_transcription": "poduška / podušky"
   },
   {
-    "cz_translation": "září",
-    "cz_transcription": "заржі (ЛОК в заржі)",
-    "ua_translation": "вересень",
-    "ua_transcription": "vereseň"
+    "cz_translation": "peřina / peřiny",
+    "cz_transcription": "пержіна / пержіни",
+    "ua_translation": "ковдра/ковдри",
+    "ua_transcription": "koudra / koudry"
   },
   {
-    "cz_translation": "říjen (LOK: v říjnu)",
-    "cz_transcription": "ржієн (ЛОК в ржійну)",
-    "ua_translation": "жовтень, в жовтні",
-    "ua_transcription": "žouteň, v žoutni"
-  },
-  {
-    "cz_translation": "listopad (LOK: v listopadu)",
-    "cz_transcription": "листопад (ЛОК в листопаду)",
-    "ua_translation": "листопад, в листопаді",
-    "ua_transcription": "listopad, v listopadi"
-  },
-  {
-    "cz_translation": "prosinec (LOK: v prosinci)",
-    "cz_transcription": "просинец (ЛОК ф просинци)",
-    "ua_translation": "грудень, в грудні",
-    "ua_transcription": "hrudeň, v hrudni"
+    "cz_translation": "deka / deky",
+    "cz_transcription": "дека / деки",
+    "ua_translation": "ковдра/ковдри",
+    "ua_transcription": "koudra / koudry"
   }
 ]

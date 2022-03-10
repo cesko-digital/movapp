@@ -4,6 +4,12 @@ import { ScrollToTop } from '../components/basecomponents/ScrollToTop';
 import { Layout } from '../components/sections/Layout/Layout';
 import { appWithTranslation } from 'next-i18next';
 
+import '@fontsource/roboto/900.css';
+import '@fontsource/roboto/700.css';
+import '@fontsource/roboto/700-italic.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/300.css';
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Layout>

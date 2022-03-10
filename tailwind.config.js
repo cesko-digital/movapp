@@ -22,6 +22,9 @@ module.exports = {
       borderWidth: {
         1: '1px',
       },
+      backgroundImage: {
+        'homepage-hero': "url('/movapp-bg.svg')",
+      },
     },
   },
   plugins: [],

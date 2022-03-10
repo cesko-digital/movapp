@@ -30,8 +30,8 @@
     "ua_transcription": "mahazyn jiži"
   },
   {
-    "cz_translation": "drogerie (AKK: drogerii)",
-    "cz_transcription": "дроґериє (АКК дроґериї)",
+    "cz_translation": "drogerie",
+    "cz_transcription": "дроґериє",
     "ua_translation": "магазин побутової хімії",
     "ua_transcription": "mahazyn pobutovoji chimiji"
   },
@@ -54,8 +54,8 @@
     "ua_transcription": "torhivel’nyj cent"
   },
   {
-    "cz_translation": "lékárna (AKK: lékárnu)",
-    "cz_transcription": "лекарна (АКК лекарну)",
+    "cz_translation": "lékárna",
+    "cz_transcription": "лекарна",
     "ua_translation": "!!! аптека",
     "ua_transcription": "apteka"
   },
@@ -101,33 +101,28 @@
     "ua_translation": "Де найближча (лікарня)",
     "ua_transcription": "de najbližča (likarňa)"
   },
+  
   {
-    "cz_translation": "",
-    "cz_transcription": "",
-    "ua_translation": "",
-    "ua_transcription": ""
-  },
-  {
-    "cz_translation": "náměstí (AKK: náměstí)",
-    "cz_transcription": "намнєсті (АКК намнєсті)",
+    "cz_translation": "náměstí",
+    "cz_transcription": "намнєсті",
     "ua_translation": "площа (майдан)",
     "ua_transcription": "plošča / majdan"
   },
   {
-    "cz_translation": "zastávka tramvaje (AKK: zastávku)",
-    "cz_transcription": "заставка трамває (АКК заставку)",
+    "cz_translation": "zastávka tramvaje",
+    "cz_transcription": "заставка трамває",
     "ua_translation": "зупинка трамваю",
     "ua_transcription": "zupinka tramvaju"
   },
   {
-    "cz_translation": "zastávka autobusu (AKK: zastávku)",
-    "cz_transcription": "заставка аутобусу (АКК заставку)",
+    "cz_translation": "zastávka autobusu",
+    "cz_transcription": "заставка аутобусу",
     "ua_translation": "зупинка автобуса",
     "ua_transcription": "zupinka avtobusa"
   },
   {
-    "cz_translation": "stanice metra (AKK: stanici)",
-    "cz_transcription": "станіце метра (АКК станіци)",
+    "cz_translation": "stanice metra",
+    "cz_transcription": "станіце метра",
     "ua_translation": "станція метро",
     "ua_transcription": "stancija metro"
   },
@@ -150,8 +145,8 @@
     "ua_transcription": "dyťačij majdančik"
   },
   {
-    "cz_translation": "restaurace (AKK: restauraci)",
-    "cz_transcription": "рестаураце (АКК рестаураці)",
+    "cz_translation": "restaurace",
+    "cz_transcription": "рестаураце",
     "ua_translation": "ресторан",
     "ua_transcription": "restoran"
   }
