@@ -6,25 +6,25 @@
     "ua_transcription": "Kotra hodyna"
   },
   {
-    "cz_translation": "Je [sedm] hodin.",
+    "cz_translation": "Je sedm hodin.",
     "cz_transcription": "Є седум годін",
-    "ua_translation": "Сьома година",
+    "ua_translation": "Сьома година.",
     "ua_transcription": "Sjoma hodyna"
   },
   {
-    "cz_translation": "Je čtvrt na [pět].",
+    "cz_translation": "Je čtvrt na pět.",
     "cz_transcription": "Є чтврт на пєт",
     "ua_translation": "Чверть на п'яту.",
     "ua_transcription": "Čverť na pjatu"
   },
   {
-    "cz_translation": "Je půl [páté].",
+    "cz_translation": "Je půl páté.",
     "cz_transcription": "Є пул пате",
-    "ua_translation": "Пів п'ятої",
+    "ua_translation": "Пів п'ятої.",
     "ua_transcription": "Piu pjatoji"
   },
   {
-    "cz_translation": "Je tři čtvrtě na [pět].",
+    "cz_translation": "Je tři čtvrtě na pět.",
     "cz_transcription": "Є тржи чтвртє за пєт",
     "ua_translation": "за чверть шоста.",
     "ua_transcription": "za čverť šosta"
@@ -46,7 +46,7 @@
   {
     "cz_translation": "V pondělí.",
     "cz_transcription": "Ф пондєлі",
-    "ua_translation": "в понеділок",
+    "ua_translation": "в понеділок.",
     "ua_transcription": "v ponedilok"
   },
   {
@@ -58,8 +58,8 @@
   {
     "cz_translation": "středa",
     "cz_transcription": "стржеда",
-    "ua_translation": "середа, в середу",
-    "ua_transcription": "sereda, v seredu"
+    "ua_translation": "середа",
+    "ua_transcription": "sereda"
   },
   {
     "cz_translation": "čtvrtek",
@@ -76,19 +76,19 @@
   {
     "cz_translation": "sobota",
     "cz_transcription": "собота",
-    "ua_translation": "субота, в суботу",
-    "ua_transcription": "subota, v subotu"
+    "ua_translation": "субота",
+    "ua_transcription": "subota"
   },
   {
     "cz_translation": "neděle",
     "cz_transcription": "недєле",
-    "ua_translation": "неділя, в неділю",
-    "ua_transcription": "nedilja, v nedilju"
+    "ua_translation": "неділя",
+    "ua_transcription": "nedilja"
   },
   {
-    "cz_translation": "V [sedm] hodin.",
+    "cz_translation": "V sedm hodin.",
     "cz_transcription": "Ф седум годін",
-    "ua_translation": "О сьомій",
+    "ua_translation": "О сьомій.",
     "ua_transcription": "O sjomij"
   },
 
@@ -138,50 +138,50 @@
   {
     "cz_translation": "leden",
     "cz_transcription": "леден",
-    "ua_translation": "січень, в січні",
-    "ua_transcription": "sičeň, v sični"
+    "ua_translation": "січень",
+    "ua_transcription": "sičeň"
   },
   {
     "cz_translation": "únor",
     "cz_transcription": "унор",
-    "ua_translation": "лютий, в лютому",
-    "ua_transcription": "ljutyj, v ljutomu"
+    "ua_translation": "лютий",
+    "ua_transcription": "ljutyj"
   },
   {
     "cz_translation": "březen",
     "cz_transcription": "бржезен",
-    "ua_translation": "березень, в березні",
-    "ua_transcription": "berezeň, v berezni"
+    "ua_translation": "березень",
+    "ua_transcription": "berezeň"
   },
   {
     "cz_translation": "duben",
     "cz_transcription": "дубен",
-    "ua_translation": "квітень, в квітні",
-    "ua_transcription": "kviteň, v kvitni"
+    "ua_translation": "квітень",
+    "ua_transcription": "kviteň"
   },
   {
     "cz_translation": "květen",
     "cz_transcription": "квєтен",
-    "ua_translation": "!!! травень, в травні",
-    "ua_transcription": "traveň, v travni"
+    "ua_translation": "травень",
+    "ua_transcription": "traveň"
   },
   {
     "cz_translation": "červen",
     "cz_transcription": "червен",
-    "ua_translation": "червень, в червні",
-    "ua_transcription": "červeň, v červni"
+    "ua_translation": "червень",
+    "ua_transcription": "červeň"
   },
   {
     "cz_translation": "červenec",
     "cz_transcription": "червенец",
-    "ua_translation": "липень, в липні",
-    "ua_transcription": "lipeň, v lipni"
+    "ua_translation": "липень",
+    "ua_transcription": "lipeň"
   },
   {
     "cz_translation": "srpen",
     "cz_transcription": "српен",
-    "ua_translation": "серпень, в серпні",
-    "ua_transcription": "serpeň, v serpni"
+    "ua_translation": "серпень",
+    "ua_transcription": "serpeň"
   },
   {
     "cz_translation": "září",
@@ -192,19 +192,19 @@
   {
     "cz_translation": "říjen",
     "cz_transcription": "ржієн",
-    "ua_translation": "жовтень, в жовтні",
-    "ua_transcription": "žouteň, v žoutni"
+    "ua_translation": "жовтень",
+    "ua_transcription": "žouteň"
   },
   {
     "cz_translation": "listopad",
     "cz_transcription": "листопад",
-    "ua_translation": "листопад, в листопаді",
-    "ua_transcription": "listopad, v listopadi"
+    "ua_translation": "листопад",
+    "ua_transcription": "listopad"
   },
   {
     "cz_translation": "prosinec",
     "cz_transcription": "просинец",
-    "ua_translation": "грудень, в грудні",
-    "ua_transcription": "hrudeň, v hrudni"
+    "ua_translation": "грудень",
+    "ua_transcription": "hrudeň"
   }
 ]
