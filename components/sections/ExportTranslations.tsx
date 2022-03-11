@@ -34,13 +34,15 @@ const PHRASE_SEP_CUSTOM = 'phrase_custom';
 
 const unescapeTabsAndNewlines = (str: string) => str.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
 
-const RadioButton = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => <input type="radio" className="ml-3" {...props} />;
-const Label = ({ ...props }: LabelHTMLAttributes<HTMLLabelElement>) => <label className="ml-3" {...props} />;
+const RadioButton = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => (
+  <input type="radio" className="ml-3 inline-block my-2 cursor-pointer" {...props} />
+);
+const Label = ({ ...props }: LabelHTMLAttributes<HTMLLabelElement>) => <label className="pl-3 cursor-pointer" {...props} />;
 const TextInput = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => (
   <input
     type="text"
     maxLength={CUSTOM_SEPARATOR_MAX_LENGTH}
-    className="rounded-md md:rounded-lg max-w-full py-1 px-2 text-dark-700 border-1 border-primary-blue outline-none shadow-s"
+    className="rounded-md md:rounded-lg w-24 max-w-full px-2 text-dark-700 border-1 border-primary-blue outline-none shadow-s"
     {...props}
   />
 );
@@ -73,73 +75,77 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
         Download phrases
       </span>
       <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={'Download phrases'}>
-        <h3 className="my-4">Separator between the phrase and translation:</h3>
-
-        {TRANSLATION_SEPARATORS.map((option) => (
-          <>
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          <div>
+            <h3 className="my-4">Between phrase and translation:</h3>
+            {TRANSLATION_SEPARATORS.map((option) => (
+              <>
+                <RadioButton
+                  id={option.id}
+                  name={'translationSeparator'}
+                  value={option.value}
+                  checked={translationSeparator === option.value}
+                  onChange={() => setTranslationSeparator(option.value)}
+                />
+                <Label htmlFor={option.id}>
+                  {option.name} {option.displayValue ?? `(${option.value})`}
+                </Label>
+                <br />
+              </>
+            ))}
             <RadioButton
-              id={option.id}
+              id={TRANS_SEP_CUSTOM}
               name={'translationSeparator'}
-              value={option.value}
-              checked={translationSeparator === option.value}
-              onChange={() => setTranslationSeparator(option.value)}
+              value={TRANS_SEP_CUSTOM}
+              checked={translationSeparator === TRANS_SEP_CUSTOM}
+              onChange={() => setTranslationSeparator(TRANS_SEP_CUSTOM)}
             />
-            <Label htmlFor={option.id}>
-              {option.name} {option.displayValue ?? `(${option.value})`}
+            <Label htmlFor={TRANS_SEP_CUSTOM}>
+              Custom
+              {translationSeparator === TRANS_SEP_CUSTOM && (
+                <>
+                  <span>:&nbsp;&nbsp;&nbsp;</span>
+                  <TextInput value={customTranslationSeparator} onChange={(e) => setCustomTranslationSeparator(e.target.value)} />
+                </>
+              )}
             </Label>
-            <br />
-          </>
-        ))}
-        <RadioButton
-          id={TRANS_SEP_CUSTOM}
-          name={'translationSeparator'}
-          value={TRANS_SEP_CUSTOM}
-          checked={translationSeparator === TRANS_SEP_CUSTOM}
-          onChange={() => setTranslationSeparator(TRANS_SEP_CUSTOM)}
-        />
-        <Label htmlFor={TRANS_SEP_CUSTOM}>
-          Custom
-          {translationSeparator === TRANS_SEP_CUSTOM && (
-            <>
-              <span>:&nbsp;&nbsp;&nbsp;</span>
-              <TextInput value={customTranslationSeparator} onChange={(e) => setCustomTranslationSeparator(e.target.value)} />
-            </>
-          )}
-        </Label>
-
-        <h3 className="my-4">Separator between phrases:</h3>
-        {PHRASE_SEPARATORS.map((option) => (
-          <>
+          </div>
+          <div>
+            <h3 className="my-4">Between phrases:</h3>
+            {PHRASE_SEPARATORS.map((option) => (
+              <>
+                <RadioButton
+                  id={option.id}
+                  name={'phraseSeparator'}
+                  value={option.value}
+                  checked={phraseSeparator === option.value}
+                  onChange={() => setPhraseSeparator(option.value)}
+                />
+                <Label htmlFor={option.id}>
+                  {option.name} {option.displayValue ?? `(${option.value})`}
+                </Label>
+                <br />
+              </>
+            ))}
             <RadioButton
-              id={option.id}
+              id={PHRASE_SEP_CUSTOM}
               name={'phraseSeparator'}
-              value={option.value}
-              checked={phraseSeparator === option.value}
-              onChange={() => setPhraseSeparator(option.value)}
+              value={PHRASE_SEP_CUSTOM}
+              checked={phraseSeparator === PHRASE_SEP_CUSTOM}
+              onChange={() => setPhraseSeparator(PHRASE_SEP_CUSTOM)}
             />
-            <Label htmlFor={option.id}>
-              {option.name} {option.displayValue ?? `(${option.value})`}
+            <Label htmlFor={PHRASE_SEP_CUSTOM}>
+              Custom
+              {phraseSeparator === PHRASE_SEP_CUSTOM && (
+                <>
+                  <span>:&nbsp;&nbsp;&nbsp;</span>
+                  <TextInput value={customPhraseSeparator} onChange={(e) => setCustomPhraseSeparator(e.target.value)} />
+                </>
+              )}
             </Label>
             <br />
-          </>
-        ))}
-        <RadioButton
-          id={PHRASE_SEP_CUSTOM}
-          name={'phraseSeparator'}
-          value={PHRASE_SEP_CUSTOM}
-          checked={phraseSeparator === PHRASE_SEP_CUSTOM}
-          onChange={() => setPhraseSeparator(PHRASE_SEP_CUSTOM)}
-        />
-        <Label htmlFor={PHRASE_SEP_CUSTOM}>
-          Custom
-          {phraseSeparator === PHRASE_SEP_CUSTOM && (
-            <>
-              <span>:&nbsp;&nbsp;&nbsp;</span>
-              <TextInput value={customPhraseSeparator} onChange={(e) => setCustomPhraseSeparator(e.target.value)} />
-            </>
-          )}
-        </Label>
-        <br />
+          </div>
+        </div>
 
         <h3 className="my-4">Preview:</h3>
         <div className="bg-gray-100 border-1 border-gray-400 p-2">
