@@ -5,6 +5,7 @@ import { Modal } from '../basecomponents/Modal';
 import Link from 'next/link';
 
 const PREVIEW_PHRASES_COUNT = 3;
+const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
 interface ExportTranslationsProps {
   translations: Translation[];
@@ -19,24 +20,26 @@ interface SeparatorOption {
 }
 
 const TRANSLATION_SEPARATORS: SeparatorOption[] = [
-  { id: 'transl_comma', name: 'comma', value: ',' },
-  { id: 'transl_semicolor', name: 'semicolon', value: ';' },
-  { id: 'trans_tab', name: 'tab', value: '    ', displayValue: <span>(&nbsp;&nbsp;&nbsp;&nbsp;)</span> },
+  { id: 'transl_comma', name: 'comma', value: ', ' },
+  { id: 'transl_semicolor', name: 'semicolon', value: '; ' },
+  { id: 'trans_tab', name: 'tab', value: '\t', displayValue: <span>(&nbsp;&nbsp;&nbsp;&nbsp;)</span> },
 ];
 const TRANS_SEP_CUSTOM = 'trans_custom';
 
 const PHRASE_SEPARATORS: SeparatorOption[] = [
   { id: 'phrase_newLine', name: 'new line', value: '\n', displayValue: <span></span> },
-  { id: 'phrase_semicolor', name: 'semicolon', value: ';' },
+  { id: 'phrase_semicolor', name: 'semicolon', value: '; ' },
 ];
 const PHRASE_SEP_CUSTOM = 'phrase_custom';
+
+const unescapeTabsAndNewlines = (str: string) => str.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
 
 const RadioButton = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => <input type="radio" className="ml-3" {...props} />;
 const Label = ({ ...props }: LabelHTMLAttributes<HTMLLabelElement>) => <label className="ml-3" {...props} />;
 const TextInput = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => (
   <input
     type="text"
-    maxLength={50}
+    maxLength={CUSTOM_SEPARATOR_MAX_LENGTH}
     className="rounded-md md:rounded-lg max-w-full py-1 px-2 text-dark-700 border-1 border-primary-blue outline-none shadow-s"
     {...props}
   />
@@ -50,16 +53,17 @@ const Separator = () => (
 export const ExportTranslations = ({ translations, category }: ExportTranslationsProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
-  const [customTranslationSeparator, setCustomTranslationSeparator] = useState('');
+  const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
   const [phraseSeparator, setPhraseSeparator] = useState(PHRASE_SEPARATORS[0].value);
-  const [customPhraseSeparator, setCustomPhraseSeparator] = useState('');
+  const [customPhraseSeparator, setCustomPhraseSeparator] = useState('\\n\\n');
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
-  const translationStrings = translations.map(
-    (translation) => `${translation.cz_translation}${translSep} ${translation.ua_translation}${phraseSep}`,
-  );
-  const data = new Blob(translationStrings, { type: 'text/plain' });
+  const phrases = translations
+    .map((translation) => `${translation.cz_translation}${translSep}${translation.ua_translation}${phraseSep}`)
+    .map((translation) => unescapeTabsAndNewlines(translation));
+
+  const data = new Blob(phrases, { type: 'text/plain' });
   const downloadLink = window.URL.createObjectURL(data);
   const fileName = `${category}.txt`;
 
@@ -139,7 +143,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
 
         <h3 className="my-4">Preview:</h3>
         <div className="bg-gray-100 border-1 border-gray-400 p-2">
-          <code className="whitespace-pre-wrap">{translationStrings.slice(0, PREVIEW_PHRASES_COUNT)}</code>
+          <code className="whitespace-pre-wrap">{phrases.slice(0, PREVIEW_PHRASES_COUNT)}</code>
         </div>
 
         <div className="flex justify-center">
