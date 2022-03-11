@@ -18,7 +18,7 @@
     "ua_transcription": "Do pobačenňa"
   },
   {
-    "cz_translation": "Děkuji / díky",
+    "cz_translation": "Děkuji. Díky.",
     "cz_transcription": "Дєкуї / діки",
     "ua_translation": "Дякую",
     "ua_transcription": "Ďakuju"
@@ -37,9 +37,9 @@
   },
   {
     "cz_translation": "Jmenuji se...",
-    "cz_transcription": "Менуї се...",
-    "ua_translation": "Мене звуть",
-    "ua_transcription": "Mene zvuť…"
+    "cz_transcription": "Менуї се",
+    "ua_translation": "Мене звуть...",
+    "ua_transcription": "Mene zvuť"
   },
   {
     "cz_translation": "Jak se máš?",
@@ -49,45 +49,75 @@
   },
   {
     "cz_translation": "Jsem ráda, že jsi tady.",
-    "cz_transcription": "Сем рада, же си тади.",
+    "cz_transcription": "Сем рада, же си тади",
     "ua_translation": "Я рада, що ти тут.",
-    "ua_transcription": "Ja rada, ščo ty tut."
+    "ua_transcription": "Ja rada, ščo ty tut"
   },
   {
     "cz_translation": "Pojď si s námi hrát.",
-    "cz_transcription": "Поть си с нами грат.",
-    "ua_translation": "Ходімо гратися з нами",
-    "ua_transcription": "Chodimo hratysja z namy."
+    "cz_transcription": "Поть си с нами грат",
+    "ua_translation": "Ходімо гратися з нами.",
+    "ua_transcription": "Chodimo hratysja z namy"
   },
   {
     "cz_translation": "Jdeme na koberec.",
-    "cz_transcription": "Деме на коберец.",
-    "ua_translation": "Ходімо на килимок",
-    "ua_transcription": "Chodimo na kylymok."
+    "cz_transcription": "Деме на коберец",
+    "ua_translation": "Ходімо на килимок.",
+    "ua_transcription": "Chodimo na kylymok"
   },
   {
-    "cz_translation": "Jdeme ven na zahradu / na hřiště.",
-    "cz_transcription": "Деме вен на заграду / на гржіштє.",
-    "ua_translation": "Йдемо на вулицю / майданчик",
-    "ua_transcription": "Jdemo na vulycju / majdančyk."
+    "cz_translation": "Jdeme ven na zahradu.",
+    "cz_transcription": "Деме вен на заграду",
+    "ua_translation": "Йдемо на вулицю.",
+    "ua_transcription": "Jdemo na vulycju"
+  },
+{
+    "cz_translation": "Jdeme ven na hřiště.",
+    "cz_transcription": "Деме вен на гржіштє",
+    "ua_translation": "Йдемо майданчик.",
+    "ua_transcription": "Jdemo majdančyk"
   },
   {
-    "cz_translation": "Vezmi si / obleč si",
-    "cz_transcription": "Везми си / Облеч си",
-    "ua_translation": "Вдягнися",
-    "ua_transcription": "Vďahnysja…"
+    "cz_translation": "Vezmi si...",
+    "cz_transcription": "Везми си",
+    "ua_translation": "Вдягнися...",
+    "ua_transcription": "Vďahnysja"
+  },
+  {
+    "cz_translation": "Obleč si...",
+    "cz_transcription": "Облеч си",
+    "ua_translation": "Вдягнися...",
+    "ua_transcription": "Vďahnysja"
   },
   {
     "cz_translation": "tričko",
     "cz_transcription": "тричко",
-    "ua_translation": "кофту, футболку",
-    "ua_transcription": "koftu, futbolku"
+    "ua_translation": "кофту",
+    "ua_transcription": "koftu"
   },
   {
-    "cz_translation": "kalhoty / tepláky / leginy",
-    "cz_transcription": "калготи / теплаки / леґіни",
-    "ua_translation": "штани / теплі спортивні штани / лосини",
-    "ua_transcription": "štany / tepli sportyuni štany / losyny"
+    "cz_translation": "tričko",
+    "cz_transcription": "тричко",
+    "ua_translation": "футболку",
+    "ua_transcription": "futbolku"
+  },  
+  {
+    "cz_translation": "kalhoty",
+    "cz_transcription": "калготи",
+    "ua_translation": "штани",
+    "ua_transcription": "štany"
+  },
+  {
+    "cz_translation": "tepláky",
+    "cz_transcription": "теплаки",
+    "ua_translation": "теплі спортивні штани",
+    "ua_transcription": "tepli sportyuni štany"
+  },
+  {
+    "cz_translation": "leginy",
+    "cz_transcription": "леґіни",
+    "ua_translation": "лосини",
+    "ua_transcription": "losyny"
   },
   {
     "cz_translation": "bačkory",
@@ -140,211 +170,367 @@
   {
     "cz_translation": "Pojď se najíst.",
     "cz_transcription": "Поть се наїст",
-    "ua_translation": "Іди поїж",
-    "ua_transcription": "Idy pojiž."
+    "ua_translation": "Іди поїж.",
+    "ua_transcription": "Idy pojiž"
   },
   {
     "cz_translation": "Máme svačinu.",
     "cz_transcription": "Маме свачину",
     "ua_translation": "Час перекусити.",
-    "ua_transcription": "Čas perekusyty."
+    "ua_transcription": "Čas perekusyty"
   },
   {
     "cz_translation": "Máme oběd.",
     "cz_transcription": "Маме обєт",
-    "ua_translation": "Обід",
+    "ua_translation": "Обід.",
     "ua_transcription": "Obid"
   },
   {
     "cz_translation": "Umyjeme si ruce.",
     "cz_transcription": "Умиєме си руце",
-    "ua_translation": "Миємо руки",
-    "ua_transcription": "Myjemo ruky."
+    "ua_translation": "Миємо руки.",
+    "ua_transcription": "Myjemo ruky"
   },
   {
     "cz_translation": "Máš hlad?",
-    "cz_transcription": "Маш глад?",
-    "ua_translation": "Ти голодний / голодна?",
-    "ua_transcription": "Ty holodnyj / holodna?"
+    "cz_transcription": "Маш глад",
+    "ua_translation": "Ти голодний? Ти голодна?",
+    "ua_transcription": "Ty holodnyj? Ty holodna?"
   },
   {
-    "cz_translation": "Co máš rád / ráda?",
-    "cz_transcription": "Цо маш рад / рада?",
+    "cz_translation": "Co máš rád? Co máš ráda?",
+    "cz_transcription": "Цо маш рад / Цо маш рада",
     "ua_translation": "Що ти любиш?",
-    "ua_transcription": "Ščo ty ljubyš?"
+    "ua_transcription": "Ščo ty ljubyš"
   },
   {
     "cz_translation": "Chutná ti to?",
-    "cz_transcription": "Хутна ті то?",
-    "ua_translation": "Тобі подобається (смакує)?",
-    "ua_transcription": "Tobi podobajeťsja (smakuje)?"
+    "cz_transcription": "Хутна ті то",
+    "ua_translation": "Тобі подобається? Тобі смакує?",
+    "ua_transcription": "Tobi podobajeťsja / Tobi smakuje"
   },
   {
     "cz_translation": "Ochutnej, je to dobré.",
     "cz_transcription": "Охутней, є то добре",
-    "ua_translation": "Спробуй, це смачно",
-    "ua_transcription": "Sprobuj, ce smačno."
+    "ua_translation": "Спробуй, це смачно.",
+    "ua_transcription": "Sprobuj, ce smačno"
   },
   {
     "cz_translation": "Dáš si chleba?",
-    "cz_transcription": "Даш си хлеба?",
+    "cz_transcription": "Даш си хлеба",
     "ua_translation": "Хочеш хліб?",
-    "ua_transcription": "Chočeš chlib?"
+    "ua_transcription": "Chočeš chlib"
   },
   {
     "cz_translation": "Dáš si polévku?",
-    "cz_transcription": "Даш си полефку?",
+    "cz_transcription": "Даш си полефку",
     "ua_translation": "Хочеш суп?",
-    "ua_transcription": "Chočeš sup?"
+    "ua_transcription": "Chočeš sup"
   },
   {
-    "cz_translation": "Jdeme odpočívat / spát.",
-    "cz_transcription": "Деме отпочіват / спат",
-    "ua_translation": "Йдемо відпочивати / спати.",
-    "ua_transcription": "Jdemo vidpočyvaty / spaty."
+    "cz_translation": "Jdeme odpočívat.",
+    "cz_transcription": "Деме отпочіват",
+    "ua_translation": "Йдемо відпочивати.",
+    "ua_transcription": "Jdemo vidpočyvaty"
+  },
+  {
+    "cz_translation": "Jdeme spát.",
+    "cz_transcription": "Деме спат",
+    "ua_translation": "Йдемо спати.",
+    "ua_transcription": "Jdemo spaty"
   },
   {
     "cz_translation": "Vyčisti si zuby.",
     "cz_transcription": "Вичисті си зуби",
-    "ua_translation": "Почисти зуби",
-    "ua_transcription": "Počysty zuby."
+    "ua_translation": "Почисти зуби.",
+    "ua_transcription": "Počysty zuby"
   },
   {
     "cz_translation": "Potřebuješ jít na záchod?",
-    "cz_transcription": "Потржебуєш їт на захот?",
+    "cz_transcription": "Потржебуєш їт на захот",
     "ua_translation": "Тобі потрібно в туалет?",
-    "ua_transcription": "Tobi potribno v tualet?"
+    "ua_transcription": "Tobi potribno v tualet"
   },
   {
     "cz_translation": "Potřebuješ čůrat?",
-    "cz_transcription": "Потржебуєш чурат?",
+    "cz_transcription": "Потржебуєш чурат",
     "ua_translation": "Хочеш пісяти?",
-    "ua_transcription": "Chočeš pisjaty?"
+    "ua_transcription": "Chočeš pisjaty"
   },
   {
     "cz_translation": "Pojď se vyčůrat.",
     "cz_transcription": "Поть се вичурат",
-    "ua_translation": "Піди попісяй",
-    "ua_transcription": "Pidy popisjaj."
+    "ua_translation": "Піди попісяй.",
+    "ua_transcription": "Pidy popisjaj"
   },
   {
     "cz_translation": "To je tvoje postel.",
     "cz_transcription": "То є твоє постел",
-    "ua_translation": "Це твоє ліжко",
-    "ua_transcription": "Ce tvoje ližko."
+    "ua_translation": "Це твоє ліжко.",
+    "ua_transcription": "Ce tvoje ližko"
   },
   {
     "cz_translation": "Budeme číst pohádku.",
     "cz_transcription": "Будеме чіст погатку",
-    "ua_translation": "Читаємо казку",
-    "ua_transcription": "Čytajemo kazku."
+    "ua_translation": "Читаємо казку.",
+    "ua_transcription": "Čytajemo kazku"
   },
   {
     "cz_translation": "Poslouchej.",
     "cz_transcription": "Послоухей",
-    "ua_translation": "Послухай",
-    "ua_transcription": "Posluchaj."
+    "ua_translation": "Послухай.",
+    "ua_transcription": "Posluchaj"
   },
   {
     "cz_translation": "Vezmi si s sebou svoji hračku.",
     "cz_transcription": "Везми си себоу свої грачку",
-    "ua_translation": "Візьми з собою свою іграшку",
-    "ua_transcription": "Viz’my z soboju svoju ihrašku."
+    "ua_translation": "Візьми з собою свою іграшку.",
+    "ua_transcription": "Viz’my z soboju svoju ihrašku"
   },
   {
     "cz_translation": "Budeme cvičit.",
     "cz_transcription": "Будеме цвичит",
-    "ua_translation": "Робимо розминку",
-    "ua_transcription": "Robymo rozmynku."
+    "ua_translation": "Робимо розминку.",
+    "ua_transcription": "Robymo rozmynku"
   },
   {
     "cz_translation": "Dívej se.",
     "cz_transcription": "Дівей се",
-    "ua_translation": "Подивися",
+    "ua_translation": "Подивися.",
     "ua_transcription": "Podyvysja."
   },
   {
     "cz_translation": "Udělej to také.",
     "cz_transcription": "Удєлей то таке",
-    "ua_translation": "Зроби так",
-    "ua_transcription": "Zroby tak."
+    "ua_translation": "Зроби так.",
+    "ua_transcription": "Zroby tak"
   },
   {
     "cz_translation": "S čím si chceš hrát?",
-    "cz_transcription": "С чім си хцеш грат?",
+    "cz_transcription": "С чім си хцеш грат",
     "ua_translation": "З чим хочеш погратися?",
-    "ua_transcription": "Z čim chočeš pohratysja?"
+    "ua_transcription": "Z čim chočeš pohratysja"
   },
   {
     "cz_translation": "Vezmeš si zvířátka?",
-    "cz_transcription": "Везмеш си звіржатка?",
+    "cz_transcription": "Везмеш си звіржатка",
     "ua_translation": "Візьмеш тваринку?",
-    "ua_transcription": "Viz’meš tvarynku?"
+    "ua_transcription": "Viz’meš tvarynku"
   },
   {
-    "cz_translation": "... kostky?",
-    "cz_transcription": "... костки?",
-    "ua_translation": "... кубики?",
-    "ua_transcription": "… kubyky?"
+    "cz_translation": "Vezmeš si kostky?",
+    "cz_transcription": "Везмеш си костки",
+    "ua_translation": "Візьмеш кубики?",
+    "ua_transcription": "Viz’meš kubyky"
   },
   {
-    "cz_translation": "... panenky?",
-    "cz_transcription": "... паненки?",
-    "ua_translation": "...ляльку?",
-    "ua_transcription": "… ljal’ku?"
+    "cz_translation": "Vezmeš si panenky?",
+    "cz_transcription": "Везмеш си паненки",
+    "ua_translation": "Візьмеш ляльку?",
+    "ua_transcription": "Viz’meš ljal’ku"
   },
   {
-    "cz_translation": "... autíčka?",
-    "cz_transcription": "... аутічка?",
-    "ua_translation": "...машинку?",
-    "ua_transcription": "… mašynku?"
+    "cz_translation": "Vezmeš si autíčka?",
+    "cz_transcription": "Везмеш си аутічка",
+    "ua_translation": "Візьмеш машинку?",
+    "ua_transcription": "Viz’meš mašynku"
   },
   {
-    "cz_translation": "... vláček?",
-    "cz_transcription": "... влачек?",
-    "ua_translation": "...поїзд?",
-    "ua_transcription": "… pojizd?"
+    "cz_translation": "Vezmeš si vláček?",
+    "cz_transcription": "Везмеш си влачек",
+    "ua_translation": "Візьмеш поїзд?",
+    "ua_transcription": "Viz’meš pojizd"
   },
   {
     "cz_translation": "Chceš si kreslit?",
-    "cz_transcription": "Хцеш си креслит?",
+    "cz_transcription": "Хцеш си креслит",
     "ua_translation": "Хочеш малювати олівцями?",
-    "ua_transcription": "Chočeš maljuvaty olivcjamy?"
+    "ua_transcription": "Chočeš maljuvaty olivcjamy"
   },
   {
     "cz_translation": "Chceš si malovat?",
-    "cz_transcription": "Хцеш си маловат?",
+    "cz_transcription": "Хцеш си маловат",
     "ua_translation": "Хочеш малювати фарбами?",
-    "ua_transcription": "Chočeš maljuvaty farbamy?"
+    "ua_transcription": "Chočeš maljuvaty farbamy"
   },
   {
     "cz_translation": "Chceš si modelovat?",
-    "cz_transcription": "Хцеш си моделоват?",
+    "cz_transcription": "Хцеш си моделоват",
     "ua_translation": "Хочеш ліпити з пластиліну?",
-    "ua_transcription": "Chočeš lipyty z plastylinu?"
+    "ua_transcription": "Chočeš lipyty z plastylinu"
   },
   {
-    "cz_translation": "Jsi šikovný / šikovná, jde ti to skvěle.",
-    "cz_transcription": "Си шиковни / шиковна, де ті то сквєле",
+    "cz_translation": "Jsi šikovný, jde ti to skvěle. Jsi šikovná, jde ti to skvěle.",
+    "cz_transcription": "Си шиковни, де ті то сквєле. Си шиковна, де ті то сквєле",
     "ua_translation": "Ти молодець, у тебе гарно виходить.",
-    "ua_transcription": "Ty molodec’, u tebe harno vychodyť."
+    "ua_transcription": "Ty molodec’, u tebe harno vychodyť"
   },
   {
     "cz_translation": "To se mi moc líbí.",
-    "cz_transcription": "То се ми моц лібі.",
+    "cz_transcription": "То се ми моц лібі",
     "ua_translation": "Це мені дуже подобається!",
-    "ua_transcription": "Ce meni duže podobajeťsja!"
+    "ua_transcription": "Ce meni duže podobajeťsja"
   },
   {
     "cz_translation": "Maminka brzy přijde.",
     "cz_transcription": "Маминка брзи пржийде",
-    "ua_translation": "Мама скоро прийде",
-    "ua_transcription": "Mama skoro pryjde."
+    "ua_translation": "Мама скоро прийде.",
+    "ua_transcription": "Mama skoro pryjde"
   },
   {
-    "cz_translation": "Zavoláme mamince / babičce?",
-    "cz_transcription": "Заволаме маминце / бабичце?",
-    "ua_translation": "Подзвонимо мамі / бабусі?",
-    "ua_transcription": "Podzvonymo mami / babusi?"
+    "cz_translation": "Zavoláme mamince?",
+    "cz_transcription": "Заволаме маминце",
+    "ua_translation": "Подзвонимо мамі?",
+    "ua_transcription": "Podzvonymo mami"
+  },
+  {
+    "cz_translation": "Zavoláme babičce?",
+    "cz_transcription": "Заволаме бабичце",
+    "ua_translation": "Подзвонимо бабусі?",
+    "ua_transcription": "Podzvonymo babusi"
+  },
+  {
+    "cz_translation": "Plakal? Plakala?",
+    "cz_transcription": "Плакал? Плакала?",
+    "ua_translation": "Плакав? Плакала?",
+    "ua_transcription": "Plakau? Plakala?"
+  },
+  {
+    "cz_translation": "Jedl něco? Jedla něco?",
+    "cz_transcription": "Єдл нєцо? Єдла нєцо?",
+    "ua_translation": "Він щось їв? Вона щось їла?",
+    "ua_transcription": "Vin ščos' jiu? Vona ščos' jila?"
+  },
+  {
+    "cz_translation": "Hrál si s dětmi? Hrála si s dětmi?",
+    "cz_transcription": "Грал си з дєтми? Грала си з дєтми?",
+    "ua_translation": "Він грався з дітьми? Вона гралася з дітьми?",
+    "ua_transcription": "Vin hrausja z diťmy? Vona hralasja z diťmy?"
+  },
+  {
+    "cz_translation": "Půjdete dnes na procházku?",
+    "cz_transcription": "Пуйдете днес на прохаску?",
+    "ua_translation": "Ви підете сьогодні на прогулянку?",
+    "ua_transcription": "Vy pidete sjohodni na prohuljanku?"
+  },
+  {
+    "cz_translation": "Máme něco přinést?",
+    "cz_transcription": "Маме нєцо пржинест?",
+    "ua_translation": "Ми маємо щось принести?",
+    "ua_transcription": "My majemo ščos' prynesty?"
+  },
+  {
+    "cz_translation": "V kolik hodin máme přijít?",
+    "cz_transcription": "Ф колик годін маме пржиїт?",
+    "ua_translation": "О котрій годині ми маємо прийти? ",
+    "ua_transcription": "O kotrij hodyni my majemo pryjty?"
+  },
+  {
+    "cz_translation": "Co jste dnes dělali?",
+    "cz_transcription": "Цо сте днес дєлали?",
+    "ua_translation": "Що ви робили сьогодні?",
+    "ua_transcription": "Šco vy pobyly sjohodni?"
+  },
+  {
+    "cz_translation": "Byl hodný? Byla hodná?",
+    "cz_transcription": "Бил годни? Била годна?",
+    "ua_translation": "Був чемний? Була чемна? ",
+    "ua_transcription": "Buu čemnyj? Bula čemna?"
+  },
+  {
+    "cz_translation": "Spal? Spala?",
+    "cz_transcription": "Спал? Спала?",
+    "ua_translation": "Спав? Спала?",
+    "ua_transcription": "Spau? Spala?"
+  },
+  {
+    "cz_translation": "Je alergický na... Je alergická na...",
+    "cz_transcription": "Є алерґицки на... Є алерґицка на...",
+    "ua_translation": "У нього алергія на... У неї алергія на...",
+    "ua_transcription": "U ňoho alerhija na... U neji alerhija na..."
+  },
+  {
+    "cz_translation": "S čím si rád hraje? S čím si ráda hraje?",
+    "cz_transcription": "С чім си рад грає? С чім си рада грає?",
+    "ua_translation": "З чим він любить грати? З чим вона любить грати?",
+    "ua_transcription": "Z čym vin ljubyť hraty? Z čym vona ljubyť hraty?"
+  },
+  {
+    "cz_translation": "Kolik mu je let? Kolik jí je let?",
+    "cz_transcription": "Колик му є лет? Колик ї є лет?",
+    "ua_translation": "Скільки йому років? Скільки їй років?",
+    "ua_transcription": "Skil'ky jomu rokiu? Skil'ky jij rokiu?"
+  },
+  {
+    "cz_translation": "V kolik hodin příjdete?",
+    "cz_transcription": "Ф колик годін пржийдете?",
+    "ua_translation": "О котрій годині ви прийдете?",
+    "ua_transcription": "O kotrij hodyni vy pryjdete?"
+  },
+  {
+    "cz_translation": "Má nějakou alergii?",
+    "cz_transcription": "Ма нєякоу алерґиї?",
+    "ua_translation": "У нього є алергія? У неї є алергія?",
+    "ua_transcription": "U ňoho je alerhija? U neji je alerhija?"
+  },
+  {
+    "cz_translation": "Přineste náhradní oblečení.",
+    "cz_transcription": "Пржинесте наградні облечені.",
+    "ua_translation": "Принесіть запасний одяг.",
+    "ua_transcription": "Prynesiť zapasnyj oďah."
+  },
+  {
+    "cz_translation": "Hezky si hrál. Hezky si hrála.",
+    "cz_transcription": "Гески си грал. Гески си грала.",
+    "ua_translation": "Він гарно грався. Вона гарно гралася.",
+    "ua_transcription": "Vin harno hrausja. Vona harno hralasja."
+  },
+  {
+    "cz_translation": "Zlobil. Zlobila.",
+    "cz_transcription": "Злобил. Злобила.",
+    "ua_translation": "Був нечемний. Була нечемна.",
+    "ua_transcription": "Buu nečemnyj. Bula nečemna."
+  },
+  {
+    "cz_translation": "Plakal. Plakala. ",
+    "cz_transcription": "Плакал. Плакала.",
+    "ua_translation": "Плакав. Плакала.",
+    "ua_transcription": "Plakau. Plakala."
+  },
+  {
+    "cz_translation": "Neposlouchal. Neposlouchala.",
+    "cz_transcription": "Непослоухал. Непослоухала.",
+    "ua_translation": "Він не слухався. Вона не слухалась.",
+    "ua_transcription": "Vin ne sluchausja. Vona ne sluchalas'."
+  },
+  {
+    "cz_translation": "Jedl málo. Jedla málo.",
+    "cz_transcription": "Єдл мало. Єдла мало.",
+    "ua_translation": "Він мало їв. Вона мало їла.",
+    "ua_transcription": "Vin malo jiu. Vona malo jila."
+  },
+  {
+    "cz_translation": "Tady je jeho skříňka. Tady je její skříňka.",
+    "cz_transcription": "Тади є єго скржінька. Тади є єї скржінька.",
+    "ua_translation": "Ось його шафка. Ось її шафка.",
+    "ua_transcription": "Os' joho šafka. Os' jiji šafka."
+  },
+  {
+    "cz_translation": "Vítáme vás ve školce.",
+    "cz_transcription": "Вітаме вас ве школце.",
+    "ua_translation": "Ласкаво просимо до дитячого садка.",
+    "ua_transcription": "Laskavo prosymo do dyťačoho sadka."
+  },
+  {
+    "cz_translation": "Nosí plenky? Nosí plenky?",
+    "cz_transcription": "Носі пленки?",
+    "ua_translation": "Він носить памперси? Вона носить памперси?",
+    "ua_transcription": "Vin nosyť pampersy? Vona nosyť pampersy?"
+  },
+  {
+    "cz_translation": "Používá dudlík?",
+    "cz_transcription": "Поужіва дудлік?",
+    "ua_translation": "Використовує пустушку?",
+    "ua_transcription": "Vykorystovuje pustušku?"
   }
 ]
