@@ -1,24 +1,24 @@
 [
   {
-    "cz_translation": "Jak si mám zařídit...",
+    "cz_translation": "Jak si mám zařídit...?",
     "cz_transcription": "Як сі мам заржідіт",
     "ua_translation": "Як я можу отримати...?",
     "ua_transcription": "Jak ja možu otrymaty"
   },
   {
-    "cz_translation": "Kde si mohu zařídit...",
+    "cz_translation": "Kde si mohu zařídit...?",
     "cz_transcription": "Ґде сі могу заржідіт",
     "ua_translation": "Де я можу отримати...?",
     "ua_transcription": "De ja možu otrymaty"
   },
   {
-    "cz_translation": "Jaké dokumenty potřebuji pro...",
+    "cz_translation": "Jaké dokumenty potřebuji pro...?",
     "cz_transcription": "Яке документи потржебуї про",
     "ua_translation": "Які документи потрібні для. .?",
     "ua_transcription": "Jaki dokumenty potribni dlja"
   },
   {
-    "cz_translation": "Kde najdu...",
+    "cz_translation": "Kde najdu...?",
     "cz_transcription": "Ґде найду",
     "ua_translation": "Де я можу знайти...?",
     "ua_transcription": "De ja možu znajty"
@@ -33,13 +33,13 @@
   {
     "cz_translation": "Jsem v karanténě.",
     "cz_transcription": "Сем ф карантенє",
-    "ua_translation": "я на карантині",
+    "ua_translation": "я на карантині.",
     "ua_transcription": "ja na karantyni"
   },
   {
     "cz_translation": "Jsem v izolaci.",
     "cz_transcription": "Сем ф изолаци",
-    "ua_translation": "я на ізоляції",
+    "ua_translation": "я на ізоляції.",
     "ua_transcription": "ja na izoljaciji"
   },
 
@@ -68,17 +68,16 @@
     "ua_translation": "проїзний квиток",
     "ua_transcription": "projiznyj kvytok"
   },
-
   {
     "cz_translation": "Narodila jsem se...",
     "cz_transcription": "Народіла сем се",
-    "ua_translation": "народилася",
+    "ua_translation": "народилася...",
     "ua_transcription": "narodylasja"
   },
   {
-    "cz_translation": "Narodila / Narodil se...",
-    "cz_transcription": "Народіла / Народіл се",
-    "ua_translation": "Вона народилася/він народився",
+    "cz_translation": "Narodila se... Narodil se...",
+    "cz_transcription": "Народіла се / Народіл се",
+    "ua_translation": "Вона народилася... він народився...",
     "ua_transcription": "Vona narodylasja / vin narodyusja"
   }
 ]
