@@ -49,7 +49,9 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
 
   return (
     <>
-      <Button onClick={openModal} text="Download phrases" className="my-6" />
+      <span onClick={openModal} className="cursor-pointer underline text-primary-blue ml-4 pb-4 inline-block">
+        Download phrases
+      </span>
       <Modal closeModal={closeModal} isOpen={isOpen} title={'Download phrases'}>
         <h3 className="my-4">Separator between the phrase and translation:</h3>
 
