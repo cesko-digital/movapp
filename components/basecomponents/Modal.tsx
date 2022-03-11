@@ -40,7 +40,7 @@ export const Modal = ({ children, isOpen, title, closeModal }: ModalProps): JSX.
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl relative">
+            <div className="inline-block w-full max-w-2xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl relative">
               <Dialog.Title as="h2">{title}</Dialog.Title>
               <XIcon className="h-7 w-7 text-gray-500 absolute top-4 right-4 cursor-pointer" onClick={closeModal} />
               {children}

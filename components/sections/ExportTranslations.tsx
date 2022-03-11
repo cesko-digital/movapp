@@ -1,7 +1,9 @@
-import { Fragment, useState } from 'react';
+import { Fragment, InputHTMLAttributes, LabelHTMLAttributes, useState } from 'react';
 import { Button } from '../basecomponents/Button';
 import { Translation } from '../basecomponents/TranslationContainer';
 import { Modal } from '../basecomponents/Modal';
+
+const PREVIEW_PHRASES_COUNT = 3;
 
 interface ExportTranslationsProps {
   translations: Translation[];
@@ -28,6 +30,9 @@ const PHRASE_SEPARATORS: SeparatorOption[] = [
 ];
 const PHRASE_SEP_CUSTOM = 'phrase_custom';
 
+const RadioButton = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => <input type="radio" className="ml-3" {...props} />;
+const Label = ({ ...props }: LabelHTMLAttributes<HTMLLabelElement>) => <label className="ml-3" {...props} />;
+
 export const ExportTranslations = ({ translations, category }: ExportTranslationsProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
@@ -40,10 +45,10 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
-  const data = new Blob(
-    translations.map((translation) => `${translation.cz_translation}${translSep} ${translation.ua_translation}${phraseSep}`),
-    { type: 'text/plain' },
+  const translationStrings = translations.map(
+    (translation) => `${translation.cz_translation}${translSep} ${translation.ua_translation}${phraseSep}`,
   );
+  const data = new Blob(translationStrings, { type: 'text/plain' });
   const downloadLink = window.URL.createObjectURL(data);
   const fileName = `${category}.txt`;
 
@@ -57,81 +62,86 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
 
         {TRANSLATION_SEPARATORS.map((option) => (
           <>
-            <input
-              type="radio"
+            <RadioButton
               id={option.id}
               name={'translationSeparator'}
               value={option.value}
               checked={translationSeparator === option.value}
               onChange={() => setTranslationSeparator(option.value)}
             />
-            <label htmlFor={option.id} className="ml-2">
+            <Label htmlFor={option.id}>
               {option.name} {option.displayValue ?? `(${option.value})`}
-            </label>
+            </Label>
             <br />
           </>
         ))}
-        <input
-          type="radio"
+        <RadioButton
           id={TRANS_SEP_CUSTOM}
           name={'translationSeparator'}
           value={TRANS_SEP_CUSTOM}
           checked={translationSeparator === TRANS_SEP_CUSTOM}
           onChange={() => setTranslationSeparator(TRANS_SEP_CUSTOM)}
         />
-        <label htmlFor={TRANS_SEP_CUSTOM} className="ml-2">
-          Custom{' '}
+        <Label htmlFor={TRANS_SEP_CUSTOM}>
+          Custom
           {translationSeparator === TRANS_SEP_CUSTOM && (
-            <input
-              type="text"
-              maxLength={50}
-              value={customTranslationSeparator}
-              className="rounded-md md:rounded-lg py-1 px-3 text-dark-700 border-1 border-primary-blue outline-none shadow-s"
-              onChange={(e) => setCustomTranslationSeparator(e.target.value)}
-            ></input>
+            <>
+              <span>:&nbsp;&nbsp;&nbsp;</span>
+              <input
+                type="text"
+                maxLength={50}
+                value={customTranslationSeparator}
+                className="rounded-md md:rounded-lg py-1 px-3 text-dark-700 border-1 border-primary-blue outline-none shadow-s"
+                onChange={(e) => setCustomTranslationSeparator(e.target.value)}
+              ></input>
+            </>
           )}
-        </label>
+        </Label>
         <br />
 
         <h3 className="my-4">Separator between phrases:</h3>
 
         {PHRASE_SEPARATORS.map((option) => (
           <>
-            <input
-              type="radio"
+            <RadioButton
               id={option.id}
               name={'phraseSeparator'}
               value={option.value}
               checked={phraseSeparator === option.value}
               onChange={() => setPhraseSeparator(option.value)}
             />
-            <label htmlFor={option.id} className="ml-2">
+            <Label htmlFor={option.id}>
               {option.name} {option.displayValue ?? `(${option.value})`}
-            </label>
+            </Label>
             <br />
           </>
         ))}
-        <input
-          type="radio"
+        <RadioButton
           id={PHRASE_SEP_CUSTOM}
           name={'phraseSeparator'}
           value={PHRASE_SEP_CUSTOM}
           checked={phraseSeparator === PHRASE_SEP_CUSTOM}
           onChange={() => setPhraseSeparator(PHRASE_SEP_CUSTOM)}
         />
-        <label htmlFor={PHRASE_SEP_CUSTOM} className="ml-2">
-          Custom{' '}
+        <Label htmlFor={PHRASE_SEP_CUSTOM}>
+          Custom
           {phraseSeparator === PHRASE_SEP_CUSTOM && (
-            <input
-              type="text"
-              maxLength={50}
-              value={customPhraseSeparator}
-              className="rounded-md md:rounded-lg py-1 px-3 text-dark-700 border-1 border-primary-blue outline-none shadow-s"
-              onChange={(e) => setCustomPhraseSeparator(e.target.value)}
-            ></input>
+            <>
+              <span>:&nbsp;&nbsp;&nbsp; </span>
+              <input
+                type="text"
+                maxLength={50}
+                value={customPhraseSeparator}
+                className="rounded-md md:rounded-lg py-1 px-3 text-dark-700 border-1 border-primary-blue outline-none shadow-s"
+                onChange={(e) => setCustomPhraseSeparator(e.target.value)}
+              ></input>
+            </>
           )}
-        </label>
+        </Label>
         <br />
+
+        <h3 className="my-4">Preview:</h3>
+        <code className="whitespace-pre-wrap">{translationStrings.slice(0, PREVIEW_PHRASES_COUNT)}</code>
 
         <div>
           <a download={fileName} href={downloadLink}>
