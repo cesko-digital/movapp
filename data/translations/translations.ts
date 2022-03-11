@@ -24,13 +24,13 @@ export interface TranslationsType {
 
 export const translations: TranslationsType[] = [
   {
-    category_name_ua: 'Základní fráze',
-    category_name_cz: 'Основні фрази',
+    category_name_ua: 'Основні фрази',
+    category_name_cz: 'Základní fráze',
     translations: Basic,
   },
   {
-    category_name_ua: 'Užitečné fráze',
-    category_name_cz: 'Корисні фрази',
+    category_name_ua: 'Корисні фрази',
+    category_name_cz: 'Užitečné fráze',
     translations: UzitecneFraze,
   },
   {
