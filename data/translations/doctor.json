@@ -8,7 +8,7 @@
   {
     "cz_translation": "Potřebuji doktora.",
     "cz_transcription": "Потржебуї доктора",
-    "ua_translation": "Мені потрібен лікар",
+    "ua_translation": "Мені потрібен лікар.",
     "ua_transcription": "Meni potriben likar"
   },
   {
@@ -18,11 +18,17 @@
     "ua_transcription": "holova"
   },
   {
-    "cz_translation": "oko / oči",
-    "cz_transcription": "око / очи",
-    "ua_translation": "око / очі",
-    "ua_transcription": "oko / oči"
+    "cz_translation": "oko",
+    "cz_transcription": "око",
+    "ua_translation": "око",
+    "ua_transcription": "oko"
   },
+  {
+    "cz_translation": "oči",
+    "cz_transcription": "очи",
+    "ua_translation": "очі",
+    "ua_transcription": "oči"
+  },  
   {
     "cz_translation": "nos",
     "cz_transcription": "нос",
@@ -36,10 +42,16 @@
     "ua_transcription": "rot"
   },
   {
-    "cz_translation": "ucho / uši",
-    "cz_transcription": "ухо / уши",
-    "ua_translation": "вухо / вуха",
-    "ua_transcription": "vucho / vucha"
+    "cz_translation": "ucho",
+    "cz_transcription": "ухо",
+    "ua_translation": "вухо",
+    "ua_transcription": "vucho"
+  },
+  {
+    "cz_translation": "uši",
+    "cz_transcription": "уши",
+    "ua_translation": "вуха",
+    "ua_transcription": "vucha"
   },
   {
     "cz_translation": "krk",
@@ -48,28 +60,46 @@
     "ua_transcription": "horlo"
   },
   {
-    "cz_translation": "rameno / ramena",
-    "cz_transcription": "рамено / рамена",
-    "ua_translation": "плече / плечі",
-    "ua_transcription": "pleče / pleči"
+    "cz_translation": "rameno",
+    "cz_transcription": "рамено",
+    "ua_translation": "плече",
+    "ua_transcription": "pleče"
   },
   {
-    "cz_translation": "paže / paže",
-    "cz_transcription": "паже / паже",
-    "ua_translation": "рука / руки (передпліччя)",
-    "ua_transcription": "ruka / ruky (peredpliččja)"
+    "cz_translation": "ramena",
+    "cz_transcription": "рамена",
+    "ua_translation": "плечі",
+    "ua_transcription": "pleči"
   },
   {
-    "cz_translation": "ruka / ruce",
-    "cz_transcription": "рука / руце",
-    "ua_translation": "рука / руки (долоні)",
-    "ua_transcription": "ruka / ruky (doloni)"
+    "cz_translation": "paže",
+    "cz_transcription": "паже",
+    "ua_translation": "рука",
+    "ua_transcription": "ruka"
   },
+  {
+    "cz_translation": "paže",
+    "cz_transcription": "паже",
+    "ua_translation": "руки",
+    "ua_transcription": "ruky"
+  },
+  {
+    "cz_translation": "ruka",
+    "cz_transcription": "рука",
+    "ua_translation": "рука",
+    "ua_transcription": "ruka"
+  },
+  {
+    "cz_translation": "ruce",
+    "cz_transcription": "руце",
+    "ua_translation": "руки",
+    "ua_transcription": "ruky"
+  },  
   {
     "cz_translation": "hrudník",
-    "cz_transcription": "сируп (на кашел)",
-    "ua_translation": "груди (грудна клітка)",
-    "ua_transcription": "hrudy (hrudna klitka)"
+    "cz_transcription": "сируп",
+    "ua_translation": "груди",
+    "ua_transcription": "hrudy"
   },
   {
     "cz_translation": "břicho",
@@ -86,47 +116,75 @@
   {
     "cz_translation": "zadek",
     "cz_transcription": "задек",
-    "ua_translation": "попа (сідниці)",
-    "ua_transcription": "popa (sidnyci)"
+    "ua_translation": "попа",
+    "ua_transcription": "popa"
   },
   {
-    "cz_translation": "noha / nohy",
-    "cz_transcription": "нога / ноги",
-    "ua_translation": "нога / ноги",
-    "ua_transcription": "noha / nohy"
+    "cz_translation": "noha",
+    "cz_transcription": "нога",
+    "ua_translation": "нога",
+    "ua_transcription": "noha"
   },
   {
-    "cz_translation": "prst / prsty",
-    "cz_transcription": "прст / прсти",
-    "ua_translation": "палець / пальці",
-    "ua_transcription": "palec’ / pal’ci"
+    "cz_translation": "nohy",
+    "cz_transcription": "ноги",
+    "ua_translation": "ноги",
+    "ua_transcription": "nohy"
+  },  
+  {
+    "cz_translation": "prst",
+    "cz_transcription": "прст",
+    "ua_translation": "палець",
+    "ua_transcription": "palec’"
   },
   {
-    "cz_translation": "dlaň / dlaně",
-    "cz_transcription": "длань / дланє",
-    "ua_translation": "долоня / долоні",
-    "ua_transcription": "doloňa / doloni"
+    "cz_translation": "prsty",
+    "cz_transcription": "прсти",
+    "ua_translation": "пальці",
+    "ua_transcription": "pal’ci"
+  },  
+  {
+    "cz_translation": "dlaň",
+    "cz_transcription": "длань",
+    "ua_translation": "долоня",
+    "ua_transcription": "doloňa"
   },
   {
-    "cz_translation": "chodidlo / chodidla",
-    "cz_transcription": "ходідло / ходідла",
-    "ua_translation": "стопа / стопи",
-    "ua_transcription": "stopa / stopy"
+    "cz_translation": "dlaně",
+    "cz_transcription": "дланє",
+    "ua_translation": "долоні",
+    "ua_transcription": "doloni"
   },
   {
-    "cz_translation": "zub / zuby",
-    "cz_transcription": "зуб / зуби",
-    "ua_translation": "зуб / зуби",
-    "ua_transcription": "zub / zuby"
+    "cz_translation": "chodidlo",
+    "cz_transcription": "ходідло",
+    "ua_translation": "стопа",
+    "ua_transcription": "stopa"
   },
-
+  {
+    "cz_translation": "chodidla",
+    "cz_transcription": "ходідла",
+    "ua_translation": "стопи",
+    "ua_transcription": "stopy"
+  },
+  {
+    "cz_translation": "zub",
+    "cz_transcription": "зуб",
+    "ua_translation": "зуб",
+    "ua_transcription": "zub"
+  },
+  {
+    "cz_translation": "zuby",
+    "cz_transcription": "зуби",
+    "ua_translation": "зуби",
+    "ua_transcription": "zuby"
+  },
   {
     "cz_translation": "žaludek",
     "cz_transcription": "жалудек",
     "ua_translation": "шлунок",
     "ua_transcription": "šlunok"
   },
-
   {
     "cz_translation": "Bolí mě...",
     "cz_transcription": "Болі мнє",
@@ -134,100 +192,100 @@
     "ua_transcription": "U mene boliť"
   },
   {
-    "cz_translation": "Bolí ji / ho...",
-    "cz_transcription": "Болі ї / го",
-    "ua_translation": "у неї / нього болить...",
-    "ua_transcription": "U neji / ňoho boliť"
+    "cz_translation": "Bolí ji... Bolí ho...",
+    "cz_transcription": "Болі ї / Болі го",
+    "ua_translation": "у неї болить... у нього болить...",
+    "ua_transcription": "U neji boliť / U ňoho boliť"
   },
   {
     "cz_translation": "Svědí mě...",
     "cz_transcription": "Свєді мнє",
-    "ua_translation": "у мене свербить (чешеться)...",
-    "ua_transcription": "U mene sverby’t (češeťsja)"
+    "ua_translation": "у мене свербить...",
+    "ua_transcription": "U mene sverby’t"
   },
   {
-    "cz_translation": "Svědí ji / ho...",
-    "cz_transcription": "Сдєді ї / го",
-    "ua_translation": "у неї/нього свербить (чешеться)...",
-    "ua_transcription": "U neji / ňoho sverbyť (češeťsja)"
+    "cz_translation": "Svědí ji... Svědí ho...",
+    "cz_transcription": "Сдєді ї / Сдєді го",
+    "ua_translation": "у неї  свербить... у нього свербить...",
+    "ua_transcription": "U neji sverbyť / U ňoho sverbyť"
   },
   {
-    "cz_translation": "Mám teplotu...",
+    "cz_translation": "Mám teplotu.",
     "cz_transcription": "Мам теплоту",
-    "ua_translation": "у мене температура",
+    "ua_translation": "у мене температура.",
     "ua_transcription": "U mene temperatura"
   },
   {
-    "cz_translation": "Má teplotu...",
+    "cz_translation": "Má teplotu.",
     "cz_transcription": "Ма теплоту",
-    "ua_translation": "у неї / нього температура",
-    "ua_transcription": "U neji / ňoho temperatura"
+    "ua_translation": "у неї температура. у нього температура.",
+    "ua_transcription": "U neji temperatura / U ňoho temperatura"
   },
   {
-    "cz_translation": "Zvracím...",
+    "cz_translation": "Zvracím..",
     "cz_transcription": "Зврацім",
-    "ua_translation": "мене нудить",
+    "ua_translation": "мене нудить.",
     "ua_transcription": "mene nudyť"
   },
   {
     "cz_translation": "Zvrací...",
     "cz_transcription": "Звраці",
-    "ua_translation": "її / його нудить",
-    "ua_transcription": "jiji / joho nudyť"
+    "ua_translation": "її нудить. його нудить",
+    "ua_transcription": "jiji nudyť / joho nudyť"
   },
   {
-    "cz_translation": "Mám průjem...",
+    "cz_translation": "Mám průjem.",
     "cz_transcription": "Мам пруєм",
-    "ua_translation": "у мене понос",
+    "ua_translation": "у мене понос.",
     "ua_transcription": "U mene ponos"
   },
   {
-    "cz_translation": "Má průjem...",
+    "cz_translation": "Má průjem.",
     "cz_transcription": "Ма пруєм",
-    "ua_translation": "у неї/нього понос",
-    "ua_transcription": "U neji / ňoho ponos"
+    "ua_translation": "у неї понос. у нього понос.",
+    "ua_transcription": "U neji ponos / U ňoho ponos"
   },
   {
     "cz_translation": "Není mi dobře.",
     "cz_transcription": "Нені ми добрже",
-    "ua_translation": "Мені погано",
+    "ua_translation": "Мені погано.",
     "ua_transcription": "Meni pohano"
   },
   {
-    "cz_translation": "Není jí / mu dobře.",
-    "cz_transcription": "Нені ї / му добрже",
-    "ua_translation": "їй/йому погано",
-    "ua_transcription": "jij / jomu pohano"
+    "cz_translation": "Není jí dobře. Není mu dobře.",
+    "cz_transcription": "Нені ї добрже / Нені му добрже",
+    "ua_translation": "їй погано. йому погано.",
+    "ua_transcription": "jij pohano / jomu pohano"
   },
   {
-    "cz_translation": "Jsem nemocná/nemocný.",
-    "cz_transcription": "Йсем немоцна / немоцни",
-    "ua_translation": "Я хвора / хворий.",
-    "ua_transcription": "Ja chvora / chvoryj"
-  },
-  {
-    "cz_translation": "Praskla mi voda.",
-    "cz_transcription": "Праскла ми вода",
-    "ua_translation": "у мене відійшли води",
-    "ua_transcription": "U mene vidijšly vody"
+    "cz_translation": "Jsem nemocná. Jsem nemocný.",
+    "cz_transcription": "Йсем немоцна / Йсем немоцни",
+    "ua_translation": "Я хвора. Я хворий.",
+    "ua_transcription": "Ja chvora / Ja chvoryj"
   },
   {
     "cz_translation": "Dítě kope.",
     "cz_transcription": "Дітє копе",
-    "ua_translation": "дитина штовхається",
+    "ua_translation": "дитина штовхається.",
     "ua_transcription": "dytyna štovchajeťsja"
+  },  
+  {
+    "cz_translation": "Praskla mi voda.",
+    "cz_transcription": "Праскла ми вода",
+    "ua_translation": "у мене відійшли води.",
+    "ua_transcription": "U mene vidijšly vody"
   },
   {
     "cz_translation": "Krvácím.",
     "cz_transcription": "Крвацім",
-    "ua_translation": "у мене кровотеча",
+    "ua_translation": "у мене кровотеча.",
     "ua_transcription": "U mene krovoteča"
   },
   {
-    "cz_translation": "(On / Ona) krvácí.",
-    "cz_transcription": "(Он / она) крваці",
-    "ua_translation": "у нього / неї кровотеча",
-    "ua_transcription": "U ňoho / neji krovoteča"
+    "cz_translation": "On krvácí. Ona krvácí.",
+    "cz_transcription": "Он крваці / она крваці",
+    "ua_translation": "у нього кровотеча. у неї кровотеча",
+    "ua_transcription": "U ňoho krovoteča / neji krovoteča"
   },
 
   {
@@ -268,21 +326,39 @@
     "ua_transcription": "Meni potribni"
   },
   {
-    "cz_translation": "léky (na bolest)",
-    "cz_transcription": "леки (на болест)",
-    "ua_translation": "ліки (від болю)",
-    "ua_transcription": "liky (vid bolju)"
+    "cz_translation": "léky",
+    "cz_transcription": "леки",
+    "ua_translation": "ліки",
+    "ua_transcription": "liky"
   },
   {
-    "cz_translation": "mast (na ekzém)",
-    "cz_transcription": "маст (на екзем)",
-    "ua_translation": "мазь (від екземи)",
-    "ua_transcription": "maz’ (vid ekzemy)"
+    "cz_translation": "léky na bolest",
+    "cz_transcription": "леки на болест",
+    "ua_translation": "ліки від болю",
+    "ua_transcription": "liky vid bolju"
   },
   {
-    "cz_translation": "sirup (na kašel)",
-    "cz_transcription": "сіруп (на кашел)",
-    "ua_translation": "сироп (від кашлю)",
-    "ua_transcription": "syrop (vid kašlju)"
+    "cz_translation": "mast",
+    "cz_transcription": "маст",
+    "ua_translation": "мазь",
+    "ua_transcription": "maz’"
+  },
+  {
+    "cz_translation": "mast na ekzém",
+    "cz_transcription": "маст на екзем",
+    "ua_translation": "мазь від екземи",
+    "ua_transcription": "maz’ vid ekzemy"
+  },
+  {
+    "cz_translation": "sirup",
+    "cz_transcription": "сіруп",
+    "ua_translation": "сироп",
+    "ua_transcription": "syrop"
+  },
+  {
+    "cz_translation": "sirup na kašel",
+    "cz_transcription": "сіруп на кашел",
+    "ua_translation": "сироп від кашлю",
+    "ua_transcription": "syrop vid kašlju"
   }
 ]
