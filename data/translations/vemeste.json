@@ -56,13 +56,13 @@
   {
     "cz_translation": "lékárna",
     "cz_transcription": "лекарна",
-    "ua_translation": "!!! аптека",
+    "ua_translation": "аптека",
     "ua_transcription": "apteka"
   },
   {
     "cz_translation": "nemocnice",
     "cz_transcription": "немоцніце",
-    "ua_translation": "!!! лікарня",
+    "ua_translation": "лікарня",
     "ua_transcription": "likarňa"
   },
   {
@@ -84,29 +84,34 @@
     "ua_transcription": "jak znajty"
   },
   {
-    "cz_translation": "Jak se dostanu na / k...",
-    "cz_transcription": "Як се достану на / к",
+    "cz_translation": "Jak se dostanu na...? Jak se dostanu k...?",
+    "cz_transcription": "Як се достану на / Як се достану к",
     "ua_translation": "Як дістатись до...?",
     "ua_transcription": "jak distatys’ do"
   },
   {
-    "cz_translation": "Jaká je adresa...",
+    "cz_translation": "Jaká je adresa...?",
     "cz_transcription": "Яка є адреса",
-    "ua_translation": "Яка адреса у ..?",
+    "ua_translation": "Яка адреса у...?",
     "ua_transcription": "jaka adresa u"
   },
   {
-    "cz_translation": "Kde je nejbližší [nemocnice]...",
+    "cz_translation": "Kde je nejbližší nemocnice?",
     "cz_transcription": "Ґде є нейбліжші немоцніце",
-    "ua_translation": "Де найближча (лікарня)",
-    "ua_transcription": "de najbližča (likarňa)"
+    "ua_translation": "Де найближча лікарня?",
+    "ua_transcription": "de najbližča likarňa"
   },
-  
   {
     "cz_translation": "náměstí",
     "cz_transcription": "намнєсті",
-    "ua_translation": "площа (майдан)",
-    "ua_transcription": "plošča / majdan"
+    "ua_translation": "площа",
+    "ua_transcription": "plošča"
+  },
+  {
+    "cz_translation": "náměstí",
+    "cz_transcription": "намнєсті",
+    "ua_translation": "майдан",
+    "ua_transcription": "majdan"
   },
   {
     "cz_translation": "zastávka tramvaje",
