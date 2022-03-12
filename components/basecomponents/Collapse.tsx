@@ -13,7 +13,7 @@ export const Collapse = ({ title, children }: CollapseProps): JSX.Element => {
     <div className="bg-white border-b-1 border-b-primary-grey ">
       <div className="grid cursor-pointer p-4 grid-cols-[90%_10%] items-center " onClick={() => setExpanded(!expanded)}>
         <div>
-          <p className="text-primary-blue text-lg font-bold">{title}</p>
+          <p className="text-primary-blue text-base font-medium sm:text-lg sm:font-bold">{title}</p>
         </div>
         <div className="justify-self-end cursor-pointer">
           {expanded ? <ChevronDown className="fill-primary-blue" /> : <ChevronRight className="fill-primary-blue" />}

@@ -12,8 +12,7 @@ export { getStaticProps } from '../../utils/localization';
 const Dictionary = () => {
   const [search, setSearch] = useState('');
   const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
-
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const filterBySearch = ({ category_name_cz, category_name_ua, translations }: TranslationsType) => {
     const UACategoryName = category_name_ua.toLowerCase();
@@ -71,7 +70,12 @@ const Dictionary = () => {
         </div>
         <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
         {translations.filter(filterBySearch).map((category, index) => {
-          const categoryName = `${category.category_name_ua}` + ' - ' + `${category.category_name_cz}`;
+          const mainLanguageCategory = i18n.language === 'cz' ? category.category_name_cz : category.category_name_ua;
+          const secondaryLanguageCategory = i18n.language === 'cz' ? category.category_name_ua : category.category_name_cz;
+
+          // swaps category titles according to choosen locale
+          const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
+
           return (
             <Collapse key={index} title={categoryName}>
               <ExportTranslations translations={category.translations} category={categoryName} />

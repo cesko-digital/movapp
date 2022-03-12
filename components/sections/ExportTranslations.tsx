@@ -2,7 +2,7 @@ import { Fragment, InputHTMLAttributes, LabelHTMLAttributes, useState } from 're
 import { Button } from '../basecomponents/Button';
 import { Modal } from '../basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
-import { Translation } from '../basecomponents/TranslationContainer';
+import { Translation } from '../basecomponents/TranslationsContainer';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;

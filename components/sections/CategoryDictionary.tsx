@@ -1,5 +1,5 @@
 import React from 'react';
-import { Translation, TranslationContainer } from '../basecomponents/TranslationContainer';
+import { Translation, TranslationContainer } from '../basecomponents/TranslationsContainer';
 
 interface CategoryDictionaryProps {
   translations: Translation[];

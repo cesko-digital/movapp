@@ -1,4 +1,4 @@
-import { Translation } from '../../components/basecomponents/TranslationContainer';
+import { Translation } from '../../components/basecomponents/TranslationsContainer';
 // JSON translation files
 import Basic from './basic.json';
 import UzitecneFraze from './uzitecne-fraze.json';

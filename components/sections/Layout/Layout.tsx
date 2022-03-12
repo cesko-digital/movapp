@@ -11,7 +11,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
     <div>
       <Header />
       <Script data-domain="movapp.cz" src="https://plausible.io/js/plausible.js" />
-      <main className="bg-primary-grey pb-8 min-h-screen">
+      <main className="bg-white sm:bg-primary-grey pb-8 min-h-screen">
         <div className="m-auto">{children}</div>
       </main>
       <Footer />
