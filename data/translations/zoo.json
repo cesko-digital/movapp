@@ -8,92 +8,110 @@
   {
     "cz_translation": "Jedeme do ZOO.",
     "cz_transcription": "Єдеме до зоо",
-    "ua_translation": "Їдемо в зоопарк",
+    "ua_translation": "Їдемо в зоопарк.",
     "ua_transcription": "Jidemo v zoopark"
+  },
+  {
+    "cz_translation": "Jdeme do ZOO.",
+    "cz_transcription": "Деме до зоо",
+    "ua_translation": "Йдемо в зоопарк.",
+    "ua_transcription": "Jdemo v zoopark"
   },
   {
     "cz_translation": "Která tramvaj jede...",
     "cz_transcription": "Ктера трамвай єде",
-    "ua_translation": "Який трамвай їде... (чеською трамвай жіночого роду=вона)",
-    "ua_transcription": "Jakyj tramvaj jide…"
+    "ua_translation": "Який трамвай їде...",
+    "ua_transcription": "Jakyj tramvaj jide"
   },
   {
     "cz_translation": "Který autobus jede...",
     "cz_transcription": "Ктери аутобус єде",
     "ua_translation": "Який автобус їде...",
-    "ua_transcription": "Jakij avtobus jide…"
-  },
-  {
-    "cz_translation": "Jdeme do ZOO",
-    "cz_transcription": "Деме до зоо",
-    "ua_translation": "Йдемо в зоопарк",
-    "ua_transcription": "Jdemo v zoopark"
+    "ua_transcription": "Jakij avtobus jide"
   },
   {
     "cz_translation": "Kde je vchod?",
     "cz_transcription": "Ґде є вход",
     "ua_translation": "Де вхід?",
-    "ua_transcription": "De vchid?"
+    "ua_transcription": "De vchid"
   },
   {
     "cz_translation": "Kde je východ?",
     "cz_transcription": "Ґде є виход",
     "ua_translation": "Де вихід?",
-    "ua_transcription": "De vychid?"
+    "ua_transcription": "De vychid"
   },
   {
     "cz_translation": "Kde je pokladna?",
     "cz_transcription": "Ґде є покладна",
     "ua_translation": "Де каса?",
-    "ua_transcription": "De kasa?"
+    "ua_transcription": "De kasa"
   },
   {
     "cz_translation": "Kolik stojí vstupné?",
     "cz_transcription": "Колик стої вступне",
     "ua_translation": "Скільки коштує квиток?",
-    "ua_transcription": "Skiľky koštuje kvytok?"
+    "ua_transcription": "Skiľky koštuje kvytok"
   },
   {
     "cz_translation": "jeden lístek pro...",
     "cz_transcription": "єден лістек про",
     "ua_translation": "один квиток для...",
-    "ua_transcription": "odyn kvytok dlja…"
+    "ua_transcription": "odyn kvytok dlja"
   },
   {
-    "cz_translation": "dva / tři / čtyři lístky pro...",
-    "cz_transcription": "два / тржи / чтиржи лістки про",
-    "ua_translation": "два / три / чотири квитки для",
-    "ua_transcription": "dva / try / čotyry kvytky dlja…"
+    "cz_translation": "dva lístky pro...",
+    "cz_transcription": "два лістки про",
+    "ua_translation": "два квитки для...",
+    "ua_transcription": "dva kvytky dlja"
   },
   {
-    "cz_translation": "pět / šest / ... lístků pro...",
-    "cz_transcription": "пєт / шест ... лістку про",
-    "ua_translation": "п'ять / шість / ... квитків для",
-    "ua_transcription": "pjať / šisť / … kvytkiu dlja…"
+    "cz_translation": "tři lístky pro...",
+    "cz_transcription": "тржи лістки про",
+    "ua_translation": "три квитки для...",
+    "ua_transcription": "try kvytky dlja"
+  },
+{
+    "cz_translation": "čtyři lístky pro...",
+    "cz_transcription": "чтиржи лістки про",
+    "ua_translation": "чотири квитки для...",
+    "ua_transcription": "čotyry kvytky dlja"
   },
   {
-    "cz_translation": "dospělý (lístek pro dospělé)",
-    "cz_transcription": "доспєли (лістек про доспєле)",
-    "ua_translation": "дорослий (квиток для дорослого)",
-    "ua_transcription": "doroslyj (kvytok dlja dorosloho)"
+    "cz_translation": "pět lístků pro...",
+    "cz_transcription": "пєт лістку про",
+    "ua_translation": "п'ять квитків для...",
+    "ua_transcription": "pjať kvytkiu dlja"
   },
   {
-    "cz_translation": "dítě / děti",
+    "cz_translation": "šest lístků pro...",
+    "cz_transcription": "шест лістку про",
+    "ua_translation": "шість квитків для...",
+    "ua_transcription": "šisť kvytkiu dlja"
+  },
+  {
+    "cz_translation": "lístek pro dospělé",
+    "cz_transcription": "лістек про доспєле",
+    "ua_translation": "квиток для дорослого",
+    "ua_transcription": "kvytok dlja dorosloho"
+  },
+  {
+    "cz_translation": "Dítě. Děti.",
     "cz_transcription": "дітє / дєті",
-    "ua_translation": "дитина / діти",
+    "ua_translation": "дитина. діти",
     "ua_transcription": "dytyna / dity"
   },
   {
     "cz_translation": "Mohu dostat plánek?",
     "cz_transcription": "Могу достат планек",
-    "ua_translation": "Можу взяти план (карту)?",
-    "ua_transcription": "Možu vzjaty plan (kartu)?"
+    "ua_translation": "Можу взяти план? Можу взяти карту?",
+    "ua_transcription": "Možu vzjaty plan / Možu vzjaty kartu"
   },
   {
     "cz_translation": "Kde jezdí lanovka?",
     "cz_transcription": "Ґде єзді ланофка",
     "ua_translation": "Де ходить фунікулер?",
-    "ua_transcription": "De chodyť funikuler?"
+    "ua_transcription": "De chodyť funikuler"
   },
   {
     "cz_translation": "Kolik stojí lístek?",
@@ -108,111 +126,177 @@
     "ua_transcription": "De znachoďaťsja tualety?"
   },
   {
-    "cz_translation": "Kde můžu koupit jídlo / pití?",
-    "cz_transcription": "Ґде мужу коупит їдло / питі",
-    "ua_translation": "Де можна купити їжу / напої?",
-    "ua_transcription": "De možna kupyty jižu / napoji?"
+    "cz_translation": "Kde můžu koupit jídlo?",
+    "cz_transcription": "Ґде мужу коупит їдло",
+    "ua_translation": "Де можна купити їжу?",
+    "ua_transcription": "De možna kupyty jižu"
+  },
+{
+    "cz_translation": "Kde můžu koupit pití?",
+    "cz_transcription": "Ґде мужу коупит питі",
+    "ua_translation": "Де можна купити напої?",
+    "ua_transcription": "De možna kupyty napoji"
   },
   {
     "cz_translation": "Jdu správně k...?",
     "cz_transcription": "Ду справнє к",
     "ua_translation": "Я правильно йду до...?",
-    "ua_transcription": "Ja praviľno jdu do…?"
+    "ua_transcription": "Ja praviľno jdu do"
   },
   {
     "cz_translation": "Hledám...",
     "cz_transcription": "Гледам",
     "ua_translation": "Шукаю...",
-    "ua_transcription": "Šukaju…"
+    "ua_transcription": "Šukaju"
   },
   {
     "cz_translation": "Můžu se zeptat...",
     "cz_transcription": "Мужу се зептат",
     "ua_translation": "Можна спитати...",
-    "ua_transcription": "Možna spytaty…"
+    "ua_transcription": "Možna spytaty"
   },
   {
     "cz_translation": "Poradíte mi?",
     "cz_transcription": "Порадіте ми",
-    "ua_translation": "Порадьте мені",
+    "ua_translation": "Порадьте мені?",
     "ua_transcription": "Poraďte meni"
   },
   {
-    "cz_translation": "slon / sloni",
-    "cz_transcription": "слон / слоні",
-    "ua_translation": "слон / слони",
-    "ua_transcription": "slon / slony"
+    "cz_translation": "slon",
+    "cz_transcription": "слон",
+    "ua_translation": "слон",
+    "ua_transcription": "slon"
   },
   {
-    "cz_translation": "žirafa / žirafy",
-    "cz_transcription": "жирафа / жирафи",
-    "ua_translation": "жираф / жирафи",
-    "ua_transcription": "žiraf / žirafy"
+    "cz_translation": "sloni",
+    "cz_transcription": "слоні",
+    "ua_translation": "слони",
+    "ua_transcription": "slony"
   },
   {
-    "cz_translation": "tučňák / tučňáci",
-    "cz_transcription": "тучняк / тучняци",
-    "ua_translation": "пінгвін / пвнгвіни",
-    "ua_transcription": "pinhvin / pinhviny"
+    "cz_translation": "žirafa",
+    "cz_transcription": "жирафа",
+    "ua_translation": "жираф",
+    "ua_transcription": "žiraf"
   },
   {
-    "cz_translation": "lev / lvi",
-    "cz_transcription": "леф / лви",
-    "ua_translation": "лев / леви",
-    "ua_transcription": "lev / levy"
+    "cz_translation": "žirafy",
+    "cz_transcription": "жирафи",
+    "ua_translation": "жирафи",
+    "ua_transcription": "žirafy"
   },
   {
-    "cz_translation": "zebra / zebry",
-    "cz_transcription": "зебра / зебри",
-    "ua_translation": "зебра / зебри",
-    "ua_transcription": "zebra / zebry"
+    "cz_translation": "tučňák",
+    "cz_transcription": "тучняк",
+    "ua_translation": "пінгвін",
+    "ua_transcription": "pinhvin"
   },
   {
-    "cz_translation": "hroch / hroši",
-    "cz_transcription": "грох / гроши",
-    "ua_translation": "бегемот / бегемоти",
-    "ua_transcription": "behemot / behemoty"
+    "cz_translation": "tučňáci",
+    "cz_transcription": "тучняци",
+    "ua_translation": "пвнгвіни",
+    "ua_transcription": "pinhviny"
   },
   {
-    "cz_translation": "dikobraz / dikobrazové",
-    "cz_transcription": "дикобрас / дикобразове",
-    "ua_translation": "дикобраз / дикобрази",
-    "ua_transcription": "dykobraz / dykobrazy"
+    "cz_translation": "lev",
+    "cz_transcription": "леф",
+    "ua_translation": "лев",
+    "ua_transcription": "lev"
   },
   {
-    "cz_translation": "tygr / tygři",
-    "cz_transcription": "тигр / тигржи",
-    "ua_translation": "тигр / тигри",
-    "ua_transcription": "tygr / tygry"
+    "cz_translation": "lvi",
+    "cz_transcription": "лви",
+    "ua_translation": "леви",
+    "ua_transcription": "levy"
   },
   {
-    "cz_translation": "želva / želvy",
-    "cz_transcription": "желва / желви",
-    "ua_translation": "черепаха / черепахи",
-    "ua_transcription": "čerepacha / čerepachy"
+    "cz_translation": "zebra",
+    "cz_transcription": "зебра",
+    "ua_translation": "зебра",
+    "ua_transcription": "zebra"
   },
   {
-    "cz_translation": "antilopa / antilopy",
-    "cz_transcription": "антилопа / антилопи",
-    "ua_translation": "антилопа / антилопи",
-    "ua_transcription": "antylopa / antylopy"
+    "cz_translation": "zebry",
+    "cz_transcription": "зебри",
+    "ua_translation": "зебри",
+    "ua_transcription": "zebry"
   },
   {
-    "cz_translation": "papoušek / papoušci",
-    "cz_transcription": "папоушек / папоушци",
-    "ua_translation": "папуга / папуги",
-    "ua_transcription": "papuha / papuhy"
+    "cz_translation": "hroch",
+    "cz_transcription": "грох",
+    "ua_translation": "бегемот",
+    "ua_transcription": "behemot"
+  },
+  {
+    "cz_translation": "hroši",
+    "cz_transcription": "гроши",
+    "ua_translation": "бегемоти",
+    "ua_transcription": "behemoty"
+  },
+  {
+    "cz_translation": "dikobraz",
+    "cz_transcription": "дикобрас",
+    "ua_translation": "дикобраз",
+    "ua_transcription": "dykobraz"
+  },
+  {
+    "cz_translation": "dikobrazové",
+    "cz_transcription": "дикобразове",
+    "ua_translation": "дикобрази",
+    "ua_transcription": "dykobrazy"
+  },
+  {
+    "cz_translation": "tygr",
+    "cz_transcription": "тигр",
+    "ua_translation": "тигр",
+    "ua_transcription": "tygr"
+  },
+  {
+    "cz_translation": "tygři",
+    "cz_transcription": "тигржи",
+    "ua_translation": "тигри",
+    "ua_transcription": "tygry"
+  },
+  {
+    "cz_translation": "želva",
+    "cz_transcription": "желва",
+    "ua_translation": "черепаха",
+    "ua_transcription": "čerepacha"
+  },
+  {
+    "cz_translation": "želvy",
+    "cz_transcription": "желви",
+    "ua_translation": "черепахи",
+    "ua_transcription": "čerepachy"
+  },
+  {
+    "cz_translation": "antilopa",
+    "cz_transcription": "антилопа",
+    "ua_translation": "антилопа",
+    "ua_transcription": "antylopa"
+  },
+  {
+    "cz_translation": "antilopy",
+    "cz_transcription": "антилопи",
+    "ua_translation": "антилопи",
+    "ua_transcription": "antylopy"
+  },
+  {
+    "cz_translation": "papoušek",
+    "cz_transcription": "папоушек",
+    "ua_translation": "папуга",
+    "ua_transcription": "papuha"
+  },
+  {
+    "cz_translation": "papoušci",
+    "cz_transcription": "папоушци",
+    "ua_translation": "папуги",
+    "ua_transcription": "papuhy"
   },
   {
     "cz_translation": "opice",
     "cz_transcription": "опице",
     "ua_translation": "мавпа",
     "ua_transcription": "maupa"
-  },
-  {
-    "cz_translation": "Ženy a děti z Ukrajiny nyní mají vstupné do ZOO Praha za 1 Kč. Pro vstup stačí předložit platný cestovní pas nebo občanský průkaz Ukrajiny.",
-    "cz_transcription": "",
-    "ua_translation": "Для жінок і дітей з України наразі вхід до зоопарку Праги коштує 1 крону. Щоб скористатись цим, досить лише показати закордонний паспорт або посвідчення особи.",
-    "ua_transcription": ""
   }
 ]

@@ -30,8 +30,8 @@
     "ua_transcription": "mahazyn jiži"
   },
   {
-    "cz_translation": "drogerie (AKK: drogerii)",
-    "cz_transcription": "дроґериє (АКК дроґериї)",
+    "cz_translation": "drogerie",
+    "cz_transcription": "дроґериє",
     "ua_translation": "магазин побутової хімії",
     "ua_transcription": "mahazyn pobutovoji chimiji"
   },
@@ -54,15 +54,15 @@
     "ua_transcription": "torhivel’nyj cent"
   },
   {
-    "cz_translation": "lékárna (AKK: lékárnu)",
-    "cz_transcription": "лекарна (АКК лекарну)",
-    "ua_translation": "!!! аптека",
+    "cz_translation": "lékárna",
+    "cz_transcription": "лекарна",
+    "ua_translation": "аптека",
     "ua_transcription": "apteka"
   },
   {
     "cz_translation": "nemocnice",
     "cz_transcription": "немоцніце",
-    "ua_translation": "!!! лікарня",
+    "ua_translation": "лікарня",
     "ua_transcription": "likarňa"
   },
   {
@@ -84,45 +84,50 @@
     "ua_transcription": "jak znajty"
   },
   {
-    "cz_translation": "Jak se dostanu na / k...",
-    "cz_transcription": "Як се достану на / к",
+    "cz_translation": "Jak se dostanu na...? Jak se dostanu k...?",
+    "cz_transcription": "Як се достану на / Як се достану к",
     "ua_translation": "Як дістатись до...?",
     "ua_transcription": "jak distatys’ do"
   },
   {
-    "cz_translation": "Jaká je adresa...",
+    "cz_translation": "Jaká je adresa...?",
     "cz_transcription": "Яка є адреса",
-    "ua_translation": "Яка адреса у ..?",
+    "ua_translation": "Яка адреса у...?",
     "ua_transcription": "jaka adresa u"
   },
   {
-    "cz_translation": "Kde je nejbližší [nemocnice]...",
+    "cz_translation": "Kde je nejbližší nemocnice?",
     "cz_transcription": "Ґде є нейбліжші немоцніце",
-    "ua_translation": "Де найближча (лікарня)",
-    "ua_transcription": "de najbližča (likarňa)"
-  },
-  
-  {
-    "cz_translation": "náměstí (AKK: náměstí)",
-    "cz_transcription": "намнєсті (АКК намнєсті)",
-    "ua_translation": "площа (майдан)",
-    "ua_transcription": "plošča / majdan"
+    "ua_translation": "Де найближча лікарня?",
+    "ua_transcription": "de najbližča likarňa"
   },
   {
-    "cz_translation": "zastávka tramvaje (AKK: zastávku)",
-    "cz_transcription": "заставка трамває (АКК заставку)",
+    "cz_translation": "náměstí",
+    "cz_transcription": "намнєсті",
+    "ua_translation": "площа",
+    "ua_transcription": "plošča"
+  },
+  {
+    "cz_translation": "náměstí",
+    "cz_transcription": "намнєсті",
+    "ua_translation": "майдан",
+    "ua_transcription": "majdan"
+  },
+  {
+    "cz_translation": "zastávka tramvaje",
+    "cz_transcription": "заставка трамває",
     "ua_translation": "зупинка трамваю",
     "ua_transcription": "zupinka tramvaju"
   },
   {
-    "cz_translation": "zastávka autobusu (AKK: zastávku)",
-    "cz_transcription": "заставка аутобусу (АКК заставку)",
+    "cz_translation": "zastávka autobusu",
+    "cz_transcription": "заставка аутобусу",
     "ua_translation": "зупинка автобуса",
     "ua_transcription": "zupinka avtobusa"
   },
   {
-    "cz_translation": "stanice metra (AKK: stanici)",
-    "cz_transcription": "станіце метра (АКК станіци)",
+    "cz_translation": "stanice metra",
+    "cz_transcription": "станіце метра",
     "ua_translation": "станція метро",
     "ua_transcription": "stancija metro"
   },
@@ -145,8 +150,8 @@
     "ua_transcription": "dyťačij majdančik"
   },
   {
-    "cz_translation": "restaurace (AKK: restauraci)",
-    "cz_transcription": "рестаураце (АКК рестаураці)",
+    "cz_translation": "restaurace",
+    "cz_transcription": "рестаураце",
     "ua_translation": "ресторан",
     "ua_transcription": "restoran"
   }

@@ -1,5 +1,7 @@
 import { Translation } from '../../components/basecomponents/TranslationContainer';
 // JSON translation files
+import Basic from './basic.json';
+import UzitecneFraze from './uzitecne-fraze.json';
 import Cas from './cas.json';
 import HromadnaDoprava from './hromadna-doprava.json';
 import Zoo from './zoo.json';
@@ -21,6 +23,21 @@ export interface TranslationsType {
 }
 
 export const translations: TranslationsType[] = [
+  {
+    category_name_ua: 'Основні фрази',
+    category_name_cz: 'Základní fráze',
+    translations: Basic,
+  },
+  {
+    category_name_ua: 'Корисні фрази',
+    category_name_cz: 'Užitečné fráze',
+    translations: UzitecneFraze,
+  },
+  {
+    category_name_cz: 'Rodina',
+    category_name_ua: 'Родина',
+    translations: Rodina,
+  },
   {
     category_name_ua: 'Час',
     category_name_cz: 'Čas',
@@ -56,12 +73,6 @@ export const translations: TranslationsType[] = [
     category_name_ua: 'Гроші',
     translations: Penize,
   },
-  {
-    category_name_cz: 'Rodina',
-    category_name_ua: 'Родина',
-    translations: Rodina,
-  },
-
   {
     category_name_cz: 'U lékaře',
     category_name_ua: 'У лікаря',
