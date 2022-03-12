@@ -25,6 +25,9 @@ module.exports = {
       backgroundImage: {
         'homepage-hero': "url('/movapp-bg.svg')",
       },
+      font: {
+        ['sans-pro']: "Source Sans Pro"
+      }
     },
   },
   plugins: [],
