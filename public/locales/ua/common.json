@@ -57,5 +57,18 @@
     "contacts_page_description": "Бажаєте стати учасником команди та сприяти подальшому розвитку проекту?",
     "about_page_title": "Хто ми | Movapp.cz",
     "about_page_description": "Проєкт, створений в рамках ініціативи Stojíme za Ukrajinou в спільноті експертів-волонтерів Česko.Digital."
+  },
+  "export_translations": {
+    "download_phrases": "Завантажити фрази",
+    "comma": "кома",
+    "semicolon": "крапка з комою",
+    "new_line": "новий рядок",
+    "custom": "звичайний",
+    "tab": "вкладка",
+    "between_phrase_and_translation": "між фразою та перекладом",
+    "between_phrases": "між фразами",
+    "sharing_info": "Ви можете використовувати вміст для своїх цілей безкоштовно і без обмежень, ви можете розповсюджувати його лише згідно з умовами ліцензії",
+    "copy_to_clipboard": "Копіювати фрази в буфер обміну",
+    "preview": "Попередній перегляд"
   }
 }
