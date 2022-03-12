@@ -1,6 +1,7 @@
 import React from 'react';
 import PlayIcon from '../../public/icons/play.svg';
-import { getHighlightedText } from '../../utils/getHighlightedText';
+import { createHighlightedText } from '../../utils/createHighlightedText';
+import { Trans } from 'next-i18next';
 
 export interface Translation {
   cz_translation: string;
@@ -29,9 +30,9 @@ export const TranslationContainer = ({
   setPlayer,
   player,
 }: TranslationContainerProps): JSX.Element => {
-  const uaTranslation = searchText ? getHighlightedText(ua_translation, searchText) : ua_translation;
+  const czTranslation = createHighlightedText(cz_translation, searchText);
+  const uaTranslation = createHighlightedText(ua_translation, searchText);
 
-  const czTranslation = searchText ? getHighlightedText(cz_translation, searchText) : cz_translation;
   const handleTranslationAudioPlay = (language: string, text: string) => {
     // stops player if something is currently playing
     if (player) {
@@ -45,13 +46,14 @@ export const TranslationContainer = ({
     setPlayer(audio);
     audio.play();
   };
-
   return (
     <div className="sm:grid sm:grid-cols-[40%_2%_40%] sm:gap-[8%]  sm:items-center  border-1 p-2 border-b-[1px] border-b-slate-200 bg-primary-grey">
       {/* CZ translation  */}
       <div className="flex justify-between items-center py-2 ">
         <div className="w-full">
-          <p className="self-start w-full font-bold">{czTranslation}</p>
+          <p className="translation_text self-start w-full ">
+            <Trans>{czTranslation}</Trans>
+          </p>
           {cz_transcription && <p className="text-gray-500">{`[ ${cz_transcription} ]`}</p>}
         </div>
         <PlayIcon
@@ -64,7 +66,9 @@ export const TranslationContainer = ({
       {/* UA translation  */}
       <div className="flex justify-between self-center  py-2 items-center ">
         <div className="w-full pr-4">
-          <p className="w-full font-semibold">{uaTranslation}</p>
+          <p className="translation_text w-full font-semibold">
+            <Trans>{uaTranslation}</Trans>
+          </p>
           {ua_transcription && <p className="text-gray-500">{`[ ${ua_transcription} ]`}</p>}
         </div>
         <PlayIcon onClick={() => handleTranslationAudioPlay('uk', ua_translation)} className="cursor-pointer" />

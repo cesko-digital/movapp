@@ -1,12 +1,11 @@
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from '../../components/basecomponents/Button';
 import { Collapse } from '../../components/basecomponents/Collapse';
 import { SearchInput } from '../../components/basecomponents/Input';
 import { CategoryDictionary } from '../../components/sections/CategoryDictionary';
 import { translations, TranslationsType } from '../../data/translations/translations';
-import { getHighlightedText } from '../../utils/getHighlightedText';
 export { getStaticProps } from '../../utils/localization';
 
 const Dictionary = () => {
@@ -31,16 +30,17 @@ const Dictionary = () => {
       UACategoryName.normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
         .includes(searchText);
-
     const matchesTranslations = translations.filter(({ cz_translation, ua_translation }) => {
       return (
         cz_translation
           .normalize('NFD')
           .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase()
           .includes(searchText) ||
         ua_translation
           .normalize('NFD')
           .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase()
           .includes(searchText)
       );
     });
@@ -71,12 +71,8 @@ const Dictionary = () => {
         <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
         {translations.filter(filterBySearch).map((category, index) => {
           const categoryName = `${category.category_name_ua}` + ' - ' + `${category.category_name_cz}`;
-          let title: string | ReactElement = categoryName;
-          if (search.trim()) {
-            title = getHighlightedText(categoryName, search);
-          }
           return (
-            <Collapse key={index} title={title}>
+            <Collapse key={index} title={categoryName}>
               <CategoryDictionary setPlayer={setPlayer} player={player} searchText={search} translations={category.translations} />
             </Collapse>
           );
