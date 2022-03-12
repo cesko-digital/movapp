@@ -5,6 +5,7 @@ import { Button } from '../../components/basecomponents/Button';
 import { Collapse } from '../../components/basecomponents/Collapse';
 import { SearchInput } from '../../components/basecomponents/Input';
 import { CategoryDictionary } from '../../components/sections/CategoryDictionary';
+import { ExportTranslations } from '../../components/sections/ExportTranslations';
 import { translations, TranslationsType } from '../../data/translations/translations';
 import { getHighlightedText } from '../../utils/getHighlightedText';
 export { getStaticProps } from '../../utils/localization';
@@ -77,6 +78,7 @@ const Dictionary = () => {
           }
           return (
             <Collapse key={index} title={title}>
+              <ExportTranslations translations={category.translations} category={categoryName} />
               <CategoryDictionary setPlayer={setPlayer} player={player} searchText={search} translations={category.translations} />
             </Collapse>
           );
