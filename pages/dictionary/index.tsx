@@ -1,22 +1,22 @@
-import {useTranslation} from 'next-i18next';
+import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
-import React, {ReactElement, useState} from 'react';
-import {Button} from '../../components/basecomponents/Button';
-import {Collapse} from '../../components/basecomponents/Collapse';
-import {SearchInput} from '../../components/basecomponents/Input';
-import {CategoryDictionary} from '../../components/sections/CategoryDictionary';
-import {ExportTranslations} from '../../components/sections/ExportTranslations';
-import {translations, TranslationsType} from '../../data/translations/translations';
-import {getHighlightedText} from '../../utils/getHighlightedText';
-export {getStaticProps} from '../../utils/localization';
+import React, { ReactElement, useState } from 'react';
+import { Button } from '../../components/basecomponents/Button';
+import { Collapse } from '../../components/basecomponents/Collapse';
+import { SearchInput } from '../../components/basecomponents/Input';
+import { CategoryDictionary } from '../../components/sections/CategoryDictionary';
+import { ExportTranslations } from '../../components/sections/ExportTranslations';
+import { translations, TranslationsType } from '../../data/translations/translations';
+import { getHighlightedText } from '../../utils/getHighlightedText';
+export { getStaticProps } from '../../utils/localization';
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
   const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
-  const filterBySearch = ({category_name_cz, category_name_ua, translations}: TranslationsType) => {
+  const filterBySearch = ({ category_name_cz, category_name_ua, translations }: TranslationsType) => {
     const UACategoryName = category_name_ua.toLowerCase();
     const CZCategoryName = category_name_cz.toLowerCase();
 
@@ -33,7 +33,7 @@ const Dictionary = () => {
         .replace(/[\u0300-\u036f]/g, '')
         .includes(searchText);
 
-    const matchesTranslations = translations.filter(({cz_translation, ua_translation}) => {
+    const matchesTranslations = translations.filter(({ cz_translation, ua_translation }) => {
       return (
         cz_translation
           .normalize('NFD')

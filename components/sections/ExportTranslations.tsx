@@ -1,7 +1,8 @@
 import { Fragment, InputHTMLAttributes, LabelHTMLAttributes, useState } from 'react';
 import { Button } from '../basecomponents/Button';
-import { Translation } from '../basecomponents/TranslationContainer';
 import { Modal } from '../basecomponents/Modal';
+import { useTranslation } from 'next-i18next';
+import { Translation } from '../basecomponents/TranslationContainer';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
@@ -13,21 +14,21 @@ interface ExportTranslationsProps {
 
 interface SeparatorOption {
   id: string;
-  name: string;
+  nameKey: string;
   value: string;
   displayValue?: JSX.Element;
 }
 
 const TRANSLATION_SEPARATORS: SeparatorOption[] = [
-  { id: 'transl_comma', name: 'comma', value: ', ' },
-  { id: 'transl_semicolor', name: 'semicolon', value: '; ' },
-  { id: 'trans_tab', name: 'tab', value: '\t', displayValue: <span>(&nbsp;&nbsp;&nbsp;&nbsp;)</span> },
+  { id: 'transl_comma', nameKey: 'export_translations.comma', value: ', ' },
+  { id: 'transl_semicolor', nameKey: 'export_translations.semicolon', value: '; ' },
+  { id: 'trans_tab', nameKey: 'export_translations.tab', value: '\t', displayValue: <span>(&nbsp;&nbsp;&nbsp;&nbsp;)</span> },
 ];
 const TRANS_SEP_CUSTOM = 'trans_custom';
 
 const PHRASE_SEPARATORS: SeparatorOption[] = [
-  { id: 'phrase_newLine', name: 'new line', value: '\n', displayValue: <span></span> },
-  { id: 'phrase_semicolor', name: 'semicolon', value: '; ' },
+  { id: 'phrase_newLine', nameKey: 'export_translations.new_line', value: '\n', displayValue: <span></span> },
+  { id: 'phrase_semicolor', nameKey: 'export_translations.semicolon', value: '; ' },
 ];
 const PHRASE_SEP_CUSTOM = 'phrase_custom';
 
@@ -68,15 +69,17 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
   const downloadLink = window.URL.createObjectURL(data);
   const fileName = `${category}.txt`;
 
+  const { t } = useTranslation();
+
   return (
     <>
       <span onClick={() => setIsModalOpen(true)} className="cursor-pointer underline text-primary-blue ml-4 pb-4 inline-block">
-        Download phrases
+        {t('export_translations.download_phrases')}
       </span>
-      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={'Download phrases'}>
+      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={t('export_translations.download_phrases')}>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div>
-            <h3 className="my-4">Between phrase and translation:</h3>
+            <h3 className="my-4">{t('export_translations.between_phrase_and_translation')}:</h3>
             {TRANSLATION_SEPARATORS.map((option) => (
               <>
                 <RadioButton
@@ -87,7 +90,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
                   onChange={() => setTranslationSeparator(option.value)}
                 />
                 <Label htmlFor={option.id}>
-                  {option.name} {option.displayValue ?? `(${option.value})`}
+                  {t(option.nameKey)} {option.displayValue ?? `(${option.value})`}
                 </Label>
                 <br />
               </>
@@ -100,7 +103,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
               onChange={() => setTranslationSeparator(TRANS_SEP_CUSTOM)}
             />
             <Label htmlFor={TRANS_SEP_CUSTOM}>
-              Custom
+              {t('export_translations.custom')}
               {translationSeparator === TRANS_SEP_CUSTOM && (
                 <>
                   <span>:&nbsp;&nbsp;&nbsp;</span>
@@ -110,7 +113,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
             </Label>
           </div>
           <div>
-            <h3 className="my-4">Between phrases:</h3>
+            <h3 className="my-4">{t('export_translations.between_phrases')}:</h3>
             {PHRASE_SEPARATORS.map((option) => (
               <>
                 <RadioButton
@@ -121,7 +124,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
                   onChange={() => setPhraseSeparator(option.value)}
                 />
                 <Label htmlFor={option.id}>
-                  {option.name} {option.displayValue ?? `(${option.value})`}
+                  {t(option.nameKey)} {option.displayValue ?? `(${option.value})`}
                 </Label>
                 <br />
               </>
@@ -134,7 +137,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
               onChange={() => setPhraseSeparator(PHRASE_SEP_CUSTOM)}
             />
             <Label htmlFor={PHRASE_SEP_CUSTOM}>
-              Custom
+              {t('export_translations.custom')}
               {phraseSeparator === PHRASE_SEP_CUSTOM && (
                 <>
                   <span>:&nbsp;&nbsp;&nbsp;</span>
@@ -146,24 +149,24 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
           </div>
         </div>
 
-        <h3 className="my-4">Preview:</h3>
+        <h3 className="my-4">{t('export_translations.preview')}:</h3>
         <div className="bg-gray-100 border-1 border-gray-400 p-2">
           <code className="whitespace-pre-wrap">{phrases.slice(0, PREVIEW_PHRASES_COUNT)}</code>
         </div>
 
         <div className="flex justify-evenly flex-wrap py-8">
           <a download={fileName} href={downloadLink}>
-            <Button text="Download phrases" className="my-2" />
+            <Button text={t('export_translations.download_phrases')} className="my-2" />
           </a>
           <Button
-            text="Copy phrases to clipboard"
+            text={t('export_translations.copy_to_clipboard')}
             onClick={() => navigator.clipboard.writeText(phrases.join(''))}
             className="my-2 bg-white"
           ></Button>
         </div>
         <Separator />
         <div className="text-sm font-light">
-          Obsah můžete pro své učely používat zdarma a bez omezení, šířit ho dál můžete jen za podmínek licence&nbsp;
+          {t('export_translations.sharing_info')}:&nbsp;
           <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" rel="noreferrer" className="underline">
             CC BY-NC 4.0
           </a>
