@@ -23,12 +23,17 @@
     "ua_translation": "у Вас є...?",
     "ua_transcription": "u vas je"
   },
-
   {
     "cz_translation": "nabíječka",
     "cz_transcription": "набієчка",
     "ua_translation": "зарядка для мобільного",
     "ua_transcription": "zarjadka dlja mobil’noho"
+  },
+  {
+    "cz_translation": "Potřebuji nabíječku na mobil.",
+    "cz_transcription": "Потржебуї набієчку на мобил",
+    "ua_translation": "Мені потрібна зарядка для мобільного.",
+    "ua_transcription": "Meni potribna zarjadka dlja mobil'noho"
   },
   {
     "cz_translation": "žehlička",
@@ -37,16 +42,34 @@
     "ua_transcription": "praska"
   },
   {
+    "cz_translation": "Nemáte žehličku?",
+    "cz_transcription": "Немате жегличку",
+    "ua_translation": "У Вас немає праски?",
+    "ua_transcription": "U vas nemaje prasky"
+  },
+  {
     "cz_translation": "lednička",
     "cz_transcription": "леднічка",
     "ua_translation": "холодильник",
     "ua_transcription": "cholodyl’nyk"
   },
   {
+    "cz_translation": "Mohu použít vaši ledničku?",
+    "cz_transcription": "Могу поужіт ваши леднічку",
+    "ua_translation": "Можна скористатись вашим холодильником?",
+    "ua_transcription": "Možna skorystatys' vašym cholodyl'nykom"
+  },
+  {
     "cz_translation": "varná konvice",
     "cz_transcription": "варна конвице",
     "ua_translation": "електричний чайник",
     "ua_transcription": "elektryčnyj čajnyk"
+  },
+  {
+    "cz_translation": "Chci si uvařit čaj. Můžu si půjčit varnou konvici?",
+    "cz_transcription": "Хци си уваржит чай. Мужу си пуйчит варноу конвици",
+    "ua_translation": "Хочу зробити чай. Можна взяти ваш чайник?",
+    "ua_transcription": "Choču zrobyty čaj. Možna vzjaty vaš čajnyk"
   },
   {
     "cz_translation": "hrnek / hrnky",
@@ -103,9 +126,21 @@
     "ua_transcription": "mišalka / lopatka"
   },
   {
+    "cz_translation": "Potřebuji si koupit vařečku.",
+    "cz_transcription": "Потржебуї си коупит варжечку",
+    "ua_translation": "Мені потрібно купити мішалку / лопатку.",
+    "ua_transcription": "Meni potribno kupyty mišalku / lopatku"
+  },
+  {
     "cz_translation": "naběračka",
     "cz_transcription": "набєрачка",
     "ua_translation": "полоник",
     "ua_transcription": "polonyk"
+  },
+  {
+    "cz_translation": "Máte naběračku?",
+    "cz_transcription": "Мате набєрачку",
+    "ua_translation": "У Вас є полоник?",
+    "ua_transcription": "U vas je polonyk"
   }
 ]

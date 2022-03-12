@@ -36,6 +36,12 @@
     "ua_transcription": "mahazyn pobutovoji chimiji"
   },
   {
+    "cz_translation": "Hledám drogerii.",
+    "cz_transcription": "Гледам дроґериї",
+    "ua_translation": "Шукаю магазин побутової хімії.",
+    "ua_transcription": "Šukaju magazyn pobutovoji chimiji"
+  },
+  {
     "cz_translation": "oblečení",
     "cz_transcription": "облечені",
     "ua_translation": "одяг",
@@ -58,6 +64,12 @@
     "cz_transcription": "лекарна",
     "ua_translation": "аптека",
     "ua_transcription": "apteka"
+  },
+  {
+    "cz_translation": "Kde najdu nejbližší lékárnu?",
+    "cz_transcription": "Ґде найду нейблиші лекарну",
+    "ua_translation": "Де знаходиться найближча аптека?",
+    "ua_transcription": "De znachodyťsja najblyžča apteka"
   },
   {
     "cz_translation": "nemocnice",
@@ -114,10 +126,10 @@
     "ua_transcription": "majdan"
   },
   {
-    "cz_translation": "zastávka tramvaje",
-    "cz_transcription": "заставка трамває",
-    "ua_translation": "зупинка трамваю",
-    "ua_transcription": "zupinka tramvaju"
+    "cz_translation": "Jak se dostanu na náměstí?",
+    "cz_transcription": "Як се достану на намєсті",
+    "ua_translation": "Як дістатись до площі?",
+    "ua_transcription": "Jak distatys' do plošči"
   },
   {
     "cz_translation": "zastávka autobusu",
@@ -126,10 +138,28 @@
     "ua_transcription": "zupinka avtobusa"
   },
   {
+    "cz_translation": "zastávka tramvaje",
+    "cz_transcription": "заставка трамває",
+    "ua_translation": "зупинка трамваю",
+    "ua_transcription": "zupinka tramvaju"
+  },
+  {
+    "cz_translation": "Hledám zastávku tramvaje.",
+    "cz_transcription": "Гледам застафку трамває",
+    "ua_translation": "Шукаю зупинку трамваю.",
+    "ua_transcription": "Šukaju zupynku tramvaju"
+  },
+  {
     "cz_translation": "stanice metra",
     "cz_transcription": "станіце метра",
     "ua_translation": "станція метро",
     "ua_transcription": "stancija metro"
+  },
+  {
+    "cz_translation": "Jak se dostanu ke stanici metra?",
+    "cz_transcription": "Як се достану ке станіци метра",
+    "ua_translation": "Як дістатись до метро?",
+    "ua_transcription": "Jak distatys' do metro"
   },
   {
     "cz_translation": "nádraží",

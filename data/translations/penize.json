@@ -23,12 +23,23 @@
     "ua_translation": "Можна заплатити готівкою?",
     "ua_transcription": "Možna zaplatyty hotivkoju"
   },
-
   {
     "cz_translation": "banka",
     "cz_transcription": "банка",
     "ua_translation": "банк",
     "ua_transcription": "bank"
+  },
+  {
+    "cz_translation": "Potřebuji jít do banky.",
+    "cz_transcription": "Потржебуї їт до банки",
+    "ua_translation": "Мені потрібно в банк.",
+    "ua_transcription": "Meni potribno v bank"
+  },
+  {
+    "cz_translation": "Hledám banku.",
+    "cz_transcription": "Гледам банку",
+    "ua_translation": "Шукаю банк.",
+    "ua_transcription": "Šukaju bank"
   },
   {
     "cz_translation": "bankomat",
@@ -42,7 +53,12 @@
     "ua_translation": "обмін валют",
     "ua_transcription": "obmin valjut"
   },
-
+  {
+    "cz_translation": "Kde najdu směnárnu?",
+    "cz_transcription": "Ґде найду смєнарну",
+    "ua_translation": "Де можна обміняти гроші?",
+    "ua_transcription": "De možna obmiňaty hroši"
+  },
   {
     "cz_translation": "Potřebuji si vyzvednout peníze.",
     "cz_transcription": "Потржебуї визведноут пенізе",
