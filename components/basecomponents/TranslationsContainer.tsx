@@ -52,6 +52,7 @@ export const TranslationContainer = ({
     <div className="sm:grid sm:grid-cols-[50%_1px_50%]   sm:items-center  p-2  border-b-slate-200 bg-primary-white">
       {/* CZ translation  */}
       <Translation
+        currentLanguage={currentLanguage as 'ua' | 'cz'}
         player={player}
         setPlayer={setPlayer}
         transcription={languageTranslation[currentLanguage as 'ua' | 'cz'].transcription}
@@ -61,6 +62,7 @@ export const TranslationContainer = ({
       <div className="w-full h-0 sm:h-full sm:py-2 justify-self-center sm:w-0 border-1  border-[#D2D2D2]"></div>
       {/* UA translation  */}
       <Translation
+        currentLanguage={secondaryLanguage}
         player={player}
         setPlayer={setPlayer}
         transcription={languageTranslation[secondaryLanguage].transcription}

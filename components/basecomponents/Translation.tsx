@@ -7,9 +7,12 @@ interface TranslationProps {
   transcription: string;
   player: HTMLAudioElement | null;
   setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
+  currentLanguage: 'ua' | 'cz';
 }
 
-export const Translation = ({ transcription, translation, player, setPlayer }: TranslationProps): JSX.Element => {
+export const Translation = ({ transcription, translation, player, setPlayer, currentLanguage }: TranslationProps): JSX.Element => {
+  const playerLanguage = currentLanguage === 'cz' ? 'cs' : 'uk';
+
   const handleTranslationAudioPlay = (language: string, text: string) => {
     // stops player if something is currently playing
     if (player) {
@@ -32,7 +35,7 @@ export const Translation = ({ transcription, translation, player, setPlayer }: T
         <p className="text-gray-500">{`[ ${transcription} ]`}</p>
       </div>
       <PlayIcon
-        onClick={() => handleTranslationAudioPlay('cs', translation)}
+        onClick={() => handleTranslationAudioPlay(playerLanguage, translation)}
         className="cursor-pointer active:scale-75 transition-all duration-300"
       />
     </div>

@@ -1,4 +1,4 @@
-import { Fragment, InputHTMLAttributes, LabelHTMLAttributes, useState } from 'react';
+import React, { Fragment, InputHTMLAttributes, LabelHTMLAttributes, useState } from 'react';
 import { Button } from '../basecomponents/Button';
 import { Modal } from '../basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
@@ -53,6 +53,7 @@ const Separator = () => (
 );
 
 export const ExportTranslations = ({ translations, category }: ExportTranslationsProps) => {
+  const { i18n } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
   const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
@@ -62,7 +63,11 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
   const phrases = translations
-    .map((translation) => `${translation.cz_translation}${translSep}${translation.ua_translation}${phraseSep}`)
+    .map((translation) =>
+      i18n.language === 'cz'
+        ? `${translation.cz_translation}${translSep}${translation.ua_translation}${phraseSep}`
+        : `${translation.ua_translation}${translSep}${translation.cz_translation}${phraseSep}`,
+    )
     .map((translation) => unescapeTabsAndNewlines(translation));
 
   // Byte order mark to force some browsers to read the file as UTF-8
@@ -82,8 +87,8 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div>
             <h3 className="my-4">{t('export_translations.between_phrase_and_translation')}:</h3>
-            {TRANSLATION_SEPARATORS.map((option) => (
-              <>
+            {TRANSLATION_SEPARATORS.map((option, index) => (
+              <React.Fragment key={index}>
                 <RadioButton
                   id={option.id}
                   name={'translationSeparator'}
@@ -95,7 +100,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
                   {t(option.nameKey)} {option.displayValue ?? `(${option.value})`}
                 </Label>
                 <br />
-              </>
+              </React.Fragment>
             ))}
             <RadioButton
               id={TRANS_SEP_CUSTOM}
@@ -116,8 +121,8 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
           </div>
           <div>
             <h3 className="my-4">{t('export_translations.between_phrases')}:</h3>
-            {PHRASE_SEPARATORS.map((option) => (
-              <>
+            {PHRASE_SEPARATORS.map((option, index) => (
+              <React.Fragment key={index}>
                 <RadioButton
                   id={option.id}
                   name={'phraseSeparator'}
@@ -129,7 +134,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
                   {t(option.nameKey)} {option.displayValue ?? `(${option.value})`}
                 </Label>
                 <br />
-              </>
+              </React.Fragment>
             ))}
             <RadioButton
               id={PHRASE_SEP_CUSTOM}
