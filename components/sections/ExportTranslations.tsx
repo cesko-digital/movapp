@@ -65,7 +65,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
     .map((translation) => `${translation.cz_translation}${translSep}${translation.ua_translation}${phraseSep}`)
     .map((translation) => unescapeTabsAndNewlines(translation));
 
-  const data = new Blob(phrases, { type: 'text/plain' });
+  const data = new Blob(phrases, { type: 'text/plain;charset=utf8' });
   const downloadLink = window.URL.createObjectURL(data);
   const fileName = `${category}.txt`;
 
