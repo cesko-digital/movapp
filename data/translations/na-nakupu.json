@@ -42,6 +42,12 @@
     "ua_transcription": "buločka (nesolodka)"
   },
   {
+    "cz_translation": "Dáš si housku?",
+    "cz_transcription": "Даш си гоуску",
+    "ua_translation": "Хочеш булочку? Хочеш булочку?",
+    "ua_transcription": "Chočeš buločku / Chočeš rohalyk"
+  },
+  {
     "cz_translation": "rohlík / rohlíky",
     "cz_transcription": "роглік / рогліки",
     "ua_translation": "круасан (чеський, несолодкий)",
@@ -54,16 +60,40 @@
     "ua_transcription": "šinka"
   },
   {
+    "cz_translation": "Máš rád šunku? Máš ráda šunku?",
+    "cz_transcription": "Маш рад шунку... Маш рада шунку",
+    "ua_translation": "Ти любиш шинку?",
+    "ua_transcription": "Ty ljubyš šynku"
+  },
+  {
+    "cz_translation": "15 dkg šunky, prosím.",
+    "cz_transcription": "Патнацт дека шунки, просім",
+    "ua_translation": "150 грам шинки, будь ласка ",
+    "ua_transcription": "Sto pjatdesjat hram šynky, buď laska"
+  },
+  {
     "cz_translation": "salám",
     "cz_transcription": "салам",
     "ua_translation": "салямі",
     "ua_transcription": "saljami"
   },
   {
+    "cz_translation": "10 dkg salámu, prosím.",
+    "cz_transcription": "Десет дека саламу, просім",
+    "ua_translation": "100 грам салямі, будь ласка.",
+    "ua_transcription": "Sto hram saljami, buď laska"
+  },
+  {
     "cz_translation": "sýr",
     "cz_transcription": "сир",
     "ua_translation": "сир",
     "ua_transcription": "syr"
+  },
+  {
+    "cz_translation": "20 dkg sýra, prosím.",
+    "cz_transcription": "Двацет дека сира, просім",
+    "ua_translation": "200 грам сиру, будь ласка.",
+    "ua_transcription": "Dvisti hram syru, buď laska"
   },
   {
     "cz_translation": "máslo",
@@ -84,10 +114,22 @@
     "ua_transcription": "cibulja"
   },
   {
+    "cz_translation": "Potřebuji cibuli.",
+    "cz_transcription": "Потржебуї цибули",
+    "ua_translation": "Мені потрібна цибуля.",
+    "ua_transcription": "Meni potribna cybulja"
+  },
+  {
     "cz_translation": "rýže",
     "cz_transcription": "риже",
     "ua_translation": "рис",
     "ua_transcription": "rys"
+  },
+  {
+    "cz_translation": "Kde najdu rýži?",
+    "cz_transcription": "Ґде найду рижи",
+    "ua_translation": "Де можна знайти рис?",
+    "ua_transcription": "De možna znajty rys"
   },
   {
     "cz_translation": "maso",
@@ -126,16 +168,34 @@
     "ua_transcription": "pomidory"
   },
   {
+    "cz_translation": "Půl kila rajčat, prosím.",
+    "cz_transcription": "Пул кила райчат, просім",
+    "ua_translation": "Півкіло помідорів, будь ласка.",
+    "ua_transcription": "Piukilo pomidoriu, buď laska"
+  },
+  {
     "cz_translation": "paprika / papriky",
     "cz_transcription": "паприка / паприки",
     "ua_translation": "перець / перці",
     "ua_transcription": "perec’ / perci"
   },
   {
+    "cz_translation": "Dáš si papriku?",
+    "cz_transcription": "Даш си паприку",
+    "ua_translation": "Хочеш солодкого/болгарського перцю?",
+    "ua_transcription": "Chočeš solodkoho / bolhars'koho percju"
+  },
+  {
     "cz_translation": "okurka / okurky",
     "cz_transcription": "окурка / окурки",
     "ua_translation": "огірок/огірки",
     "ua_transcription": "ohirok / ohirky"
+  },
+  {
+    "cz_translation": "Máš rád okurku? Máš ráda okurku?",
+    "cz_transcription": "Маш рад окурку... Маш рада окурку",
+    "ua_translation": "Ти любиш огірки?",
+    "ua_transcription": "Ty ljubyš ohirky"
   },
   {
     "cz_translation": "fazolky",

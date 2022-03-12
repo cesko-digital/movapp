@@ -25,14 +25,14 @@
   },
   {
     "cz_translation": "Je tři čtvrtě na pět.",
-    "cz_transcription": "Є тржи чтвртє за пєт",
-    "ua_translation": "за чверть шоста.",
-    "ua_transcription": "za čverť šosta"
+    "cz_transcription": "Є тржи чтвртє на пєт",
+    "ua_translation": "За чверть шоста.",
+    "ua_transcription": "Za čverť šosta"
   },
 
   {
     "cz_translation": "Kdy mám přijít?",
-    "cz_transcription": "Ґди мам пржіїт",
+    "cz_transcription": "Ґди мам пржиїт",
     "ua_translation": "Коли мені прийти?",
     "ua_transcription": "Koly meni pryjty"
   },
@@ -298,7 +298,7 @@
     "cz_translation": "listopad",
     "cz_transcription": "листопад",
     "ua_translation": "листопад",
-    "ua_transcription": "listopad"
+    "ua_transcription": "lystopad"
   },
   {
     "cz_translation": "V listopadu padá listí ze stromů.",
