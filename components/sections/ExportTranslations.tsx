@@ -48,7 +48,7 @@ const TextInput = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => (
 );
 const Separator = () => (
   <div className="pb-2">
-    <div className="w-full border-t border-gray-300"></div>
+    <div className="border-t w-full border-gray-300"></div>
   </div>
 );
 
