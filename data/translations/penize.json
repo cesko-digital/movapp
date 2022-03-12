@@ -6,9 +6,9 @@
     "ua_transcription": "De možna obmiňaty hroši"
   },
   {
-    "cz_translation": "Kde najdu...",
+    "cz_translation": "Kde najdu...?",
     "cz_transcription": "Ґде найду",
-    "ua_translation": "Де можна знайти...",
+    "ua_translation": "Де можна знайти...?",
     "ua_transcription": "De možna znajty"
   },
   {
@@ -25,7 +25,7 @@
   },
 
   {
-    "cz_translation": "banka)",
+    "cz_translation": "banka",
     "cz_transcription": "банка",
     "ua_translation": "банк",
     "ua_transcription": "bank"
@@ -44,27 +44,27 @@
   },
 
   {
-    "cz_translation": "Potřebuji si vyzvednout cz_translation.",
+    "cz_translation": "Potřebuji si vyzvednout peníze.",
     "cz_transcription": "Потржебуї визведноут пенізе",
-    "ua_translation": "Мені потрібно зняти гроші",
+    "ua_translation": "Мені потрібно зняти гроші.",
     "ua_transcription": "Meni potribno zňaty hroši"
   },
   {
     "cz_translation": "Moje karta nefunguje.",
     "cz_transcription": "Моє карта нефунґує",
-    "ua_translation": "Моя банківська карта не працює",
+    "ua_translation": "Моя банківська карта не працює.",
     "ua_transcription": "Moja bankivs’ka karta ne pracjuje"
   },
   {
     "cz_translation": "Potřebuji si založit účet.",
     "cz_transcription": "Потржебуї сі заложит учет",
-    "ua_translation": "Мені потрібно відкрити рахунок",
+    "ua_translation": "Мені потрібно відкрити рахунок.",
     "ua_transcription": "Meni potribno vidkryty rachunok"
   },
   {
-    "cz_translation": "Potřebuji převést cz_translation z účtu ... na účet...",
+    "cz_translation": "Potřebuji převést peníze z účtu ... na účet...",
     "cz_transcription": "Потржебуї пржевест пенізе с учту ... на учет",
-    "ua_translation": "Мені потрібно перевести гроші з рахунку... на рахунок...",
-    "ua_transcription": "Meni potribno perevesty hroši z rachunku… na rachunok…"
+    "ua_translation": "Мені потрібно перевести гроші з рахунку ... на рахунок ...",
+    "ua_transcription": "Meni potribno perevesty hroši z rachunku ... na rachunok"
   }
 ]
