@@ -5,14 +5,15 @@ import { XIcon } from '@heroicons/react/outline';
 interface ModalProps {
   children: React.ReactNode;
   isOpen: boolean;
-  title?: ReactNode;
   closeModal: () => void;
+  title?: ReactNode;
+  unmount?: boolean;
 }
 
-export const Modal = ({ children, isOpen, title, closeModal }: ModalProps): JSX.Element => {
+export const Modal = ({ children, isOpen, title, closeModal, unmount }: ModalProps): JSX.Element => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={closeModal}>
+      <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={closeModal} unmount={unmount}>
         <div className="min-h-screen px-4 text-center">
           <Transition.Child
             as={Fragment}

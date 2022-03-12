@@ -2,7 +2,6 @@ import { Fragment, InputHTMLAttributes, LabelHTMLAttributes, useState } from 're
 import { Button } from '../basecomponents/Button';
 import { Translation } from '../basecomponents/TranslationContainer';
 import { Modal } from '../basecomponents/Modal';
-import Link from 'next/link';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
@@ -152,19 +151,23 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
           <code className="whitespace-pre-wrap">{phrases.slice(0, PREVIEW_PHRASES_COUNT)}</code>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-evenly flex-wrap py-8">
           <a download={fileName} href={downloadLink}>
-            <Button text="Download phrases" className="my-6" />
+            <Button text="Download phrases" className="my-2" />
           </a>
+          <Button
+            text="Copy phrases to clipboard"
+            onClick={() => navigator.clipboard.writeText(phrases.join(''))}
+            className="my-2 bg-white"
+          ></Button>
         </div>
         <Separator />
         <div className="text-sm font-light">
           Obsah můžete pro své učely používat zdarma a bez omezení, šířit ho dál můžete jen za podmínek licence&nbsp;
-          <Link href={'https://creativecommons.org/licenses/by-nc/4.0/deed.cs'}>
-            <a target={'_blank'} className="underline">
-              CC BY-NC 4.0
-            </a>
-          </Link>
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" rel="noreferrer" className="underline">
+            CC BY-NC 4.0
+          </a>
+          .
         </div>
       </Modal>
     </>
