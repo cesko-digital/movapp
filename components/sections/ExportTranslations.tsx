@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, useState } from 'react';
+import React, { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, ReactNode, useState } from 'react';
 import { Button } from '../basecomponents/Button';
 import { Modal } from '../basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
@@ -9,7 +9,8 @@ const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
 interface ExportTranslationsProps {
   translations: Translation[];
-  category: string;
+  categoryName: string;
+  trigger?: ReactNode;
 }
 
 interface SeparatorOption {
@@ -58,7 +59,7 @@ const Separator = () => (
   </div>
 );
 
-export const ExportTranslations = ({ translations, category }: ExportTranslationsProps) => {
+const ExportTranslations = ({ translations, categoryName, trigger }: ExportTranslationsProps) => {
   const { i18n } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
@@ -91,16 +92,22 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
   const BOM = new Uint8Array([0xef, 0xbb, 0xbf]);
   const data = new Blob([BOM, ...phrases], { type: 'text/plain;charset=utf8' });
   const downloadLink = window.URL.createObjectURL(data);
-  const fileName = `${category}.txt`;
+  const fileName = `${categoryName}.txt`;
 
   const { t } = useTranslation();
 
   return (
     <>
-      <span onClick={() => setIsModalOpen(true)} className="cursor-pointer underline text-primary-blue ml-4 pb-4 inline-block">
-        {t('export_translations.download_phrases')}
+      <span onClick={() => setIsModalOpen(true)}>
+        {trigger ? (
+          trigger
+        ) : (
+          <span className="cursor-pointer underline text-primary-blue ml-4 pb-4 inline-block">
+            {t('export_translations.download_phrases')}
+          </span>
+        )}
       </span>
-      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={t('export_translations.download_phrases')}>
+      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.download')} ${categoryName}`}>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div>
             <H3>{t('export_translations.between_phrase_and_translation')}:</H3>
@@ -210,3 +217,5 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
     </>
   );
 };
+
+export default ExportTranslations;

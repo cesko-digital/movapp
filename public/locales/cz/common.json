@@ -60,6 +60,7 @@
   },
   "export_translations": {
     "download_phrases": "Stáhnout fráze",
+    "download": "Stáhnout",
     "comma": "čárka",
     "semicolon": "středník",
     "new_line": "nová řádka",
@@ -71,6 +72,7 @@
     "copy_to_clipboard": "Skopírovat fráze do schránky",
     "preview": "Náhled",
     "transcriptions": "Transkripce",
-    "include_transcriptions": "Zapsat fráze v obou abecedách"
+    "include_transcriptions": "Zapsat fráze v obou abecedách",
+    "all_phrases": "všechny fráze"
   }
 }

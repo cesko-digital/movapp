@@ -60,6 +60,7 @@
   },
   "export_translations": {
     "download_phrases": "Завантажити фрази",
+    "download": "Завантажити",
     "comma": "кома",
     "semicolon": "крапка з комою",
     "new_line": "новий рядок",
@@ -71,6 +72,7 @@
     "copy_to_clipboard": "Копіювати фрази в буфер обміну",
     "preview": "Попередній перегляд",
     "transcriptions": "Транскрипція",
-    "include_transcriptions": "Запишіть словосполучення обома алфавітами"
+    "include_transcriptions": "Запишіть словосполучення обома алфавітами",
+    "all_phrases": "всі фрази"
   }
 }
