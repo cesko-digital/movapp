@@ -183,7 +183,7 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
           <H3>{t('export_translations.transcriptions')}: </H3>
           <Checkbox
             id="include_transcriptions"
-            name="vehicle1"
+            name="include_transcriptions"
             checked={includeTranscriptions}
             onChange={() => setIncludeTranscriptions(!includeTranscriptions)}
           />
