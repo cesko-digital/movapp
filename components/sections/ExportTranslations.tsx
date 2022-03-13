@@ -1,4 +1,4 @@
-import React, { Fragment, InputHTMLAttributes, LabelHTMLAttributes, useState } from 'react';
+import React, { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, useState } from 'react';
 import { Button } from '../basecomponents/Button';
 import { Modal } from '../basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
@@ -34,6 +34,9 @@ const PHRASE_SEP_CUSTOM = 'phrase_custom';
 
 const unescapeTabsAndNewlines = (str: string) => str.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
 
+const H3 = ({ ...props }: DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => (
+  <h3 className="my-4" {...props} />
+);
 const RadioButton = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => (
   <input type="radio" className="ml-3 inline-block my-2 cursor-pointer" {...props} />
 );
@@ -45,6 +48,9 @@ const TextInput = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => (
     className="rounded-md md:rounded-lg w-24 max-w-full px-2 text-dark-700 border-1 border-primary-blue outline-none shadow-s"
     {...props}
   />
+);
+const Checkbox = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => (
+  <input className="ml-3 inline-block my-2 cursor-pointer" type="checkbox" {...props} />
 );
 const Separator = () => (
   <div className="pb-2">
@@ -59,14 +65,25 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
   const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
   const [phraseSeparator, setPhraseSeparator] = useState(PHRASE_SEPARATORS[0].value);
   const [customPhraseSeparator, setCustomPhraseSeparator] = useState('\\n\\n');
+  const [includeTranscriptions, setIncludeTranscriptions] = useState(false);
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
   const phrases = translations
     .map((translation) =>
       i18n.language === 'cz'
-        ? `${translation.cz_translation}${translSep}${translation.ua_translation}${phraseSep}`
-        : `${translation.ua_translation}${translSep}${translation.cz_translation}${phraseSep}`,
+        ? translation.cz_translation +
+          (includeTranscriptions ? ` [${translation.cz_transcription}]` : '') +
+          translSep +
+          translation.ua_translation +
+          (includeTranscriptions ? ` [${translation.ua_transcription}]` : '') +
+          phraseSep
+        : translation.ua_translation +
+          (includeTranscriptions ? ` [${translation.ua_transcription}]` : '') +
+          translSep +
+          translation.cz_translation +
+          (includeTranscriptions ? ` [${translation.cz_transcription}]` : '') +
+          phraseSep,
     )
     .map((translation) => unescapeTabsAndNewlines(translation));
 
@@ -86,7 +103,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
       <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={t('export_translations.download_phrases')}>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div>
-            <h3 className="my-4">{t('export_translations.between_phrase_and_translation')}:</h3>
+            <H3>{t('export_translations.between_phrase_and_translation')}:</H3>
             {TRANSLATION_SEPARATORS.map((option, index) => (
               <React.Fragment key={index}>
                 <RadioButton
@@ -120,7 +137,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
             </Label>
           </div>
           <div>
-            <h3 className="my-4">{t('export_translations.between_phrases')}:</h3>
+            <H3>{t('export_translations.between_phrases')}:</H3>
             {PHRASE_SEPARATORS.map((option, index) => (
               <React.Fragment key={index}>
                 <RadioButton
@@ -154,6 +171,16 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
             </Label>
             <br />
           </div>
+        </div>
+        <div>
+          <H3>{t('export_translations.transcriptions')}: </H3>
+          <Checkbox
+            id="include_transcriptions"
+            name="vehicle1"
+            checked={includeTranscriptions}
+            onChange={() => setIncludeTranscriptions(!includeTranscriptions)}
+          />
+          <Label htmlFor="include_transcriptions">{t('export_translations.include_transcriptions')}</Label>
         </div>
 
         <h3 className="my-4">{t('export_translations.preview')}:</h3>

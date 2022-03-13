@@ -69,6 +69,8 @@
     "between_phrases": "Mezi frázemi",
     "sharing_info": "Obsah můžete pro své učely používat zdarma a bez omezení, šířit ho dál můžete jen za podmínek licence ",
     "copy_to_clipboard": "Skopírovat fráze do schránky",
-    "preview": "Náhled"
+    "preview": "Náhled",
+    "transcriptions": "Transkripce",
+    "include_transcriptions": "Zapsat fráze v obou abecedách"
   }
 }
