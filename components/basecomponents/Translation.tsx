@@ -1,6 +1,6 @@
-import { Trans } from 'next-i18next';
 import React from 'react';
 import PlayIcon from '../../public/icons/play.svg';
+import Marker from 'react-mark.js/Marker';
 
 interface TranslationProps {
   translation: string;
@@ -8,9 +8,17 @@ interface TranslationProps {
   player: HTMLAudioElement | null;
   setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
   currentLanguage: 'ua' | 'cz';
+  searchText: string;
 }
 
-export const Translation = ({ transcription, translation, player, setPlayer, currentLanguage }: TranslationProps): JSX.Element => {
+export const Translation = ({
+  transcription,
+  translation,
+  player,
+  setPlayer,
+  currentLanguage,
+  searchText,
+}: TranslationProps): JSX.Element => {
   const playerLanguage = currentLanguage === 'cz' ? 'cs' : 'uk';
 
   const handleTranslationAudioPlay = (language: string, text: string) => {
@@ -30,7 +38,8 @@ export const Translation = ({ transcription, translation, player, setPlayer, cur
     <div className="flex justify-between items-center py-2 px-5 bg-primary-grey">
       <div className="w-full">
         <p className="translation_text self-start w-full ">
-          <Trans>{translation}</Trans>
+          {/* Marker is used to highlight searched text */}
+          <Marker mark={searchText}>{translation}</Marker>
         </p>
         <p className="text-gray-500">{`[ ${transcription} ]`}</p>
       </div>

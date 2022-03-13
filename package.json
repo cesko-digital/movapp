@@ -15,11 +15,13 @@
     "@heroicons/react": "^1.0.6",
     "@svgr/webpack": "^6.2.1",
     "eslint-config-prettier": "^8.5.0",
+    "mark.js": "^8.11.1",
     "marked": "^4.0.12",
     "next": "12.1.0",
     "next-i18next": "^10.5.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-mark.js": "^3.1.16"
   },
   "devDependencies": {
     "@types/marked": "^4.0.2",

@@ -8,41 +8,31 @@ import { CategoryDictionary } from '../../components/sections/CategoryDictionary
 import { ExportTranslations } from '../../components/sections/ExportTranslations';
 import { translations, TranslationsType } from '../../data/translations/translations';
 export { getStaticProps } from '../../utils/localization';
+import Marker from 'react-mark.js/Marker';
+
+const normalizeForSeach = (text: string) => {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+};
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
   const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
   const { t, i18n } = useTranslation();
 
+  // filter category name and translations by search input
   const filterBySearch = ({ category_name_cz, category_name_ua, translations }: TranslationsType) => {
-    const UACategoryName = category_name_ua.toLowerCase();
-    const CZCategoryName = category_name_cz.toLowerCase();
+    const UACategoryName = normalizeForSeach(category_name_ua);
+    const CZCategoryName = normalizeForSeach(category_name_cz);
 
-    const searchText = search
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase();
-
-    const matchesCategoryTitle =
-      CZCategoryName.normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .includes(searchText) ||
-      UACategoryName.normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .includes(searchText);
+    const searchText = normalizeForSeach(search);
+    // filter category name
+    const matchesCategoryTitle = CZCategoryName.includes(searchText) || UACategoryName.includes(searchText);
+    // filter translations
     const matchesTranslations = translations.filter(({ cz_translation, ua_translation }) => {
-      return (
-        cz_translation
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-          .toLowerCase()
-          .includes(searchText) ||
-        ua_translation
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-          .toLowerCase()
-          .includes(searchText)
-      );
+      return normalizeForSeach(cz_translation).includes(searchText) || normalizeForSeach(ua_translation).includes(searchText);
     });
 
     return matchesCategoryTitle || matchesTranslations.length > 0;
@@ -77,7 +67,7 @@ const Dictionary = () => {
           const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 
           return (
-            <Collapse key={index} title={categoryName}>
+            <Collapse key={index} title={<Marker mark={search}>{categoryName}</Marker>}>
               <ExportTranslations translations={category.translations} category={categoryName} />
               <CategoryDictionary setPlayer={setPlayer} player={player} searchText={search} translations={category.translations} />
             </Collapse>

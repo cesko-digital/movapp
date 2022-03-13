@@ -1,5 +1,4 @@
 import React from 'react';
-import { createHighlightedText } from '../../utils/createHighlightedText';
 import { useTranslation } from 'next-i18next';
 import { Translation } from './Translation';
 
@@ -30,8 +29,6 @@ export const TranslationContainer = ({
   setPlayer,
   player,
 }: TranslationContainerProps): JSX.Element => {
-  const czTranslation = createHighlightedText(cz_translation, searchText);
-  const uaTranslation = createHighlightedText(ua_translation, searchText);
   const { i18n } = useTranslation();
 
   const currentLanguage = i18n.language;
@@ -39,11 +36,11 @@ export const TranslationContainer = ({
 
   const languageTranslation = {
     ua: {
-      translation: uaTranslation,
+      translation: ua_translation,
       transcription: ua_transcription,
     },
     cz: {
-      translation: czTranslation,
+      translation: cz_translation,
       transcription: cz_transcription,
     },
   };
@@ -52,6 +49,7 @@ export const TranslationContainer = ({
     <div className="sm:grid sm:grid-cols-[50%_1px_50%]   sm:items-center  p-2  border-b-slate-200 bg-primary-white">
       {/* CZ translation  */}
       <Translation
+        searchText={searchText}
         currentLanguage={currentLanguage as 'ua' | 'cz'}
         player={player}
         setPlayer={setPlayer}
@@ -62,6 +60,7 @@ export const TranslationContainer = ({
       <div className="w-full h-0 sm:h-full sm:py-2 justify-self-center sm:w-0 border-1  border-[#D2D2D2]"></div>
       {/* UA translation  */}
       <Translation
+        searchText={searchText}
         currentLanguage={secondaryLanguage}
         player={player}
         setPlayer={setPlayer}
