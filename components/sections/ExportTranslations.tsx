@@ -1,4 +1,4 @@
-import React, { Fragment, InputHTMLAttributes, LabelHTMLAttributes, useState } from 'react';
+import React, { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, ReactNode, useState } from 'react';
 import { Button } from '../basecomponents/Button';
 import { Modal } from '../basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
@@ -9,7 +9,8 @@ const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
 interface ExportTranslationsProps {
   translations: Translation[];
-  category: string;
+  categoryName: string;
+  trigger?: ReactNode;
 }
 
 interface SeparatorOption {
@@ -34,6 +35,9 @@ const PHRASE_SEP_CUSTOM = 'phrase_custom';
 
 const unescapeTabsAndNewlines = (str: string) => str.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
 
+const H3 = ({ ...props }: DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => (
+  <h3 className="my-4" {...props} />
+);
 const RadioButton = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => (
   <input type="radio" className="ml-3 inline-block my-2 cursor-pointer" {...props} />
 );
@@ -46,27 +50,41 @@ const TextInput = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => (
     {...props}
   />
 );
+const Checkbox = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => (
+  <input className="ml-3 inline-block my-2 cursor-pointer" type="checkbox" {...props} />
+);
 const Separator = () => (
   <div className="pb-2">
     <div className="border-t w-full border-gray-300"></div>
   </div>
 );
 
-export const ExportTranslations = ({ translations, category }: ExportTranslationsProps) => {
+const ExportTranslations = ({ translations, categoryName, trigger }: ExportTranslationsProps) => {
   const { i18n } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
   const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
   const [phraseSeparator, setPhraseSeparator] = useState(PHRASE_SEPARATORS[0].value);
   const [customPhraseSeparator, setCustomPhraseSeparator] = useState('\\n\\n');
+  const [includeTranscriptions, setIncludeTranscriptions] = useState(false);
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
   const phrases = translations
     .map((translation) =>
       i18n.language === 'cz'
-        ? `${translation.cz_translation}${translSep}${translation.ua_translation}${phraseSep}`
-        : `${translation.ua_translation}${translSep}${translation.cz_translation}${phraseSep}`,
+        ? translation.cz_translation +
+          (includeTranscriptions ? ` [${translation.cz_transcription}]` : '') +
+          translSep +
+          translation.ua_translation +
+          (includeTranscriptions ? ` [${translation.ua_transcription}]` : '') +
+          phraseSep
+        : translation.ua_translation +
+          (includeTranscriptions ? ` [${translation.ua_transcription}]` : '') +
+          translSep +
+          translation.cz_translation +
+          (includeTranscriptions ? ` [${translation.cz_transcription}]` : '') +
+          phraseSep,
     )
     .map((translation) => unescapeTabsAndNewlines(translation));
 
@@ -74,19 +92,25 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
   const BOM = new Uint8Array([0xef, 0xbb, 0xbf]);
   const data = new Blob([BOM, ...phrases], { type: 'text/plain;charset=utf8' });
   const downloadLink = window.URL.createObjectURL(data);
-  const fileName = `${category}.txt`;
+  const fileName = `${categoryName}.txt`;
 
   const { t } = useTranslation();
 
   return (
     <>
-      <span onClick={() => setIsModalOpen(true)} className="cursor-pointer underline text-primary-blue ml-4 pb-4 inline-block">
-        {t('export_translations.download_phrases')}
+      <span onClick={() => setIsModalOpen(true)}>
+        {trigger ? (
+          trigger
+        ) : (
+          <span className="cursor-pointer underline text-primary-blue ml-4 pb-4 inline-block">
+            {t('export_translations.download_phrases')}
+          </span>
+        )}
       </span>
-      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={t('export_translations.download_phrases')}>
+      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.download')} ${categoryName}`}>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div>
-            <h3 className="my-4">{t('export_translations.between_phrase_and_translation')}:</h3>
+            <H3>{t('export_translations.between_phrase_and_translation')}:</H3>
             {TRANSLATION_SEPARATORS.map((option, index) => (
               <React.Fragment key={index}>
                 <RadioButton
@@ -120,7 +144,7 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
             </Label>
           </div>
           <div>
-            <h3 className="my-4">{t('export_translations.between_phrases')}:</h3>
+            <H3>{t('export_translations.between_phrases')}:</H3>
             {PHRASE_SEPARATORS.map((option, index) => (
               <React.Fragment key={index}>
                 <RadioButton
@@ -155,6 +179,16 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
             <br />
           </div>
         </div>
+        <div>
+          <H3>{t('export_translations.transcriptions')}: </H3>
+          <Checkbox
+            id="include_transcriptions"
+            name="include_transcriptions"
+            checked={includeTranscriptions}
+            onChange={() => setIncludeTranscriptions(!includeTranscriptions)}
+          />
+          <Label htmlFor="include_transcriptions">{t('export_translations.include_transcriptions')}</Label>
+        </div>
 
         <h3 className="my-4">{t('export_translations.preview')}:</h3>
         <div className="bg-gray-100 border-1 border-gray-400 p-2">
@@ -183,3 +217,5 @@ export const ExportTranslations = ({ translations, category }: ExportTranslation
     </>
   );
 };
+
+export default ExportTranslations;
