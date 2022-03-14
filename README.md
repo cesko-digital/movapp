@@ -19,30 +19,15 @@ If you want to join and help us, fill in the form at [cesko.digital/join](https:
 
 TODO...
 
-## Next.js
+## Vývoj
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+Web je napsaný v [Next.js](https://nextjs.org/) a hostovaný na [Vercelu](https://vercel.com/). Lokálně si ho můžete rozběhnout takhle:
 
 ```bash
+git clone https://github.com/cesko-digital/movapp.git
+cd movapp
+npm install
 npm run dev
-# or
-yarn dev
 ```
 
-## Eslint
-
-Check linting warnings or errors before PR 
-
-```bash
-npm run lint
-```
-
-Fix linting warnings 
-
-```bash
-npm run lint:fix
-```
+Kdybyste narazili, [ozvěte se ve Slacku](https://cesko-digital.slack.com/archives/C036GLKL7ME).
