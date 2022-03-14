@@ -11,7 +11,7 @@ Chcete-li nám pomáhat na dalším rozvoji projektu, vyplňte formulář na [ce
 
 ## English
 
-The goal of [Movapp.cz](https://www.movapp.cz/) is to make communication between Czechs and Ukrainians easier. *Mова* [mova] means *language* in Ukrainian. Movapp is an application for language training. The project is developed by [Česko.Digital](https://cesko.digital/) - the community of volunteering experts. Contact: movapp.cz@gmail.com.
+The goal of [Movapp.cz](https://www.movapp.cz/) is to make communication between Czechs and Ukrainians easier. *Mова* [mohva] means *language* in Ukrainian. Movapp is an application for language training. The project is developed by [Česko.Digital](https://cesko.digital/) - the community of volunteering experts. Contact: movapp.cz@gmail.com.
 
 Source code is available under the MIT license. Text and pictures are available under the [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license.
 
