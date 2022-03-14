@@ -25,7 +25,7 @@ export const Footer = () => {
         </div>
         <p className="text-white text-center text-xs pt-10">
           Přidej se k vývoji na{' '}
-          <Link href={'https://github.com/no-need-to-be-anonymous/ua-jazykova-aplikace'}>
+          <Link href={'https://github.com/cesko-digital/movapp'}>
             <a target={'_blank'} className="underline">
               Github
             </a>
