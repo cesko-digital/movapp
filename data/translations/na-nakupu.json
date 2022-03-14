@@ -25,9 +25,9 @@
   },
   {
     "cz_translation": "Šťáva. Sirup.",
-    "cz_transcription": "штява / сіруп",
-    "ua_translation": "сік. нектар.",
-    "ua_transcription": "sik / nektar"
+    "cz_transcription": "Штява / Сіруп",
+    "ua_translation": "Сік. Нектар.",
+    "ua_transcription": "Sik / Nektar"
   },
   {
     "cz_translation": "mléko",
@@ -115,9 +115,9 @@
   },
   {
     "cz_translation": "cibule",
-    "cz_transcription": "цібуле",
+    "cz_transcription": "цибуле",
     "ua_translation": "цибуля",
-    "ua_transcription": "cibulja"
+    "ua_transcription": "cybulja"
   },
   {
     "cz_translation": "Potřebuji cibuli.",
@@ -230,7 +230,7 @@
   {
     "cz_translation": "ovoce",
     "cz_transcription": "овоце",
-    "ua_translation": "!!! фрукти",
+    "ua_translation": "фрукти",
     "ua_transcription": "frukty"
   },
   {
@@ -279,19 +279,19 @@
     "cz_translation": "dvacet deka",
     "cz_transcription": "двацет дека",
     "ua_translation": "200 грам",
-    "ua_transcription": "200 hram"
+    "ua_transcription": "dvisti hram"
   },
   {
     "cz_translation": "třicet deka",
     "cz_transcription": "тржицет дека",
     "ua_translation": "300 грам",
-    "ua_transcription": "300 hram"
+    "ua_transcription": "trysta hram"
   },
   {
     "cz_translation": "čtyřicet deka",
     "cz_transcription": "чтиржицет дека",
     "ua_translation": "400 грам",
-    "ua_transcription": "400 hram"
+    "ua_transcription": "čotyrysta hram"
   },
   {
     "cz_translation": "půl kila",
