@@ -7,23 +7,28 @@
   },
   {
     "cz_translation": "Kde mohu koupit lístek?",
-    "cz_transcription": "Ґде могу коупіт лістек",
+    "cz_transcription": "Ґде могу коупит лістек",
     "ua_translation": "Де можна купити квиток?",
     "ua_transcription": "De možna kupyty kvitok?"
   },
   {
-    "cz_translation": "lístek / lístky",
-    "cz_transcription": "лістек / лістки",
-    "ua_translation": "квиток/квитки",
-    "ua_transcription": "kvytok / kvytky"
+    "cz_translation": "lístek",
+    "cz_transcription": "лістек",
+    "ua_translation": "квиток",
+    "ua_transcription": "kvytok"
   },
   {
-    "cz_translation": "jízdenka / jízdenky",
-    "cz_transcription": "їзденка / їзденки",
+    "cz_translation": "lístky",
+    "cz_transcription": "лістки",
+    "ua_translation": "квитки",
+    "ua_transcription": "kvytky"
+  },
+  {
+    "cz_translation": "jízdenka",
+    "cz_transcription": "їзденка",
     "ua_translation": "проїзний квиток",
     "ua_transcription": "projiznyj kvytok"
   },
-
   {
     "cz_translation": "Kdy jede...",
     "cz_transcription": "Ґди єде",
@@ -36,12 +41,6 @@
     "cz_transcription": "аутобус",
     "ua_translation": "автобус",
     "ua_transcription": "avtobus"
-  },
-  {
-    "cz_translation": "metro",
-    "cz_transcription": "метро",
-    "ua_translation": "метро",
-    "ua_transcription": "metro"
   },
   {
     "cz_translation": "tramvaj",
@@ -72,7 +71,7 @@
     "cz_translation": "sedm",
     "cz_transcription": "седум",
     "ua_translation": "сім",
-    "ua_transcription": "sem"
+    "ua_transcription": "sim"
   },
   {
     "cz_translation": "osm",
@@ -94,28 +93,45 @@
   },
 
   {
-    "cz_translation": "Jede tato tramvaj do...",
+    "cz_translation": "Jede tato tramvaj do...?",
     "cz_transcription": "Єде тато трамвай до",
-    "ua_translation": "цей трамвай їде до..?",
-    "ua_transcription": "cej tramvaj jide do"
+    "ua_translation": "Цей трамвай їде до..?",
+    "ua_transcription": "Cej tramvaj jide do"
   },
   {
-    "cz_translation": "Jede tento autobus do...",
+    "cz_translation": "Jede tento autobus do...?",
     "cz_transcription": "Єде тенто аутобус до",
-    "ua_translation": "цей автобус їде до ..?",
-    "ua_transcription": "cej avtobus jide do"
+    "ua_translation": "Цей автобус їде до ..?",
+    "ua_transcription": "Cej avtobus jide do"
   },
   {
-    "cz_translation": "Jsem na linii A / B / C?",
-    "cz_transcription": "Сем на ліниї А / Бе / Це",
-    "ua_translation": "це гілка А/Б/Ц? (метро)",
-    "ua_transcription": "ce rilka A / Be / Ce (metro)"
+    "cz_translation": "metro",
+    "cz_transcription": "метро",
+    "ua_translation": "метро",
+    "ua_transcription": "metro"
   },
-
+  {
+    "cz_translation": "Jsem na linii A?",
+    "cz_transcription": "Сем на ліниї А",
+    "ua_translation": "Це гілка А?",
+    "ua_transcription": "Ce rilka A"
+  },
+{
+    "cz_translation": "Jsem na linii B?",
+    "cz_transcription": "Сем на ліниї Бе",
+    "ua_translation": "Це гілка Б?",
+    "ua_transcription": "Ce rilka Be"
+  },
+  {
+    "cz_translation": "Jsem na linii C?",
+    "cz_transcription": "Сем на ліниї Це",
+    "ua_translation": "Це гілка Ц?",
+    "ua_transcription": "Ce rilka Ce"
+  },
   {
     "cz_translation": "Kde mám přestoupit?",
-    "cz_transcription": "Ґде мам пржестоупіт",
+    "cz_transcription": "Ґде мам пржестоупит",
     "ua_translation": "Де мені перейти (на іншу гілку)?",
-    "ua_transcription": "De meni perejty (na inšu rilku)?"
+    "ua_transcription": "De meni perejty (na inšu hilku)"
   }
 ]

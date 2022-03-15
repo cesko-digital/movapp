@@ -48,28 +48,28 @@
     "ua_transcription": "simejnyj stan"
   },
   {
-    "cz_translation": "svobodný / svobodná",
-    "cz_transcription": "свободни / свободна",
-    "ua_translation": "неодружений / незаміжня",
-    "ua_transcription": "neodruženyj / nezamižňa"
+    "cz_translation": "Svobodný. Svobodná.",
+    "cz_transcription": "Свободни / Свободна",
+    "ua_translation": "Неодружений. Незаміжня.",
+    "ua_transcription": "Neodruženyj / Nezamižňa"
   },
   {
-    "cz_translation": "ženatý / vdaná",
-    "cz_transcription": "женати / вдана",
-    "ua_translation": "одружений / одружена",
-    "ua_transcription": "odruženyj / odružena"
+    "cz_translation": "Ženatý. Vdaná.",
+    "cz_transcription": "Женати / Вдана",
+    "ua_translation": "Одружений. Одружена.",
+    "ua_transcription": "Odruženyj / Odružena"
   },
   {
-    "cz_translation": "rozvedený / rozvedená",
-    "cz_transcription": "розведени / розведена",
-    "ua_translation": "розлучений / розлучена",
-    "ua_transcription": "rozlučenyj / rozlučena"
+    "cz_translation": "Rozvedený. Rozvedená.",
+    "cz_transcription": "Розведени / Розведена",
+    "ua_translation": "Розлучений. Розлучена.",
+    "ua_transcription": "Rozlučenyj / Rozlučena"
   },
   {
-    "cz_translation": "vdovec / vdova",
-    "cz_transcription": "вдовец / вдова",
-    "ua_translation": "вдівець / вдова",
-    "ua_transcription": "vdivec / vdova"
+    "cz_translation": "Vdovec. Vdova.",
+    "cz_transcription": "Вдовец / Вдова",
+    "ua_translation": "Вдівець. Вдова.",
+    "ua_transcription": "Vdivec / Vdova"
   },
   {
     "cz_translation": "národnost",
@@ -126,8 +126,8 @@
     "ua_transcription": "nomer budynku"
   },
   {
-    "cz_translation": "PSČ (poštovní směrovací číslo)",
-    "cz_transcription": "ПСЧ (поштовні смнєроваці чісло)",
+    "cz_translation": "PSČ. Poštovní směrovací číslo.",
+    "cz_transcription": "ПСЧ. Поштовні смнєроваці чісло",
     "ua_translation": "індекс",
     "ua_transcription": "indeks"
   },
@@ -170,8 +170,8 @@
   {
     "cz_translation": "občanský průkaz",
     "cz_transcription": "опчански прукас",
-    "ua_translation": "посвідчення особи (ай ді карта)",
-    "ua_transcription": "posvidčenňa osoby (aj di karta)"
+    "ua_translation": "Посвідчення особи. Ай ді карта.",
+    "ua_transcription": "Posvidčenňa osoby / Aj di karta"
   },
   {
     "cz_translation": "počet dětí",
@@ -180,19 +180,19 @@
     "ua_transcription": "kil’kisť ditej"
   },
   {
-    "cz_translation": "žádost o [...]",
+    "cz_translation": "žádost o...",
     "cz_transcription": "жадост о",
     "ua_translation": "заява на...",
     "ua_transcription": "zajava na"
   },
   {
-    "cz_translation": "podat [žádost]",
-    "cz_transcription": "подат жадост",
+    "cz_translation": "podat žádost o...",
+    "cz_transcription": "подат жадост o",
     "ua_translation": "подати заяву на...",
     "ua_transcription": "podaty zajavu na"
   },
   {
-    "cz_translation": "poslat [žádost]",
+    "cz_translation": "poslat žádost",
     "cz_transcription": "послат жадост",
     "ua_translation": "відправити заяву",
     "ua_transcription": "vidpravyty zajavu"
@@ -210,16 +210,16 @@
     "ua_transcription": "pidpys"
   },
   {
-    "cz_translation": "vyplnit [formulář]",
+    "cz_translation": "vyplnit formulář",
     "cz_transcription": "виплніт формуларж",
-    "ua_translation": "заповнити (формуляр)",
-    "ua_transcription": "zapounyty (formuljar)"
+    "ua_translation": "заповнити формуляр",
+    "ua_transcription": "zapounyty formuljar"
   },
   {
-    "cz_translation": "podepsat [formulář]",
+    "cz_translation": "podepsat formulář",
     "cz_transcription": "подепсат формуларж",
-    "ua_translation": "підписати (формуляр)",
-    "ua_transcription": "pidpysaty (formuljar)"
+    "ua_translation": "підписати формуляр",
+    "ua_transcription": "pidpysaty formuljar"
   },
   {
     "cz_translation": "domluvit si schůzku",

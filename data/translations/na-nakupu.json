@@ -6,22 +6,28 @@
     "ua_transcription": "čaj"
   },
   {
-    "cz_translation": "(mletá) káva",
-    "cz_transcription": "(млета) кава",
-    "ua_translation": "(молота) кава",
-    "ua_transcription": "(molota) kava"
+    "cz_translation": "káva",
+    "cz_transcription": "кава",
+    "ua_translation": "кава",
+    "ua_transcription": "kava"
+  },  
+  {
+    "cz_translation": "mletá káva",
+    "cz_transcription": "млета кава",
+    "ua_translation": "молота кава",
+    "ua_transcription": "molota kava"
   },
   {
-    "cz_translation": "(instantní) káva",
-    "cz_transcription": "(інстантні) кава",
+    "cz_translation": "instantní káva",
+    "cz_transcription": "інстантні кава",
     "ua_translation": "розчинна кава",
     "ua_transcription": "rozčinna kava"
   },
   {
-    "cz_translation": "šťáva (sirup)",
-    "cz_transcription": "штява (сіруп)",
-    "ua_translation": "сік (нектар)",
-    "ua_transcription": "sik (nektar)"
+    "cz_translation": "Šťáva. Sirup.",
+    "cz_transcription": "Штява / Сіруп",
+    "ua_translation": "Сік. Нектар.",
+    "ua_transcription": "Sik / Nektar"
   },
   {
     "cz_translation": "mléko",
@@ -36,16 +42,22 @@
     "ua_transcription": "chlib"
   },
   {
-    "cz_translation": "houska / housky",
-    "cz_transcription": "гоуска / гоуски",
+    "cz_translation": "houska",
+    "cz_transcription": "гоуска",
     "ua_translation": "булочка (несолодка)",
     "ua_transcription": "buločka (nesolodka)"
   },
   {
-    "cz_translation": "rohlík / rohlíky",
-    "cz_transcription": "роглік / рогліки",
-    "ua_translation": "круасан (чеський, несолодкий)",
-    "ua_transcription": "kruasan (čes’kij, nesolodkyj)"
+    "cz_translation": "Dáš si housku?",
+    "cz_transcription": "Даш си гоуску",
+    "ua_translation": "Хочеш булочку?",
+    "ua_transcription": "Chočeš buločku"
+  },
+  {
+    "cz_translation": "rohlík",
+    "cz_transcription": "роглік",
+    "ua_translation": "круасан",
+    "ua_transcription": "kruasan"
   },
   {
     "cz_translation": "šunka",
@@ -54,16 +66,40 @@
     "ua_transcription": "šinka"
   },
   {
+    "cz_translation": "Máš rád šunku? Máš ráda šunku?",
+    "cz_transcription": "Маш рад шунку... Маш рада шунку",
+    "ua_translation": "Ти любиш шинку?",
+    "ua_transcription": "Ty ljubyš šynku"
+  },
+  {
+    "cz_translation": "15 dkg šunky, prosím.",
+    "cz_transcription": "Патнацт дека шунки, просім",
+    "ua_translation": "150 грам шинки, будь ласка ",
+    "ua_transcription": "Sto pjatdesjat hram šynky, buď laska"
+  },
+  {
     "cz_translation": "salám",
     "cz_transcription": "салам",
     "ua_translation": "салямі",
     "ua_transcription": "saljami"
   },
   {
+    "cz_translation": "10 dkg salámu, prosím.",
+    "cz_transcription": "Десет дека саламу, просім",
+    "ua_translation": "100 грам салямі, будь ласка.",
+    "ua_transcription": "Sto hram saljami, buď laska"
+  },
+  {
     "cz_translation": "sýr",
     "cz_transcription": "сир",
     "ua_translation": "сир",
     "ua_transcription": "syr"
+  },
+  {
+    "cz_translation": "20 dkg sýra, prosím.",
+    "cz_transcription": "Двацет дека сира, просім",
+    "ua_translation": "200 грам сиру, будь ласка.",
+    "ua_transcription": "Dvisti hram syru, buď laska"
   },
   {
     "cz_translation": "máslo",
@@ -79,15 +115,27 @@
   },
   {
     "cz_translation": "cibule",
-    "cz_transcription": "цібуле",
+    "cz_transcription": "цибуле",
     "ua_translation": "цибуля",
-    "ua_transcription": "cibulja"
+    "ua_transcription": "cybulja"
+  },
+  {
+    "cz_translation": "Potřebuji cibuli.",
+    "cz_transcription": "Потржебуї цибули",
+    "ua_translation": "Мені потрібна цибуля.",
+    "ua_transcription": "Meni potribna cybulja"
   },
   {
     "cz_translation": "rýže",
     "cz_transcription": "риже",
     "ua_translation": "рис",
     "ua_transcription": "rys"
+  },
+  {
+    "cz_translation": "Kde najdu rýži?",
+    "cz_transcription": "Ґде найду рижи",
+    "ua_translation": "Де можна знайти рис?",
+    "ua_transcription": "De možna znajty rys"
   },
   {
     "cz_translation": "maso",
@@ -120,22 +168,52 @@
     "ua_transcription": "ovoči"
   },
   {
-    "cz_translation": "rajčata (20 dkg rajčat)",
+    "cz_translation": "rajčata",
     "cz_transcription": "райчата",
     "ua_translation": "помідори",
     "ua_transcription": "pomidory"
   },
   {
-    "cz_translation": "paprika / papriky",
-    "cz_transcription": "паприка / паприки",
-    "ua_translation": "перець / перці",
-    "ua_transcription": "perec’ / perci"
+    "cz_translation": "Půl kila rajčat, prosím.",
+    "cz_transcription": "Пул кила райчат, просім",
+    "ua_translation": "Півкіло помідорів, будь ласка.",
+    "ua_transcription": "Piukilo pomidoriu, buď laska"
   },
   {
-    "cz_translation": "okurka / okurky",
-    "cz_transcription": "окурка / окурки",
-    "ua_translation": "огірок/огірки",
-    "ua_transcription": "ohirok / ohirky"
+    "cz_translation": "paprika",
+    "cz_transcription": "паприка",
+    "ua_translation": "перець",
+    "ua_transcription": "perec’"
+  },
+  {
+    "cz_translation": "papriky",
+    "cz_transcription": "паприки",
+    "ua_translation": "перці",
+    "ua_transcription": "perci"
+  },  
+  {
+    "cz_translation": "Dáš si papriku?",
+    "cz_transcription": "Даш си паприку",
+    "ua_translation": "Хочеш солодкого / болгарського перцю?",
+    "ua_transcription": "Chočeš solodkoho / bolhars'koho percju"
+  },
+  {
+    "cz_translation": "okurka",
+    "cz_transcription": "окурка",
+    "ua_translation": "огірок",
+    "ua_transcription": "ohirok"
+  },
+  {
+    "cz_translation": "okurky",
+    "cz_transcription": "окурки",
+    "ua_translation": "огірки",
+    "ua_transcription": "ohirky"
+  },
+  {
+    "cz_translation": "Máš rád okurku? Máš ráda okurku?",
+    "cz_transcription": "Маш рад окурку... Маш рада окурку",
+    "ua_translation": "Ти любиш огірки?",
+    "ua_transcription": "Ty ljubyš ohirky"
   },
   {
     "cz_translation": "fazolky",
@@ -152,53 +230,71 @@
   {
     "cz_translation": "ovoce",
     "cz_transcription": "овоце",
-    "ua_translation": "!!! фрукти",
+    "ua_translation": "фрукти",
     "ua_transcription": "frukty"
   },
   {
-    "cz_translation": "pomeranč / pomeranče",
-    "cz_transcription": "померанч / померанче",
-    "ua_translation": "апельсин / апельсини",
-    "ua_transcription": "apel’syn / apel’syny"
+    "cz_translation": "pomeranč",
+    "cz_transcription": "померанч",
+    "ua_translation": "апельсин",
+    "ua_transcription": "apel’syn"
   },
   {
-    "cz_translation": "jablko / jablka",
-    "cz_transcription": "яблко / яблка",
-    "ua_translation": "яблуко / яблука",
-    "ua_transcription": "jabluko / jabluka"
+    "cz_translation": "pomeranče",
+    "cz_transcription": "померанче",
+    "ua_translation": "апельсини",
+    "ua_transcription": "apel’syny"
   },
   {
-    "cz_translation": "mandarinka / mandarinky",
-    "cz_transcription": "мандаринка / мандаринки",
-    "ua_translation": "мандарин / мандарини",
-    "ua_transcription": "madaryn / mandaryny"
+    "cz_translation": "jablko",
+    "cz_transcription": "яблко",
+    "ua_translation": "яблуко",
+    "ua_transcription": "jabluko"
   },
   {
-    "cz_translation": "(hroznové) víno",
-    "cz_transcription": "(грознове) віно",
+    "cz_translation": " jablka",
+    "cz_transcription": "яблка",
+    "ua_translation": "яблука",
+    "ua_transcription": "jabluka"
+  },
+  {
+    "cz_translation": "mandarinka",
+    "cz_transcription": "мандаринка",
+    "ua_translation": "мандарин",
+    "ua_transcription": "madaryn"
+  },
+  {
+    "cz_translation": "mandarinky",
+    "cz_transcription": "мандаринки",
+    "ua_translation": "мандарини",
+    "ua_transcription": "mandaryny"
+  },
+  {
+    "cz_translation": "hroznové víno",
+    "cz_transcription": "грознове віно",
     "ua_translation": "вино",
     "ua_transcription": "vyno"
   },
   {
-    "cz_translation": "dvacet deka (20 dkg)",
+    "cz_translation": "dvacet deka",
     "cz_transcription": "двацет дека",
     "ua_translation": "200 грам",
-    "ua_transcription": "200 hram"
+    "ua_transcription": "dvisti hram"
   },
   {
-    "cz_translation": "třicet deka (30 dkg)",
+    "cz_translation": "třicet deka",
     "cz_transcription": "тржицет дека",
     "ua_translation": "300 грам",
-    "ua_transcription": "300 hram"
+    "ua_transcription": "trysta hram"
   },
   {
-    "cz_translation": "čtyřicet deka (40 dkg)",
+    "cz_translation": "čtyřicet deka",
     "cz_transcription": "чтиржицет дека",
     "ua_translation": "400 грам",
-    "ua_transcription": "400 hram"
+    "ua_transcription": "čotyrysta hram"
   },
   {
-    "cz_translation": "půl kila (0,5 kg)",
+    "cz_translation": "půl kila",
     "cz_transcription": "пул кила",
     "ua_translation": "півкіло",
     "ua_transcription": "piukilo"

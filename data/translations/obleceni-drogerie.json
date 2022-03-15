@@ -1,9 +1,15 @@
 [
   {
-    "cz_translation": "tričko / trička",
-    "cz_transcription": "тричко / тричка",
-    "ua_translation": "кофта/кофти",
-    "ua_transcription": "kofta / kofty"
+    "cz_translation": "tričko",
+    "cz_transcription": "тричко",
+    "ua_translation": "кофта",
+    "ua_transcription": "kofta"
+  },
+  {
+    "cz_translation": "trička",
+    "cz_transcription": "тричка",
+    "ua_translation": "кофти",
+    "ua_transcription": "kofty"
   },
   {
     "cz_translation": "kalhoty",
@@ -24,22 +30,34 @@
     "ua_transcription": "škarpetky"
   },
   {
-    "cz_translation": "mikina / mikiny",
-    "cz_transcription": "микина / микини",
+    "cz_translation": "mikina",
+    "cz_transcription": "микина",
     "ua_translation": "кофта з довгими рукавами",
     "ua_transcription": "kofta z douhymy rukavamy"
   },
   {
-    "cz_translation": "svetr / svetry",
-    "cz_transcription": "светр / светри",
-    "ua_translation": "светр/светри",
-    "ua_transcription": "svetr / svetry"
+    "cz_translation": "svetr",
+    "cz_transcription": "светр",
+    "ua_translation": "светр",
+    "ua_transcription": "svetr"
   },
   {
-    "cz_translation": "(zimní) bunda / (zimní) bundy",
-    "cz_transcription": "зимні бунда / зимні бунди",
-    "ua_translation": "(зимова) куртка/ куртки",
-    "ua_transcription": "(zimova) kurtka / kurtky"
+    "cz_translation": "svetry",
+    "cz_transcription": "светри",
+    "ua_translation": "светри",
+    "ua_transcription": "svetry"
+  },  
+  {
+    "cz_translation": "zimní bunda",
+    "cz_transcription": "зимні бунда",
+    "ua_translation": "зимова куртка",
+    "ua_transcription": "zimova kurtka"
+  },
+  {
+    "cz_translation": "zimní bundy",
+    "cz_transcription": "зимні бунди",
+    "ua_translation": "зимова куртки",
+    "ua_transcription": "zimova kurtky"
   },
   {
     "cz_translation": "čepice",
@@ -60,10 +78,10 @@
     "ua_transcription": "pižama"
   },
   {
-    "cz_translation": "(zimní) boty",
+    "cz_translation": "zimní boty",
     "cz_transcription": "зимні боти",
-    "ua_translation": "(зимові) чоботи",
-    "ua_transcription": "(zymovi) čoboty"
+    "ua_translation": "зимові чоботи",
+    "ua_transcription": "zymovi čoboty"
   },
   {
     "cz_translation": "bačkory",
@@ -83,7 +101,7 @@
     "ua_translation": "пелюшки",
     "ua_transcription": "peljušky"
   },
-  
+
   {
     "cz_translation": "mýdlo",
     "cz_transcription": "мидло",
@@ -109,7 +127,7 @@
     "ua_transcription": "zubna ščitka"
   },
   {
-    "cz_translation": "(zubní) pasta",
+    "cz_translation": "zubní pasta",
     "cz_transcription": "зубні паста",
     "ua_translation": "зубна паста",
     "ua_transcription": "zubna pasta"
@@ -133,14 +151,14 @@
     "ua_transcription": "tualetnyj papir"
   },
   {
-    "cz_translation": "ručník / ručníky",
-    "cz_transcription": "ручнік / ручніки",
+    "cz_translation": "ručník",
+    "cz_transcription": "ручнік",
     "ua_translation": "рушник",
     "ua_transcription": "rušnyk"
   },
   {
-    "cz_translation": "utěrka / utěrky",
-    "cz_transcription": "утєрка / утєрки",
+    "cz_translation": "utěrka",
+    "cz_transcription": "утєрка",
     "ua_translation": "кухонний рушник",
     "ua_transcription": "kuchonnyj rušnyk"
   },
@@ -151,27 +169,51 @@
     "ua_transcription": "postil’na bilyzna"
   },
   {
-    "cz_translation": "kapesník / kapesníky",
-    "cz_transcription": "капеснік / капесніки",
-    "ua_translation": "хустинка/хустинки",
-    "ua_transcription": "chustynka / chustynky"
+    "cz_translation": "kapesník",
+    "cz_transcription": "капеснік",
+    "ua_translation": "хустинка",
+    "ua_transcription": "chustynka"
   },
   {
-    "cz_translation": "polštář / polštáře",
-    "cz_transcription": "полштарж / полштарже",
-    "ua_translation": "подушка/подушки",
-    "ua_transcription": "poduška / podušky"
+    "cz_translation": "kapesníky",
+    "cz_transcription": "капесніки",
+    "ua_translation": "хустинки",
+    "ua_transcription": "chustynky"
   },
   {
-    "cz_translation": "peřina / peřiny",
-    "cz_transcription": "пержіна / пержіни",
-    "ua_translation": "ковдра/ковдри",
-    "ua_transcription": "koudra / koudry"
+    "cz_translation": "polštář",
+    "cz_transcription": "полштарж",
+    "ua_translation": "подушка",
+    "ua_transcription": "poduška"
   },
   {
-    "cz_translation": "deka / deky",
-    "cz_transcription": "дека / деки",
-    "ua_translation": "ковдра/ковдри",
-    "ua_transcription": "koudra / koudry"
+    "cz_translation": "polštáře",
+    "cz_transcription": "полштарже",
+    "ua_translation": "подушки",
+    "ua_transcription": "podušky"
+  },  
+  {
+    "cz_translation": "peřina",
+    "cz_transcription": "пержіна",
+    "ua_translation": "ковдра",
+    "ua_transcription": "koudra"
+  },
+  {
+    "cz_translation": "peřiny",
+    "cz_transcription": "пержіни",
+    "ua_translation": "ковдри",
+    "ua_transcription": "koudry"
+  },
+  {
+    "cz_translation": "deka",
+    "cz_transcription": "дека",
+    "ua_translation": "ковдра",
+    "ua_transcription": "koudra"
+  },
+  {
+    "cz_translation": "deky",
+    "cz_transcription": "деки",
+    "ua_translation": "ковдри",
+    "ua_transcription": "koudry"
   }
 ]

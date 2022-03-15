@@ -81,7 +81,7 @@
     "cz_translation": "Mluvím rusky.",
     "cz_transcription": "Млувім руски",
     "ua_translation": "Розмовляю російською.",
-    "ua_transcription": "Rozmovljaju rosijs’koji"
+    "ua_transcription": "Rozmovljaju rosijs’koju"
   },
   {
     "cz_translation": "Mluvím německy.",
@@ -92,7 +92,7 @@
   {
     "cz_translation": "Ztratila jsem papíry. Ztratil jsem papíry.",
     "cz_transcription": "Стратіла сем папіри / Стратіл сем папіри",
-    "ua_translation": "я загубила документи. я загубив документи.",
+    "ua_translation": "Я загубила документи. Я загубив документи.",
     "ua_transcription": "Ja zahubila dokumenty / Ja zahubiu dokumenty"
   },
   {
@@ -104,7 +104,7 @@
   {
     "cz_translation": "On nerozumí. Ona nerozumí.",
     "cz_transcription": "Он нерозумі / Она нерозумі",
-    "ua_translation": "Він не розуміє. вона не розуміє.",
+    "ua_translation": "Він не розуміє. Вона не розуміє.",
     "ua_transcription": "Vin ne rozumije / Vona ne rozumije"
   },
   {
@@ -157,7 +157,7 @@
   },
   {
     "cz_translation": "policie",
-    "cz_transcription": "поліціє",
+    "cz_transcription": "полициє",
     "ua_translation": "поліція",
     "ua_transcription": "policija"
   },
@@ -175,7 +175,7 @@
   },
   {
     "cz_translation": "V pohodě",
-    "cz_transcription": "В погодє",
+    "cz_transcription": "Ф погодє",
     "ua_translation": "Усе гаразд",
     "ua_transcription": "Use harazd"
   }
