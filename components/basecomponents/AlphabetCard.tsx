@@ -42,7 +42,7 @@ export const AlphabetCard = ({ examples, player, setPlayer, czLetter, uaTranscri
                 : uaTranscription.length > 4
                 ? 'text-xl md:text-3xl'
                 : 'text-2xl md:text-4xl'
-            }  md:text-4xl text-center text-[#676767] pt-2 md:pt-5 font-light group-hover:text-white transition-colors duration-500`}
+            }   text-center text-[#676767] pt-2 md:pt-5 font-light group-hover:text-white transition-colors duration-500`}
           >
             {uaTranscription}
           </p>
