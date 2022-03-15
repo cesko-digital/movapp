@@ -273,7 +273,7 @@ export const ALPHABET_CZ: AplhabetType[] = [
     ],
   },
   {
-    cz_letter: ['Í', 'i'],
+    cz_letter: ['í', null],
     ua_transcription: 'довгий [i]',
     examples: [
       {
