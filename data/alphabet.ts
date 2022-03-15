@@ -77,7 +77,7 @@ export const ALPHABET_CZ: AplhabetType[] = [
         translation: 'ціркев',
       },
       {
-        example: 'cítron',
+        example: 'citron',
         translation: 'цітрон',
       },
     ],
@@ -91,7 +91,7 @@ export const ALPHABET_CZ: AplhabetType[] = [
         translation: 'чепіце',
       },
       {
-        example: 'čokoloada',
+        example: 'čokoláda',
         translation: 'чоколада',
       },
       {
@@ -123,8 +123,16 @@ export const ALPHABET_CZ: AplhabetType[] = [
     ua_transcription: '[дь]',
     examples: [
       {
-        example: 'ďabel',
+        example: 'ďábel',
         translation: 'дябел',
+      },
+      {
+        example: 'zeď',
+        translation: 'зедь',
+      },
+      {
+        example: 'loď',
+        translation: 'лодь',
       },
     ],
   },
@@ -151,7 +159,7 @@ export const ALPHABET_CZ: AplhabetType[] = [
     ua_transcription: 'довгий [е]',
     examples: [
       {
-        example: 'lékarna',
+        example: 'lékárna',
         translation: 'лекарна',
       },
       {
@@ -241,7 +249,7 @@ export const ALPHABET_CZ: AplhabetType[] = [
     ua_transcription: '[х]',
     examples: [
       {
-        example: 'michat',
+        example: 'míchat',
         translation: 'мішати',
       },
       {
@@ -299,7 +307,7 @@ export const ALPHABET_CZ: AplhabetType[] = [
         translation: 'яблко',
       },
       {
-        example: 'jatra',
+        example: 'játra',
         translation: 'ятра',
       },
       {
@@ -331,7 +339,7 @@ export const ALPHABET_CZ: AplhabetType[] = [
     ua_transcription: '[л]',
     examples: [
       {
-        example: 'laska',
+        example: 'láska',
         translation: 'ласка',
       },
       {
@@ -339,7 +347,7 @@ export const ALPHABET_CZ: AplhabetType[] = [
         translation: 'левни',
       },
       {
-        example: 'latka',
+        example: 'látka',
         translation: 'латка',
       },
     ],
@@ -406,6 +414,14 @@ export const ALPHABET_CZ: AplhabetType[] = [
         example: 'gól',
         translation: 'ґол',
       },
+      {
+        example: 'móda',
+        translation: 'мода',
+      },
+      {
+        example: 'tón',
+        translation: 'тон',
+      },
     ],
   },
   {
@@ -433,6 +449,14 @@ export const ALPHABET_CZ: AplhabetType[] = [
       {
         example: 'Quido',
         translation: 'квідо',
+      },
+      {
+        example: 'squat',
+        translation: 'сквод',
+      },
+      {
+        example: 'aquapark',
+        translation: 'аквапарк',
       },
     ],
   },
@@ -495,7 +519,7 @@ export const ALPHABET_CZ: AplhabetType[] = [
     ua_transcription: '[ш]',
     examples: [
       {
-        example: 'šef',
+        example: 'šéf',
         translation: 'шеф',
       },
       {
@@ -521,8 +545,8 @@ export const ALPHABET_CZ: AplhabetType[] = [
         translation: 'тата',
       },
       {
-        example: 'tomaty',
-        translation: 'томати',
+        example: 'tři',
+        translation: 'тржи',
       },
     ],
   },
@@ -532,7 +556,15 @@ export const ALPHABET_CZ: AplhabetType[] = [
     examples: [
       {
         example: 'ťukat',
-        translation: '',
+        translation: 'тюкат',
+      },
+      {
+        example: 'poušť',
+        translation: 'поушть',
+      },
+      {
+        example: 'poleť',
+        translation: 'полеть',
       },
     ],
   },
@@ -619,6 +651,10 @@ export const ALPHABET_CZ: AplhabetType[] = [
       {
         example: 'Waldemar',
         translation: 'валдемар',
+      },
+      {
+        example: 'WC',
+        translation: 'вц',
       },
     ],
   },
