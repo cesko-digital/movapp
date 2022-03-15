@@ -3,20 +3,20 @@ export interface ExampleType {
   translation: string;
 }
 
-interface AlphabetType {
-  main_letter: [string, string];
-  letter_transcription: [string, string];
-  examples: [ExampleType, ExampleType, ExampleType];
+interface AplhabetType {
+  cz_letter: [string, string | null];
+  ua_transcription: string;
+  examples: ExampleType[];
 }
 
-export const CZ_ALPHABET: AlphabetType[] = [
+export const ALPHABET_CZ: AplhabetType[] = [
   {
-    main_letter: ['A', 'a'],
-    letter_transcription: ['A', 'a'],
+    cz_letter: ['A', 'a'],
+    ua_transcription: '[a]',
     examples: [
       {
         example: 'abeceda',
-        translation: 'алфавіт',
+        translation: 'абецеда',
       },
       {
         example: 'ananas',
@@ -24,134 +24,692 @@ export const CZ_ALPHABET: AlphabetType[] = [
       },
       {
         example: 'autobus',
-        translation: 'автобув',
+        translation: 'аутобус',
       },
     ],
   },
   {
-    main_letter: ['B', 'b'],
-    letter_transcription: ['Б', 'б'],
+    cz_letter: ['á', null],
+    ua_transcription: 'довгий [a]',
+    examples: [
+      {
+        example: 'káva',
+        translation: 'кава',
+      },
+      {
+        example: 'kráva',
+        translation: 'крава',
+      },
+      {
+        example: 'plavání',
+        translation: 'плавані',
+      },
+    ],
+  },
+  {
+    cz_letter: ['B', 'b'],
+    ua_transcription: '[б]',
     examples: [
       {
         example: 'březen',
-        translation: 'березень',
+        translation: 'бржезен',
       },
       {
         example: 'brambory',
-        translation: 'картопля',
+        translation: 'брамбори',
       },
       {
         example: 'břicho',
-        translation: 'живіт',
+        translation: 'бржіхо',
       },
     ],
   },
   {
-    main_letter: ['C', 'c'],
-    letter_transcription: ['Ц', 'ц'],
+    cz_letter: ['C', 'c'],
+    ua_transcription: '[ц]',
     examples: [
       {
         example: 'cibule',
-        translation: 'цибуля',
+        translation: 'цібуле',
       },
       {
         example: 'církev',
-        translation: 'церква',
+        translation: 'ціркев',
       },
       {
         example: 'cítron',
-        translation: 'лимон',
+        translation: 'цітрон',
       },
     ],
   },
   {
-    main_letter: ['Č', 'č'],
-    letter_transcription: ['Ч', 'ч'],
+    cz_letter: ['Č', 'č'],
+    ua_transcription: '[ч]',
     examples: [
       {
         example: 'čepice',
-        translation: 'кепка',
+        translation: 'чепіце',
       },
       {
         example: 'čokoloada',
-        translation: 'шоколад',
+        translation: 'чоколада',
       },
       {
         example: 'čekat',
-        translation: 'чекати',
+        translation: 'чекат',
       },
     ],
   },
   {
-    main_letter: ['D', 'd'],
-    letter_transcription: ['Д', 'д'],
+    cz_letter: ['D', 'd'],
+    ua_transcription: '[д]',
     examples: [
       {
         example: 'dům',
-        translation: 'дім',
+        translation: 'дум',
       },
       {
         example: 'děkuji',
-        translation: 'дякую',
+        translation: 'дєкуї',
       },
       {
         example: 'dnes',
-        translation: 'сьогодні',
+        translation: 'днес',
       },
     ],
   },
   {
-    main_letter: ['E', 'e'],
-    letter_transcription: ['E', 'e'],
+    cz_letter: ['Ď', 'ď'],
+    ua_transcription: '[дь]',
     examples: [
       {
-        example: 'elektrikář',
-        translation: 'електрик',
-      },
-      {
-        example: 'emigrace',
-        translation: 'еміграція',
-      },
-      {
-        example: 'euro',
-        translation: 'євро',
+        example: 'ďabel',
+        translation: 'дябел',
       },
     ],
   },
   {
-    main_letter: ['Ě', 'ě'],
-    letter_transcription: ['Є', 'є'],
+    cz_letter: ['E', 'e'],
+    ua_transcription: '[e]',
     examples: [
       {
         example: 'elektrikář',
-        translation: 'електрик',
+        translation: 'електрікарж',
       },
       {
         example: 'emigrace',
-        translation: 'еміграція',
+        translation: 'еміґраце',
       },
       {
         example: 'euro',
-        translation: 'євро',
+        translation: 'еуро',
       },
     ],
   },
-  // {
-  //   main_letter: ['ř', 'ř'],
-  //   letter_transcription: ['РЖ', 'рж'],
-  //   examples: [
-  //     {
-  //       example: 'elektrikář',
-  //       translation: 'електрик',
-  //     },
-  //     {
-  //       example: 'emigrace',
-  //       translation: 'еміграція',
-  //     },
-  //     {
-  //       example: 'euro',
-  //       translation: 'євро',
-  //     },
-  //   ],
-  // },
+  {
+    cz_letter: ['É', 'é'],
+    ua_transcription: 'довгий [е]',
+    examples: [
+      {
+        example: 'lékarna',
+        translation: 'лекарна',
+      },
+      {
+        example: 'jméno',
+        translation: 'ймено',
+      },
+      {
+        example: 'délka',
+        translation: 'делка',
+      },
+    ],
+  },
+  {
+    cz_letter: ['ě', null],
+    ua_transcription: "[є] (читаємо попередній приголосний м'яко)",
+    examples: [
+      {
+        example: 'kotě',
+        translation: 'котє',
+      },
+      {
+        example: 'měkký',
+        translation: 'мнєккі',
+      },
+      {
+        example: 'něco',
+        translation: 'нєцо',
+      },
+    ],
+  },
+  {
+    cz_letter: ['F', 'f'],
+    ua_transcription: '[ф]',
+    examples: [
+      {
+        example: 'fyzika',
+        translation: 'фізіка',
+      },
+      {
+        example: 'fronta',
+        translation: 'фронта',
+      },
+      {
+        example: 'faktura',
+        translation: 'фактура',
+      },
+    ],
+  },
+  {
+    cz_letter: ['G', 'g'],
+    ua_transcription: '[ґ]',
+    examples: [
+      {
+        example: 'garáž',
+        translation: 'ґараж',
+      },
+      {
+        example: 'program',
+        translation: 'проґрам',
+      },
+      {
+        example: 'agrese',
+        translation: 'аґресе',
+      },
+    ],
+  },
+  {
+    cz_letter: ['H', 'h'],
+    ua_transcription: '[г]',
+    examples: [
+      {
+        example: 'hlava',
+        translation: 'глава',
+      },
+      {
+        example: 'hodit se',
+        translation: 'годіт се',
+      },
+      {
+        example: 'hluk',
+        translation: 'глук',
+      },
+    ],
+  },
+  {
+    cz_letter: ['Ch', null],
+    ua_transcription: '[х]',
+    examples: [
+      {
+        example: 'michat',
+        translation: 'мішати',
+      },
+      {
+        example: 'chování',
+        translation: 'ховані',
+      },
+      {
+        example: 'porucha',
+        translation: 'поруха',
+      },
+    ],
+  },
+  {
+    cz_letter: ['I', 'i'],
+    ua_transcription: '[i]',
+    examples: [
+      {
+        example: 'internet',
+        translation: 'інтернет',
+      },
+      {
+        example: 'integrace',
+        translation: 'інтеґраце',
+      },
+      {
+        example: 'introvert',
+        translation: 'інтроверт',
+      },
+    ],
+  },
+  {
+    cz_letter: ['Í', 'i'],
+    ua_transcription: 'довгий [i]',
+    examples: [
+      {
+        example: 'unikátní',
+        translation: 'унікатні',
+      },
+      {
+        example: 'papír',
+        translation: 'папір',
+      },
+      {
+        example: 'písmeno',
+        translation: 'пісмено',
+      },
+    ],
+  },
+  {
+    cz_letter: ['J', 'j'],
+    ua_transcription: '[й]',
+    examples: [
+      {
+        example: 'jablko',
+        translation: 'яблко',
+      },
+      {
+        example: 'jatra',
+        translation: 'ятра',
+      },
+      {
+        example: 'jet',
+        translation: 'єт',
+      },
+    ],
+  },
+  {
+    cz_letter: ['K', 'k'],
+    ua_transcription: '[к]',
+    examples: [
+      {
+        example: 'květina',
+        translation: 'квєтіна',
+      },
+      {
+        example: 'kobliha',
+        translation: 'кобліга',
+      },
+      {
+        example: 'kousek',
+        translation: 'коусек',
+      },
+    ],
+  },
+  {
+    cz_letter: ['L', 'l'],
+    ua_transcription: '[л]',
+    examples: [
+      {
+        example: 'laska',
+        translation: 'ласка',
+      },
+      {
+        example: 'levný',
+        translation: 'левни',
+      },
+      {
+        example: 'latka',
+        translation: 'латка',
+      },
+    ],
+  },
+  {
+    cz_letter: ['M', 'm'],
+    ua_transcription: '[м]',
+    examples: [
+      {
+        example: 'mléko',
+        translation: 'млеко',
+      },
+      {
+        example: 'metro',
+        translation: 'метро',
+      },
+      {
+        example: 'milovat',
+        translation: 'міловат',
+      },
+    ],
+  },
+  {
+    cz_letter: ['N', 'n'],
+    ua_transcription: '[н]',
+    examples: [
+      {
+        example: 'noviny',
+        translation: 'новіни',
+      },
+      {
+        example: 'nula',
+        translation: 'нула',
+      },
+      {
+        example: 'ne',
+        translation: 'не',
+      },
+    ],
+  },
+  {
+    cz_letter: ['O', 'o'],
+    ua_transcription: '[о]',
+    examples: [
+      {
+        example: 'olej',
+        translation: 'олей',
+      },
+      {
+        example: 'lopata',
+        translation: 'лопата',
+      },
+      {
+        example: 'ležet',
+        translation: 'лежет',
+      },
+    ],
+  },
+  {
+    cz_letter: ['ó', null],
+    ua_transcription: '[о]',
+    examples: [
+      {
+        example: 'gól',
+        translation: 'ґол',
+      },
+    ],
+  },
+  {
+    cz_letter: ['P', 'p'],
+    ua_transcription: '[п]',
+    examples: [
+      {
+        example: 'peníze',
+        translation: 'пенізе',
+      },
+      {
+        example: 'Praha',
+        translation: 'Прага',
+      },
+      {
+        example: 'popisek',
+        translation: 'попісек',
+      },
+    ],
+  },
+  {
+    cz_letter: ['Q', 'q'],
+    ua_transcription: '[кв]',
+    examples: [
+      {
+        example: 'Quido',
+        translation: 'квідо',
+      },
+    ],
+  },
+  {
+    cz_letter: ['R', 'r'],
+    ua_transcription: '[р]',
+    examples: [
+      {
+        example: 'ryba',
+        translation: 'риба',
+      },
+      {
+        example: 'ruka',
+        translation: 'рука',
+      },
+      {
+        example: 'pravda',
+        translation: 'правда',
+      },
+    ],
+  },
+  {
+    cz_letter: ['Ř', 'ř'],
+    ua_transcription: '[рж]',
+    examples: [
+      {
+        example: 'Řím',
+        translation: 'ржім',
+      },
+      {
+        example: 'řízení',
+        translation: 'ржізені',
+      },
+      {
+        example: 'řeka',
+        translation: 'ржека',
+      },
+    ],
+  },
+  {
+    cz_letter: ['S', 's'],
+    ua_transcription: '[с]',
+    examples: [
+      {
+        example: 'socha',
+        translation: 'соха',
+      },
+      {
+        example: 'starat se',
+        translation: 'старат се',
+      },
+      {
+        example: 'stůl',
+        translation: 'стул',
+      },
+    ],
+  },
+  {
+    cz_letter: ['Š', 'š'],
+    ua_transcription: '[ш]',
+    examples: [
+      {
+        example: 'šef',
+        translation: 'шеф',
+      },
+      {
+        example: 'šaty',
+        translation: 'шати',
+      },
+      {
+        example: 'školení',
+        translation: 'школені',
+      },
+    ],
+  },
+  {
+    cz_letter: ['T', 't'],
+    ua_transcription: '[т]',
+    examples: [
+      {
+        example: 'televize',
+        translation: 'телевізе',
+      },
+      {
+        example: 'táta',
+        translation: 'тата',
+      },
+      {
+        example: 'tomaty',
+        translation: 'томати',
+      },
+    ],
+  },
+  {
+    cz_letter: ['Ť', 'ť'],
+    ua_transcription: '[ть]',
+    examples: [
+      {
+        example: 'ťukat',
+        translation: '',
+      },
+    ],
+  },
+  {
+    cz_letter: ['U', 'u'],
+    ua_transcription: '[у]',
+    examples: [
+      {
+        example: 'Ukrajina',
+        translation: 'україна',
+      },
+      {
+        example: 'uhel',
+        translation: 'угел',
+      },
+      {
+        example: 'udělat',
+        translation: 'удєлат',
+      },
+    ],
+  },
+  {
+    cz_letter: ['Ú', 'ú'],
+    ua_transcription: 'довгий [у] на початку слова',
+    examples: [
+      {
+        example: 'účtenka',
+        translation: 'учтенка',
+      },
+      {
+        example: 'úrok',
+        translation: 'урок',
+      },
+      {
+        example: 'úspěch',
+        translation: 'успєх',
+      },
+    ],
+  },
+  {
+    cz_letter: ['ů', null],
+    ua_transcription: 'довгий [у] в середині слова',
+    examples: [
+      {
+        example: 'kůň',
+        translation: 'кунь',
+      },
+      {
+        example: 'schůzka',
+        translation: 'схузка',
+      },
+      {
+        example: 'průkazka',
+        translation: 'пруказка',
+      },
+    ],
+  },
+  {
+    cz_letter: ['V', 'v'],
+    ua_transcription: '[в]',
+    examples: [
+      {
+        example: 'voda',
+        translation: 'вода',
+      },
+      {
+        example: 'vejce',
+        translation: 'вейце',
+      },
+      {
+        example: 'vlk',
+        translation: 'влк',
+      },
+    ],
+  },
+  {
+    cz_letter: ['W', 'w'],
+    ua_transcription: '[в]',
+    examples: [
+      {
+        example: 'workoholik',
+        translation: 'воркоголік',
+      },
+      {
+        example: 'Waldemar',
+        translation: 'валдемар',
+      },
+    ],
+  },
+  {
+    cz_letter: ['X', 'x'],
+    ua_transcription: '[кс]',
+    examples: [
+      {
+        example: 'xenofobie',
+        translation: 'ксенофобіє',
+      },
+      {
+        example: 'xerox',
+        translation: 'ксерокс',
+      },
+      {
+        example: 'xylofon',
+        translation: 'ксилофон',
+      },
+    ],
+  },
+  {
+    cz_letter: ['Y', 'y'],
+    ua_transcription: '[и]',
+    examples: [
+      {
+        example: 'ženy',
+        translation: 'жени',
+      },
+      {
+        example: 'levný',
+        translation: 'левни',
+      },
+      {
+        example: 'pracovitý',
+        translation: 'працовіти',
+      },
+    ],
+  },
+  {
+    cz_letter: ['Ý', 'ý'],
+    ua_transcription: 'довгий [и]',
+    examples: [
+      {
+        example: 'sýr',
+        translation: 'сір',
+      },
+      {
+        example: 'měkký',
+        translation: 'мнєккі',
+      },
+      {
+        example: 'tvrdý',
+        translation: 'тврди',
+      },
+    ],
+  },
+  {
+    cz_letter: ['Z', 'z'],
+    ua_transcription: '[з]',
+    examples: [
+      {
+        example: 'zub',
+        translation: 'зуб',
+      },
+      {
+        example: 'zvonit',
+        translation: 'звоніт',
+      },
+      {
+        example: 'zákon',
+        translation: 'закон',
+      },
+    ],
+  },
+  {
+    cz_letter: ['Ž', 'ž'],
+    ua_transcription: '[ж]',
+    examples: [
+      {
+        example: 'žena',
+        translation: 'жена',
+      },
+      {
+        example: 'žárovka',
+        translation: 'жаровка',
+      },
+      {
+        example: 'žádost',
+        translation: 'жадост',
+      },
+    ],
+  },
 ];
