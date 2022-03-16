@@ -27,7 +27,7 @@ export const Translation = ({
       player.pause();
       player.currentTime = 0;
     }
-    const source = `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;
+    const source = `/api/tts?lang=${language}&text=${encodeURIComponent(text)}`;
     const audio = new Audio(source);
 
     // setPlayer in order to track if something is playing when next player is triggered
