@@ -3,6 +3,7 @@ import { Footer } from './Footer';
 import Header from './Header/index';
 import { useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
+import { ScrollToTop } from '../../basecomponents/ScrollToTop';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -27,6 +28,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
         <div className="m-auto">{children}</div>
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
