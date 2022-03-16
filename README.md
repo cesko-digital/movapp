@@ -10,7 +10,7 @@ Chcete-li nám pomáhat na dalším rozvoji projektu, vyplňte formulář na [ce
 
 ## Українська
 
-Мета [Movapp.cz](https://www.movapp.cz/) – полегшити спілкування між чехами та українцями. Мова означає українська мова. Movapp — це програма для мовного навчання. Проект створений у спільноті експертів-волонтерів [Česko.Digital](https://cesko.digital/). Контакти: pryvit@movapp.cz.
+Мета [Movapp.cz](https://www.movapp.cz/) – полегшити спілкування між чехами та українцями. Movapp — це програма для мовного навчання. Проект створений у спільноті експертів-волонтерів [Česko.Digital](https://cesko.digital/). Контакти: pryvit@movapp.cz.
 
 Вихідний код знаходиться під ліцензією MIT. Тексти та зображення ліцензовані відповідно до [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.uk).
 
@@ -33,6 +33,12 @@ git clone https://github.com/cesko-digital/movapp.git
 cd movapp
 npm install
 npm run dev
+```
+
+Před zasláním push request si ověřte, zva vám proběhnou testy
+
+```bash
+npm test
 ```
 
 Kdybyste narazili, [ozvěte se ve Slacku](https://cesko-digital.slack.com/archives/C036GLKL7ME).
