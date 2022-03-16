@@ -27,17 +27,17 @@
     "cz_translation": "Který autobus jede...",
     "cz_transcription": "Ктери аутобус єде",
     "ua_translation": "Який автобус їде...",
-    "ua_transcription": "Jakij avtobus jide"
+    "ua_transcription": "Jakyj avtobus jide"
   },
   {
     "cz_translation": "Kde je vchod?",
-    "cz_transcription": "Ґде є вход",
+    "cz_transcription": "Ґде є вхот",
     "ua_translation": "Де вхід?",
     "ua_transcription": "De vchid"
   },
   {
     "cz_translation": "Kde je východ?",
-    "cz_transcription": "Ґде є виход",
+    "cz_transcription": "Ґде є вихот",
     "ua_translation": "Де вихід?",
     "ua_transcription": "De vychid"
   },
@@ -54,40 +54,40 @@
     "ua_transcription": "Skiľky koštuje kvytok"
   },
   {
-    "cz_translation": "jeden lístek pro...",
-    "cz_transcription": "єден лістек про",
-    "ua_translation": "один квиток для...",
-    "ua_transcription": "odyn kvytok dlja"
+    "cz_translation": "Jeden lístek pro...",
+    "cz_transcription": "Єден лістек про",
+    "ua_translation": "Один квиток для...",
+    "ua_transcription": "Odyn kvytok dlja"
   },
   {
-    "cz_translation": "dva lístky pro...",
-    "cz_transcription": "два лістки про",
-    "ua_translation": "два квитки для...",
-    "ua_transcription": "dva kvytky dlja"
+    "cz_translation": "Dva lístky pro...",
+    "cz_transcription": "Два лістки про",
+    "ua_translation": "Два квитки для...",
+    "ua_transcription": "Dva kvytky dlja"
   },
   {
-    "cz_translation": "tři lístky pro...",
-    "cz_transcription": "тржи лістки про",
-    "ua_translation": "три квитки для...",
-    "ua_transcription": "try kvytky dlja"
+    "cz_translation": "Tři lístky pro...",
+    "cz_transcription": "Тржи лістки про",
+    "ua_translation": "Три квитки для...",
+    "ua_transcription": "Try kvytky dlja"
   },
 {
-    "cz_translation": "čtyři lístky pro...",
-    "cz_transcription": "чтиржи лістки про",
-    "ua_translation": "чотири квитки для...",
-    "ua_transcription": "čotyry kvytky dlja"
+    "cz_translation": "Čtyři lístky pro...",
+    "cz_transcription": "Чтиржи лістки про",
+    "ua_translation": "Чотири квитки для...",
+    "ua_transcription": "Čotyry kvytky dlja"
   },
   {
-    "cz_translation": "pět lístků pro...",
-    "cz_transcription": "пєт лістку про",
-    "ua_translation": "п'ять квитків для...",
-    "ua_transcription": "pjať kvytkiu dlja"
+    "cz_translation": "Pět lístků pro...",
+    "cz_transcription": "Пєт лістку про",
+    "ua_translation": "П'ять квитків для...",
+    "ua_transcription": "Pjať kvytkiu dlja"
   },
   {
-    "cz_translation": "šest lístků pro...",
-    "cz_transcription": "шест лістку про",
-    "ua_translation": "шість квитків для...",
-    "ua_transcription": "šisť kvytkiu dlja"
+    "cz_translation": "Šest lístků pro...",
+    "cz_transcription": "Шест лістку про",
+    "ua_translation": "Шість квитків для...",
+    "ua_transcription": "Šisť kvytkiu dlja"
   },
   {
     "cz_translation": "lístek pro dospělé",
@@ -97,9 +97,9 @@
   },
   {
     "cz_translation": "Dítě. Děti.",
-    "cz_transcription": "дітє / дєті",
-    "ua_translation": "дитина. діти",
-    "ua_transcription": "dytyna / dity"
+    "cz_transcription": "Дітє / Дєті",
+    "ua_translation": "Дитина. Діти",
+    "ua_transcription": "Dytyna / Dity"
   },
   {
     "cz_translation": "Mohu dostat plánek?",
@@ -141,7 +141,7 @@
     "cz_translation": "Jdu správně k...?",
     "cz_transcription": "Ду справнє к",
     "ua_translation": "Я правильно йду до...?",
-    "ua_transcription": "Ja praviľno jdu do"
+    "ua_transcription": "Ja pravyľno jdu do"
   },
   {
     "cz_translation": "Hledám...",
@@ -194,7 +194,7 @@
   {
     "cz_translation": "tučňáci",
     "cz_transcription": "тучняци",
-    "ua_translation": "пвнгвіни",
+    "ua_translation": "пінгвіни",
     "ua_transcription": "pinhviny"
   },
   {
@@ -298,5 +298,11 @@
     "cz_transcription": "опице",
     "ua_translation": "мавпа",
     "ua_transcription": "maupa"
+  },
+  {
+    "cz_translation": "dvě opice",
+    "cz_transcription": "двє опице",
+    "ua_translation": "дві мавпи",
+    "ua_transcription": "dvi maupy"
   }
 ]

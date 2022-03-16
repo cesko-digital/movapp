@@ -7,13 +7,13 @@
   },
   {
     "cz_translation": "Ministerstvo vnitra ČR",
-    "cz_transcription": "министерство внітра ЧР",
+    "cz_transcription": "Министерство внітра ЧР",
     "ua_translation": "МВС Чехії",
-    "ua_transcription": "em ve es Čechiji"
+    "ua_transcription": "Em ve es Čechiji"
   },
   {
     "cz_translation": "obchod",
-    "cz_transcription": "обход",
+    "cz_transcription": "опхот",
     "ua_translation": "магазин",
     "ua_transcription": "mahazyn"
   },
@@ -39,7 +39,7 @@
     "cz_translation": "Hledám drogerii.",
     "cz_transcription": "Гледам дроґериї",
     "ua_translation": "Шукаю магазин побутової хімії.",
-    "ua_transcription": "Šukaju magazyn pobutovoji chimiji"
+    "ua_transcription": "Šukaju mahazyn pobutovoji chimiji"
   },
   {
     "cz_translation": "oblečení",
@@ -81,37 +81,37 @@
     "cz_translation": "Hledám...",
     "cz_transcription": "Гледам",
     "ua_translation": "Шукаю...",
-    "ua_transcription": "šukaju"
+    "ua_transcription": "Šukaju"
   },
   {
     "cz_translation": "Potřebuji...",
     "cz_transcription": "Потржебуї",
     "ua_translation": "Мені потрібно...",
-    "ua_transcription": "meni potribno"
+    "ua_transcription": "Meni potribno"
   },
   {
     "cz_translation": "Kde najdu...",
     "cz_transcription": "Ґде найду",
     "ua_translation": "Як знайти...",
-    "ua_transcription": "jak znajty"
+    "ua_transcription": "Jak znajty"
   },
   {
     "cz_translation": "Jak se dostanu na...? Jak se dostanu k...?",
     "cz_transcription": "Як се достану на / Як се достану к",
     "ua_translation": "Як дістатись до...?",
-    "ua_transcription": "jak distatys’ do"
+    "ua_transcription": "Jak distatys’ do"
   },
   {
     "cz_translation": "Jaká je adresa...?",
     "cz_transcription": "Яка є адреса",
     "ua_translation": "Яка адреса у...?",
-    "ua_transcription": "jaka adresa u"
+    "ua_transcription": "Jaka adresa u"
   },
   {
     "cz_translation": "Kde je nejbližší nemocnice?",
-    "cz_transcription": "Ґде є нейбліжші немоцніце",
+    "cz_transcription": "Ґде є нейбліші немоцніце",
     "ua_translation": "Де найближча лікарня?",
-    "ua_transcription": "de najbližča likarňa"
+    "ua_transcription": "De najbližča likarňa"
   },
   {
     "cz_translation": "náměstí",
@@ -120,10 +120,10 @@
     "ua_transcription": "plošča"
   },
   {
-    "cz_translation": "náměstí",
-    "cz_transcription": "намнєсті",
-    "ua_translation": "майдан",
-    "ua_transcription": "majdan"
+    "cz_translation": "Náměstí",
+    "cz_transcription": "Намнєсті",
+    "ua_translation": "Площа. Майдан.",
+    "ua_transcription": "Plošča. Majdan."
   },
   {
     "cz_translation": "Jak se dostanu na náměstí?",
@@ -133,15 +133,15 @@
   },
   {
     "cz_translation": "zastávka autobusu",
-    "cz_transcription": "заставка аутобусу",
+    "cz_transcription": "застафка аутобусу",
     "ua_translation": "зупинка автобуса",
-    "ua_transcription": "zupinka avtobusa"
+    "ua_transcription": "zupynka avtobusa"
   },
   {
     "cz_translation": "zastávka tramvaje",
-    "cz_transcription": "заставка трамває",
+    "cz_transcription": "застафка трамває",
     "ua_translation": "зупинка трамваю",
-    "ua_transcription": "zupinka tramvaju"
+    "ua_transcription": "zupynka tramvaju"
   },
   {
     "cz_translation": "Hledám zastávku tramvaje.",

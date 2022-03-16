@@ -1,13 +1,13 @@
 [
   {
     "cz_translation": "Jak si mám zařídit...?",
-    "cz_transcription": "Як сі мам заржідіт",
+    "cz_transcription": "Як си мам заржідіт",
     "ua_translation": "Як я можу отримати...?",
     "ua_transcription": "Jak ja možu otrymaty"
   },
   {
     "cz_translation": "Kde si mohu zařídit...?",
-    "cz_transcription": "Ґде сі могу заржідіт",
+    "cz_transcription": "Ґде си могу заржідіт",
     "ua_translation": "Де я можу отримати...?",
     "ua_transcription": "De ja možu otrymaty"
   },
@@ -33,14 +33,14 @@
   {
     "cz_translation": "Jsem v karanténě.",
     "cz_transcription": "Сем ф карантенє",
-    "ua_translation": "я на карантині.",
-    "ua_transcription": "ja na karantyni"
+    "ua_translation": "Я на карантині.",
+    "ua_transcription": "Ja na karantyni"
   },
   {
     "cz_translation": "Jsem v izolaci.",
     "cz_transcription": "Сем ф изолаци",
-    "ua_translation": "я на ізоляції.",
-    "ua_transcription": "ja na izoljaciji"
+    "ua_translation": "Я на ізоляції.",
+    "ua_transcription": "Ja na izoljaciji"
   },
 
   {
@@ -77,13 +77,13 @@
   {
     "cz_translation": "Narodila jsem se...",
     "cz_transcription": "Народіла сем се",
-    "ua_translation": "народилася...",
-    "ua_transcription": "narodylasja"
+    "ua_translation": "Народилася...",
+    "ua_transcription": "Narodylasja"
   },
   {
     "cz_translation": "Narodila se... Narodil se...",
     "cz_transcription": "Народіла се / Народіл се",
-    "ua_translation": "Вона народилася... він народився...",
-    "ua_transcription": "Vona narodylasja / vin narodyusja"
+    "ua_translation": "Вона народилася... Він народився...",
+    "ua_transcription": "Vona narodylasja / Vin narodyusja"
   }
 ]
