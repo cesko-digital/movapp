@@ -7,11 +7,11 @@ interface AlphabetCardProps {
   examples: ExampleType[];
   player: HTMLAudioElement | null;
   setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
-  czLetter: [string, string | null];
-  uaTranscription: string;
+  letter: [string, string | null];
+  transcription: string;
 }
 
-export const AlphabetCard = ({ examples, player, setPlayer, czLetter, uaTranscription }: AlphabetCardProps): JSX.Element => {
+export const AlphabetCard = ({ examples, player, setPlayer, letter, transcription }: AlphabetCardProps): JSX.Element => {
   const { i18n } = useTranslation();
 
   const playerLanguage = i18n.language === 'cz' ? 'uk' : 'cs';
@@ -34,22 +34,18 @@ export const AlphabetCard = ({ examples, player, setPlayer, czLetter, uaTranscri
       <div className="bg-white rounded-t-lg   group-hover:bg-primary-blue transition-colors duration-500">
         <div className="px-4 py-2">
           <p className=" text-6xl md:text-7xl py-4 md:py-2 font-light text-center group-hover:text-white transition-colors duration-500">
-            {czLetter[0]}
-            {czLetter[1] || null}
+            {letter[0]}
+            {letter[1] || null}
           </p>
-          <button className="w-8 md:w-12 m-auto block" onClick={() => handleTranslationAudioPlay(playerLanguage, czLetter[0])}>
+          <button className="w-8 md:w-12 m-auto block" onClick={() => handleTranslationAudioPlay(playerLanguage, letter[0])}>
             <PlayIcon className=" py-1 stroke-red-500 cursor-pointer" />
           </button>
           <p
             className={`${
-              uaTranscription.length > 10
-                ? 'text-base md:text-xl'
-                : uaTranscription.length > 4
-                ? 'text-xl md:text-3xl'
-                : 'text-2xl md:text-4xl'
+              transcription.length > 10 ? 'text-base md:text-xl' : transcription.length > 4 ? 'text-xl md:text-3xl' : 'text-2xl md:text-4xl'
             }   text-center text-[#676767] pt-2 md:pt-5 font-light group-hover:text-white transition-colors duration-500`}
           >
-            {uaTranscription}
+            {transcription}
           </p>
         </div>
       </div>

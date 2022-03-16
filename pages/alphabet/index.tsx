@@ -24,8 +24,8 @@ const AlphabetPage = (): JSX.Element => {
         {alphabet.map(({ examples, letter, transcription }, index) => {
           return (
             <AlphabetCard
-              czLetter={letter}
-              uaTranscription={transcription}
+              letter={letter}
+              transcription={transcription}
               examples={examples}
               key={index}
               player={player}
