@@ -25,7 +25,7 @@
     "subtitle": "Vyberte si oblast"
   },
   "about_page": {
-    "title": "<strong>Movapp.cz</strong> je projekt, který vznikl v rámci iniciativy <strong>Stojíme za Ukrajinou</strong> v komunitě experních dobrovolníků <strong>Česko.Digital.</strong>",
+    "title": "<strong>Movapp.cz</strong> je projekt, který vznikl v rámci iniciativy <strong>Stojíme za Ukrajinou</strong> v komunitě expertních dobrovolníků <strong>Česko.Digital.</strong>",
     "movapp_goal_title": "<strong>Cíl Movapp.cz</strong>",
     "movapp_goal_description": "Cílem Movapp.cz je usnadnit dorozumění mezi Čechy a Ukrajinci. V první fázi byl vypublikován přehled základních česko-ukrajinských frází. V dalších fázích budeme vytvářet nástroje pro jejich procvičování a chceme se stát rozcestníkem pro další nástroje a materiály, které pomůžou s učením ukrajinštiny a češtiny.",
     "why_movapp_title": "<strong>Proč Movapp?</strong>",
@@ -56,7 +56,7 @@
     "contacts_page_title": "Kontakty | Movapp.cz",
     "contacts_page_description": "Chcete se stát členem týmu a pomáhat na dalším rozvoji projektu?",
     "about_page_title": "O nás | Movapp.cz",
-    "about_page_description": "Projekt vznikl v rámci iniciativy Stojíme za Ukrajinou v komunitě experních dobrovolníků Česko.Digital."
+    "about_page_description": "Projekt vznikl v rámci iniciativy Stojíme za Ukrajinou v komunitě expertních dobrovolníků Česko.Digital."
   },
   "export_translations": {
     "download_phrases": "Stáhnout fráze",
