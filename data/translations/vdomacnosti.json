@@ -1,9 +1,15 @@
 [
   {
-    "cz_translation": "Mohu si uvařit / udělat...",
-    "cz_transcription": "Могу сі уваржіт / удєлат",
-    "ua_translation": "Можу приготувати/зробити ...",
-    "ua_transcription": "Možu prihotuvaty / zrobyty"
+    "cz_translation": "Mohu si uvařit...",
+    "cz_transcription": "Могу си уваржіт",
+    "ua_translation": "Можу приготувати...",
+    "ua_transcription": "Možu pryhotuvaty"
+  },
+  {
+    "cz_translation": "Mohu si udělat...",
+    "cz_transcription": "Могу си удєлат",
+    "ua_translation": "Можу зробити...",
+    "ua_transcription": "Možu zrobyty"
   },
   {
     "cz_translation": "Mohu použít...",
@@ -20,12 +26,12 @@
   {
     "cz_translation": "Máte...",
     "cz_transcription": "Мате",
-    "ua_translation": "у Вас є...?",
-    "ua_transcription": "u vas je"
+    "ua_translation": "У Вас є...?",
+    "ua_transcription": "U vas je"
   },
   {
-    "cz_translation": "nabíječka",
-    "cz_transcription": "набієчка",
+    "cz_translation": "nabíječka na mobil",
+    "cz_transcription": "набієчка на мобил",
     "ua_translation": "зарядка для мобільного",
     "ua_transcription": "zarjadka dlja mobil’noho"
   },
@@ -72,16 +78,28 @@
     "ua_transcription": "Choču zrobyty čaj. Možna vzjaty vaš čajnyk"
   },
   {
-    "cz_translation": "hrnek / hrnky",
-    "cz_transcription": "грнек / грнки",
-    "ua_translation": "чашка/чашки",
-    "ua_transcription": "čaška / čašky"
+    "cz_translation": "hrnek",
+    "cz_transcription": "грнек",
+    "ua_translation": "чашка",
+    "ua_transcription": "čaška"
   },
   {
-    "cz_translation": "talíř / talíře",
-    "cz_transcription": "талірж / талірже",
-    "ua_translation": "тарілка/тарілки",
-    "ua_transcription": "tarilka / tarilky"
+    "cz_translation": "hrnky",
+    "cz_transcription": "грнки",
+    "ua_translation": "чашки",
+    "ua_transcription": "čašky"
+  },
+  {
+    "cz_translation": "talíř",
+    "cz_transcription": "талірж",
+    "ua_translation": "тарілка",
+    "ua_transcription": "tarilka"
+  },
+  {
+    "cz_translation": "talíře",
+    "cz_transcription": "талірже",
+    "ua_translation": "тарілки",
+    "ua_transcription": "tarilky"
   },
   {
     "cz_translation": "příbor",
@@ -96,16 +114,28 @@
     "ua_transcription": "ložka"
   },
   {
-    "cz_translation": "vidlička / vidličky",
-    "cz_transcription": "видличка / видлички",
-    "ua_translation": "виделка/виделки",
-    "ua_transcription": "vydelka / vydelky"
+    "cz_translation": "vidlička",
+    "cz_transcription": "видличка",
+    "ua_translation": "виделка",
+    "ua_transcription": "vydelka"
   },
   {
-    "cz_translation": "nůž / nože",
-    "cz_transcription": "нуш / ноже",
-    "ua_translation": "ніж/ножі",
-    "ua_transcription": "niž / noži"
+    "cz_translation": "vidličky",
+    "cz_transcription": "видлички",
+    "ua_translation": "виделки",
+    "ua_transcription": "vydelky"
+  },
+  {
+    "cz_translation": "nůž",
+    "cz_transcription": "нуш",
+    "ua_translation": "ніж",
+    "ua_transcription": "niž"
+  },
+  {
+    "cz_translation": "nože",
+    "cz_transcription": "ноже",
+    "ua_translation": "ножі",
+    "ua_transcription": "noži"
   },
   {
     "cz_translation": "hrnec",
@@ -114,22 +144,22 @@
     "ua_transcription": "kastrulja"
   },
   {
-    "cz_translation": "pánev",
-    "cz_transcription": "панеф",
-    "ua_translation": "пательня/сковорода",
-    "ua_transcription": "patel’ňa / skovoroda"
+    "cz_translation": "Pánev",
+    "cz_transcription": "Панеф",
+    "ua_translation": "Пательня. Сковорода.",
+    "ua_transcription": "Patel’ňa / Skovoroda"
   },
   {
-    "cz_translation": "vařečka",
-    "cz_transcription": "варжечка",
-    "ua_translation": "мішалка/лопатка",
-    "ua_transcription": "mišalka / lopatka"
+    "cz_translation": "Vařečka",
+    "cz_transcription": "Варжечка",
+    "ua_translation": "Мішалка. Лопатка.",
+    "ua_transcription": "Mišalka / Lopatka"
   },
   {
     "cz_translation": "Potřebuji si koupit vařečku.",
     "cz_transcription": "Потржебуї си коупит варжечку",
-    "ua_translation": "Мені потрібно купити мішалку / лопатку.",
-    "ua_transcription": "Meni potribno kupyty mišalku / lopatku"
+    "ua_translation": "Мені потрібно купити мішалку. Мені потрібно купити лопатку.",
+    "ua_transcription": "Meni potribno kupyty mišalku / Meni potribno kupyty lopatku"
   },
   {
     "cz_translation": "naběračka",

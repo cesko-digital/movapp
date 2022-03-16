@@ -194,8 +194,14 @@
   {
     "cz_translation": "Dáš si papriku?",
     "cz_transcription": "Даш си паприку",
-    "ua_translation": "Хочеш солодкого / болгарського перцю?",
-    "ua_transcription": "Chočeš solodkoho / bolhars'koho percju"
+    "ua_translation": "Хочеш солодкого?",
+    "ua_transcription": "Chočeš solodkoho"
+  },
+  {
+    "cz_translation": "Dáš si papriku?",
+    "cz_transcription": "Даш си паприку",
+    "ua_translation": "Хочеш болгарського перцю?",
+    "ua_transcription": "Chočeš bolhars'koho percju"
   },
   {
     "cz_translation": "okurka",

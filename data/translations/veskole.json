@@ -1,21 +1,21 @@
 [
   {
     "cz_translation": "Paní ředitelka. Pan ředitel.",
-    "cz_transcription": "пані ржедітелка / пан ржедітел",
-    "ua_translation": "директриса. директор.",
-    "ua_transcription": "dyrektrysa / dyrektor"
+    "cz_transcription": "Пані ржедітелка / Пан ржедітел",
+    "ua_translation": "Директриса. Директор.",
+    "ua_transcription": "Dyrektrysa / Dyrektor"
   },
   {
     "cz_translation": "Paní učitelka. Pan učitel.",
-    "cz_transcription": "пані учителка / пан учител",
-    "ua_translation": "вчителька. вчитель.",
-    "ua_transcription": "učyteľka / učyteľ"
+    "cz_transcription": "Пані учителка / Пан учител",
+    "ua_translation": "Вчителька. Вчитель.",
+    "ua_transcription": "Učyteľka / Učyteľ"
   },
   {
     "cz_translation": "Paní asistentka. Pan asistent.",
-    "cz_transcription": "пані асистентка / пан асистент",
-    "ua_translation": "асистентка. асистент.",
-    "ua_transcription": "asystentka / asystent"
+    "cz_transcription": "Пані асистентка / Пан асистент",
+    "ua_translation": "Асистентка. Асистент.",
+    "ua_transcription": "Asystentka / Asystent"
   },
   {
     "cz_translation": "Paní učitelko!  Pane učiteli!",
@@ -104,7 +104,7 @@
   {
     "cz_translation": "Nemám omluvenku.",
     "cz_transcription": "Немам омлувенку",
-    "ua_translation": "не маю письмове вибачення.",
+    "ua_translation": "Не маю письмове вибачення.",
     "ua_transcription": "Ne maju pis’move vybačenňa"
   },
   {
@@ -127,9 +127,9 @@
   },
   {
     "cz_translation": "Bačkory. Přezůvky.",
-    "cz_transcription": "бачкори / пржезуфки",
-    "ua_translation": "капці. змінне взуття.",
-    "ua_transcription": "kapci / zminne vzutťa"
+    "cz_transcription": "Бачкори / Пржезуфки",
+    "ua_translation": "Капці. Змінне взуття.",
+    "ua_transcription": "Kapci / Zminne vzutťa"
   },
   {
     "cz_translation": "třída",
@@ -158,9 +158,9 @@
   },
   {
     "cz_translation": "Matematika. Matika.",
-    "cz_transcription": "математика / матика",
-    "ua_translation": "математика",
-    "ua_transcription": "matematyka"
+    "cz_transcription": "Математика / Матика",
+    "ua_translation": "Математика",
+    "ua_transcription": "Matematyka"
   },
   {
     "cz_translation": "jazyk",
@@ -199,8 +199,8 @@
     "ua_transcription": "francuz’ka mova"
   },
   {
-    "cz_translation": "prvouka",
-    "cz_transcription": "првоука",
+    "cz_translation": "Prvouka",
+    "cz_transcription": "Првоука",
     "ua_translation": "Людина і Світ",
     "ua_transcription": "Ljudyna i Svit"
   },
@@ -218,39 +218,39 @@
   },
   {
     "cz_translation": "Výtvarná výchova. Výtvarka.",
-    "cz_transcription": "вітварна віхова / вітварка",
-    "ua_translation": "малювання. художнє виховання.",
-    "ua_transcription": "maljuvanňa / chudožně vychovanňa"
+    "cz_transcription": "Вітварна віхова / Вітварка",
+    "ua_translation": "Малювання. Художнє виховання.",
+    "ua_transcription": "Maljuvanňa / Chudožně vychovanňa"
   },
   {
     "cz_translation": "Hudební výchova. Hudebka.",
-    "cz_transcription": "гудебні віхова / гудепка",
-    "ua_translation": "музика. музичне виховання.",
-    "ua_transcription": "muzyka / muzyčne vychovanňa"
+    "cz_transcription": "Гудебні віхова / Гудепка",
+    "ua_translation": "Музика. Музичне виховання.",
+    "ua_transcription": "Muzyka / Muzyčne vychovanňa"
   },
   {
     "cz_translation": "Tělesná výchova. Tělák.",
-    "cz_transcription": "тєлесна віхова / тєлак",
-    "ua_translation": "фізична культура. фіз-ра.",
-    "ua_transcription": "fizyčna kul’tura / fiz-ra"
+    "cz_transcription": "Тєлесна віхова / Тєлак",
+    "ua_translation": "Фізична культура. Фіз-ра.",
+    "ua_transcription": "Fizyčna kul’tura / Fiz-ra"
   },
   {
     "cz_translation": "Informatika. Počítače.",
-    "cz_transcription": "информатика / почитаче",
-    "ua_translation": "інформатика. комп'ютерна техніка",
-    "ua_transcription": "informatyka / kompjuterna techňika"
+    "cz_transcription": "Информатика / Почитаче",
+    "ua_translation": "Інформатика. Комп'ютерна техніка",
+    "ua_transcription": "Informatyka / Kompjuterna techňika"
   },
   {
     "cz_translation": "Zeměpis. Zemák.",
-    "cz_transcription": "земнєпис / земак",
-    "ua_translation": "географія",
-    "ua_transcription": "heohrafija"
+    "cz_transcription": "Земнєпис / Земак",
+    "ua_translation": "Географія",
+    "ua_transcription": "Heohrafija"
   },
   {
     "cz_translation": "Dějepis. Děják.",
-    "cz_transcription": "дєєпис / дєяк",
-    "ua_translation": "історія",
-    "ua_transcription": "istorija"
+    "cz_transcription": "Дєєпис / Дєяк",
+    "ua_translation": "Історія",
+    "ua_transcription": "Istorija"
   },
   {
     "cz_translation": "fyzika",
@@ -266,9 +266,9 @@
   },
   {
     "cz_translation": "Občanská výchova. Občanka.",
-    "cz_transcription": "опчанска віхова / опчанка",
-    "ua_translation": "правознавство",
-    "ua_transcription": "pravoznaustvo"
+    "cz_transcription": "Опчанска віхова / Опчанка",
+    "ua_translation": "Правознавство",
+    "ua_transcription": "Pravoznaustvo"
   },
 
   {
@@ -316,9 +316,9 @@
 
   {
     "cz_translation": "Aktovka. Batoh.",
-    "cz_transcription": "актофка / батох",
-    "ua_translation": "ранець. рюкзак",
-    "ua_transcription": "ranec’ / rjukzak"
+    "cz_transcription": "Актофка / Батох",
+    "ua_translation": "Ранець. Рюкзак",
+    "ua_transcription": "Ranec’ / Rjukzak"
   },
   {
     "cz_translation": "desky",
@@ -346,15 +346,15 @@
   },
   {
     "cz_translation": "Pracovní sešit. Pracák.",
-    "cz_transcription": "працовні сешит / працак",
-    "ua_translation": "робочий зошит",
-    "ua_transcription": "robočyj zošyt"
+    "cz_transcription": "Працовні сешит / Працак",
+    "ua_translation": "Робочий зошит",
+    "ua_transcription": "Robočyj zošyt"
   },
   {
     "cz_translation": "Žákovská knížka. Žákajda.",
-    "cz_transcription": "жакофска кнішка / жакайда",
-    "ua_translation": "щоденник",
-    "ua_transcription": "ščodennyk"
+    "cz_transcription": "Жакофска кнішка / Жакайда",
+    "ua_translation": "Щоденник",
+    "ua_transcription": "Ščodennyk"
   },
   {
     "cz_translation": "penál",
@@ -389,8 +389,8 @@
   {
     "cz_translation": "pastelky",
     "cz_transcription": "пастелки",
-    "ua_translation": "кольоровий олівці",
-    "ua_transcription": "koľorovyj oliuci"
+    "ua_translation": "кольорові олівці",
+    "ua_transcription": "koľorovi oliuci"
   },
   {
     "cz_translation": "fixa",
@@ -498,7 +498,7 @@
   {
     "cz_translation": "Čteme.",
     "cz_transcription": "Чтеме",
-    "ua_translation": "читаємо.",
+    "ua_translation": "Читаємо.",
     "ua_transcription": "Čytajemo"
   },  
   {
@@ -528,9 +528,9 @@
   },
   {
     "cz_translation": "Paní vychovatelka. Pan vychovatel.",
-    "cz_transcription": "пані вихователка / пан виховател",
-    "ua_translation": "вихователька. вихователь.",
-    "ua_transcription": "vychovatel’ka / vychovatel’"
+    "cz_transcription": "Пані вихователка / Пан виховател",
+    "ua_translation": "Вихователька. Вихователь.",
+    "ua_transcription": "Vychovatel’ka / Vychovatel’"
   },
   {
     "cz_translation": "Chodím do družiny.",
@@ -671,14 +671,8 @@
     "ua_transcription": "Meni potribno v tualet"
   },
   {
-    "cz_translation": "Promiňte.",
-    "cz_transcription": "Проминьте",
-    "ua_translation": "Вибачте.",
-    "ua_transcription": "Vybačte"
-  },
-  {
-    "cz_translation": "Omlouvám se.",
-    "cz_transcription": "Омлоувам се",
+    "cz_translation": "Promiňte. Omlouvám se.",
+    "cz_transcription": "Проминьте. Омлоувам се.",
     "ua_translation": "Вибачте.",
     "ua_transcription": "Vybačte"
   },
@@ -735,7 +729,7 @@
     "cz_translation": "Podívej se sem.",
     "cz_transcription": "Подівей се сем",
     "ua_translation": "Подивися сюди.",
-    "ua_transcription": "Podyvysja cjudy"
+    "ua_transcription": "Podyvysja sjudy"
   },
   {
     "cz_translation": "Pomůžu ti.",
