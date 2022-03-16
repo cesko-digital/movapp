@@ -80,7 +80,11 @@ const Dictionary = () => {
           const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 
           return (
-            <Collapse key={index} title={<Marker mark={search}>{categoryName}</Marker>}>
+            <Collapse
+              key={category.category_name_cz}
+              title={<Marker mark={search}>{categoryName}</Marker>}
+              ariaId={category.category_name_cz}
+            >
               <div className="mb-4 mx-4">
                 <ExportTranslations translations={category.translations} categoryName={categoryName} />
               </div>
