@@ -1,5 +1,6 @@
+import { useTranslation } from 'next-i18next';
 import React from 'react';
-import { ExampleType } from '../../data/alphabet';
+import { ExampleType } from '../../data/alphabets/cz_alphabet';
 import PlayIcon from '../../public/icons/play.svg';
 
 interface AlphabetCardProps {
@@ -11,6 +12,10 @@ interface AlphabetCardProps {
 }
 
 export const AlphabetCard = ({ examples, player, setPlayer, czLetter, uaTranscription }: AlphabetCardProps): JSX.Element => {
+  const { i18n } = useTranslation();
+
+  const playerLanguage = i18n.language === 'cz' ? 'uk' : 'cs';
+
   const handleTranslationAudioPlay = (language: string, text: string) => {
     // stops player if something is currently playing
     if (player) {
@@ -32,7 +37,7 @@ export const AlphabetCard = ({ examples, player, setPlayer, czLetter, uaTranscri
             {czLetter[0]}
             {czLetter[1] || null}
           </p>
-          <button className="w-8 md:w-12 m-auto block" onClick={() => handleTranslationAudioPlay('cs', czLetter[0])}>
+          <button className="w-8 md:w-12 m-auto block" onClick={() => handleTranslationAudioPlay(playerLanguage, czLetter[0])}>
             <PlayIcon className=" py-1 stroke-red-500 cursor-pointer" />
           </button>
           <p
@@ -51,12 +56,12 @@ export const AlphabetCard = ({ examples, player, setPlayer, czLetter, uaTranscri
       {/* Examples part */}
       <div className="bg-primary-yellow py-1 md:py-3 rounded-b-lg">
         <p className="font-sans px-4 text-center">Приклади</p>
-        {examples.map(({ example, translation }, index) => {
+        {examples.map(({ example, example_transcription }, index) => {
           return (
             <div key={index} className="grid grid-cols-[45%_45%_10%] grid-flow-col items-center pt-[2px] px-4">
               <p className="font-light justift-self-start break-all text-sm md:text-sm">{example}</p>
-              <p className="font-light text-xs md:text-sm">[{translation}]</p>
-              <button onClick={() => handleTranslationAudioPlay('cs', example)}>
+              <p className="font-light text-xs md:text-sm">[{example_transcription}]</p>
+              <button onClick={() => handleTranslationAudioPlay(playerLanguage, example)}>
                 <PlayIcon className="w-4 md:w-5 stroke-red-500 ml-1 cursor-pointer " />
               </button>
             </div>
