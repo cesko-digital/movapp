@@ -36,11 +36,11 @@ export const MobileHeader = () => {
       <ul className="flex w-full justify-end pr-5 items-center">
         {LOCALES.map(({ name, locale }, index) => {
           return (
-            <Link key={index} href={router.asPath} locale={locale}>
-              <a>
-                <li className={`${i18n.language === locale && 'text-primary-yellow'} text-white mx-2`}>{name}</li>
-              </a>
-            </Link>
+            <li key={index} className={`${i18n.language === locale && 'text-primary-yellow'} text-white mx-2`}>
+              <Link href={router.asPath} locale={locale}>
+                <a>{name}</a>
+              </Link>
+            </li>
           );
         })}
       </ul>
@@ -53,13 +53,11 @@ export const MobileHeader = () => {
           <ul className="z-50">
             {HEADER_NAVIGATION.map(({ name, link }, index) => {
               return (
-                <Link key={index} href={link}>
-                  <a>
-                    <li className={`text-white text-center text-lg py-2 ${router.asPath.includes(link) && 'text-primary-yellow'}`}>
-                      {t(name)}
-                    </li>
-                  </a>
-                </Link>
+                <li key={index} className={`text-white text-center text-lg py-2 ${router.asPath.includes(link) && 'text-primary-yellow'}`}>
+                  <Link href={link}>
+                    <a>{t(name)}</a>
+                  </Link>
+                </li>
               );
             })}
           </ul>
