@@ -43,7 +43,9 @@ export const Modal = ({ children, isOpen, title, closeModal, unmount }: ModalPro
           >
             <div className="inline-block w-full max-w-2xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl relative">
               <Dialog.Title as="h2">{title}</Dialog.Title>
-              <XIcon className="h-7 w-7 text-gray-500 absolute top-4 right-4 cursor-pointer" onClick={closeModal} />
+              <button className="absolute top-4 right-4 cursor-pointer block" onClick={closeModal}>
+                <XIcon className="h-7 w-7 text-gray-500" />
+              </button>
               {children}
             </div>
           </Transition.Child>

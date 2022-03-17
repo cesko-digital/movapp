@@ -60,12 +60,12 @@ const Dictionary = () => {
             value={search}
             onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch((e.target as HTMLInputElement).value)}
           />
-          <Button className="ml-5 hidden md:block " text={t('dictionary_page.search_button')} />
+          <Button className="mx-5 hidden md:block " text={t('dictionary_page.search_button')} />
           <ExportTranslations
             translations={translations.map((translations) => translations.translations).flat()}
             categoryName={t('export_translations.all_phrases')}
             trigger={
-              <span className="cursor-pointer underline text-primary-blue ml-4 inline-block">
+              <span className="cursor-pointer underline text-primary-blue inline-block">
                 {t('export_translations.download')} {t('export_translations.all_phrases')}
               </span>
             }
@@ -80,8 +80,14 @@ const Dictionary = () => {
           const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 
           return (
-            <Collapse key={index} title={<Marker mark={search}>{categoryName}</Marker>}>
-              <ExportTranslations translations={category.translations} categoryName={categoryName} />
+            <Collapse
+              key={category.category_name_cz}
+              title={<Marker mark={search}>{categoryName}</Marker>}
+              ariaId={category.category_name_cz}
+            >
+              <div className="mb-4 mx-4">
+                <ExportTranslations translations={category.translations} categoryName={categoryName} />
+              </div>
               <CategoryDictionary setPlayer={setPlayer} player={player} searchText={search} translations={category.translations} />
             </Collapse>
           );

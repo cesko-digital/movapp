@@ -100,15 +100,13 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
 
   return (
     <>
-      <span onClick={() => setIsModalOpen(true)}>
+      <button onClick={() => setIsModalOpen(true)}>
         {trigger ? (
           trigger
         ) : (
-          <span className="cursor-pointer underline text-primary-blue ml-4 pb-4 inline-block">
-            {t('export_translations.download_phrases')}
-          </span>
+          <span className="cursor-pointer underline text-primary-blue inline-block">{t('export_translations.download_phrases')}</span>
         )}
-      </span>
+      </button>
       <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.download')} ${categoryName}`}>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div>
