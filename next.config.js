@@ -21,8 +21,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/ua',
-        destination: '/uk',
+        source: '/ua/:path*',
+        destination: '/uk/:path*',
         permanent: true,
       },
     ];
