@@ -22,8 +22,8 @@ interface SeparatorOption {
 }
 
 const TRANSLATION_SEPARATORS: SeparatorOption[] = [
+  { id: 'transl_semicolon', nameKey: 'export_translations.semicolon', value: '; ' },
   { id: 'transl_comma', nameKey: 'export_translations.comma', value: ', ' },
-  { id: 'transl_semicolor', nameKey: 'export_translations.semicolon', value: '; ' },
   { id: 'trans_tab', nameKey: 'export_translations.tab', value: '\t', displayValue: <span>(&nbsp;&nbsp;&nbsp;&nbsp;)</span> },
 ];
 const TRANS_SEP_CUSTOM = 'trans_custom';
