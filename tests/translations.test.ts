@@ -19,29 +19,37 @@ import VeMeste from '../data/translations/vemeste.json';
 import VeSkole from '../data/translations/veskole.json';
 import VeSkolce from '../data/translations/veskolce.json';
 
-const sections = [Basic, UzitecneFraze, Cas, HromadnaDoprava, Zoo, NaNakupu, NaUrade, ObleceniDrogerie, Penize, Rodina, Doctor, VDomacnosti, VeMeste, VeSkole, VeSkolce];
+const sections = [
+  Basic,
+  UzitecneFraze,
+  Cas,
+  HromadnaDoprava,
+  Zoo,
+  NaNakupu,
+  NaUrade,
+  ObleceniDrogerie,
+  Penize,
+  Rodina,
+  Doctor,
+  VDomacnosti,
+  VeMeste,
+  VeSkole,
+  VeSkolce,
+];
 
 test('Check all required attributes in dictionary', () => {
-
-  for (let section of sections) {
-    for (let dictItem of section) {
-
+  for (const section of sections) {
+    for (const dictItem of section) {
       expect(dictItem).toEqual(
-        expect.objectContaining(
-
-          {
-            cz_translation: expect.stringMatching(/^.+$/),
-            cz_transcription: expect.any(String),
-            ua_translation: expect.stringMatching(/^.+$/),
-            ua_transcription: expect.any(String)
-          }
-
-        )
+        expect.objectContaining({
+          cz_translation: expect.stringMatching(/^.+$/),
+          cz_transcription: expect.any(String),
+          ua_translation: expect.stringMatching(/^.+$/),
+          ua_transcription: expect.any(String),
+        }),
       );
-
     }
   }
-
 });
 
 export {};

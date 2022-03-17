@@ -8,3 +8,5 @@ export const LOCALES = [
     locale: 'cs',
   },
 ];
+
+export type Language = 'cs' | 'uk';

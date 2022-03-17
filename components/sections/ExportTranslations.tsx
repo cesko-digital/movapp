@@ -3,6 +3,7 @@ import { Button } from '../basecomponents/Button';
 import { Modal } from '../basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
 import { Translation } from '../basecomponents/TranslationsContainer';
+import { Language } from '../../data/locales';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
@@ -67,12 +68,13 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
   const [phraseSeparator, setPhraseSeparator] = useState(PHRASE_SEPARATORS[0].value);
   const [customPhraseSeparator, setCustomPhraseSeparator] = useState('\\n\\n');
   const [includeTranscriptions, setIncludeTranscriptions] = useState(false);
+  const language = i18n.language as Language;
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
   const phrases = translations
     .map((translation) =>
-      i18n.language === 'cz'
+      language === 'cs'
         ? translation.cz_translation +
           (includeTranscriptions ? ` [${translation.cz_transcription}]` : '') +
           translSep +
