@@ -22,8 +22,8 @@
     },
     {
         "letter": [
-            "á",
-            null
+            "Á",
+            "á"
         ],
         "transcription": "довгий [a]",
         "examples": [
@@ -36,8 +36,8 @@
                 "example_transcription": "крава"
             },
             {
-                "example": "plavání",
-                "example_transcription": "плавані"
+                "example": "máma",
+                "example_transcription": "мама"
             }
         ]
     },
@@ -49,16 +49,16 @@
         "transcription": "[б]",
         "examples": [
             {
-                "example": "březen",
-                "example_transcription": "бржезен"
+                "example": "balón",
+                "example_transcription": "балон"
             },
             {
                 "example": "brambory",
                 "example_transcription": "брамбори"
             },
             {
-                "example": "břicho",
-                "example_transcription": "бржіхо"
+                "example": "banán",
+                "example_transcription": "банан"
             }
         ]
     },
@@ -71,15 +71,15 @@
         "examples": [
             {
                 "example": "cibule",
-                "example_transcription": "цібуле"
+                "example_transcription": "цибуле"
             },
             {
-                "example": "církev",
-                "example_transcription": "ціркев"
+                "example": "cop",
+                "example_transcription": "цоп"
             },
             {
                 "example": "citron",
-                "example_transcription": "цітрон"
+                "example_transcription": "цитрон"
             }
         ]
     },
@@ -92,15 +92,15 @@
         "examples": [
             {
                 "example": "čepice",
-                "example_transcription": "чепіце"
+                "example_transcription": "чепице"
             },
             {
                 "example": "čokoláda",
                 "example_transcription": "чоколада"
             },
             {
-                "example": "čekat",
-                "example_transcription": "чекат"
+                "example": "červený",
+                "example_transcription": "червени"
             }
         ]
     },
@@ -116,12 +116,12 @@
                 "example_transcription": "дум"
             },
             {
-                "example": "děkuji",
-                "example_transcription": "дєкуї"
+                "example": "datel",
+                "example_transcription": "дател"
             },
             {
-                "example": "dnes",
-                "example_transcription": "днес"
+                "example": "dopis",
+                "example_transcription": "допис"
             }
         ]
     },
@@ -137,12 +137,12 @@
                 "example_transcription": "дябел"
             },
             {
-                "example": "zeď",
-                "example_transcription": "зедь"
+                "example": "děti",
+                "example_transcription": "дєті"
             },
             {
-                "example": "loď",
-                "example_transcription": "лодь"
+                "example": "hodiny",
+                "example_transcription": "годіни"
             }
         ]
     },
@@ -155,15 +155,15 @@
         "examples": [
             {
                 "example": "elektrikář",
-                "example_transcription": "електрікарж"
+                "example_transcription": "електрикарж"
             },
             {
-                "example": "emigrace",
-                "example_transcription": "еміґраце"
+                "example": "Evropa",
+                "example_transcription": "Европа"
             },
             {
-                "example": "euro",
-                "example_transcription": "еуро"
+                "example": "emu",
+                "example_transcription": "ему"
             }
         ]
     },
@@ -183,8 +183,8 @@
                 "example_transcription": "ймено"
             },
             {
-                "example": "délka",
-                "example_transcription": "делка"
+                "example": "létat",
+                "example_transcription": "летат"
             }
         ]
     },
@@ -201,7 +201,7 @@
             },
             {
                 "example": "měkký",
-                "example_transcription": "мнєккі"
+                "example_transcription": "мнєки"
             },
             {
                 "example": "něco",
@@ -218,15 +218,15 @@
         "examples": [
             {
                 "example": "fyzika",
-                "example_transcription": "фізіка"
+                "example_transcription": "физика"
             },
             {
                 "example": "fronta",
                 "example_transcription": "фронта"
             },
             {
-                "example": "faktura",
-                "example_transcription": "фактура"
+                "example": "flétna",
+                "example_transcription": "флетна"
             }
         ]
     },
@@ -242,12 +242,12 @@
                 "example_transcription": "ґараж"
             },
             {
-                "example": "program",
-                "example_transcription": "проґрам"
+                "example": "gramofon",
+                "example_transcription": "ґрамофон"
             },
             {
-                "example": "agrese",
-                "example_transcription": "аґресе"
+                "example": "gymnastika",
+                "example_transcription": "ґимнастика"
             }
         ]
     },
@@ -263,12 +263,12 @@
                 "example_transcription": "глава"
             },
             {
-                "example": "hodit se",
-                "example_transcription": "годіт се"
+                "example": "houba",
+                "example_transcription": "гоуба"
             },
             {
-                "example": "hluk",
-                "example_transcription": "глук"
+                "example": "harmonika",
+                "example_transcription": "гармоника"
             }
         ]
     },
@@ -280,16 +280,16 @@
         "transcription": "[х]",
         "examples": [
             {
-                "example": "míchat",
-                "example_transcription": "мішати"
+                "example": "chléb",
+                "example_transcription": "хлеп"
             },
             {
-                "example": "chování",
-                "example_transcription": "ховані"
+                "example": "chobotnice",
+                "example_transcription": "хоботніце"
             },
             {
-                "example": "porucha",
-                "example_transcription": "поруха"
+                "example": "chameleon",
+                "example_transcription": "хамелеон"
             }
         ]
     },
@@ -302,28 +302,28 @@
         "examples": [
             {
                 "example": "internet",
-                "example_transcription": "інтернет"
+                "example_transcription": "интернет"
             },
             {
-                "example": "integrace",
-                "example_transcription": "інтеґраце"
+                "example": "indián",
+                "example_transcription": "индиян"
             },
             {
-                "example": "introvert",
-                "example_transcription": "інтроверт"
+                "example": "iglů",
+                "example_transcription": "иґлу"
             }
         ]
     },
     {
         "letter": [
-            "í",
-            null
+            "Í",
+            "í"
         ],
         "transcription": "довгий [i]",
         "examples": [
             {
-                "example": "unikátní",
-                "example_transcription": "унікатні"
+                "example": "lípa",
+                "example_transcription": "ліпа"
             },
             {
                 "example": "papír",
@@ -347,12 +347,12 @@
                 "example_transcription": "яблко"
             },
             {
-                "example": "játra",
-                "example_transcription": "ятра"
+                "example": "jahoda",
+                "example_transcription": "ягода"
             },
             {
-                "example": "jet",
-                "example_transcription": "єт"
+                "example": "ježek",
+                "example_transcription": "єжек"
             }
         ]
     },
@@ -364,16 +364,16 @@
         "transcription": "[к]",
         "examples": [
             {
-                "example": "květina",
-                "example_transcription": "квєтіна"
+                "example": "kočka",
+                "example_transcription": "кочка"
             },
             {
                 "example": "kobliha",
-                "example_transcription": "кобліга"
+                "example_transcription": "коблига"
             },
             {
-                "example": "kousek",
-                "example_transcription": "коусек"
+                "example": "kaktus",
+                "example_transcription": "кактус"
             }
         ]
     },
@@ -389,12 +389,12 @@
                 "example_transcription": "ласка"
             },
             {
-                "example": "levný",
-                "example_transcription": "левни"
+                "example": "lampa",
+                "example_transcription": "лампа"
             },
             {
-                "example": "látka",
-                "example_transcription": "латка"
+                "example": "lev",
+                "example_transcription": "леф"
             }
         ]
     },
@@ -414,8 +414,8 @@
                 "example_transcription": "метро"
             },
             {
-                "example": "milovat",
-                "example_transcription": "міловат"
+                "example": "maska",
+                "example_transcription": "маска"
             }
         ]
     },
@@ -428,15 +428,15 @@
         "examples": [
             {
                 "example": "noviny",
-                "example_transcription": "новіни"
+                "example_transcription": "новини"
             },
             {
                 "example": "nula",
                 "example_transcription": "нула"
             },
             {
-                "example": "ne",
-                "example_transcription": "не"
+                "example": "nos",
+                "example_transcription": "нос"
             }
         ]
     },
@@ -452,19 +452,19 @@
                 "example_transcription": "олей"
             },
             {
-                "example": "lopata",
-                "example_transcription": "лопата"
+                "example": "opice",
+                "example_transcription": "опице"
             },
             {
-                "example": "ležet",
-                "example_transcription": "лежет"
+                "example": "ovoce",
+                "example_transcription": "овоце"
             }
         ]
     },
     {
         "letter": [
-            "ó",
-            null
+            "Ó",
+            "ó"
         ],
         "transcription": "[о]",
         "examples": [
@@ -498,8 +498,8 @@
                 "example_transcription": "Прага"
             },
             {
-                "example": "popisek",
-                "example_transcription": "попісек"
+                "example": "penál",
+                "example_transcription": "пенал"
             }
         ]
     },
@@ -516,7 +516,7 @@
             },
             {
                 "example": "squat",
-                "example_transcription": "сквод"
+                "example_transcription": "сквот"
             },
             {
                 "example": "aquapark",
@@ -540,8 +540,8 @@
                 "example_transcription": "рука"
             },
             {
-                "example": "pravda",
-                "example_transcription": "правда"
+                "example": "růže",
+                "example_transcription": "руже"
             }
         ]
     },
@@ -554,11 +554,11 @@
         "examples": [
             {
                 "example": "Řím",
-                "example_transcription": "ржім"
+                "example_transcription": "Ржім"
             },
             {
-                "example": "řízení",
-                "example_transcription": "ржізені"
+                "example": "řízek",
+                "example_transcription": "ржізек"
             },
             {
                 "example": "řeka",
@@ -578,8 +578,8 @@
                 "example_transcription": "соха"
             },
             {
-                "example": "starat se",
-                "example_transcription": "старат се"
+                "example": "sova",
+                "example_transcription": "сова"
             },
             {
                 "example": "stůl",
@@ -603,8 +603,8 @@
                 "example_transcription": "шати"
             },
             {
-                "example": "školení",
-                "example_transcription": "школені"
+                "example": "šnek",
+                "example_transcription": "шнек"
             }
         ]
     },
@@ -617,15 +617,15 @@
         "examples": [
             {
                 "example": "televize",
-                "example_transcription": "телевізе"
+                "example_transcription": "телевизе"
             },
             {
                 "example": "táta",
                 "example_transcription": "тата"
             },
             {
-                "example": "tři",
-                "example_transcription": "тржи"
+                "example": "tráva",
+                "example_transcription": "трава"
             }
         ]
     },
@@ -645,8 +645,8 @@
                 "example_transcription": "поушть"
             },
             {
-                "example": "poleť",
-                "example_transcription": "полеть"
+                "example": "déšť",
+                "example_transcription": "дешть"
             }
         ]
     },
@@ -659,15 +659,15 @@
         "examples": [
             {
                 "example": "Ukrajina",
-                "example_transcription": "україна"
+                "example_transcription": "Україна"
             },
             {
-                "example": "uhel",
-                "example_transcription": "угел"
+                "example": "ucho",
+                "example_transcription": "ухо"
             },
             {
-                "example": "udělat",
-                "example_transcription": "удєлат"
+                "example": "ulita",
+                "example_transcription": "улита"
             }
         ]
     },
@@ -683,12 +683,12 @@
                 "example_transcription": "учтенка"
             },
             {
-                "example": "úrok",
-                "example_transcription": "урок"
+                "example": "úl",
+                "example_transcription": "ул"
             },
             {
-                "example": "úspěch",
-                "example_transcription": "успєх"
+                "example": "medúza",
+                "example_transcription": "медуза"
             }
         ]
     },
@@ -705,11 +705,11 @@
             },
             {
                 "example": "schůzka",
-                "example_transcription": "схузка"
+                "example_transcription": "схуска"
             },
             {
                 "example": "průkazka",
-                "example_transcription": "пруказка"
+                "example_transcription": "прукаска"
             }
         ]
     },
@@ -743,15 +743,15 @@
         "examples": [
             {
                 "example": "workoholik",
-                "example_transcription": "воркоголік"
+                "example_transcription": "воркоголик"
             },
             {
-                "example": "Waldemar",
-                "example_transcription": "валдемар"
+                "example": "wifi",
+                "example_transcription": "вифи"
             },
             {
                 "example": "WC",
-                "example_transcription": "вц"
+                "example_transcription": "ве це"
             }
         ]
     },
@@ -763,12 +763,12 @@
         "transcription": "[кс]",
         "examples": [
             {
-                "example": "xenofobie",
-                "example_transcription": "ксенофобіє"
+                "example": "lux",
+                "example_transcription": "лукс"
             },
             {
-                "example": "xerox",
-                "example_transcription": "ксерокс"
+                "example": "boxer",
+                "example_transcription": "боксер"
             },
             {
                 "example": "xylofon",
@@ -788,12 +788,12 @@
                 "example_transcription": "жени"
             },
             {
-                "example": "levný",
-                "example_transcription": "левни"
+                "example": "lyže",
+                "example_transcription": "лиже"
             },
             {
-                "example": "pracovitý",
-                "example_transcription": "працовіти"
+                "example": "myš",
+                "example_transcription": "миш"
             }
         ]
     },
@@ -809,12 +809,12 @@
                 "example_transcription": "сір"
             },
             {
-                "example": "měkký",
-                "example_transcription": "мнєккі"
+                "example": "sýkorka",
+                "example_transcription": "сикорка"
             },
             {
-                "example": "tvrdý",
-                "example_transcription": "тврди"
+                "example": "mlýn",
+                "example_transcription": "млин"
             }
         ]
     },
@@ -827,15 +827,15 @@
         "examples": [
             {
                 "example": "zub",
-                "example_transcription": "зуб"
+                "example_transcription": "зуп"
             },
             {
-                "example": "zvonit",
-                "example_transcription": "звоніт"
+                "example": "zebra",
+                "example_transcription": "зебра"
             },
             {
-                "example": "zákon",
-                "example_transcription": "закон"
+                "example": "zvon",
+                "example_transcription": "звон"
             }
         ]
     },
@@ -852,11 +852,11 @@
             },
             {
                 "example": "žárovka",
-                "example_transcription": "жаровка"
+                "example_transcription": "жарофка"
             },
             {
-                "example": "žádost",
-                "example_transcription": "жадост"
+                "example": "želva",
+                "example_transcription": "желва"
             }
         ]
     }

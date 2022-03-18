@@ -1,6 +1,6 @@
-import React from 'react';
-import { useTranslation } from 'next-i18next';
-import { Translation } from './Translation';
+import React from "react";
+import { useTranslation } from "next-i18next";
+import { Translation } from "./Translation";
 
 export interface Translation {
   cz_translation: string;
@@ -27,22 +27,22 @@ export const TranslationContainer = ({
   cz_transcription,
   searchText,
   setPlayer,
-  player,
+  player
 }: TranslationContainerProps): JSX.Element => {
   const { i18n } = useTranslation();
 
   const currentLanguage = i18n.language;
-  const secondaryLanguage = currentLanguage === 'ua' ? 'cz' : 'ua';
+  const secondaryLanguage = currentLanguage === "ua" ? "cz" : "ua";
 
   const languageTranslation = {
     ua: {
       translation: ua_translation,
-      transcription: ua_transcription,
+      transcription: ua_transcription
     },
     cz: {
       translation: cz_translation,
-      transcription: cz_transcription,
-    },
+      transcription: cz_transcription
+    }
   };
 
   return (
@@ -50,11 +50,11 @@ export const TranslationContainer = ({
       {/* CZ translation  */}
       <Translation
         searchText={searchText}
-        currentLanguage={currentLanguage as 'ua' | 'cz'}
+        currentLanguage={currentLanguage as "ua" | "cz"}
         player={player}
         setPlayer={setPlayer}
-        transcription={languageTranslation[currentLanguage as 'ua' | 'cz'].transcription}
-        translation={languageTranslation[currentLanguage as 'ua' | 'cz'].translation}
+        transcription={languageTranslation[currentLanguage as "ua" | "cz"].transcription}
+        translation={languageTranslation[currentLanguage as "ua" | "cz"].translation}
       />
       {/* Divider */}
       <div className="w-full h-0 sm:h-full sm:py-2 justify-self-center sm:w-0 border-1  border-[#D2D2D2]"></div>
