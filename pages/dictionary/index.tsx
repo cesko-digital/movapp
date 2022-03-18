@@ -73,8 +73,8 @@ const Dictionary = () => {
         </div>
         <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
         {translations.filter(filterBySearch).map((category, index) => {
-          const mainLanguageCategory = i18n.language === 'cz' ? category.category_name_cz : category.category_name_ua;
-          const secondaryLanguageCategory = i18n.language === 'cz' ? category.category_name_ua : category.category_name_cz;
+          const mainLanguageCategory = i18n.language === 'cs' ? category.category_name_cz : category.category_name_ua;
+          const secondaryLanguageCategory = i18n.language === 'cs' ? category.category_name_ua : category.category_name_cz;
 
           // swaps category titles according to choosen locale
           const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
