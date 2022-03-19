@@ -440,7 +440,6 @@
     "ua_translation": "циркуль",
     "ua_transcription": "cyrkul’"
   },
-
   {
     "cz_translation": "Napiš.",
     "cz_transcription": "Напиш",
@@ -508,18 +507,23 @@
     "ua_transcription": "Viz’my"
   },
   {
-    "cz_translation": "Znáš...",
-    "cz_transcription": "Знаш",
-    "ua_translation": "Знаєш...",
-    "ua_transcription": "Znaješ"
+    "cz_translation": "Znáš tohle slovo?",
+    "cz_transcription": "Знаш тогле слово",
+    "ua_translation": "Знаєш це слово?",
+    "ua_transcription": "Znaješ ce slovo"
   },
   {
-    "cz_translation": "Víš...",
-    "cz_transcription": "Віш",
-    "ua_translation": "Знаєш...",
-    "ua_transcription": "Znaješ"
+    "cz_translation": "Víš, jak se to řekne?",
+    "cz_transcription": "Віш, як се то ржекне",
+    "ua_translation": "Знаєш, як це сказати чеською?",
+    "ua_transcription": "Znaješ, jak ce skazaty čes'koju"
   },
-
+  {
+    "cz_translation": "Umíš tohle spočítat?",
+    "cz_transcription": "Уміш тогле спочітат",
+    "ua_translation": "Зможеш це порахувати?",
+    "ua_transcription": "Zmožeš ce porachuvaty"
+  },
   {
     "cz_translation": "družina",
     "cz_transcription": "дружина",
