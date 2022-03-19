@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-key*/
 import { Trans, useTranslation } from 'next-i18next';
 import Head from 'next/head';
-import React from 'react';
-import { LinkText } from '../about';
-export { getStaticProps } from '../../utils/localization';
+import { LinkText } from 'pages/about';
+export { getStaticProps } from 'utils/localization';
 
 const Contacts = () => {
   const { t } = useTranslation();

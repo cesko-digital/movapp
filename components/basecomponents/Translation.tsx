@@ -1,7 +1,6 @@
-import React from 'react';
-import PlayIcon from '../../public/icons/play.svg';
+import PlayIcon from 'public/icons/play.svg';
 import Marker from 'react-mark.js/Marker';
-import { Language } from '../../data/locales';
+import { Language } from 'data/locales';
 
 interface TranslationProps {
   translation: string;

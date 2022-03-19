@@ -1,23 +1,23 @@
 /*
-  Do not forget to import all *.json files ../data/translations and included them into sections array.
+  Do not forget to import all *.json files data/translations and included them into sections array.
   I have no idea how to do it automatically. Let's do it manually.
  */
 
-import Basic from '../data/translations/basic.json';
-import UzitecneFraze from '../data/translations/uzitecne-fraze.json';
-import Cas from '../data/translations/cas.json';
-import HromadnaDoprava from '../data/translations/hromadna-doprava.json';
-import Zoo from '../data/translations/zoo.json';
-import NaNakupu from '../data/translations/na-nakupu.json';
-import NaUrade from '../data/translations/na-urade.json';
-import ObleceniDrogerie from '../data/translations/obleceni-drogerie.json';
-import Penize from '../data/translations/penize.json';
-import Rodina from '../data/translations/rodina.json';
-import Doctor from '../data/translations/doctor.json';
-import VDomacnosti from '../data/translations/vdomacnosti.json';
-import VeMeste from '../data/translations/vemeste.json';
-import VeSkole from '../data/translations/veskole.json';
-import VeSkolce from '../data/translations/veskolce.json';
+import Basic from 'data/translations/basic.json';
+import UzitecneFraze from 'data/translations/uzitecne-fraze.json';
+import Cas from 'data/translations/cas.json';
+import HromadnaDoprava from 'data/translations/hromadna-doprava.json';
+import Zoo from 'data/translations/zoo.json';
+import NaNakupu from 'data/translations/na-nakupu.json';
+import NaUrade from 'data/translations/na-urade.json';
+import ObleceniDrogerie from 'data/translations/obleceni-drogerie.json';
+import Penize from 'data/translations/penize.json';
+import Rodina from 'data/translations/rodina.json';
+import Doctor from 'data/translations/doctor.json';
+import VDomacnosti from 'data/translations/vdomacnosti.json';
+import VeMeste from 'data/translations/vemeste.json';
+import VeSkole from 'data/translations/veskole.json';
+import VeSkolce from 'data/translations/veskolce.json';
 
 const sections = [
   Basic,

@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-key*/
 import { useTranslation, Trans } from 'next-i18next';
-import React from 'react';
-export { getStaticProps } from '../../utils/localization';
+export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
 import Head from 'next/head';
 
