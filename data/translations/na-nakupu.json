@@ -318,9 +318,15 @@
     "ua_transcription": "skil’ky koštuje"
   },
   {
-    "cz_translation": "zakysaná smetana ",
+    "cz_translation": "zakysaná smetana",
     "cz_transcription": "закисана сметана",
     "ua_translation": "сметана",
     "ua_transcription": "smetana"
-  }  
+  },
+  {
+    "cz_translation": "smetana",
+    "cz_transcription": "сметана",
+    "ua_translation": "вершки",
+    "ua_transcription": "veršky"
+  } 
 ]
