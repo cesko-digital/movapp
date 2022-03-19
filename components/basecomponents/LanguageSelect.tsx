@@ -13,7 +13,7 @@ export const LanguageSelect = forwardRef((props: LanguageSelect, ref: React.Forw
       aria-selected={active}
       {...rest}
       ref={ref}
-      className={`bg-primary-yellow cursor-pointer  mx-2 p-1 inline-flex  justify-between ${active && 'shadow-[inset_0px_-4px_red]'} `}
+      className={`bg-primary-yellow cursor-pointer  mr-4 p-1 inline-flex  justify-between ${active && 'shadow-[inset_0px_-4px_red]'} `}
     >
       <span className="uppercase">{languages[0]}</span>
       <ChevronRight className="fill-primary-blue inline" />

@@ -1,6 +1,5 @@
-import { useTranslation } from "next-i18next";
-import React from "react";
-import PlayIcon from "../../public/icons/play.svg";
+import React from 'react';
+import PlayIcon from '../../public/icons/play.svg';
 
 interface AlphabetCardProps {
   examples: {
@@ -11,13 +10,11 @@ interface AlphabetCardProps {
   setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
   letter: (string | null)[];
   transcription: string;
+  playerLanguage: 'cs' | 'uk';
 }
 
-export const AlphabetCard = ({ examples, player, setPlayer, letter, transcription }: AlphabetCardProps): JSX.Element => {
-  const { i18n } = useTranslation();
-  const escapePlayButtonForLetters = ["ь"];
-
-  const playerLanguage = i18n.language === "cs" ? "uk" : "cs";
+export const AlphabetCard = ({ examples, player, setPlayer, letter, transcription, playerLanguage }: AlphabetCardProps): JSX.Element => {
+  const escapePlayButtonForLetters = ['ь'];
 
   const handleTranslationAudioPlay = (language: string, text: string) => {
     // stops player if something is currently playing
@@ -33,7 +30,7 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
     audio.play();
   };
   return (
-    <div className=" grid grid-rows-[66%_34%] shadow-lg group sm:hover:shadow-lg rounded-lg">
+    <div className=" grid grid-rows-[66%_34%]  shadow-[0_3px_15px_grey] sm:shadow-none group sm:hover:shadow-lg rounded-lg">
       {/* Letter description */}
       <div className="bg-white rounded-t-lg  group-hover:bg-primary-blue transition-colors duration-500">
         <div className="px-4 py-2 h-full grid grid-rows-[40%_30%_30%]">
@@ -47,6 +44,7 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
                 className="w-16 sm:w-8 md:w-12 m-auto block "
                 onClick={() => letter[0] && handleTranslationAudioPlay(playerLanguage, letter[0])}
               >
+                <span className="sr-only">{letter[0]}</span>
                 <PlayIcon className="py-1 stroke-red-500 cursor-pointer" />
               </button>
             )}
@@ -54,10 +52,10 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
           <p
             className={`${
               transcription.length > 10
-                ? "text-xl sm:text-base md:text-xl"
+                ? 'text-xl sm:text-base md:text-xl'
                 : transcription.length > 4
-                ? "text-3xl sm:text-xl md:text-3xl"
-                : "text-4xl sm:text-2xl md:text-4xl"
+                ? 'text-3xl sm:text-xl md:text-3xl'
+                : 'text-4xl sm:text-2xl md:text-4xl'
             } pt-2 md:pt-5
                text-center text-[#676767]  font-light group-hover:text-white transition-colors duration-500`}
           >
@@ -69,10 +67,10 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
       <div className="bg-primary-yellow py-1 md:py-3 rounded-b-lg">
         {examples.map(({ example, example_transcription }, index) => {
           return (
-            <div key={index} className="grid grid-cols-[40%_50%_10%] grid-flow-col items-center pt-3 px-4">
-              <p className="font-light justift-self-start break-all text-lg sm:text-xs md:text-sm">{example}</p>
-              <p className="font-light text-lg sm:text-xs md:text-sm">[{example_transcription}]</p>
-              <button onClick={() => handleTranslationAudioPlay(playerLanguage, example)}>
+            <div key={index} className="grid grid-cols-[40%_45%_15%] grid-flow-col items-center pt-3 px-4">
+              <p className="font-light justift-self-start break-all text-base sm:text-xs md:text-sm">{example}</p>
+              <p className="font-light text-base sm:text-xs md:text-sm">[{example_transcription}]</p>
+              <button className="justify-self-end" onClick={() => handleTranslationAudioPlay(playerLanguage, example)}>
                 <PlayIcon className="w-7 sm:w-4 md:w-5 stroke-red-500  cursor-pointer " />
               </button>
             </div>

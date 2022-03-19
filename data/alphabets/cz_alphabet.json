@@ -441,6 +441,23 @@
         ]
     },
     {
+        "letter":["Ň","ň"],
+        "transcription": "нь",
+        "examples": [{
+            "example": "kůň",
+            "example_transcription":"кунь"
+
+        },{
+            "example": "báseň",
+            "example_transcription":"басень"
+
+        },{
+            "example": "sáňky",
+            "example_transcription":"саньки"
+
+        }]
+    },
+    {
         "letter": [
             "O",
             "o"
@@ -687,8 +704,8 @@
                 "example_transcription": "ул"
             },
             {
-                "example": "medúza",
-                "example_transcription": "медуза"
+                "example": "úkol",
+                "example_transcription": "укол"
             }
         ]
     },
