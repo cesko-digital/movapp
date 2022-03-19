@@ -40,7 +40,7 @@
   "contacts_page": {
     "title": "Kontakty",
     "email_contact_title": "Контактна електронна адреса:",
-    "email_contact_link": "movapp.cz@gmail.com",
+    "email_contact_link": "pryvit@movapp.cz",
     "social_media": {
       "social_media_title": "Ми у соціальних мережах:"
     },
@@ -60,6 +60,7 @@
   },
   "export_translations": {
     "download_phrases": "Завантажити фрази",
+    "download": "Завантажити",
     "comma": "кома",
     "semicolon": "крапка з комою",
     "new_line": "новий рядок",
@@ -69,6 +70,9 @@
     "between_phrases": "між фразами",
     "sharing_info": "Ви можете використовувати вміст для своїх цілей безкоштовно і без обмежень, ви можете розповсюджувати його лише згідно з умовами ліцензії",
     "copy_to_clipboard": "Копіювати фрази в буфер обміну",
-    "preview": "Попередній перегляд"
+    "preview": "Попередній перегляд",
+    "transcriptions": "Транскрипція",
+    "include_transcriptions": "Запишіть словосполучення обома алфавітами",
+    "all_phrases": "всі фрази"
   }
 }

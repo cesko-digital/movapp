@@ -13,6 +13,20 @@ const nextConfig = {
 
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/cz',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/ua/:path*',
+        destination: '/uk/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

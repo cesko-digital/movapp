@@ -12,8 +12,8 @@
     "ua_transcription": "Dobryj deň"
   },
   {
-    "cz_translation": "Nashledanou",
-    "cz_transcription": "Насхледаноу",
+    "cz_translation": "Na shledanou",
+    "cz_transcription": "На схледаноу",
     "ua_translation": "До побачення",
     "ua_transcription": "Do pobačenňa"
   },
@@ -74,14 +74,8 @@
 {
     "cz_translation": "Jdeme ven na hřiště.",
     "cz_transcription": "Деме вен на гржіштє",
-    "ua_translation": "Йдемо майданчик.",
-    "ua_transcription": "Jdemo majdančyk"
-  },
-  {
-    "cz_translation": "Vezmi si...",
-    "cz_transcription": "Везми си",
-    "ua_translation": "Вдягнися...",
-    "ua_transcription": "Vďahnysja"
+    "ua_translation": "Йдемо на майданчик.",
+    "ua_transcription": "Jdemo na majdančyk"
   },
   {
     "cz_translation": "Obleč si...",
@@ -90,17 +84,11 @@
     "ua_transcription": "Vďahnysja"
   },
   {
-    "cz_translation": "tričko",
-    "cz_transcription": "тричко",
-    "ua_translation": "кофту",
-    "ua_transcription": "koftu"
+    "cz_translation": "Tričko",
+    "cz_transcription": "Тричко",
+    "ua_translation": "Кофта. Футболка.",
+    "ua_transcription": "Kofta. Futbolka."
   },
-  {
-    "cz_translation": "tričko",
-    "cz_transcription": "тричко",
-    "ua_translation": "футболку",
-    "ua_transcription": "futbolku"
-  },  
   {
     "cz_translation": "kalhoty",
     "cz_transcription": "калготи",
@@ -128,14 +116,14 @@
   {
     "cz_translation": "pyžamo",
     "cz_transcription": "пижамо",
-    "ua_translation": "піжаму",
-    "ua_transcription": "pižamu"
+    "ua_translation": "піжама",
+    "ua_transcription": "pižamа"
   },
   {
-    "cz_translation": "mikinu",
-    "cz_transcription": "микину",
-    "ua_translation": "кофту з довгими рукавами",
-    "ua_transcription": "koftu z douhymy rukavamy"
+    "cz_translation": "mikina",
+    "cz_transcription": "микина",
+    "ua_translation": "кофта з довгими рукавами",
+    "ua_transcription": "kofta z douhymy rukavamy"
   },
   {
     "cz_translation": "svetr",
@@ -144,16 +132,16 @@
     "ua_transcription": "svetr"
   },
   {
-    "cz_translation": "bundu",
-    "cz_transcription": "бунду",
-    "ua_translation": "куртку",
-    "ua_transcription": "kurtku"
+    "cz_translation": "bunda",
+    "cz_transcription": "бунда",
+    "ua_translation": "куртка",
+    "ua_transcription": "kurtka"
   },
   {
-    "cz_translation": "čepici",
-    "cz_transcription": "чепици",
-    "ua_translation": "шапочку",
-    "ua_transcription": "šapočku"
+    "cz_translation": "čepice",
+    "cz_transcription": "чепице",
+    "ua_translation": "шапочка",
+    "ua_transcription": "šapočka"
   },
   {
     "cz_translation": "rukavice",
@@ -324,14 +312,14 @@
     "ua_transcription": "Viz’meš kubyky"
   },
   {
-    "cz_translation": "Vezmeš si panenky?",
-    "cz_transcription": "Везмеш си паненки",
+    "cz_translation": "Vezmeš si panenku?",
+    "cz_transcription": "Везмеш си паненку",
     "ua_translation": "Візьмеш ляльку?",
     "ua_transcription": "Viz’meš ljal’ku"
   },
   {
-    "cz_translation": "Vezmeš si autíčka?",
-    "cz_transcription": "Везмеш си аутічка",
+    "cz_translation": "Vezmeš si autíčko?",
+    "cz_transcription": "Везмеш си аутічко",
     "ua_translation": "Візьмеш машинку?",
     "ua_transcription": "Viz’meš mašynku"
   },
@@ -522,7 +510,7 @@
     "ua_transcription": "Laskavo prosymo do dyťačoho sadka."
   },
   {
-    "cz_translation": "Nosí plenky? Nosí plenky?",
+    "cz_translation": "Nosí plenky?",
     "cz_transcription": "Носі пленки?",
     "ua_translation": "Він носить памперси? Вона носить памперси?",
     "ua_transcription": "Vin nosyť pampersy? Vona nosyť pampersy?"

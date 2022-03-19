@@ -13,8 +13,8 @@ module.exports = {
         around: '5px 5px 12px rgba(16, 24, 40, 0.25)',
       },
       colors: {
-        'primary-blue': '#001B70',
-        'primary-yellow': '#FFEB00',
+        'primary-blue': '#013ABD',
+        'primary-yellow': '#FFD500',
         'primary-red': '#E42D00',
         'primary-grey': '#F5F5F5',
         'primary-black': '#2D2D2D',

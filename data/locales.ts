@@ -1,10 +1,12 @@
 export const LOCALES = [
   {
     name: 'Укр',
-    locale: 'ua',
+    locale: 'uk',
   },
   {
     name: 'Česky',
-    locale: 'cz',
+    locale: 'cs',
   },
 ];
+
+export type Language = 'cs' | 'uk';

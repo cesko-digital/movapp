@@ -1,16 +1,20 @@
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import React, { useState } from 'react';
 import { Button } from '../../components/basecomponents/Button';
 import { Collapse } from '../../components/basecomponents/Collapse';
 import { SearchInput } from '../../components/basecomponents/Input';
 import { CategoryDictionary } from '../../components/sections/CategoryDictionary';
-import { ExportTranslations } from '../../components/sections/ExportTranslations';
 import { translations, TranslationsType } from '../../data/translations/translations';
 export { getStaticProps } from '../../utils/localization';
 import Marker from 'react-mark.js/Marker';
+// Disable ssr for this component to avoid Reference Error: Blob is not defined
+const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
+  ssr: false,
+});
 
-const normalizeForSeach = (text: string) => {
+const normalizeForSearch = (text: string) => {
   return text
     .toLowerCase()
     .normalize('NFD')
@@ -24,15 +28,15 @@ const Dictionary = () => {
 
   // filter category name and translations by search input
   const filterBySearch = ({ category_name_cz, category_name_ua, translations }: TranslationsType) => {
-    const UACategoryName = normalizeForSeach(category_name_ua);
-    const CZCategoryName = normalizeForSeach(category_name_cz);
+    const UACategoryName = normalizeForSearch(category_name_ua);
+    const CZCategoryName = normalizeForSearch(category_name_cz);
 
-    const searchText = normalizeForSeach(search);
+    const searchText = normalizeForSearch(search);
     // filter category name
     const matchesCategoryTitle = CZCategoryName.includes(searchText) || UACategoryName.includes(searchText);
     // filter translations
     const matchesTranslations = translations.filter(({ cz_translation, ua_translation }) => {
-      return normalizeForSeach(cz_translation).includes(searchText) || normalizeForSeach(ua_translation).includes(searchText);
+      return normalizeForSearch(cz_translation).includes(searchText) || normalizeForSearch(ua_translation).includes(searchText);
     });
 
     return matchesCategoryTitle || matchesTranslations.length > 0;
@@ -56,19 +60,34 @@ const Dictionary = () => {
             value={search}
             onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch((e.target as HTMLInputElement).value)}
           />
-          <Button className="ml-5 hidden md:block " text={t('dictionary_page.search_button')} />
+          <Button className="mx-5 hidden md:block " text={t('dictionary_page.search_button')} />
+          <ExportTranslations
+            translations={translations.map((translations) => translations.translations).flat()}
+            categoryName={t('export_translations.all_phrases')}
+            trigger={
+              <span className="cursor-pointer underline text-primary-blue inline-block">
+                {t('export_translations.download')} {t('export_translations.all_phrases')}
+              </span>
+            }
+          />
         </div>
         <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
         {translations.filter(filterBySearch).map((category, index) => {
-          const mainLanguageCategory = i18n.language === 'cz' ? category.category_name_cz : category.category_name_ua;
-          const secondaryLanguageCategory = i18n.language === 'cz' ? category.category_name_ua : category.category_name_cz;
+          const mainLanguageCategory = i18n.language === 'cs' ? category.category_name_cz : category.category_name_ua;
+          const secondaryLanguageCategory = i18n.language === 'cs' ? category.category_name_ua : category.category_name_cz;
 
           // swaps category titles according to choosen locale
           const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 
           return (
-            <Collapse key={index} title={<Marker mark={search}>{categoryName}</Marker>}>
-              <ExportTranslations translations={category.translations} category={categoryName} />
+            <Collapse
+              key={category.category_name_cz}
+              title={<Marker mark={search}>{categoryName}</Marker>}
+              ariaId={category.category_name_cz}
+            >
+              <div className="mb-4 mx-4">
+                <ExportTranslations translations={category.translations} categoryName={categoryName} />
+              </div>
               <CategoryDictionary setPlayer={setPlayer} player={player} searchText={search} translations={category.translations} />
             </Collapse>
           );
