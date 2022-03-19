@@ -10,7 +10,8 @@ import HromadnaDoprava from '../data/translations/hromadna-doprava.json';
 import Zoo from '../data/translations/zoo.json';
 import NaNakupu from '../data/translations/na-nakupu.json';
 import NaUrade from '../data/translations/na-urade.json';
-import ObleceniDrogerie from '../data/translations/obleceni-drogerie.json';
+import Obleceni from '../data/translations/obleceni.json';
+import Drogerie from '../data/translations/drogerie.json';
 import Penize from '../data/translations/penize.json';
 import Rodina from '../data/translations/rodina.json';
 import Doctor from '../data/translations/doctor.json';
@@ -18,6 +19,7 @@ import VDomacnosti from '../data/translations/vdomacnosti.json';
 import VeMeste from '../data/translations/vemeste.json';
 import VeSkole from '../data/translations/veskole.json';
 import VeSkolce from '../data/translations/veskolce.json';
+import ZradnaSlovicka from '../data/translations/zradna-slovicka.json';
 
 const sections = [
   Basic,
@@ -27,7 +29,8 @@ const sections = [
   Zoo,
   NaNakupu,
   NaUrade,
-  ObleceniDrogerie,
+  Obleceni,
+  Drogerie,
   Penize,
   Rodina,
   Doctor,
@@ -35,6 +38,7 @@ const sections = [
   VeMeste,
   VeSkole,
   VeSkolce,
+  ZradnaSlovicka
 ];
 
 test('Check all required attributes in dictionary', () => {
