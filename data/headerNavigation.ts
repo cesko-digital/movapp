@@ -8,6 +8,10 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
     name: 'header.vocabulary_link_name',
     link: '/dictionary',
   },
+  {
+    name: 'header.forkids_link_name',
+    link: '/kids',
+  },
   // {
   //   name: 'header.exercises_link_name',
   //   link: '/exercises',
