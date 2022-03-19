@@ -36,7 +36,7 @@ const AlphabetPage = (): JSX.Element => {
             return (
               <AlphabetCard
                 playerLanguage={playerLanguage}
-                letter={letter as [string, string | null]}
+                letter={letter}
                 transcription={transcription}
                 examples={examples}
                 key={index}
