@@ -1,6 +1,7 @@
 {
   "header": {
     "vocabulary_link_name": "Slovníček",
+    "forkids_link_name": "Pro děti",
     "exercises_link_name": "Cvičení",
     "about_link_name": "O nás",
     "contacts_link_name": "Kontakty"
@@ -14,6 +15,8 @@
     "title": "Naučte se základy češtiny a ukrajinštiny pro běžné životní situace",
     "box_dictionary_title": "Slovníček",
     "box_dictionary_description": "Naučte se stovky základních slovíček a frází čtením i poslechem. Slovíčka třídíme dle životních situací.",
+    "box_child_title": "Pro děti",
+    "box_child_description": "Ilustrovaný ukrajinsko-český slovníček s desítkami tisknutelných karet.",
     "box_movapp_title": "Movapp je…",
     "box_movapp_description_top": "мова [mova] znamená ukrajinsky jazyk. Movapp je aplikace pro trénink jazyků. Cílem Movapp.cz je usnadnit dorozumění mezi Čechy a Ukrajinci.",
     "box_movapp_description_bottom": "Najdete tu přehled základních komunikačních frází v češtině a ukrajinštině. Brzy přidáme nástroje k jejich procvičování a rozcestník na materiály k učení."
@@ -22,7 +25,9 @@
     "title": "Česko-ukrajinský slovníček",
     "search_button": "Hledat",
     "search_placeholder": "Hledaný výraz",
-    "subtitle": "Vyberte si oblast"
+    "subtitle": "Vyberte si oblast",
+    "cs": "česky",
+    "uk": "ukrajinsky"
   },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> je projekt, který vznikl v rámci iniciativy <strong>Stojíme za Ukrajinou</strong> v komunitě expertních dobrovolníků <strong>Česko.Digital.</strong>",
