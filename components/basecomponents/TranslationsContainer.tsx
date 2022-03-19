@@ -28,7 +28,7 @@ export const TranslationContainer = ({
   cz_transcription,
   searchText,
   setPlayer,
-  player
+  player,
 }: TranslationContainerProps): JSX.Element => {
   const { i18n } = useTranslation();
 
@@ -38,12 +38,12 @@ export const TranslationContainer = ({
   const languageTranslation = {
     uk: {
       translation: ua_translation,
-      transcription: ua_transcription
+      transcription: ua_transcription,
     },
     cs: {
       translation: cz_translation,
-      transcription: cz_transcription
-    }
+      transcription: cz_transcription,
+    },
   };
 
   return (

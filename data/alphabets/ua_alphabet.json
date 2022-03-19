@@ -206,8 +206,8 @@
             "example_transcription": "internet"
           },
           {
-            "example": "ігра",
-            "example_transcription": "ihra"
+            "example": "іграшка",
+            "example_transcription": "ihraška"
           },
           {
             "example": "цікавий",
@@ -318,8 +318,8 @@
             "example_transcription": "nis"
           },
           {
-            "example": "ножик",
-            "example_transcription": "nožyk"
+            "example": "ніж",
+            "example_transcription": "niž"
           }
         ]
       },
@@ -534,8 +534,8 @@
             "example_transcription": "kušč"
           },
           {
-            "example": "щенок",
-            "example_transcription": "ščenok"
+            "example": "щеня",
+            "example_transcription": "ščeňa"
           }
         ]
       },
@@ -580,16 +580,16 @@
         "transcription": "[ja]",
         "examples": [
           {
-            "example": "юнак",
-            "example_transcription": "junak"
+            "example": "яблуко",
+            "example_transcription": "jabluko"
           },
           {
-            "example": "ювілей",
-            "example_transcription": "juvilej"
+            "example": "яма",
+            "example_transcription": "jama"
           },
           {
-            "example": "любити",
-            "example_transcription": "ľubyty"
+            "example": "якор",
+            "example_transcription": "jakor"
           }
         ]
       }

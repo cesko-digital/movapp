@@ -72,7 +72,7 @@ const Dictionary = () => {
           />
         </div>
         <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
-        {translations.filter(filterBySearch).map((category, index) => {
+        {translations.filter(filterBySearch).map((category) => {
           const mainLanguageCategory = i18n.language === 'cs' ? category.category_name_cz : category.category_name_ua;
           const secondaryLanguageCategory = i18n.language === 'cs' ? category.category_name_ua : category.category_name_cz;
 

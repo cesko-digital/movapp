@@ -1,6 +1,6 @@
-import { useTranslation } from "next-i18next";
-import React from "react";
-import PlayIcon from "../../public/icons/play.svg";
+import { useTranslation } from 'next-i18next';
+import React from 'react';
+import PlayIcon from '../../public/icons/play.svg';
 
 interface AlphabetCardProps {
   examples: {
@@ -9,14 +9,14 @@ interface AlphabetCardProps {
   }[];
   player: HTMLAudioElement | null;
   setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
-  letter: [string, string | null];
+  letter: (string | null)[];
   transcription: string;
 }
 
 export const AlphabetCard = ({ examples, player, setPlayer, letter, transcription }: AlphabetCardProps): JSX.Element => {
   const { i18n } = useTranslation();
 
-  const playerLanguage = i18n.language === "cz" ? "uk" : "cs";
+  const playerLanguage = i18n.language === 'cs' ? 'uk' : 'cs';
 
   const handleTranslationAudioPlay = (language: string, text: string) => {
     // stops player if something is currently playing
@@ -33,31 +33,26 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
   };
   return (
     <div className=" grid grid-rows-[66%_34%] shadow-lg group sm:hover:shadow-lg rounded-lg">
+      {/* Letter description */}
       <div className="bg-white rounded-t-lg   group-hover:bg-primary-blue transition-colors duration-500">
         <div className="px-4 py-2">
-          <p
-            role="button"
-            // tabIndex={0}
-            aria-label={`Pismeno ${letter[0]}`}
-            className=" text-7xl  sm:text-6xl md:text-7xl py-4 md:py-2 font-light text-center group-hover:text-white transition-colors duration-500"
-          >
+          <p className=" text-7xl  sm:text-6xl md:text-7xl py-4 md:py-2 font-light text-center group-hover:text-white transition-colors duration-500">
             {letter[0]}
-            {letter[1] || null}
+            {letter[1]}
           </p>
           <button
-            aria-label="Play letter transcription"
             className="w-16 sm:w-8 md:w-12 m-auto block"
-            onClick={() => handleTranslationAudioPlay(playerLanguage, letter[0])}
+            onClick={() => letter[0] && handleTranslationAudioPlay(playerLanguage, letter[0])}
           >
-            <PlayIcon className=" py-1 stroke-red-500 cursor-pointer" />
+            <PlayIcon className="py-1 stroke-red-500 cursor-pointer" />
           </button>
           <p
             className={`${
               transcription.length > 10
-                ? "text-xl sm:text-base md:text-xl"
+                ? 'text-xl sm:text-base md:text-xl'
                 : transcription.length > 4
-                ? "text-3xl sm:text-xl md:text-3xl"
-                : "text-4xl sm:text-2xl md:text-4xl"
+                ? 'text-3xl sm:text-xl md:text-3xl'
+                : 'text-4xl sm:text-2xl md:text-4xl'
             }   text-center text-[#676767] pt-2 md:pt-5 font-light group-hover:text-white transition-colors duration-500`}
           >
             {transcription}
@@ -71,7 +66,7 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
             <div key={index} className="grid grid-cols-[40%_50%_10%] grid-flow-col items-center pt-3 px-4">
               <p className="font-light justift-self-start break-all text-lg sm:text-xs md:text-sm">{example}</p>
               <p className="font-light text-lg sm:text-xs md:text-sm">[{example_transcription}]</p>
-              <button aria-label={`Play example`} onClick={() => handleTranslationAudioPlay(playerLanguage, example)}>
+              <button onClick={() => handleTranslationAudioPlay(playerLanguage, example)}>
                 <PlayIcon className="w-7 sm:w-4 md:w-5 stroke-red-500  cursor-pointer " />
               </button>
             </div>
