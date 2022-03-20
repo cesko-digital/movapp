@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from 'fs';
 import { resolve } from 'path';
 
 /** Return a flat array of all files under given directory */
-function getFilesRecursively(dir: string): string[] {
+const getFilesRecursively = (dir: string): string[] => {
   let found: string[] = [];
   const dirents = readdirSync(dir, { withFileTypes: true });
   for (const dirent of dirents) {
@@ -14,14 +14,14 @@ function getFilesRecursively(dir: string): string[] {
     }
   }
   return found;
-}
+};
 
-function loadAllSections(dir: string): Record<string, string>[][] {
+const loadAllSections = (dir: string): Record<string, string>[][] => {
   return getFilesRecursively(dir)
     .filter((path) => path.endsWith('.json'))
     .map((path) => readFileSync(path, { encoding: 'utf-8' }))
     .map((text) => JSON.parse(text));
-}
+};
 
 test('Check all required attributes in dictionary', () => {
   const sections = loadAllSections('data/translations');

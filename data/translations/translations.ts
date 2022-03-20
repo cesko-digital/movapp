@@ -1,4 +1,4 @@
-import { Translation } from '../../components/basecomponents/TranslationsContainer';
+import { Translation } from 'components/basecomponents/TranslationsContainer';
 // JSON translation files
 import Basic from './basic.json';
 import UzitecneFraze from './uzitecne-fraze.json';
@@ -7,7 +7,8 @@ import HromadnaDoprava from './hromadna-doprava.json';
 import Zoo from './zoo.json';
 import NaNakupu from './na-nakupu.json';
 import NaUrade from './na-urade.json';
-import ObleceniDrogerie from './obleceni-drogerie.json';
+import Obleceni from './obleceni.json';
+import Drogerie from './drogerie.json';
 import Penize from './penize.json';
 import Rodina from './rodina.json';
 import Doctor from './doctor.json';
@@ -15,6 +16,7 @@ import VDomacnosti from './vdomacnosti.json';
 import VeMeste from './vemeste.json';
 import VeSkole from './veskole.json';
 import VeSkolce from './veskolce.json';
+import ZradnaSlovicka from './zradna-slovicka.json';
 
 export interface TranslationsType {
   category_name_cz: string;
@@ -64,9 +66,14 @@ export const translations: TranslationsType[] = [
     translations: NaUrade,
   },
   {
-    category_name_cz: 'Oblečení + drogerie',
-    category_name_ua: 'Одяг + побутова хімія (косметика)',
-    translations: ObleceniDrogerie,
+    category_name_cz: 'Oblečení',
+    category_name_ua: 'Одяг',
+    translations: Obleceni,
+  },
+  {
+    category_name_cz: 'Drogerie',
+    category_name_ua: 'Побутова хімія (косметика)',
+    translations: Drogerie,
   },
   {
     category_name_cz: 'Peníze',
@@ -97,5 +104,10 @@ export const translations: TranslationsType[] = [
     category_name_cz: 'Ve školce',
     category_name_ua: 'У дитсадку',
     translations: VeSkolce,
+  },
+  {
+    category_name_cz: 'Zrádná slovíčka',
+    category_name_ua: 'Слова із іншим значенням',
+    translations: ZradnaSlovicka,
   },
 ];
