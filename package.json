@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.3",
+    "@fontsource/source-sans-pro": "^4.5.4",
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
     "@svgr/webpack": "^6.2.1",
@@ -43,6 +44,10 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleDirectories": [
+      "node_modules",
+      "."
+    ]
   }
 }

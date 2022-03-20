@@ -3,7 +3,8 @@
     "vocabulary_link_name": "Slovníček",
     "exercises_link_name": "Cvičení",
     "about_link_name": "O nás",
-    "contacts_link_name": "Kontakty"
+    "contacts_link_name": "Kontakty",
+    "alphabet_link_name": "Abeceda"
   },
   "footer": {
     "stand_with_ukraine_description": "Nezávislý informační rozcestník",
@@ -29,7 +30,7 @@
     "movapp_goal_title": "<strong>Cíl Movapp.cz</strong>",
     "movapp_goal_description": "Cílem Movapp.cz je usnadnit dorozumění mezi Čechy a Ukrajinci. V první fázi byl vypublikován přehled základních česko-ukrajinských frází. V dalších fázích budeme vytvářet nástroje pro jejich procvičování a chceme se stát rozcestníkem pro další nástroje a materiály, které pomůžou s učením ukrajinštiny a češtiny.",
     "why_movapp_title": "<strong>Proč Movapp?</strong>",
-    "why_movapp_description": "Mова [mova] znamená ukrajinsky jazyk. Movapp je aplikace pro trénink jazyků. <br/><br/> Movapp je k dispozici zdarma a je vytvářena jako otevřený software pod licencí MIT, to znamená, že ji můžete zdarma nejen používat, ale také si ji upravit (pokud umíte programovat). <br/><br/> Textový obsah Movapp (tj. zde použitá učební slova a fráze v češtině a ukrajinštině) je k dispozici pod licencí <0>licencí CC BY-NC 4.0</0>. (Uveďte původ-Neužívejte komerčně 4.0), což znamená, že je můžete pro vlastní potřeby používat zcela bez omezení. Pokud byste je chtěli dále šířit (v původní nebo v upravené podobě), můžete tak dělat pouze nekomerčním způsobem a s uvedením původních autorů. <br/><br/> Původní autorkou <1>základní sady slov a frází</1> je Tereza Javornická a Yevheniia Valova (EDUA Group). Tuto sadu udržuje a dále rozšiřuje tým Movapp.",
+    "why_movapp_description": "Mова [mova] znamená ukrajinsky jazyk. Movapp je aplikace pro trénink jazyků. <br/><br/> Movapp je k dispozici zdarma a je vytvářena jako otevřený software pod licencí MIT, to znamená, že ji můžete zdarma nejen používat, ale také si ji upravit (pokud umíte programovat). <br/><br/> Texty, obrázky a audiosoubory Movapp jsou pod <0>licencí CC BY-NC 4.0</0>. (Uveďte původ-Neužívejte komerčně 4.0), což znamená, že je můžete pro vlastní potřeby používat zcela bez omezení. Pokud byste je chtěli dále šířit (v původní nebo v upravené podobě), můžete tak dělat pouze nekomerčním způsobem a s uvedením původních autorů. <br/><br/> Původní autorkou <1>základní sady slov a frází</1> je Tereza Javornická a Yevheniia Valova (EDUA Group). Tuto sadu udržuje a dále rozšiřuje tým Movapp.",
     "our_team_title": "<strong>Náš tým</strong>",
     "our_team_description": "Kořenovými členy týmu Movapp.cz jsou: Martin Hassman, Oleg Antonyak, Tatiana Chytilová, Petr Illek, Valeriia Kuna a Monika Fabryová. A pomáhá jim řada dalších dobrovolníků. <br/><br/> Chcete nám pomoci s obsahem, nebo se jinak zapojit? <br/> Hledáte na nás <0>kontakt</0>?",
     "stand_with_ukraine_title": "Stojíme za Ukrajinou",
@@ -48,6 +49,10 @@
     "join_title": "Přidejte se",
     "join_description": "Chcete-li se stát členem týmu dobovolníků a pomáhat nám na dalším rozvoji projektu, vyplňte formulář na <0>cesko.digital/join</0> a přidejte se do Slacku. Najdete nás v kanálu <strong>ua-movapp</strong> (komunikujeme česky, slovensky, anglicky, a trochu také ukrajinsky)."
   },
+  "alphabet_page":{
+    "title": "{{cz_version}} abeceda",
+    "description": "{{cz_version_description}}"
+  },
   "seo": {
     "homepage_page_title": "Movapp.cz – aby se Češi a Ukrajinci snadno domluvili",
     "homepage_page_description": "Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou.",
@@ -56,7 +61,9 @@
     "contacts_page_title": "Kontakty | Movapp.cz",
     "contacts_page_description": "Chcete se stát členem týmu a pomáhat na dalším rozvoji projektu?",
     "about_page_title": "O nás | Movapp.cz",
-    "about_page_description": "Projekt vznikl v rámci iniciativy Stojíme za Ukrajinou v komunitě expertních dobrovolníků Česko.Digital."
+    "about_page_description": "Projekt vznikl v rámci iniciativy Stojíme za Ukrajinou v komunitě expertních dobrovolníků Česko.Digital.",
+    "alphabet_page_title": "Ukrajinská abeceda (cyrilice)",
+    "alphabet_page_description": "Naučte se ukrajinskou abecedu. Nazývá se také ukrajinská cyrilice nebo ukrajinská azbuka. Obsahuje 33 znaků a apostrof."
   },
   "export_translations": {
     "download_phrases": "Stáhnout fráze",
@@ -74,5 +81,8 @@
     "transcriptions": "Transkripce",
     "include_transcriptions": "Zapsat fráze v obou abecedách",
     "all_phrases": "všechny fráze"
+  },
+  "errors": {
+    "pageNotFound": "Stránka nebyla nalezena"
   }
 }

@@ -1,16 +1,16 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import React, { useState } from 'react';
-import { Button } from '../../components/basecomponents/Button';
-import { Collapse } from '../../components/basecomponents/Collapse';
-import { SearchInput } from '../../components/basecomponents/Input';
-import { CategoryDictionary } from '../../components/sections/CategoryDictionary';
-import { translations, TranslationsType } from '../../data/translations/translations';
-export { getStaticProps } from '../../utils/localization';
+import { useState } from 'react';
+import { Button } from 'components/basecomponents/Button';
+import { Collapse } from 'components/basecomponents/Collapse';
+import { SearchInput } from 'components/basecomponents/Input';
+import { CategoryDictionary } from 'components/sections/CategoryDictionary';
+import { translations, TranslationsType } from 'data/translations/translations';
+export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
-const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
+const ExportTranslations = dynamic(() => import('components/sections/ExportTranslations'), {
   ssr: false,
 });
 
@@ -50,7 +50,7 @@ const Dictionary = () => {
         <meta name="description" content={t('seo.dictionary_page_description')} />
         <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
       </Head>
-      <div className="min-h-screen max-w-7xl m-auto sm:py-10 px-2 sm:px-4">
+      <div className="max-w-7xl m-auto ">
         <h1 className="text-primary-blue">{t('dictionary_page.title')}</h1>
         <div className="flex items-center">
           <SearchInput
@@ -72,7 +72,7 @@ const Dictionary = () => {
           />
         </div>
         <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
-        {translations.filter(filterBySearch).map((category, index) => {
+        {translations.filter(filterBySearch).map((category) => {
           const mainLanguageCategory = i18n.language === 'cs' ? category.category_name_cz : category.category_name_ua;
           const secondaryLanguageCategory = i18n.language === 'cs' ? category.category_name_ua : category.category_name_cz;
 

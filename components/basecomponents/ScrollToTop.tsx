@@ -1,5 +1,4 @@
-import React from 'react';
-import ChevronUp from '../../public/icons/chevron-up.svg';
+import ChevronUp from 'public/icons/chevron-up.svg';
 
 export const ScrollToTop = () => {
   const handleScrollTop = () => {
