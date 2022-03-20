@@ -11,7 +11,7 @@ const KidsSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8">
+    <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
       <Head>
         <meta name="referrer" content="no-referrer" />
         <title>{t('seo.dictionary_page_title')}</title>
