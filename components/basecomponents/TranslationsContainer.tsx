@@ -3,14 +3,14 @@ import { useTranslation } from 'next-i18next';
 import { Translation } from './Translation';
 import { Language } from '../../data/locales';
 
-export interface Translation {
+export interface TranslationType {
   cz_translation: string;
   ua_translation: string;
   ua_transcription: string;
   cz_transcription: string;
 }
 
-interface TranslationContainerProps extends Translation {
+interface TranslationContainerProps extends TranslationType {
   searchText: string;
   setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
   player: HTMLAudioElement | null;

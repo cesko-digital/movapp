@@ -1,8 +1,8 @@
 import React from 'react';
-import { Translation, TranslationContainer } from '../basecomponents/TranslationsContainer';
+import { TranslationType, TranslationContainer } from '../basecomponents/TranslationsContainer';
 
 interface CategoryDictionaryProps {
-  translations: Translation[];
+  translations: TranslationType[];
   searchText: string;
   setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
   player: HTMLAudioElement | null;

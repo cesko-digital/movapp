@@ -18,7 +18,7 @@ export const Translation = ({
   player,
   setPlayer,
   currentLanguage,
-  searchText,
+  searchText
 }: TranslationProps): JSX.Element => {
   const handleTranslationAudioPlay = (language: string, text: string) => {
     // stops player if something is currently playing
