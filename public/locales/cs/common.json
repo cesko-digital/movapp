@@ -81,5 +81,8 @@
     "transcriptions": "Transkripce",
     "include_transcriptions": "Zapsat fráze v obou abecedách",
     "all_phrases": "všechny fráze"
+  },
+  "errors": {
+    "pageNotFound": "Stránka nebyla nalezena"
   }
 }

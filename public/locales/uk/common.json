@@ -81,5 +81,8 @@
     "transcriptions": "Транскрипція",
     "include_transcriptions": "Запишіть словосполучення обома алфавітами",
     "all_phrases": "всі фрази"
+  },
+  "errors": {
+    "pageNotFound": "Сторінку не знайдено"
   }
 }
