@@ -29,6 +29,9 @@
     "cs": "česky",
     "uk": "ukrajinsky"
   },
+  "kids_page": {
+    "downloadPDF": "Stáhnout v PDF"
+  },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> je projekt, který vznikl v rámci iniciativy <strong>Stojíme za Ukrajinou</strong> v komunitě expertních dobrovolníků <strong>Česko.Digital.</strong>",
     "movapp_goal_title": "<strong>Cíl Movapp.cz</strong>",
@@ -56,7 +59,7 @@
   "seo": {
     "homepage_page_title": "Movapp.cz – aby se Češi a Ukrajinci snadno domluvili",
     "homepage_page_description": "Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou.",
-    "dictionary_page_title": "Ukrajinsko-Český slovník | Movapp.cz",
+    "dictionary_page_title": "Ukrajinsko-český slovník | Movapp.cz",
     "dictionary_page_description": "Základní česko-ukrajinská slovíčka a fráze rozdělená podle životních situací. Vytvářeno s láskou.",
     "contacts_page_title": "Kontakty | Movapp.cz",
     "contacts_page_description": "Chcete se stát členem týmu a pomáhat na dalším rozvoji projektu?",

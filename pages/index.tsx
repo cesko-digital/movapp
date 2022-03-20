@@ -29,24 +29,29 @@ const Home: NextPage = () => {
             <div className="homepage-box w-full group hover:text-primary-blue    pr-4 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
               <DictionaryIcon className="w-6 mb-2 group-hover:fill-primary-red" />
               <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
-                <Link href={'/dictionary'}><a>{t('homepage.box_dictionary_title')}</a></Link>
+                <Link href={'/dictionary'}>
+                  <a>{t('homepage.box_dictionary_title')}</a>
+                </Link>
               </h2>
               <p>{t('homepage.box_dictionary_description')}</p>
             </div>
             <div className="homepage-box w-full group hover:text-primary-blue    pr-4 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
               <ChildIcon className="w-6 mb-2 group-hover:fill-primary-red" />
               <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
-                <Link href={'/kids'}><a>{t('homepage.box_child_title')}</a></Link>
+                <Link href={'/kids'}>
+                  <a>{t('homepage.box_child_title')}</a>
+                </Link>
               </h2>
               <p>{t('homepage.box_child_description')}</p>
             </div>
-            
           </div>
           <div className="grid md:grid-cols-[70%_30%] gap-8 mt-10">
             <div className="homepage-box group hover:text-primary-blue my-6 md:my-0">
               <MovappIcon className="w-8 mb-2 fill-primary-blue group-hover:fill-primary-red" />
               <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
-                <Link href={'/about'}><a>{t('homepage.box_movapp_title')}</a></Link>
+                <Link href={'/about'}>
+                  <a>{t('homepage.box_movapp_title')}</a>
+                </Link>
               </h2>
               <p className="mb-2">{t('homepage.box_movapp_description_top')}</p>
               <p>

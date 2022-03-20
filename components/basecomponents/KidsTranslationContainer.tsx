@@ -11,7 +11,7 @@ export interface Translation {
   cz_transcription: string;
 }
 
-interface TranslationContainerProps extends Translation {
+interface KidsTranslationContainerProps extends Translation {
   searchText?: string;
   image: string;
   setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
@@ -31,7 +31,7 @@ export const KidsTranslationsContainer = ({
   image,
   setPlayer,
   player,
-}: TranslationContainerProps): JSX.Element => {
+}: KidsTranslationContainerProps): JSX.Element => {
   const { i18n } = useTranslation();
 
   const currentLanguage = i18n.language as Language;

@@ -5,7 +5,7 @@ import FlagCZIcon from '../../public/icons/cz.svg';
 import FlagUAIcon from '../../public/icons/ua.svg';
 import { Language } from '../../data/locales';
 
-interface TranslationProps {
+interface KidsTranslationProps {
   translation: string;
   transcription: string;
   image: string;
@@ -14,10 +14,10 @@ interface TranslationProps {
   currentLanguage: Language;
 }
 
-export const KidsTranslation = ({ transcription, translation, player, setPlayer, currentLanguage }: TranslationProps): JSX.Element => {
+export const KidsTranslation = ({ transcription, translation, player, setPlayer, currentLanguage }: KidsTranslationProps): JSX.Element => {
   const { t } = useTranslation();
 
-  const handleTranslationAudioPlay = (language: string, text: string) => {
+  const handleTranslationAudioPlay = (language: Language, text: string) => {
     // stops player if something is currently playing
     if (player) {
       player.pause();
@@ -46,10 +46,7 @@ export const KidsTranslation = ({ transcription, translation, player, setPlayer,
         <p className="self-start w-full font-semibold">{translation}</p>
         <p className="text-gray-500">{`[ ${transcription} ]`}</p>
       </div>
-      <button
-        onClick={() => handleTranslationAudioPlay(currentLanguage, translation.replace('<strong>', '').replace('</strong>', ''))}
-        aria-label="play"
-      >
+      <button onClick={() => handleTranslationAudioPlay(currentLanguage, translation)} aria-label="play">
         <PlayKidsIcon className="cursor-pointer active:scale-75 transition-all duration-300" />
       </button>
     </div>

@@ -1,144 +1,142 @@
 [
     {
-      "cz_translation": "Panenka",
-      "cz_transcription": "Паненка",
-      "ua_translation": "Лялька",
-      "ua_transcription": "Ljal’ka",
+      "cz_translation": "panenka",
+      "cz_transcription": "паненка",
+      "ua_translation": "лялька",
+      "ua_transcription": "ljal’ka",
       "image": "panenka"
     },
     {
-      "cz_translation": "Auto",
-      "cz_transcription": "Ауто",
-      "ua_translation": "Машина",
-      "ua_transcription": "Mašyna",
+      "cz_translation": "auto",
+      "cz_transcription": "aуто",
+      "ua_translation": "машина",
+      "ua_transcription": "mašyna",
       "image": "auticka"
     },
     {
-      "cz_translation": "Puzzle",
-      "cz_transcription": "Пуцле",
-      "ua_translation": "Пазл",
-      "ua_transcription": "Pazl",
+      "cz_translation": "puzzle",
+      "cz_transcription": "пуцле",
+      "ua_translation": "пазл",
+      "ua_transcription": "pazl",
       "image": "puzzle"
     },
     {
-      "cz_translation": "Vláček",
+      "cz_translation": "vláček",
       "cz_transcription": "Влачек",
       "ua_translation": "Поїзд",
-      "ua_transcription": "Pojizd",
+      "ua_transcription": "pojizd",
       "image": "vlacky"
     },
     {
-      "cz_translation": "Míč",
-      "cz_transcription": "Мiч",
-      "ua_translation": "М'яч",
-      "ua_transcription": "Mjač",
+      "cz_translation": "míč",
+      "cz_transcription": "мiч",
+      "ua_translation": "м'яч",
+      "ua_transcription": "mjač",
       "image": "mic"
     },
     {
-      "cz_translation": "Omalovánky",
-      "cz_transcription": "Омалованк",
-      "ua_translation": "Розмальовки",
-      "ua_transcription": "Rozmaljovky",
+      "cz_translation": "omalovánky",
+      "cz_transcription": "oмалованк",
+      "ua_translation": "розмальовки",
+      "ua_transcription": "rozmaljovky",
       "image": "omalovanky"
     },
     {
-      "cz_translation": "Pití",
-      "cz_transcription": "Питi",
-      "ua_translation": "Напiй",
-      "ua_transcription": "Napij",
+      "cz_translation": "pití",
+      "cz_transcription": "питi",
+      "ua_translation": "напiй",
+      "ua_transcription": "napij",
       "image": "piti"
     },
     {
-      "cz_translation": "Snídaně",
-      "cz_transcription": "Снiданє",
-      "ua_translation": "Сніданок",
-      "ua_transcription": "Snidanok",
+      "cz_translation": "snídaně",
+      "cz_transcription": "снiданє",
+      "ua_translation": "сніданок",
+      "ua_transcription": "snidanok",
       "image": "snidane"
     },
     {
-      "cz_translation": "Svačina",
-      "cz_transcription": "Свачина",
-      "ua_translation": "Закуска",
-      "ua_transcription": "Zakuska",
+      "cz_translation": "svačina",
+      "cz_transcription": "свачина",
+      "ua_translation": "закуска",
+      "ua_transcription": "zakuska",
       "image": "svacina"
     },
     {
-      "cz_translation": "Oběd",
-      "cz_transcription": "Обєт",
-      "ua_translation": "Обід",
-      "ua_transcription": "Obid",
+      "cz_translation": "oběd",
+      "cz_transcription": "oбєт",
+      "ua_translation": "oбід",
+      "ua_transcription": "obid",
       "image": "obed"
     },
     {
-      "cz_translation": "Kapesník",
-      "cz_transcription": "Капеснiк",
-      "ua_translation": "Носова хустка",
-      "ua_transcription": "Nosova chustka",
+      "cz_translation": "kapesník",
+      "cz_transcription": "капеснiк",
+      "ua_translation": "носова хустка",
+      "ua_transcription": "nosova chustka",
       "image": "kapesnik"
     },
     {
-      "cz_translation": "Postel",
-      "cz_transcription": "Постел",
-      "ua_translation": "Ліжко",
-      "ua_transcription": "Ližko",
+      "cz_translation": "postel",
+      "cz_transcription": "постел",
+      "ua_translation": "ліжко",
+      "ua_transcription": "ližko",
       "image": "postel"
     },
     {
-      "cz_translation": "Záchod",
-      "cz_transcription": "Захот",
-      "ua_translation": "Туалет",
-      "ua_transcription": "Tualet",
+      "cz_translation": "záchod",
+      "cz_transcription": "захот",
+      "ua_translation": "туалет",
+      "ua_transcription": "tualet",
       "image": "zachod"
     },
     {
-      "cz_translation": "Výlet",
-      "cz_transcription": "Вилет",
-      "ua_translation": "Екскурсiя",
-      "ua_transcription": "Ekskursija",
+      "cz_translation": "výlet",
+      "cz_transcription": "вилет",
+      "ua_translation": "екскурсiя",
+      "ua_transcription": "ekskursija",
       "image": "vylet"
     },
     {
-      "cz_translation": "Zahrada",
-      "cz_transcription": "Заграда",
-      "ua_translation": "Сад",
-      "ua_transcription": "Sad",
+      "cz_translation": "zahrada",
+      "cz_transcription": "заграда",
+      "ua_translation": "cад",
+      "ua_transcription": "sad",
       "image": "zahrada"
     },
     {
-      "cz_translation": "Hory",
-      "cz_transcription": "Гори",
-      "ua_translation": "Гори",
-      "ua_transcription": "Hory",
+      "cz_translation": "hory",
+      "cz_transcription": "гори",
+      "ua_translation": "гори",
+      "ua_transcription": "hory",
       "image": "hory"
     },
     {
-      "cz_translation": "Bruslit",
-      "cz_transcription": "Бруслит",
-      "ua_translation": "Кататися на ковзанах",
-      "ua_transcription": "Katatysja na kovzanach",
+      "cz_translation": "bruslit",
+      "cz_transcription": "бруслит",
+      "ua_translation": "кататися на ковзанах",
+      "ua_transcription": "katatysja na kovzanach",
       "image": "brusleni"
     },
     {
-      "cz_translation": "Čistit si zuby",
-      "cz_transcription": "Чистiт си зуби",
-      "ua_translation": "Чистити зуби",
-      "ua_transcription": "Čystyty zuby",
+      "cz_translation": "čistit si zuby",
+      "cz_transcription": "чистiт си зуби",
+      "ua_translation": "чистити зуби",
+      "ua_transcription": "čystyty zuby",
       "image": "cisteni_zubu"
     },
-    
     {
-      "cz_translation": "Cvičit",
-      "cz_transcription": "Цвичит",
-      "ua_translation": "Робити розминку",
-      "ua_transcription": "Robyty rozmynku",
+      "cz_translation": "cvičit",
+      "cz_transcription": "цвичит",
+      "ua_translation": "робити розминку",
+      "ua_transcription": "robyty rozmynku",
       "image": "rozcvicka"
     },
-    
     {
-      "cz_translation": "Bolí mě břicho",
-      "cz_transcription": "Болi мнє бржихо",
-      "ua_translation": "У мене болить живіт",
-      "ua_transcription": "U mene bolyť žyvit",
+      "cz_translation": "bolí mě břicho",
+      "cz_transcription": "болi мнє бржихо",
+      "ua_translation": "y мене болить живіт",
+      "ua_transcription": "u mene bolyť žyvit",
       "image": "bolest_bricha"
     }
   ]
