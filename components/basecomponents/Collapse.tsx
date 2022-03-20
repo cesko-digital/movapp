@@ -1,6 +1,6 @@
-import React, { ReactElement, useState } from 'react';
-import ChevronDown from '../../public/icons/chevron-down.svg';
-import ChevronRight from '../../public/icons/chevron-right.svg';
+import { ReactElement, useState } from 'react';
+import ChevronDown from 'public/icons/chevron-down.svg';
+import ChevronRight from 'public/icons/chevron-right.svg';
 
 interface CollapseProps {
   title: string | ReactElement;

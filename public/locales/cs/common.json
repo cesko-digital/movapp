@@ -4,7 +4,8 @@
     "forkids_link_name": "Pro děti",
     "exercises_link_name": "Cvičení",
     "about_link_name": "O nás",
-    "contacts_link_name": "Kontakty"
+    "contacts_link_name": "Kontakty",
+    "alphabet_link_name": "Abeceda"
   },
   "footer": {
     "stand_with_ukraine_description": "Nezávislý informační rozcestník",
@@ -56,6 +57,10 @@
     "join_title": "Přidejte se",
     "join_description": "Chcete-li se stát členem týmu dobovolníků a pomáhat nám na dalším rozvoji projektu, vyplňte formulář na <0>cesko.digital/join</0> a přidejte se do Slacku. Najdete nás v kanálu <strong>ua-movapp</strong> (komunikujeme česky, slovensky, anglicky, a trochu také ukrajinsky)."
   },
+  "alphabet_page":{
+    "title": "{{cz_version}} abeceda",
+    "description": "{{cz_version_description}}"
+  },
   "seo": {
     "homepage_page_title": "Movapp.cz – aby se Češi a Ukrajinci snadno domluvili",
     "homepage_page_description": "Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou.",
@@ -64,7 +69,9 @@
     "contacts_page_title": "Kontakty | Movapp.cz",
     "contacts_page_description": "Chcete se stát členem týmu a pomáhat na dalším rozvoji projektu?",
     "about_page_title": "O nás | Movapp.cz",
-    "about_page_description": "Projekt vznikl v rámci iniciativy Stojíme za Ukrajinou v komunitě expertních dobrovolníků Česko.Digital."
+    "about_page_description": "Projekt vznikl v rámci iniciativy Stojíme za Ukrajinou v komunitě expertních dobrovolníků Česko.Digital.",
+    "alphabet_page_title": "Ukrajinská abeceda (cyrilice)",
+    "alphabet_page_description": "Naučte se ukrajinskou abecedu. Nazývá se také ukrajinská cyrilice nebo ukrajinská azbuka. Obsahuje 33 znaků a apostrof."
   },
   "export_translations": {
     "download_phrases": "Stáhnout fráze",

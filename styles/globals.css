@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  font-family: 'Roboto';
+  font-family: 'Roboto', 'Source Sans Pro';
 }
 
 h1 {

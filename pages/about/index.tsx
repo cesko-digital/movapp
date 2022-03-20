@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-key*/
 import { useTranslation, Trans } from 'next-i18next';
-import React from 'react';
-export { getStaticProps } from '../../utils/localization';
+export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
 import Head from 'next/head';
 
@@ -9,7 +8,7 @@ export const LinkText = ({
   href,
   children,
   target,
-  locale,
+  locale
 }: {
   href: string;
   children?: string;
@@ -40,7 +39,7 @@ const About = () => {
         <meta name="description" content={t('seo.about_page_description')} />
         <meta name="twitter:title" content={t('seo.about_page_title')} />
       </Head>
-      <div className="max-w-7xl m-auto sm:py-8 px-2 sm:px-4">
+      <div className="max-w-7xl m-auto">
         <h1 className="text-primary-blue">
           <Trans className="block my-2">{t('about_page.title')}</Trans>
         </h1>
@@ -56,7 +55,7 @@ const About = () => {
           t={t}
           components={[
             <LinkText href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" />,
-            <LinkText href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw" target="_blank" />,
+            <LinkText href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw" target="_blank" />
           ]}
         />
         <h2 className={heading_style}>

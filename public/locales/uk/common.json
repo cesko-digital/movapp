@@ -4,7 +4,8 @@
     "forkids_link_name": "для дітей",
     "exercises_link_name": "Завдання",
     "about_link_name": "Про нас",
-    "contacts_link_name": "Контакти"
+    "contacts_link_name": "Контакти",
+    "alphabet_link_name": "Алфавіт"
   },
   "footer": {
     "stand_with_ukraine_description": "Незалежний інформаційний довідник",
@@ -56,6 +57,10 @@
     "join_title": "Приєднуйтесь",
     "join_description": "Якщо ви хочете стати членом команди волонтерів і допомогти нам розвивати проект, заповніть форму на <0>cesko.digital/join</0> та приєднайтеся до нашого Slack. Ви можете знайти нас на каналі <strong>ua-movapp</strong> (спілкуємося чеською, словацькою, англійською а також трохи українською)."
   },
+  "alphabet_page":{
+    "title": "{{ua_version}} алфавіт",
+    "description": "{{ua_version_description}}"
+  },
   "seo": {
     "homepage_page_title": "Movapp.cz – аби спілкування між чехами та українцями стало простішим",
     "homepage_page_description": "Список базових чесько-українських слів і фраз та інструменти для практики цих фраз. Посилання на інші навчальні матеріали. Створено волонтерами з любов’ю.",
@@ -64,7 +69,9 @@
     "contacts_page_title": "Контакти | Movapp.cz",
     "contacts_page_description": "Бажаєте стати учасником команди та сприяти подальшому розвитку проекту?",
     "about_page_title": "Хто ми | Movapp.cz",
-    "about_page_description": "Проєкт, створений в рамках ініціативи Stojíme za Ukrajinou в спільноті експертів-волонтерів Česko.Digital."
+    "about_page_description": "Проєкт, створений в рамках ініціативи Stojíme za Ukrajinou в спільноті експертів-волонтерів Česko.Digital.",
+    "alphabet_page_title": "Чеський алфавіт",
+    "alphabet_page_description": "Вивчіть чеський алфавіт. Він складається з 26 літер латинського алфавіту, доповнених трьома діакритичними знаками."
   },
   "export_translations": {
     "download_phrases": "Завантажити фрази",

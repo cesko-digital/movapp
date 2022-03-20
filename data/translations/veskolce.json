@@ -19,7 +19,7 @@
   },
   {
     "cz_translation": "Děkuji. Díky.",
-    "cz_transcription": "Дєкуї / діки",
+    "cz_transcription": "Дєкуї. Діки",
     "ua_translation": "Дякую",
     "ua_transcription": "Ďakuju"
   },
@@ -31,7 +31,7 @@
   },
   {
     "cz_translation": "Promiň",
-    "cz_transcription": "Промінь",
+    "cz_transcription": "Проминь",
     "ua_translation": "Пробач",
     "ua_transcription": "Probač"
   },
@@ -71,7 +71,7 @@
     "ua_translation": "Йдемо на вулицю.",
     "ua_transcription": "Jdemo na vulycju"
   },
-{
+  {
     "cz_translation": "Jdeme ven na hřiště.",
     "cz_transcription": "Деме вен на гржіштє",
     "ua_translation": "Йдемо на майданчик.",
@@ -330,6 +330,42 @@
     "ua_transcription": "Viz’meš pojizd"
   },
   {
+    "cz_translation": "Neber mu tu hračku. Neber jí tu hračku.",
+    "cz_transcription": "Небер му ту грачку. Небер ї ту грачку",
+    "ua_translation": "Не забирай у нього іграшку. Не забирай у неї іграшку",
+    "ua_transcription": "Nezabyraj u ňoho ihrašku. Nezabyraj u neji ihrašku"
+  },
+  {
+    "cz_translation": "Pojď, najdeme jinou hračku.",
+    "cz_transcription": "Поть, найдеме їноу грачку",
+    "ua_translation": "Ходім, знайдемо іншу іграшку.",
+    "ua_transcription": "Chodim, znajdemo inšu ihrašku"
+  },
+  {
+    "cz_translation": "Polož to.",
+    "cz_transcription": "Полош то",
+    "ua_translation": "Поклади це.",
+    "ua_transcription": "Poklady ce"
+  },
+  {
+    "cz_translation": "Vem si to.",
+    "cz_transcription": "Вем си то",
+    "ua_translation": "Візьми це.",
+    "ua_transcription": "Viz'my ce"
+  },
+  {
+    "cz_translation": "Neplač.",
+    "cz_transcription": "Неплач",
+    "ua_translation": "Не плач.",
+    "ua_transcription": "Ne plač"
+  },
+  {
+    "cz_translation": "To bude v pořádku.",
+    "cz_transcription": "То буде ф поржатку",
+    "ua_translation": "Усе буде гаразд.",
+    "ua_transcription": "Use bude harazd"
+  },
+  {
     "cz_translation": "Chceš si kreslit?",
     "cz_transcription": "Хцеш си креслит",
     "ua_translation": "Хочеш малювати олівцями?",
@@ -358,6 +394,24 @@
     "cz_transcription": "То се ми моц лібі",
     "ua_translation": "Це мені дуже подобається!",
     "ua_transcription": "Ce meni duže podobajeťsja"
+  },
+  {
+    "cz_translation": "Budeme zpívat.",
+    "cz_transcription": "Будеме співат",
+    "ua_translation": "Будемо співати.",
+    "ua_transcription": "Budemo spivaty"
+  },
+  {
+    "cz_translation": "Umíš zazpívat písničku?",
+    "cz_transcription": "Уміш заспіват піснічку",
+    "ua_translation": "Ти вмієш співати?",
+    "ua_transcription": "Ty umiješ spivaty"
+  },
+  {
+    "cz_translation": "Znáš tuhle písničku?",
+    "cz_transcription": "Знаш тугле піснічку",
+    "ua_translation": "Знаєш цю пісеньку?",
+    "ua_transcription": "Znaješ cju piseňku"
   },
   {
     "cz_translation": "Maminka brzy přijde.",
@@ -450,10 +504,46 @@
     "ua_transcription": "Skil'ky jomu rokiu? Skil'ky jij rokiu?"
   },
   {
-    "cz_translation": "V kolik hodin příjdete?",
+    "cz_translation": "V kolik hodin přijdete?",
     "cz_transcription": "Ф колик годін пржийдете?",
     "ua_translation": "О котрій годині ви прийдете?",
     "ua_transcription": "O kotrij hodyni vy pryjdete?"
+  },
+  {
+    "cz_translation": "před svačinou",
+    "cz_transcription": "пржет свачиноу",
+    "ua_translation": "до перекусу",
+    "ua_transcription": "do perekusu"
+  },
+  {
+    "cz_translation": "po svačině",
+    "cz_transcription": "по свачинє",
+    "ua_translation": "після перекусу",
+    "ua_transcription": "pislja perekusu"
+  },
+  {
+    "cz_translation": "před obědem",
+    "cz_transcription": "пржет обєдем",
+    "ua_translation": "до обіду",
+    "ua_transcription": "do obidu"
+  },
+  {
+    "cz_translation": "po obědě",
+    "cz_transcription": "по обєдє",
+    "ua_translation": "після обіду",
+    "ua_transcription": "pislja obidu"
+  },
+  {
+    "cz_translation": "před spaním",
+    "cz_transcription": "пржед спанім",
+    "ua_translation": "до сну",
+    "ua_transcription": "do snu"
+  },
+  {
+    "cz_translation": "po spaní",
+    "cz_transcription": "по спані",
+    "ua_translation": "після сну",
+    "ua_transcription": "pislja snu"
   },
   {
     "cz_translation": "Má nějakou alergii?",

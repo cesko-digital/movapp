@@ -1,7 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import React from 'react';
-import { FOOTER_NAVIGATION } from '../../../data/footerNavigation';
+import { FOOTER_NAVIGATION } from 'data/footerNavigation';
 
 export const Footer = () => {
   const { t } = useTranslation();

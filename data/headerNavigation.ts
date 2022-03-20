@@ -5,6 +5,10 @@ interface HeaderNavigation {
 
 export const HEADER_NAVIGATION: HeaderNavigation[] = [
   {
+    name: 'header.alphabet_link_name',
+    link: "/alphabet"
+  },
+  {
     name: 'header.vocabulary_link_name',
     link: '/dictionary',
   },

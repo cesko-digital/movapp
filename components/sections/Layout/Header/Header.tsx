@@ -2,10 +2,9 @@ import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
-import { HEADER_NAVIGATION } from '../../../../data/headerNavigation';
-import { LOCALES } from '../../../../data/locales';
-import AppLogo from '../../../../public/movapp-logo.png';
+import { HEADER_NAVIGATION } from 'data/headerNavigation';
+import { LOCALES } from 'data/locales';
+import AppLogo from 'public/movapp-logo.png';
 
 export const Header = () => {
   const { t, i18n } = useTranslation('common');
