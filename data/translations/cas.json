@@ -26,10 +26,9 @@
   {
     "cz_translation": "Je tři čtvrtě na pět.",
     "cz_transcription": "Є тржи чтвртє на пєт",
-    "ua_translation": "За чверть шоста.",
-    "ua_transcription": "Za čverť šosta"
+    "ua_translation": "За чверть п'ята.",
+    "ua_transcription": "Za čverť pjata"
   },
-
   {
     "cz_translation": "Kdy mám přijít?",
     "cz_transcription": "Ґди мам пржиїт",
@@ -41,6 +40,72 @@
     "cz_transcription": "Ґди то мам удєлат",
     "ua_translation": "Коли я маю це зробити?",
     "ua_transcription": "Koly ja maju ce zrobyty"
+  },
+  {
+    "cz_translation": "teď",
+    "cz_transcription": "теть",
+    "ua_translation": "зараз",
+    "ua_transcription": "zaraz"
+  },
+  {
+    "cz_translation": "později",
+    "cz_transcription": "поздєї",
+    "ua_translation": "пізніше",
+    "ua_transcription": "pizniše"
+  },
+  {
+    "cz_translation": "za půl hodiny",
+    "cz_transcription": "за пул годіни",
+    "ua_translation": "за пів години",
+    "ua_transcription": "za piu hodyny"
+  },
+  {
+    "cz_translation": "za hodinu",
+    "cz_transcription": "за годіну",
+    "ua_translation": "за годину",
+    "ua_transcription": "za hodynu"
+  },
+  {
+    "cz_translation": "ráno",
+    "cz_transcription": "рано",
+    "ua_translation": "вранці",
+    "ua_transcription": "vranci"
+  },
+  {
+    "cz_translation": "dopoledne",
+    "cz_transcription": "дополедне",
+    "ua_translation": "в першій половині дня",
+    "ua_transcription": "v peršij polovyni dňa"
+  },
+  {
+    "cz_translation": "v poledne",
+    "cz_transcription": "ф поледне",
+    "ua_translation": "о дванадцятій",
+    "ua_transcription": "o dvanadcjatij"
+  },
+  {
+    "cz_translation": "odpoledne",
+    "cz_transcription": "отполедне",
+    "ua_translation": "в другій половині дня",
+    "ua_transcription": "v druhij polovyni dňa"
+  },
+  {
+    "cz_translation": "večer",
+    "cz_transcription": "вечер",
+    "ua_translation": "ввечері",
+    "ua_transcription": "uvečeri"
+  },
+  {
+    "cz_translation": "v noci",
+    "cz_transcription": "в ноци",
+    "ua_translation": "вночі",
+    "ua_transcription": "vnoči"
+  },
+  {
+    "cz_translation": "v sedm hodin",
+    "cz_transcription": "ф седум годін",
+    "ua_translation": "о сьомій",
+    "ua_transcription": "o sjomij"
   },
   {
     "cz_translation": "pondělí",
@@ -127,12 +192,6 @@
     "ua_transcription": "V nedilju ja choču vidpočyty"
   },
   {
-    "cz_translation": "V sedm hodin.",
-    "cz_transcription": "Ф седум годін",
-    "ua_translation": "О сьомій.",
-    "ua_transcription": "O sjomij"
-  },
-  {
     "cz_translation": "předevčírem",
     "cz_transcription": "пржедефчірем",
     "ua_translation": "позавчора",
@@ -163,16 +222,46 @@
     "ua_transcription": "pisljazavtra"
   },
   {
-    "cz_translation": "teď",
-    "cz_transcription": "теть",
-    "ua_translation": "зараз",
-    "ua_transcription": "zaraz"
+    "cz_translation": "tento týden",
+    "cz_transcription": "тенто тиден",
+    "ua_translation": "цього тижня",
+    "ua_transcription": "cjoho tyžňa"
   },
   {
-    "cz_translation": "později",
-    "cz_transcription": "поздєї",
-    "ua_translation": "пізніше",
-    "ua_transcription": "pizniše"
+    "cz_translation": "příští týden",
+    "cz_transcription": "пржішті тиден",
+    "ua_translation": "наступного тижня",
+    "ua_transcription": "nastupnoho tyžňa"
+  },
+  {
+    "cz_translation": "za dva týdny",
+    "cz_transcription": "за два тидни",
+    "ua_translation": "за два тижні",
+    "ua_transcription": "za dva tyžni"
+  },
+  {
+    "cz_translation": "minulý týden",
+    "cz_transcription": "минули тиден",
+    "ua_translation": "минулого тижня",
+    "ua_transcription": "mynuloho tyžňa"
+  },
+  {
+    "cz_translation": "tento měsíc",
+    "cz_transcription": "тенто мнєсіц",
+    "ua_translation": "цього місяця",
+    "ua_transcription": "cjoho misjacja"
+  },
+  {
+    "cz_translation": "příští měsíc",
+    "cz_transcription": "пржішті мнєсіц",
+    "ua_translation": "наступного місяця",
+    "ua_transcription": "nastupnoho misjacja"
+  },
+  {
+    "cz_translation": "za dva měsíce",
+    "cz_transcription": "за два мнєсіце",
+    "ua_translation": "за два місяці",
+    "ua_transcription": "za dva misjaci"
   },
   {
     "cz_translation": "leden",

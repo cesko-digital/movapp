@@ -56,8 +56,8 @@
   {
     "cz_translation": "rohlík",
     "cz_transcription": "роглік",
-    "ua_translation": "круасан",
-    "ua_transcription": "kruasan"
+    "ua_translation": "рогалик",
+    "ua_transcription": "rohalyk"
   },
   {
     "cz_translation": "šunka",
@@ -106,6 +106,30 @@
     "cz_transcription": "масло",
     "ua_translation": "масло вершкове",
     "ua_transcription": "maslo verškove"
+  },
+  {
+    "cz_translation": "smetana",
+    "cz_transcription": "сметана",
+    "ua_translation": "вершки",
+    "ua_transcription": "veršky"
+  },
+  {
+    "cz_translation": "smetana ke šlehání",
+    "cz_transcription": "сметана ке шлегані",
+    "ua_translation": "вершки для збивання",
+    "ua_transcription": "veršky dlja zbyvanňa"
+  },
+  {
+    "cz_translation": "zakysaná smetana",
+    "cz_transcription": "закисана сметана",
+    "ua_translation": "сметана",
+    "ua_transcription": "smetana"
+  },
+  {
+    "cz_translation": "kefír",
+    "cz_transcription": "кефір",
+    "ua_translation": "кефір",
+    "ua_transcription": "kefir"
   },
   {
     "cz_translation": "brambory",
@@ -194,14 +218,8 @@
   {
     "cz_translation": "Dáš si papriku?",
     "cz_transcription": "Даш си паприку",
-    "ua_translation": "Хочеш солодкого?",
-    "ua_transcription": "Chočeš solodkoho"
-  },
-  {
-    "cz_translation": "Dáš si papriku?",
-    "cz_transcription": "Даш си паприку",
-    "ua_translation": "Хочеш болгарського перцю?",
-    "ua_transcription": "Chočeš bolhars'koho percju"
+    "ua_translation": "Хочеш солодкого перцю? Хочеш болгарського перцю?",
+    "ua_transcription": "Chočeš solodkoho percju... Chočeš bolhars'koho percju"
   },
   {
     "cz_translation": "okurka",
@@ -316,17 +334,5 @@
     "cz_transcription": "Колик то стої",
     "ua_translation": "Скільки коштує?",
     "ua_transcription": "skil’ky koštuje"
-  },
-  {
-    "cz_translation": "zakysaná smetana",
-    "cz_transcription": "закисана сметана",
-    "ua_translation": "сметана",
-    "ua_transcription": "smetana"
-  },
-  {
-    "cz_translation": "smetana",
-    "cz_transcription": "сметана",
-    "ua_translation": "вершки",
-    "ua_transcription": "veršky"
   } 
 ]

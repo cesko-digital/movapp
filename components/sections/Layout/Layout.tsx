@@ -1,7 +1,7 @@
 import Script from 'next/script';
 import { Footer } from './Footer';
 import Header from './Header/index';
-import { ScrollToTop } from '../../basecomponents/ScrollToTop';
+import { ScrollToTop } from 'components/basecomponents/ScrollToTop';
 
 interface LayoutProps {
   children: React.ReactNode;
