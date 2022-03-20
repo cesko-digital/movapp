@@ -12,9 +12,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
     <div>
       <Header />
       <Script data-domain="movapp.cz" src="https://plausible.io/js/plausible.js" />
-      <main className="bg-white sm:bg-primary-grey pb-8 min-h-screen">
-        <div className="m-auto">{children}</div>
-      </main>
+      <main className="bg-white sm:bg-primary-grey pt-2 pb-5 min-h-screen px-2 m-auto">{children}</main>
       <Footer />
       <ScrollToTop />
     </div>

@@ -50,7 +50,7 @@ const Dictionary = () => {
         <meta name="description" content={t('seo.dictionary_page_description')} />
         <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
       </Head>
-      <div className="min-h-screen max-w-7xl m-auto sm:py-10 px-2 sm:px-4">
+      <div className="max-w-7xl m-auto ">
         <h1 className="text-primary-blue">{t('dictionary_page.title')}</h1>
         <div className="flex items-center">
           <SearchInput
@@ -72,7 +72,7 @@ const Dictionary = () => {
           />
         </div>
         <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
-        {translations.filter(filterBySearch).map((category, index) => {
+        {translations.filter(filterBySearch).map((category) => {
           const mainLanguageCategory = i18n.language === 'cs' ? category.category_name_cz : category.category_name_ua;
           const secondaryLanguageCategory = i18n.language === 'cs' ? category.category_name_ua : category.category_name_cz;
 
