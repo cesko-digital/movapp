@@ -51,12 +51,14 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
           </div>
           <p
             className={`${
-              transcription.length > 10
+              transcription.length > 30
+                ? 'text-sm'
+                : transcription.length > 10
                 ? 'text-xl sm:text-base md:text-xl'
                 : transcription.length > 4
                 ? 'text-3xl sm:text-xl md:text-3xl'
                 : 'text-4xl sm:text-2xl md:text-4xl'
-            } pt-2 md:pt-5
+            } pt-2 md:pt-5 
                text-center text-[#676767]  font-light group-hover:text-white transition-colors duration-500`}
           >
             {transcription}
