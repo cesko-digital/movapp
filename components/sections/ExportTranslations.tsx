@@ -1,9 +1,9 @@
-import React, { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, ReactNode, useState } from 'react';
-import { Button } from '../basecomponents/Button';
-import { Modal } from '../basecomponents/Modal';
+import { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, ReactNode, useState } from 'react';
+import { Button } from 'components/basecomponents/Button';
+import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
-import { Translation } from '../basecomponents/TranslationsContainer';
-import { Language } from '../../data/locales';
+import { Translation } from 'components/basecomponents/TranslationsContainer';
+import { Language } from 'data/locales';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
@@ -112,7 +112,7 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
           <div>
             <H3>{t('export_translations.between_phrase_and_translation')}:</H3>
             {TRANSLATION_SEPARATORS.map((option, index) => (
-              <React.Fragment key={index}>
+              <Fragment key={index}>
                 <RadioButton
                   id={option.id}
                   name={'translationSeparator'}
@@ -124,7 +124,7 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
                   {t(option.nameKey)} {option.displayValue ?? `(${option.value})`}
                 </Label>
                 <br />
-              </React.Fragment>
+              </Fragment>
             ))}
             <RadioButton
               id={TRANS_SEP_CUSTOM}
@@ -146,7 +146,7 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
           <div>
             <H3>{t('export_translations.between_phrases')}:</H3>
             {PHRASE_SEPARATORS.map((option, index) => (
-              <React.Fragment key={index}>
+              <Fragment key={index}>
                 <RadioButton
                   id={option.id}
                   name={'phraseSeparator'}
@@ -158,7 +158,7 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
                   {t(option.nameKey)} {option.displayValue ?? `(${option.value})`}
                 </Label>
                 <br />
-              </React.Fragment>
+              </Fragment>
             ))}
             <RadioButton
               id={PHRASE_SEP_CUSTOM}

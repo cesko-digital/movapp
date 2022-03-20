@@ -2,12 +2,12 @@ import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
-import { HEADER_NAVIGATION } from '../../../../data/headerNavigation';
-import { LOCALES } from '../../../../data/locales';
-import BurgerIcon from '../../../../public/icons/burger.svg';
-import CloseIcon from '../../../../public/icons/close.svg';
-import AppLogo from '../../../../public/movapp-logo.png';
+import { useEffect, useState } from 'react';
+import { HEADER_NAVIGATION } from 'data/headerNavigation';
+import { LOCALES } from 'data/locales';
+import BurgerIcon from 'public/icons/burger.svg';
+import CloseIcon from 'public/icons/close.svg';
+import AppLogo from 'public/movapp-logo.png';
 
 export const MobileHeader = () => {
   const [showNavigation, setShowNavigation] = useState(false);

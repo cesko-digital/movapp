@@ -1,12 +1,12 @@
 import { useTranslation } from 'next-i18next';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-export { getStaticProps } from '../utils/localization';
+export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
 import Image from 'next/image';
-import HeartsUkraine from '../public/hearts-for-ukraine.png';
-import DictionaryIcon from '../public/icons/book-font.svg';
-import MovappIcon from '../public/icons/movapp-bw-icon.svg';
+import HeartsUkraine from 'public/hearts-for-ukraine.png';
+import DictionaryIcon from 'public/icons/book-font.svg';
+import MovappIcon from 'public/icons/movapp-bw-icon.svg';
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
