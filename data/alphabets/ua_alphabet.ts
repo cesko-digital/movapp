@@ -421,7 +421,7 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'Україна',
-        example_transcription: 'ukrajina'
+        example_transcription: 'Ukrajina'
       },
       {
         example: 'удав',
