@@ -25,8 +25,24 @@ const AlphabetPage = (): JSX.Element => {
         <meta name="twitter:title" content={'seo.alphabet_page_title'} />
       </Head>
       <div className="max-w-7xl m-auto">
-        <h1 className="text-primary-blue mb-3">{t('alphabet_page.title')}</h1>
-        <p className="text-base md:text-xl">{t('alphabet_page.description')}</p>
+        <h1 className="text-primary-blue mb-3">
+          {t('alphabet_page.title', {
+            ua_version: swapLanguage === 'ua-cz' ? 'Український' : 'Чеський',
+            cz_version: swapLanguage === 'ua-cz' ? 'Ukrajinská' : 'Česká'
+          })}
+        </h1>
+        <p className="text-base md:text-xl">
+          {t('alphabet_page.description', {
+            cz_version_description:
+              swapLanguage === 'ua-cz'
+                ? 'Naučte se ukrajinskou abecedu. Nazývá se také ukrajinská cyrilice nebo ukrajinská azbuka. Obsahuje 33 znaků a apostrof.'
+                : 'Naučte se českou abecedu. Tvoří ji 26 písmen latinské abecedy doplněných třemi diakritickými znaménky.',
+            ua_version_description:
+              swapLanguage === 'ua-cz'
+                ? 'Вивчіть український алфавіт. Він складається із 33 літер'
+                : 'Вивчіть чеський алфавіт. Він складається з 26 літер латинського алфавіту, доповнених трьома діакритичними знаками.'
+          })}
+        </p>
         <div className="w-full  my-5 ">
           <LanguageSelect onClick={() => setSwapLanguage('cz-ua')} active={swapLanguage === 'cz-ua'} languages={['cz', 'ua']} />
           <LanguageSelect onClick={() => setSwapLanguage('ua-cz')} active={swapLanguage === 'ua-cz'} languages={['ua', 'cz']} />
