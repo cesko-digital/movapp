@@ -25,8 +25,8 @@ const AlphabetPage = (): JSX.Element => {
       <Head>
         <meta name="referrer" content="no-referrer" />
         <title>{t('seo.alphabet_page_title')}</title>
-        <meta name="description" content={'seo.alphabet_page_description'} />
-        <meta name="twitter:title" content={'seo.alphabet_page_title'} />
+        <meta name="description" content={t('seo.alphabet_page_description')} />
+        <meta name="twitter:title" content={t('seo.alphabet_page_title')} />
       </Head>
       <div className="max-w-7xl m-auto">
         <h1 className="text-primary-blue mb-3">
