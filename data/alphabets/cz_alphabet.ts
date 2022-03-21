@@ -466,7 +466,7 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'Quido',
-        example_transcription: 'квідо'
+        example_transcription: 'Квідо'
       },
       {
         example: 'squat',

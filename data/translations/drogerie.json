@@ -46,5 +46,29 @@
     "cz_transcription": "тоалетні папір",
     "ua_translation": "туалетний папір",
     "ua_transcription": "tualetnyj papir"
+  },
+  {
+    "cz_translation": "dudlík",
+    "cz_transcription": "дудлік",
+    "ua_translation": "соска",
+    "ua_transcription": "soska"
+  },
+  {
+    "cz_translation": "pleny",
+    "cz_transcription": "плени",
+    "ua_translation": "пелюшки",
+    "ua_transcription": "peljušky"
+  },
+  {
+    "cz_translation": "kapesník",
+    "cz_transcription": "капеснік",
+    "ua_translation": "хустинка",
+    "ua_transcription": "chustynka"
+  },
+  {
+    "cz_translation": "kapesníky",
+    "cz_transcription": "капесніки",
+    "ua_translation": "хустинки",
+    "ua_transcription": "chustynky"
   }
 ]

@@ -21,6 +21,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
+        <link rel="alternate" hrefLang="x-default" href={`https://www.movapp.cz${asPath}`} />
         {locales?.map((locale, index) => {
           return <link key={index} rel="alternate" hrefLang={locale} href={`https://www.movapp.cz/${locale}${asPath}`} />;
         })}

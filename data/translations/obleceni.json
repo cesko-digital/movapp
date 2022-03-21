@@ -2,14 +2,14 @@
   {
     "cz_translation": "tričko",
     "cz_transcription": "тричко",
-    "ua_translation": "кофта",
-    "ua_transcription": "kofta"
+    "ua_translation": "футболка",
+    "ua_transcription": "futbolka"
   },
   {
     "cz_translation": "trička",
     "cz_transcription": "тричка",
-    "ua_translation": "кофти",
-    "ua_transcription": "kofty"
+    "ua_translation": "футболки",
+    "ua_transcription": "futbolky"
   },
   {
     "cz_translation": "kalhoty",
@@ -32,8 +32,14 @@
   {
     "cz_translation": "mikina",
     "cz_transcription": "микина",
-    "ua_translation": "кофта з довгими рукавами",
-    "ua_transcription": "kofta z douhymy rukavamy"
+    "ua_translation": "толстовка",
+    "ua_transcription": "tolstouka"
+  },
+  {
+    "cz_translation": "mikiny",
+    "cz_transcription": "микини",
+    "ua_translation": "толстовки",
+    "ua_transcription": "tolstouky"
   },
   {
     "cz_translation": "svetr",
@@ -56,8 +62,8 @@
   {
     "cz_translation": "zimní bundy",
     "cz_transcription": "зимні бунди",
-    "ua_translation": "зимова куртки",
-    "ua_transcription": "zimova kurtky"
+    "ua_translation": "зимові куртки",
+    "ua_transcription": "zimovi kurtky"
   },
   {
     "cz_translation": "čepice",
@@ -88,83 +94,5 @@
     "cz_transcription": "бачкори",
     "ua_translation": "капці",
     "ua_transcription": "kapci"
-  },
-  {
-    "cz_translation": "dudlík",
-    "cz_transcription": "дудлік",
-    "ua_translation": "соска",
-    "ua_transcription": "soska"
-  },
-  {
-    "cz_translation": "pleny",
-    "cz_transcription": "плени",
-    "ua_translation": "пелюшки",
-    "ua_transcription": "peljušky"
-  },
-  {
-    "cz_translation": "ručník",
-    "cz_transcription": "ручнік",
-    "ua_translation": "рушник",
-    "ua_transcription": "rušnyk"
-  },
-  {
-    "cz_translation": "utěrka",
-    "cz_transcription": "утєрка",
-    "ua_translation": "кухонний рушник",
-    "ua_transcription": "kuchonnyj rušnyk"
-  },
-  {
-    "cz_translation": "ložní prádlo",
-    "cz_transcription": "ложні прадло",
-    "ua_translation": "постільна білизна",
-    "ua_transcription": "postil’na bilyzna"
-  },
-  {
-    "cz_translation": "kapesník",
-    "cz_transcription": "капеснік",
-    "ua_translation": "хустинка",
-    "ua_transcription": "chustynka"
-  },
-  {
-    "cz_translation": "kapesníky",
-    "cz_transcription": "капесніки",
-    "ua_translation": "хустинки",
-    "ua_transcription": "chustynky"
-  },
-  {
-    "cz_translation": "polštář",
-    "cz_transcription": "полштарж",
-    "ua_translation": "подушка",
-    "ua_transcription": "poduška"
-  },
-  {
-    "cz_translation": "polštáře",
-    "cz_transcription": "полштарже",
-    "ua_translation": "подушки",
-    "ua_transcription": "podušky"
-  },  
-  {
-    "cz_translation": "peřina",
-    "cz_transcription": "пержіна",
-    "ua_translation": "ковдра",
-    "ua_transcription": "koudra"
-  },
-  {
-    "cz_translation": "peřiny",
-    "cz_transcription": "пержіни",
-    "ua_translation": "ковдри",
-    "ua_transcription": "koudry"
-  },
-  {
-    "cz_translation": "deka",
-    "cz_transcription": "дека",
-    "ua_translation": "ковдра",
-    "ua_transcription": "koudra"
-  },
-  {
-    "cz_translation": "deky",
-    "cz_transcription": "деки",
-    "ua_translation": "ковдри",
-    "ua_transcription": "koudry"
   }
 ]

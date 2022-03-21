@@ -1,0 +1,142 @@
+[
+    {
+      "cz_translation": "panenka",
+      "cz_transcription": "паненка",
+      "ua_translation": "лялька",
+      "ua_transcription": "ljal’ka",
+      "image": "panenka"
+    },
+    {
+      "cz_translation": "auto",
+      "cz_transcription": "ауто",
+      "ua_translation": "машина",
+      "ua_transcription": "mašyna",
+      "image": "auticka"
+    },
+    {
+      "cz_translation": "puzzle",
+      "cz_transcription": "пуцле",
+      "ua_translation": "пазл",
+      "ua_transcription": "pazl",
+      "image": "puzzle"
+    },
+    {
+      "cz_translation": "vláček",
+      "cz_transcription": "влачек",
+      "ua_translation": "поїзд",
+      "ua_transcription": "pojizd",
+      "image": "vlacky"
+    },
+    {
+      "cz_translation": "míč",
+      "cz_transcription": "мiч",
+      "ua_translation": "м'яч",
+      "ua_transcription": "mjač",
+      "image": "mic"
+    },
+    {
+      "cz_translation": "omalovánky",
+      "cz_transcription": "омалованки",
+      "ua_translation": "розмальовки",
+      "ua_transcription": "rozmaljovky",
+      "image": "omalovanky"
+    },
+    {
+      "cz_translation": "pití",
+      "cz_transcription": "пітi",
+      "ua_translation": "напiй",
+      "ua_transcription": "napij",
+      "image": "piti"
+    },
+    {
+      "cz_translation": "snídaně",
+      "cz_transcription": "снiданє",
+      "ua_translation": "сніданок",
+      "ua_transcription": "snidanok",
+      "image": "snidane"
+    },
+    {
+      "cz_translation": "svačina",
+      "cz_transcription": "свачіна",
+      "ua_translation": "перекуска",
+      "ua_transcription": "perekuska",
+      "image": "svacina"
+    },
+    {
+      "cz_translation": "oběd",
+      "cz_transcription": "обєд",
+      "ua_translation": "обід",
+      "ua_transcription": "obid",
+      "image": "obed"
+    },
+    {
+      "cz_translation": "kapesník",
+      "cz_transcription": "капеснiк",
+      "ua_translation": "носова хустинка",
+      "ua_transcription": "nosova chustynka",
+      "image": "kapesnik"
+    },
+    {
+      "cz_translation": "postel",
+      "cz_transcription": "постел",
+      "ua_translation": "ліжко",
+      "ua_transcription": "ližko",
+      "image": "postel"
+    },
+    {
+      "cz_translation": "záchod",
+      "cz_transcription": "заход",
+      "ua_translation": "туалет",
+      "ua_transcription": "tualet",
+      "image": "zachod"
+    },
+    {
+      "cz_translation": "výlet",
+      "cz_transcription": "вілет",
+      "ua_translation": "подорож",
+      "ua_transcription": "podorož",
+      "image": "vylet"
+    },
+    {
+      "cz_translation": "zahrada",
+      "cz_transcription": "заграда",
+      "ua_translation": "cад",
+      "ua_transcription": "sad",
+      "image": "zahrada"
+    },
+    {
+      "cz_translation": "hory",
+      "cz_transcription": "гори",
+      "ua_translation": "гори",
+      "ua_transcription": "hory",
+      "image": "hory"
+    },
+    {
+      "cz_translation": "bruslit",
+      "cz_transcription": "брусліт",
+      "ua_translation": "кататися на ковзанах",
+      "ua_transcription": "katatysja na kovzanach",
+      "image": "brusleni"
+    },
+    {
+      "cz_translation": "čistit si zuby",
+      "cz_transcription": "чістiт си зуби",
+      "ua_translation": "чистити зуби",
+      "ua_transcription": "čystyty zuby",
+      "image": "cisteni_zubu"
+    },
+    {
+      "cz_translation": "cvičit",
+      "cz_transcription": "цвічіт",
+      "ua_translation": "робити вправи",
+      "ua_transcription": "robyty vpravy",
+      "image": "rozcvicka"
+    },
+    {
+      "cz_translation": "Bolí mě břicho",
+      "cz_transcription": "Болi мнє бржіхо",
+      "ua_translation": "У мене болить живіт",
+      "ua_transcription": "U mene bolyť žyvit",
+      "image": "bolest_bricha"
+    }
+  ]
