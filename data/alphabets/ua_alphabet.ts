@@ -398,7 +398,7 @@ export const ALPHABET_UA: Letter[] = [
     ]
   },
   {
-    letter: ['T', 'т'],
+    letter: ['Т', 'т'],
     transcription: '[t]',
     examples: [
       {

@@ -8,7 +8,7 @@ export const LinkText = ({
   href,
   children,
   target,
-  locale
+  locale,
 }: {
   href: string;
   children?: string;
@@ -55,7 +55,7 @@ const About = () => {
           t={t}
           components={[
             <LinkText href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" />,
-            <LinkText href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw" target="_blank" />
+            <LinkText href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw" target="_blank" />,
           ]}
         />
         <h2 className={heading_style}>
