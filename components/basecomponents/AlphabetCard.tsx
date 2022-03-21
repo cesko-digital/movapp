@@ -73,6 +73,7 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
               <p className="font-light justift-self-start break-all text-base sm:text-xs md:text-sm">{example}</p>
               <p className="font-light text-base sm:text-xs md:text-sm">[{example_transcription}]</p>
               <button className="justify-self-end" onClick={() => handleTranslationAudioPlay(playerLanguage, example)}>
+                <span className="sr-only">{example}</span>
                 <PlayIcon className="w-7 sm:w-4 md:w-5 stroke-red-500  cursor-pointer " />
               </button>
             </div>
