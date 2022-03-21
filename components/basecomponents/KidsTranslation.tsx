@@ -35,9 +35,9 @@ export const KidsTranslation = ({ transcription, translation, player, setPlayer,
       <div className="w-full">
         <div className="flex">
           {currentLanguage === 'cs' ? (
-            <FlagCZIcon width="30px" className="mr-3 shadow" />
+            <FlagCZIcon width="30px" height="24px" className="mr-3 shadow" />
           ) : (
-            <FlagUAIcon width="30px" className="mr-3 shadow" />
+            <FlagUAIcon width="30px" height="24px" className="mr-3 shadow" />
           )}
           <p>
             <Trans className="block my-2">{t(`dictionary_page.${currentLanguage}`)}</Trans>
