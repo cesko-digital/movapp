@@ -1,7 +1,6 @@
-import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { Translation } from './Translation';
-import { Language } from '../../data/locales';
+import { Language } from 'data/locales';
 
 export interface TranslationType {
   cz_translation: string;

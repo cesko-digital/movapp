@@ -1,4 +1,4 @@
-import React, { HTMLProps } from 'react';
+import { HTMLProps } from 'react';
 
 export const SearchInput = (props: HTMLProps<HTMLInputElement>): JSX.Element => {
   const { className, ...rest } = props;

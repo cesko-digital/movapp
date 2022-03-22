@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-key*/
 import { Trans, useTranslation } from 'next-i18next';
 import Head from 'next/head';
-import React from 'react';
-import { LinkText } from '../about';
-export { getStaticProps } from '../../utils/localization';
+import { LinkText } from 'pages/about';
+export { getStaticProps } from 'utils/localization';
 
 const Contacts = () => {
   const { t } = useTranslation();
@@ -17,7 +16,7 @@ const Contacts = () => {
         <meta name="description" content={t('seo.contacts_page_description')} />
         <meta name="twitter:title" content={t('seo.contacts_page_title')} />
       </Head>
-      <div className="max-w-7xl m-auto sm:py-8 px-2 sm:px-4">
+      <div className="max-w-7xl m-auto">
         <h1 className="text-primary-blue">{t('contacts_page.title')}</h1>
         <h2 className={`${heading_style}`}>
           <Trans>{t('contacts_page.email_contact_title')}</Trans>

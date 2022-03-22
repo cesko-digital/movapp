@@ -1,15 +1,14 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import React, { useEffect, useRef, useState } from 'react';
-import { Button } from '../../components/basecomponents/Button';
-import { Collapse } from '../../components/basecomponents/Collapse';
-import { SearchInput } from '../../components/basecomponents/Input';
-import { CategoryDictionary } from '../../components/sections/CategoryDictionary';
-import { translations, TranslationsType } from '../../data/translations/translations';
-export { getStaticProps } from '../../utils/localization';
+import { useEffect, useRef, useState } from 'react';
+import { Button } from 'components/basecomponents/Button';
+import { Collapse } from 'components/basecomponents/Collapse';
+import { SearchInput } from 'components/basecomponents/Input';
+import { CategoryDictionary } from 'components/sections/CategoryDictionary';
+import { translations, TranslationsType } from 'data/translations/translations';
+export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
-// import { Translation } from '../../components/basecomponents/TranslationsContainer';
 import { Translation } from '../../components/basecomponents/Translation';
 import { TranslationContainer, TranslationType } from '../../components/basecomponents/TranslationsContainer';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined

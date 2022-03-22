@@ -1,6 +1,6 @@
-import '../styles/globals.css';
+import 'styles/globals.css';
 import type { AppProps } from 'next/app';
-import { Layout } from '../components/sections/Layout/Layout';
+import { Layout } from 'components/sections/Layout/Layout';
 import { appWithTranslation } from 'next-i18next';
 
 import '@fontsource/roboto/900.css';
@@ -21,6 +21,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
+        <link rel="alternate" hrefLang="x-default" href={`https://www.movapp.cz${asPath}`} />
         {locales?.map((locale, index) => {
           return <link key={index} rel="alternate" hrefLang={locale} href={`https://www.movapp.cz/${locale}${asPath}`} />;
         })}
