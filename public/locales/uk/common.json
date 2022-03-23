@@ -1,6 +1,7 @@
 {
   "header": {
     "vocabulary_link_name": "Словник",
+    "forkids_link_name": "для дітей",
     "exercises_link_name": "Завдання",
     "about_link_name": "Про нас",
     "contacts_link_name": "Контакти",
@@ -15,6 +16,8 @@
     "title": "Вивчіть основи чеської та української мови для повсякденного життя",
     "box_dictionary_title": "Словник",
     "box_dictionary_description": "Вивчіть сотні базових слів та фраз, читаючи й слухаючи. Слова та фрази розділені на категорії відповідно до життєвих ситуацій.",
+    "box_child_title": "для дітей",
+    "box_child_description": "Ілюстрований чесько-український словник із десятками карток для друку.", 
     "box_movapp_title": "Movapp це...",
     "box_movapp_description_top": " \"Мова\" [mova] означає українською мова. Movapp — це додаток для вивчення мови. Метою Movapp.cz є полегшення спілкування між чехами та українцями.",
     "box_movapp_description_bottom": "Тут ви знайдете список базових чесько-українських слів та фраз. Незабаром ми додамо інструменти для практики цих фраз."
@@ -23,7 +26,12 @@
     "search_button": "Знайти",
     "title": "Чесько-український словник",
     "search_placeholder": "Знайти слово",
-    "subtitle": "Виберіть категорію"
+    "subtitle": "Виберіть категорію",
+    "cs": "чеський",
+    "uk": "український"
+  },
+  "kids_page": {
+    "downloadPDF": "Завантажити у форматі .pdf"
   },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> – це проект, який створено в рамках ініціативи <strong>Stojíme za Ukrajinou</strong> в спільноті експертів-волонтерів <strong>Česko.Digital.</strong>",
