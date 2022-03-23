@@ -37,6 +37,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# #sitemap
-# public/sitemap.xml
-# public/sitemap-0.xml
+# 'next-sitemap' dynamically generates these before deployment, no need to track them in git
+public/robots.txt
+public/sitemap.xml
+public/sitemap-0.xml

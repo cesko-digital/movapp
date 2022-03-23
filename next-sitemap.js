@@ -2,6 +2,6 @@
 
 module.exports = {
   siteUrl: 'https://movapp.cz',
-  // generateRobotsTxt: true, // (optional)
-  // ...other options
+  generateRobotsTxt: true,
+  exclude: ['/404', '/uk/404'],
 };
