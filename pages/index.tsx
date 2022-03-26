@@ -5,8 +5,9 @@ export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
 import Image from 'next/image';
 import HeartsUkraine from '../public/hearts-for-ukraine.png';
-import DictionaryIcon from '../public/icons/book-font.svg';
+import DictionaryIcon from '../public/icons/book.svg';
 import ChildIcon from '../public/icons/child.svg';
+import AlphabetIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
 
 const Home: NextPage = () => {
@@ -43,6 +44,15 @@ const Home: NextPage = () => {
                 </Link>
               </h2>
               <p>{t('homepage.box_child_description')}</p>
+            </div>
+            <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
+              <AlphabetIcon className="w-6 mb-2 group-hover:fill-primary-red" />
+              <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
+                <Link href={'/alphabet'}>
+                  <a>{t('homepage.box_alphabet_title')}</a>
+                </Link>
+              </h2>
+              <p>{t('homepage.box_alphabet_description')}</p>
             </div>
           </div>
           <div className="grid md:grid-cols-[70%_30%] gap-8 mt-10">
