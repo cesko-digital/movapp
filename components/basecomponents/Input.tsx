@@ -15,7 +15,6 @@ export const SearchInput = ({ hiddenLabel, id, label, ...rest }: SearchInputProp
       <input
         {...rest}
         id={id}
-        type="text"
         className={`w-full rounded-md md:rounded-lg py-2 px-3 text-dark-700 border-1 border-primary-blue outline-none shadow-s`}
       />
     </div>

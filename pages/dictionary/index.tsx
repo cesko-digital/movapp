@@ -90,7 +90,7 @@ const Dictionary = () => {
             hiddenLabel
             label={t('dictionary_page.search_input_label')}
             placeholder={t('dictionary_page.search_placeholder')}
-            type="text"
+            type="search"
             value={search}
             onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch((e.target as HTMLInputElement).value)}
           />
