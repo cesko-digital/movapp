@@ -41,8 +41,7 @@ export const Translation = ({
         </p>
         <p className="text-gray-500">{`[ ${transcription} ]`}</p>
       </div>
-      <button onClick={() => handleTranslationAudioPlay(currentLanguage, translation)}>
-        <span className="sr-only">{translation}</span>
+      <button onClick={() => handleTranslationAudioPlay(currentLanguage, translation)} aria-label={translation}>
         <PlayIcon className="cursor-pointer active:scale-75  stroke-red-500 w-8" />
       </button>
     </div>
