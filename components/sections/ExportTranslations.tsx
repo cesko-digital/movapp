@@ -2,14 +2,14 @@ import { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, 
 import { Button } from 'components/basecomponents/Button';
 import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
-import { Translation } from 'components/basecomponents/TranslationsContainer';
+import { TranslationType } from 'components/basecomponents/TranslationsContainer';
 import { Language } from 'data/locales';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
 interface ExportTranslationsProps {
-  translations: Translation[];
+  translations: TranslationType[];
   categoryName: string;
   trigger?: ReactNode;
 }
