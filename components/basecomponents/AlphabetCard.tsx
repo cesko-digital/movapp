@@ -53,7 +53,7 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
             {letter[1]}
           </p>
           <div className="self-end">
-            <button className="w-16 sm:w-8 md:w-12 m-auto block" onClick={() => handleAudioPlay()} aria-label={'Play ' + letter[0]}>
+            <button className="w-16 sm:w-8 md:w-12 m-auto block" onClick={() => handleAudioPlay()} aria-label={'play ' + letter[0]}>
               {letterAudio && (
                 <>
                   <audio ref={letterAudioRef} src={letterAudio} />
@@ -85,7 +85,7 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
             <div key={index} className="grid grid-cols-[40%_45%_15%] grid-flow-col items-center pt-3 px-4">
               <p className="font-light justift-self-start break-all text-base sm:text-xs md:text-sm">{example}</p>
               <p className="font-light text-base sm:text-xs md:text-sm">[{example_transcription}]</p>
-              <button className="justify-self-end" onClick={() => handleAudioPlay(playerLanguage, example)} aria-label={'Play ' + example}>
+              <button className="justify-self-end" onClick={() => handleAudioPlay(playerLanguage, example)} aria-label={'play ' + example}>
                 <PlayIcon className="w-7 sm:w-4 md:w-5 stroke-red-500  cursor-pointer" />
               </button>
             </div>
