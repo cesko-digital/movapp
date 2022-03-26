@@ -1,15 +1,14 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { SearchInput } from 'components/basecomponents/Input';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
-import { translations, TranslationsType } from 'data/translations/translations';
+import { translations } from 'data/translations/translations';
 export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
-import { Translation } from '../../components/basecomponents/Translation';
 import { TranslationContainer, TranslationType } from '../../components/basecomponents/TranslationsContainer';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
@@ -27,26 +26,53 @@ const Dictionary = () => {
   const [search, setSearch] = useState('');
   const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
   const { t, i18n } = useTranslation();
+  const [flattenTranslations, setFlattenTranslations] = useState<TranslationType[] | []>([]);
+
+  const searchContainer = useRef<HTMLDivElement | null>(null);
 
   const translationsContainerRef = useRef<HTMLDivElement | null>(null);
 
+  // scrolls to top whenever user type in search input
   useEffect(() => {
-    const searchedTranslationContainerRect = translationsContainerRef.current?.getBoundingClientRect();
-    if (!searchedTranslationContainerRect) return;
-
-    if (searchedTranslationContainerRect.height === 0 || searchedTranslationContainerRect.bottom < 0) {
-      window.scrollTo({
-        top: 0
-      });
-    }
-    console.log('cse', searchedTranslationContainerRect);
+    if (!search.trim() || window.scrollY === 0) return;
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }, [search]);
+
+  //
+  useEffect(() => {
+    const element = searchContainer.current;
+    const observer = new IntersectionObserver(
+      ([e]) => {
+        const el = e.target as HTMLElement;
+        if (e.intersectionRatio < 1) {
+          el.style.margin = '0px -8px';
+          el.style.width = 'auto';
+        } else if (e.intersectionRatio >= 1) {
+          el.style.margin = '0px 0px';
+        }
+      },
+      { threshold: [1], rootMargin: '-57px 0px 0px 0px' }
+    );
+
+    element && observer.observe(element);
+
+    return () => {
+      element && observer.unobserve(element);
+    };
+  });
 
   const filterBySearch = ({ cz_translation, ua_translation }: TranslationType) => {
     const searchText = normalizeForSearch(search);
-
     return normalizeForSearch(cz_translation).includes(searchText) || normalizeForSearch(ua_translation).includes(searchText);
   };
+
+  useEffect(() => {
+    const flatTranslations = translations.map(({ translations }) => translations).flat();
+    setFlattenTranslations(flatTranslations);
+  }, []);
 
   return (
     <>
@@ -58,15 +84,20 @@ const Dictionary = () => {
       </Head>
       <div className="max-w-7xl m-auto">
         <h1 className="text-primary-blue">{t('dictionary_page.title')}</h1>
-        <div className="flex items-center sticky  top-20 w-full">
+        <div ref={searchContainer} className="flex items-center sticky  top-14 w-full transition-all duration-1000">
           <SearchInput
-            className=" md:w-auto block  flex-1 "
+            id="search"
+            hiddenLabel
+            label={t('dictionary_page.search_input_label')}
             placeholder={t('dictionary_page.search_placeholder')}
             type="text"
             value={search}
             onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch((e.target as HTMLInputElement).value)}
           />
-          <Button className="mx-5 hidden md:block bg-primary-yellow" text={t('dictionary_page.search_button')} />
+          <Button
+            className="ml-5 justify-self-end border-1 hidden self-end md:block bg-primary-yellow"
+            text={t('dictionary_page.search_button')}
+          />
         </div>
         <ExportTranslations
           translations={translations.map((translations) => translations.translations).flat()}
@@ -77,7 +108,7 @@ const Dictionary = () => {
             </span>
           }
         />
-        <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
+        <h2 className="text-primary-blue">{t(search.trim() ? 'dictionary_page.results_subtitle' : 'dictionary_page.subtitle')}</h2>
         {search.trim() === '' &&
           translations.map((category) => {
             const mainLanguageCategory = i18n.language === 'cs' ? category.category_name_cz : category.category_name_ua;
@@ -99,15 +130,11 @@ const Dictionary = () => {
               </Collapse>
             );
           })}
-        <div className="" ref={translationsContainerRef}>
+        <div ref={translationsContainerRef}>
           {search.trim() &&
-            translations
-              .map(({ translations }) => translations)
-              .flat()
-              .filter(filterBySearch)
-              .map((translation) => {
-                return <TranslationContainer {...translation} setPlayer={setPlayer} player={player} searchText={search} />;
-              })}
+            flattenTranslations.filter(filterBySearch).map((translation, index) => {
+              return <TranslationContainer key={index} {...translation} setPlayer={setPlayer} player={player} searchText={search} />;
+            })}
         </div>
       </div>
     </>

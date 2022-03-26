@@ -20,7 +20,7 @@ export const Collapse = ({ title, children, ariaId }: CollapseProps): JSX.Elemen
         onClick={() => setExpanded(!expanded)}
       >
         <p className="text-primary-blue text-base font-medium sm:text-lg sm:font-bold text-left">{title}</p>
-        <div className="justify-self-end cursor-pointer">
+        <div className="justify-self-center cursor-pointer">
           {expanded ? <ChevronDown className="fill-primary-blue" /> : <ChevronRight className="fill-primary-blue" />}
         </div>
       </button>
