@@ -11,10 +11,10 @@ export const Footer = () => {
         <p className="text-primary-black text-center font-black text-xl sm:text-2xl mt-2 sm:mt-4 mb-2 sm:mb-6">#StandWithUkraine</p>
         <div className="text-center">
           <a href="https://www.instagram.com/movapp_/" target="_blank" rel="noreferrer" className="mr-2">
-            <Image src="/icon-instagram.svg" width="30px" height="30px" alt="Instagram" />
+            <Image src="/icons/icon-instagram.svg" width="30px" height="30px" alt="Instagram" />
           </a>
           <a href="https://twitter.com/movappcz" target="_blank" rel="noreferrer" className="ml-2">
-            <Image src="/icon-twitter.svg" width="30px" height="30px" alt="Instagram" />
+            <Image src="/icons/icon-twitter.svg" width="30px" height="30px" alt="Instagram" />
           </a>
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-center">
