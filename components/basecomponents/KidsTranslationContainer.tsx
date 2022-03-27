@@ -3,6 +3,7 @@ import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { KidsTranslation } from './KidsTranslation';
 import { Language } from '../../data/locales';
+import { playGoogleTTSAudio } from 'components/utils/audioUtils';
 
 export interface Translation {
   cz_translation: string;
@@ -48,27 +49,37 @@ export const KidsTranslationsContainer = ({
     },
   };
 
+  const currentTranslation = languageTranslation[currentLanguage].translation;
+  const secondaryTranslation = languageTranslation[secondaryLanguage].translation;
+
+  const playAudio = (translation: string, language: Language) => {
+    const audio = playGoogleTTSAudio(language, translation, player);
+    setPlayer(audio);
+  };
+
   return (
     <div className="max-w-sm rounded-2xl overflow-hidden shadow-xl w-72 m-5 md:m-8 bg-[#f7e06a] max-h-[32rem]">
-      <div className="w-72 h-72 relative bg-white">
+      <button
+        className="w-72 h-72 relative bg-white"
+        onClick={() => playAudio(secondaryTranslation, secondaryLanguage)}
+        aria-label={'play ' + secondaryTranslation}
+      >
         <Image src={`/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={cz_translation} />
-      </div>
-      <div className="px-6 py-4 ">
+      </button>
+      <div className="px-6 py-4">
         <KidsTranslation
           image={image}
           currentLanguage={currentLanguage}
-          player={player}
-          setPlayer={setPlayer}
+          playAudio={playAudio}
           transcription={languageTranslation[currentLanguage].transcription}
-          translation={languageTranslation[currentLanguage].translation}
+          translation={currentTranslation}
         />
         <KidsTranslation
           image={image}
           currentLanguage={secondaryLanguage}
-          player={player}
-          setPlayer={setPlayer}
+          playAudio={playAudio}
           transcription={languageTranslation[secondaryLanguage].transcription}
-          translation={languageTranslation[secondaryLanguage].translation}
+          translation={secondaryTranslation}
         />
       </div>
     </div>
