@@ -50,22 +50,52 @@ const About = () => {
         <h2 className={heading_style}>
           <Trans>{t('about_page.why_movapp_title')}</Trans>
         </h2>
-        <Trans
-          i18nKey={'about_page.why_movapp_description'}
-          t={t}
-          components={[
-            <LinkText href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" />,
-            <LinkText href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw" target="_blank" />,
-          ]}
-        />
+        <p>
+          <Trans
+            i18nKey={'about_page.why_movapp_mova'}
+            t={t}
+            components={{italic:<i />}}
+          /><br/><br/>
+        </p>
+        <p>
+          <Trans>{t('about_page.why_movapp_description')}</Trans><br/><br/>
+        </p>
+        <p>
+          <Trans
+            i18nKey={'about_page.why_movapp_license'}
+            t={t}
+            components={[<LinkText href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" />]}
+          /><br/><br/>
+        </p>
+        <p>
+          <Trans
+            i18nKey={'about_page.why_movapp_origin'}
+            t={t}
+            components={[<LinkText href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw" target="_blank" />]}
+          />
+        </p>
         <h2 className={heading_style}>
           <Trans>{t('about_page.our_team_title')}</Trans>
         </h2>
-        <Trans
-          i18nKey={'about_page.our_team_description'}
-          t={t}
-          components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" />]}
-        />
+        <p>
+          <Trans
+            i18nKey={'about_page.our_team_description'}
+            t={t}
+          /><br/><br/>
+        </p>
+        <p>
+          <Trans
+            i18nKey={'about_page.our_team_illustrators'}
+            t={t}
+          /><br/><br/>
+        </p>
+        <p>
+          <Trans
+            i18nKey={'about_page.our_team_contact'}
+            t={t}
+            components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" />]}
+          />
+        </p>
         <h2 className={heading_style}>
           <Trans>{t('about_page.stand_with_ukraine_title')}</Trans>
         </h2>
