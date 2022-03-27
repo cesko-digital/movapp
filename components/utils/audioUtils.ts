@@ -1,6 +1,6 @@
 import { Language } from '../../data/locales';
 
-export const handleTranslationAudioPlay = (language: Language, text: string, player: HTMLMediaElement | null) => {
+export const playGoogleTTSAudio = (language: Language, text: string, player: HTMLMediaElement | null) => {
   // stops player if something is currently playing
   if (player) {
     player.pause();

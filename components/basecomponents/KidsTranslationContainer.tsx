@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { KidsTranslation } from './KidsTranslation';
 import { Language } from '../../data/locales';
-import { handleTranslationAudioPlay } from 'components/libs/Player';
+import { playGoogleTTSAudio } from 'components/utils/audioUtils';
 
 export interface Translation {
   cz_translation: string;
@@ -49,8 +49,11 @@ export const KidsTranslationsContainer = ({
     },
   };
 
-  const handlePlayer = (language: Language, translation: string) => {
-    const audio = handleTranslationAudioPlay(language, translation, player);
+  const currentTranslation = languageTranslation[currentLanguage].translation;
+  const secondaryTranslation = languageTranslation[secondaryLanguage].translation;
+
+  const playAudio = (translation: string, language: Language) => {
+    const audio = playGoogleTTSAudio(language, translation, player);
     setPlayer(audio);
   };
 
@@ -58,25 +61,25 @@ export const KidsTranslationsContainer = ({
     <div className="max-w-sm rounded-2xl overflow-hidden shadow-xl w-72 m-5 md:m-8 bg-[#f7e06a] max-h-[32rem]">
       <button
         className="w-72 h-72 relative bg-white"
-        onClick={() => handlePlayer(currentLanguage === 'cs' ? 'uk' : 'cs', currentLanguage === 'cs' ? ua_translation : cz_translation)}
-        aria-label="play"
+        onClick={() => playAudio(secondaryTranslation, secondaryLanguage)}
+        aria-label={'play ' + secondaryTranslation}
       >
         <Image src={`/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={cz_translation} />
       </button>
-      <div className="px-6 py-4 ">
+      <div className="px-6 py-4">
         <KidsTranslation
           image={image}
           currentLanguage={currentLanguage}
-          onHandlePlayer={() => handlePlayer(currentLanguage, languageTranslation[currentLanguage].translation)}
+          playAudio={playAudio}
           transcription={languageTranslation[currentLanguage].transcription}
-          translation={languageTranslation[currentLanguage].translation}
+          translation={currentTranslation}
         />
         <KidsTranslation
           image={image}
           currentLanguage={secondaryLanguage}
-          onHandlePlayer={() => handlePlayer(secondaryLanguage, languageTranslation[secondaryLanguage].translation)}
+          playAudio={playAudio}
           transcription={languageTranslation[secondaryLanguage].transcription}
-          translation={languageTranslation[secondaryLanguage].translation}
+          translation={secondaryTranslation}
         />
       </div>
     </div>
