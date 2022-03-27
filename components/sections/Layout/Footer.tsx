@@ -14,7 +14,7 @@ export const Footer = () => {
             <Image src="/icons/icon-instagram.svg" width="30px" height="30px" alt="Instagram" />
           </a>
           <a href="https://twitter.com/movappcz" target="_blank" rel="noreferrer" className="ml-2">
-            <Image src="/icons/icon-twitter.svg" width="30px" height="30px" alt="Instagram" />
+            <Image src="/icons/icon-twitter.svg" width="30px" height="30px" alt="Twitter" />
           </a>
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-center">
