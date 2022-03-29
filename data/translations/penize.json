@@ -1,17 +1,5 @@
 [
   {
-    "cz_translation": "Kde si mohu směnit peníze?",
-    "cz_transcription": "Ґде си могу смнєніт пенізе",
-    "ua_translation": "Де можна обміняти гроші?",
-    "ua_transcription": "De možna obmiňaty hroši"
-  },
-  {
-    "cz_translation": "Kde najdu...?",
-    "cz_transcription": "Ґде найду",
-    "ua_translation": "Де можна знайти...?",
-    "ua_transcription": "De možna znajty"
-  },
-  {
     "cz_translation": "Mohu platit kartou?",
     "cz_transcription": "Могу платіт картоу",
     "ua_translation": "Можна заплатити картою?",
@@ -22,6 +10,12 @@
     "cz_transcription": "Могу платіт готовє",
     "ua_translation": "Можна заплатити готівкою?",
     "ua_transcription": "Možna zaplatyty hotivkoju"
+  },
+  {
+    "cz_translation": "Kde najdu...?",
+    "cz_transcription": "Ґде найду",
+    "ua_translation": "Де можна знайти...?",
+    "ua_transcription": "De možna znajty"
   },
   {
     "cz_translation": "banka",
@@ -42,10 +36,28 @@
     "ua_transcription": "Šukaju bank"
   },
   {
+    "cz_translation": "Kde je nejbližší banka?",
+    "cz_transcription": "Ґде є нейблиші банка",
+    "ua_translation": "Де знаходиться найближчий банк?",
+    "ua_transcription": "De znachodyťsja najblyžčyj bank"
+  },
+  {
+    "cz_translation": "Kde je nejbližší pobočka?",
+    "cz_transcription": "Ґде є нейблиші побочка",
+    "ua_translation": "Де знаходиться найближче відділення?",
+    "ua_transcription": "De znachodyťsja najblyžče viddilenňa"
+  },
+  {
     "cz_translation": "bankomat",
     "cz_transcription": "банкомат",
     "ua_translation": "банкомат",
     "ua_transcription": "bankomat"
+  },
+  {
+    "cz_translation": "Kde je nejbližší bankomat?",
+    "cz_transcription": "Ґде є нейблиші банкомат",
+    "ua_translation": "Де знаходиться найближчий банкомат?",
+    "ua_transcription": "De znachodyťsja najblyžčyj bankomat"
   },
   {
     "cz_translation": "směnárna",
@@ -60,16 +72,22 @@
     "ua_transcription": "De možna obmiňaty hroši"
   },
   {
-    "cz_translation": "Potřebuji si vyzvednout peníze.",
-    "cz_transcription": "Потржебуї визведноут пенізе",
-    "ua_translation": "Мені потрібно зняти гроші.",
-    "ua_transcription": "Meni potribno zňaty hroši"
+    "cz_translation": "Kde si mohu směnit peníze?",
+    "cz_transcription": "Ґде си могу смнєніт пенізе",
+    "ua_translation": "Де можна обміняти гроші?",
+    "ua_transcription": "De možna obmiňaty hroši"
   },
   {
-    "cz_translation": "Moje karta nefunguje.",
-    "cz_transcription": "Моє карта нефунґує",
-    "ua_translation": "Моя банківська карта не працює.",
-    "ua_transcription": "Moja bankivs’ka karta ne pracjuje"
+    "cz_translation": "Jaký je kurz?",
+    "cz_transcription": "Яки є курс",
+    "ua_translation": "Який курс?",
+    "ua_transcription": "Jakyj kurs"
+  },
+  {
+    "cz_translation": "Chci si založit účet.",
+    "cz_transcription": "Хци си заложіт учет",
+    "ua_translation": "Я хочу відкрити рахунок.",
+    "ua_transcription": "Ja choču vidkryty rachunok"
   },
   {
     "cz_translation": "Potřebuji si založit účet.",
@@ -82,5 +100,107 @@
     "cz_transcription": "Потржебуї пржевест пенізе с учту ... на учет",
     "ua_translation": "Мені потрібно перевести гроші з рахунку ... на рахунок ...",
     "ua_transcription": "Meni potribno perevesty hroši z rachunku ... na rachunok"
-  }
+  },
+  {
+    "cz_translation": "běžný účet",
+    "cz_transcription": "бєжни учет",
+    "ua_translation": "поточний рахунок",
+    "ua_transcription": "potočnyj rachunok"
+  },
+  {
+    "cz_translation": "spořící účet",
+    "cz_transcription": "споржіці учет",
+    "ua_translation": "рахунок для заощаджень",
+    "ua_transcription": "rachunok dlja zaoščadžeň"
+  },
+  {
+    "cz_translation": "Potřebuji si vyzvednout peníze.",
+    "cz_transcription": "Потржебуї визведноут пенізе",
+    "ua_translation": "Мені потрібно зняти гроші.",
+    "ua_transcription": "Meni potribno zňaty hroši"
+  },
+  {
+    "cz_translation": "Budu platit poplatek?",
+    "cz_transcription": "Буду платіт поплатек",
+    "ua_translation": "Мені потрібно оплатити мито?",
+    "ua_transcription": "Meni potribno oplatyty myto"
+  },
+  {
+    "cz_translation": "Jaký je poplatek?",
+    "cz_transcription": "Яки є поплатек",
+    "ua_translation": "Який розмір мита?",
+    "ua_transcription": "Jakyj rozmir myta"
+  },
+  {
+    "cz_translation": "Dejte mi svůj pas, prosím.",
+    "cz_transcription": "Дейте ми свуй пас, просім",
+    "ua_translation": "Дайте, будь ласка, свій паспорт.",
+    "ua_transcription": "Dajte, buď laska, svij pasport"
+  },
+  {
+    "cz_translation": "Udělám si kopii pasu.",
+    "cz_transcription": "Удєлам си копиї пасу",
+    "ua_translation": "Я зроблю копію паспорту.",
+    "ua_transcription": "Ja zroblju kopiju pasportu"
+  },
+  {
+    "cz_translation": "Tady je můj pas.",
+    "cz_transcription": "Тади є муй пас",
+    "ua_translation": "Ось мій паспорт.",
+    "ua_transcription": "Os' mij pasport"
+  },
+  {
+    "cz_translation": "Jaké je vaše telefonní číslo?",
+    "cz_transcription": "Яке є ваше телефоні чісло",
+    "ua_translation": "Який у вас номер телефону?",
+    "ua_transcription": "Jakyj u vas nomer telefonu"
+  },
+  {
+    "cz_translation": "Moje telefonní číslo je...",
+    "cz_transcription": "Моє телефоні чісло є",
+    "ua_translation": "Мій номер телефону...",
+    "ua_transcription": "Mij nomer telefonu"
+  },
+  {
+    "cz_translation": "Jaký je váš e-mail?",
+    "cz_transcription": "Яки є ваш імейл",
+    "ua_translation": "Який у вас емейл?",
+    "ua_transcription": "Jakyj u vas emejl"
+  },
+  {
+    "cz_translation": "Můj e-mail je...",
+    "cz_transcription": "Муй імейл є",
+    "ua_translation": "Мій емейл...",
+    "ua_transcription": "Mij emejl"
+  },
+  {
+    "cz_translation": "Kolik peněz musím vložit?",
+    "cz_transcription": "Колик пенєс мусім вложит",
+    "ua_translation": "Скільки грошей мені потрібно покласти на рахунок?",
+    "ua_transcription": "Skil'ky hrošej meni potribno poklasty na rachunok"
+  },
+  {
+    "cz_translation": "Kdy dostanu platební kartu?",
+    "cz_transcription": "Ґди достану платебні карту",
+    "ua_translation": "Коли я зможу отримати банківську карточку?",
+    "ua_transcription": "Koly ja zmožu otrymaty bankivs'ku kartočku"
+  },
+  {
+    "cz_translation": "Kolik musím minimálně vybrat?",
+    "cz_transcription": "Колик мусім минималнє вибрат",
+    "ua_translation": "Скільки грошей мені потрібно мінімально знімати?",
+    "ua_transcription": "Skil'ky hrošej meni potribno minimal'no znimaty"
+  },
+  {
+    "cz_translation": "Kolik mohu maximálně vybrat?",
+    "cz_transcription": "Колик могу максималнє вибрат",
+    "ua_translation": "Скільки грошей мені можна максимально зняти?",
+    "ua_transcription": "Skil'ly hrošej meni možna maksymal'no zňaty"
+  },
+  {
+    "cz_translation": "Moje karta nefunguje.",
+    "cz_transcription": "Моє карта нефунґує",
+    "ua_translation": "Моя банківська карта не працює.",
+    "ua_transcription": "Moja bankivs’ka karta ne pracjuje"
+  }  
 ]
