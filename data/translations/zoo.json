@@ -96,16 +96,22 @@
     "ua_transcription": "kvytok dlja dorosloho"
   },
   {
-    "cz_translation": "Dítě. Děti.",
-    "cz_transcription": "Дітє / Дєті",
-    "ua_translation": "Дитина. Діти",
-    "ua_transcription": "Dytyna / Dity"
+    "cz_translation": "dítě",
+    "cz_transcription": "дітє",
+    "ua_translation": "дитина",
+    "ua_transcription": "dytyna"
+  },
+  {
+    "cz_translation": "děti",
+    "cz_transcription": "дєті",
+    "ua_translation": "діти",
+    "ua_transcription": "dity"
   },
   {
     "cz_translation": "Mohu dostat plánek?",
     "cz_transcription": "Могу достат планек",
     "ua_translation": "Можу взяти план? Можу взяти карту?",
-    "ua_transcription": "Možu vzjaty plan / Možu vzjaty kartu"
+    "ua_transcription": "Možu vzjaty plan. Možu vzjaty kartu"
   },
   {
     "cz_translation": "Kde jezdí lanovka?",
@@ -123,7 +129,7 @@
     "cz_translation": "Kde jsou záchody?",
     "cz_transcription": "Ґде соу заходи",
     "ua_translation": "Де знаходяться туалети?",
-    "ua_transcription": "De znachoďaťsja tualety?"
+    "ua_transcription": "De znachoďaťsja tualety"
   },
   {
     "cz_translation": "Kde můžu koupit jídlo?",
