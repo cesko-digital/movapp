@@ -33,7 +33,7 @@ export const KidsTranslationsContainer = ({
   setPlayer,
   player,
 }: KidsTranslationContainerProps): JSX.Element => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const currentLanguage = i18n.language as Language;
   const secondaryLanguage: Language = currentLanguage === 'uk' ? 'cs' : 'uk';
@@ -62,7 +62,7 @@ export const KidsTranslationsContainer = ({
       <button
         className="w-72 h-72 relative bg-white"
         onClick={() => playAudio(secondaryTranslation, secondaryLanguage)}
-        aria-label={'play ' + secondaryTranslation}
+        aria-label={t('utils.play') + ' ' + secondaryTranslation}
       >
         <Image src={`/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={cz_translation} />
       </button>
