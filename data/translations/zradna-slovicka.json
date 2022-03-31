@@ -202,5 +202,17 @@
     "cz_transcription": "єгла",
     "ua_translation": "голка",
     "ua_transcription": "holka"
+  },
+  {
+    "cz_translation": "lavor",
+    "cz_transcription": "лавор",
+    "ua_translation": "раковина",
+    "ua_transcription": "rakovyna"
+  },
+  {
+    "cz_translation": "hledat",
+    "cz_transcription": "гледат",
+    "ua_translation": "шукати",
+    "ua_transcription": "šukaty"
   }
 ]

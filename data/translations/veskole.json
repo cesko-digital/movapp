@@ -1,27 +1,27 @@
 [
   {
     "cz_translation": "Paní ředitelka. Pan ředitel.",
-    "cz_transcription": "Пані ржедітелка / Пан ржедітел",
+    "cz_transcription": "Пані ржедітелка. Пан ржедітел",
     "ua_translation": "Директриса. Директор.",
-    "ua_transcription": "Dyrektrysa / Dyrektor"
+    "ua_transcription": "Dyrektrysa. Dyrektor"
   },
   {
     "cz_translation": "Paní učitelka. Pan učitel.",
-    "cz_transcription": "Пані учителка / Пан учител",
+    "cz_transcription": "Пані учителка. Пан учител",
     "ua_translation": "Вчителька. Вчитель.",
-    "ua_transcription": "Učyteľka / Učyteľ"
+    "ua_transcription": "Učyteľka. Učyteľ"
   },
   {
     "cz_translation": "Paní asistentka. Pan asistent.",
-    "cz_transcription": "Пані асистентка / Пан асистент",
+    "cz_transcription": "Пані асистентка. Пан асистент",
     "ua_translation": "Асистентка. Асистент.",
-    "ua_transcription": "Asystentka / Asystent"
+    "ua_transcription": "Asystentka. Asystent"
   },
   {
     "cz_translation": "Paní učitelko!  Pane učiteli!",
-    "cz_transcription": "Пані учителко / Пане учители",
+    "cz_transcription": "Пані учителко. Пане учители",
     "ua_translation": "Пані вчителько! Пане учителю!",
-    "ua_transcription": "Pani učyteľko / Pane učytelju"
+    "ua_transcription": "Pani učyteľko. Pane učytelju"
   },
   {
     "cz_translation": "třídní schůzky",
@@ -99,7 +99,7 @@
     "cz_translation": "Mám omluvenku.",
     "cz_transcription": "Мам омлувенку",
     "ua_translation": "Маю письмове вибачення.",
-    "ua_transcription": "Maju pis’move vybačenňa."
+    "ua_transcription": "Maju pis’move vybačenňa"
   },
   {
     "cz_translation": "Nemám omluvenku.",
@@ -127,9 +127,9 @@
   },
   {
     "cz_translation": "Bačkory. Přezůvky.",
-    "cz_transcription": "Бачкори / Пржезуфки",
+    "cz_transcription": "Бачкори. Пржезуфки",
     "ua_translation": "Капці. Змінне взуття.",
-    "ua_transcription": "Kapci / Zminne vzutťa"
+    "ua_transcription": "Kapci. Zminne vzutťa"
   },
   {
     "cz_translation": "třída",
@@ -158,7 +158,7 @@
   },
   {
     "cz_translation": "Matematika. Matika.",
-    "cz_transcription": "Математика / Матика",
+    "cz_transcription": "Математика. Матика",
     "ua_translation": "Математика",
     "ua_transcription": "Matematyka"
   },
@@ -218,37 +218,37 @@
   },
   {
     "cz_translation": "Výtvarná výchova. Výtvarka.",
-    "cz_transcription": "Вітварна віхова / Вітварка",
+    "cz_transcription": "Вітварна віхова. Вітварка",
     "ua_translation": "Малювання. Художнє виховання.",
-    "ua_transcription": "Maljuvanňa / Chudožně vychovanňa"
+    "ua_transcription": "Maljuvanňa. Chudožně vychovanňa"
   },
   {
     "cz_translation": "Hudební výchova. Hudebka.",
-    "cz_transcription": "Гудебні віхова / Гудепка",
+    "cz_transcription": "Гудебні віхова. Гудепка",
     "ua_translation": "Музика. Музичне виховання.",
-    "ua_transcription": "Muzyka / Muzyčne vychovanňa"
+    "ua_transcription": "Muzyka. Muzyčne vychovanňa"
   },
   {
     "cz_translation": "Tělesná výchova. Tělák.",
-    "cz_transcription": "Тєлесна віхова / Тєлак",
+    "cz_transcription": "Тєлесна віхова. Тєлак",
     "ua_translation": "Фізична культура. Фіз-ра.",
-    "ua_transcription": "Fizyčna kul’tura / Fiz-ra"
+    "ua_transcription": "Fizyčna kul’tura. Fiz-ra"
   },
   {
     "cz_translation": "Informatika. Počítače.",
-    "cz_transcription": "Информатика / Почитаче",
+    "cz_transcription": "Информатика. Почитаче",
     "ua_translation": "Інформатика. Комп'ютерна техніка",
-    "ua_transcription": "Informatyka / Kompjuterna techňika"
+    "ua_transcription": "Informatyka. Kompjuterna techňika"
   },
   {
     "cz_translation": "Zeměpis. Zemák.",
-    "cz_transcription": "Земнєпис / Земак",
+    "cz_transcription": "Земнєпис. Земак",
     "ua_translation": "Географія",
     "ua_transcription": "Heohrafija"
   },
   {
     "cz_translation": "Dějepis. Děják.",
-    "cz_transcription": "Дєєпис / Дєяк",
+    "cz_transcription": "Дєєпис. Дєяк",
     "ua_translation": "Історія",
     "ua_transcription": "Istorija"
   },
@@ -266,7 +266,7 @@
   },
   {
     "cz_translation": "Občanská výchova. Občanka.",
-    "cz_transcription": "Опчанска віхова / Опчанка",
+    "cz_transcription": "Опчанска віхова. Опчанка",
     "ua_translation": "Правознавство",
     "ua_transcription": "Pravoznaustvo"
   },
@@ -316,9 +316,9 @@
 
   {
     "cz_translation": "Aktovka. Batoh.",
-    "cz_transcription": "Актофка / Батох",
+    "cz_transcription": "Актофка. Батох",
     "ua_translation": "Ранець. Рюкзак",
-    "ua_transcription": "Ranec’ / Rjukzak"
+    "ua_transcription": "Ranec’. Rjukzak"
   },
   {
     "cz_translation": "desky",
@@ -346,13 +346,13 @@
   },
   {
     "cz_translation": "Pracovní sešit. Pracák.",
-    "cz_transcription": "Працовні сешит / Працак",
+    "cz_transcription": "Працовні сешит. Працак",
     "ua_translation": "Робочий зошит",
     "ua_transcription": "Robočyj zošyt"
   },
   {
     "cz_translation": "Žákovská knížka. Žákajda.",
-    "cz_transcription": "Жакофска кнішка / Жакайда",
+    "cz_transcription": "Жакофска кнішка. Жакайда",
     "ua_translation": "Щоденник",
     "ua_transcription": "Ščodennyk"
   },
@@ -532,9 +532,9 @@
   },
   {
     "cz_translation": "Paní vychovatelka. Pan vychovatel.",
-    "cz_transcription": "Пані вихователка / Пан виховател",
+    "cz_transcription": "Пані вихователка. Пан виховател",
     "ua_translation": "Вихователька. Вихователь.",
-    "ua_transcription": "Vychovatel’ka / Vychovatel’"
+    "ua_transcription": "Vychovatel’ka. Vychovatel’"
   },
   {
     "cz_translation": "Chodím do družiny.",
@@ -552,7 +552,7 @@
     "cz_translation": "Kdy půjde domů?",
     "cz_transcription": "Ґди пуде дому",
     "ua_translation": "Коли він піде додому? Коли вона піде додому?",
-    "ua_transcription": "Koly vin pide dodomu? Koly vona pide dodomu?"
+    "ua_transcription": "Koly vin pide dodomu. Koly vona pide dodomu"
   },
   {
     "cz_translation": "Půjde v...",
@@ -576,13 +576,13 @@
     "cz_translation": "Kdo tě vyzvedne?",
     "cz_transcription": "Ґдо тє визведне",
     "ua_translation": "Хто тебе забирає?",
-    "ua_transcription": "Chto tebe zabyraje?"
+    "ua_transcription": "Chto tebe zabyraje"
   },
   {
     "cz_translation": "Kdo ji vyzvedne? Kdo ho vyzvedne?",
     "cz_transcription": "Ґдо ї визведне. Ґдо го визведне",
     "ua_translation": "Хто її забирає? Хто його забирає?",
-    "ua_transcription": "Chto jiji zabyraje? Chto joho zabyraje?"
+    "ua_transcription": "Chto jiji zabyraje. Chto joho zabyraje"
   },  
   {
     "cz_translation": "Jdeme na hřiště.",
@@ -594,7 +594,7 @@
     "cz_translation": "Dávej pozor.",
     "cz_transcription": "Давей позор",
     "ua_translation": "Зверни увагу! Обережно!",
-    "ua_transcription": "Zverny uvahu! Oberežno!"
+    "ua_transcription": "Zverny uvahu. Oberežno"
   },
   {
     "cz_translation": "Tam nechodíme.",
@@ -676,7 +676,7 @@
   },
   {
     "cz_translation": "Promiňte. Omlouvám se.",
-    "cz_transcription": "Проминьте. Омлоувам се.",
+    "cz_transcription": "Проминьте. Омлоувам се",
     "ua_translation": "Вибачте.",
     "ua_transcription": "Vybačte"
   },
@@ -743,8 +743,8 @@
   },
   {
     "cz_translation": "Máš radost? Já mám radost!",
-    "cz_transcription": "Маш радост? Я мам радост!",
+    "cz_transcription": "Маш радост. Я мам радост",
     "ua_translation": "Ти радієш? Я радію!",
-    "ua_transcription": "Ty radiješ? Ja radiju!"
+    "ua_transcription": "Ty radiješ. Ja radiju"
   }
 ]
