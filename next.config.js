@@ -36,6 +36,16 @@ const nextConfig = {
         destination: '/uk/:path*',
         permanent: true,
       },
+      {
+        source: '/movapp-cover.jpg',
+        destination: '/icons/movapp-cover.jpg',
+        permanent: true,
+      },
+      {
+        source: '/omalovanky.pdf',
+        destination: '/kids/omalovanky.pdf',
+        permanent: true,
+      },
     ];
   },
 };
