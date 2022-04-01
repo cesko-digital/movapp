@@ -3,13 +3,13 @@
     "cz_translation": "Jak zde funguje hromadná doprava?",
     "cz_transcription": "Як зде фунґує громадна доправа",
     "ua_translation": "Як тут працює громадський транспорт?",
-    "ua_transcription": "Jak tut pracjuje hromads’kyj transport?"
+    "ua_transcription": "Jak tut pracjuje hromads’kyj transport"
   },
   {
     "cz_translation": "Kde mohu koupit lístek?",
     "cz_transcription": "Ґде могу коупит лістек",
     "ua_translation": "Де можна купити квиток?",
-    "ua_transcription": "De možna kupyty kvitok?"
+    "ua_transcription": "De možna kupyty kvitok"
   },
   {
     "cz_translation": "lístek",
@@ -30,10 +30,10 @@
     "ua_transcription": "projiznyj kvytok"
   },
   {
-    "cz_translation": "Kdy jede...",
+    "cz_translation": "Kdy jede...?",
     "cz_transcription": "Ґди єде",
-    "ua_translation": "Коли їде ...?",
-    "ua_transcription": "Koly jide…?"
+    "ua_translation": "Коли їде...?",
+    "ua_transcription": "Koly jide"
   },
 
   {
@@ -95,13 +95,13 @@
   {
     "cz_translation": "Jede tato tramvaj do...?",
     "cz_transcription": "Єде тато трамвай до",
-    "ua_translation": "Цей трамвай їде до..?",
+    "ua_translation": "Цей трамвай їде до...?",
     "ua_transcription": "Cej tramvaj jide do"
   },
   {
     "cz_translation": "Jede tento autobus do...?",
     "cz_transcription": "Єде тенто аутобус до",
-    "ua_translation": "Цей автобус їде до ..?",
+    "ua_translation": "Цей автобус їде до...?",
     "ua_transcription": "Cej avtobus jide do"
   },
   {
@@ -111,20 +111,20 @@
     "ua_transcription": "metro"
   },
   {
-    "cz_translation": "Jsem na linii A?",
-    "cz_transcription": "Сем на ліниї А",
+    "cz_translation": "Jsem na lince A?",
+    "cz_transcription": "Сем на лінце А",
     "ua_translation": "Це гілка А?",
     "ua_transcription": "Ce rilka A"
   },
 {
-    "cz_translation": "Jsem na linii B?",
-    "cz_transcription": "Сем на ліниї Бе",
+    "cz_translation": "Jsem na lince B?",
+    "cz_transcription": "Сем на лінце Бе",
     "ua_translation": "Це гілка Б?",
     "ua_transcription": "Ce rilka Be"
   },
   {
-    "cz_translation": "Jsem na linii C?",
-    "cz_transcription": "Сем на ліниї Це",
+    "cz_translation": "Jsem na lince C?",
+    "cz_transcription": "Сем на лінце Це",
     "ua_translation": "Це гілка Ц?",
     "ua_transcription": "Ce rilka Ce"
   },
