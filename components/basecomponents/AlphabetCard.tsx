@@ -41,7 +41,7 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
   const letterAudio =
     letter[0] &&
     !escapePlayButtonForLetters.includes(letter[0]) &&
-    require(`public/audio/${playerLanguage}-alphabet/${letter[0].toLowerCase()}.mp3`);
+    require(`public/alphabet/${playerLanguage}-alphabet/${letter[0].toLowerCase()}.mp3`);
 
   return (
     <div className=" grid grid-rows-[66%_34%]  shadow-[0_3px_15px_grey] sm:shadow-none group sm:hover:shadow-lg rounded-lg">

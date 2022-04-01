@@ -64,7 +64,7 @@ export const KidsTranslationsContainer = ({
         onClick={() => playAudio(secondaryTranslation, secondaryLanguage)}
         aria-label={'play ' + secondaryTranslation}
       >
-        <Image src={`/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={cz_translation} />
+        <Image src={`/kids/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={cz_translation} />
       </button>
       <div className="px-6 py-4">
         <KidsTranslation

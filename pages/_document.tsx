@@ -13,11 +13,11 @@ const Document = (): JSX.Element => {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.webmanifest" />
 
-        <meta name="image" property="og:image" content="https://www.movapp.cz/movapp-cover.jpg" />
+        <meta name="image" property="og:image" content="https://www.movapp.cz/icons/movapp-cover.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://www.movapp.cz/movapp-cover.jpg" />
+        <meta name="twitter:image" content="https://www.movapp.cz/icons/movapp-cover.jpg" />
       </Head>
       <body>
         <Main />
