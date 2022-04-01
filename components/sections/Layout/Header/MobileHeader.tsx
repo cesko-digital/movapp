@@ -7,7 +7,7 @@ import { HEADER_NAVIGATION } from 'data/headerNavigation';
 import { LOCALES } from 'data/locales';
 import BurgerIcon from 'public/icons/burger.svg';
 import CloseIcon from 'public/icons/close.svg';
-import AppLogo from 'public/movapp-logo.png';
+import AppLogo from 'public/icons/movapp-logo.png';
 
 export const MobileHeader = () => {
   const [showNavigation, setShowNavigation] = useState(false);
