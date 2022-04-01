@@ -17,7 +17,7 @@ export const Translation = ({
   player,
   setPlayer,
   currentLanguage,
-  searchText
+  searchText,
 }: TranslationProps): JSX.Element => {
   const handleTranslationAudioPlay = (language: string, text: string) => {
     // stops player if something is currently playing
@@ -42,7 +42,7 @@ export const Translation = ({
         <p className="text-gray-500">{`[ ${transcription} ]`}</p>
       </div>
       <button onClick={() => handleTranslationAudioPlay(currentLanguage, translation)}>
-        <PlayIcon className="cursor-pointer active:scale-75  stroke-red-500 w-8" />
+        <PlayIcon className="cursor-pointer active:scale-75  stroke-primary-blue w-8" />
       </button>
     </div>
   );
