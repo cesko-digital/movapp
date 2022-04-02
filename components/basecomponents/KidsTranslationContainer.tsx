@@ -1,9 +1,10 @@
 import React from 'react';
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { KidsTranslation } from './KidsTranslation';
 import { Language } from '../../data/locales';
 import { playGoogleTTSAudio } from 'components/utils/audioUtils';
+import { useLanguage } from 'components/utils/useLanguageHook';
+import { useTranslation } from 'next-i18next';
 
 export interface Translation {
   cz_translation: string;
@@ -33,10 +34,8 @@ export const KidsTranslationsContainer = ({
   setPlayer,
   player,
 }: KidsTranslationContainerProps): JSX.Element => {
-  const { i18n, t } = useTranslation();
-
-  const currentLanguage = i18n.language as Language;
-  const secondaryLanguage: Language = currentLanguage === 'uk' ? 'cs' : 'uk';
+  const { currentLanguage, otherLanguage } = useLanguage();
+  const { t } = useTranslation();
 
   const languageTranslation = {
     uk: {
@@ -50,7 +49,7 @@ export const KidsTranslationsContainer = ({
   };
 
   const currentTranslation = languageTranslation[currentLanguage].translation;
-  const secondaryTranslation = languageTranslation[secondaryLanguage].translation;
+  const secondaryTranslation = languageTranslation[otherLanguage].translation;
 
   const playAudio = (translation: string, language: Language) => {
     const audio = playGoogleTTSAudio(language, translation, player);
@@ -61,7 +60,7 @@ export const KidsTranslationsContainer = ({
     <div className="max-w-sm rounded-2xl overflow-hidden shadow-xl w-72 m-5 md:m-8 bg-[#f7e06a] max-h-[32rem]">
       <button
         className="w-72 h-72 relative bg-white"
-        onClick={() => playAudio(secondaryTranslation, secondaryLanguage)}
+        onClick={() => playAudio(secondaryTranslation, otherLanguage)}
         aria-label={t('utils.play') + ' ' + secondaryTranslation}
       >
         <Image src={`/kids/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={cz_translation} />
@@ -76,9 +75,9 @@ export const KidsTranslationsContainer = ({
         />
         <KidsTranslation
           image={image}
-          currentLanguage={secondaryLanguage}
+          currentLanguage={otherLanguage}
           playAudio={playAudio}
-          transcription={languageTranslation[secondaryLanguage].transcription}
+          transcription={languageTranslation[otherLanguage].transcription}
           translation={secondaryTranslation}
         />
       </div>

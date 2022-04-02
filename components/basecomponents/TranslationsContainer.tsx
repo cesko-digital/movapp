@@ -1,6 +1,5 @@
-import { useTranslation } from 'next-i18next';
 import { Translation } from './Translation';
-import { Language } from 'data/locales';
+import { useLanguage } from 'components/utils/useLanguageHook';
 
 export interface Translation {
   cz_translation: string;
@@ -29,10 +28,7 @@ export const TranslationContainer = ({
   setPlayer,
   player,
 }: TranslationContainerProps): JSX.Element => {
-  const { i18n } = useTranslation();
-
-  const currentLanguage = i18n.language as Language;
-  const secondaryLanguage: Language = currentLanguage === 'uk' ? 'cs' : 'uk';
+  const { currentLanguage, otherLanguage } = useLanguage();
 
   const languageTranslation = {
     uk: {
@@ -61,11 +57,11 @@ export const TranslationContainer = ({
       {/* UA translation  */}
       <Translation
         searchText={searchText}
-        currentLanguage={secondaryLanguage}
+        currentLanguage={otherLanguage}
         player={player}
         setPlayer={setPlayer}
-        transcription={languageTranslation[secondaryLanguage].transcription}
-        translation={languageTranslation[secondaryLanguage].translation}
+        transcription={languageTranslation[otherLanguage].transcription}
+        translation={languageTranslation[otherLanguage].translation}
       />
     </div>
   );
