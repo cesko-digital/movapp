@@ -10,8 +10,6 @@ export interface Translation {
 
 interface TranslationContainerProps extends Translation {
   searchText: string;
-  setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
-  player: HTMLAudioElement | null;
 }
 
 /**
@@ -25,8 +23,6 @@ export const TranslationContainer = ({
   ua_transcription,
   cz_transcription,
   searchText,
-  setPlayer,
-  player,
 }: TranslationContainerProps): JSX.Element => {
   const { currentLanguage, otherLanguage } = useLanguage();
 
@@ -46,9 +42,7 @@ export const TranslationContainer = ({
       {/* CZ translation  */}
       <Translation
         searchText={searchText}
-        currentLanguage={currentLanguage}
-        player={player}
-        setPlayer={setPlayer}
+        language={currentLanguage}
         transcription={languageTranslation[currentLanguage].transcription}
         translation={languageTranslation[currentLanguage].translation}
       />
@@ -57,9 +51,7 @@ export const TranslationContainer = ({
       {/* UA translation  */}
       <Translation
         searchText={searchText}
-        currentLanguage={otherLanguage}
-        player={player}
-        setPlayer={setPlayer}
+        language={otherLanguage}
         transcription={languageTranslation[otherLanguage].transcription}
         translation={languageTranslation[otherLanguage].translation}
       />
