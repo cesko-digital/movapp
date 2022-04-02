@@ -46,19 +46,6 @@
       {
         "accessibility": "no-public"
       }
-    ],
-    "prettier/prettier": [
-      "warn",
-      {
-        "trailingComma": "all",
-        "singleQuote": true,
-        "printWidth": 140,
-        "tabWidth": 2,
-        "arrowParens": "always"
-      },
-      {
-        "usePrettierrc": false
-      }
     ]
   }
 }
