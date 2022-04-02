@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { HEADER_NAVIGATION } from 'data/headerNavigation';
 import { LOCALES } from 'data/locales';
-import AppLogo from 'public/movapp-logo.png';
+import AppLogo from 'public/icons/movapp-logo.png';
 
 export const Header = () => {
   const { t, i18n } = useTranslation('common');

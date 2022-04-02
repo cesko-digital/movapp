@@ -24,10 +24,16 @@
     "ua_transcription": "rozčinna kava"
   },
   {
-    "cz_translation": "Šťáva. Sirup.",
-    "cz_transcription": "Штява / Сіруп",
-    "ua_translation": "Сік. Нектар.",
-    "ua_transcription": "Sik / Nektar"
+    "cz_translation": "šťáva",
+    "cz_transcription": "штява",
+    "ua_translation": "сік",
+    "ua_transcription": "sik"
+  },
+  {
+    "cz_translation": "sirup",
+    "cz_transcription": "сіруп",
+    "ua_translation": "сироп",
+    "ua_transcription": "syrop"
   },
   {
     "cz_translation": "mléko",
@@ -44,8 +50,8 @@
   {
     "cz_translation": "houska",
     "cz_transcription": "гоуска",
-    "ua_translation": "булочка (несолодка)",
-    "ua_transcription": "buločka (nesolodka)"
+    "ua_translation": "булочка",
+    "ua_transcription": "buločka"
   },
   {
     "cz_translation": "Dáš si housku?",
@@ -333,6 +339,6 @@
     "cz_translation": "Kolik to stojí?",
     "cz_transcription": "Колик то стої",
     "ua_translation": "Скільки коштує?",
-    "ua_transcription": "skil’ky koštuje"
+    "ua_transcription": "Skil’ky koštuje"
   } 
 ]

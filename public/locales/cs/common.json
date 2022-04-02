@@ -40,9 +40,14 @@
     "movapp_goal_title": "Cíl Movapp.cz",
     "movapp_goal_description": "Cílem Movapp.cz je usnadnit dorozumění mezi Čechy a Ukrajinci. V první fázi byl vypublikován přehled základních česko-ukrajinských frází. V dalších fázích budeme vytvářet nástroje pro jejich procvičování a chceme se stát rozcestníkem pro další nástroje a materiály, které pomůžou s učením ukrajinštiny a češtiny.",
     "why_movapp_title": "Proč Movapp?",
-    "why_movapp_description": "<p><i>Mова [mova]</i> znamená ukrajinsky <i>jazyk</i>. Movapp je aplikace pro trénink jazyků.<br/><br/></p><p>Movapp je k dispozici zdarma a je vytvářena jako otevřený software pod licencí MIT, to znamená, že ji můžete zdarma nejen používat, ale také si ji upravit (pokud umíte programovat).<br/><br/></p><p>Texty, obrázky a audiosoubory Movapp jsou pod <0>licencí CC BY-NC 4.0</0>. (Uveďte původ-Neužívejte komerčně 4.0), což znamená, že je můžete pro vlastní potřeby používat zcela bez omezení. Pokud byste je chtěli dále šířit (v původní nebo v upravené podobě), můžete tak dělat pouze nekomerčním způsobem a s uvedením původních autorů.<br/><br/></p><p>Původní autorkou <1>základní sady slov a frází</1> je Tereza Javornická a Yevheniia Valova (EDUA Group). Tuto sadu udržuje a dále rozšiřuje tým Movapp.</p>",
+    "why_movapp_mova": "<i>Mова [mova]</i> znamená ukrajinsky <i>jazyk</i>. Movapp je aplikace pro trénink jazyků.",
+    "why_movapp_description": "Movapp je k dispozici zdarma a je vytvářena jako otevřený software pod licencí MIT, to znamená, že ji můžete zdarma nejen používat, ale také si ji upravit (pokud umíte programovat).",
+    "why_movapp_license": "Texty, obrázky a audiosoubory Movapp jsou pod <0>licencí CC BY-NC 4.0</0>. (Uveďte původ-Neužívejte komerčně 4.0), což znamená, že je můžete pro vlastní potřeby používat zcela bez omezení. Pokud byste je chtěli dále šířit (v původní nebo v upravené podobě), můžete tak dělat pouze nekomerčním způsobem a s uvedením původních autorů.",
+    "why_movapp_origin": "Původní autorkou <0>základní sady slov a frází</0> je Tereza Javornická a Yevheniia Valova (EDUA Group). Tuto sadu udržuje a dále rozšiřuje tým Movapp.",
     "our_team_title": "Náš tým",
-    "our_team_description": "<p>Kořenovými členy týmu Movapp.cz jsou: Martin Hassman, Oleg Antonyak, Tatiana Chytilová, Petr Illek, Valeriia Kuna, Monika Fabryová, Juraj Uhlár, Bára Skálová, Tereza Javornická, Alena Burneleit, Anna Lamberová, Roman Žydyk a Martina Krejčí. A pomáhá jim řada dalších dobrovolníků.<br/><br/></p> <p>Autorky ilustrací pro děti jsou: Alena Burneleit, Anna Lamberová, Lucie Lomová, Kateřina Vacková Mňuková a Marie Kraus.<br/><br/></p><p>Chcete nám pomoci s obsahem, nebo se jinak zapojit?<br/>Hledáte na nás <0>kontakt</0>?</p>",
+    "our_team_description": "Kořenovými členy týmu Movapp.cz jsou: Martin Hassman, Oleg Antonyak, Tatiana Chytilová, Petr Illek, Valeriia Kuna, Monika Fabryová, Juraj Uhlár, Bára Skálová, Tereza Javornická, Alena Burneleit, Anna Lamberová, Roman Žydyk a Martina Krejčí. A pomáhá jim řada dalších dobrovolníků.",
+    "our_team_illustrators": "Autorky ilustrací pro děti jsou: Alena Burneleit, Anna Lamberová, Lucie Lomová, Kateřina Vacková Mňuková a Marie Kraus.",
+    "our_team_contact": "Chcete nám pomoci s obsahem, nebo se jinak zapojit?<br/>Hledáte na nás <0>kontakt</0>?",
     "stand_with_ukraine_title": "Stojíme za Ukrajinou",
     "stand_with_ukraine_description": "<0>Stojíme za Ukrajinou</0> je iniciativa dobrovolníků napříč organizacemi a spolky. Jsme běžní řadoví občané, kterým není lhostejná současná situace související s válečným konfliktem vedeným Ruskem proti suverénní demokratické Ukrajině. Tato iniciativa vznikla přirozeně, vyrůstá z dlouhodobé podpory Ukrajiny po anexi Krymu, s eskalací napětí začala být ve veřejném prostoru zřejmá 19. února 2022 a od té doby organicky roste.",
     "czech_digital_title": "Česko.Digital",
@@ -96,5 +101,8 @@
   },
   "errors": {
     "pageNotFound": "Stránka nebyla nalezena"
+  },
+  "utils": {
+    "play": "přehrát"
   }
 }

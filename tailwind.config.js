@@ -23,7 +23,7 @@ module.exports = {
         1: '1px',
       },
       backgroundImage: {
-        'homepage-hero': "url('/movapp-bg.svg')",
+        'homepage-hero': "url('/icons/movapp-bg.svg')",
       },
       font: {
         ['sans-pro']: "Source Sans Pro"

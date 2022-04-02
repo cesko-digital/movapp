@@ -19,7 +19,7 @@ const KidsSection = () => {
         <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
       </Head>
       <div className="text-center sm:text-right pt-8 mr-0 sm:mr-16">
-        <a href="/omalovanky.pdf" target="_blank" rel="noopener noreferrer" download>
+        <a href="/kids/omalovanky.pdf" target="_blank" rel="noopener noreferrer" download>
           <Button text={t('kids_page.downloadPDF')} />
         </a>
       </div>
