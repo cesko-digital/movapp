@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { HTMLAttributes } from 'react';
 import { Language } from 'data/locales';
+import { useLanguage } from 'components/utils/useLanguageHook';
 
 interface LinkTextProps {
   href: string;
@@ -27,9 +28,8 @@ const H2 = ({ ...props }: HTMLAttributes<HTMLHeadingElement>) => <h2 className="
 const P = ({ ...props }: HTMLAttributes<HTMLParagraphElement>) => <p className="mb-6" {...props} />;
 
 const About = () => {
-  const { t, i18n } = useTranslation();
-
-  const currentLanguage = i18n.language as Language;
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
 
   return (
     <>
