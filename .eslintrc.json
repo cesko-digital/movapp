@@ -46,6 +46,13 @@
       {
         "accessibility": "no-public"
       }
+    ],
+    "prettier/prettier": [
+      "warn",
+      {},
+      {
+        "usePrettierrc": true
+      }
     ]
   }
 }
