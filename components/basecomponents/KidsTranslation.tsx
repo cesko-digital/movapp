@@ -4,7 +4,7 @@ import PlayKidsIcon from '../../public/icons/play-kids.svg';
 import FlagCZIcon from '../../public/icons/cz.svg';
 import FlagUAIcon from '../../public/icons/ua.svg';
 import { Language } from '../../data/locales';
-import { AudioPlayer } from 'components/utils/audioUtils';
+import { AudioPlayer } from 'components/utils/AudioPlayer';
 interface KidsTranslationProps {
   translation: string;
   transcription: string;

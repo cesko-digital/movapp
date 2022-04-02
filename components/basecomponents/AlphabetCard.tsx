@@ -1,47 +1,27 @@
-import React, { useRef } from 'react';
+import { AudioPlayer } from 'components/utils/AudioPlayer';
+import { Language } from 'data/locales';
+import React from 'react';
 import PlayIcon from '../../public/icons/play.svg';
+
+const LETTERS_WITHOUT_AUDIO = ['ь'];
 
 interface AlphabetCardProps {
   examples: {
     example: string;
     example_transcription: string;
   }[];
-  player: HTMLAudioElement | null;
-  setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
-  letter: (string | null)[];
+  letter: [string, string | null];
   transcription: string;
-  playerLanguage: 'cs' | 'uk';
+  language: Language;
 }
 
-export const AlphabetCard = ({ examples, player, setPlayer, letter, transcription, playerLanguage }: AlphabetCardProps): JSX.Element => {
-  const escapePlayButtonForLetters = ['ь'];
-  const letterAudioRef = useRef<HTMLAudioElement | null>(null);
+export const AlphabetCard = ({ examples, letter, transcription, language: playerLanguage }: AlphabetCardProps): JSX.Element => {
+  const hasAudio = !LETTERS_WITHOUT_AUDIO.includes(letter[0]);
 
-  const handleAudioPlay = (language?: string, text?: string) => {
-    // stops player if something is currently playing
-    if (player) {
-      player.pause();
-      player.currentTime = 0;
-    }
-    let audio;
-    if (text) {
-      const source = `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;
-      audio = new Audio(source);
-    } else {
-      audio = letterAudioRef.current;
-    }
-
-    // setPlayer in order to track if something is playing when next player is triggered
-    if (audio) {
-      setPlayer(audio);
-      audio.play();
-    }
+  const playLetterAudio = () => {
+    const audio = new Audio(`alphabet/${playerLanguage}-alphabet/${letter[0].toLowerCase()}.mp3`);
+    AudioPlayer.getInstance().play(audio);
   };
-  /* eslint-disable @typescript-eslint/no-require-imports */
-  const letterAudio =
-    letter[0] &&
-    !escapePlayButtonForLetters.includes(letter[0]) &&
-    require(`public/alphabet/${playerLanguage}-alphabet/${letter[0].toLowerCase()}.mp3`);
 
   return (
     <div className=" grid grid-rows-[66%_34%]  shadow-[0_3px_15px_grey] sm:shadow-none group sm:hover:shadow-lg rounded-lg">
@@ -53,15 +33,12 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
             {letter[1]}
           </p>
           <div className="self-end">
-            <button className="w-16 sm:w-8 md:w-12 m-auto block " onClick={() => handleAudioPlay()}>
-              <span className="sr-only">{letter[0]}</span>
-              {letterAudio && (
-                <>
-                  <audio ref={letterAudioRef} src={letterAudio} />
-                  <PlayIcon className="py-1 stroke-red-500 cursor-pointer" />{' '}
-                </>
-              )}
-            </button>
+            {hasAudio && (
+              <button className="w-16 sm:w-8 md:w-12 m-auto block " onClick={playLetterAudio}>
+                <span className="sr-only">{letter[0]}</span>
+                <PlayIcon className="py-1 stroke-red-500 cursor-pointer" />{' '}
+              </button>
+            )}
           </div>
           <p
             className={`${
@@ -86,7 +63,7 @@ export const AlphabetCard = ({ examples, player, setPlayer, letter, transcriptio
             <div key={index} className="grid grid-cols-[40%_45%_15%] grid-flow-col items-center pt-3 px-4">
               <p className="font-light justift-self-start break-all text-base sm:text-xs md:text-sm">{example}</p>
               <p className="font-light text-base sm:text-xs md:text-sm">[{example_transcription}]</p>
-              <button className="justify-self-end" onClick={() => handleAudioPlay(playerLanguage, example)}>
+              <button className="justify-self-end" onClick={() => AudioPlayer.getInstance().playTextToSpeech(example, playerLanguage)}>
                 <PlayIcon className="w-7 sm:w-4 md:w-5 stroke-red-500  cursor-pointer " />
               </button>
             </div>

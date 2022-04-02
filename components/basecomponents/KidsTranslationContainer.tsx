@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { KidsTranslation } from './KidsTranslation';
 import { useLanguage } from 'components/utils/useLanguageHook';
-import { AudioPlayer } from 'components/utils/audioUtils';
+import { AudioPlayer } from 'components/utils/AudioPlayer';
 
 export interface Translation {
   cz_translation: string;

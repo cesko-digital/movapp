@@ -1,7 +1,7 @@
 import PlayIcon from 'public/icons/play.svg';
 import Marker from 'react-mark.js/Marker';
 import { Language } from 'data/locales';
-import { AudioPlayer } from 'components/utils/audioUtils';
+import { AudioPlayer } from 'components/utils/AudioPlayer';
 
 interface TranslationProps {
   translation: string;
