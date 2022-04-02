@@ -4,16 +4,15 @@ import PlayKidsIcon from '../../public/icons/play-kids.svg';
 import FlagCZIcon from '../../public/icons/cz.svg';
 import FlagUAIcon from '../../public/icons/ua.svg';
 import { Language } from '../../data/locales';
+import { AudioPlayer } from 'components/utils/audioUtils';
 interface KidsTranslationProps {
   translation: string;
   transcription: string;
   image: string;
-  currentLanguage: Language;
-  // eslint-disable-next-line no-unused-vars
-  playAudio: (translation: string, language: Language) => void;
+  language: Language;
 }
 
-export const KidsTranslation = ({ transcription, translation, currentLanguage, playAudio }: KidsTranslationProps): JSX.Element => {
+export const KidsTranslation = ({ transcription, translation, language: currentLanguage }: KidsTranslationProps): JSX.Element => {
   const { t } = useTranslation();
 
   return (
@@ -32,7 +31,7 @@ export const KidsTranslation = ({ transcription, translation, currentLanguage, p
         <p className="self-start w-full font-semibold">{translation}</p>
         <p className="text-gray-500">{`[ ${transcription} ]`}</p>
       </div>
-      <button onClick={() => playAudio(translation, currentLanguage)} aria-label="play">
+      <button onClick={() => AudioPlayer.getInstance().playTextToSpeech(translation, currentLanguage)} aria-label="play">
         <PlayKidsIcon className="cursor-pointer active:scale-75 transition-all duration-300" />
       </button>
     </div>
