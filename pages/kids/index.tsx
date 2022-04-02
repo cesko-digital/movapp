@@ -15,8 +15,10 @@ const KidsSection = () => {
       <Head>
         <meta name="referrer" content="no-referrer" />
         <title>{t('seo.dictionary_page_title')}</title>
-        <meta name="description" content={t('seo.dictionary_page_description')} />
-        <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
+        <meta name="description" content={t('seo.kids_page_description')} />
+        <meta name="twitter:title" content={t('seo.kids_page_title')} />
+        <meta name="image" property="og:image" content="https://www.movapp.cz/icons/movapp-cover-kids.jpg" />
+        <meta name="twitter:image" content="https://www.movapp.cz/icons/movapp-cover-kids.jpg" />
       </Head>
       <div className="text-center sm:text-right pt-8 mr-0 sm:mr-16">
         <a href="/kids/omalovanky.pdf" target="_blank" rel="noopener noreferrer" download>

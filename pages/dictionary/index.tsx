@@ -47,10 +47,8 @@ const Dictionary = () => {
       <Head>
         <meta name="referrer" content="no-referrer" />
         <title>{t('seo.dictionary_page_title')}</title>
-        <meta name="description" content={t('seo.kids_page_description')} />
-        <meta name="twitter:title" content={t('seo.kids_page_title')} />
-        <meta name="image" property="og:image" content="https://www.movapp.cz/movapp-cover.jpg" />
-        <meta name="twitter:image" content="https://www.movapp.cz/movapp-cover.jpg" />
+        <meta name="description" content={t('seo.dictionary_page_description')} />
+        <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
       </Head>
       <div className="max-w-7xl m-auto ">
         <h1 className="text-primary-blue">{t('dictionary_page.title')}</h1>
