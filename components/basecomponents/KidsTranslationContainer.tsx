@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { KidsTranslation } from './KidsTranslation';
 import { useLanguage } from 'components/utils/useLanguageHook';
 import { AudioPlayer } from 'components/utils/AudioPlayer';
+import { useTranslation } from 'next-i18next';
 
 export interface Translation {
   cz_translation: string;
@@ -29,6 +30,7 @@ export const KidsTranslationsContainer = ({
   image,
 }: KidsTranslationContainerProps): JSX.Element => {
   const { currentLanguage, otherLanguage } = useLanguage();
+  const { t } = useTranslation();
 
   const languageTranslation = {
     uk: {
@@ -49,7 +51,7 @@ export const KidsTranslationsContainer = ({
       <button
         className="w-72 h-72 relative bg-white"
         onClick={() => AudioPlayer.getInstance().playTextToSpeech(secondaryTranslation, otherLanguage)}
-        aria-label={'play ' + secondaryTranslation}
+        aria-label={t('utils.play') + ' ' + secondaryTranslation}
       >
         <Image src={`/kids/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={cz_translation} />
       </button>

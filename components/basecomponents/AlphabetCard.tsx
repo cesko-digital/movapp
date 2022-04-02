@@ -1,5 +1,6 @@
 import { AudioPlayer } from 'components/utils/AudioPlayer';
 import { Language } from 'data/locales';
+import { useTranslation } from 'next-i18next';
 import React from 'react';
 import PlayIcon from '../../public/icons/play.svg';
 
@@ -16,8 +17,9 @@ interface AlphabetCardProps {
 }
 
 export const AlphabetCard = ({ examples, letter, transcription, language: playerLanguage }: AlphabetCardProps): JSX.Element => {
-  const hasAudio = !LETTERS_WITHOUT_AUDIO.includes(letter[0]);
+  const { t } = useTranslation();
 
+  const hasAudio = !LETTERS_WITHOUT_AUDIO.includes(letter[0]);
   const playLetterAudio = () => {
     const audio = new Audio(`alphabet/${playerLanguage}-alphabet/${letter[0].toLowerCase()}.mp3`);
     AudioPlayer.getInstance().play(audio);
@@ -34,8 +36,7 @@ export const AlphabetCard = ({ examples, letter, transcription, language: player
           </p>
           <div className="self-end">
             {hasAudio && (
-              <button className="w-16 sm:w-8 md:w-12 m-auto block " onClick={playLetterAudio}>
-                <span className="sr-only">{letter[0]}</span>
+              <button onClick={playLetterAudio} className="w-16 sm:w-8 md:w-12 m-auto block" aria-label={t('utils.play') + ' ' + letter[0]}>
                 <PlayIcon className="py-1 stroke-red-500 cursor-pointer" />{' '}
               </button>
             )}
@@ -63,7 +64,11 @@ export const AlphabetCard = ({ examples, letter, transcription, language: player
             <div key={index} className="grid grid-cols-[40%_45%_15%] grid-flow-col items-center pt-3 px-4">
               <p className="font-light justift-self-start break-all text-base sm:text-xs md:text-sm">{example}</p>
               <p className="font-light text-base sm:text-xs md:text-sm">[{example_transcription}]</p>
-              <button className="justify-self-end" onClick={() => AudioPlayer.getInstance().playTextToSpeech(example, playerLanguage)}>
+              <button
+                className="justify-self-end"
+                onClick={() => AudioPlayer.getInstance().playTextToSpeech(example, playerLanguage)}
+                aria-label={t('utils.play') + ' ' + example}
+              >
                 <PlayIcon className="w-7 sm:w-4 md:w-5 stroke-red-500  cursor-pointer " />
               </button>
             </div>
