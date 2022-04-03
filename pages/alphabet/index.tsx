@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
-import Head from 'next/head';
 import React, { useState } from 'react';
+import SEO from 'components/SEO';
 import { AlphabetCard } from '../../components/basecomponents/AlphabetCard';
 import { LanguageSelect } from '../../components/basecomponents/LanguageSelect';
 import { ALPHABET_CZ } from '../../data/alphabets/cz_alphabet';
@@ -22,12 +22,11 @@ const AlphabetPage = (): JSX.Element => {
 
   return (
     <>
-      <Head>
-        <meta name="referrer" content="no-referrer" />
-        <title>{t('seo.alphabet_page_title')}</title>
-        <meta name="description" content={t('seo.alphabet_page_description')} />
-        <meta name="twitter:title" content={t('seo.alphabet_page_title')} />
-      </Head>
+      <SEO
+        title={t('seo.alphabet_page_title')}
+        description={t('seo.alphabet_page_description')}
+        image="https://www.movapp.cz/icons/movapp-cover.jpg"
+      />
       <div className="max-w-7xl m-auto">
         <h1 className="text-primary-blue mb-3">
           {t('alphabet_page.title', {

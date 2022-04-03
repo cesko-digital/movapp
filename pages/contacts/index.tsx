@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key*/
 import { Trans, useTranslation } from 'next-i18next';
-import Head from 'next/head';
+import SEO from 'components/SEO';
 import { LinkText } from 'pages/about';
 export { getStaticProps } from 'utils/localization';
 
@@ -10,12 +10,11 @@ const Contacts = () => {
   const heading_style = 'mb-1 mt-5 sm:mb-4 sm:mt-10 text-primary-blue';
   return (
     <>
-      <Head>
-        <meta name="referrer" content="no-referrer" />
-        <title>{t('seo.contacts_page_title')}</title>
-        <meta name="description" content={t('seo.contacts_page_description')} />
-        <meta name="twitter:title" content={t('seo.contacts_page_title')} />
-      </Head>
+      <SEO
+        title={t('seo.contacts_page_title')}
+        description={t('seo.contacts_page_description')}
+        image="https://www.movapp.cz/icons/movapp-cover.jpg"
+      />
       <div className="max-w-7xl m-auto">
         <h1 className="text-primary-blue">{t('contacts_page.title')}</h1>
         <h2 className={`${heading_style}`}>

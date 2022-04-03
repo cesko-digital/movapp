@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
+import SEO from 'components/SEO';
 import { useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
@@ -44,12 +44,11 @@ const Dictionary = () => {
 
   return (
     <>
-      <Head>
-        <meta name="referrer" content="no-referrer" />
-        <title>{t('seo.dictionary_page_title')}</title>
-        <meta name="description" content={t('seo.dictionary_page_description')} />
-        <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
-      </Head>
+      <SEO
+        title={t('seo.dictionary_page_title')}
+        description={t('seo.dictionary_page_description')}
+        image="https://www.movapp.cz/icons/movapp-cover.jpg"
+      />
       <div className="max-w-7xl m-auto ">
         <h1 className="text-primary-blue">{t('dictionary_page.title')}</h1>
         <div className="flex items-center">

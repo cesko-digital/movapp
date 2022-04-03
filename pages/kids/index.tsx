@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import Head from 'next/head';
+import SEO from 'components/SEO';
 import React, { useState } from 'react';
 import kidsWords from '../../data/translations/pro-deti.json';
 import { Button } from '../../components/basecomponents/Button';
@@ -12,14 +12,11 @@ const KidsSection = () => {
 
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
-      <Head>
-        <meta name="referrer" content="no-referrer" />
-        <title>{t('seo.kids_page_title')}</title>
-        <meta name="description" content={t('seo.kids_page_description')} />
-        <meta name="twitter:title" content={t('seo.kids_page_title')} />
-        <meta name="image" property="og:image" content="https://www.movapp.cz/icons/movapp-cover-kids.jpg" />
-        <meta name="twitter:image" content="https://www.movapp.cz/icons/movapp-cover-kids.jpg" />
-      </Head>
+      <SEO
+        title={t('seo.kids_page_title')}
+        description={t('seo.kids_page_description')}
+        image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
+      />
       <div className="text-center sm:text-right pt-8 mr-0 sm:mr-16">
         <a href="/kids/omalovanky.pdf" target="_blank" rel="noopener noreferrer" download>
           <Button text={t('kids_page.downloadPDF')} />
