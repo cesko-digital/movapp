@@ -1,7 +1,7 @@
 import { AudioPlayer } from 'components/utils/AudioPlayer';
 import { Language } from 'data/locales';
 import { useTranslation } from 'next-i18next';
-import React from 'react';
+import React, { useRef } from 'react';
 import PlayIcon from '../../public/icons/play.svg';
 
 const LETTERS_WITHOUT_AUDIO = ['ь'];
@@ -18,12 +18,9 @@ interface AlphabetCardProps {
 
 export const AlphabetCard = ({ examples, letter, transcription, language: playerLanguage }: AlphabetCardProps): JSX.Element => {
   const { t } = useTranslation();
-
-  const hasAudio = !LETTERS_WITHOUT_AUDIO.includes(letter[0]);
-  const playLetterAudio = () => {
-    const audio = new Audio(`alphabet/${playerLanguage}-alphabet/${letter[0].toLowerCase()}.mp3`);
-    AudioPlayer.getInstance().play(audio);
-  };
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const letterHasAudio = !LETTERS_WITHOUT_AUDIO.includes(letter[0]);
+  const audioSrcPath = `alphabet/${playerLanguage}-alphabet/${letter[0].toLowerCase()}.mp3`;
 
   return (
     <div className=" grid grid-rows-[66%_34%]  shadow-[0_3px_15px_grey] sm:shadow-none group sm:hover:shadow-lg rounded-lg">
@@ -35,8 +32,13 @@ export const AlphabetCard = ({ examples, letter, transcription, language: player
             {letter[1]}
           </p>
           <div className="self-end">
-            {hasAudio && (
-              <button onClick={playLetterAudio} className="w-16 sm:w-8 md:w-12 m-auto block" aria-label={t('utils.play') + ' ' + letter[0]}>
+            {letterHasAudio && (
+              <button
+                onClick={() => AudioPlayer.getInstance().play(audioRef.current)}
+                className="w-16 sm:w-8 md:w-12 m-auto block"
+                aria-label={t('utils.play') + ' ' + letter[0]}
+              >
+                <audio ref={audioRef} src={audioSrcPath} />
                 <PlayIcon className="py-1 stroke-red-500 cursor-pointer" />{' '}
               </button>
             )}

@@ -21,7 +21,10 @@ export class AudioPlayer {
     return this.instance;
   }
 
-  play = (newAudio: HTMLAudioElement) => {
+  play = (newAudio: HTMLAudioElement | null) => {
+    if (!newAudio) {
+      return;
+    }
     if (this.currentAudio) {
       this.currentAudio.pause();
     }
