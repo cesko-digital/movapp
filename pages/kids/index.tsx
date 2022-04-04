@@ -1,13 +1,12 @@
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
-import React, { useState } from 'react';
+import React from 'react';
 import kidsWords from '../../data/translations/pro-deti.json';
 import { Button } from '../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
 export { getStaticProps } from '../../utils/localization';
 
 const KidsSection = () => {
-  const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
   const { t } = useTranslation();
 
   return (
@@ -25,7 +24,7 @@ const KidsSection = () => {
       </div>
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
         {kidsWords.map((word, index) => {
-          return <KidsTranslationsContainer key={index} {...word} setPlayer={setPlayer} player={player} />;
+          return <KidsTranslationsContainer key={index} {...word} />;
         })}
       </div>
     </div>

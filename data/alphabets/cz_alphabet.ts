@@ -16,17 +16,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'abeceda',
-        example_transcription: 'абецеда'
+        example_transcription: 'абецеда',
       },
       {
         example: 'ananas',
-        example_transcription: 'ананас'
+        example_transcription: 'ананас',
       },
       {
         example: 'autobus',
-        example_transcription: 'аутобус'
-      }
-    ]
+        example_transcription: 'аутобус',
+      },
+    ],
   },
   {
     letter: ['Á', 'á'],
@@ -34,17 +34,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'káva',
-        example_transcription: 'кава'
+        example_transcription: 'кава',
       },
       {
         example: 'kráva',
-        example_transcription: 'крава'
+        example_transcription: 'крава',
       },
       {
         example: 'máma',
-        example_transcription: 'мама'
-      }
-    ]
+        example_transcription: 'мама',
+      },
+    ],
   },
   {
     letter: ['B', 'b'],
@@ -52,17 +52,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'balón',
-        example_transcription: 'балон'
+        example_transcription: 'балон',
       },
       {
         example: 'brambory',
-        example_transcription: 'брамбори'
+        example_transcription: 'брамбори',
       },
       {
         example: 'banán',
-        example_transcription: 'банан'
-      }
-    ]
+        example_transcription: 'банан',
+      },
+    ],
   },
   {
     letter: ['C', 'c'],
@@ -70,17 +70,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'cibule',
-        example_transcription: 'цибуле'
+        example_transcription: 'цибуле',
       },
       {
         example: 'cop',
-        example_transcription: 'цоп'
+        example_transcription: 'цоп',
       },
       {
         example: 'citron',
-        example_transcription: 'цитрон'
-      }
-    ]
+        example_transcription: 'цитрон',
+      },
+    ],
   },
   {
     letter: ['Č', 'č'],
@@ -88,17 +88,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'čepice',
-        example_transcription: 'чепице'
+        example_transcription: 'чепице',
       },
       {
         example: 'čokoláda',
-        example_transcription: 'чоколада'
+        example_transcription: 'чоколада',
       },
       {
         example: 'červený',
-        example_transcription: 'червени'
-      }
-    ]
+        example_transcription: 'червени',
+      },
+    ],
   },
   {
     letter: ['D', 'd'],
@@ -106,17 +106,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'dům',
-        example_transcription: 'дум'
+        example_transcription: 'дум',
       },
       {
         example: 'datel',
-        example_transcription: 'дател'
+        example_transcription: 'дател',
       },
       {
         example: 'dopis',
-        example_transcription: 'допис'
-      }
-    ]
+        example_transcription: 'допис',
+      },
+    ],
   },
   {
     letter: ['Ď', 'ď'],
@@ -124,17 +124,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'ďábel',
-        example_transcription: 'дябел'
+        example_transcription: 'дябел',
       },
       {
         example: 'děti',
-        example_transcription: 'дєті'
+        example_transcription: 'дєті',
       },
       {
         example: 'hodiny',
-        example_transcription: 'годіни'
-      }
-    ]
+        example_transcription: 'годіни',
+      },
+    ],
   },
   {
     letter: ['E', 'e'],
@@ -142,17 +142,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'elektrikář',
-        example_transcription: 'електрикарж'
+        example_transcription: 'електрикарж',
       },
       {
         example: 'Evropa',
-        example_transcription: 'Европа'
+        example_transcription: 'Европа',
       },
       {
         example: 'emu',
-        example_transcription: 'ему'
-      }
-    ]
+        example_transcription: 'ему',
+      },
+    ],
   },
   {
     letter: ['É', 'é'],
@@ -160,17 +160,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'lékárna',
-        example_transcription: 'лекарна'
+        example_transcription: 'лекарна',
       },
       {
         example: 'jméno',
-        example_transcription: 'ймено'
+        example_transcription: 'ймено',
       },
       {
         example: 'létat',
-        example_transcription: 'летат'
-      }
-    ]
+        example_transcription: 'летат',
+      },
+    ],
   },
   {
     letter: ['ě', null],
@@ -178,17 +178,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'kotě',
-        example_transcription: 'котє'
+        example_transcription: 'котє',
       },
       {
         example: 'měkký',
-        example_transcription: 'мнєки'
+        example_transcription: 'мнєки',
       },
       {
         example: 'něco',
-        example_transcription: 'нєцо'
-      }
-    ]
+        example_transcription: 'нєцо',
+      },
+    ],
   },
   {
     letter: ['F', 'f'],
@@ -196,17 +196,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'fyzika',
-        example_transcription: 'физика'
+        example_transcription: 'физика',
       },
       {
         example: 'fronta',
-        example_transcription: 'фронта'
+        example_transcription: 'фронта',
       },
       {
         example: 'flétna',
-        example_transcription: 'флетна'
-      }
-    ]
+        example_transcription: 'флетна',
+      },
+    ],
   },
   {
     letter: ['G', 'g'],
@@ -214,17 +214,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'garáž',
-        example_transcription: 'ґараж'
+        example_transcription: 'ґараж',
       },
       {
         example: 'gramofon',
-        example_transcription: 'ґрамофон'
+        example_transcription: 'ґрамофон',
       },
       {
         example: 'gymnastika',
-        example_transcription: 'ґимнастика'
-      }
-    ]
+        example_transcription: 'ґимнастика',
+      },
+    ],
   },
   {
     letter: ['H', 'h'],
@@ -232,17 +232,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'hlava',
-        example_transcription: 'глава'
+        example_transcription: 'глава',
       },
       {
         example: 'houba',
-        example_transcription: 'гоуба'
+        example_transcription: 'гоуба',
       },
       {
         example: 'harmonika',
-        example_transcription: 'гармоника'
-      }
-    ]
+        example_transcription: 'гармоника',
+      },
+    ],
   },
   {
     letter: ['Ch', null],
@@ -250,17 +250,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'chléb',
-        example_transcription: 'хлеп'
+        example_transcription: 'хлеп',
       },
       {
         example: 'chobotnice',
-        example_transcription: 'хоботніце'
+        example_transcription: 'хоботніце',
       },
       {
         example: 'chameleon',
-        example_transcription: 'хамелеон'
-      }
-    ]
+        example_transcription: 'хамелеон',
+      },
+    ],
   },
   {
     letter: ['I', 'i'],
@@ -268,17 +268,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'internet',
-        example_transcription: 'интернет'
+        example_transcription: 'интернет',
       },
       {
         example: 'indián',
-        example_transcription: 'индиян'
+        example_transcription: 'индиян',
       },
       {
         example: 'iglů',
-        example_transcription: 'иґлу'
-      }
-    ]
+        example_transcription: 'иґлу',
+      },
+    ],
   },
   {
     letter: ['Í', 'í'],
@@ -286,17 +286,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'lípa',
-        example_transcription: 'ліпа'
+        example_transcription: 'ліпа',
       },
       {
         example: 'papír',
-        example_transcription: 'папір'
+        example_transcription: 'папір',
       },
       {
         example: 'písmeno',
-        example_transcription: 'пісмено'
-      }
-    ]
+        example_transcription: 'пісмено',
+      },
+    ],
   },
   {
     letter: ['J', 'j'],
@@ -304,17 +304,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'jablko',
-        example_transcription: 'яблко'
+        example_transcription: 'яблко',
       },
       {
         example: 'jahoda',
-        example_transcription: 'ягода'
+        example_transcription: 'ягода',
       },
       {
         example: 'ježek',
-        example_transcription: 'єжек'
-      }
-    ]
+        example_transcription: 'єжек',
+      },
+    ],
   },
   {
     letter: ['K', 'k'],
@@ -322,17 +322,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'kočka',
-        example_transcription: 'кочка'
+        example_transcription: 'кочка',
       },
       {
         example: 'kobliha',
-        example_transcription: 'коблига'
+        example_transcription: 'коблига',
       },
       {
         example: 'kaktus',
-        example_transcription: 'кактус'
-      }
-    ]
+        example_transcription: 'кактус',
+      },
+    ],
   },
   {
     letter: ['L', 'l'],
@@ -340,17 +340,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'láska',
-        example_transcription: 'ласка'
+        example_transcription: 'ласка',
       },
       {
         example: 'lampa',
-        example_transcription: 'лампа'
+        example_transcription: 'лампа',
       },
       {
         example: 'lev',
-        example_transcription: 'леф'
-      }
-    ]
+        example_transcription: 'леф',
+      },
+    ],
   },
   {
     letter: ['M', 'm'],
@@ -358,17 +358,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'mléko',
-        example_transcription: 'млеко'
+        example_transcription: 'млеко',
       },
       {
         example: 'metro',
-        example_transcription: 'метро'
+        example_transcription: 'метро',
       },
       {
         example: 'maska',
-        example_transcription: 'маска'
-      }
-    ]
+        example_transcription: 'маска',
+      },
+    ],
   },
   {
     letter: ['N', 'n'],
@@ -376,17 +376,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'noviny',
-        example_transcription: 'новини'
+        example_transcription: 'новини',
       },
       {
         example: 'nula',
-        example_transcription: 'нула'
+        example_transcription: 'нула',
       },
       {
         example: 'nos',
-        example_transcription: 'нос'
-      }
-    ]
+        example_transcription: 'нос',
+      },
+    ],
   },
   {
     letter: ['Ň', 'ň'],
@@ -394,17 +394,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'kůň',
-        example_transcription: 'кунь'
+        example_transcription: 'кунь',
       },
       {
         example: 'báseň',
-        example_transcription: 'басень'
+        example_transcription: 'басень',
       },
       {
         example: 'sáňky',
-        example_transcription: 'саньки'
-      }
-    ]
+        example_transcription: 'саньки',
+      },
+    ],
   },
   {
     letter: ['O', 'o'],
@@ -412,17 +412,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'olej',
-        example_transcription: 'олей'
+        example_transcription: 'олей',
       },
       {
         example: 'opice',
-        example_transcription: 'опице'
+        example_transcription: 'опице',
       },
       {
         example: 'ovoce',
-        example_transcription: 'овоце'
-      }
-    ]
+        example_transcription: 'овоце',
+      },
+    ],
   },
   {
     letter: ['Ó', 'ó'],
@@ -430,17 +430,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'gól',
-        example_transcription: 'ґол'
+        example_transcription: 'ґол',
       },
       {
         example: 'móda',
-        example_transcription: 'мода'
+        example_transcription: 'мода',
       },
       {
         example: 'tón',
-        example_transcription: 'тон'
-      }
-    ]
+        example_transcription: 'тон',
+      },
+    ],
   },
   {
     letter: ['P', 'p'],
@@ -448,17 +448,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'peníze',
-        example_transcription: 'пенізе'
+        example_transcription: 'пенізе',
       },
       {
         example: 'Praha',
-        example_transcription: 'Прага'
+        example_transcription: 'Прага',
       },
       {
         example: 'penál',
-        example_transcription: 'пенал'
-      }
-    ]
+        example_transcription: 'пенал',
+      },
+    ],
   },
   {
     letter: ['Q', 'q'],
@@ -466,17 +466,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'Quido',
-        example_transcription: 'Квідо'
+        example_transcription: 'Квідо',
       },
       {
         example: 'squat',
-        example_transcription: 'сквот'
+        example_transcription: 'сквот',
       },
       {
         example: 'aquapark',
-        example_transcription: 'аквапарк'
-      }
-    ]
+        example_transcription: 'аквапарк',
+      },
+    ],
   },
   {
     letter: ['R', 'r'],
@@ -484,17 +484,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'ryba',
-        example_transcription: 'риба'
+        example_transcription: 'риба',
       },
       {
         example: 'ruka',
-        example_transcription: 'рука'
+        example_transcription: 'рука',
       },
       {
         example: 'růže',
-        example_transcription: 'руже'
-      }
-    ]
+        example_transcription: 'руже',
+      },
+    ],
   },
   {
     letter: ['Ř', 'ř'],
@@ -502,17 +502,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'Řím',
-        example_transcription: 'Ржім'
+        example_transcription: 'Ржім',
       },
       {
         example: 'řízek',
-        example_transcription: 'ржізек'
+        example_transcription: 'ржізек',
       },
       {
         example: 'řeka',
-        example_transcription: 'ржека'
-      }
-    ]
+        example_transcription: 'ржека',
+      },
+    ],
   },
   {
     letter: ['S', 's'],
@@ -520,17 +520,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'socha',
-        example_transcription: 'соха'
+        example_transcription: 'соха',
       },
       {
         example: 'sova',
-        example_transcription: 'сова'
+        example_transcription: 'сова',
       },
       {
         example: 'stůl',
-        example_transcription: 'стул'
-      }
-    ]
+        example_transcription: 'стул',
+      },
+    ],
   },
   {
     letter: ['Š', 'š'],
@@ -538,17 +538,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'šéf',
-        example_transcription: 'шеф'
+        example_transcription: 'шеф',
       },
       {
         example: 'šaty',
-        example_transcription: 'шати'
+        example_transcription: 'шати',
       },
       {
         example: 'šnek',
-        example_transcription: 'шнек'
-      }
-    ]
+        example_transcription: 'шнек',
+      },
+    ],
   },
   {
     letter: ['T', 't'],
@@ -556,17 +556,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'televize',
-        example_transcription: 'телевизе'
+        example_transcription: 'телевизе',
       },
       {
         example: 'táta',
-        example_transcription: 'тата'
+        example_transcription: 'тата',
       },
       {
         example: 'tráva',
-        example_transcription: 'трава'
-      }
-    ]
+        example_transcription: 'трава',
+      },
+    ],
   },
   {
     letter: ['Ť', 'ť'],
@@ -574,17 +574,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'ťukat',
-        example_transcription: 'тюкат'
+        example_transcription: 'тюкат',
       },
       {
         example: 'poušť',
-        example_transcription: 'поушть'
+        example_transcription: 'поушть',
       },
       {
         example: 'déšť',
-        example_transcription: 'дешть'
-      }
-    ]
+        example_transcription: 'дешть',
+      },
+    ],
   },
   {
     letter: ['U', 'u'],
@@ -592,17 +592,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'Ukrajina',
-        example_transcription: 'Україна'
+        example_transcription: 'Україна',
       },
       {
         example: 'ucho',
-        example_transcription: 'ухо'
+        example_transcription: 'ухо',
       },
       {
         example: 'ulita',
-        example_transcription: 'улита'
-      }
-    ]
+        example_transcription: 'улита',
+      },
+    ],
   },
   {
     letter: ['Ú', 'ú'],
@@ -610,17 +610,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'účtenka',
-        example_transcription: 'учтенка'
+        example_transcription: 'учтенка',
       },
       {
         example: 'úl',
-        example_transcription: 'ул'
+        example_transcription: 'ул',
       },
       {
         example: 'úkol',
-        example_transcription: 'укол'
-      }
-    ]
+        example_transcription: 'укол',
+      },
+    ],
   },
   {
     letter: ['ů', null],
@@ -628,17 +628,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'kůň',
-        example_transcription: 'кунь'
+        example_transcription: 'кунь',
       },
       {
         example: 'schůzka',
-        example_transcription: 'схуска'
+        example_transcription: 'схуска',
       },
       {
         example: 'průkazka',
-        example_transcription: 'прукаска'
-      }
-    ]
+        example_transcription: 'прукаска',
+      },
+    ],
   },
   {
     letter: ['V', 'v'],
@@ -646,17 +646,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'voda',
-        example_transcription: 'вода'
+        example_transcription: 'вода',
       },
       {
         example: 'vejce',
-        example_transcription: 'вейце'
+        example_transcription: 'вейце',
       },
       {
         example: 'vlk',
-        example_transcription: 'влк'
-      }
-    ]
+        example_transcription: 'влк',
+      },
+    ],
   },
   {
     letter: ['W', 'w'],
@@ -664,17 +664,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'workoholik',
-        example_transcription: 'воркоголик'
+        example_transcription: 'воркоголик',
       },
       {
         example: 'wifi',
-        example_transcription: 'вифи'
+        example_transcription: 'вифи',
       },
       {
         example: 'WC',
-        example_transcription: 'ве це'
-      }
-    ]
+        example_transcription: 'ве це',
+      },
+    ],
   },
   {
     letter: ['X', 'x'],
@@ -682,17 +682,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'lux',
-        example_transcription: 'лукс'
+        example_transcription: 'лукс',
       },
       {
         example: 'boxer',
-        example_transcription: 'боксер'
+        example_transcription: 'боксер',
       },
       {
         example: 'xylofon',
-        example_transcription: 'ксилофон'
-      }
-    ]
+        example_transcription: 'ксилофон',
+      },
+    ],
   },
   {
     letter: ['Y', 'y'],
@@ -700,17 +700,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'ženy',
-        example_transcription: 'жени'
+        example_transcription: 'жени',
       },
       {
         example: 'lyže',
-        example_transcription: 'лиже'
+        example_transcription: 'лиже',
       },
       {
         example: 'myš',
-        example_transcription: 'миш'
-      }
-    ]
+        example_transcription: 'миш',
+      },
+    ],
   },
   {
     letter: ['ý', null],
@@ -718,17 +718,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'sýr',
-        example_transcription: 'сир'
+        example_transcription: 'сир',
       },
       {
         example: 'sýkorka',
-        example_transcription: 'сикорка'
+        example_transcription: 'сикорка',
       },
       {
         example: 'mlýn',
-        example_transcription: 'млин'
-      }
-    ]
+        example_transcription: 'млин',
+      },
+    ],
   },
   {
     letter: ['Z', 'z'],
@@ -736,17 +736,17 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'zub',
-        example_transcription: 'зуп'
+        example_transcription: 'зуп',
       },
       {
         example: 'zebra',
-        example_transcription: 'зебра'
+        example_transcription: 'зебра',
       },
       {
         example: 'zvon',
-        example_transcription: 'звон'
-      }
-    ]
+        example_transcription: 'звон',
+      },
+    ],
   },
   {
     letter: ['Ž', 'ž'],
@@ -754,16 +754,16 @@ export const ALPHABET_CZ: Letter[] = [
     examples: [
       {
         example: 'žena',
-        example_transcription: 'жена'
+        example_transcription: 'жена',
       },
       {
         example: 'žárovka',
-        example_transcription: 'жарофка'
+        example_transcription: 'жарофка',
       },
       {
         example: 'želva',
-        example_transcription: 'желва'
-      }
-    ]
-  }
+        example_transcription: 'желва',
+      },
+    ],
+  },
 ];
