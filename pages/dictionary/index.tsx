@@ -9,6 +9,7 @@ import { CategoryDictionary } from 'components/sections/CategoryDictionary';
 import { translations, TranslationsType } from 'data/translations/translations';
 export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
+import { useLanguage } from 'components/utils/useLanguageHook';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('components/sections/ExportTranslations'), {
   ssr: false,
@@ -23,8 +24,8 @@ const normalizeForSearch = (text: string) => {
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
-  const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
 
   // filter category name and translations by search input
   const filterBySearch = ({ category_name_cz, category_name_ua, translations }: TranslationsType) => {
@@ -73,8 +74,8 @@ const Dictionary = () => {
         </div>
         <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
         {translations.filter(filterBySearch).map((category) => {
-          const mainLanguageCategory = i18n.language === 'cs' ? category.category_name_cz : category.category_name_ua;
-          const secondaryLanguageCategory = i18n.language === 'cs' ? category.category_name_ua : category.category_name_cz;
+          const mainLanguageCategory = currentLanguage === 'cs' ? category.category_name_cz : category.category_name_ua;
+          const secondaryLanguageCategory = currentLanguage === 'cs' ? category.category_name_ua : category.category_name_cz;
 
           // swaps category titles according to choosen locale
           const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
@@ -88,7 +89,7 @@ const Dictionary = () => {
               <div className="mb-4 mx-4">
                 <ExportTranslations translations={category.translations} categoryName={categoryName} />
               </div>
-              <CategoryDictionary setPlayer={setPlayer} player={player} searchText={search} translations={category.translations} />
+              <CategoryDictionary searchText={search} translations={category.translations} />
             </Collapse>
           );
         })}

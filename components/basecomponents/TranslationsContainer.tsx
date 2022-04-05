@@ -1,6 +1,5 @@
-import { useTranslation } from 'next-i18next';
 import { Translation } from './Translation';
-import { Language } from 'data/locales';
+import { useLanguage } from 'components/utils/useLanguageHook';
 
 export interface Translation {
   cz_translation: string;
@@ -11,8 +10,6 @@ export interface Translation {
 
 interface TranslationContainerProps extends Translation {
   searchText: string;
-  setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
-  player: HTMLAudioElement | null;
 }
 
 /**
@@ -26,13 +23,8 @@ export const TranslationContainer = ({
   ua_transcription,
   cz_transcription,
   searchText,
-  setPlayer,
-  player,
 }: TranslationContainerProps): JSX.Element => {
-  const { i18n } = useTranslation();
-
-  const currentLanguage = i18n.language as Language;
-  const secondaryLanguage: Language = currentLanguage === 'uk' ? 'cs' : 'uk';
+  const { currentLanguage, otherLanguage } = useLanguage();
 
   const languageTranslation = {
     uk: {
@@ -50,9 +42,7 @@ export const TranslationContainer = ({
       {/* CZ translation  */}
       <Translation
         searchText={searchText}
-        currentLanguage={currentLanguage}
-        player={player}
-        setPlayer={setPlayer}
+        language={currentLanguage}
         transcription={languageTranslation[currentLanguage].transcription}
         translation={languageTranslation[currentLanguage].translation}
       />
@@ -61,11 +51,9 @@ export const TranslationContainer = ({
       {/* UA translation  */}
       <Translation
         searchText={searchText}
-        currentLanguage={secondaryLanguage}
-        player={player}
-        setPlayer={setPlayer}
-        transcription={languageTranslation[secondaryLanguage].transcription}
-        translation={languageTranslation[secondaryLanguage].translation}
+        language={otherLanguage}
+        transcription={languageTranslation[otherLanguage].transcription}
+        translation={languageTranslation[otherLanguage].translation}
       />
     </div>
   );
