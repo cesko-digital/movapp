@@ -43,6 +43,8 @@ const Dictionary = () => {
     return matchesCategoryTitle || matchesTranslations.length > 0;
   };
 
+  const checkSearchResult = (searchResult: JSX.Element[]) => searchResult.length ? searchResult : (currentLanguage === 'cs' ? 'Nic nenalezeno.' : 'Нічого не знайшли.');
+  
   return (
     <>
       <Head>
@@ -73,13 +75,13 @@ const Dictionary = () => {
           />
         </div>
         <h2 className="text-primary-blue">{t('dictionary_page.subtitle')}</h2>
-        {translations.filter(filterBySearch).map((category) => {
+        {checkSearchResult(translations.filter(filterBySearch).map((category) => {
           const mainLanguageCategory = currentLanguage === 'cs' ? category.category_name_cz : category.category_name_ua;
           const secondaryLanguageCategory = currentLanguage === 'cs' ? category.category_name_ua : category.category_name_cz;
-
+          
           // swaps category titles according to choosen locale
           const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
-
+          
           return (
             <Collapse
               key={category.category_name_cz}
@@ -92,7 +94,7 @@ const Dictionary = () => {
               <CategoryDictionary searchText={search} translations={category.translations} />
             </Collapse>
           );
-        })}
+        }))}        
       </div>
     </>
   );
