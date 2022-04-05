@@ -43,7 +43,7 @@ const Dictionary = () => {
     return matchesCategoryTitle || matchesTranslations.length > 0;
   };
 
-  const checkSearchResult = (searchResult: JSX.Element[]) => searchResult.length ? searchResult : (currentLanguage === 'cs' ? 'Nic nenalezeno.' : 'Нічого не знайшли.');
+  const checkSearchResult = (searchResult: JSX.Element[]) => searchResult.length ? searchResult : t('dictionary_page.nothing_found');
   
   return (
     <>

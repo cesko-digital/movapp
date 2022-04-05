@@ -26,8 +26,9 @@
   },
   "dictionary_page": {
     "title": "Česko-ukrajinský slovníček",
-    "search_button": "Hledat",
+    "search_button": "Hledat",    
     "search_placeholder": "Hledaný výraz",
+    "nothing_found": "Nic nenalezeno.",
     "subtitle": "Vyberte si oblast",
     "cs": "česky",
     "uk": "ukrajinsky"
