@@ -8,24 +8,13 @@ import { KidsTranslationsContainer } from '../../../components/basecomponents/Ki
 import { createReadStream } from 'fs';
 export { getStaticProps } from '../../../utils/localization';
 
-const cardsData = [
-  { image: '/kids/auticka.svg' },
-  { image: '/kids/mic.svg' },
-  { image: '/kids/postel.svg' },
-  { image: '/kids/zahrada.svg' },
-  { image: '/kids/omalovanky.svg' },
-  { image: '/kids/panenka.svg' },
-  { image: '/kids/vlacky.svg' },
-  { image: '/kids/hory.svg' },
-];
-
 export interface CardType {
   image: string;
   id: number;
   flipped: boolean;
 }
 
-const MemoryGame = () => {
+const MemoryGame = ({ cardsData }: { cardsData: { image: string }[] }) => {
   const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
   const { t } = useTranslation();
 
@@ -34,42 +23,53 @@ const MemoryGame = () => {
   const [secondSelectedCard, setSecondSelectedCard] = useState<CardType | null>(null);
 
   const newGame = () => {
-    // duplicate and shuffle cards
+    console.log('new game');
+    // prepare and shuffle cards
     setCards([...cardsData, ...cardsData].sort(() => Math.random() - 0.5).map((card) => ({ ...card, id: Math.random(), flipped: false })));
     setFirstSelectedCard(null);
     setSecondSelectedCard(null);
   };
 
-  const flippCard = (id: number) => setCards((cards) => cards.map((card) => (card.id === id ? { ...card, flipped: !card.flipped } : card)));
+  const flippCard = (cardToFlip: CardType) =>
+    setCards((cards) => cards.map((card) => (card.id === cardToFlip.id ? { ...card, flipped: !card.flipped } : card)));
+  // TODO: play flippcard sound...maybe
 
   const selectCard = (card: CardType) => {
     if (!firstSelectedCard && !card.flipped) {
       setFirstSelectedCard(card);
-      flippCard(card.id);
+      flippCard(card);
     } else if (!secondSelectedCard && !card.flipped) {
       setSecondSelectedCard(card);
-      flippCard(card.id);
+      flippCard(card);
     }
-    console.log(cards);
   };
 
+  // game init
+  useEffect(() => {
+    newGame();
+  }, []);
+
+  // resolve selected cards
   useEffect(() => {
     if (firstSelectedCard && secondSelectedCard) {
       if (firstSelectedCard.image === secondSelectedCard.image) {
         setFirstSelectedCard(null);
         setSecondSelectedCard(null);
-        console.log('cards match');        
-        if (cards.filter(card => !card.flipped).length === 0) {
-          console.log("victory")
-        }        
+        console.log('cards match');
+        // TODO: play voice
+        if (cards.filter((card) => !card.flipped).length === 0) {
+          console.log('victory');
+          // TODO: play victory sound
+        }
       } else {
         console.log('cards dont match');
-        setTimeout(()=>{
-        flippCard(firstSelectedCard.id);
-        flippCard(secondSelectedCard.id);
-        setFirstSelectedCard(null);
-        setSecondSelectedCard(null);
-        },1500);
+        // TODO: play oh..no sound
+        setTimeout(() => {
+          flippCard(firstSelectedCard);
+          flippCard(secondSelectedCard);
+          setFirstSelectedCard(null);
+          setSecondSelectedCard(null);
+        }, 1500);
       }
     }
   }, [secondSelectedCard]);
