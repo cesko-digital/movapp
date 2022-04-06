@@ -24,7 +24,6 @@ const normalizeForSearch = (text: string) => {
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
-  const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
@@ -90,7 +89,7 @@ const Dictionary = () => {
               <div className="mb-4 mx-4">
                 <ExportTranslations translations={category.translations} categoryName={categoryName} />
               </div>
-              <CategoryDictionary setPlayer={setPlayer} player={player} searchText={search} translations={category.translations} />
+              <CategoryDictionary searchText={search} translations={category.translations} />
             </Collapse>
           );
         })}
