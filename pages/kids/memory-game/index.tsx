@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import kidsWords from '../../../data/translations/pro-deti.json';
 import { Button } from '../../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../../components/basecomponents/KidsTranslationContainer';
-import MemoryGame from './memoryGame';
+import MemoryGame from './MemoryGame';
 export { getStaticProps } from '../../../utils/localization';
 
 const MemoryGameSection = () => {
