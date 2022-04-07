@@ -16,6 +16,7 @@ import VDomacnosti from './vdomacnosti.json';
 import VeMeste from './vemeste.json';
 import VeSkole from './veskole.json';
 import VeSkolce from './veskolce.json';
+import Dobrovolnici from './dobrovolnici.json';
 import ZradnaSlovicka from './zradna-slovicka.json';
 
 export interface TranslationsType {
@@ -104,6 +105,11 @@ export const translations: TranslationsType[] = [
     category_name_cz: 'Ve školce',
     category_name_ua: 'У дитсадку',
     translations: VeSkolce,
+  },
+  {
+    category_name_cz: 'Dobrovolníci',
+    category_name_ua: 'Добровольці',
+    translations: Dobrovolnici,
   },
   {
     category_name_cz: 'Zrádná slovíčka',
