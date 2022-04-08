@@ -1,7 +1,11 @@
 export const translit = (translitMap: [string, string][], translitStr: string) => {
   let transliterated = translitStr;
   for (let i = 0; i < translitMap.length; i++) {
-    transliterated = transliterated.replaceAll(translitMap[i][0], translitMap[i][1]);
+    const reg = new RegExp(translitMap[i][0], 'g');
+    transliterated = transliterated
+      .replace(reg, translitMap[i][1])
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
   }
   return transliterated;
 };

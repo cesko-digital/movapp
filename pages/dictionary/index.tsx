@@ -179,18 +179,15 @@ const Dictionary = () => {
                     .replace(/[\u0300-\u036f]/g, '')
                     .replace(/\s+/g, '_')
                     .toLowerCase()
-                : translit(
-                    ua2cz,
-                    category.category_name_ua
-                      .normalize('NFD')
-                      .replace(/[\u0300-\u036f]/g, '')
-                      .replace(/\s+/g, '_')
-                      .toLowerCase(),
-                  );
+                : translit(ua2cz, category.category_name_ua.toLowerCase());
             // swaps category titles according to choosen locale
             const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 
-            const normalizedId = categoryLink.replace(/[()]/g, '');
+            const normalizedId = categoryLink
+              .replace(/[()]/g, '')
+              .replace(/\s+/g, '_')
+              .normalize('NFD')
+              .replace(/[\u0300-\u036f]/g, '');
 
             return (
               <Collapse
