@@ -4,7 +4,7 @@ import Head from 'next/head';
 export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
 import Image from 'next/image';
-import HeartsUkraine from '../public/hearts-for-ukraine.png';
+import HeartsUkraine from '../public/icons/hearts-for-ukraine.png';
 import DictionaryIcon from '../public/icons/book.svg';
 import ChildIcon from '../public/icons/child.svg';
 import AlphabetIcon from '../public/icons/book-font.svg';

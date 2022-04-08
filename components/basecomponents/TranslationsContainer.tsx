@@ -1,7 +1,7 @@
-import { useTranslation } from 'next-i18next';
 import { Translation } from './Translation';
 import { Language } from 'data/locales';
 import { forwardRef } from 'react';
+import { useLanguage } from 'components/utils/useLanguageHook';
 
 export interface TranslationType {
   cz_translation: string;
@@ -12,8 +12,6 @@ export interface TranslationType {
 
 interface TranslationContainerProps extends TranslationType {
   searchText: string;
-  setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
-  player: HTMLAudioElement | null;
 }
 
 /**
@@ -22,10 +20,9 @@ interface TranslationContainerProps extends TranslationType {
  * @returns
  */
 export const TranslationContainer = forwardRef<HTMLDivElement, TranslationContainerProps>(
-  ({ cz_translation, ua_translation, ua_transcription, cz_transcription, searchText, setPlayer, player }, ref): JSX.Element => {
-    const { i18n } = useTranslation();
+  ({ cz_translation, ua_translation, ua_transcription, cz_transcription, searchText }, ref): JSX.Element => {
+    const { currentLanguage, otherLanguage } = useLanguage();
 
-    const currentLanguage = i18n.language as Language;
     const secondaryLanguage: Language = currentLanguage === 'uk' ? 'cs' : 'uk';
 
     const languageTranslation = {
@@ -42,11 +39,10 @@ export const TranslationContainer = forwardRef<HTMLDivElement, TranslationContai
     return (
       <div ref={ref} className="sm:grid sm:grid-cols-[50%_1px_50%]   sm:items-center  p-2  border-b-slate-200 bg-primary-white">
         {/* CZ translation  */}
+        {/* CZ translation  */}
         <Translation
           searchText={searchText}
-          currentLanguage={currentLanguage}
-          player={player}
-          setPlayer={setPlayer}
+          language={currentLanguage}
           transcription={languageTranslation[currentLanguage].transcription}
           translation={languageTranslation[currentLanguage].translation}
         />
@@ -55,13 +51,11 @@ export const TranslationContainer = forwardRef<HTMLDivElement, TranslationContai
         {/* UA translation  */}
         <Translation
           searchText={searchText}
-          currentLanguage={secondaryLanguage}
-          player={player}
-          setPlayer={setPlayer}
-          transcription={languageTranslation[secondaryLanguage].transcription}
-          translation={languageTranslation[secondaryLanguage].translation}
+          language={otherLanguage}
+          transcription={languageTranslation[otherLanguage].transcription}
+          translation={languageTranslation[otherLanguage].translation}
         />
       </div>
     );
-  },
+  }
 );

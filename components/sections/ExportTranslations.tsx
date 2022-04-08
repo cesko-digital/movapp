@@ -3,7 +3,7 @@ import { Button } from 'components/basecomponents/Button';
 import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
 import { TranslationType } from 'components/basecomponents/TranslationsContainer';
-import { Language } from 'data/locales';
+import { useLanguage } from 'components/utils/useLanguageHook';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
@@ -61,20 +61,19 @@ const Separator = () => (
 );
 
 const ExportTranslations = ({ translations, categoryName, trigger }: ExportTranslationsProps) => {
-  const { i18n } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
   const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
   const [phraseSeparator, setPhraseSeparator] = useState(PHRASE_SEPARATORS[0].value);
   const [customPhraseSeparator, setCustomPhraseSeparator] = useState('\\n\\n');
   const [includeTranscriptions, setIncludeTranscriptions] = useState(false);
-  const language = i18n.language as Language;
+  const { currentLanguage } = useLanguage();
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
   const phrases = translations
     .map((translation) =>
-      language === 'cs'
+      currentLanguage === 'cs'
         ? translation.cz_translation +
           (includeTranscriptions ? ` [${translation.cz_transcription}]` : '') +
           translSep +
@@ -86,7 +85,7 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
           translSep +
           translation.cz_translation +
           (includeTranscriptions ? ` [${translation.cz_transcription}]` : '') +
-          phraseSep,
+          phraseSep
     )
     .map((translation) => unescapeTabsAndNewlines(translation));
 

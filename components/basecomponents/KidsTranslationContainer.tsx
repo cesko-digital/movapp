@@ -1,9 +1,9 @@
 import React from 'react';
-import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { KidsTranslation } from './KidsTranslation';
-import { Language } from '../../data/locales';
-import { playGoogleTTSAudio } from 'components/utils/audioUtils';
+import { useLanguage } from 'components/utils/useLanguageHook';
+import { AudioPlayer } from 'components/utils/AudioPlayer';
+import { useTranslation } from 'next-i18next';
 
 export interface Translation {
   cz_translation: string;
@@ -15,8 +15,6 @@ export interface Translation {
 interface KidsTranslationContainerProps extends Translation {
   searchText?: string;
   image: string;
-  setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
-  player: HTMLAudioElement | null;
 }
 
 /**
@@ -30,13 +28,9 @@ export const KidsTranslationsContainer = ({
   ua_transcription,
   cz_transcription,
   image,
-  setPlayer,
-  player,
 }: KidsTranslationContainerProps): JSX.Element => {
-  const { i18n } = useTranslation();
-
-  const currentLanguage = i18n.language as Language;
-  const secondaryLanguage: Language = currentLanguage === 'uk' ? 'cs' : 'uk';
+  const { currentLanguage, otherLanguage } = useLanguage();
+  const { t } = useTranslation();
 
   const languageTranslation = {
     uk: {
@@ -50,35 +44,28 @@ export const KidsTranslationsContainer = ({
   };
 
   const currentTranslation = languageTranslation[currentLanguage].translation;
-  const secondaryTranslation = languageTranslation[secondaryLanguage].translation;
-
-  const playAudio = (translation: string, language: Language) => {
-    const audio = playGoogleTTSAudio(language, translation, player);
-    setPlayer(audio);
-  };
+  const secondaryTranslation = languageTranslation[otherLanguage].translation;
 
   return (
     <div className="max-w-sm rounded-2xl overflow-hidden shadow-xl w-72 m-5 md:m-8 bg-[#f7e06a] max-h-[32rem]">
       <button
         className="w-72 h-72 relative bg-white"
-        onClick={() => playAudio(secondaryTranslation, secondaryLanguage)}
-        aria-label={'play ' + secondaryTranslation}
+        onClick={() => AudioPlayer.getInstance().playTextToSpeech(secondaryTranslation, otherLanguage)}
+        aria-label={t('utils.play') + ' ' + secondaryTranslation}
       >
-        <Image src={`/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={cz_translation} />
+        <Image src={`/kids/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={cz_translation} />
       </button>
       <div className="px-6 py-4">
         <KidsTranslation
           image={image}
-          currentLanguage={currentLanguage}
-          playAudio={playAudio}
+          language={currentLanguage}
           transcription={languageTranslation[currentLanguage].transcription}
           translation={currentTranslation}
         />
         <KidsTranslation
           image={image}
-          currentLanguage={secondaryLanguage}
-          playAudio={playAudio}
-          transcription={languageTranslation[secondaryLanguage].transcription}
+          language={otherLanguage}
+          transcription={languageTranslation[otherLanguage].transcription}
           translation={secondaryTranslation}
         />
       </div>

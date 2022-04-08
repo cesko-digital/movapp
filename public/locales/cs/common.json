@@ -102,5 +102,8 @@
   },
   "errors": {
     "pageNotFound": "Stránka nebyla nalezena"
+  },
+  "utils": {
+    "play": "přehrát"
   }
 }

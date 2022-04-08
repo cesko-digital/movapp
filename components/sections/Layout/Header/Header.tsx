@@ -4,11 +4,13 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { HEADER_NAVIGATION } from 'data/headerNavigation';
 import { LOCALES } from 'data/locales';
-import AppLogo from 'public/movapp-logo.png';
+import AppLogo from 'public/icons/movapp-logo.png';
+import { useLanguage } from 'components/utils/useLanguageHook';
 
 export const Header = () => {
-  const { t, i18n } = useTranslation('common');
+  const { t } = useTranslation('common');
   const router = useRouter();
+  const { currentLanguage } = useLanguage();
   return (
     <header className=" bg-primary-blue w-full sticky top-0 z-10 h-14 hidden sm:block">
       <div className="max-w-7xl m-auto flex h-full justify-between items-center ">
@@ -38,7 +40,7 @@ export const Header = () => {
           return (
             <Link key={index} href={router.asPath} locale={locale}>
               <a>
-                <span className={`text-white cursor-pointer mx-2 ${i18n.language === locale && 'text-primary-yellow'}`}>{name}</span>
+                <span className={`text-white cursor-pointer mx-2 ${currentLanguage === locale && 'text-primary-yellow'}`}>{name}</span>
               </a>
             </Link>
           );

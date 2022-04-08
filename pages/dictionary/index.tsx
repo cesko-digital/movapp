@@ -12,6 +12,7 @@ import Marker from 'react-mark.js/Marker';
 import { TranslationContainer, TranslationType } from '../../components/basecomponents/TranslationsContainer';
 import { translit } from 'utils/transliterate';
 import { ua2cz } from 'data/transliterations/ua2cz';
+import { useLanguage } from 'components/utils/useLanguageHook';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
@@ -33,6 +34,7 @@ const Dictionary = () => {
   const [isSticky, setIsSticky] = useState(false);
 
   const { t, i18n } = useTranslation();
+  const { currentLanguage } = useLanguage();
 
   const lastContainerRef = useRef<HTMLDivElement | null>(null);
   const searchContainer = useRef<HTMLDivElement | null>(null);
@@ -80,7 +82,7 @@ const Dictionary = () => {
           setIsSticky(false);
         }
       },
-      { threshold: [1], rootMargin: '-57px 0px 0px 0px' },
+      { threshold: [1], rootMargin: '-57px 0px 0px 0px' }
     );
 
     element && observer.observe(element);
@@ -105,7 +107,7 @@ const Dictionary = () => {
         }
         return acc;
       },
-      { visited: {} as { [key: string]: boolean }, filtered: [] as TranslationType[] },
+      { visited: {} as { [key: string]: boolean }, filtered: [] as TranslationType[] }
     );
 
     res && setFilteredTranslations(res.filtered);
@@ -200,7 +202,7 @@ const Dictionary = () => {
                 <div className="mb-4 mx-4">
                   <ExportTranslations translations={category.translations} categoryName={categoryName} />
                 </div>
-                <CategoryDictionary setPlayer={setPlayer} player={player} searchText={search} translations={category.translations} />
+                <CategoryDictionary searchText={search} translations={category.translations} />
               </Collapse>
             );
           })}
@@ -212,16 +214,7 @@ const Dictionary = () => {
         <div ref={translationsContainerRef}>
           {search.trim() &&
             filteredTranslations.slice(0, maxItems).map((translation, index) => {
-              return (
-                <TranslationContainer
-                  ref={lastContainerRef}
-                  key={index}
-                  {...translation}
-                  setPlayer={setPlayer}
-                  player={player}
-                  searchText={search}
-                />
-              );
+              return <TranslationContainer ref={lastContainerRef} key={index} {...translation} searchText={search} />;
             })}
         </div>
       </div>

@@ -7,12 +7,14 @@ import { HEADER_NAVIGATION } from 'data/headerNavigation';
 import { LOCALES } from 'data/locales';
 import BurgerIcon from 'public/icons/burger.svg';
 import CloseIcon from 'public/icons/close.svg';
-import AppLogo from 'public/movapp-logo.png';
+import AppLogo from 'public/icons/movapp-logo.png';
+import { useLanguage } from 'components/utils/useLanguageHook';
 
 export const MobileHeader = () => {
   const [showNavigation, setShowNavigation] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const router = useRouter();
+  const { currentLanguage } = useLanguage();
 
   useEffect(() => {
     const handleCloseNavigation = () => {
@@ -36,7 +38,7 @@ export const MobileHeader = () => {
       <ul className="flex w-full justify-end pr-5 items-center">
         {LOCALES.map(({ name, locale }, index) => {
           return (
-            <li key={index} className={`${i18n.language === locale && 'text-primary-yellow'} text-white mx-2`}>
+            <li key={index} className={`${currentLanguage === locale && 'text-primary-yellow'} text-white mx-2`}>
               <Link href={router.asPath} locale={locale}>
                 <a>{name}</a>
               </Link>
