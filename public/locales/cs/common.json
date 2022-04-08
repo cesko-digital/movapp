@@ -26,11 +26,14 @@
   },
   "dictionary_page": {
     "title": "Česko-ukrajinský slovníček",
+    "search_input_label": "Vyhledejte slovo nebo frazi",
     "search_button": "Hledat",
     "search_placeholder": "Hledaný výraz",
     "subtitle": "Vyberte si oblast",
     "cs": "česky",
-    "uk": "ukrajinsky"
+    "uk": "ukrajinsky",
+    "results_subtitle": "Výsledky vyhledávání",
+    "not_found_results": "Nic nenalezeno"
   },
   "kids_page": {
     "downloadPDF": "Stáhnout v PDF"
@@ -64,7 +67,7 @@
     "join_title": "Přidejte se",
     "join_description": "Chcete-li se stát členem týmu dobovolníků a pomáhat nám na dalším rozvoji projektu, vyplňte formulář na <0>cesko.digital/join</0> a přidejte se do Slacku. Najdete nás v kanálu <strong>ua-movapp</strong> (komunikujeme česky, slovensky, anglicky, a trochu také ukrajinsky)."
   },
-  "alphabet_page":{
+  "alphabet_page": {
     "title": "{{cz_version}} abeceda",
     "description": "{{cz_version_description}}"
   },

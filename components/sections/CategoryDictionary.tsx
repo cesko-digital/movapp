@@ -1,7 +1,7 @@
-import { Translation, TranslationContainer } from 'components/basecomponents/TranslationsContainer';
+import { TranslationType, TranslationContainer } from 'components/basecomponents/TranslationsContainer';
 
 interface CategoryDictionaryProps {
-  translations: Translation[];
+  translations: TranslationType[];
   searchText: string;
 }
 

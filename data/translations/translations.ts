@@ -1,4 +1,5 @@
-import { Translation } from 'components/basecomponents/TranslationsContainer';
+import { TranslationType } from '../../components/basecomponents/TranslationsContainer';
+import { TranslationContainer } from 'components/basecomponents/TranslationsContainer';
 // JSON translation files
 import Basic from './basic.json';
 import UzitecneFraze from './uzitecne-fraze.json';
@@ -22,7 +23,7 @@ import ZradnaSlovicka from './zradna-slovicka.json';
 export interface TranslationsType {
   category_name_cz: string;
   category_name_ua: string;
-  translations: Translation[];
+  translations: TranslationType[];
 }
 
 export const translations: TranslationsType[] = [
