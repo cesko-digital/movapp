@@ -1,12 +1,11 @@
-import { useTranslation } from 'next-i18next';
-import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
-import kidsWords from '../../../data/translations/pro-deti.json';
-import { Button } from '../../../components/basecomponents/Button';
+import { Button } from './Button';
+import { useTranslation, Trans } from 'next-i18next';
 import Card from './MemoryGameCard';
-import { KidsTranslationsContainer } from '../../../components/basecomponents/KidsTranslationContainer';
-import { createReadStream } from 'fs';
-export { getStaticProps } from '../../../utils/localization';
+import { AudioPlayer } from 'components/utils/AudioPlayer';
+import { useLanguage } from 'components/utils/useLanguageHook';
+
+// onClick={() => AudioPlayer.getInstance().playTextToSpeech(translation, language)}
 
 export interface CardType {
   image: string;
@@ -15,9 +14,9 @@ export interface CardType {
 }
 
 const MemoryGame = ({ cardsData }: { cardsData: { image: string }[] }) => {
-  const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
+  const { currentLanguage, otherLanguage } = useLanguage();
   const { t } = useTranslation();
-
+ 
   const [cards, setCards] = useState<CardType[]>([]);
   const [firstSelectedCard, setFirstSelectedCard] = useState<CardType | null>(null);
   const [secondSelectedCard, setSecondSelectedCard] = useState<CardType | null>(null);
@@ -56,7 +55,7 @@ const MemoryGame = ({ cardsData }: { cardsData: { image: string }[] }) => {
         setFirstSelectedCard(null);
         setSecondSelectedCard(null);
         console.log('cards match');
-        // TODO: play voice
+        // TODO: play word
         if (cards.filter((card) => !card.flipped).length === 0) {
           console.log('victory');
           // TODO: play victory sound
@@ -77,9 +76,9 @@ const MemoryGame = ({ cardsData }: { cardsData: { image: string }[] }) => {
   return (
     <div className="flex flex-col items-center">
       <div className="py-5">
-        <Button text="New game" onClick={newGame} />
+        <Button text={t('utils.new_game')} onClick={newGame} />
       </div>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-4 gap-2 cursor-pointer">
         {cards.map((card) => (
           <Card key={card.id} onClick={selectCard} card={card} />
         ))}

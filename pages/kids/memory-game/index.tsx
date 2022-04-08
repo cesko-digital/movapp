@@ -1,14 +1,11 @@
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
-import React, { useState } from 'react';
-import kidsWords from '../../../data/translations/pro-deti.json';
-import { Button } from '../../../components/basecomponents/Button';
-import { KidsTranslationsContainer } from '../../../components/basecomponents/KidsTranslationContainer';
-import MemoryGame from './MemoryGame';
-export { getStaticProps } from '../../../utils/localization';
+import React from 'react';
+import MemoryGame from 'components/basecomponents/MemoryGame';
+export { getStaticProps } from 'utils/localization';
 
 const cardsData = [
-  { image: '/kids/auticka.svg' },
+  { image: '/kids/auticka.svg' /*, audio: '/..../' */},
   { image: '/kids/mic.svg' },
   { image: '/kids/postel.svg' },
   { image: '/kids/zahrada.svg' },
@@ -18,8 +15,7 @@ const cardsData = [
   { image: '/kids/hory.svg' },
 ];
 
-const MemoryGameSection = () => {
-  const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
+const MemoryGameSection = () => { 
   const { t } = useTranslation();
 
   return (
