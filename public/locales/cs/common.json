@@ -32,7 +32,8 @@
     "subtitle": "Vyberte si oblast",
     "cs": "česky",
     "uk": "ukrajinsky",
-    "results_subtitle": "Výsledky vyhledávání"
+    "results_subtitle": "Výsledky vyhledávání",
+    "not_found_results": "Nic nenalezeno"
   },
   "kids_page": {
     "downloadPDF": "Stáhnout v PDF"

@@ -10,6 +10,8 @@ import { translations } from 'data/translations/translations';
 export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
 import { TranslationContainer, TranslationType } from '../../components/basecomponents/TranslationsContainer';
+import { translit } from 'utils/transliterate';
+import { ua2cz } from 'data/transliterations/ua2cz';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
@@ -25,12 +27,16 @@ const normalizeForSearch = (text: string) => {
 const Dictionary = () => {
   const [search, setSearch] = useState('');
   const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
-  const { t, i18n } = useTranslation();
-  const [flattenTranslations, setFlattenTranslations] = useState<TranslationType[] | []>([]);
+  const [flattenTranslations, setFlattenTranslations] = useState<TranslationType[]>();
+  const [filteredTranslations, setFilteredTranslations] = useState<TranslationType[] | []>([]);
   const [maxItems, setMaxItems] = useState(20);
+  const [isSticky, setIsSticky] = useState(false);
+
+  const { t, i18n } = useTranslation();
+
   const lastContainerRef = useRef<HTMLDivElement | null>(null);
   const searchContainer = useRef<HTMLDivElement | null>(null);
-
+  const searchButton = useRef<HTMLButtonElement | null>(null);
   const translationsContainerRef = useRef<HTMLDivElement | null>(null);
 
   // scrolls to top whenever user type in search input
@@ -63,17 +69,15 @@ const Dictionary = () => {
     };
   });
 
-  // scroll to top when items in translations container are not visible in view port
+  // track when search input becomes sticky to apply styles
   useEffect(() => {
     const element = searchContainer.current;
     const observer = new IntersectionObserver(
       ([e]) => {
-        const el = e.target as HTMLElement;
         if (e.intersectionRatio < 1) {
-          el.style.margin = '0px -8px';
-          el.style.width = 'auto';
+          setIsSticky(true);
         } else if (e.intersectionRatio >= 1) {
-          el.style.margin = '0px 0px';
+          setIsSticky(false);
         }
       },
       { threshold: [1], rootMargin: '-57px 0px 0px 0px' },
@@ -86,11 +90,34 @@ const Dictionary = () => {
     };
   });
 
-  const filterBySearch = ({ cz_translation, ua_translation }: TranslationType) => {
-    const searchText = normalizeForSearch(search);
-    return normalizeForSearch(cz_translation).includes(searchText) || normalizeForSearch(ua_translation).includes(searchText);
+  // filters translation based on user search
+  const filterTranslations = () => {
+    const res = flattenTranslations?.reduce(
+      (acc, cur) => {
+        const searchText = normalizeForSearch(search);
+        // checks if phrase is already in filtered translations to avoid filter duplicates
+        if (cur.cz_translation in acc.visited) {
+          return acc;
+        }
+        if (normalizeForSearch(cur.cz_translation).includes(searchText) || normalizeForSearch(cur.ua_translation).includes(searchText)) {
+          acc.visited[cur.cz_translation] = true;
+          acc.filtered.push(cur);
+        }
+        return acc;
+      },
+      { visited: {} as { [key: string]: boolean }, filtered: [] as TranslationType[] },
+    );
+
+    res && setFilteredTranslations(res.filtered);
   };
 
+  useEffect(() => {
+    if (!search.trim()) return;
+    filterTranslations();
+    /* eslint-disable react-hooks/exhaustive-deps */
+  }, [search]);
+
+  // flatten translations array to prepare it for filtering
   useEffect(() => {
     const flatTranslations = translations.map(({ translations }) => translations).flat();
     setFlattenTranslations(flatTranslations);
@@ -106,7 +133,12 @@ const Dictionary = () => {
       </Head>
       <div className="max-w-7xl m-auto">
         <h1 className="text-primary-blue">{t('dictionary_page.title')}</h1>
-        <div ref={searchContainer} className="flex items-center sticky  top-14 w-full transition-all duration-1000">
+        <div
+          ref={searchContainer}
+          className={`${
+            isSticky ? 'bg-primary-blue transition duration-500  -mx-2 w-auto px-2  pb-2' : 'm-0 '
+          } flex items-center sticky   top-14  transition-all duration-500`}
+        >
           <SearchInput
             id="search"
             hiddenLabel
@@ -118,7 +150,10 @@ const Dictionary = () => {
             onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch((e.target as HTMLInputElement).value)}
           />
           <Button
-            className="ml-5 justify-self-end border-1 hidden self-end md:block bg-primary-yellow"
+            ref={searchButton}
+            className={`${
+              isSticky ? 'bg-primary-yellow text-black' : 'bg-primary-blue'
+            } ml-5 justify-self-center border-1 hidden self-center md:block `}
             text={t('dictionary_page.search_button')}
           />
         </div>
@@ -137,13 +172,30 @@ const Dictionary = () => {
             const mainLanguageCategory = i18n.language === 'cs' ? category.category_name_cz : category.category_name_ua;
             const secondaryLanguageCategory = i18n.language === 'cs' ? category.category_name_ua : category.category_name_cz;
 
+            const categoryLink =
+              i18n.language === 'cs'
+                ? category.category_name_cz
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .replace(/\s+/g, '_')
+                    .toLowerCase()
+                : translit(
+                    ua2cz,
+                    category.category_name_ua
+                      .normalize('NFD')
+                      .replace(/[\u0300-\u036f]/g, '')
+                      .replace(/\s+/g, '_')
+                      .toLowerCase(),
+                  );
             // swaps category titles according to choosen locale
             const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
+
+            const normalizedId = categoryLink.replace(/[()]/g, '');
 
             return (
               <Collapse
                 index={index}
-                id={category.category_name_cz.toLowerCase().replace(/\s+/g, '_')}
+                id={normalizedId}
                 key={category.category_name_cz}
                 title={<Marker mark={search}>{categoryName}</Marker>}
                 ariaId={category.category_name_cz}
@@ -155,23 +207,25 @@ const Dictionary = () => {
               </Collapse>
             );
           })}
+        {filteredTranslations.length === 0 && search.trim() && (
+          <div className="flex justify-center">
+            <p className="text-primary-blue text-lg">{t('dictionary_page.not_found_results')}</p>
+          </div>
+        )}
         <div ref={translationsContainerRef}>
           {search.trim() &&
-            flattenTranslations
-              .filter(filterBySearch)
-              .slice(0, maxItems)
-              .map((translation, index) => {
-                return (
-                  <TranslationContainer
-                    ref={lastContainerRef}
-                    key={index}
-                    {...translation}
-                    setPlayer={setPlayer}
-                    player={player}
-                    searchText={search}
-                  />
-                );
-              })}
+            filteredTranslations.slice(0, maxItems).map((translation, index) => {
+              return (
+                <TranslationContainer
+                  ref={lastContainerRef}
+                  key={index}
+                  {...translation}
+                  setPlayer={setPlayer}
+                  player={player}
+                  searchText={search}
+                />
+              );
+            })}
         </div>
       </div>
     </>

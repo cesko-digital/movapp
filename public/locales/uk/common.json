@@ -32,7 +32,8 @@
     "subtitle": "Виберіть категорію",
     "cs": "чеський",
     "uk": "український",
-    "results_subtitle": "Результати пошуку"
+    "results_subtitle": "Результати пошуку",
+    "not_found_results": "Не знайдено"
   },
   "kids_page": {
     "downloadPDF": "Завантажити у форматі .pdf"
