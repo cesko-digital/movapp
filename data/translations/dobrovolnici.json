@@ -1,0 +1,248 @@
+[
+  {
+    "cz_translation": "dobrovolník",
+    "cz_transcription": "доброволнік",
+    "ua_translation": "доброволець",
+    "ua_transcription": "dobrovolec'"
+  },
+  {
+    "cz_translation": "dobrovolníci",
+    "cz_transcription": "доброволніци",
+    "ua_translation": "добровольці",
+    "ua_transcription": "dobrovol'ci"
+  },
+  {
+    "cz_translation": "Můžu vám pomoct?",
+    "cz_transcription": "Мужу вам помоцт",
+    "ua_translation": "Можу вам допомогти?",
+    "ua_transcription": "Možu vam dopomohty"
+  },
+  {
+    "cz_translation": "Pojďte se mnou.",
+    "cz_transcription": "Пойтьте се мноу",
+    "ua_translation": "Ходімо зі мною.",
+    "ua_transcription": "Chodimo zi mnoju"
+  },
+  {
+    "cz_translation": "Nemluvím ukrajinsky.",
+    "cz_transcription": "Немлувім українски",
+    "ua_translation": "Я не розмовляю українською.",
+    "ua_transcription": "Ja ne rozmovljaju ukrajins’koju"
+  },
+  {
+    "cz_translation": "Zavedu vás za tlumočníkem.",
+    "cz_transcription": "Заведу вас за тлумочнікем",
+    "ua_translation": "Я запрошу до нас перекладача.",
+    "ua_transcription": "Ja zaprošu do nas perekladača"
+  },
+  {
+    "cz_translation": "Zavolám kamarádce, mluví rusky.",
+    "cz_transcription": "Заволам камаратце, млуві руски",
+    "ua_translation": "Я подзвоню подрузі, яка розмовляє російською.",
+    "ua_transcription": "Ja podzvoňu podruzi, jaka rozmovljaje rosijs'koju"
+  },
+  {
+    "cz_translation": "Zavolám kamarádovi, mluví rusky.",
+    "cz_transcription": "Заволам камарадови, млуві руски",
+    "ua_translation": "Я подзвоню другу, який розмовляє російською.",
+    "ua_transcription": "Ja podzvoňu druhu, jakyj rozmovljaje rosijs'koju"
+  },
+  {
+    "cz_translation": "Použijeme Google translate.",
+    "cz_transcription": "Поужиєме Ґуґл транслейт",
+    "ua_translation": "Давайте використаємо гугл-транслейт.",
+    "ua_transcription": "Davajte vykorystajemo huhl-translejt"
+  },
+  {
+    "cz_translation": "Mluvíte anglicky?",
+    "cz_transcription": "Млувіте анґлицки",
+    "ua_translation": "Ви розмовляєте англійською?",
+    "ua_transcription": "Vy rozmovljajete anhlijs’koju"
+  },
+  {
+    "cz_translation": "Mluvíte česky?",
+    "cz_transcription": "Млувіте чески",
+    "ua_translation": "Ви розмовляєте чеською?",
+    "ua_transcription": "Vy rozmovljajete čes'koju"
+  },
+  {
+    "cz_translation": "Jsem rád, že jste tady. Jsem ráda, že jste tady.",
+    "cz_transcription": "Сем рад, же сте тади. Сем рада, же сте тади",
+    "ua_translation": "Я радий, що ви тут. Я рада, що ви тут.",
+    "ua_transcription": "Ja radyj, ščo vy tut. Ja rada, ščo vy tut"
+  },
+  {
+    "cz_translation": "To zvládneme.",
+    "cz_transcription": "То звладнеме",
+    "ua_translation": "Ми впораємося.",
+    "ua_transcription": "My vporajemosja"
+  },
+  {
+    "cz_translation": "Cítíte se dobře?",
+    "cz_transcription": "Цитіте се добрже",
+    "ua_translation": "Ви добре почуваєтесь?",
+    "ua_transcription": "Vy dobre počuvajetes’"
+  },
+  {
+    "cz_translation": "Jak se vám daří?",
+    "cz_transcription": "Як се вам даржі",
+    "ua_translation": "Як у вас справи?",
+    "ua_transcription": "Jak u vas spravy"
+  },
+  {
+    "cz_translation": "Chybí vám něco?",
+    "cz_transcription": "Хибі вам нєцо",
+    "ua_translation": "Вам чогось не вистачає?",
+    "ua_transcription": "Vam čohos' ne vystačaje"
+  },
+  {
+    "cz_translation": "Zařídím to.",
+    "cz_transcription": "Заржідім то",
+    "ua_translation": "Я це організую.",
+    "ua_transcription": "Ja ce orhanizuju"
+  },
+  {
+    "cz_translation": "Není to problém.",
+    "cz_transcription": "Нені то проблем",
+    "ua_translation": "Жодних проблем.",
+    "ua_transcription": "Žodnych problem"
+  },
+  {
+    "cz_translation": "Můžu vám dát kávu?",
+    "cz_transcription": "Мужу вам дат каву",
+    "ua_translation": "Бажаєте кави?",
+    "ua_transcription": "Bažajete kavy"
+  },
+  {
+    "cz_translation": "Můžu vám dát vodu?",
+    "cz_transcription": "Мужу вам дат воду",
+    "ua_translation": "Бажаєте води?",
+    "ua_transcription": "Bažajete vody"
+  },
+  {
+    "cz_translation": "Něco k jídlu?",
+    "cz_transcription": "Нєцо к їдлу",
+    "ua_translation": "Поїсти?",
+    "ua_transcription": "Pojisty"
+  },
+  {
+    "cz_translation": "Jste všichni spolu?",
+    "cz_transcription": "Сте вшихні сполу",
+    "ua_translation": "Тут усі?",
+    "ua_transcription": "Tut usi"
+  },
+  {
+    "cz_translation": "Chybí vám někdo?",
+    "cz_transcription": "Хибі вам нєґдо",
+    "ua_translation": "Когось немає?",
+    "ua_transcription": "Kohos’ nemaje"
+  },
+  {
+    "cz_translation": "Kam jedete?",
+    "cz_transcription": "Кам єдете",
+    "ua_translation": "Куди ви їдете?",
+    "ua_transcription": "Kudy vy jidete"
+  },
+  {
+    "cz_translation": "Půjdeme pro lístek na vlak.",
+    "cz_transcription": "Пуйдеме про лістек на влак",
+    "ua_translation": "Ходімо купимо квиток на поїзд.",
+    "ua_transcription": "Chodimo kupymo kvytok na pojizd"
+  },
+  {
+    "cz_translation": "Máte s sebou doklady?",
+    "cz_transcription": "Мате себоу доклади",
+    "ua_translation": "У вас є з собою документи?",
+    "ua_transcription": "U vas je z soboju dokumenty"
+  },
+  {
+    "cz_translation": "Znáte někoho v Praze?",
+    "cz_transcription": "Знате нєкого в Празе",
+    "ua_translation": "У вас є знайомі у Празі?",
+    "ua_transcription": "U vas je znajomi u Prazi"
+  },
+  {
+    "cz_translation": "Máte kde bydlet?",
+    "cz_transcription": "Мате ґде бидлет",
+    "ua_translation": "У вас є житло?",
+    "ua_transcription": "U vas je žytlo"
+  },
+  {
+    "cz_translation": "Máte kde přespat?",
+    "cz_transcription": "Мате ґде пржеспат",
+    "ua_translation": "Є де переночувати?",
+    "ua_transcription": "Je de perenočuvaty"
+  },
+  {
+    "cz_translation": "Znáte adresu?",
+    "cz_transcription": "Знате адресу",
+    "ua_translation": "Знаєте адресу?",
+    "ua_transcription": "Znajete adresu"
+  },
+  {
+    "cz_translation": "Máte telefonní číslo?",
+    "cz_transcription": "Мате телефоні чісло",
+    "ua_translation": "Знаєте номер телефону?",
+    "ua_transcription": "Znajete nomer telefonu"
+  },
+  {
+    "cz_translation": "Máte telefon?",
+    "cz_transcription": "Мате телефон",
+    "ua_translation": "У вас є телефон?",
+    "ua_transcription": "U vas je telefon"
+  },
+  {
+    "cz_translation": "Mám zavolat?",
+    "cz_transcription": "Мам заволат",
+    "ua_translation": "Мені зателефонувати?",
+    "ua_transcription": "Meni zatelefonuvaty"
+  },
+  {
+    "cz_translation": "Potřebujete lékaře?",
+    "cz_transcription": "Потржебуєте лекарже",
+    "ua_translation": "Вам потрібен лікар?",
+    "ua_transcription": "Vam potriben likar"
+  },
+  {
+    "cz_translation": "Potřebujete léky?",
+    "cz_transcription": "Потржебуєте леки",
+    "ua_translation": "Вам потрібні ліки?",
+    "ua_transcription": "Vam potribni liky"
+  },
+  {
+    "cz_translation": "Potřebujete oblečení?",
+    "cz_transcription": "Потржебуєте облечені",
+    "ua_translation": "Вам потрібен одяг?",
+    "ua_transcription": "Vam potriben oďah"
+  },
+  {
+    "cz_translation": "Potřebujete jídlo?",
+    "cz_transcription": "Потржебуєте їдло",
+    "ua_translation": "Вам потрібна їжа?",
+    "ua_transcription": "Vam potribna jiža"
+  },
+  {
+    "cz_translation": "Potřebujete pití?",
+    "cz_transcription": "Потржебуєте питі",
+    "ua_translation": "Вам потрібнa вода?",
+    "ua_transcription": "Vam potribna voda"
+  },
+  {
+    "cz_translation": "Tady máte kontakt na organizace.",
+    "cz_transcription": "Тади мате контакт на орґанизаце",
+    "ua_translation": "Ось контакти організації.",
+    "ua_transcription": "Os’ kontakty orhanizaciji"
+  },
+  {
+    "cz_translation": "Pomůžou vám.",
+    "cz_transcription": "Помужоу вам",
+    "ua_translation": "Там Вам допоможуть.",
+    "ua_transcription": "Tam Vam dopomožuť"
+  },
+  {
+    "cz_translation": "Tady je SIM karta s internetem zdarma.",
+    "cz_transcription": "Тади є сим карта с інтернетем здарма",
+    "ua_translation": "Ось сім карта з безкоштовним інтернетом.",
+    "ua_transcription": "Os’ sim karta z bezkoštovnym internetom"
+  }
+]
