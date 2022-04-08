@@ -27,13 +27,12 @@ const normalizeForSearch = (text: string) => {
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
-  const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
   const [flattenTranslations, setFlattenTranslations] = useState<TranslationType[]>();
   const [filteredTranslations, setFilteredTranslations] = useState<TranslationType[] | []>([]);
   const [maxItems, setMaxItems] = useState(20);
   const [isSticky, setIsSticky] = useState(false);
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
   const lastContainerRef = useRef<HTMLDivElement | null>(null);
@@ -146,7 +145,6 @@ const Dictionary = () => {
             hiddenLabel
             label={t('dictionary_page.search_input_label')}
             placeholder={t('dictionary_page.search_placeholder')}
-            type="text"
             value={search}
             resetInput={() => setSearch('')}
             onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch((e.target as HTMLInputElement).value)}
@@ -154,7 +152,7 @@ const Dictionary = () => {
           <Button
             ref={searchButton}
             className={`${
-              isSticky ? 'bg-primary-yellow text-black' : 'bg-primary-blue'
+              isSticky ? 'text-black bg-primary-yellow' : 'bg-primary-blue'
             } ml-5 justify-self-center border-1 hidden self-center md:block `}
             text={t('dictionary_page.search_button')}
           />
@@ -171,11 +169,11 @@ const Dictionary = () => {
         <h2 className="text-primary-blue">{t(search.trim() ? 'dictionary_page.results_subtitle' : 'dictionary_page.subtitle')}</h2>
         {search.trim() === '' &&
           translations.map((category, index) => {
-            const mainLanguageCategory = i18n.language === 'cs' ? category.category_name_cz : category.category_name_ua;
-            const secondaryLanguageCategory = i18n.language === 'cs' ? category.category_name_ua : category.category_name_cz;
+            const mainLanguageCategory = currentLanguage === 'cs' ? category.category_name_cz : category.category_name_ua;
+            const secondaryLanguageCategory = currentLanguage === 'cs' ? category.category_name_ua : category.category_name_cz;
 
             const categoryLink =
-              i18n.language === 'cs'
+              currentLanguage === 'cs'
                 ? category.category_name_cz
                     .normalize('NFD')
                     .replace(/[\u0300-\u036f]/g, '')

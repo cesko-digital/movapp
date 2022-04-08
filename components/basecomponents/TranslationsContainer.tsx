@@ -1,5 +1,4 @@
 import { Translation } from './Translation';
-import { Language } from 'data/locales';
 import { forwardRef } from 'react';
 import { useLanguage } from 'components/utils/useLanguageHook';
 
@@ -23,8 +22,6 @@ export const TranslationContainer = forwardRef<HTMLDivElement, TranslationContai
   ({ cz_translation, ua_translation, ua_transcription, cz_transcription, searchText }, ref): JSX.Element => {
     const { currentLanguage, otherLanguage } = useLanguage();
 
-    const secondaryLanguage: Language = currentLanguage === 'uk' ? 'cs' : 'uk';
-
     const languageTranslation = {
       uk: {
         translation: ua_translation,
@@ -38,7 +35,6 @@ export const TranslationContainer = forwardRef<HTMLDivElement, TranslationContai
 
     return (
       <div ref={ref} className="sm:grid sm:grid-cols-[50%_1px_50%]   sm:items-center  p-2  border-b-slate-200 bg-primary-white">
-        {/* CZ translation  */}
         {/* CZ translation  */}
         <Translation
           searchText={searchText}
