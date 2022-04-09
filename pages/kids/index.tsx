@@ -20,7 +20,7 @@ const KidsSection = () => {
       </Head>
       <div className="text-center sm:text-right pt-8 mr-0 sm:mr-16">
         <a href="/kids/omalovanky.pdf" target="_blank" rel="noopener noreferrer" download>
-          <Button text={t('kids_page.downloadPDF')} />
+          <Button text={t('kids_page.downloadPDF')} className="bg-primary-blue" />
         </a>
       </div>
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
