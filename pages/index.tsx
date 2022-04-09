@@ -5,6 +5,8 @@ export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
 import Image from 'next/image';
 import HeartsUkraine from '../public/icons/hearts-for-ukraine.png';
+import ColouredEggs from '../public/icons/coloured-eggs.png';
+import EggsIcon from '../public/icons/eggs-icon.svg';
 import DictionaryIcon from '../public/icons/book.svg';
 import ChildIcon from '../public/icons/child.svg';
 import AlphabetIcon from '../public/icons/book-font.svg';
@@ -25,7 +27,37 @@ const Home: NextPage = () => {
         </h1>
       </div>
       <div className="max-w-7xl m-auto px-2 sm:px-4">
-        <div className="max-w-7xl bg-white p-4 sm:p-8 md:p-12 shadow-xxl mt-[-6rem]">
+        {/* Easter section */}
+        <div className="max-w-7xl bg-lime-500 p-4 sm:p-8 md:p-12 shadow-xxl mt-[-6rem] mb-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="justify-self-center my-4 md:my-0">
+              <Link href={'/dictionary'}>
+                <a><Image src={ColouredEggs} alt="Velikonoční vajíčka." width={256} height={194} /></a>
+              </Link>
+            </div>
+            <div className="homepage-box w-full group hover:text-primary-blue    pr-4 md:border-r-1 md:border-r-solid md:border-lime-400">
+              <DictionaryIcon className="w-6 mb-2 group-hover:fill-primary-red" />
+              <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
+                <Link href={'/dictionary'}>
+                  <a>{t('homepage.box_easter_dictionary_title')}</a>
+                </Link>
+              </h2>
+              <p>{t('homepage.box_easter_dictionary_description')}</p>
+            </div>
+            <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
+              <EggsIcon className="w-6 mb-2 group-hover:fill-primary-red" />
+              <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
+                <Link href={'/dictionary#easter'}>
+                  <a>{t('homepage.box_easter_kids_title')}</a>
+                </Link>
+              </h2>
+              <p>{t('homepage.box_easter_kids_description')}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Standard section */}
+        <div className="max-w-7xl bg-white p-4 sm:p-8 md:p-12 shadow-xxl mb-8">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="homepage-box w-full group hover:text-primary-blue    pr-4 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
               <DictionaryIcon className="w-6 mb-2 group-hover:fill-primary-red" />
