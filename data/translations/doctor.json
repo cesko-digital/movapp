@@ -78,10 +78,10 @@
     "ua_transcription": "ruka"
   },
   {
-    "cz_translation": "paže",
-    "cz_transcription": "паже",
-    "ua_translation": "руки",
-    "ua_transcription": "ruky"
+    "cz_translation": "obě paže",
+    "cz_transcription": "обє паже",
+    "ua_translation": "обидві руки",
+    "ua_transcription": "obydvi ruky"
   },
   {
     "cz_translation": "ruka",
@@ -318,18 +318,11 @@
     "ua_translation": "тварин",
     "ua_transcription": "tvaryn"
   },
-
   {
-    "cz_translation": "Potřebuji...",
-    "cz_transcription": "Потржебуї",
-    "ua_translation": "Мені потрібні...",
-    "ua_transcription": "Meni potribni"
-  },
-  {
-    "cz_translation": "léky",
-    "cz_transcription": "леки",
-    "ua_translation": "ліки",
-    "ua_transcription": "liky"
+    "cz_translation": "Potřebuji léky.",
+    "cz_transcription": "Потржебуї леки",
+    "ua_translation": "Мені потрібні ліки.",
+    "ua_transcription": "Meni potribni liky"
   },
   {
     "cz_translation": "léky na bolest",
@@ -338,10 +331,10 @@
     "ua_transcription": "liky vid bolju"
   },
   {
-    "cz_translation": "mast",
-    "cz_transcription": "маст",
-    "ua_translation": "мазь",
-    "ua_transcription": "maz’"
+    "cz_translation": "Potřebuji mast.",
+    "cz_transcription": "Потржебуї маст",
+    "ua_translation": "Мені потрібна мазь.",
+    "ua_transcription": "Meni potribna maz'"
   },
   {
     "cz_translation": "mast na ekzém",
@@ -350,10 +343,10 @@
     "ua_transcription": "maz’ vid ekzemy"
   },
   {
-    "cz_translation": "sirup",
-    "cz_transcription": "сіруп",
-    "ua_translation": "сироп",
-    "ua_transcription": "syrop"
+    "cz_translation": "Potřebuji sirup.",
+    "cz_transcription": "Потржебуї сіруп",
+    "ua_translation": "Мені потрібен сироп.",
+    "ua_transcription": "Meni potribna syrop"
   },
   {
     "cz_translation": "sirup na kašel",
