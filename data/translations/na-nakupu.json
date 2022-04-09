@@ -1,5 +1,11 @@
 [
   {
+    "cz_translation": "nákup",
+    "cz_transcription": "накуп",
+    "ua_translation": "покупка",
+    "ua_transcription": "pokupka"
+  },
+  {
     "cz_translation": "čaj",
     "cz_transcription": "чай",
     "ua_translation": "чай",
@@ -282,7 +288,7 @@
     "ua_transcription": "jabluko"
   },
   {
-    "cz_translation": " jablka",
+    "cz_translation": "jablka",
     "cz_transcription": "яблка",
     "ua_translation": "яблука",
     "ua_transcription": "jabluka"
