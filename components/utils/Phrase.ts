@@ -2,9 +2,9 @@ import { Language } from 'data/locales';
 import { decodeType, record, string } from 'typescript-json-decoder';
 
 const TranslationJSONDecoder = record({
-  cz_translation: string,
   ua_translation: string,
   ua_transcription: string,
+  cz_translation: string,
   cz_transcription: string,
 });
 export type TranslationJSON = decodeType<typeof TranslationJSONDecoder>;

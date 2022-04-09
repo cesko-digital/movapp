@@ -9,7 +9,7 @@ import { CategoryDictionary } from 'components/sections/CategoryDictionary';
 import { categories } from 'data/translations/translations';
 export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
-import { TranslationContainer as TranslationContainer } from '../../components/basecomponents/TranslationsContainer';
+import { TranslationContainer } from '../../components/basecomponents/TranslationsContainer';
 import { translit } from 'utils/transliterate';
 import { ua2cz } from 'data/transliterations/ua2cz';
 import { useLanguage } from 'components/utils/useLanguageHook';
