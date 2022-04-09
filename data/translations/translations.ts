@@ -1,5 +1,4 @@
-import { TranslationType } from '../../components/basecomponents/TranslationsContainer';
-import { TranslationContainer } from 'components/basecomponents/TranslationsContainer';
+import { Phrase } from './../../components/utils/Phrase';
 // JSON translation files
 import Basic from './basic.json';
 import UzitecneFraze from './uzitecne-fraze.json';
@@ -20,101 +19,101 @@ import VeSkolce from './veskolce.json';
 import Dobrovolnici from './dobrovolnici.json';
 import ZradnaSlovicka from './zradna-slovicka.json';
 
-export interface TranslationsType {
+export interface Category {
   category_name_cz: string;
   category_name_ua: string;
-  translations: TranslationType[];
+  translations: Phrase[];
 }
 
-export const translations: TranslationsType[] = [
+export const categories: Category[] = [
   {
     category_name_ua: 'Основні фрази',
     category_name_cz: 'Základní fráze',
-    translations: Basic,
+    translations: Basic.map((translation) => new Phrase(translation)),
   },
   {
     category_name_ua: 'Корисні фрази',
     category_name_cz: 'Užitečné fráze',
-    translations: UzitecneFraze,
+    translations: UzitecneFraze.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'Rodina',
     category_name_ua: 'Родина',
-    translations: Rodina,
+    translations: Rodina.map((translation) => new Phrase(translation)),
   },
   {
     category_name_ua: 'Час',
     category_name_cz: 'Čas',
-    translations: Cas,
+    translations: Cas.map((translation) => new Phrase(translation)),
   },
   {
     category_name_ua: 'Громадський транспорт',
     category_name_cz: 'Hromadná doprava',
-    translations: HromadnaDoprava,
+    translations: HromadnaDoprava.map((translation) => new Phrase(translation)),
   },
   {
     category_name_ua: 'Їдемо в зоопарк',
     category_name_cz: 'Jedeme do ZOO',
-    translations: Zoo,
+    translations: Zoo.map((translation) => new Phrase(translation)),
   },
   {
     category_name_ua: 'Покупки',
     category_name_cz: 'Na nákupu',
-    translations: NaNakupu,
+    translations: NaNakupu.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'Na úřadě',
     category_name_ua: 'В органах влади',
-    translations: NaUrade,
+    translations: NaUrade.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'Oblečení',
     category_name_ua: 'Одяг',
-    translations: Obleceni,
+    translations: Obleceni.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'Drogerie',
     category_name_ua: 'Побутова хімія (косметика)',
-    translations: Drogerie,
+    translations: Drogerie.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'Peníze',
     category_name_ua: 'Гроші',
-    translations: Penize,
+    translations: Penize.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'U lékaře',
     category_name_ua: 'У лікаря',
-    translations: Doctor,
+    translations: Doctor.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'V domácnosti',
     category_name_ua: 'Вдома',
-    translations: VDomacnosti,
+    translations: VDomacnosti.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'Ve městě',
     category_name_ua: 'У місті',
-    translations: VeMeste,
+    translations: VeMeste.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'Ve škole',
     category_name_ua: 'У школі',
-    translations: VeSkole,
+    translations: VeSkole.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'Ve školce',
     category_name_ua: 'У дитсадку',
-    translations: VeSkolce,
+    translations: VeSkolce.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'Dobrovolníci',
     category_name_ua: 'Добровольці',
-    translations: Dobrovolnici,
+    translations: Dobrovolnici.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'Zrádná slovíčka',
     category_name_ua: 'Слова із іншим значенням',
-    translations: ZradnaSlovicka,
+    translations: ZradnaSlovicka.map((translation) => new Phrase(translation)),
   },
 ];

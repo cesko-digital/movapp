@@ -4,14 +4,14 @@ import { Language } from 'data/locales';
 import { AudioPlayer } from 'components/utils/AudioPlayer';
 import { useTranslation } from 'next-i18next';
 
-interface TranslationProps {
+interface TranslationComponentProps {
   translation: string;
   transcription: string;
   language: Language;
   searchText: string;
 }
 
-export const Translation = ({ transcription, translation, language, searchText }: TranslationProps): JSX.Element => {
+export const TranslationComponent = ({ transcription, translation, language, searchText }: TranslationComponentProps): JSX.Element => {
   const { t } = useTranslation();
   return (
     <div className="flex justify-between items-center py-2 px-5 bg-primary-grey">
