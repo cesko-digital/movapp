@@ -16,10 +16,10 @@ export const Translation = ({ transcription, translation, language, searchText }
   return (
     <div className="flex justify-between items-center py-2 px-5 bg-primary-grey">
       <div className="w-full">
-        <p className="translation_text self-start w-full ">
+        <div className="translation_text self-start w-full ">
           {/* Marker is used to highlight searched text */}
           <Marker mark={searchText}>{translation}</Marker>
-        </p>
+        </div>
         <p className="text-gray-500">{`[ ${transcription} ]`}</p>
       </div>
       <button

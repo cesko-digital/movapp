@@ -4,13 +4,14 @@
 
 * {
   font-family: 'Roboto', 'Source Sans Pro';
+  scroll-margin: 116px 0 0 0;
 }
 
 h1 {
   font-weight: 700;
   line-height: 40px;
   font-size: 32px;
-  margin: 1rem 0 3rem;
+  margin: 1rem 0;
 }
 
 h2 {
