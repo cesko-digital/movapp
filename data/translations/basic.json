@@ -8,25 +8,25 @@
   {
     "cz_translation": "Ahoj.",
     "cz_transcription": "Агой",
-    "ua_translation": "Привіт!",
+    "ua_translation": "Привіт.",
     "ua_transcription": "Pryvit"
   },
   {
     "cz_translation": "Na shledanou.",
     "cz_transcription": "На схледаноу",
-    "ua_translation": "До побачення!",
+    "ua_translation": "До побачення.",
     "ua_transcription": "Do pobačenňa"
   },
   {
-    "cz_translation": "Ano",
+    "cz_translation": "Ano.",
     "cz_transcription": "Ано",
-    "ua_translation": "Так",
+    "ua_translation": "Так.",
     "ua_transcription": "Tak"
   },
   {
-    "cz_translation": "Ne",
+    "cz_translation": "Ne.",
     "cz_transcription": "Не",
-    "ua_translation": "Ні",
+    "ua_translation": "Ні.",
     "ua_transcription": "Ni"
   },
   {
@@ -48,6 +48,12 @@
     "ua_transcription": "Nema za ščo / Prošu"
   },
   {
+    "cz_translation": "Promiň.",
+    "cz_transcription": "Проминь",
+    "ua_translation": "Пробач.",
+    "ua_transcription": "Probač"
+  },
+  {
     "cz_translation": "Promiňte.",
     "cz_transcription": "Проміньте",
     "ua_translation": "Вибачте.",
@@ -60,10 +66,52 @@
     "ua_transcription": "Mene zvuť"
   },
   {
+    "cz_translation": "Já jsem...",
+    "cz_transcription": "Я сем",
+    "ua_translation": "Я...",
+    "ua_transcription": "Ja"
+  },
+  {
     "cz_translation": "Jsem z Ukrajiny.",
     "cz_transcription": "Сем з України",
     "ua_translation": "Я з України.",
     "ua_transcription": "Ja z Ukrajiny"
+  },
+  {
+    "cz_translation": "Narodila jsem se...",
+    "cz_transcription": "Народіла сем се",
+    "ua_translation": "Народилася...",
+    "ua_transcription": "Narodylasja"
+  },
+  {
+    "cz_translation": "Narodila se... Narodil se...",
+    "cz_transcription": "Народіла се / Народіл се",
+    "ua_translation": "Вона народилася... Він народився...",
+    "ua_transcription": "Vona narodylasja / Vin narodyusja"
+  },
+  {
+    "cz_translation": "Jak se máš? Jak se máte?",
+    "cz_transcription": "Як се маш / Як се мате",
+    "ua_translation": "Як справи?",
+    "ua_transcription": "Jak spravy"
+  },
+  {
+    "cz_translation": "Mám se dobře.",
+    "cz_transcription": "Мам се добрже",
+    "ua_translation": "Добре.",
+    "ua_transcription": "Dobre"
+  },
+  {
+    "cz_translation": "Nemám se dobře.",
+    "cz_transcription": "Немам се добрже",
+    "ua_translation": "Погано.",
+    "ua_transcription": "Pohano"
+  },
+  {
+    "cz_translation": "V pořádku.",
+    "cz_transcription": "Ф поржатку",
+    "ua_translation": "Усе гаразд.",
+    "ua_transcription": "Use harazd"
   },
   {
     "cz_translation": "Nemluvím česky.",
@@ -77,7 +125,7 @@
     "ua_translation": "Розмовляю англійською.",
     "ua_transcription": "Rozmovljaju anhlijs’koju"
   },
-{
+  {
     "cz_translation": "Mluvím rusky.",
     "cz_transcription": "Млувім руски",
     "ua_translation": "Розмовляю російською.",
@@ -88,12 +136,6 @@
     "cz_transcription": "Млувім нємецки",
     "ua_translation": "Розмовляю німецькою.",
     "ua_transcription": "Rozmovljaju nimec’koju"
-  },
-  {
-    "cz_translation": "Ztratila jsem doklady. Ztratil jsem doklady.",
-    "cz_transcription": "Стратіла сем доклади / Стратіл сем доклади",
-    "ua_translation": "Я загубила документи. Я загубив документи.",
-    "ua_transcription": "Ja zahubila dokumenty / Ja zahubiu dokumenty"
   },
   {
     "cz_translation": "Nerozumím.",
@@ -120,9 +162,9 @@
     "ua_transcription": "Povtoriť, buď laska"
   },
   {
-    "cz_translation": "Co znamená?",
+    "cz_translation": "Co znamená...",
     "cz_transcription": "Цо знамена",
-    "ua_translation": "Що означає?",
+    "ua_translation": "Що означає...",
     "ua_transcription": "Ščo označaje"
   },
   {
@@ -144,10 +186,34 @@
     "ua_transcription": "Možete meni dopomohty, buď laska"
   },
   {
-    "cz_translation": "Zavolejte pomoc, prosím.",
-    "cz_transcription": "Заволейте помоц, просім",
-    "ua_translation": "Покличе на допомогу, будь ласка.",
-    "ua_transcription": "Pokliče na dopomohu, buď laska"
+    "cz_translation": "Hledám...",
+    "cz_transcription": "Гледам",
+    "ua_translation": "Шукаю...",
+    "ua_transcription": "Šukaju"
+  },
+  {
+    "cz_translation": "Kde najdu...",
+    "cz_transcription": "Ґде найду",
+    "ua_translation": "Де можна знайти...",
+    "ua_transcription": "De možna znajty"
+  },
+  {
+    "cz_translation": "Ztratila jsem doklady. Ztratil jsem doklady.",
+    "cz_transcription": "Стратіла сем доклади / Стратіл сем доклади",
+    "ua_translation": "Я загубила документи. Я загубив документи.",
+    "ua_transcription": "Ja zahubila dokumenty / Ja zahubiu dokumenty"
+  },
+  {
+    "cz_translation": "Jak si mám zařídit...",
+    "cz_transcription": "Як си мам заржідіт",
+    "ua_translation": "Як можна отримати...",
+    "ua_transcription": "Jak možna otrymaty"
+  },
+  {
+    "cz_translation": "Kde si mohu zařídit...",
+    "cz_transcription": "Ґде си могу заржідіт",
+    "ua_translation": "Де можна отримати...",
+    "ua_transcription": "De možna otrymaty"
   },
   {
     "cz_translation": "Mohu vás poprosit o...",
@@ -156,16 +222,22 @@
     "ua_transcription": "Možu vas poprosyty"
   },
   {
+    "cz_translation": "Zavolejte pomoc, prosím.",
+    "cz_transcription": "Заволейте помоц, просім",
+    "ua_translation": "Покличе на допомогу, будь ласка.",
+    "ua_transcription": "Pokliče na dopomohu, buď laska"
+  },
+  {
+    "cz_translation": "Jaké je telefonní číslo na...?",
+    "cz_transcription": "Яке є телефоні чісло на",
+    "ua_translation": "Який телефонний номер...?",
+    "ua_transcription": "Jakyj telefonnyj nomer"
+  },
+  {
     "cz_translation": "policie",
     "cz_transcription": "полициє",
     "ua_translation": "поліція",
     "ua_transcription": "policija"
-  },
-  {
-    "cz_translation": "doktor",
-    "cz_transcription": "доктор",
-    "ua_translation": "лікар",
-    "ua_transcription": "likar"
   },
   {
     "cz_translation": "hasiči",
@@ -174,9 +246,21 @@
     "ua_transcription": "požežnyky"
   },
   {
-    "cz_translation": "V pohodě",
-    "cz_transcription": "Ф погодє",
-    "ua_translation": "Усе гаразд",
-    "ua_transcription": "Use harazd"
+    "cz_translation": "Kde musím nosit respirátor?",
+    "cz_transcription": "Ґде мусім носит респиратор",
+    "ua_translation": "Де необхідно носити респіратор?",
+    "ua_transcription": "De neobchidno nosyty respirator"
+  },
+  {
+    "cz_translation": "Jsem v karanténě.",
+    "cz_transcription": "Сем ф карантенє",
+    "ua_translation": "Я на карантині.",
+    "ua_transcription": "Ja na karantyni"
+  },
+  {
+    "cz_translation": "Jsem v izolaci.",
+    "cz_transcription": "Сем ф изолаци",
+    "ua_translation": "Я на ізоляції.",
+    "ua_transcription": "Ja na izoljaciji"
   }
 ]
