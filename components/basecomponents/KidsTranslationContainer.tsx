@@ -31,7 +31,7 @@ export const KidsTranslationsContainer = ({ translation, image }: KidsTranslatio
         onClick={() => AudioPlayer.getInstance().playTextToSpeech(secondaryTranslation, otherLanguage)}
         aria-label={t('utils.play') + ' ' + secondaryTranslation}
       >
-        <Image src={`/kids/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={translation.getTranslation('cs')} />
+        <Image src={`/kids/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={translation.getTranslation('cs')} id={image} />
       </button>
       <div className="px-6 py-4">
         <KidsTranslation
