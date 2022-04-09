@@ -1,11 +1,24 @@
 import { Language } from 'data/locales';
+import { decodeType, record, string } from 'typescript-json-decoder';
 
-interface TranslationJSON {
-  cz_translation: string;
-  ua_translation: string;
-  ua_transcription: string;
-  cz_transcription: string;
-}
+const TranslationJSONDecoder = record({
+  cz_translation: string,
+  ua_translation: string,
+  ua_transcription: string,
+  cz_transcription: string,
+});
+export type TranslationJSON = decodeType<typeof TranslationJSONDecoder>;
+
+export const isValidTranslationJSON = (input: TranslationJSON): input is TranslationJSON => {
+  try {
+    TranslationJSONDecoder(input);
+    return true;
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error(e);
+    return false;
+  }
+};
 
 export class Phrase {
   ukTranslation: string;
