@@ -6,12 +6,6 @@
     "ua_transcription": "Jak tut pracjuje hromads’kyj transport"
   },
   {
-    "cz_translation": "Kde mohu koupit lístek?",
-    "cz_transcription": "Ґде могу коупит лістек",
-    "ua_translation": "Де можна купити квиток?",
-    "ua_transcription": "De možna kupyty kvitok"
-  },
-  {
     "cz_translation": "lístek",
     "cz_transcription": "лістек",
     "ua_translation": "квиток",
@@ -24,10 +18,22 @@
     "ua_transcription": "kvytky"
   },
   {
-    "cz_translation": "jízdenka",
-    "cz_transcription": "їзденка",
+    "cz_translation": "Kde mohu koupit lístek?",
+    "cz_transcription": "Ґде могу коупит лістек",
+    "ua_translation": "Де можна купити квиток?",
+    "ua_transcription": "De možna kupyty kvitok"
+  },
+  {
+    "cz_translation": "tramvajenka",
+    "cz_transcription": "трамваєнка",
     "ua_translation": "проїзний квиток",
     "ua_transcription": "projiznyj kvytok"
+  },
+  {
+    "cz_translation": "Kde si mohu zařídit tramvajenku?",
+    "cz_transcription": "Ґде си могу заржідіт трамваєнку",
+    "ua_translation": "Де я можу отримати проїзний квиток?",
+    "ua_transcription": "De ja možu otrymaty projiznyj kvytok"
   },
   {
     "cz_translation": "Kdy jede...?",
@@ -35,7 +41,6 @@
     "ua_translation": "Коли їде...?",
     "ua_transcription": "Koly jide"
   },
-
   {
     "cz_translation": "autobus",
     "cz_transcription": "аутобус",
@@ -54,7 +59,6 @@
     "ua_translation": "поїзд",
     "ua_transcription": "pojizd"
   },
-
   {
     "cz_translation": "za pět minut",
     "cz_transcription": "за пєт минут",
@@ -91,7 +95,6 @@
     "ua_translation": "десять",
     "ua_transcription": "desjať"
   },
-
   {
     "cz_translation": "Jede tato tramvaj do...?",
     "cz_transcription": "Єде тато трамвай до",
@@ -116,7 +119,7 @@
     "ua_translation": "Це гілка А?",
     "ua_transcription": "Ce rilka A"
   },
-{
+  {
     "cz_translation": "Jsem na lince B?",
     "cz_transcription": "Сем на лінце Бе",
     "ua_translation": "Це гілка Б?",

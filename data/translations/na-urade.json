@@ -1,5 +1,11 @@
 [
   {
+    "cz_translation": "úřad",
+    "cz_transcription": "уржат",
+    "ua_translation": "органи влади",
+    "ua_transcription": "orhany vlady"
+  },
+  {
     "cz_translation": "jméno",
     "cz_transcription": "ймено",
     "ua_translation": "ім'я",
@@ -174,6 +180,12 @@
     "ua_transcription": "Posvidčenňa osoby / Aj di karta"
   },
   {
+    "cz_translation": "pojištění",
+    "cz_transcription": "поїштєні",
+    "ua_translation": "страхування",
+    "ua_transcription": "strachuvanňa"
+  },
+  {
     "cz_translation": "počet dětí",
     "cz_transcription": "почет дєті",
     "ua_translation": "кількість дітей",
@@ -226,5 +238,11 @@
     "cz_transcription": "домлувит си схуску",
     "ua_translation": "домовитись про зустріч",
     "ua_transcription": "domovytys’ pro zustrič"
+  },
+  {
+    "cz_translation": "Jaké dokumenty potřebuji pro...",
+    "cz_transcription": "Яке документи потржебуї про",
+    "ua_translation": "Які документи потрібні для...",
+    "ua_transcription": "Jaki dokumenty potribni dlja"
   }
 ]
