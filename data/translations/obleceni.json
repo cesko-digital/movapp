@@ -1,5 +1,35 @@
 [
   {
+    "cz_translation": "prádlo",
+    "cz_transcription": "прадло",
+    "ua_translation": "білизна",
+    "ua_transcription": "bilyzna"
+  },
+  {
+    "cz_translation": "ponožky",
+    "cz_transcription": "поношки",
+    "ua_translation": "шкарпетки",
+    "ua_transcription": "škarpetky"
+  },
+  {
+    "cz_translation": "punčocháče",
+    "cz_transcription": "пунчохаче",
+    "ua_translation": "колготки",
+    "ua_transcription": "kolhotky"
+  },
+  {
+    "cz_translation": "podprsenka",
+    "cz_transcription": "потпрсенка",
+    "ua_translation": "бюстгальтер",
+    "ua_transcription": "bjusthal'ter"
+  },
+  {
+    "cz_translation": "pyžamo",
+    "cz_transcription": "пижамо",
+    "ua_translation": "піжама",
+    "ua_transcription": "pižama"
+  },
+  {
     "cz_translation": "tričko",
     "cz_transcription": "тричко",
     "ua_translation": "футболка",
@@ -10,6 +40,18 @@
     "cz_transcription": "тричка",
     "ua_translation": "футболки",
     "ua_transcription": "futbolky"
+  },
+  {
+    "cz_translation": "halenka",
+    "cz_transcription": "галенка",
+    "ua_translation": "жіноча сорочка",
+    "ua_transcription": "žinoča soročka"
+  },
+  {
+    "cz_translation": "blůza",
+    "cz_transcription": "блуза",
+    "ua_translation": "блуза",
+    "ua_transcription": "bluza"
   },
   {
     "cz_translation": "mikina",
@@ -60,47 +102,11 @@
     "ua_transcription": "spidnycja"
   },
   {
-    "cz_translation": "halenka",
-    "cz_transcription": "галенка",
-    "ua_translation": "жіноча сорочка",
-    "ua_transcription": "žinoča soročka"
+    "cz_translation": "bunda",
+    "cz_transcription": "бунда",
+    "ua_translation": "куртка",
+    "ua_transcription": "kurtka"
   },
-  {
-    "cz_translation": "blůza",
-    "cz_transcription": "блуза",
-    "ua_translation": "блуза",
-    "ua_transcription": "bluza"
-  },
-  {
-    "cz_translation": "pyžamo",
-    "cz_transcription": "пижамо",
-    "ua_translation": "піжама",
-    "ua_transcription": "pižama"
-  },
-  {
-    "cz_translation": "prádlo",
-    "cz_transcription": "прадло",
-    "ua_translation": "білизна",
-    "ua_transcription": "bilyzna"
-  },
-  {
-    "cz_translation": "ponožky",
-    "cz_transcription": "поношки",
-    "ua_translation": "шкарпетки",
-    "ua_transcription": "škarpetky"
-  },
-  {
-    "cz_translation": "punčocháče",
-    "cz_transcription": "пунчохаче",
-    "ua_translation": "колготки",
-    "ua_transcription": "kolhotky"
-  },
-  {
-    "cz_translation": "podprsenka",
-    "cz_transcription": "потпрсенка",
-    "ua_translation": "бюстгальтер",
-    "ua_transcription": "bjusthal'ter"
-  },  
   {
     "cz_translation": "zimní bunda",
     "cz_transcription": "зимні бунда",
@@ -126,10 +132,22 @@
     "ua_transcription": "šapka"
   },
   {
+    "cz_translation": "čepička",
+    "cz_transcription": "чепичка",
+    "ua_translation": "шапочка",
+    "ua_transcription": "šapočka"
+  },
+  {
     "cz_translation": "rukavice",
     "cz_transcription": "рукавице",
     "ua_translation": "рукавиці",
     "ua_transcription": "rukavyci"
+  },
+  {
+    "cz_translation": "rukavičky",
+    "cz_transcription": "рукавички",
+    "ua_translation": "рукавички",
+    "ua_transcription": "rukavyčky"
   },
   {
     "cz_translation": "sportovní oblečení",
@@ -138,16 +156,34 @@
     "ua_transcription": "sportyvnyj kosťum"
   },
   {
-    "cz_translation": "zimní boty",
-    "cz_transcription": "зимні боти",
-    "ua_translation": "зимові чоботи",
-    "ua_transcription": "zymovi čoboty"
+    "cz_translation": "tepláky",
+    "cz_transcription": "теплаки",
+    "ua_translation": "теплі спортивні штани",
+    "ua_transcription": "tepli sportyuni štany"
+  },
+  {
+    "cz_translation": "leginy",
+    "cz_transcription": "леґіни",
+    "ua_translation": "лосини",
+    "ua_transcription": "losyny"
   },
   {
     "cz_translation": "bačkory",
     "cz_transcription": "бачкори",
     "ua_translation": "капці",
     "ua_transcription": "kapci"
+  },
+  {
+    "cz_translation": "boty",
+    "cz_transcription": "боти",
+    "ua_translation": "чоботи",
+    "ua_transcription": "čoboty"
+  },
+  {
+    "cz_translation": "zimní boty",
+    "cz_transcription": "зимні боти",
+    "ua_translation": "зимові чоботи",
+    "ua_transcription": "zymovi čoboty"
   },
   {
     "cz_translation": "Teplý. Teplá",

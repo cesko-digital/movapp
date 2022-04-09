@@ -1,5 +1,11 @@
 [
   {
+    "cz_translation": "škola",
+    "cz_transcription": "школа",
+    "ua_translation": "школа",
+    "ua_transcription": "škola"
+  },
+  {
     "cz_translation": "Paní ředitelka. Pan ředitel.",
     "cz_transcription": "Пані ржедітелка. Пан ржедітел",
     "ua_translation": "Директриса. Директор.",
@@ -126,10 +132,10 @@
     "ua_transcription": "ključ vid šafky"
   },
   {
-    "cz_translation": "Bačkory. Přezůvky.",
-    "cz_transcription": "Бачкори. Пржезуфки",
-    "ua_translation": "Капці. Змінне взуття.",
-    "ua_transcription": "Kapci. Zminne vzutťa"
+    "cz_translation": "přezůvky",
+    "cz_transcription": "пржезуфки",
+    "ua_translation": "змінне взуття",
+    "ua_transcription": "zminne vzutťa"
   },
   {
     "cz_translation": "třída",
@@ -149,7 +155,6 @@
     "ua_translation": "парта",
     "ua_transcription": "parta"
   },
-
   {
     "cz_translation": "rozvrh hodin",
     "cz_transcription": "розврх годін",
@@ -270,7 +275,6 @@
     "ua_translation": "Правознавство",
     "ua_transcription": "Pravoznaustvo"
   },
-
   {
     "cz_translation": "svačina",
     "cz_transcription": "свачина",
@@ -290,22 +294,16 @@
     "ua_transcription": "Jdemo na obid"
   },
   {
-    "cz_translation": "Vem si...",
-    "cz_transcription": "Вем си",
-    "ua_translation": "Візьми собі...",
-    "ua_transcription": "Viz'my sobi"
+    "cz_translation": "Vem si jídlo.",
+    "cz_transcription": "Вем си їдло",
+    "ua_translation": "Візьми собі їжу.",
+    "ua_transcription": "Viz'my sobi jižu"
   },
   {
-    "cz_translation": "jídlo",
-    "cz_transcription": "їдло",
-    "ua_translation": "їжу",
-    "ua_transcription": "jiža"
-  },
-  {
-    "cz_translation": "pití",
-    "cz_transcription": "питі",
-    "ua_translation": "напій",
-    "ua_transcription": "napij"
+    "cz_translation": "Vem si pití.",
+    "cz_transcription": "Вем си питі",
+    "ua_translation": "Візьми собі напій.",
+    "ua_transcription": "Viz'my sobi napij"
   },
   {
     "cz_translation": "Chceš přidat?",
@@ -313,12 +311,17 @@
     "ua_translation": "Добавки?",
     "ua_transcription": "Dobauky"
   },
-
   {
-    "cz_translation": "Aktovka. Batoh.",
-    "cz_transcription": "Актофка. Батох",
-    "ua_translation": "Ранець. Рюкзак",
-    "ua_transcription": "Ranec’. Rjukzak"
+    "cz_translation": "aktovka",
+    "cz_transcription": "актофка",
+    "ua_translation": "ранець",
+    "ua_transcription": "ranec’"
+  },
+  {
+    "cz_translation": "batoh",
+    "cz_transcription": "батох",
+    "ua_translation": "рюкзак",
+    "ua_transcription": "rjukzak"
   },
   {
     "cz_translation": "desky",
@@ -623,8 +626,8 @@
   {
     "cz_translation": "Budeme vyrábět.",
     "cz_transcription": "Будеме вирабєт",
-    "ua_translation": "Будемо робити (щось руками)",
-    "ua_transcription": "Budemo robyty (ščos’ rukamy)."
+    "ua_translation": "Будемо робити (щось руками).",
+    "ua_transcription": "Budemo robyty (ščos’ rukamy)"
   },
   {
     "cz_translation": "Budeme zpívat.",
@@ -635,7 +638,7 @@
   {
     "cz_translation": "Budeme si hrát.",
     "cz_transcription": "Будеме си грат",
-    "ua_translation": "Будемо гратися",
+    "ua_translation": "Будемо гратися.",
     "ua_transcription": "Budemo hratysja."
   },
   {
@@ -645,40 +648,10 @@
     "ua_transcription": "Jak tebe zvaty"
   },
   {
-    "cz_translation": "Já jsem...",
-    "cz_transcription": "Я сем",
-    "ua_translation": "Я...",
-    "ua_transcription": "Ja"
-  },
-  {
-    "cz_translation": "Jak se máš?",
-    "cz_transcription": "Як се маш",
-    "ua_translation": "Як справи?",
-    "ua_transcription": "Jak spravy?"
-  },
-  {
-    "cz_translation": "Mám se dobře.",
-    "cz_transcription": "Мам се добрже",
-    "ua_translation": "Добре.",
-    "ua_transcription": "Dobre"
-  },
-  {
-    "cz_translation": "Nemám se dobře.",
-    "cz_transcription": "Немам се добрже",
-    "ua_translation": "Погано.",
-    "ua_transcription": "Pohano"
-  },
-  {
     "cz_translation": "Musím na záchod.",
     "cz_transcription": "Мусим на захот",
     "ua_translation": "Мені потрібно в туалет.",
     "ua_transcription": "Meni potribno v tualet"
-  },
-  {
-    "cz_translation": "Promiňte. Omlouvám se.",
-    "cz_transcription": "Проминьте. Омлоувам се",
-    "ua_translation": "Вибачте.",
-    "ua_transcription": "Vybačte"
   },
   {
     "cz_translation": "Je to tady.",
@@ -698,7 +671,6 @@
     "ua_translation": "Поклади туди.",
     "ua_transcription": "Poklady tudy."
   },
-
   {
     "cz_translation": "Jde ti to moc dobře.",
     "cz_transcription": "Де ті то моц добрже",

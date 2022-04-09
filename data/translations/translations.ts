@@ -1,7 +1,6 @@
 import { Phrase } from './../../components/utils/Phrase';
 // JSON translation files
 import Basic from './basic.json';
-import UzitecneFraze from './uzitecne-fraze.json';
 import Cas from './cas.json';
 import HromadnaDoprava from './hromadna-doprava.json';
 import Zoo from './zoo.json';
@@ -30,11 +29,6 @@ export const categories: Category[] = [
     category_name_ua: 'Основні фрази',
     category_name_cz: 'Základní fráze',
     translations: Basic.map((translation) => new Phrase(translation)),
-  },
-  {
-    category_name_ua: 'Корисні фрази',
-    category_name_cz: 'Užitečné fráze',
-    translations: UzitecneFraze.map((translation) => new Phrase(translation)),
   },
   {
     category_name_cz: 'Rodina',
