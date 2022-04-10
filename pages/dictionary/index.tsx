@@ -13,19 +13,13 @@ import { TranslationContainer } from '../../components/basecomponents/Translatio
 import { translit } from 'utils/transliterate';
 import { ua2cz } from 'data/transliterations/ua2cz';
 import { useLanguage } from 'components/utils/useLanguageHook';
+import { normalizeForCategoryLink, normalizeForId, normalizeForSearch } from 'components/utils/textNormalizationUtils';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
 });
 
 const allTranslations = categories.map((translations) => translations.translations).flat();
-
-const normalizeForSearch = (text: string) => {
-  return text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
-};
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
@@ -152,20 +146,12 @@ const Dictionary = () => {
 
             const categoryLink =
               currentLanguage === 'cs'
-                ? category.category_name_cz
-                    .normalize('NFD')
-                    .replace(/[\u0300-\u036f]/g, '')
-                    .replace(/\s+/g, '_')
-                    .toLowerCase()
+                ? normalizeForCategoryLink(category.category_name_cz)
                 : translit(ua2cz, category.category_name_ua.toLowerCase());
             // swaps category titles according to choosen locale
             const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 
-            const normalizedId = categoryLink
-              .replace(/[()]/g, '')
-              .replace(/\s+/g, '_')
-              .normalize('NFD')
-              .replace(/[\u0300-\u036f]/g, '');
+            const normalizedId = normalizeForId(categoryLink);
 
             return (
               <Collapse
