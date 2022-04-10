@@ -1,4 +1,4 @@
-import { AudioPlayer } from 'components/utils/AudioPlayer';
+import { AudioPlayer } from 'utils/AudioPlayer';
 import { Language } from 'data/locales';
 import { useTranslation } from 'next-i18next';
 import React, { useRef } from 'react';

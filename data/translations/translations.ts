@@ -1,4 +1,4 @@
-import { Phrase, isValidTranslationJSON, TranslationJSON } from './../../components/utils/Phrase';
+import { Phrase, isValidTranslationJSON, TranslationJSON } from './../../utils/Phrase';
 // JSON translation files
 import Basic from './basic.json';
 import Cas from './cas.json';
