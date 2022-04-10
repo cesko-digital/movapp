@@ -9,10 +9,9 @@ import { CategoryDictionary } from 'components/sections/CategoryDictionary';
 import { categories, Category } from 'data/translations/translations';
 export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
-import { translit } from 'utils/transliterate';
-import { ua2cz } from 'data/transliterations/ua2cz';
+import { translitFromUkrainian } from 'utils/transliterate';
 import { useLanguage } from 'utils/useLanguageHook';
-import { normalizeForCategoryLink, normalizeForId, normalizeForSearch } from 'utils/textNormalizationUtils';
+import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
 import { Language } from 'data/locales';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
@@ -30,11 +29,8 @@ const getCategoryName = (category: Category, currentLanguage: Language) => {
 
 // Used to link directly to category with dictionary#categoryId
 const getCategoryId = (category: Category, currentLanguage: Language) => {
-  const categoryLink =
-    currentLanguage === 'cs'
-      ? normalizeForCategoryLink(category.category_name_cz)
-      : translit(ua2cz, category.category_name_ua.toLowerCase());
-  return normalizeForId(categoryLink);
+  const text = currentLanguage === 'uk' ? translitFromUkrainian(category.category_name_ua) : category.category_name_cz;
+  return normalizeForId(text);
 };
 
 const Dictionary = () => {
@@ -79,9 +75,9 @@ const Dictionary = () => {
   });
 
   const filteredTranslations = useMemo(() => {
-    const searchText = normalizeForSearch(search);
+    const searchText = normalize(search);
     const matches = allTranslations.filter((translation) =>
-      normalizeForSearch(translation.otherTranslation + translation.ukTranslation).includes(searchText)
+      normalize(translation.otherTranslation + translation.ukTranslation).includes(searchText)
     );
     const uniqueMathces = matches.filter(
       (match, index) => matches.findIndex((phrase) => phrase.otherTranscription === match.otherTranscription) === index

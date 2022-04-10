@@ -1,11 +1,12 @@
-export const translit = (translitMap: [string, string][], translitStr: string) => {
-  let transliterated = translitStr;
-  for (let i = 0; i < translitMap.length; i++) {
-    const reg = new RegExp(translitMap[i][0], 'g');
-    transliterated = transliterated
-      .replace(reg, translitMap[i][1])
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
+import { ua2cz } from 'data/transliterations/ua2cz';
+import { cz2ua } from './../data/transliterations/cz2ua';
+export const translit = (subs: [string, string][], text: string) => {
+  let result = text;
+  for (let i = 0; i < subs.length; i++) {
+    result = result.replaceAll(subs[i][0], subs[i][1]);
   }
-  return transliterated;
+  return result.replaceAll('.', '').replaceAll('?', '').replaceAll('!', '');
 };
+
+export const translitFromUkrainian = (text: string) => translit(ua2cz, text);
+export const translitToUkrainian = (text: string) => translit(cz2ua, text);

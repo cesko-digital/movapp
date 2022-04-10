@@ -1,4 +1,4 @@
-export const cz2ua:[string,string][] = [
+export const cz2ua: [string, string][] = [
   ['chř', 'хрш'],
   ['CHŘ', 'ХРШ'],
   ['Chř', 'Хрш'],

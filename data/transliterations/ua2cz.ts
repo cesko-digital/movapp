@@ -1,4 +1,4 @@
-export const ua2cz:[string,string][] = [
+export const ua2cz: [string, string][] = [
   ['є', 'je'],
   ['Є', 'Je'],
   ['х', 'ch'],
