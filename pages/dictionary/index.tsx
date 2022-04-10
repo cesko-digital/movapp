@@ -6,63 +6,56 @@ import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { SearchInput } from 'components/basecomponents/Input';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
-import { categories } from 'data/translations/translations';
+import { categories, Category } from 'data/translations/translations';
 export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
-import { TranslationContainer } from '../../components/basecomponents/TranslationsContainer';
 import { translit } from 'utils/transliterate';
 import { ua2cz } from 'data/transliterations/ua2cz';
 import { useLanguage } from 'utils/useLanguageHook';
 import { normalizeForCategoryLink, normalizeForId, normalizeForSearch } from 'utils/textNormalizationUtils';
+import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
+import { Language } from 'data/locales';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
 });
 
-const allTranslations = categories.map((translations) => translations.translations).flat();
+const allTranslations = categories.map((category) => category.translations).flat();
+
+const getCategoryName = (category: Category, currentLanguage: Language) => {
+  const mainLanguageCategory = currentLanguage === 'cs' ? category.category_name_cz : category.category_name_ua;
+  const secondaryLanguageCategory = currentLanguage === 'cs' ? category.category_name_ua : category.category_name_cz;
+  return `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
+};
+
+// Used to link directly to category with dictionary#categoryId
+const getCategoryId = (category: Category, currentLanguage: Language) => {
+  const categoryLink =
+    currentLanguage === 'cs'
+      ? normalizeForCategoryLink(category.category_name_cz)
+      : translit(ua2cz, category.category_name_ua.toLowerCase());
+  return normalizeForId(categoryLink);
+};
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
-  const [maxItems, setMaxItems] = useState(20);
   const [isSticky, setIsSticky] = useState(false);
 
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
-  const lastContainerRef = useRef<HTMLDivElement | null>(null);
   const searchContainer = useRef<HTMLDivElement | null>(null);
   const searchButton = useRef<HTMLButtonElement | null>(null);
-  const translationsContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const isSearching = search.trim().length > 0;
 
   // scrolls to top whenever user type in search input
   useEffect(() => {
-    if (!search.trim() || window.scrollY === 0) return;
+    if (isSearching || window.scrollY === 0) return;
     window.scrollTo({
       top: 0,
     });
-  }, [search]);
-
-  //loads  more items once viewport is close enough to last element
-  useEffect(() => {
-    const lastTranslation = lastContainerRef.current;
-
-    const options = {
-      rootMargin: '100px',
-      threshold: [0],
-    };
-    const observer = new IntersectionObserver(([entry]) => {
-      const { intersectionRatio } = entry;
-      if (intersectionRatio > 0 && intersectionRatio < 1) {
-        setMaxItems((prev) => prev + 20);
-      }
-    }, options);
-
-    lastTranslation && observer.observe(lastTranslation);
-
-    return () => {
-      lastTranslation && observer.unobserve(lastTranslation);
-    };
-  });
+  }, [isSearching]);
 
   // track when search input becomes sticky to apply styles
   useEffect(() => {
@@ -138,25 +131,16 @@ const Dictionary = () => {
             </span>
           }
         />
-        <h2 className="text-primary-blue">{t(search.trim() ? 'dictionary_page.results_subtitle' : 'dictionary_page.subtitle')}</h2>
-        {search.trim() === '' &&
+        <h2 className="text-primary-blue">{t(isSearching ? 'dictionary_page.results_subtitle' : 'dictionary_page.subtitle')}</h2>
+        {isSearching ? (
+          <DictionarySearchResults search={search} results={filteredTranslations} />
+        ) : (
           categories.map((category, index) => {
-            const mainLanguageCategory = currentLanguage === 'cs' ? category.category_name_cz : category.category_name_ua;
-            const secondaryLanguageCategory = currentLanguage === 'cs' ? category.category_name_ua : category.category_name_cz;
-
-            const categoryLink =
-              currentLanguage === 'cs'
-                ? normalizeForCategoryLink(category.category_name_cz)
-                : translit(ua2cz, category.category_name_ua.toLowerCase());
-            // swaps category titles according to choosen locale
-            const categoryName = `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
-
-            const normalizedId = normalizeForId(categoryLink);
-
+            const categoryName = getCategoryName(category, currentLanguage);
             return (
               <Collapse
                 index={index}
-                id={normalizedId}
+                id={getCategoryId(category, currentLanguage)}
                 key={category.category_name_cz}
                 title={<Marker mark={search}>{categoryName}</Marker>}
                 ariaId={category.category_name_cz}
@@ -167,18 +151,8 @@ const Dictionary = () => {
                 <CategoryDictionary searchText={search} translations={category.translations} />
               </Collapse>
             );
-          })}
-        {filteredTranslations.length === 0 && search.trim() && (
-          <div className="flex justify-center">
-            <p className="text-primary-blue text-lg">{t('dictionary_page.not_found_results')}</p>
-          </div>
+          })
         )}
-        <div ref={translationsContainerRef}>
-          {search.trim() &&
-            filteredTranslations.slice(0, maxItems).map((translation, index) => {
-              return <TranslationContainer ref={lastContainerRef} key={index} translation={translation} searchText={search} />;
-            })}
-        </div>
       </div>
     </>
   );
