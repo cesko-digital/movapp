@@ -1,0 +1,24 @@
+name: Wiki update
+on: 
+    gollum
+jobs: 
+  sync:
+    name: 'Submodule sync'
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/feature/wiki'
+    steps:
+        - name: Checkout 
+          uses: actions/checkout@v2
+        - name: Submodule update
+          run: | 
+            git pull update --init --recursive
+            git submodule update --remote --recursive
+        - name: Commit update
+          run: |
+            git config user.email "actions@github.com"
+            git config user.name "Github Actions - update submodules"
+            git add --all
+            git commit -m "Update submodules"
+            git push
+        
+  
