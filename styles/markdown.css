@@ -1,0 +1,55 @@
+#Markdown h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #013abd;
+  border-bottom: 1px grey solid;
+  padding-bottom: 0.3rem;
+  /* display: inline-block; */
+}
+
+#Markdown h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#Markdown h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#Markdown h3 {
+  font-size: 1.17rem;
+  margin-bottom: 1rem;
+}
+
+#Markdown h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+#Markdown ul {
+  list-style: disc;
+  list-style-position: inside;
+  margin-bottom: 1rem;
+}
+
+#Markdown li p {
+  display: inline;
+}
+
+#Markdown a {
+  color: #013abd;
+}
+
+#Markdown p {
+  font-weight: 400 !important;
+  margin-bottom: 1rem;
+}
+
+#Markdown p img {
+  margin: auto;
+}

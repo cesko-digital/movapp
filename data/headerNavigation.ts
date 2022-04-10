@@ -6,7 +6,7 @@ interface HeaderNavigation {
 export const HEADER_NAVIGATION: HeaderNavigation[] = [
   {
     name: 'header.alphabet_link_name',
-    link: "/alphabet"
+    link: '/alphabet',
   },
   {
     name: 'header.vocabulary_link_name',
@@ -20,6 +20,10 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
   //   name: 'header.exercises_link_name',
   //   link: '/exercises',
   // },
+  {
+    name: 'header.wiki_link_name',
+    link: '/wiki/movapp-cesky-rozcestnik-uvodni-stranka',
+  },
   {
     name: 'header.about_link_name',
     link: '/about',
