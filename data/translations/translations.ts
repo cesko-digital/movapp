@@ -9,6 +9,7 @@ import NaUrade from './na-urade.json';
 import Obleceni from './obleceni.json';
 import Drogerie from './drogerie.json';
 import Penize from './penize.json';
+import Prace from './prace.json';
 import Rodina from './rodina.json';
 import Doctor from './doctor.json';
 import VDomacnosti from './vdomacnosti.json';
@@ -84,6 +85,11 @@ export const categories: Category[] = [
     category_name_cz: 'Peníze',
     category_name_ua: 'Гроші',
     translations: processTranslations(Penize),
+  },
+  {
+    category_name_cz: 'Práce',
+    category_name_ua: 'Робота',
+    translations: processTranslations(Prace),
   },
   {
     category_name_cz: 'U lékaře',
