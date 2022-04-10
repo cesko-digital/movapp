@@ -14,6 +14,11 @@
   },
   "homepage": {
     "title": "Naučte se základy češtiny a ukrajinštiny pro běžné životní situace",
+    "box_easter_dictionary_title": "Velikonoční slovníček",
+    "box_easter_dictionary_description": "Hody, hody, doprovody, dejte vejce malovaný a naučte se velikonoční fráze.",
+    "box_easter_kids_title": "Velikonoce pro děti",
+    "box_easter_kids_description": "Zábavné obrázky a omalovánky s velikonoční tématikou.",
+    "box_easter_anchor": "velikonoce",
     "box_dictionary_title": "Slovníček",
     "box_dictionary_description": "Naučte se stovky základních slovíček a frází čtením i poslechem. Slovíčka třídíme dle životních situací.",
     "box_child_title": "Pro děti",

@@ -138,5 +138,61 @@
       "ua_translation": "У мене болить живіт",
       "ua_transcription": "U mene bolyť žyvit",
       "image": "bolest_bricha"
+    },
+    {
+      "cz_translation": "vajíčko",
+      "cz_transcription": "ваїчко",
+      "ua_translation": "яєчко",
+      "ua_transcription": "jaječko",
+      "image": "vajicko"
+    },
+    {
+      "cz_translation": "zajíček",
+      "cz_transcription": "заїчек",
+      "ua_translation": "зайчик",
+      "ua_transcription": "zajčyk",
+      "image": "zajicek"
+    },
+    {
+      "cz_translation": "kuřátko",
+      "cz_transcription": "куржатко",
+      "ua_translation": "курчатко",
+      "ua_transcription": "kurčatko",
+      "image": "kuratko"
+    },
+    {
+      "cz_translation": "kočičky (květy vrby jívy)",
+      "cz_transcription": "кочички (квєти врби їви)",
+      "ua_translation": "котики (цвіт верби)",
+      "ua_transcription": "кotyky (cvit verby)",
+      "image": "kocicky"
+    },
+    {
+      "cz_translation": "beránek",
+      "cz_transcription": "беранек",
+      "ua_translation": "баранець",
+      "ua_transcription": "baranec'",
+      "image": "beranek"
+    },
+    {
+      "cz_translation": "petrklíč",
+      "cz_transcription": "петркліч",
+      "ua_translation": "примула",
+      "ua_transcription": "prymula",
+      "image": "petrklic"
+    },
+    {
+      "cz_translation": "tulipány",
+      "cz_transcription": "тулипани",
+      "ua_translation": "тюльпани",
+      "ua_transcription": "ťul'pany",
+      "image": "tulipany"
+    },
+    {
+      "cz_translation": "mazanec",
+      "cz_transcription": "мазанец",
+      "ua_translation": "пасочка",
+      "ua_transcription": "pasočka",
+      "image": "mazanec"
     }
   ]
