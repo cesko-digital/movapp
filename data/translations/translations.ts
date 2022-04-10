@@ -17,6 +17,7 @@ import VeSkole from './veskole.json';
 import VeSkolce from './veskolce.json';
 import Dobrovolnici from './dobrovolnici.json';
 import ZradnaSlovicka from './zradna-slovicka.json';
+import Velikonoce from './velikonoce.json';
 
 export interface Category {
   category_name_cz: string;
@@ -33,6 +34,11 @@ export const categories: Category[] = [
     category_name_ua: 'Основні фрази',
     category_name_cz: 'Základní fráze',
     translations: processTranslations(Basic),
+  },
+  {
+    category_name_cz: 'Velikonoce',
+    category_name_ua: 'Великдень',
+    translations: processTranslations(Velikonoce),
   },
   {
     category_name_cz: 'Rodina',
