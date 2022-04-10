@@ -1,6 +1,7 @@
 interface HeaderNavigation {
   name: string;
   link: string;
+  page?:string; 
 }
 
 export const HEADER_NAVIGATION: HeaderNavigation[] = [
@@ -23,6 +24,7 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
   {
     name: 'header.wiki_link_name',
     link: '/wiki/movapp-cesky-rozcestnik-uvodni-stranka',
+    page: 'wiki'
   },
   {
     name: 'header.about_link_name',

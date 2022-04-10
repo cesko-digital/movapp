@@ -1,5 +1,5 @@
 import { readdirSync, readFileSync } from 'fs';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import path from 'path';
 import React, { useMemo, useState } from 'react';
 import { unified } from 'unified';
@@ -20,14 +20,14 @@ const normalizeUrl = (url: string) => {
 };
 
 const Wiki = ({ markdownText }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
-  const [markdownString, setMarkdownString] = useState<any>(null);
+  const [markdownString, setMarkdownString] = useState<string>('');
 
   useMemo(() => {
     const markdown = unified()
       .use(remarkParse)
       .use(remarkGfm)
       .use(() => (tree) => {
-        visit(tree, 'link', (node: any) => {
+        visit(tree, 'link', (node) => {
           if (!/https/.test(node.url)) {
             node.url = normalizeUrl(node.url);
           }
@@ -66,14 +66,20 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const wikiFiles = readdirSync(path.resolve(process.cwd(), 'movapp.wiki'));
 
   const paths = wikiFiles
     .filter((filename) => {
       return filename !== '.git';
     })
-    .map((filename) => ({ params: { article: normalizeUrl(filename.replace(/.md/g, '')) } }));
+    .map(
+      (filename) =>
+        locales?.map((locale) => ({ params: { article: normalizeUrl(filename.replace(/.md/g, '')) }, locale })) || {
+          params: { article: normalizeUrl(filename.replace(/.md/g, '')) },
+        }
+    )
+    .flat();
   return {
     paths,
     fallback: false,

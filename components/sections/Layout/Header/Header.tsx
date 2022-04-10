@@ -21,8 +21,8 @@ export const Header = () => {
         </Link>
         <nav className="w-full">
           <ul className="flex justify-end items-center pr-10">
-            {HEADER_NAVIGATION.map(({ name, link }, index) => {
-              const activePage = router.asPath.includes(link) || router.asPath.includes(t(name).toLowerCase());
+            {HEADER_NAVIGATION.map(({ name, link, page }, index) => {
+              const activePage = router.asPath.includes(link) || (page && router.asPath.includes(page));
               return (
                 <li
                   key={index}

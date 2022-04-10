@@ -5,7 +5,6 @@ jobs:
   sync:
     name: 'Wiki submodule sync'
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/feature/wiki'
     steps:
         - name: Checkout 
           uses: actions/checkout@v2
@@ -14,7 +13,7 @@ jobs:
             git submodule update --init --recursive
             git submodule update --remote --recursive
             git config user.email "actions@github.com"
-            git config user.name "Github Actions - update submodule"
+            git config user.name "Github Actions"
             git add --all
             git commit -m "Updated wiki submodule"
             git push
