@@ -4,7 +4,7 @@ import React from 'react';
 import kidsWords from '../../data/translations/pro-deti.json';
 import { Button } from '../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
-import { Phrase } from 'components/utils/Phrase';
+import { Phrase } from 'utils/Phrase';
 export { getStaticProps } from '../../utils/localization';
 
 const KidsSection = () => {

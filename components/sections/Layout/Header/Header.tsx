@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { HEADER_NAVIGATION } from 'data/headerNavigation';
 import { LOCALES } from 'data/locales';
 import AppLogo from 'public/icons/movapp-logo.png';
-import { useLanguage } from 'components/utils/useLanguageHook';
+import { useLanguage } from 'utils/useLanguageHook';
 
 export const Header = () => {
   const { t } = useTranslation('common');

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { HTMLAttributes } from 'react';
 import { Language } from 'data/locales';
-import { useLanguage } from 'components/utils/useLanguageHook';
+import { useLanguage } from 'utils/useLanguageHook';
 
 interface LinkTextProps {
   href: string;

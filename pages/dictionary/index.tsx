@@ -12,8 +12,8 @@ import Marker from 'react-mark.js/Marker';
 import { TranslationContainer } from '../../components/basecomponents/TranslationsContainer';
 import { translit } from 'utils/transliterate';
 import { ua2cz } from 'data/transliterations/ua2cz';
-import { useLanguage } from 'components/utils/useLanguageHook';
-import { normalizeForCategoryLink, normalizeForId, normalizeForSearch } from 'components/utils/textNormalizationUtils';
+import { useLanguage } from 'utils/useLanguageHook';
+import { normalizeForCategoryLink, normalizeForId, normalizeForSearch } from 'utils/textNormalizationUtils';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,

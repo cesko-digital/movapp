@@ -2,8 +2,8 @@ import { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, 
 import { Button } from 'components/basecomponents/Button';
 import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
-import { useLanguage } from 'components/utils/useLanguageHook';
-import { Phrase } from 'components/utils/Phrase';
+import { useLanguage } from 'utils/useLanguageHook';
+import { Phrase } from 'utils/Phrase';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;

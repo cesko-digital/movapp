@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { KidsTranslation } from './KidsTranslation';
-import { useLanguage } from 'components/utils/useLanguageHook';
-import { AudioPlayer } from 'components/utils/AudioPlayer';
+import { useLanguage } from 'utils/useLanguageHook';
+import { AudioPlayer } from 'utils/AudioPlayer';
 import { useTranslation } from 'next-i18next';
-import { Phrase } from 'components/utils/Phrase';
+import { Phrase } from 'utils/Phrase';
 
 interface KidsTranslationContainerProps {
   translation: Phrase;
