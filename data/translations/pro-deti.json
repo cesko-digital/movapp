@@ -187,5 +187,12 @@
       "ua_translation": "тюльпани",
       "ua_transcription": "ťul'pany",
       "image": "tulipany"
+    },
+    {
+      "cz_translation": "mazanec",
+      "cz_transcription": "мазанец",
+      "ua_translation": "пасочка",
+      "ua_transcription": "pasočka",
+      "image": "mazanec"
     }
   ]
