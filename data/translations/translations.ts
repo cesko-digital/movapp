@@ -1,8 +1,6 @@
-import { TranslationType } from '../../components/basecomponents/TranslationsContainer';
-import { TranslationContainer } from 'components/basecomponents/TranslationsContainer';
+import { Phrase, isValidTranslationJSON, TranslationJSON } from './../../components/utils/Phrase';
 // JSON translation files
 import Basic from './basic.json';
-import UzitecneFraze from './uzitecne-fraze.json';
 import Cas from './cas.json';
 import HromadnaDoprava from './hromadna-doprava.json';
 import Zoo from './zoo.json';
@@ -20,101 +18,100 @@ import VeSkolce from './veskolce.json';
 import Dobrovolnici from './dobrovolnici.json';
 import ZradnaSlovicka from './zradna-slovicka.json';
 
-export interface TranslationsType {
+export interface Category {
   category_name_cz: string;
   category_name_ua: string;
-  translations: TranslationType[];
+  translations: Phrase[];
 }
 
-export const translations: TranslationsType[] = [
+const processTranslations = (translations: TranslationJSON[]) => {
+  return translations.filter(isValidTranslationJSON).map((translation) => new Phrase(translation));
+};
+
+export const categories: Category[] = [
   {
     category_name_ua: 'Основні фрази',
     category_name_cz: 'Základní fráze',
-    translations: Basic,
-  },
-  {
-    category_name_ua: 'Корисні фрази',
-    category_name_cz: 'Užitečné fráze',
-    translations: UzitecneFraze,
+    translations: processTranslations(Basic),
   },
   {
     category_name_cz: 'Rodina',
     category_name_ua: 'Родина',
-    translations: Rodina,
+    translations: processTranslations(Rodina),
   },
   {
     category_name_ua: 'Час',
     category_name_cz: 'Čas',
-    translations: Cas,
+    translations: processTranslations(Cas),
   },
   {
     category_name_ua: 'Громадський транспорт',
     category_name_cz: 'Hromadná doprava',
-    translations: HromadnaDoprava,
+    translations: processTranslations(HromadnaDoprava),
   },
   {
     category_name_ua: 'Їдемо в зоопарк',
     category_name_cz: 'Jedeme do ZOO',
-    translations: Zoo,
+    translations: processTranslations(Zoo),
   },
   {
     category_name_ua: 'Покупки',
     category_name_cz: 'Na nákupu',
-    translations: NaNakupu,
+    translations: processTranslations(NaNakupu),
   },
   {
     category_name_cz: 'Na úřadě',
     category_name_ua: 'В органах влади',
-    translations: NaUrade,
+    translations: processTranslations(NaUrade),
   },
   {
     category_name_cz: 'Oblečení',
     category_name_ua: 'Одяг',
-    translations: Obleceni,
+    translations: processTranslations(Obleceni),
   },
   {
     category_name_cz: 'Drogerie',
     category_name_ua: 'Побутова хімія (косметика)',
-    translations: Drogerie,
+    translations: processTranslations(Drogerie),
   },
   {
     category_name_cz: 'Peníze',
     category_name_ua: 'Гроші',
-    translations: Penize,
+    translations: processTranslations(Penize),
   },
   {
     category_name_cz: 'U lékaře',
     category_name_ua: 'У лікаря',
-    translations: Doctor,
+    translations: processTranslations(Doctor),
   },
   {
     category_name_cz: 'V domácnosti',
     category_name_ua: 'Вдома',
-    translations: VDomacnosti,
+    translations: processTranslations(VDomacnosti),
   },
   {
     category_name_cz: 'Ve městě',
     category_name_ua: 'У місті',
-    translations: VeMeste,
+    translations: processTranslations(VeMeste),
   },
   {
     category_name_cz: 'Ve škole',
     category_name_ua: 'У школі',
-    translations: VeSkole,
+    translations: processTranslations(VeSkole),
   },
   {
     category_name_cz: 'Ve školce',
     category_name_ua: 'У дитсадку',
-    translations: VeSkolce,
+    translations: processTranslations(VeSkolce),
   },
   {
     category_name_cz: 'Dobrovolníci',
     category_name_ua: 'Добровольці',
-    translations: Dobrovolnici,
+    translations: processTranslations(Dobrovolnici),
   },
   {
     category_name_cz: 'Zrádná slovíčka',
     category_name_ua: 'Слова із іншим значенням',
-    translations: ZradnaSlovicka,
+    translations: processTranslations(ZradnaSlovicka),
   },
 ];

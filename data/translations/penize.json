@@ -12,12 +12,6 @@
     "ua_transcription": "Možna zaplatyty hotivkoju"
   },
   {
-    "cz_translation": "Kde najdu...?",
-    "cz_transcription": "Ґде найду",
-    "ua_translation": "Де можна знайти...?",
-    "ua_transcription": "De možna znajty"
-  },
-  {
     "cz_translation": "banka",
     "cz_transcription": "банка",
     "ua_translation": "банк",
@@ -100,6 +94,12 @@
     "cz_transcription": "Потржебуї пржевест пенізе с учту ... на учет",
     "ua_translation": "Мені потрібно перевести гроші з рахунку ... на рахунок ...",
     "ua_transcription": "Meni potribno perevesty hroši z rachunku ... na rachunok"
+  },
+  {
+    "cz_translation": "bankovní účet",
+    "cz_transcription": "банковні учет",
+    "ua_translation": "банківський рахунок",
+    "ua_transcription": "bankivs’kyj rachunok"
   },
   {
     "cz_translation": "běžný účet",

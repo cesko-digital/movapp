@@ -2,14 +2,14 @@ import { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, 
 import { Button } from 'components/basecomponents/Button';
 import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
-import { TranslationType } from 'components/basecomponents/TranslationsContainer';
 import { useLanguage } from 'components/utils/useLanguageHook';
+import { Phrase } from 'components/utils/Phrase';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
 interface ExportTranslationsProps {
-  translations: TranslationType[];
+  translations: Phrase[];
   categoryName: string;
   trigger?: ReactNode;
 }
@@ -67,25 +67,19 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
   const [phraseSeparator, setPhraseSeparator] = useState(PHRASE_SEPARATORS[0].value);
   const [customPhraseSeparator, setCustomPhraseSeparator] = useState('\\n\\n');
   const [includeTranscriptions, setIncludeTranscriptions] = useState(false);
-  const { currentLanguage } = useLanguage();
+  const { currentLanguage, otherLanguage } = useLanguage();
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
   const phrases = translations
-    .map((translation) =>
-      currentLanguage === 'cs'
-        ? translation.cz_translation +
-          (includeTranscriptions ? ` [${translation.cz_transcription}]` : '') +
-          translSep +
-          translation.ua_translation +
-          (includeTranscriptions ? ` [${translation.ua_transcription}]` : '') +
-          phraseSep
-        : translation.ua_translation +
-          (includeTranscriptions ? ` [${translation.ua_transcription}]` : '') +
-          translSep +
-          translation.cz_translation +
-          (includeTranscriptions ? ` [${translation.cz_transcription}]` : '') +
-          phraseSep
+    .map(
+      (translation) =>
+        translation.getTranslation(currentLanguage) +
+        (includeTranscriptions ? ` [${translation.getTranscription(currentLanguage)}]` : '') +
+        translSep +
+        translation.getTranslation(otherLanguage) +
+        (includeTranscriptions ? ` [${translation.getTranscription(otherLanguage)}]` : '') +
+        phraseSep
     )
     .map((translation) => unescapeTabsAndNewlines(translation));
 
@@ -196,12 +190,12 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
 
         <div className="flex justify-evenly flex-wrap py-8">
           <a download={fileName} href={downloadLink}>
-            <Button text={t('export_translations.download_phrases')} className="my-2" />
+            <Button text={t('export_translations.download_phrases')} className="my-2 bg-primary-blue" />
           </a>
           <Button
             text={t('export_translations.copy_to_clipboard')}
             onClick={() => navigator.clipboard.writeText(phrases.join(''))}
-            className="my-2 bg-white"
+            className="my-2 bg-primary-blue"
           ></Button>
         </div>
         <Separator />

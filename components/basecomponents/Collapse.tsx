@@ -23,9 +23,10 @@ export const Collapse = ({ title, children, ariaId, id }: CollapseProps): JSX.El
   const hyperLink = typeof window !== 'undefined' && `${window.location.origin}/${router.locale}${router.pathname}#${id}`;
 
   useEffect(() => {
-    id && router.asPath.includes(id) && setExpanded(true);
-    /* eslint-disable react-hooks/exhaustive-deps*/
-  }, []);
+    if (id && router.asPath.includes(id)) {
+      setExpanded(true);
+    }
+  }, [id, router]);
 
   return (
     <div id={id} className={`bg-white block border-b-1 border-b-primary-grey  group`}>
@@ -42,11 +43,7 @@ export const Collapse = ({ title, children, ariaId, id }: CollapseProps): JSX.El
         >
           <span className="text-primary-blue text-base font-medium sm:text-lg sm:font-bold text-left block">{title}</span>
           <div className="justify-self-end">
-            {expanded ? (
-              <ChevronDown onClick={() => setExpanded(!expanded)} className="fill-primary-blue" />
-            ) : (
-              <ChevronRight onClick={() => setExpanded(!expanded)} className="fill-primary-blue" />
-            )}
+            {expanded ? <ChevronDown className="fill-primary-blue" /> : <ChevronRight className="fill-primary-blue" />}
           </div>
         </button>
       </div>

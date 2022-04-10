@@ -6,13 +6,14 @@ import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { SearchInput } from 'components/basecomponents/Input';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
-import { translations } from 'data/translations/translations';
+import { categories } from 'data/translations/translations';
 export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
-import { TranslationContainer, TranslationType } from '../../components/basecomponents/TranslationsContainer';
+import { TranslationContainer } from '../../components/basecomponents/TranslationsContainer';
 import { translit } from 'utils/transliterate';
 import { ua2cz } from 'data/transliterations/ua2cz';
 import { useLanguage } from 'components/utils/useLanguageHook';
+import { Phrase } from 'components/utils/Phrase';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
@@ -27,13 +28,12 @@ const normalizeForSearch = (text: string) => {
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
-  const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
-  const [flattenTranslations, setFlattenTranslations] = useState<TranslationType[]>();
-  const [filteredTranslations, setFilteredTranslations] = useState<TranslationType[] | []>([]);
+  const [flattenTranslations, setFlattenTranslations] = useState<Phrase[]>();
+  const [filteredTranslations, setFilteredTranslations] = useState<Phrase[] | []>([]);
   const [maxItems, setMaxItems] = useState(20);
   const [isSticky, setIsSticky] = useState(false);
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
   const lastContainerRef = useRef<HTMLDivElement | null>(null);
@@ -98,16 +98,16 @@ const Dictionary = () => {
       (acc, cur) => {
         const searchText = normalizeForSearch(search);
         // checks if phrase is already in filtered translations to avoid filter duplicates
-        if (cur.cz_translation in acc.visited) {
+        if (cur.otherTranslation in acc.visited) {
           return acc;
         }
-        if (normalizeForSearch(cur.cz_translation).includes(searchText) || normalizeForSearch(cur.ua_translation).includes(searchText)) {
-          acc.visited[cur.cz_translation] = true;
+        if (normalizeForSearch(cur.otherTranslation).includes(searchText) || normalizeForSearch(cur.ukTranslation).includes(searchText)) {
+          acc.visited[cur.otherTranslation] = true;
           acc.filtered.push(cur);
         }
         return acc;
       },
-      { visited: {} as { [key: string]: boolean }, filtered: [] as TranslationType[] }
+      { visited: {} as { [key: string]: boolean }, filtered: [] as Phrase[] }
     );
 
     res && setFilteredTranslations(res.filtered);
@@ -121,7 +121,7 @@ const Dictionary = () => {
 
   // flatten translations array to prepare it for filtering
   useEffect(() => {
-    const flatTranslations = translations.map(({ translations }) => translations).flat();
+    const flatTranslations = categories.map(({ translations }) => translations).flat();
     setFlattenTranslations(flatTranslations);
   }, []);
 
@@ -146,7 +146,6 @@ const Dictionary = () => {
             hiddenLabel
             label={t('dictionary_page.search_input_label')}
             placeholder={t('dictionary_page.search_placeholder')}
-            type="text"
             value={search}
             resetInput={() => setSearch('')}
             onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch((e.target as HTMLInputElement).value)}
@@ -154,13 +153,13 @@ const Dictionary = () => {
           <Button
             ref={searchButton}
             className={`${
-              isSticky ? 'bg-primary-yellow text-black' : 'bg-primary-blue'
+              isSticky ? 'text-black bg-primary-yellow' : 'bg-primary-blue'
             } ml-5 justify-self-center border-1 hidden self-center md:block `}
             text={t('dictionary_page.search_button')}
           />
         </div>
         <ExportTranslations
-          translations={translations.map((translations) => translations.translations).flat()}
+          translations={categories.map((translations) => translations.translations).flat()}
           categoryName={t('export_translations.all_phrases')}
           trigger={
             <span className="cursor-pointer py-2 underline text-primary-blue inline-block">
@@ -170,12 +169,12 @@ const Dictionary = () => {
         />
         <h2 className="text-primary-blue">{t(search.trim() ? 'dictionary_page.results_subtitle' : 'dictionary_page.subtitle')}</h2>
         {search.trim() === '' &&
-          translations.map((category, index) => {
-            const mainLanguageCategory = i18n.language === 'cs' ? category.category_name_cz : category.category_name_ua;
-            const secondaryLanguageCategory = i18n.language === 'cs' ? category.category_name_ua : category.category_name_cz;
+          categories.map((category, index) => {
+            const mainLanguageCategory = currentLanguage === 'cs' ? category.category_name_cz : category.category_name_ua;
+            const secondaryLanguageCategory = currentLanguage === 'cs' ? category.category_name_ua : category.category_name_cz;
 
             const categoryLink =
-              i18n.language === 'cs'
+              currentLanguage === 'cs'
                 ? category.category_name_cz
                     .normalize('NFD')
                     .replace(/[\u0300-\u036f]/g, '')
@@ -214,7 +213,7 @@ const Dictionary = () => {
         <div ref={translationsContainerRef}>
           {search.trim() &&
             filteredTranslations.slice(0, maxItems).map((translation, index) => {
-              return <TranslationContainer ref={lastContainerRef} key={index} {...translation} searchText={search} />;
+              return <TranslationContainer ref={lastContainerRef} key={index} translation={translation} searchText={search} />;
             })}
         </div>
       </div>

@@ -1,7 +1,8 @@
-import { TranslationType, TranslationContainer } from 'components/basecomponents/TranslationsContainer';
+import { TranslationContainer as TranslationContainer } from 'components/basecomponents/TranslationsContainer';
+import { Phrase } from 'components/utils/Phrase';
 
 interface CategoryDictionaryProps {
-  translations: TranslationType[];
+  translations: Phrase[];
   searchText: string;
 }
 
@@ -9,7 +10,7 @@ export const CategoryDictionary = ({ translations, searchText }: CategoryDiction
   return (
     <>
       {translations.map((translation, index) => {
-        return <TranslationContainer key={index} {...translation} searchText={searchText} />;
+        return <TranslationContainer key={index} translation={translation} searchText={searchText} />;
       })}
     </>
   );

@@ -78,33 +78,15 @@
     "ua_transcription": "likarňa"
   },
   {
-    "cz_translation": "Hledám...",
-    "cz_transcription": "Гледам",
-    "ua_translation": "Шукаю...",
-    "ua_transcription": "Šukaju"
-  },
-  {
-    "cz_translation": "Potřebuji...",
-    "cz_transcription": "Потржебуї",
-    "ua_translation": "Мені потрібно...",
-    "ua_transcription": "Meni potribno"
-  },
-  {
-    "cz_translation": "Kde najdu...",
-    "cz_transcription": "Ґде найду",
-    "ua_translation": "Як знайти...",
-    "ua_transcription": "Jak znajty"
-  },
-  {
-    "cz_translation": "Jak se dostanu na...? Jak se dostanu k...?",
+    "cz_translation": "Jak se dostanu na... Jak se dostanu k...",
     "cz_transcription": "Як се достану на / Як се достану к",
-    "ua_translation": "Як дістатись до...?",
+    "ua_translation": "Як дістатись до...",
     "ua_transcription": "Jak distatys’ do"
   },
   {
-    "cz_translation": "Jaká je adresa...?",
+    "cz_translation": "Jaká je adresa...",
     "cz_transcription": "Яка є адреса",
-    "ua_translation": "Яка адреса у...?",
+    "ua_translation": "Яка адреса у...",
     "ua_transcription": "Jaka adresa u"
   },
   {
