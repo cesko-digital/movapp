@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { SearchInput } from 'components/basecomponents/Input';
@@ -13,11 +13,12 @@ import { TranslationContainer } from '../../components/basecomponents/Translatio
 import { translit } from 'utils/transliterate';
 import { ua2cz } from 'data/transliterations/ua2cz';
 import { useLanguage } from 'components/utils/useLanguageHook';
-import { Phrase } from 'components/utils/Phrase';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
 });
+
+const allTranslations = categories.map((translations) => translations.translations).flat();
 
 const normalizeForSearch = (text: string) => {
   return text
@@ -28,8 +29,6 @@ const normalizeForSearch = (text: string) => {
 
 const Dictionary = () => {
   const [search, setSearch] = useState('');
-  const [flattenTranslations, setFlattenTranslations] = useState<Phrase[]>();
-  const [filteredTranslations, setFilteredTranslations] = useState<Phrase[] | []>([]);
   const [maxItems, setMaxItems] = useState(20);
   const [isSticky, setIsSticky] = useState(false);
 
@@ -92,38 +91,16 @@ const Dictionary = () => {
     };
   });
 
-  // filters translation based on user search
-  const filterTranslations = () => {
-    const res = flattenTranslations?.reduce(
-      (acc, cur) => {
-        const searchText = normalizeForSearch(search);
-        // checks if phrase is already in filtered translations to avoid filter duplicates
-        if (cur.otherTranslation in acc.visited) {
-          return acc;
-        }
-        if (normalizeForSearch(cur.otherTranslation).includes(searchText) || normalizeForSearch(cur.ukTranslation).includes(searchText)) {
-          acc.visited[cur.otherTranslation] = true;
-          acc.filtered.push(cur);
-        }
-        return acc;
-      },
-      { visited: {} as { [key: string]: boolean }, filtered: [] as Phrase[] }
+  const filteredTranslations = useMemo(() => {
+    const searchText = normalizeForSearch(search);
+    const matches = allTranslations.filter((translation) =>
+      normalizeForSearch(translation.otherTranslation + translation.ukTranslation).includes(searchText)
     );
-
-    res && setFilteredTranslations(res.filtered);
-  };
-
-  useEffect(() => {
-    if (!search.trim()) return;
-    filterTranslations();
-    /* eslint-disable react-hooks/exhaustive-deps */
+    const uniqueMathces = matches.filter(
+      (match, index) => matches.findIndex((phrase) => phrase.otherTranscription === match.otherTranscription) === index
+    );
+    return uniqueMathces;
   }, [search]);
-
-  // flatten translations array to prepare it for filtering
-  useEffect(() => {
-    const flatTranslations = categories.map(({ translations }) => translations).flat();
-    setFlattenTranslations(flatTranslations);
-  }, []);
 
   return (
     <>
@@ -159,7 +136,7 @@ const Dictionary = () => {
           />
         </div>
         <ExportTranslations
-          translations={categories.map((translations) => translations.translations).flat()}
+          translations={allTranslations}
           categoryName={t('export_translations.all_phrases')}
           trigger={
             <span className="cursor-pointer py-2 underline text-primary-blue inline-block">
