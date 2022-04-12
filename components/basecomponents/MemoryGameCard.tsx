@@ -1,26 +1,30 @@
 import React from 'react';
 import { CardType } from './MemoryGame';
+import styles from './MemoryGameCard.module.css';
+import Image from 'next/image';
+import { useLanguage } from 'components/utils/useLanguageHook';
 
-const imgCommonClasses =
-  'w-full h-full object-cover absolute select-none border-2 border-primary-blue rounded-xl transition-transform duration-300 ease-linear';
-  
-const MemoryGameCard = ({ card, onClick }: { card: CardType; onClick: (card: CardType) => void }) => {
-  const handleClick = () => onClick(card);
+interface MemoryGameCardProps {
+  card: CardType;
+  onClick: (card: CardType) => void;
+}
+
+const MemoryGameCard = ({ card, onClick }: MemoryGameCardProps): JSX.Element => {
+  const { currentLanguage } = useLanguage();
+
   return (
     <>
-      <div onClick={handleClick} className="w-20 h-20 relative overflow-hidden sm:w-36 sm:h-36">        
-        <img
-          src={card.image}
-          className={`${imgCommonClasses} bg-gray-50 ${card.flipped ? 'delay-300' : 'delay-0'}`}
-          style={{ transform: card.flipped ? 'rotateY(0) scale(1.0001)' : 'rotateY(90deg) scale(1)' , backfaceVisibility: "hidden", imageRendering: "-webkit-optimize-contrast" }}
-          alt="front"
-        />
-        <img
-          src={'/kids/card_back_movapp.png'}
-          className={`${imgCommonClasses} ${card.flipped ? 'delay-0' : 'delay-300'}`}
-          style={{ transform: card.flipped ? 'rotateY(90deg) scale(1.0001)' : 'rotateY(0) scale(1)' , backfaceVisibility: "hidden", imageRendering: "-webkit-optimize-contrast" }}
-          alt="back"
-        />
+      <div onClick={() => onClick(card)} className={styles.cell}>
+        <div className={styles.cardWrapper}>
+          <div className={`${styles.front} ${card.flipped ? styles.flipped : ''}`} style={{ borderColor: card.color }}>
+            <Image src={card.image} layout="fill" sizes="100%" objectFit="cover" alt={card.translation[currentLanguage]} />
+          </div>
+        </div>
+        <div className={styles.cardWrapper}>
+          <div className={`${styles.back} ${card.flipped ? styles.flipped : ''}`}>
+            <Image src={'/kids/card_back_movapp.png'} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
+          </div>
+        </div>
       </div>
     </>
   );

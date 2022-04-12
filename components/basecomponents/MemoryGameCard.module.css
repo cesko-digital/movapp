@@ -1,0 +1,58 @@
+.front,
+.back,
+.cell {
+  width: 5rem;
+  height: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardWrapper {
+  position: absolute;
+}
+
+.front,
+.back {
+  user-select: none;
+  transition: transform 300ms linear;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 0.75rem;
+  background-color: white;
+  backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.back {
+  border-width: 2px;
+  border-color: #023abd;
+}
+
+.front {
+  transform: rotateY(90deg) scale(1);
+  transition-delay: 0ms;
+}
+
+.front.flipped {
+  transform: rotateY(0) scale(1.0001);
+  transition-delay: 300ms;
+}
+
+.back {
+  transform: rotateY(0) scale(1);
+  transition-delay: 300ms;
+}
+
+.back.flipped {
+  transform: rotateY(90deg) scale(1.0001);
+  transition-delay: 0ms;
+}
+
+@media (min-width: 640px) {
+  .front,
+  .back,
+  .cell {
+    width: 9rem;
+    height: 9rem;
+  }
+}

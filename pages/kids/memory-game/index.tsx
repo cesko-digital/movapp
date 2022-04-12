@@ -1,21 +1,21 @@
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import React from 'react';
+import kidsWords from 'data/translations/pro-deti.json';
 import MemoryGame from 'components/basecomponents/MemoryGame';
 export { getStaticProps } from 'utils/localization';
 
-const cardsData = [
-  { image: '/kids/auticka.svg' /*, audio: '/..../' */},
-  { image: '/kids/mic.svg' },
-  { image: '/kids/postel.svg' },
-  { image: '/kids/zahrada.svg' },
-  { image: '/kids/omalovanky.svg' },
-  { image: '/kids/panenka.svg' },
-  { image: '/kids/vlacky.svg' },
-  { image: '/kids/hory.svg' },
-];
+const normalizeData = ({ ua_translation, cz_translation, image }: { ua_translation: string; cz_translation: string; image: string }) => ({
+  translation: {
+    uk: ua_translation,
+    cs: cz_translation,
+  },
+  image,
+});
 
-const MemoryGameSection = () => { 
+const cardsData = kidsWords.slice(0, 8).map(normalizeData);
+
+const MemoryGameSection = () => {
   const { t } = useTranslation();
 
   return (
