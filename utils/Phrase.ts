@@ -3,10 +3,8 @@ import { decodeType, record, string } from 'typescript-json-decoder';
 import { translitToUkrainian, translitFromUkrainian } from './transliterate';
 
 const TranslationJSONDecoder = record({
-  ua_translation: string,
-  ua_transcription: string,
-  cz_translation: string,
-  cz_transcription: string,
+  uk: string,
+  main: string,
 });
 export type TranslationJSON = decodeType<typeof TranslationJSONDecoder>;
 
@@ -29,10 +27,10 @@ export class Phrase {
 
   constructor(translation: TranslationJSON) {
     // To do later: generate transcription automatically here
-    this.ukTranslation = translation.ua_translation;
-    this.ukTranscription = translitFromUkrainian(translation.ua_translation);
-    this.otherTranslation = translation.cz_translation;
-    this.otherTranscription = translitToUkrainian(translation.cz_translation);
+    this.ukTranslation = translation.uk;
+    this.ukTranscription = translitFromUkrainian(translation.uk);
+    this.otherTranslation = translation.main;
+    this.otherTranscription = translitToUkrainian(translation.main);
   }
 
   getTranslation = (language: Language) => {
