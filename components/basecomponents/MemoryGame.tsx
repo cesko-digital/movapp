@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { useTranslation, Trans } from 'next-i18next';
 import Card from './MemoryGameCard';
-import { AudioPlayer } from 'components/utils/AudioPlayer';
-import { useLanguage } from 'components/utils/useLanguageHook';
+import { AudioPlayer } from 'utils/AudioPlayer';
+import { useLanguage } from 'utils/useLanguageHook';
 
 export interface CardDataType {
   image: string;

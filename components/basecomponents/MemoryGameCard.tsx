@@ -2,7 +2,7 @@ import React from 'react';
 import { CardType } from './MemoryGame';
 import styles from './MemoryGameCard.module.css';
 import Image from 'next/image';
-import { useLanguage } from 'components/utils/useLanguageHook';
+import { useLanguage } from 'utils/useLanguageHook';
 
 interface MemoryGameCardProps {
   card: CardType;
