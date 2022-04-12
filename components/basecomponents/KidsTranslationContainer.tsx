@@ -1,18 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { KidsTranslation } from './KidsTranslation';
-import { useLanguage } from 'components/utils/useLanguageHook';
-import { AudioPlayer } from 'components/utils/AudioPlayer';
+import { useLanguage } from 'utils/useLanguageHook';
+import { AudioPlayer } from 'utils/AudioPlayer';
 import { useTranslation } from 'next-i18next';
+import { Phrase } from 'utils/Phrase';
 
-export interface Translation {
-  cz_translation: string;
-  ua_translation: string;
-  ua_transcription: string;
-  cz_transcription: string;
-}
-
-interface KidsTranslationContainerProps extends Translation {
+interface KidsTranslationContainerProps {
+  translation: Phrase;
   searchText?: string;
   image: string;
 }
@@ -22,29 +17,12 @@ interface KidsTranslationContainerProps extends Translation {
  *
  * @returns
  */
-export const KidsTranslationsContainer = ({
-  cz_translation,
-  ua_translation,
-  ua_transcription,
-  cz_transcription,
-  image,
-}: KidsTranslationContainerProps): JSX.Element => {
+export const KidsTranslationsContainer = ({ translation, image }: KidsTranslationContainerProps): JSX.Element => {
   const { currentLanguage, otherLanguage } = useLanguage();
   const { t } = useTranslation();
 
-  const languageTranslation = {
-    uk: {
-      translation: ua_translation,
-      transcription: ua_transcription,
-    },
-    cs: {
-      translation: cz_translation,
-      transcription: cz_transcription,
-    },
-  };
-
-  const currentTranslation = languageTranslation[currentLanguage].translation;
-  const secondaryTranslation = languageTranslation[otherLanguage].translation;
+  const currentTranslation = translation.getTranslation(currentLanguage);
+  const secondaryTranslation = translation.getTranslation(otherLanguage);
 
   return (
     <div className="max-w-sm rounded-2xl overflow-hidden shadow-xl w-72 m-5 md:m-8 bg-[#f7e06a] max-h-[32rem]">
@@ -53,19 +31,19 @@ export const KidsTranslationsContainer = ({
         onClick={() => AudioPlayer.getInstance().playTextToSpeech(secondaryTranslation, otherLanguage)}
         aria-label={t('utils.play') + ' ' + secondaryTranslation}
       >
-        <Image src={`/kids/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={cz_translation} />
+        <Image src={`/kids/${image}.svg`} layout="fill" sizes="100%" objectFit="cover" alt={translation.getTranslation('cs')} id={image} />
       </button>
       <div className="px-6 py-4">
         <KidsTranslation
           image={image}
           language={currentLanguage}
-          transcription={languageTranslation[currentLanguage].transcription}
+          transcription={translation.getTranscription(currentLanguage)}
           translation={currentTranslation}
         />
         <KidsTranslation
           image={image}
           language={otherLanguage}
-          transcription={languageTranslation[otherLanguage].transcription}
+          transcription={translation.getTranscription(otherLanguage)}
           translation={secondaryTranslation}
         />
       </div>

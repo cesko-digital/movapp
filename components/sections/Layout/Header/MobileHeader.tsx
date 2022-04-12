@@ -8,7 +8,7 @@ import { LOCALES } from 'data/locales';
 import BurgerIcon from 'public/icons/burger.svg';
 import CloseIcon from 'public/icons/close.svg';
 import AppLogo from 'public/icons/movapp-logo.png';
-import { useLanguage } from 'components/utils/useLanguageHook';
+import { useLanguage } from 'utils/useLanguageHook';
 
 export const MobileHeader = () => {
   const [showNavigation, setShowNavigation] = useState(false);

@@ -1,4 +1,4 @@
-import { useLanguage } from 'components/utils/useLanguageHook';
+import { useLanguage } from 'utils/useLanguageHook';
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import React, { useState } from 'react';

@@ -1,5 +1,11 @@
 [
   {
+    "cz_translation": "nákup",
+    "cz_transcription": "накуп",
+    "ua_translation": "покупка",
+    "ua_transcription": "pokupka"
+  },
+  {
     "cz_translation": "čaj",
     "cz_transcription": "чай",
     "ua_translation": "чай",
@@ -282,7 +288,7 @@
     "ua_transcription": "jabluko"
   },
   {
-    "cz_translation": " jablka",
+    "cz_translation": "jablka",
     "cz_transcription": "яблка",
     "ua_translation": "яблука",
     "ua_transcription": "jabluka"
@@ -328,12 +334,6 @@
     "cz_transcription": "пул кила",
     "ua_translation": "півкіло",
     "ua_transcription": "piukilo"
-  },
-  {
-    "cz_translation": "Potřebuji...",
-    "cz_transcription": "Потржебуї",
-    "ua_translation": "Мені, будь ласка...",
-    "ua_transcription": "Meni, bu’d laska"
   },
   {
     "cz_translation": "Kolik to stojí?",

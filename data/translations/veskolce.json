@@ -1,51 +1,15 @@
 [
   {
-    "cz_translation": "Ahoj",
-    "cz_transcription": "Агой",
-    "ua_translation": "Привіт",
-    "ua_transcription": "Pryvit"
-  },
-  {
-    "cz_translation": "Dobrý den",
-    "cz_transcription": "Добри ден",
-    "ua_translation": "Добрий день",
-    "ua_transcription": "Dobryj deň"
-  },
-  {
-    "cz_translation": "Na shledanou",
-    "cz_transcription": "На схледаноу",
-    "ua_translation": "До побачення",
-    "ua_transcription": "Do pobačenňa"
-  },
-  {
-    "cz_translation": "Děkuji. Díky.",
-    "cz_transcription": "Дєкуї. Діки",
-    "ua_translation": "Дякую",
-    "ua_transcription": "Ďakuju"
-  },
-  {
-    "cz_translation": "Prosím",
-    "cz_transcription": "Просім",
-    "ua_translation": "Будь ласка",
-    "ua_transcription": "Buď laska"
-  },
-  {
-    "cz_translation": "Promiň",
-    "cz_transcription": "Проминь",
-    "ua_translation": "Пробач",
-    "ua_transcription": "Probač"
-  },
-  {
-    "cz_translation": "Jmenuji se...",
-    "cz_transcription": "Менуї се",
-    "ua_translation": "Мене звуть...",
-    "ua_transcription": "Mene zvuť"
+    "cz_translation": "školka",
+    "cz_transcription": "школка",
+    "ua_translation": "дитсадок",
+    "ua_transcription": "dytsadok"
   },
   {
     "cz_translation": "Jak se máš?",
     "cz_transcription": "Як се маш",
     "ua_translation": "Як справи?",
-    "ua_transcription": "Jak spravy"
+    "ua_transcription": "Jak spravy?"
   },
   {
     "cz_translation": "Jsem ráda, že jsi tady.",
@@ -82,78 +46,6 @@
     "cz_transcription": "Облеч си",
     "ua_translation": "Вдягнися...",
     "ua_transcription": "Vďahnysja"
-  },
-  {
-    "cz_translation": "tričko",
-    "cz_transcription": "тричко",
-    "ua_translation": "футболка",
-    "ua_transcription": "futbolka"
-  },
-  {
-    "cz_translation": "kalhoty",
-    "cz_transcription": "калготи",
-    "ua_translation": "штани",
-    "ua_transcription": "štany"
-  },
-  {
-    "cz_translation": "tepláky",
-    "cz_transcription": "теплаки",
-    "ua_translation": "теплі спортивні штани",
-    "ua_transcription": "tepli sportyuni štany"
-  },
-  {
-    "cz_translation": "leginy",
-    "cz_transcription": "леґіни",
-    "ua_translation": "лосини",
-    "ua_transcription": "losyny"
-  },
-  {
-    "cz_translation": "bačkory",
-    "cz_transcription": "бачкори",
-    "ua_translation": "капці",
-    "ua_transcription": "kapci"
-  },
-  {
-    "cz_translation": "pyžamo",
-    "cz_transcription": "пижамо",
-    "ua_translation": "піжама",
-    "ua_transcription": "pižamа"
-  },
-  {
-    "cz_translation": "mikina",
-    "cz_transcription": "микина",
-    "ua_translation": "толстовка",
-    "ua_transcription": "tolstouka"
-  },
-  {
-    "cz_translation": "svetr",
-    "cz_transcription": "светр",
-    "ua_translation": "светр",
-    "ua_transcription": "svetr"
-  },
-  {
-    "cz_translation": "bunda",
-    "cz_transcription": "бунда",
-    "ua_translation": "куртка",
-    "ua_transcription": "kurtka"
-  },
-  {
-    "cz_translation": "čepice",
-    "cz_transcription": "чепице",
-    "ua_translation": "шапочка",
-    "ua_transcription": "šapočka"
-  },
-  {
-    "cz_translation": "rukavice",
-    "cz_transcription": "рукавице",
-    "ua_translation": "рукавички",
-    "ua_transcription": "rukavyčky"
-  },
-  {
-    "cz_translation": "boty",
-    "cz_transcription": "боти",
-    "ua_translation": "чоботи",
-    "ua_transcription": "čoboty"
   },
   {
     "cz_translation": "Pojď se najíst.",

@@ -1,15 +1,21 @@
 [
   {
-    "cz_translation": "To je moje...",
-    "cz_transcription": "То є моє",
-    "ua_translation": "Це моя...",
-    "ua_transcription": "Ce moja"
+    "cz_translation": "rodina",
+    "cz_transcription": "родіна",
+    "ua_translation": "родина",
+    "ua_transcription": "rodyna"
   },
   {
-    "cz_translation": "To jsou moje...",
-    "cz_transcription": "То йсоу моє",
-    "ua_translation": "Це мої...",
-    "ua_transcription": "Ce moji"
+    "cz_translation": "To je moje rodina.",
+    "cz_transcription": "То є моє родіна",
+    "ua_translation": "Це моя родина.",
+    "ua_transcription": "Ce moja rodyna"
+  },
+  {
+    "cz_translation": "To jsou moje dcery.",
+    "cz_transcription": "То йсоу моє цери",
+    "ua_translation": "Це мої доньки.",
+    "ua_transcription": "Ce moji doňky"
   },
   {
     "cz_translation": "Žena. Manželka.",
@@ -66,16 +72,16 @@
     "ua_transcription": "podruhy"
   }, 
   {
-    "cz_translation": "To je můj...",
-    "cz_transcription": "То є муй",
-    "ua_translation": "Це мій...",
-    "ua_transcription": "Ce mij"
+    "cz_translation": "To je můj syn.",
+    "cz_transcription": "То є муй син",
+    "ua_translation": "Це мій син.",
+    "ua_transcription": "Ce mij syn"
   },
   {
-    "cz_translation": "To jsou moji...",
-    "cz_transcription": "То йсоу мої",
-    "ua_translation": "Це мої...",
-    "ua_transcription": "Ce moji"
+    "cz_translation": "To jsou moji synové.",
+    "cz_transcription": "То йсоу мої синове",
+    "ua_translation": "Це мої сини.",
+    "ua_transcription": "Ce moji syny"
   },
   {
     "cz_translation": "Muž. Manžel.",

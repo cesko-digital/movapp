@@ -180,6 +180,12 @@
     "ua_transcription": "majže"
   },
   {
+    "cz_translation": "oblouk",
+    "cz_transcription": "облоук",
+    "ua_translation": "дуга",
+    "ua_transcription": "duha"
+  },
+  {
     "cz_translation": "duha",
     "cz_transcription": "дуга",
     "ua_translation": "веселка",
@@ -192,10 +198,22 @@
     "ua_transcription": "promiň"
   },
   {
+    "cz_translation": "promiň",
+    "cz_transcription": "промінь",
+    "ua_translation": "пробач",
+    "ua_transcription": "probač"
+  },
+  {
     "cz_translation": "muchomůrka zelená",
     "cz_transcription": "мухомурка зелена",
     "ua_translation": "поганка",
     "ua_transcription": "pohanka"
+  },
+  {
+    "cz_translation": "pohanka",
+    "cz_transcription": "поганка",
+    "ua_translation": "гречка",
+    "ua_transcription": "hrečka"
   },
   {
     "cz_translation": "jehla",
@@ -204,15 +222,33 @@
     "ua_transcription": "holka"
   },
   {
+    "cz_translation": "holka",
+    "cz_transcription": "голка",
+    "ua_translation": "дівчина",
+    "ua_transcription": "diučyna"
+  },
+  {
     "cz_translation": "lavor",
     "cz_transcription": "лавор",
     "ua_translation": "раковина",
     "ua_transcription": "rakovyna"
   },
   {
+    "cz_translation": "rakovina",
+    "cz_transcription": "раковина",
+    "ua_translation": "рак",
+    "ua_transcription": "rak"
+  },
+  {
     "cz_translation": "hledat",
     "cz_transcription": "гледат",
     "ua_translation": "шукати",
     "ua_transcription": "šukaty"
+  },
+  {
+    "cz_translation": "šukat",
+    "cz_transcription": "шукат",
+    "ua_translation": "трахати",
+    "ua_transcription": "trachaty"
   }
 ]
