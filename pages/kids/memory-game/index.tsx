@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import React from 'react';
 import kidsWords from 'data/translations/pro-deti.json';
-import MemoryGame from 'components/basecomponents/MemoryGame';
+import MemoryGame from 'components/basecomponents/MemoryGame/MemoryGame';
 export { getStaticProps } from 'utils/localization';
 
 const normalizeData = ({ ua_translation, cz_translation, image }: { ua_translation: string; cz_translation: string; image: string }) => ({
