@@ -5,7 +5,7 @@ import { TranslationJSON } from './Phrase';
 
 /**
  * You can use this utility script to migrate translation JSON files into a new structure
- * Run the script like this: npx ts-node --skip-project  ./utils/jsonFileUtils.ts
+ * Run the script like this: npx ts-node --skip-project  ./utils/migrateDictionaryJSONs.ts
  * Format files after script runs: npx prettier --write ./data/translations/migrated/
  */
 
@@ -14,10 +14,9 @@ const dir = 'data/translations';
 // Define target folder inside source folder:
 const migratedDir = 'migrated';
 // Define how to map old JSON object to new ones
-const transformFunction = (oldPhrase: TranslationJSON) => ({
-  ...oldPhrase,
-  main: oldPhrase.main,
-  uk: oldPhrase.uk,
+const transformFunction = (oldPhrase: Record<string, string>) => ({
+  main: oldPhrase.cz_translation,
+  uk: oldPhrase.ua_translation,
 });
 
 // Filepath helper method
