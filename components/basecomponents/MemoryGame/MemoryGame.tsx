@@ -9,9 +9,7 @@ import cardFlipClip from './card_flip.mp3';
 import cardsMatchClip from './cards_match.mp3';
 import winMusicClip from './baby_shark.mp3';
 
-function getRandomElement<Type>(arr: Type[]): Type {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.random() * arr.length)];
 
 export interface CardDataType {
   image: string;
@@ -151,7 +149,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         Math.random() > 0.5 && playPhrase(getRandomElement(phrases.good));
         // reset selected cards
         setSelectedCards({ first: null, second: null });
-        // check win        
+        // check win
         setTimeout(() => {
           if (cards.every((card) => card.flipped)) {
             console.log('win');
@@ -173,7 +171,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
       cardsDontMatchReward: () => {
         // play animations and sounds
         Math.random() > 0.8 && playPhrase(getRandomElement(phrases.wrong));
-        // setTimeout: set scene game; delay till phrase end
+        // setTimeout: set scene game; delay till phrase ends
         setTimeout(() => {
           // flip cards back
           const { first, second } = selectedCards;
