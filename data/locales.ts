@@ -1,4 +1,10 @@
-export const LOCALES = [
+export type Language = 'cs' | 'uk';
+type Locale = {
+  name: string;
+  locale: Language;
+};
+
+export const LOCALES: Locale[] = [
   {
     name: 'Укр',
     locale: 'uk',
@@ -8,5 +14,3 @@ export const LOCALES = [
     locale: 'cs',
   },
 ];
-
-export type Language = 'cs' | 'uk';

@@ -2,14 +2,14 @@ import { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, 
 import { Button } from 'components/basecomponents/Button';
 import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
-import { Translation } from 'components/basecomponents/TranslationsContainer';
-import { Language } from 'data/locales';
+import { useLanguage } from 'utils/useLanguageHook';
+import { Phrase } from 'utils/Phrase';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
 interface ExportTranslationsProps {
-  translations: Translation[];
+  translations: Phrase[];
   categoryName: string;
   trigger?: ReactNode;
 }
@@ -61,32 +61,25 @@ const Separator = () => (
 );
 
 const ExportTranslations = ({ translations, categoryName, trigger }: ExportTranslationsProps) => {
-  const { i18n } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
   const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
   const [phraseSeparator, setPhraseSeparator] = useState(PHRASE_SEPARATORS[0].value);
   const [customPhraseSeparator, setCustomPhraseSeparator] = useState('\\n\\n');
   const [includeTranscriptions, setIncludeTranscriptions] = useState(false);
-  const language = i18n.language as Language;
+  const { currentLanguage, otherLanguage } = useLanguage();
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
   const phrases = translations
-    .map((translation) =>
-      language === 'cs'
-        ? translation.cz_translation +
-          (includeTranscriptions ? ` [${translation.cz_transcription}]` : '') +
-          translSep +
-          translation.ua_translation +
-          (includeTranscriptions ? ` [${translation.ua_transcription}]` : '') +
-          phraseSep
-        : translation.ua_translation +
-          (includeTranscriptions ? ` [${translation.ua_transcription}]` : '') +
-          translSep +
-          translation.cz_translation +
-          (includeTranscriptions ? ` [${translation.cz_transcription}]` : '') +
-          phraseSep,
+    .map(
+      (translation) =>
+        translation.getTranslation(currentLanguage) +
+        (includeTranscriptions ? ` [${translation.getTranscription(currentLanguage)}]` : '') +
+        translSep +
+        translation.getTranslation(otherLanguage) +
+        (includeTranscriptions ? ` [${translation.getTranscription(otherLanguage)}]` : '') +
+        phraseSep
     )
     .map((translation) => unescapeTabsAndNewlines(translation));
 
@@ -197,12 +190,12 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
 
         <div className="flex justify-evenly flex-wrap py-8">
           <a download={fileName} href={downloadLink}>
-            <Button text={t('export_translations.download_phrases')} className="my-2" />
+            <Button text={t('export_translations.download_phrases')} className="my-2 bg-primary-blue" />
           </a>
           <Button
             text={t('export_translations.copy_to_clipboard')}
             onClick={() => navigator.clipboard.writeText(phrases.join(''))}
-            className="my-2 bg-white"
+            className="my-2 bg-primary-blue"
           ></Button>
         </div>
         <Separator />

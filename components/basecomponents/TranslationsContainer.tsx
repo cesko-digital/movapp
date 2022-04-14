@@ -1,18 +1,11 @@
-import { useTranslation } from 'next-i18next';
-import { Translation } from './Translation';
-import { Language } from 'data/locales';
+import { TranslationComponent } from './TranslationComponent';
+import { forwardRef } from 'react';
+import { useLanguage } from 'utils/useLanguageHook';
+import { Phrase } from 'utils/Phrase';
 
-export interface Translation {
-  cz_translation: string;
-  ua_translation: string;
-  ua_transcription: string;
-  cz_transcription: string;
-}
-
-interface TranslationContainerProps extends Translation {
+interface PhraseContainerProps {
+  translation: Phrase;
   searchText: string;
-  setPlayer: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
-  player: HTMLAudioElement | null;
 }
 
 /**
@@ -20,53 +13,25 @@ interface TranslationContainerProps extends Translation {
  *
  * @returns
  */
-export const TranslationContainer = ({
-  cz_translation,
-  ua_translation,
-  ua_transcription,
-  cz_transcription,
-  searchText,
-  setPlayer,
-  player,
-}: TranslationContainerProps): JSX.Element => {
-  const { i18n } = useTranslation();
-
-  const currentLanguage = i18n.language as Language;
-  const secondaryLanguage: Language = currentLanguage === 'uk' ? 'cs' : 'uk';
-
-  const languageTranslation = {
-    uk: {
-      translation: ua_translation,
-      transcription: ua_transcription,
-    },
-    cs: {
-      translation: cz_translation,
-      transcription: cz_transcription,
-    },
-  };
+export const TranslationContainer = forwardRef<HTMLDivElement, PhraseContainerProps>(({ translation, searchText }, ref): JSX.Element => {
+  const { currentLanguage, otherLanguage } = useLanguage();
 
   return (
-    <div className="sm:grid sm:grid-cols-[50%_1px_50%]   sm:items-center  p-2  border-b-slate-200 bg-primary-white">
-      {/* CZ translation  */}
-      <Translation
+    <div ref={ref} className="sm:grid sm:grid-cols-[50%_1px_50%]   sm:items-center  p-2  border-b-slate-200 bg-primary-white">
+      <TranslationComponent
         searchText={searchText}
-        currentLanguage={currentLanguage}
-        player={player}
-        setPlayer={setPlayer}
-        transcription={languageTranslation[currentLanguage].transcription}
-        translation={languageTranslation[currentLanguage].translation}
+        language={currentLanguage}
+        translation={translation.getTranslation(currentLanguage)}
+        transcription={translation.getTranscription(currentLanguage)}
       />
       {/* Divider */}
       <div className="w-full h-0 sm:h-full sm:py-2 justify-self-center sm:w-0 border-1  border-[#D2D2D2]"></div>
-      {/* UA translation  */}
-      <Translation
+      <TranslationComponent
         searchText={searchText}
-        currentLanguage={secondaryLanguage}
-        player={player}
-        setPlayer={setPlayer}
-        transcription={languageTranslation[secondaryLanguage].transcription}
-        translation={languageTranslation[secondaryLanguage].translation}
+        language={otherLanguage}
+        translation={translation.getTranslation(otherLanguage)}
+        transcription={translation.getTranscription(otherLanguage)}
       />
     </div>
   );
-};
+});

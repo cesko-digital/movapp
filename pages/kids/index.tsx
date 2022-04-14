@@ -1,13 +1,13 @@
 import { useTranslation } from 'next-i18next';
 import SEO from 'components/SEO';
-import React, { useState } from 'react';
+import React from 'react';
 import kidsWords from '../../data/translations/pro-deti.json';
 import { Button } from '../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
+import { Phrase } from 'utils/Phrase';
 export { getStaticProps } from '../../utils/localization';
 
 const KidsSection = () => {
-  const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
   const { t } = useTranslation();
 
   return (
@@ -19,12 +19,12 @@ const KidsSection = () => {
       />
       <div className="text-center sm:text-right pt-8 mr-0 sm:mr-16">
         <a href="/kids/omalovanky.pdf" target="_blank" rel="noopener noreferrer" download>
-          <Button text={t('kids_page.downloadPDF')} />
+          <Button text={t('kids_page.downloadPDF')} className="bg-primary-blue" />
         </a>
       </div>
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
         {kidsWords.map((word, index) => {
-          return <KidsTranslationsContainer key={index} {...word} setPlayer={setPlayer} player={player} />;
+          return <KidsTranslationsContainer key={index} image={word.image} translation={new Phrase(word)} />;
         })}
       </div>
     </div>

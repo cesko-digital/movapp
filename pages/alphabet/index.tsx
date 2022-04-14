@@ -1,3 +1,4 @@
+import { useLanguage } from 'utils/useLanguageHook';
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
 import SEO from 'components/SEO';
@@ -8,17 +9,17 @@ import { ALPHABET_UA } from '../../data/alphabets/ua_alphabet';
 export { getStaticProps } from '../../utils/localization';
 
 const AlphabetPage = (): JSX.Element => {
-  const [player, setPlayer] = useState<HTMLAudioElement | null>(null);
-  const { i18n, t } = useTranslation();
-  const [swapLanguage, setSwapLanguage] = useState<'cz-ua' | 'ua-cz'>(i18n.language === 'cs' ? 'ua-cz' : 'cz-ua');
+  const { currentLanguage } = useLanguage();
+  const { t } = useTranslation();
+  const [swapLanguage, setSwapLanguage] = useState<'cz-ua' | 'ua-cz'>(currentLanguage === 'cs' ? 'ua-cz' : 'cz-ua');
 
   const alphabet = swapLanguage === 'cz-ua' ? ALPHABET_CZ : ALPHABET_UA;
 
   const playerLanguage = swapLanguage === 'cz-ua' ? 'cs' : 'uk';
 
-  const cz_ua_select = i18n.language === 'cs' ? 'Česká abeceda' : 'Чеський алфавіт';
+  const cz_ua_select = currentLanguage === 'cs' ? 'Česká abeceda' : 'Чеський алфавіт';
 
-  const ua_cz_select = i18n.language === 'cs' ? 'Ukrajinská abeceda' : 'Український алфавіт';
+  const ua_cz_select = currentLanguage === 'cs' ? 'Ukrajinská abeceda' : 'Український алфавіт';
 
   return (
     <>
@@ -52,17 +53,7 @@ const AlphabetPage = (): JSX.Element => {
         </div>
         <div className="grid gap-6  justify-center auto-rows-[400px] sm:auto-rows-[300px] md:auto-rows-[350px] grid-cols-[repeat(auto-fill,minmax(275px,275px))] sm:grid-cols-[repeat(auto-fill,minmax(205px,205px))]  md:grid-cols-[repeat(auto-fill,minmax(240px,240px))] ">
           {alphabet.map(({ examples, letter, transcription }, index) => {
-            return (
-              <AlphabetCard
-                playerLanguage={playerLanguage}
-                letter={letter}
-                transcription={transcription}
-                examples={examples}
-                key={index}
-                player={player}
-                setPlayer={setPlayer}
-              />
-            );
+            return <AlphabetCard language={playerLanguage} letter={letter} transcription={transcription} examples={examples} key={index} />;
           })}
         </div>
       </div>
