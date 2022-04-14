@@ -19,7 +19,7 @@ const normalizeData = ({ ua_translation, cz_translation, image }: { ua_translati
 });
 
 // shuffle array then pick 8 elements
-const cardsData = kidsWords.sort(() => Math.random() - 0.5).slice(0, 2).map(normalizeData);
+const cardsData = kidsWords.sort(() => Math.random() - 0.5).slice(0, 8).map(normalizeData);
 
 const MemoryGameSection = () => {
   const { t } = useTranslation();
