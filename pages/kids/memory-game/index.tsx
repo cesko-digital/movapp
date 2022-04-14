@@ -2,8 +2,13 @@ import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import React from 'react';
 import kidsWords from 'data/translations/pro-deti.json';
-import MemoryGame from 'components/basecomponents/MemoryGame/MemoryGame';
+import dynamic from 'next/dynamic';
 export { getStaticProps } from 'utils/localization';
+
+const MemoryGame = dynamic(
+  () => import('components/basecomponents/MemoryGame/MemoryGame'),
+  { ssr: false }
+);
 
 const normalizeData = ({ ua_translation, cz_translation, image }: { ua_translation: string; cz_translation: string; image: string }) => ({
   translation: {
@@ -13,7 +18,8 @@ const normalizeData = ({ ua_translation, cz_translation, image }: { ua_translati
   image,
 });
 
-const cardsData = kidsWords.slice(0, 8).map(normalizeData);
+// shuffle array then pick 8 elements
+const cardsData = kidsWords.sort(() => Math.random() - 0.5).slice(0, 2).map(normalizeData);
 
 const MemoryGameSection = () => {
   const { t } = useTranslation();

@@ -48,6 +48,108 @@
   transition-delay: 0ms;
 }
 
+.back.begin {
+  animation-timing-function: linear;
+  animation: show 0.5s 0.1s;
+}
+
+.front.flipped.selected.cardsMatch {
+  animation: shake 0.7s 0.5s;
+  z-index: 1000;
+}
+
+.front.win {
+  animation: wave 0.7s;
+}
+
+.front.winReward {
+  animation: dance 0.45s;
+  animation-iteration-count: 17;
+}
+
+.cell:nth-child(1) .front.win {
+  animation-delay: 0s;
+}
+
+.cell:nth-child(2) .front.win,
+.cell:nth-child(5) .front.win {
+  animation-delay: 0.1s;
+}
+
+.cell:nth-child(3) .front.win,
+.cell:nth-child(6) .front.win,
+.cell:nth-child(9) .front.win {
+  animation-delay: 0.2s;
+}
+
+.cell:nth-child(4) .front.win,
+.cell:nth-child(7) .front.win,
+.cell:nth-child(10) .front.win,
+.cell:nth-child(13) .front.win {
+  animation-delay: 0.3s;
+}
+
+.cell:nth-child(8) .front.win,
+.cell:nth-child(11) .front.win,
+.cell:nth-child(14) .front.win {
+  animation-delay: 0.4s;
+}
+
+.cell:nth-child(12) .front.win,
+.cell:nth-child(15) .front.win {
+  animation-delay: 0.4s;
+}
+
+.cell:nth-child(16) .front.win {
+  animation-delay: 0.5s;
+}
+
+.cell:nth-child(1) .front.winReward {
+  animation-delay: 0s;
+}
+
+.cell:nth-child(2) .front.winReward,
+.cell:nth-child(5) .front.winReward {
+  animation-delay: 0.5s;
+}
+
+.cell:nth-child(3) .front.winReward,
+.cell:nth-child(6) .front.winReward,
+.cell:nth-child(9) .front.winReward {
+  animation-delay: 0.6s;
+}
+
+.cell:nth-child(4) .front.winReward,
+.cell:nth-child(7) .front.winReward,
+.cell:nth-child(10) .front.winReward,
+.cell:nth-child(13) .front.winReward {
+  animation-delay: 0.7s;
+}
+
+.cell:nth-child(8) .front.winReward,
+.cell:nth-child(11) .front.winReward,
+.cell:nth-child(14) .front.winReward {
+  animation-delay: 0.8s;
+}
+
+.cell:nth-child(12) .front.winReward,
+.cell:nth-child(15) .front.winReward {
+  animation-delay: 0.9s;
+}
+
+.cell:nth-child(16) .front.winReward {
+  animation-delay: 1s;
+}
+
+@media (min-width: 640px) {
+  .front,
+  .back,
+  .cell {
+    width: 9rem;
+    height: 9rem;
+  }
+}
+
 @keyframes show {
   0% {
     transform: scale(1);
@@ -60,11 +162,6 @@
   100% {
     transform: scale(1);
   }
-}
-
-.back.begin {
-  animation-timing-function: linear;
-  animation: show 0.5s 0.1s;
 }
 
 @keyframes shake {
@@ -81,11 +178,6 @@
   }
 }
 
-.front.flipped.selected.cardsMatch {
-  animation: shake 0.7s 0.5s;
-  z-index: 1000;
-}
-
 @keyframes wave {
   0% {
     transform: scale(1);
@@ -100,46 +192,24 @@
   }
 }
 
-.front.victory {
-  animation: wave 0.7s;
-}
-
-.cell:nth-child(1) .front.victory {
-  animation-delay: 0s;
-}
-.cell:nth-child(2) .front.victory,
-.cell:nth-child(5) .front.victory {
-  animation-delay: 0.1s;
-}
-.cell:nth-child(3) .front.victory,
-.cell:nth-child(6) .front.victory,
-.cell:nth-child(9) .front.victory {
-  animation-delay: 0.2s;
-}
-.cell:nth-child(4) .front.victory,
-.cell:nth-child(7) .front.victory,
-.cell:nth-child(10) .front.victory,
-.cell:nth-child(13) .front.victory {
-  animation-delay: 0.3s;
-}
-.cell:nth-child(8) .front.victory,
-.cell:nth-child(11) .front.victory,
-.cell:nth-child(14) .front.victory {
-  animation-delay: 0.4s;
-}
-.cell:nth-child(12) .front.victory,
-.cell:nth-child(15) .front.victory {
-  animation-delay: 0.4s;
-}
-.cell:nth-child(16) .front.victory {
-  animation-delay: 0.5s;
-}
-
-@media (min-width: 640px) {
-  .front,
-  .back,
-  .cell {
-    width: 9rem;
-    height: 9rem;
+@keyframes dance {
+  0% {
+    transform: rotate3d(0) scale(1);
+    animation-timing-function: ease-out;
+  }
+  25% {
+    transform: rotate3d(1, 1, 1, -12deg) scale(0.9);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: rotate3d(0) scale(0.9);
+    animation-timing-function: ease-out;
+  }
+  75% {
+    transform: rotate3d(1, 1, 1, 12deg) scale(0.9);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: rotate3d(0) scale(1);
   }
 }

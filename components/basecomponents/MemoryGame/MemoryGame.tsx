@@ -5,6 +5,9 @@ import Card from './MemoryGameCard';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { useLanguage } from 'utils/useLanguageHook';
 import phrases from './MemoryGamePhrases.json';
+import cardFlipClip from './card_flip.mp3';
+import cardsMatchClip from './cards_match.mp3';
+import winMusicClip from './baby_shark.mp3';
 
 function getRandomElement<Type>(arr: Type[]): Type {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -33,15 +36,25 @@ const addBackroundColor = (cardsData: CardDataType[]) => {
 };
 
 const scenes = Object.freeze({
-  none: 'none',
+  init: 'init',
   game: 'game',
   begin: 'begin',
   cardsMatch: 'cardsMatch',
   cardsMatchReward: 'cardsMatchReward',
   cardsDontMatch: 'cardsDontMatch',
   cardsDontMatchReward: 'cardsDontMatchReward',
-  victory: 'victory',
+  win: 'win',
+  winReward: 'winReward',
 });
+
+const cardFlipSound = new Audio(cardFlipClip);
+cardFlipSound.volume = 0.2;
+
+const cardsMatchSound = new Audio(cardsMatchClip);
+cardsMatchSound.volume = 0.3;
+
+const winMusic = new Audio(winMusicClip);
+winMusic.volume = 0.8;
 
 const MemoryGame = ({ cardsData }: MemoryGameProps) => {
   const { currentLanguage, otherLanguage } = useLanguage();
@@ -60,8 +73,8 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
     (selectedCards.first !== null && card.id === selectedCards.first.id) ||
     (selectedCards.second !== null && card.id === selectedCards.second.id);
 
-  const [scene, setScene] = useState<string>(scenes.none);
-  const [controlsEnabled, setControlsEnabled] = useState<boolean>(false);
+  const [scene, setScene] = useState<string>(scenes.init);
+  const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
 
   const newGame = () => {
     console.log('new game');
@@ -79,12 +92,14 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
   const playPhrase = (phrase: { [index: string]: string }) =>
     AudioPlayer.getInstance().playTextToSpeech(phrase[otherLanguage], otherLanguage);
 
-  const flippCard = (cardToFlip: CardType) =>
+  const flippCard = (cardToFlip: CardType) => {
     setCards((cards) => cards.map((card) => (card.id === cardToFlip.id ? { ...card, flipped: !card.flipped } : card)));
+    cardFlipSound.play();
+  };
   // TODO: play flippcard sound...maybe
 
   const selectCard = (card: CardType) => {
-    if (!controlsEnabled) return;
+    if (controlsDisabled) return;
 
     const { first, second } = selectedCards;
     if (first === null && !card.flipped) {
@@ -101,8 +116,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
   // resolve game states
   useEffect(() => {
     const sceneActions: { [index: string]: () => void } = {
-      none: () => {
-        // initial state
+      init: () => {
         // begin new game automaticaly
         setScene(scenes.begin);
       },
@@ -110,7 +124,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         // new game
         newGame();
         // disable controls
-        setControlsEnabled(false);
+        setControlsDisabled(true);
         // play css animations and sounds, play phrase
         playPhrase(getRandomElement(phrases.newGame));
         // setTimeout: set scene game
@@ -120,12 +134,14 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
       },
       game: () => {
         // enable controls
-        setControlsEnabled(true);
+        setControlsDisabled(false);
       },
       cardsMatch: () => {
         // disable controls
-        setControlsEnabled(false);
+        setControlsDisabled(true);
         // play css animations and sounds
+        setTimeout(() => cardsMatchSound.play(), 700);
+        // move on to next scene
         setTimeout(() => {
           setScene(scenes.cardsMatchReward);
         }, 1000);
@@ -135,12 +151,11 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         Math.random() > 0.5 && playPhrase(getRandomElement(phrases.good));
         // reset selected cards
         setSelectedCards({ first: null, second: null });
-        // check victory
-        // setTimeout: set scene game or victory
+        // check win        
         setTimeout(() => {
           if (cards.every((card) => card.flipped)) {
-            console.log('victory');
-            setScene(scenes.victory);
+            console.log('win');
+            setScene(scenes.win);
           } else {
             setScene(scenes.game);
           }
@@ -148,34 +163,42 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
       },
       cardsDontMatch: () => {
         // disable controls
-        setControlsEnabled(false);
-        // play css animations and sounds
-
-        // setTimeout: show cards for a period of time
+        setControlsDisabled(true);
+        // play css animations and sounds, flip card and card word
+        // setTimeout: show cards for a period of time to remember
         setTimeout(() => {
           setScene(scenes.cardsDontMatchReward);
-        }, 1200);
+        }, 1000);
       },
       cardsDontMatchReward: () => {
         // play animations and sounds
         Math.random() > 0.8 && playPhrase(getRandomElement(phrases.wrong));
-        // setTimeout: set scene game
+        // setTimeout: set scene game; delay till phrase end
         setTimeout(() => {
+          // flip cards back
           const { first, second } = selectedCards;
           flippCard(first!);
           flippCard(second!);
           setSelectedCards({ first: null, second: null });
           setScene(scenes.game);
-        }, 1000);
+        }, 1500);
       },
-      victory: () => {
+      win: () => {
         // disable controls
-        setControlsEnabled(false);
+        setControlsDisabled(true);
         // play css animations and sounds
         playPhrase(getRandomElement(phrases.good));
+        setTimeout(() => {
+          setScene(scenes.winReward);
+        }, 1500);
+      },
+      winReward: () => {
+        // play css animations and sounds
+        winMusic.play();
       },
     };
     console.log(`scene is: ${scene}`);
+    // run scene actions
     sceneActions[scene]();
   }, [scene]);
 
