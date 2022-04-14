@@ -1,6 +1,5 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
@@ -14,6 +13,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
 import { Language } from 'data/locales';
+import SEO from 'components/basecomponents/SEO';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
@@ -87,13 +87,12 @@ const Dictionary = () => {
 
   return (
     <>
-      <Head>
-        <meta name="referrer" content="no-referrer" />
-        <title>{t('seo.dictionary_page_title')}</title>
-        <meta name="description" content={t('seo.dictionary_page_description')} />
-        <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
-      </Head>
-      <div className="max-w-7xl m-auto">
+      <SEO
+        title={t('seo.dictionary_page_title')}
+        description={t('seo.dictionary_page_description')}
+        image="https://www.movapp.cz/icons/movapp-cover.jpg"
+      />
+      <div className="max-w-7xl m-auto ">
         <h1 className="text-primary-blue">{t('dictionary_page.title')}</h1>
         <div
           ref={searchContainer}
