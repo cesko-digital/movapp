@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// Source: https://github.com/vsistek/ua-translit-cz/
+
 export const cz2ua: [string, string][] = [
   ['chř', 'хрш'],
   ['CHŘ', 'ХРШ'],

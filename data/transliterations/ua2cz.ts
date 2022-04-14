@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// Source: https://github.com/vsistek/ua-translit-cz/
+
 export const ua2cz: [string, string][] = [
   ['є', 'je'],
   ['Є', 'Je'],
