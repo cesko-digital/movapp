@@ -13,7 +13,6 @@ const SEO = ({ title, description, image }: Props) => {
       <meta name="referrer" content="no-referrer" />
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="name" content={title} />
       <meta property="og:image" content={image} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
