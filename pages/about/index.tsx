@@ -2,10 +2,10 @@
 import { useTranslation, Trans } from 'next-i18next';
 export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
-import SEO from 'components/SEO';
 import { HTMLAttributes } from 'react';
 import { Language } from 'data/locales';
 import { useLanguage } from 'utils/useLanguageHook';
+import SEO from 'components/basecomponents/SEO';
 
 interface LinkTextProps {
   href: string;

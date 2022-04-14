@@ -1,6 +1,5 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
-import SEO from 'components/SEO';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
@@ -14,6 +13,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
 import { Language } from 'data/locales';
+import SEO from 'components/basecomponents/SEO';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,

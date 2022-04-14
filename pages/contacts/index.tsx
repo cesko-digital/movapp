@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key*/
+import SEO from 'components/basecomponents/SEO';
 import { Trans, useTranslation } from 'next-i18next';
-import SEO from 'components/SEO';
 import { LinkText } from 'pages/about';
 export { getStaticProps } from 'utils/localization';
 

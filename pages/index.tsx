@@ -1,6 +1,5 @@
 import { useTranslation } from 'next-i18next';
 import type { NextPage } from 'next';
-import SEO from 'components/SEO';
 export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -11,6 +10,7 @@ import DictionaryIcon from '../public/icons/book.svg';
 import ChildIcon from '../public/icons/child.svg';
 import AlphabetIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
+import SEO from 'components/basecomponents/SEO';
 
 const Home: NextPage = () => {
   const { t } = useTranslation();

@@ -1,10 +1,10 @@
 import { useTranslation } from 'next-i18next';
-import SEO from 'components/SEO';
 import React from 'react';
 import kidsWords from '../../data/translations/pro-deti.json';
 import { Button } from '../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
 import { Phrase } from 'utils/Phrase';
+import SEO from 'components/basecomponents/SEO';
 export { getStaticProps } from '../../utils/localization';
 
 const KidsSection = () => {
