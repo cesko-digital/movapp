@@ -16,7 +16,7 @@ import remarkGfm from 'remark-gfm';
 import Head from 'next/head';
 
 const WikiArticle = ({ markdown, title }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
-  const [markdownString, setMarkdownString] = useState<string>('');
+  const [markdownString, setMarkdownString] = useState('');
 
   useMemo(() => {
     const markdownText = unified()
@@ -53,9 +53,8 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const param = params!.article;
 
   const articles = fs.readFileSync(path.join(process.cwd(), 'products.json'), { encoding: 'utf-8' });
-  
+
   const currentWikiPage = (JSON.parse(articles) as string[]).find((article: string) => normalizeWikiPagesUrl(article) === param);
-  fs.unlinkSync(path.join(process.cwd(), 'products.json'));
 
   const response = await fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${currentWikiPage}.md`);
   const markdown = await response.text();
