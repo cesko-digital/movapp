@@ -1,8 +1,8 @@
 import 'styles/globals.css';
+import 'styles/markdown.css';
 import type { AppProps } from 'next/app';
 import { Layout } from 'components/sections/Layout/Layout';
 import { appWithTranslation } from 'next-i18next';
-
 import '@fontsource/roboto/900.css';
 import '@fontsource/roboto/700.css';
 import '@fontsource/roboto/700-italic.css';
