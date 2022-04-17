@@ -69,24 +69,25 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  const recursiveFetch = (url: string, tracking: string[], paths: string[]): any => {
-    return fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${url}.md`).then(async (res) => {
-      const markdown = await res.text();
-      const { links } = markdownLinkExtractor(markdown);
+  const fetchWikiArticle = async (url: string, tracking: string[], paths: string[]): Promise<string[]> => {
+    const res = await fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${url}.md`);
+    const markdown = await res.text();
 
-      links.forEach((link: string) => {
-        if (link.includes('https')) return;
-        paths.push(link);
-        tracking = [...tracking, link];
-      });
+    const { links } = markdownLinkExtractor(markdown);
 
-      const nextFetchURL = tracking.shift();
-      if (!nextFetchURL) return paths;
-      return recursiveFetch(nextFetchURL, tracking, paths);
+    links.forEach((link: string) => {
+      if (link.includes('https') || tracking.includes(link)) return;
+      paths.push(link);
+      tracking = [...tracking, link];
     });
+
+    const nextFetchURL = tracking.shift();
+    if (!nextFetchURL) return paths;
+    return await fetchWikiArticle(nextFetchURL, tracking, paths);
   };
 
-  const articles: string[] = await recursiveFetch('Home', [], []);
+  const articles = await fetchWikiArticle('Home', [], []);
+
   // creates temporary file to extract initial artciles' name in getStaticProps
   fs.writeFileSync(path.join(process.cwd(), 'products.json'), JSON.stringify(articles));
 
