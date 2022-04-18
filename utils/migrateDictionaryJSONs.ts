@@ -10,7 +10,7 @@ import { TranslationJSON } from './Phrase';
  */
 
 // Define source folder:
-const dir = 'data/translations';
+const dir = 'data/translations/SK';
 // Define target folder inside source folder:
 const migratedDir = 'migrated';
 // Define how to map old JSON object to new ones

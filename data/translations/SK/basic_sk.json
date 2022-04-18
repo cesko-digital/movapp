@@ -1,0 +1,189 @@
+﻿[
+  {
+    "cz_translation": "Dobrý deň.",
+    "cz_transcription": "Добри дєнь",
+    "ua_translation": "Добрий день.",
+    "ua_transcription": "Dobryj deň"
+  },
+  {
+    "cz_translation": "Ahoj.",
+    "cz_transcription": "Агой",
+    "ua_translation": "Привіт!",
+    "ua_transcription": "Pryvit"
+  },
+  {
+    "cz_translation": "Dovidenia.",
+    "cz_transcription": "Довідєня",
+    "ua_translation": "До побачення!",
+    "ua_transcription": "Do pobačenňa"
+  },
+  {
+    "cz_translation": "Áno",
+    "cz_transcription": "Aно",
+    "ua_translation": "Так",
+    "ua_transcription": "Tak"
+  },
+  {
+    "cz_translation": "Nie",
+    "cz_transcription": "Нє",
+    "ua_translation": "Ні",
+    "ua_transcription": "Ni"
+  },
+  {
+    "cz_translation": "Prosím.",
+    "cz_transcription": "Просім",
+    "ua_translation": "Будь ласка.",
+    "ua_transcription": "Buď laska"
+  },
+  {
+    "cz_translation": "Ďakujem.",
+    "cz_transcription": "дякуєм",
+    "ua_translation": "Дякую.",
+    "ua_transcription": "Ďakuju"
+  },
+  {
+    "cz_translation": "Nemáte za čo.",
+    "cz_transcription": "Нємате за чо",
+    "ua_translation": "Нема за що. / Прошу.",
+    "ua_transcription": "Nema za ščo / Prošu"
+  },
+  {
+    "cz_translation": "Prepáčte.",
+    "cz_transcription": "Препачтє",
+    "ua_translation": "Вибачте.",
+    "ua_transcription": "Vybačte"
+  },
+  {
+    "cz_translation": "Volám sa...",
+    "cz_transcription": "Волам са",
+    "ua_translation": "Мене звуть...",
+    "ua_transcription": "Mene zváti"
+  },
+  {
+    "cz_translation": "Som z Ukrajiny.",
+    "cz_transcription": "Сом з України",
+    "ua_translation": "Я з України.",
+    "ua_transcription": "Ja z Ukrajiny"
+  },
+
+  {
+    "cz_translation": "Nehovorím po česky.",
+    "cz_transcription": " Нєговорім по чески",
+    "ua_translation": "Не розмовляю чеською.",
+    "ua_transcription": "Ne rozmovljaju čes’koju"
+  },
+  {
+    "cz_translation": "Nehovorím po slovensky.",
+    "cz_transcription": "Нєговорім по словенски",
+    "ua_translation": "Не розмовляю словацькою.",
+    "ua_transcription": "Ne rozmovljaju slovackoju"
+  },
+  {
+    "cz_translation": "Hovorím po anglicky.",
+    "cz_transcription": "Говорім по анґліцки",
+    "ua_translation": "Розмовляю англійською.",
+    "ua_transcription": "Rozmovljaju anhlijs’koju"
+  },
+  {
+    "cz_translation": "Hovorím po rusky.",
+    "cz_transcription": "Говорім по руськи",
+    "ua_translation": "Розмовляю російською.",
+    "ua_transcription": "Rozmovljaju rosijs’koju"
+  },
+  {
+    "cz_translation": "Hovorím po nemecky.",
+    "cz_transcription": "Говорім по немецки",
+    "ua_translation": "Розмовляю німецькою.",
+    "ua_transcription": "Rozmovljaju nimec’koju"
+  },
+  {
+    "cz_translation": "Stratila som doklady. Stratil som doklady.",
+    "cz_transcription": "Стратїла сом доклади / Стратїл сом доклади",
+    "ua_translation": "Я загубила документи. Я загубив документи.",
+    "ua_transcription": "Ja zahubila dokumenty / Ja zahubiu dokumenty"
+  },
+  {
+    "cz_translation": "Nerozumiem.",
+    "cz_transcription": "Нерозумієм",
+    "ua_translation": "Не розумію.",
+    "ua_transcription": "Ne rozumiju"
+  },
+  {
+    "cz_translation": "On nerozumie. Ona nerozumie.",
+    "cz_transcription": "Он нєрозуміє / Она нєрозуміє",
+    "ua_translation": "Він не розуміє. Вона не розуміє.",
+    "ua_transcription": "Vin ne rozumije / Vona ne rozumije"
+  },
+  {
+    "cz_translation": "Hovorte prosím pomaly.",
+    "cz_transcription": "Говорте просім помали",
+    "ua_translation": "Говоріть, будь ласка, повільніше.",
+    "ua_transcription": "Hovoriť, buď laska, povil’niše"
+  },
+  {
+    "cz_translation": "Ešte raz, prosím.",
+    "cz_transcription": "Ештє раз, просім",
+    "ua_translation": "Повторіть, будь ласка.",
+    "ua_transcription": "Povtoriť, buď laska"
+  },
+  {
+    "cz_translation": "Čo znamená?",
+    "cz_transcription": "Чо знамена",
+    "ua_translation": "Що означає?",
+    "ua_transcription": "Ščo označaje"
+  },
+  {
+    "cz_translation": "Ako sa povie...",
+    "cz_transcription": "Ако са повіє",
+    "ua_translation": "Як сказати...",
+    "ua_transcription": "Jak skazaty"
+  },
+  {
+    "cz_translation": "Môžem použiť Google Translate?",
+    "cz_transcription": "Муожем поужіть Ґооґле Транслате",
+    "ua_translation": "Можу скористатися Гугл транслейтом?",
+    "ua_transcription": "Možu skoristatysja Huhl translejtom"
+  },
+  {
+    "cz_translation": "Môžete mi pomôcť?",
+    "cz_transcription": "Муожетє мі помуоцть",
+    "ua_translation": "Можете мені допомогти, будь ласка?",
+    "ua_transcription": "Možete meni dopomohty, buď laska"
+  },
+  {
+    "cz_translation": "Zavolajte pomoc, prosím.",
+    "cz_transcription": "Заволайтє помоц просім",
+    "ua_translation": "Покличе на допомогу, будь ласка.",
+    "ua_transcription": "Pokliče na dopomohu, buď laska"
+  },
+  {
+    "cz_translation": "Môžem vás poprosiť o...",
+    "cz_transcription": "Муожем вас попросіть о",
+    "ua_translation": "Можу вас попросити...",
+    "ua_transcription": "Možu vas poprosyty"
+  },
+  {
+    "cz_translation": "polícia",
+    "cz_transcription": "поліція",
+    "ua_translation": "поліція",
+    "ua_transcription": "policija"
+  },
+  {
+    "cz_translation": "lekár",
+    "cz_transcription": "лекар",
+    "ua_translation": "лікар",
+    "ua_transcription": "likar"
+  },
+  {
+    "cz_translation": "hasiči",
+    "cz_transcription": "гасичи",
+    "ua_translation": "пожежники",
+    "ua_transcription": "požežnyky"
+  },
+  {
+    "cz_translation": "V pohode",
+    "cz_transcription": "Ф погодє",
+    "ua_translation": "Усе гаразд",
+    "ua_transcription": "Use harazd"
+  }
+]

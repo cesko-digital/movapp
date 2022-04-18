@@ -1,0 +1,90 @@
+﻿[
+  {
+    "cz_translation": "Ako si mám vybaviť...?",
+    "cz_transcription": "Ако сі мам вибавіть",
+    "ua_translation": "Як я можу отримати...?",
+    "ua_transcription": "Jak ja možu otrymaty"
+  },
+  {
+    "cz_translation": "Kde si môžem vybaviť...?",
+    "cz_transcription": "Кде сі муожем вибавіть",
+    "ua_translation": "Де я можу отримати...?",
+    "ua_transcription": "De ja možu otrymaty"
+  },
+  {
+    "cz_translation": "Aké dokumenty potrebujem na...?",
+    "cz_transcription": "Аке документи потребуєм на",
+    "ua_translation": "Які документи потрібні для. .?",
+    "ua_transcription": "Jaki dokumenty potribni dlja"
+  },
+  {
+    "cz_translation": "Kde nájdem...?",
+    "cz_transcription": "Ґде найдєм",
+    "ua_translation": "Де я можу знайти...?",
+    "ua_transcription": "De ja možu znajty"
+  },
+
+  {
+    "cz_translation": "Kde musím nosiť respirátor?",
+    "cz_transcription": "Ґде мусім носіь респіратор",
+    "ua_translation": "Де необхідно носити респіратор?",
+    "ua_transcription": "De neobchidno nosyty respirator?"
+  },
+  {
+    "cz_translation": "Som v karanténe.",
+    "cz_transcription": "Сом ф карантенє",
+    "ua_translation": "Я на карантині.",
+    "ua_transcription": "Ja na karantyni"
+  },
+  {
+    "cz_translation": "Som v izolácii.",
+    "cz_transcription": "Сом в ізолації",
+    "ua_translation": "Я на ізоляції.",
+    "ua_transcription": "Ja na izoljaciji"
+  },
+
+  {
+    "cz_translation": "Aké je telefónne číslo na...?",
+    "cz_transcription": "Аке є телефонне чісло на",
+    "ua_translation": "Який телефонний номер...?",
+    "ua_transcription": "Jakyj telefonnyj nomer"
+  },
+
+  {
+    "cz_translation": "bankový účet",
+    "cz_transcription": "банкови учет",
+    "ua_translation": "банківський рахунок",
+    "ua_transcription": "bankivs’kyj rachunok"
+  },
+  {
+    "cz_translation": "poistenie",
+    "cz_transcription": "поістенє",
+    "ua_translation": "страхування",
+    "ua_transcription": "strachuvanňa"
+  },
+  {
+    "cz_translation": "električenka",
+    "cz_transcription": "електріченка",
+    "ua_translation": "проїзний квиток",
+    "ua_transcription": "projiznyj kvytok"
+  },
+  {
+    "cz_translation": "Kde si môžem vybaviť električenku?",
+    "cz_transcription": "Ґде сі муожем вибавіть електріченку",
+    "ua_translation": "Де я можу отримати проїзний квиток?",
+    "ua_transcription": "De ja možu otrymaty projiznyj kvytok"
+  },  
+  {
+    "cz_translation": "Narodila som sa...",
+    "cz_transcription": "Народїла сом са",
+    "ua_translation": "Народилася...",
+    "ua_transcription": "Narodylasja"
+  },
+  {
+    "cz_translation": "Narodila sa... Narodil sa...",
+    "cz_transcription": "Народїла са / Народїл са",
+    "ua_translation": "Вона народилася... Він народився...",
+    "ua_transcription": "Vona narodylasja / Vin narodyusja"
+  }
+]
+

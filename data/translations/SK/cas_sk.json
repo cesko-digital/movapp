@@ -1,0 +1,418 @@
+﻿[
+  {
+    "cz_translation": "Koľko je hodín?",
+    "cz_transcription": "Колькo є годїн",
+    "ua_translation": "Котра година?",
+    "ua_transcription": "Kotra hodyna"
+  },
+  {
+    "cz_translation": "Je sedem hodín.",
+    "cz_transcription": "Є ceдєм годїн",
+    "ua_translation": "Сьома година.",
+    "ua_transcription": "Sjoma hodyna"
+  },
+  {
+    "cz_translation": "Je štvrť na peť.",
+    "cz_transcription": "Є штвpть на пeть",
+    "ua_translation": "Чверть на п'яту.",
+    "ua_transcription": "Čverť na pjatu"
+  },
+  {
+    "cz_translation": "Je pol piatej.",
+    "cz_transcription": "Є пoл пiятeй",
+    "ua_translation": "Пів п'ятої.",
+    "ua_transcription": "Piu pjatoji"
+  },
+  {
+    "cz_translation": "Je trištvrte na päť.",
+    "cz_transcription": "Є тpiштвpтє на пєть",
+    "ua_translation": "За чверть п'ята.",
+    "ua_transcription": "Za čverť pjata"
+  },
+  {
+    "cz_translation": "Kedy mám prísť?",
+    "cz_transcription": "Кeди мaм приcть",
+    "ua_translation": "Коли мені прийти?",
+    "ua_transcription": "Koly meni pryjty"
+  },
+  {
+    "cz_translation": "Kedy to mám urobiť?",
+    "cz_transcription": "Кeди тo мaм ypoбить",
+    "ua_translation": "Коли я маю це зробити?",
+    "ua_transcription": "Koly ja maju ce zrobyty"
+  },
+  {
+    "cz_translation": "teraz",
+    "cz_transcription": "тeраc",
+    "ua_translation": "зараз",
+    "ua_transcription": "zaraz"
+  },
+  {
+    "cz_translation": "neskôr",
+    "cz_transcription": "нєcкyop",
+    "ua_translation": "пізніше",
+    "ua_transcription": "pizniše"
+  },
+  {
+    "cz_translation": "o pol hodiny",
+    "cz_transcription": "о пол годїни",
+    "ua_translation": "за пів години",
+    "ua_transcription": "za piu hodyny"
+  },
+  {
+    "cz_translation": "o hodinu",
+    "cz_transcription": "о годїну",
+    "ua_translation": "за годину",
+    "ua_transcription": "za hodynu"
+  },
+  {
+    "cz_translation": "ráno",
+    "cz_transcription": "рано",
+    "ua_translation": "вранці",
+    "ua_transcription": "vranci"
+  },
+  {
+    "cz_translation": "doobeda",
+    "cz_transcription": "дообеда",
+    "ua_translation": "в першій половині дня",
+    "ua_transcription": "v peršij polovyni dňa"
+  },
+  {
+    "cz_translation": "na obed",
+    "cz_transcription": "на обед",
+    "ua_translation": "о дванадцятій",
+    "ua_transcription": "o dvanadcjatij"
+  },
+  {
+    "cz_translation": "poobede",
+    "cz_transcription": "пообедє",
+    "ua_translation": "в другій половині дня",
+    "ua_transcription": "v druhij polovyni dňa"
+  },
+  {
+    "cz_translation": "večer",
+    "cz_transcription": "вечер",
+    "ua_translation": "ввечері",
+    "ua_transcription": "uvečeri"
+  },
+  {
+    "cz_translation": "v noci",
+    "cz_transcription": "в ноці",
+    "ua_translation": "вночі",
+    "ua_transcription": "vnoči"
+  },
+  {
+    "cz_translation": "o siedmej",
+    "cz_transcription": "о сіедмей",
+    "ua_translation": "о сьомій",
+    "ua_transcription": "o sjomij"
+  },
+  {
+    "cz_translation": "pondelok",
+    "cz_transcription": "пондєлок",
+    "ua_translation": "понеділок",
+    "ua_transcription": "ponedilok"
+  },
+
+{
+    "cz_translation": " V pondelok mám hodinu češtiny.",
+    "cz_transcription": " Ф понделок мам годїну чештїни",
+    "ua_translation": "У понеділок у мене заняття з чеської.",
+    "ua_transcription": "U ponedilok u mene zaňatťa z čes'koji"
+  },
+  {
+    "cz_translation": "V pondelok mám hodinu slovenčiny.",
+    "cz_transcription": "Ф понделок мам годїну словенчіни",
+    "ua_translation": "У понеділок у мене заняття з словацької.",
+    "ua_transcription": "U ponedilok u mene zaňatťa z slovacʹkoji"
+  },
+  {
+    "cz_translation": "utorok",
+    "cz_transcription": "yторок",
+    "ua_translation": "вівторок",
+    "ua_transcription": "vivtorok"
+  },
+  {
+    "cz_translation": "V utorok budem variť.",
+    "cz_transcription": "В уторок будєм варіть",
+    "ua_translation": "У вівторок я буду готувати їжу.",
+    "ua_transcription": "U vivtorok ja budu hotuvaty jižu"
+  },
+  {
+    "cz_translation": "streda",
+    "cz_transcription": "стреда",
+    "ua_translation": "середа",
+    "ua_transcription": "sereda"
+  },
+  {
+    "cz_translation": "V stredu musím ísť nakupovať.",
+    "cz_transcription": "Ф стреду мусім ість накуповать",
+    "ua_translation": "У середу мені потрібно зробити покупки.",
+    "ua_transcription": "U seredu meni potribno zrobyty pokupky"
+  },
+  {
+    "cz_translation": "štvrtok",
+    "cz_transcription": "штвpток",
+    "ua_translation": "четвер",
+    "ua_transcription": "četver"
+  },
+  {
+    "cz_translation": "Vo štvrtok idem na úrad.",
+    "cz_transcription": "Во штврток ідєм на урад",
+    "ua_translation": "У четвер я йду в адміністрацію.",
+    "ua_transcription": "U četver ja jdu v administraciju"
+  },
+  {
+    "cz_translation": "piatok",
+    "cz_transcription": "пiятoк",
+    "ua_translation": "п'ятниця",
+    "ua_transcription": "pjatnycja"
+  },
+  {
+    "cz_translation": "V piatok chodím cvičiť.",
+    "cz_transcription": "Ф пiяток ходїм цвічіть",
+    "ua_translation": "По п'ятницях я займаюся спортом.",
+    "ua_transcription": "Po pjatnycjach ja zajmajusja sportom"
+  },
+  {
+    "cz_translation": "sobota",
+    "cz_transcription": "собота",
+    "ua_translation": "субота",
+    "ua_transcription": "subota"
+  },
+  {
+    "cz_translation": "V sobotu upratujem.",
+    "cz_transcription": "Ф соботу упратуєм",
+    "ua_translation": "В суботу займаюсь прибиранням.",
+    "ua_transcription": "V subotu zajmajus' prybyranňam"
+  },
+  {
+    "cz_translation": "nedeľa",
+    "cz_transcription": "недєля",
+    "ua_translation": "неділя",
+    "ua_transcription": "nedilja"
+  },
+  {
+    "cz_translation": "V nedeľu si chcem oddýchnuť.",
+    "cz_transcription": "В неделю сі хцем оддихнуть",
+    "ua_translation": "В неділю я хочу відпочити.",
+    "ua_transcription": "V nedilju ja choču vidpočyty"
+  },
+  {
+    "cz_translation": "predvčerom",
+    "cz_transcription": "пpeдфчeрoм",
+    "ua_translation": "позавчора",
+    "ua_transcription": "pozavčora"
+  },
+  {
+    "cz_translation": "včera",
+    "cz_transcription": "фчера",
+    "ua_translation": "вчора",
+    "ua_transcription": "včora"
+  },
+  {
+    "cz_translation": "dnes",
+    "cz_transcription": "днєс",
+    "ua_translation": "сьогодні",
+    "ua_transcription": "sjohodni"
+  },
+  {
+    "cz_translation": "zajtra",
+    "cz_transcription": "зайтра",
+    "ua_translation": "завтра",
+    "ua_transcription": "zavtra"
+  },
+  {
+    "cz_translation": "pozajtra",
+    "cz_transcription": "пoзайтра",
+    "ua_translation": "післязавтра",
+    "ua_transcription": "pisljazavtra"
+  },
+  {
+    "cz_translation": "tento týždeň",
+    "cz_transcription": "тенто тиждєнь",
+    "ua_translation": "цього тижня",
+    "ua_transcription": "cjoho tyžňa"
+  },
+  {
+    "cz_translation": "budúci týždeň",
+    "cz_transcription": "будуці тиждєнь",
+    "ua_translation": "наступного тижня",
+    "ua_transcription": "nastupnoho tyžňa"
+  },
+  {
+    "cz_translation": "o dva týždne",
+    "cz_transcription": "о два тижднє",
+    "ua_translation": "за два тижні",
+    "ua_transcription": "za dva tyžni"
+  },
+  {
+    "cz_translation": "minulý týždeň",
+    "cz_transcription": "мінули тиждєнь",
+    "ua_translation": "минулого тижня",
+    "ua_transcription": "mynuloho tyžňa"
+  },
+  {
+    "cz_translation": "tento mesiac",
+    "cz_transcription": "тенто месіяц",
+    "ua_translation": "цього місяця",
+    "ua_transcription": "cjoho misjacja"
+  },
+  {
+    "cz_translation": "budúci mesiac",
+    "cz_transcription": "будуці месіяц",
+    "ua_translation": "наступного місяця",
+    "ua_transcription": "nastupnoho misjacja"
+  },
+  {
+    "cz_translation": "o dva mesiace",
+    "cz_transcription": "о два месіяце",
+    "ua_translation": "за два місяці",
+    "ua_transcription": "za dva misjaci"
+  },
+  {
+    "cz_translation": "január",
+    "cz_transcription": "януар",
+    "ua_translation": "січень",
+    "ua_transcription": "sičeň"
+  },
+  {
+    "cz_translation": "V januári väčšinou sneží, je zima.",
+    "cz_transcription": "В януарі вечшіноу снежі, є зіма",
+    "ua_translation": "У січні зазвичай буває сніг і холодно.",
+    "ua_transcription": "U sični zazvyčaj buvaje snih i cholodno"
+  },
+  {
+    "cz_translation": "február",
+    "cz_transcription": "фебруар",
+    "ua_translation": "лютий",
+    "ua_transcription": "ljutyj"
+  },
+  {
+    "cz_translation": "Vo februári je sivo a chladno.",
+    "cz_transcription": "Во фебруарі є сіво а хладно",
+    "ua_translation": "В лютому похмуро і прохолодно.",
+    "ua_transcription": "V ljutomu pochmuro i procholodno"
+  },
+  {
+    "cz_translation": "marec",
+    "cz_transcription": "марец",
+    "ua_translation": "березень",
+    "ua_transcription": "berezeň"
+  },
+  {
+    "cz_translation": "V marci začína jar.",
+    "cz_transcription": "В марці зачіна яр",
+    "ua_translation": "В березні починається весна.",
+    "ua_transcription": "V berezni počynajeťsja vesna"
+  },
+  {
+    "cz_translation": "apríl",
+    "cz_transcription": "апріл",
+    "ua_translation": "квітень",
+    "ua_transcription": "kviteň"
+  },
+  {
+    "cz_translation": "V apríli je už často teplo.",
+    "cz_transcription": "В апрілі є уж часто тєпло",
+    "ua_translation": "У квітні часто буває тепло.",
+    "ua_transcription": "U kvitni často buvaje teplo"
+  },
+  {
+    "cz_translation": "máj",
+    "cz_transcription": "май",
+    "ua_translation": "травень",
+    "ua_transcription": "traveň"
+  },
+  {
+    "cz_translation": "V máji svieti slnko, všetko kvitne.",
+    "cz_transcription": "В маї свієті слнко, вшетко квітнє",
+    "ua_translation": "У травні світить сонце, і все цвіте.",
+    "ua_transcription": "U travni svityť sonce, i vse cvite"
+  },
+  {
+    "cz_translation": "jún",
+    "cz_transcription": "юн",
+    "ua_translation": "червень",
+    "ua_transcription": "červeň"
+  },
+  {
+    "cz_translation": "V júni dozrievajú jahody, leto je tu.",
+    "cz_transcription": "В юні дозрієваю ягоди, лето є ту",
+    "ua_translation": "У червні достигає полуниця, приходить літо.",
+    "ua_transcription": "U červni dostyhaje polunycja, prychodyť lito"
+  },
+  {
+    "cz_translation": "júl",
+    "cz_transcription": "юл",
+    "ua_translation": "липень",
+    "ua_transcription": "lipeň"
+  },
+  {
+    "cz_translation": "V júli je teplo.",
+    "cz_transcription": "В юлі є тєпло",
+    "ua_translation": "В липні спекотно.",
+    "ua_transcription": "V lypni spekotno"
+  },
+  {
+    "cz_translation": "august",
+    "cz_transcription": "ayґycт",
+    "ua_translation": "серпень",
+    "ua_transcription": "serpeň"
+  },
+  {
+    "cz_translation": "V auguste sa končia letné prázdniny.",
+    "cz_transcription": "В ауґусте са кончія летне праздніни",
+    "ua_translation": "У серпні закінчуються літні шкільні канікули.",
+    "ua_transcription": "U serpni zakinčujuťsja litni škil'ni kanikuly"
+  },
+  {
+    "cz_translation": "september",
+    "cz_transcription": "ceптeмбep",
+    "ua_translation": "вересень",
+    "ua_transcription": "vereseň"
+  },
+  {
+    "cz_translation": "V septembri idú deti do školy.",
+    "cz_transcription": "Ф септембрі іду дєтї до школи",
+    "ua_translation": "У вересні діти повертаються до школи.",
+    "ua_transcription": "U veresni dity povertajuťsja do školy"
+  },
+  {
+    "cz_translation": "október",
+    "cz_transcription": "oктoбep",
+    "ua_translation": "жовтень",
+    "ua_transcription": "žouteň"
+  },
+  {
+    "cz_translation": "V októbri je tu jeseň.",
+    "cz_transcription": "В октобрі є ту єсень",
+    "ua_translation": "У жовтні приходить осінь.",
+    "ua_transcription": "U žoutni prychodyť osiň"
+  },
+  {
+    "cz_translation": "november",
+    "cz_transcription": "нoвeмбep",
+    "ua_translation": "листопад",
+    "ua_transcription": "lystopad"
+  },
+  {
+    "cz_translation": "V novembri padá lístie zo stromov.",
+    "cz_transcription": "В новембрі пада лістє зо стромов",
+    "ua_translation": "В листопаді дерева опадають.",
+    "ua_transcription": "V lystopadi dereva opadajuť"
+  },
+  {
+    "cz_translation": "december",
+    "cz_transcription": "дeцeмбep",
+    "ua_translation": "грудень",
+    "ua_transcription": "hrudeň"
+  },
+  {
+    "cz_translation": "V decembri sú Vianoce.",
+    "cz_transcription": "В децембрі су Віяноце",
+    "ua_translation": "В грудні святкується Різдво.",
+    "ua_transcription": "V hrudni svjatkujeťsja Rizdvo"
+  }
+]
+

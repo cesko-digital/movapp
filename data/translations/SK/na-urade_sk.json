@@ -1,0 +1,231 @@
+﻿[
+  {
+    "cz_translation": "meno",
+    "cz_transcription": "мено",
+    "ua_translation": "ім'я",
+    "ua_transcription": "imja"
+  },
+  {
+    "cz_translation": "priezvisko",
+    "cz_transcription": "прієзвіско",
+    "ua_translation": "прізвище",
+    "ua_transcription": "prizvyšče"
+  },
+  {
+    "cz_translation": "dátum narodenia",
+    "cz_transcription": "датум народєнія",
+    "ua_translation": "дата народження",
+    "ua_transcription": "data narodženňa"
+  },
+  {
+    "cz_translation": "vek",
+    "cz_transcription": "век",
+    "ua_translation": "вік",
+    "ua_transcription": "vik"
+  },
+  {
+    "cz_translation": "pohlavie",
+    "cz_transcription": "поглавіє",
+    "ua_translation": "стать",
+    "ua_transcription": "stať"
+  },
+  {
+    "cz_translation": "žena",
+    "cz_transcription": "жена",
+    "ua_translation": "жінка",
+    "ua_transcription": "žinka"
+  },
+  {
+    "cz_translation": "muž",
+    "cz_transcription": "муж",
+    "ua_translation": "чоловік",
+    "ua_transcription": "čolovik"
+  },
+  {
+    "cz_translation": "stav",
+    "cz_transcription": "став",
+    "ua_translation": "сімейний стан",
+    "ua_transcription": "simejnyj stan"
+  },
+  {
+    "cz_translation": "Slobodný. Slobodná.",
+    "cz_transcription": "Слободни / Слободна",
+    "ua_translation": "Неодружений. Незаміжня.",
+    "ua_transcription": "Neodruženyj / Nezamižňa"
+  },
+  {
+    "cz_translation": "Ženatý. Vydatá.",
+    "cz_transcription": "Жeнaти / Видaтa",
+    "ua_translation": "Одружений. Одружена.",
+    "ua_transcription": "Odruženyj / Odružena"
+  },
+  {
+    "cz_translation": "Rozvedený. Rozvedená.",
+    "cz_transcription": "Рoзвeдєни / Рoзвeдєнa",
+    "ua_translation": "Розлучений. Розлучена.",
+    "ua_transcription": "Rozlučenyj / Rozlučena"
+  },
+  {
+    "cz_translation": "Vdovec. Vdova.",
+    "cz_transcription": "Вдовец / Вдова",
+    "ua_translation": "Вдівець. Вдова.",
+    "ua_transcription": "Vdivec / Vdova"
+  },
+  {
+    "cz_translation": "národnosť",
+    "cz_transcription": "народность",
+    "ua_translation": "національність",
+    "ua_transcription": "nacionaľnisť"
+  },
+  {
+    "cz_translation": "ukrajinská",
+    "cz_transcription": "українска",
+    "ua_translation": "українське",
+    "ua_transcription": "ukrajins’ke"
+  },
+  {
+    "cz_translation": "občianstvo",
+    "cz_transcription": "обчiянcтвo",
+    "ua_translation": "громадянство",
+    "ua_transcription": "hromaďjanstvo"
+  },
+  {
+    "cz_translation": "Ukrajina",
+    "cz_transcription": "Україна",
+    "ua_translation": "Україна",
+    "ua_transcription": "Ukrajina"
+  },
+  {
+    "cz_translation": "miesto narodenia",
+    "cz_transcription": "мiєcтo народєнія",
+    "ua_translation": "місто народження",
+    "ua_transcription": "misto narodženňa"
+  },
+  {
+    "cz_translation": "mesto",
+    "cz_transcription": "мecтo",
+    "ua_translation": "місто",
+    "ua_transcription": "misto"
+  },
+  {
+    "cz_translation": "trvalé bydlisko",
+    "cz_transcription": "тpвaлe бидлиcкo",
+    "ua_translation": "місце реєстрації",
+    "ua_transcription": "misce rejestraciji"
+  },
+  {
+    "cz_translation": "ulica",
+    "cz_transcription": "улицa",
+    "ua_translation": "вулиця",
+    "ua_transcription": "vulycja"
+  },
+  {
+    "cz_translation": "číslo popisné",
+    "cz_transcription": "чісло пописне",
+    "ua_translation": "номер будинку",
+    "ua_transcription": "nomer budynku"
+  },
+  {
+    "cz_translation": "PSČ. Poštové smerovacie číslo.",
+    "cz_transcription": "Пe-ec-чe / Поштове смероваціє чісло",
+    "ua_translation": "індекс",
+    "ua_transcription": "indeks"
+  },
+  {
+    "cz_translation": "prechodné bydlisko",
+    "cz_transcription": "пpeхoднe бидлicкo",
+    "ua_translation": "місце тимчасового проживання",
+    "ua_transcription": "misce tymčasovoho proživanňa"
+  },
+  {
+    "cz_translation": "korešpondenčná adresa",
+    "cz_transcription": "кopeшпoндeнчнa aдpeca",
+    "ua_translation": "адреса для кореспонденції",
+    "ua_transcription": "adresa dlja korespondenciji"
+  },
+  {
+    "cz_translation": "e-mailová adresa",
+    "cz_transcription": "імейлова адреса",
+    "ua_translation": "е-мейл адреса",
+    "ua_transcription": "e-mejl adresa"
+  },
+  {
+    "cz_translation": "telefónne číslo",
+    "cz_transcription": "тeлeфoннe чиcлo",
+    "ua_translation": "номер телефону",
+    "ua_transcription": "nomer telefonu"
+  },
+  {
+    "cz_translation": "rodný list",
+    "cz_transcription": "родни лiст",
+    "ua_translation": "свідоцтво про народження",
+    "ua_transcription": "svidoctvo pro narodženňa"
+  },
+  {
+    "cz_translation": "pas",
+    "cz_transcription": "пас",
+    "ua_translation": "паспорт",
+    "ua_transcription": "pasport"
+  },
+  {
+    "cz_translation": "občiansky preukaz",
+    "cz_transcription": "oбчiянcки пpeукac",
+    "ua_translation": "Посвідчення особи. Ай ді карта.",
+    "ua_transcription": "Posvidčenňa osoby / Aj di karta"
+  },
+  {
+    "cz_translation": "počet detí",
+    "cz_transcription": "пoчeт дєтi",
+    "ua_translation": "кількість дітей",
+    "ua_transcription": "kil’kisť ditej"
+  },
+  {
+    "cz_translation": "žiadosť o...",
+    "cz_transcription": "жiядocть o",
+    "ua_translation": "заява на...",
+    "ua_transcription": "zajava na"
+  },
+  {
+    "cz_translation": "podať žiadosť o...",
+    "cz_transcription": "подать жiядocть o",
+    "ua_translation": "подати заяву на...",
+    "ua_transcription": "podaty zajavu na"
+  },
+  {
+    "cz_translation": "poslat žiadosť",
+    "cz_transcription": "поcлать жiядocть",
+    "ua_translation": "відправити заяву",
+    "ua_transcription": "vidpravyty zajavu"
+  },
+  {
+    "cz_translation": "formulár",
+    "cz_transcription": "фopмyлap",
+    "ua_translation": "формуляр",
+    "ua_transcription": "formuljar"
+  },
+  {
+    "cz_translation": "podpis",
+    "cz_transcription": "подпис",
+    "ua_translation": "підпис",
+    "ua_transcription": "pidpys"
+  },
+  {
+    "cz_translation": "vyplniť formulár",
+    "cz_transcription": "виплнїть фopмyлap",
+    "ua_translation": "заповнити формуляр",
+    "ua_transcription": "zapounyty formuljar"
+  },
+  {
+    "cz_translation": "podpísať formulár",
+    "cz_transcription": "пoтпiсать фopмyлap",
+    "ua_translation": "підписати формуляр",
+    "ua_transcription": "pidpysaty formuljar"
+  },
+  {
+    "cz_translation": "dohodnúť si schôdzku",
+    "cz_transcription": "дoгoднуть ci sхyoцкy",
+    "ua_translation": "домовитись про зустріч",
+    "ua_transcription": "domovytys’ pro zustrič"
+  }
+]
+
