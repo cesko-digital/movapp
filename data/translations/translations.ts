@@ -1,28 +1,28 @@
-import { Phrase, isValidTranslationJSON, TranslationJSON } from './../../utils/Phrase';
+import { Phrase, TranslationJSON, isValidTranslationJSON } from 'utils/Phrase';
 // JSON translation files
-import Basic from './basic.json';
-import Cas from './cas.json';
-import HromadnaDoprava from './hromadna-doprava.json';
-import Zoo from './zoo.json';
-import NaNakupu from './na-nakupu.json';
-import NaUrade from './na-urade.json';
-import Obleceni from './obleceni.json';
-import Drogerie from './drogerie.json';
-import Penize from './penize.json';
-import Prace from './prace.json';
-import Rodina from './rodina.json';
-import Doctor from './doctor.json';
-import VDomacnosti from './vdomacnosti.json';
-import VeMeste from './vemeste.json';
-import VeSkole from './veskole.json';
-import VeSkolce from './veskolce.json';
-import Dobrovolnici from './dobrovolnici.json';
-import ZradnaSlovicka from './zradna-slovicka.json';
-import Velikonoce from './velikonoce.json';
+import Basic_CZ from './CZ/basic.json';
+import Cas_CZ from './CZ/cas.json';
+import HromadnaDoprava_CZ from './CZ/hromadna-doprava.json';
+import Zoo_CZ from './CZ/zoo.json';
+import NaNakupu_CZ from './CZ/na-nakupu.json';
+import NaUrade_CZ from './CZ/na-urade.json';
+import Obleceni_CZ from './CZ/obleceni.json';
+import Drogerie_CZ from './CZ/drogerie.json';
+import Penize_CZ from './CZ/penize.json';
+import Prace_CZ from './CZ/prace.json';
+import Rodina_CZ from './CZ/rodina.json';
+import Doctor_CZ from './CZ/doctor.json';
+import VDomacnosti_CZ from './CZ/vdomacnosti.json';
+import VeMeste_CZ from './CZ/vemeste.json';
+import VeSkole_CZ from './CZ/veskole.json';
+import VeSkolce_CZ from './CZ/veskolce.json';
+import Dobrovolnici_CZ from './CZ/dobrovolnici.json';
+import ZradnaSlovicka_CZ from './CZ/zradna-slovicka.json';
+import Velikonoce_CZ from './CZ/velikonoce.json';
 
 export interface Category {
-  category_name_cz: string;
-  category_name_ua: string;
+  nameMain: string;
+  nameUk: string;
   translations: Phrase[];
 }
 
@@ -32,98 +32,98 @@ const processTranslations = (translations: TranslationJSON[]) => {
 
 export const categories: Category[] = [
   {
-    category_name_ua: 'Основні фрази',
-    category_name_cz: 'Základní fráze',
-    translations: processTranslations(Basic),
+    nameUk: 'Основні фрази',
+    nameMain: 'Základní fráze',
+    translations: processTranslations(Basic_CZ),
   },
   {
-    category_name_cz: 'Velikonoce',
-    category_name_ua: 'Великдень',
-    translations: processTranslations(Velikonoce),
+    nameMain: 'Velikonoce',
+    nameUk: 'Великдень',
+    translations: processTranslations(Velikonoce_CZ),
   },
   {
-    category_name_cz: 'Rodina',
-    category_name_ua: 'Родина',
-    translations: processTranslations(Rodina),
+    nameMain: 'Rodina',
+    nameUk: 'Родина',
+    translations: processTranslations(Rodina_CZ),
   },
   {
-    category_name_ua: 'Час',
-    category_name_cz: 'Čas',
-    translations: processTranslations(Cas),
+    nameUk: 'Час',
+    nameMain: 'Čas',
+    translations: processTranslations(Cas_CZ),
   },
   {
-    category_name_ua: 'Громадський транспорт',
-    category_name_cz: 'Hromadná doprava',
-    translations: processTranslations(HromadnaDoprava),
+    nameUk: 'Громадський транспорт',
+    nameMain: 'Hromadná doprava',
+    translations: processTranslations(HromadnaDoprava_CZ),
   },
   {
-    category_name_ua: 'Їдемо в зоопарк',
-    category_name_cz: 'Jedeme do ZOO',
-    translations: processTranslations(Zoo),
+    nameUk: 'Їдемо в зоопарк',
+    nameMain: 'Jedeme do ZOO',
+    translations: processTranslations(Zoo_CZ),
   },
   {
-    category_name_ua: 'Покупки',
-    category_name_cz: 'Na nákupu',
-    translations: processTranslations(NaNakupu),
+    nameUk: 'Покупки',
+    nameMain: 'Na nákupu',
+    translations: processTranslations(NaNakupu_CZ),
   },
   {
-    category_name_cz: 'Na úřadě',
-    category_name_ua: 'В органах влади',
-    translations: processTranslations(NaUrade),
+    nameMain: 'Na úřadě',
+    nameUk: 'В органах влади',
+    translations: processTranslations(NaUrade_CZ),
   },
   {
-    category_name_cz: 'Oblečení',
-    category_name_ua: 'Одяг',
-    translations: processTranslations(Obleceni),
+    nameMain: 'Oblečení',
+    nameUk: 'Одяг',
+    translations: processTranslations(Obleceni_CZ),
   },
   {
-    category_name_cz: 'Drogerie',
-    category_name_ua: 'Побутова хімія (косметика)',
-    translations: processTranslations(Drogerie),
+    nameMain: 'Drogerie',
+    nameUk: 'Побутова хімія (косметика)',
+    translations: processTranslations(Drogerie_CZ),
   },
   {
-    category_name_cz: 'Peníze',
-    category_name_ua: 'Гроші',
-    translations: processTranslations(Penize),
+    nameMain: 'Peníze',
+    nameUk: 'Гроші',
+    translations: processTranslations(Penize_CZ),
   },
   {
-    category_name_cz: 'Práce',
-    category_name_ua: 'Робота',
-    translations: processTranslations(Prace),
+    nameMain: 'Práce',
+    nameUk: 'Робота',
+    translations: processTranslations(Prace_CZ),
   },
   {
-    category_name_cz: 'U lékaře',
-    category_name_ua: 'У лікаря',
-    translations: processTranslations(Doctor),
+    nameMain: 'U lékaře',
+    nameUk: 'У лікаря',
+    translations: processTranslations(Doctor_CZ),
   },
   {
-    category_name_cz: 'V domácnosti',
-    category_name_ua: 'Вдома',
-    translations: processTranslations(VDomacnosti),
+    nameMain: 'V domácnosti',
+    nameUk: 'Вдома',
+    translations: processTranslations(VDomacnosti_CZ),
   },
   {
-    category_name_cz: 'Ve městě',
-    category_name_ua: 'У місті',
-    translations: processTranslations(VeMeste),
+    nameMain: 'Ve městě',
+    nameUk: 'У місті',
+    translations: processTranslations(VeMeste_CZ),
   },
   {
-    category_name_cz: 'Ve škole',
-    category_name_ua: 'У школі',
-    translations: processTranslations(VeSkole),
+    nameMain: 'Ve škole',
+    nameUk: 'У школі',
+    translations: processTranslations(VeSkole_CZ),
   },
   {
-    category_name_cz: 'Ve školce',
-    category_name_ua: 'У дитсадку',
-    translations: processTranslations(VeSkolce),
+    nameMain: 'Ve školce',
+    nameUk: 'У дитсадку',
+    translations: processTranslations(VeSkolce_CZ),
   },
   {
-    category_name_cz: 'Dobrovolníci',
-    category_name_ua: 'Добровольці',
-    translations: processTranslations(Dobrovolnici),
+    nameMain: 'Dobrovolníci',
+    nameUk: 'Добровольці',
+    translations: processTranslations(Dobrovolnici_CZ),
   },
   {
-    category_name_cz: 'Zrádná slovíčka',
-    category_name_ua: 'Слова із іншим значенням',
-    translations: processTranslations(ZradnaSlovicka),
+    nameMain: 'Zrádná slovíčka',
+    nameUk: 'Слова із іншим значенням',
+    translations: processTranslations(ZradnaSlovicka_CZ),
   },
 ];
