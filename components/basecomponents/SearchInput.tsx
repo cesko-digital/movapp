@@ -1,12 +1,18 @@
-import { forwardRef, HTMLProps } from 'react';
+import { forwardRef } from 'react';
 
-interface SearchInputProps extends HTMLProps<HTMLInputElement> {
+interface SearchInputProps {
+  id: string;
+  label: string;
+  value: string;
+  placeholder: string;
   hiddenLabel: boolean;
+  setSearch: (value: string) => void;
   resetInput?: () => void;
+  className?: string;
 }
 
 export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
-  ({ hiddenLabel, id, label, resetInput, value, type, className, ...rest }, ref): JSX.Element => {
+  ({ hiddenLabel, id, label, resetInput, value, className, placeholder, setSearch }, ref): JSX.Element => {
     return (
       <div className={`relative ${className} transition duration-500 w-full`}>
         {label && (
@@ -16,13 +22,13 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
         )}
         <input
           ref={ref}
-          {...rest}
           value={value}
-          type={type}
           id={id}
-          className={` rounded-md md:rounded-lg  focus:border-yellow-400 box-border w-full h-[44px] focus:border-2 py-2 px-3 text-dark-700 border-1 border-primary-blue outline-none shadow-s`}
+          onChange={(event) => setSearch(event.target.value)}
+          placeholder={placeholder}
+          className={`rounded-md md:rounded-lg  focus:border-yellow-400 box-border w-full h-[44px] focus:border-2 py-2 px-3 text-dark-700 border-1 border-primary-blue outline-none shadow-s`}
         />
-        {type === 'text' && value?.toString().trim() && (
+        {value?.trim() && (
           <button
             onClick={resetInput}
             type="reset"

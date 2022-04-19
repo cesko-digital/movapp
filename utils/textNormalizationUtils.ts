@@ -1,14 +1,19 @@
-export const normalizeForSearch = (text: string) => {
-  return text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
-};
-
-export const normalizeForCategoryLink = (text: string) => {
-  return normalizeForSearch(text).replace(/\s+/g, '_');
+export const normalize = (text: string) => {
+  return (
+    text
+      .toLowerCase()
+      .normalize('NFD')
+      // Remove this range of characters
+      .replace(/[\u0300-\u036f]/g, '')
+  );
 };
 
 export const normalizeForId = (text: string) => {
-  return normalizeForCategoryLink(text).replace(/[()]/g, '');
+  return (
+    normalize(text)
+      // Replace whitespace characters with underscore
+      .replace(/\s+/g, '_')
+      // Remove parantheses
+      .replace(/[()]/g, '')
+  );
 };

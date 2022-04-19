@@ -1,11 +1,11 @@
 import { useLanguage } from 'utils/useLanguageHook';
 import { useTranslation } from 'next-i18next';
-import Head from 'next/head';
 import React, { useState } from 'react';
 import { AlphabetCard } from '../../components/basecomponents/AlphabetCard';
 import { LanguageSelect } from '../../components/basecomponents/LanguageSelect';
 import { ALPHABET_CZ } from '../../data/alphabets/cz_alphabet';
 import { ALPHABET_UA } from '../../data/alphabets/ua_alphabet';
+import SEO from 'components/basecomponents/SEO';
 export { getStaticProps } from '../../utils/localization';
 
 const AlphabetPage = (): JSX.Element => {
@@ -23,12 +23,11 @@ const AlphabetPage = (): JSX.Element => {
 
   return (
     <>
-      <Head>
-        <meta name="referrer" content="no-referrer" />
-        <title>{t('seo.alphabet_page_title')}</title>
-        <meta name="description" content={t('seo.alphabet_page_description')} />
-        <meta name="twitter:title" content={t('seo.alphabet_page_title')} />
-      </Head>
+      <SEO
+        title={t('seo.alphabet_page_title')}
+        description={t('seo.alphabet_page_description')}
+        image="https://www.movapp.cz/icons/movapp-cover.jpg"
+      />
       <div className="max-w-7xl m-auto">
         <h1 className="text-primary-blue mb-3">
           {t('alphabet_page.title', {

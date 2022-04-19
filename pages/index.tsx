@@ -1,6 +1,5 @@
 import { useTranslation } from 'next-i18next';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -11,16 +10,17 @@ import DictionaryIcon from '../public/icons/book.svg';
 import ChildIcon from '../public/icons/child.svg';
 import AlphabetIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
+import SEO from 'components/basecomponents/SEO';
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
   return (
     <>
-      <Head>
-        <title>{t('seo.homepage_page_title')}</title>
-        <meta name="description" content={t('seo.homepage_page_description')} />
-        <meta name="twitter:title" content={t('seo.homepage_page_title')} />
-      </Head>
+      <SEO
+        title={t('seo.homepage_page_title')}
+        description={t('seo.homepage_page_description')}
+        image="https://www.movapp.cz/icons/movapp-cover.jpg"
+      />
       <div className="bg-homepage-hero bg-center pt-20 pb-[10rem] pl-4 pr-4 bg-cover">
         <h1 className="text-center max-w-3xl m-auto pt-12 pb-12 text-primary-blue text-3xl sm:text-4xl leading-snug">
           {t('homepage.title')}

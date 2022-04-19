@@ -1,548 +1,96 @@
 [
-  {
-    "cz_translation": "práce",
-    "cz_transcription": "праце",
-    "ua_translation": "робота",
-    "ua_transcription": "robota"
-  },
-  {
-    "cz_translation": "zaměstnání",
-    "cz_transcription": "замнєстнані",
-    "ua_translation": "професія",
-    "ua_transcription": "profesija"
-  },
-  {
-    "cz_translation": "hlavní pracovní poměr (HPP)",
-    "cz_transcription": "главні працовні помнєр (ГПП)",
-    "ua_translation": "основний трудовий договір",
-    "ua_transcription": "osnovnyj trudovyj dohovir"
-  },
-  {
-    "cz_translation": "práce na plný úvazek",
-    "cz_transcription": "праце на плни увазек",
-    "ua_translation": "робота на повну ставку",
-    "ua_transcription": "robota na pounu stauku"
-  },
-  {
-    "cz_translation": "vedlejší pracovní poměr (VPP)",
-    "cz_transcription": "ведлейші працовні помнєр (ВПП)",
-    "ua_translation": "договір про роботу за сумісництвом",
-    "ua_transcription": "dohovir pro robotu za sumisnyctvom"
-  },
-  {
-    "cz_translation": "práce na částečný úvazek",
-    "cz_transcription": "праце на частечни увазек",
-    "ua_translation": "робота з частковою зайнятістю",
-    "ua_transcription": "robota z častkovoju zajňatisťu"
-  },
-  {
-    "cz_translation": "volné místo",
-    "cz_transcription": "волне місто",
-    "ua_translation": "вакансія",
-    "ua_transcription": "vakansija"
-  },
-  {
-    "cz_translation": "Práce na volné noze",
-    "cz_transcription": "Праце на волне нозе",
-    "ua_translation": "Фріланс. Робота поза штатом",
-    "ua_transcription": "Frilans. Robota poza štatom"
-  },
-  {
-    "cz_translation": "osoba samostatně výdělečně činná (OSVČ)",
-    "cz_transcription": "особа самостатнє видєлечнє чина (ОСВЧ)",
-    "ua_translation": "фізична особа-підприємець (ФОП)",
-    "ua_transcription": "fizyčna osoba-pidpryjemec' (FOP)"
-  },
-  {
-    "cz_translation": "Živnostenský list. Živnosťák",
-    "cz_transcription": "Живностенски лист. Жівностяк",
-    "ua_translation": "Ліцензія на підприємницьку діяльність",
-    "ua_transcription": "Licenzija na pidpryjemnyc'ku dijal'nisť"
-  },
-  {
-    "cz_translation": "pracovat na živnost",
-    "cz_transcription": "працоват на живност",
-    "ua_translation": "працювати за ліцензією на підприємницьку діяльність",
-    "ua_transcription": "pracjuvaty za licenzijeju na pidpryjemnyc'ku dijal'nisť"
-  },
-  {
-    "cz_translation": "pracovat jako OSVČ",
-    "cz_transcription": "працоват яко ОСВЧ",
-    "ua_translation": "працювати як ФОП",
-    "ua_transcription": "pracjuvaty jak FOP"
-  },
-  {
-    "cz_translation": "Živnostenský úřad",
-    "cz_transcription": "Живностенски уржат",
-    "ua_translation": "Підрозділ районної адміністрації у справах підприємницької діяльності",
-    "ua_transcription": "Pidrozdil rajonnoji administraciji u spravach pidpryjemnyc'koji dijal'nosti"
-  },
-  {
-    "cz_translation": "Chci si zařídit živnostenský list.",
-    "cz_transcription": "Хци си заржідіт живностенски лист",
-    "ua_translation": "Я хочу оформити ліцензію на підприємницьку діяльність.",
-    "ua_transcription": "Ja choču oformyty licenziju na pidpryjemnyc'ku dijal'nisť"
-  },
-  {
-    "cz_translation": "Daň z příjmu. Daně",
-    "cz_transcription": "Дань с пржіму. Данє",
-    "ua_translation": "Податок на прибуток. Податок",
-    "ua_transcription": "Podatok na prybutok. Podatok"
-  },
-  {
-    "cz_translation": "Zavolejte na finanční úřad.",
-    "cz_transcription": "Заволейте на финанчні уржат",
-    "ua_translation": "Зателефонуйте в податкове управління.",
-    "ua_transcription": "Zatelefonujte v podatkove upravlinňa"
-  },
-  {
-    "cz_translation": "zdravotní pojištění",
-    "cz_transcription": "здравотні поїштені",
-    "ua_translation": "медичне страхування",
-    "ua_transcription": "medyčne strachuvanňa"
-  },
-  {
-    "cz_translation": "Musím si platit zdravotní pojištění?",
-    "cz_transcription": "Мусім си платіт здравотні поїштєні",
-    "ua_translation": "Мені потрібно оплачувати медичне страхування?",
-    "ua_transcription": "Meni potribno oplačuvaty medyčne strachuvanňa"
-  },
-  {
-    "cz_translation": "Zavolejte do pojišťovny.",
-    "cz_transcription": "Заволейте до поїштьовни",
-    "ua_translation": "Зателефонуйте в страхову компанію.",
-    "ua_transcription": "Zatelefonujte v strachovu kompaniju"
-  },
-  {
-    "cz_translation": "Sociální pojištění",
-    "cz_transcription": "Соціялні поїштєні",
-    "ua_translation": "Соціальне страхування. Соціальне забезпечення",
-    "ua_transcription": "Social'ne strachuvanňa. Social'ne zabezpečenňa"
-  },
-  {
-    "cz_translation": "Musím si platit sociální pojištění?",
-    "cz_transcription": "Мусім си платіт соціялні поїштєні",
-    "ua_translation": "Мені потрібно оплачувати соціальне страхування?",
-    "ua_transcription": "Meni potribno oplačuvaty social'ne strachuvanňa"
-  },
-  {
-    "cz_translation": "Zavolejte na správu sociálního zabezpečení.",
-    "cz_transcription": "Заволейте на справу соціялніго забеспечені",
-    "ua_translation": "Зателефонуйте у відділ соціального забезпечення.",
-    "ua_transcription": "Zatelefonujte u viddil social'noho zabezpečenňa"
-  },
-  {
-    "cz_translation": "dohoda o provedení práce (DPP)",
-    "cz_transcription": "догода о проведені праце (ДПП)",
-    "ua_translation": "трудовий договір на виконання робіт",
-    "ua_transcription": "trudovyj dohovir na vykonanňa robit"
-  },
-  {
-    "cz_translation": "dohoda o pracovní činnosti (DPČ)",
-    "cz_transcription": "догода о працовні чиності (ДПЧ)",
-    "ua_translation": "договір про трудову діяльність",
-    "ua_transcription": "dohovir pro trudovu dijal'nisť"
-  },
-  {
-    "cz_translation": "brigáda",
-    "cz_transcription": "бриґада",
-    "ua_translation": "підробіток",
-    "ua_transcription": "pidrobitok"
-  },
-  {
-    "cz_translation": "Uchazeč",
-    "cz_transcription": "Ухазеч",
-    "ua_translation": "Кандидат. Здобувач",
-    "ua_transcription": "Kandydat. Zdobuvač"
-  },
-  {
-    "cz_translation": "ucházet se o práci",
-    "cz_transcription": "ухазет се о праци",
-    "ua_translation": "подаватись на вакансію",
-    "ua_transcription": "podavatys' na vakansiju"
-  },
-  {
-    "cz_translation": "Ucházím se o pozici...",
-    "cz_transcription": "Ухазім се о позици",
-    "ua_translation": "Претендую на вакансію...",
-    "ua_transcription": "Pretenduju na vakansiju"
-  },
-  {
-    "cz_translation": "mít zájem o práci",
-    "cz_transcription": "міт заєм о праци",
-    "ua_translation": "цікавитись роботою",
-    "ua_transcription": "cikavytys' robotoju"
-  },
-  {
-    "cz_translation": "Mám zájem o místo...",
-    "cz_transcription": "Мам заєм о місто",
-    "ua_translation": "Мене цікавить вакансія...",
-    "ua_transcription": "Mene cikavyť vakansija"
-  },
-  {
-    "cz_translation": "motivační dopis",
-    "cz_transcription": "мотивачні допис",
-    "ua_translation": "мотиваційний лист",
-    "ua_transcription": "motyvacijnyj lyst"
-  },
-  {
-    "cz_translation": "životopis",
-    "cz_transcription": "жівотопис",
-    "ua_translation": "резюме",
-    "ua_transcription": "rezjume"
-  },
-  {
-    "cz_translation": "Pošlete nám svůj životopis.",
-    "cz_transcription": "Пошлете нам свуй жівотопис",
-    "ua_translation": "Відправте нам своє резюме.",
-    "ua_transcription": "Vidpravte nam svoje rezjume"
-  },
-  {
-    "cz_translation": "Životopis najdete v příloze tohoto e-mailu.",
-    "cz_transcription": "Жівотопис найдете ф пржілозе тогото імейлу",
-    "ua_translation": "У додатку до цього емейлу міститься моє резюме.",
-    "ua_transcription": "U dodatku do cjoho emejlu mistyťsja moje rezjume"
-  },
-  {
-    "cz_translation": "vzdělání",
-    "cz_transcription": "вздєлані",
-    "ua_translation": "освіта",
-    "ua_transcription": "osvita"
-  },
-  {
-    "cz_translation": "praxe",
-    "cz_transcription": "праксе",
-    "ua_translation": "досвід роботи",
-    "ua_transcription": "dosvid roboty"
-  },
-  {
-    "cz_translation": "dovednosti",
-    "cz_transcription": "доведності",
-    "ua_translation": "уміння",
-    "ua_transcription": "uminňa"
-  },
-  {
-    "cz_translation": "jazykové znalosti",
-    "cz_transcription": "язикове зналості",
-    "ua_translation": "знання мов",
-    "ua_transcription": "znanňa mov"
-  },
-  {
-    "cz_translation": "zkušební doba",
-    "cz_transcription": "скушебні доба",
-    "ua_translation": "стажування",
-    "ua_transcription": "stažuvanňa"
-  },
-  {
-    "cz_translation": "výpovědní lhůta",
-    "cz_transcription": "виповєдні лгута",
-    "ua_translation": "термін розірвання (трудового договору)",
-    "ua_transcription": "termin rozirvanňa (trudovoho dohovoru)"
-  },
-  {
-    "cz_translation": "Mzda. Plat",
-    "cz_transcription": "Мзда. Плат",
-    "ua_translation": "Зарплатня",
-    "ua_transcription": "Zarplatňa"
-  },
-  {
-    "cz_translation": "nástupní plat",
-    "cz_transcription": "наступні плат",
-    "ua_translation": "початкова зарплатня",
-    "ua_transcription": "počatkova zarplatňa"
-  },
-  {
-    "cz_translation": "zvýšení platu",
-    "cz_transcription": "звишені плату",
-    "ua_translation": "підвищення зарплатні",
-    "ua_transcription": "pidvyščenňa zarplatni"
-  },
-  {
-    "cz_translation": "snížení platu",
-    "cz_transcription": "сніжені плату",
-    "ua_translation": "зменшення зарпалтні",
-    "ua_transcription": "zmenšenňa zarplatni"
-  },
-  {
-    "cz_translation": "hrubá mzda",
-    "cz_transcription": "груба мзда",
-    "ua_translation": "брудна зарплатня (без вирахування податків)",
-    "ua_transcription": "brudna zarplatňa (bez vyrachuvanňa podatkiu)"
-  },
-  {
-    "cz_translation": "čistá mzda",
-    "cz_transcription": "чиста мзда",
-    "ua_translation": "чиста зарплатня",
-    "ua_transcription": "čysta zarplatňa"
-  },
-  {
-    "cz_translation": "bonus",
-    "cz_transcription": "бонус",
-    "ua_translation": "премія",
-    "ua_transcription": "premija"
-  },
-  {
-    "cz_translation": "benefit",
-    "cz_transcription": "бенефит",
-    "ua_translation": "бонус",
-    "ua_transcription": "bonus"
-  },
-  {
-    "cz_translation": "nemocenská",
-    "cz_transcription": "немоценска",
-    "ua_translation": "лікарняний",
-    "ua_transcription": "likarňanyj"
-  },
-  {
-    "cz_translation": "nárok na nemocenskou",
-    "cz_transcription": "нарок на немоценскоу",
-    "ua_translation": "право на оплачуваний лікарняний",
-    "ua_transcription": "pravo na oplačuvanyj likarňanyj"
-  },
-  {
-    "cz_translation": "dovolená",
-    "cz_transcription": "доволена",
-    "ua_translation": "відпустка",
-    "ua_transcription": "vidpustka"
-  },
-  {
-    "cz_translation": "5 týdnů dovolené",
-    "cz_transcription": "пєт тидну доволене",
-    "ua_translation": "5-тижнева відпустка",
-    "ua_transcription": "pjaťtyžněva vidpustka"
-  },
-  {
-    "cz_translation": "sick-day",
-    "cz_transcription": "сік-дей",
-    "ua_translation": "відгул",
-    "ua_transcription": "vidhul"
-  },
-  {
-    "cz_translation": "Vystudoval jsem... Vystudovala jsem...",
-    "cz_transcription": "Вистудовал сем... Вистудовала сем",
-    "ua_translation": "Я вивчав... Я вивчала...",
-    "ua_transcription": "Ja vyvčau... Ja vyvčala"
-  },
-  {
-    "cz_translation": "Jaké jsou vaše zkušenosti s touto pozicí?",
-    "cz_transcription": "Яке соу ваше скушеності с тоуто позиці",
-    "ua_translation": "Який у вас досвід для цієї вакансії?",
-    "ua_transcription": "Jakyj u vas dosvid dlja cijeji vakansiji"
-  },
-  {
-    "cz_translation": "Obor",
-    "cz_transcription": "Обор",
-    "ua_translation": "Спеціальність. Сфера",
-    "ua_transcription": "Special'nisť. Sfera"
-  },
-  {
-    "cz_translation": "Mám zkušenosti v oboru...",
-    "cz_transcription": "Мам скушеності ф обору",
-    "ua_translation": "Я маю досвід у сфері...",
-    "ua_transcription": "Ja maju dosvid u sferi"
-  },
-  {
-    "cz_translation": "Pracoval jsem v... Pracovala jsem v...",
-    "cz_transcription": "Працовал сем в... Працовала сем в",
-    "ua_translation": "Я працював в... Я працювала в...",
-    "ua_transcription": "Ja pracjuvau v... Ja pracjuvala v"
-  },
-  {
-    "cz_translation": "reference",
-    "cz_transcription": "референце",
-    "ua_translation": "рекомендація",
-    "ua_transcription": "rekomendacija"
-  },
-  {
-    "cz_translation": "Jaké máte reference?",
-    "cz_transcription": "Яке мате референце",
-    "ua_translation": "Які у вас рекомендації?",
-    "ua_transcription": "Jaki u vas rekomendaciji"
-  },
-  {
-    "cz_translation": "Jaké jsou vaše dovednosti?",
-    "cz_transcription": "Яке соу ваше доведності",
-    "ua_translation": "Що ви умієте?",
-    "ua_transcription": "Ščo vy umijete"
-  },
-  {
-    "cz_translation": "Jsem spolehlivý. Jsem spolehlivá.",
-    "cz_transcription": "Сем сполегливі. Сем сполеглива",
-    "ua_translation": "Я відповідальний. Я відповідальна.",
-    "ua_transcription": "Ja vidpovidal'nyj. Ja vidpovidal'na"
-  },
-  {
-    "cz_translation": "Jsem svědomitý. Jsem svědomitá.",
-    "cz_transcription": "Сем свєдомити. Сем свєдомита",
-    "ua_translation": "Я сумлінний. Я сумлінна.",
-    "ua_transcription": "Ja sumlinnyj. Ja sumlinna"
-  },
-  {
-    "cz_translation": "Jsem kreativní.",
-    "cz_transcription": "Сем креативні",
-    "ua_translation": "Я креативний. Я креативна.",
-    "ua_transcription": "Ja kreatyvnyj. Ja kreatyvna"
-  },
-  {
-    "cz_translation": "Jsem proaktivní.",
-    "cz_transcription": "Сем проактивні",
-    "ua_translation": "Я активний. Я активна.",
-    "ua_transcription": "Ja aktyunyj. Ja aktyuna"
-  },
-  {
-    "cz_translation": "Jsem produktivní.",
-    "cz_transcription": "Сем продуктивні",
-    "ua_translation": "Я продуктивний. Я продуктивна.",
-    "ua_transcription": "Ja produktyvnyj. Ja produktyvna"
-  },
-  {
-    "cz_translation": "Umím pracovat s počítačem.",
-    "cz_transcription": "Умім працоват с почітачем",
-    "ua_translation": "Умію працювати на комп'ютері.",
-    "ua_transcription": "Umiju pracjuvaty na kompjuteri"
-  },
-  {
-    "cz_translation": "trestní rejstřík",
-    "cz_transcription": "трестні рейстржік",
-    "ua_translation": "реєстр злочинів",
-    "ua_transcription": "rejestr zločyniv"
-  },
-  {
-    "cz_translation": "Máte čistý trestní rejstřík?",
-    "cz_transcription": "Мате чісти трестні рейстржік",
-    "ua_translation": "У вас є довідка про несудимість?",
-    "ua_transcription": "U vas je dovidka pro nesudymisť"
-  },
-  {
-    "cz_translation": "řidičský průkaz",
-    "cz_transcription": "ржидічски прукас",
-    "ua_translation": "посвідчення водія",
-    "ua_transcription": "posvidčenňa vodija"
-  },
-  {
-    "cz_translation": "Máte řidičský průkaz?",
-    "cz_transcription": "Мате ржидічски прукас",
-    "ua_translation": "У вас є права водія?",
-    "ua_transcription": "U vas je prava vodija"
-  },
-  {
-    "cz_translation": "administrativa",
-    "cz_transcription": "административа",
-    "ua_translation": "адміністративна робота",
-    "ua_transcription": "administratyvna robota"
-  },
-  {
-    "cz_translation": "doprava, logistika a zásobování",
-    "cz_transcription": "доправа, лоґистика а засобовані",
-    "ua_translation": "транспорт, логістика та постачання",
-    "ua_transcription": "transport, lohistyka ta postačanňa"
-  },
-  {
-    "cz_translation": "farmacie",
-    "cz_transcription": "фармаціє",
-    "ua_translation": "фармакологія",
-    "ua_transcription": "farmakolohija"
-  },
-  {
-    "cz_translation": "gastronomie",
-    "cz_transcription": "ґастрономиє",
-    "ua_translation": "сфера харчування",
-    "ua_transcription": "sfera charčuvanňa"
-  },
-  {
-    "cz_translation": "IS/IT: Konzultace, analýzy a projektové řízení",
-    "cz_transcription": "ІС/ІТ: Конзултаце, анализи а проєктове ржізені",
-    "ua_translation": "Інформаційні системи та технології: консультації, аналіз та менеджмент",
-    "ua_transcription": "Informacijni systemy ta technolohiji: konsul'taciji, analiz ta menedžment"
-  },
-  {
-    "cz_translation": "IS/IT: Správa systémů a HW",
-    "cz_transcription": "ІС/ІТ: Справа систему а ГВ",
-    "ua_translation": "Інформаційні системи та технології: управління системами та програмним забезпеченням",
-    "ua_transcription": "Informacijni systemy ta technolohiji: upravlinňa systemamy ta programnym zabezpečenňam"
-  },
-  {
-    "cz_translation": "IS/IT: Vývoj aplikací a systémů",
-    "cz_transcription": "ІС/ІТ: Вивой апликаці а систему",
-    "ua_translation": "Інформаційні системи та технології: розробка систем та додатків",
-    "ua_transcription": "Informacijni systemy ta technolohiji: rozrobka system ta dodatkiu"
-  },
-  {
-    "cz_translation": "kultura, umění a tvůrčí práce",
-    "cz_transcription": "култура, умнєні а твурчі праце",
-    "ua_translation": "культура, мистецтво та творча діяльність",
-    "ua_transcription": "kul'tura, mystectvo ta tvorča dijal'nisť"
-  },
-  {
-    "cz_translation": "marketing",
-    "cz_transcription": "маркетинк",
-    "ua_translation": "маркетинг",
-    "ua_transcription": "marketynh"
-  },
-  {
-    "cz_translation": "ostraha a bezpečnost",
-    "cz_transcription": "острага а беспечност",
-    "ua_translation": "охорона та забезпечення порядку",
-    "ua_transcription": "ochorona ta zabezpečenňa porjadku"
-  },
-  {
-    "cz_translation": "řemeslné a manuální práce",
-    "cz_transcription": "ржемеслне а мануалні праце",
-    "ua_translation": "ремісництво та ручна праця",
-    "ua_transcription": "remisnyctvo ta ručna pracja"
-  },
-  {
-    "cz_translation": "služby",
-    "cz_transcription": "служби",
-    "ua_translation": "сфера послуг",
-    "ua_transcription": "sfera posluh"
-  },
-  {
-    "cz_translation": "stavebnictví a reality",
-    "cz_transcription": "ставебніцтві а реалити",
-    "ua_translation": "будівництво та нерухомість",
-    "ua_transcription": "budiunyctvo ta neruchomisť"
-  },
-  {
-    "cz_translation": "strojírenství",
-    "cz_transcription": "строїренстві",
-    "ua_translation": "машинобудування",
-    "ua_transcription": "mašynobuduvanňa"
-  },
-  {
-    "cz_translation": "technika a vývoj",
-    "cz_transcription": "техника а вивой",
-    "ua_translation": "техніка та конструювання",
-    "ua_transcription": "technika ta konstrujuvanňa"
-  },
-  {
-    "cz_translation": "věda a výzkum",
-    "cz_transcription": "вєда а вискум",
-    "ua_translation": "наукова та дослідна робота",
-    "ua_transcription": "naukova ta doslidna robota"
-  },
-  {
-    "cz_translation": "výroba a průmysl",
-    "cz_transcription": "вироба а прумисл",
-    "ua_translation": "виробництво та промисловість",
-    "ua_transcription": "vyrobnyctvo ta promyslovisť"
-  },
-  {
-    "cz_translation": "vzdělávání a školství",
-    "cz_transcription": "вздєлавані а школстві",
-    "ua_translation": "освіта",
-    "ua_transcription": "osvita"
-  },
-  {
-    "cz_translation": "zákaznický servis",
-    "cz_transcription": "заказніцки сервис",
-    "ua_translation": "робота з клієнтами",
-    "ua_transcription": "robota z klientamy"
-  },
-  {
-    "cz_translation": "zdravotnictví a sociální péče",
-    "cz_transcription": "здравотніцтві а социялні пече",
-    "ua_translation": "охорона здоров'я та соціальний захист",
-    "ua_transcription": "ochorona zdorovja ta social'nyj zachyst"
-  }
+  { "main": "práce", "uk": "робота" },
+  { "main": "zaměstnání", "uk": "професія" },
+  { "main": "hlavní pracovní poměr (HPP)", "uk": "основний трудовий договір" },
+  { "main": "práce na plný úvazek", "uk": "робота на повну ставку" },
+  { "main": "vedlejší pracovní poměr (VPP)", "uk": "договір про роботу за сумісництвом" },
+  { "main": "práce na částečný úvazek", "uk": "робота з частковою зайнятістю" },
+  { "main": "volné místo", "uk": "вакансія" },
+  { "main": "Práce na volné noze", "uk": "Фріланс. Робота поза штатом" },
+  { "main": "osoba samostatně výdělečně činná (OSVČ)", "uk": "фізична особа-підприємець (ФОП)" },
+  { "main": "Živnostenský list. Živnosťák", "uk": "Ліцензія на підприємницьку діяльність" },
+  { "main": "pracovat na živnost", "uk": "працювати за ліцензією на підприємницьку діяльність" },
+  { "main": "pracovat jako OSVČ", "uk": "працювати як ФОП" },
+  { "main": "Živnostenský úřad", "uk": "Підрозділ районної адміністрації у справах підприємницької діяльності" },
+  { "main": "Chci si zařídit živnostenský list.", "uk": "Я хочу оформити ліцензію на підприємницьку діяльність." },
+  { "main": "Daň z příjmu. Daně", "uk": "Податок на прибуток. Податок" },
+  { "main": "Zavolejte na finanční úřad.", "uk": "Зателефонуйте в податкове управління." },
+  { "main": "zdravotní pojištění", "uk": "медичне страхування" },
+  { "main": "Musím si platit zdravotní pojištění?", "uk": "Мені потрібно оплачувати медичне страхування?" },
+  { "main": "Zavolejte do pojišťovny.", "uk": "Зателефонуйте в страхову компанію." },
+  { "main": "Sociální pojištění", "uk": "Соціальне страхування. Соціальне забезпечення" },
+  { "main": "Musím si platit sociální pojištění?", "uk": "Мені потрібно оплачувати соціальне страхування?" },
+  { "main": "Zavolejte na správu sociálního zabezpečení.", "uk": "Зателефонуйте у відділ соціального забезпечення." },
+  { "main": "dohoda o provedení práce (DPP)", "uk": "трудовий договір на виконання робіт" },
+  { "main": "dohoda o pracovní činnosti (DPČ)", "uk": "договір про трудову діяльність" },
+  { "main": "brigáda", "uk": "підробіток" },
+  { "main": "Uchazeč", "uk": "Кандидат. Здобувач" },
+  { "main": "ucházet se o práci", "uk": "подаватись на вакансію" },
+  { "main": "Ucházím se o pozici...", "uk": "Претендую на вакансію..." },
+  { "main": "mít zájem o práci", "uk": "цікавитись роботою" },
+  { "main": "Mám zájem o místo...", "uk": "Мене цікавить вакансія..." },
+  { "main": "motivační dopis", "uk": "мотиваційний лист" },
+  { "main": "životopis", "uk": "резюме" },
+  { "main": "Pošlete nám svůj životopis.", "uk": "Відправте нам своє резюме." },
+  { "main": "Životopis najdete v příloze tohoto e-mailu.", "uk": "У додатку до цього емейлу міститься моє резюме." },
+  { "main": "vzdělání", "uk": "освіта" },
+  { "main": "praxe", "uk": "досвід роботи" },
+  { "main": "dovednosti", "uk": "уміння" },
+  { "main": "jazykové znalosti", "uk": "знання мов" },
+  { "main": "zkušební doba", "uk": "стажування" },
+  { "main": "výpovědní lhůta", "uk": "термін розірвання (трудового договору)" },
+  { "main": "Mzda. Plat", "uk": "Зарплатня" },
+  { "main": "nástupní plat", "uk": "початкова зарплатня" },
+  { "main": "zvýšení platu", "uk": "підвищення зарплатні" },
+  { "main": "snížení platu", "uk": "зменшення зарпалтні" },
+  { "main": "hrubá mzda", "uk": "брудна зарплатня (без вирахування податків)" },
+  { "main": "čistá mzda", "uk": "чиста зарплатня" },
+  { "main": "bonus", "uk": "премія" },
+  { "main": "benefit", "uk": "бонус" },
+  { "main": "nemocenská", "uk": "лікарняний" },
+  { "main": "nárok na nemocenskou", "uk": "право на оплачуваний лікарняний" },
+  { "main": "dovolená", "uk": "відпустка" },
+  { "main": "5 týdnů dovolené", "uk": "5-тижнева відпустка" },
+  { "main": "sick-day", "uk": "відгул" },
+  { "main": "Vystudoval jsem... Vystudovala jsem...", "uk": "Я вивчав... Я вивчала..." },
+  { "main": "Jaké jsou vaše zkušenosti s touto pozicí?", "uk": "Який у вас досвід для цієї вакансії?" },
+  { "main": "Obor", "uk": "Спеціальність. Сфера" },
+  { "main": "Mám zkušenosti v oboru...", "uk": "Я маю досвід у сфері..." },
+  { "main": "Pracoval jsem v... Pracovala jsem v...", "uk": "Я працював в... Я працювала в..." },
+  { "main": "reference", "uk": "рекомендація" },
+  { "main": "Jaké máte reference?", "uk": "Які у вас рекомендації?" },
+  { "main": "Jaké jsou vaše dovednosti?", "uk": "Що ви умієте?" },
+  { "main": "Jsem spolehlivý. Jsem spolehlivá.", "uk": "Я відповідальний. Я відповідальна." },
+  { "main": "Jsem svědomitý. Jsem svědomitá.", "uk": "Я сумлінний. Я сумлінна." },
+  { "main": "Jsem kreativní.", "uk": "Я креативний. Я креативна." },
+  { "main": "Jsem proaktivní.", "uk": "Я активний. Я активна." },
+  { "main": "Jsem produktivní.", "uk": "Я продуктивний. Я продуктивна." },
+  { "main": "Umím pracovat s počítačem.", "uk": "Умію працювати на комп'ютері." },
+  { "main": "trestní rejstřík", "uk": "реєстр злочинів" },
+  { "main": "Máte čistý trestní rejstřík?", "uk": "У вас є довідка про несудимість?" },
+  { "main": "řidičský průkaz", "uk": "посвідчення водія" },
+  { "main": "Máte řidičský průkaz?", "uk": "У вас є права водія?" },
+  { "main": "administrativa", "uk": "адміністративна робота" },
+  { "main": "doprava, logistika a zásobování", "uk": "транспорт, логістика та постачання" },
+  { "main": "farmacie", "uk": "фармакологія" },
+  { "main": "gastronomie", "uk": "сфера харчування" },
+  {
+    "main": "IS/IT: Konzultace, analýzy a projektové řízení",
+    "uk": "Інформаційні системи та технології: консультації, аналіз та менеджмент"
+  },
+  { "main": "IS/IT: Správa systémů a HW", "uk": "Інформаційні системи та технології: управління системами та програмним забезпеченням" },
+  { "main": "IS/IT: Vývoj aplikací a systémů", "uk": "Інформаційні системи та технології: розробка систем та додатків" },
+  { "main": "kultura, umění a tvůrčí práce", "uk": "культура, мистецтво та творча діяльність" },
+  { "main": "marketing", "uk": "маркетинг" },
+  { "main": "ostraha a bezpečnost", "uk": "охорона та забезпечення порядку" },
+  { "main": "řemeslné a manuální práce", "uk": "ремісництво та ручна праця" },
+  { "main": "služby", "uk": "сфера послуг" },
+  { "main": "stavebnictví a reality", "uk": "будівництво та нерухомість" },
+  { "main": "strojírenství", "uk": "машинобудування" },
+  { "main": "technika a vývoj", "uk": "техніка та конструювання" },
+  { "main": "věda a výzkum", "uk": "наукова та дослідна робота" },
+  { "main": "výroba a průmysl", "uk": "виробництво та промисловість" },
+  { "main": "vzdělávání a školství", "uk": "освіта" },
+  { "main": "zákaznický servis", "uk": "робота з клієнтами" },
+  { "main": "zdravotnictví a sociální péče", "uk": "охорона здоров'я та соціальний захист" }
 ]

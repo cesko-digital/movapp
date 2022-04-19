@@ -42,3 +42,7 @@ npm test
 ```
 
 Kdybyste narazili, [ozvěte se ve Slacku](https://cesko-digital.slack.com/archives/C036GLKL7ME).
+
+## Contributions
+
+* Transliteration tables between Czech and Ukrainian were kindly provided by: [vsistek/ua-translit-cz/](https://github.com/vsistek/ua-translit-cz/) under an MIT license.
