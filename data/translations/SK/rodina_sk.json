@@ -1,147 +1,29 @@
 [
+  { "main": "To je moja...", "uk": "Це моя..." },
+  { "main": "To sú moje...", "uk": "Це мої..." },
+  { "main": "Žena. Manželka.", "uk": "Жінка" },
+  { "main": "babka", "uk": "бабуся" },
+  { "main": "mama", "uk": "мама" },
+  { "main": "sestra", "uk": "сестра" },
+  { "main": "sestry", "uk": "сестри" },
+  { "main": "dcéra", "uk": "донька" },
+  { "main": "dcéry", "uk": "доньки" },
+  { "main": "kamarátka", "uk": "подруга" },
+  { "main": "kamarátky", "uk": "подруги" },
+  { "main": "To je môj...", "uk": "Це мій..." },
+  { "main": "To sú moji...", "uk": "Це мої..." },
+  { "main": "Muž. Manžel.", "uk": "Чоловік" },
+  { "main": "dedko", "uk": "дідусь" },
+  { "main": "otec", "uk": "тато" },
+  { "main": "brat", "uk": "брат" },
+  { "main": "bratia", "uk": "брати" },
+  { "main": "syn", "uk": "син" },
+  { "main": "synovia", "uk": "сини" },
+  { "main": "kamarát", "uk": "друг" },
+  { "main": "kamaráti", "uk": "друзі" },
   {
-    "cz_translation": "To je moja...",
-    "cz_transcription": "То є моя",
-    "ua_translation": "Це моя...",
-    "ua_transcription": "Ce moja"
+    "main": "Potrebujem byť chvíľku sama. Potrebujem byť chvíľku sám.",
+    "uk": "Мені потрібно побути самій. / Мені потрібно побути самому."
   },
-  {
-    "cz_translation": "To sú moje...",
-    "cz_transcription": "То су моє",
-    "ua_translation": "Це мої...",
-    "ua_transcription": "Ce moji"
-  },
-  {
-    "cz_translation": "Žena. Manželka.",
-    "cz_transcription": "Жена / Манжелка",
-    "ua_translation": "Жінка",
-    "ua_transcription": "Žinka"
-  },
-  {
-    "cz_translation": "babka",
-    "cz_transcription": "бабка",
-    "ua_translation": "бабуся",
-    "ua_transcription": "babusja"
-  },
-  {
-    "cz_translation": "mama",
-    "cz_transcription": "мама",
-    "ua_translation": "мама",
-    "ua_transcription": "mama"
-  },
-  {
-    "cz_translation": "sestra",
-    "cz_transcription": "сестра",
-    "ua_translation": "сестра",
-    "ua_transcription": "sestra"
-  },
-  {
-    "cz_translation": "sestry",
-    "cz_transcription": "сестри",
-    "ua_translation": "сестри",
-    "ua_transcription": "sestry"
-  },
-  {
-    "cz_translation": "dcéra",
-    "cz_transcription": "цера",
-    "ua_translation": "донька",
-    "ua_transcription": "doňka"
-  },
-  {
-    "cz_translation": "dcéry",
-    "cz_transcription": "цери",
-    "ua_translation": "доньки",
-    "ua_transcription": "doňky"
-  },
-  {
-    "cz_translation": "kamarátka",
-    "cz_transcription": "камаратка",
-    "ua_translation": "подруга",
-    "ua_transcription": "podruha"
-  }, 
-  {
-    "cz_translation": "kamarátky",
-    "cz_transcription": "камаратки",
-    "ua_translation": "подруги",
-    "ua_transcription": "podruhy"
-  }, 
-  {
-    "cz_translation": "To je môj...",
-    "cz_transcription": "То є муoй",
-    "ua_translation": "Це мій...",
-    "ua_transcription": "Ce mij"
-  },
-  {
-    "cz_translation": "To sú moji...",
-    "cz_transcription": "То су мої",
-    "ua_translation": "Це мої...",
-    "ua_transcription": "Ce moji"
-  },
-  {
-    "cz_translation": "Muž. Manžel.",
-    "cz_transcription": "Муж / Манжел",
-    "ua_translation": "Чоловік",
-    "ua_transcription": "Čolovik"
-  },
-  {
-    "cz_translation": "dedko",
-    "cz_transcription": "дєтко",
-    "ua_translation": "дідусь",
-    "ua_transcription": "didus’"
-  },
-  {
-    "cz_translation": "otec",
-    "cz_transcription": "отєц",
-    "ua_translation": "тато",
-    "ua_transcription": "tato"
-  },
-  {
-    "cz_translation": "brat",
-    "cz_transcription": "брат",
-    "ua_translation": "брат",
-    "ua_transcription": "brat"
-  },
-  {
-    "cz_translation": "bratia",
-    "cz_transcription": "братя",
-    "ua_translation": "брати",
-    "ua_transcription": "braty"
-  },
-  {
-    "cz_translation": "syn",
-    "cz_transcription": "син",
-    "ua_translation": "син",
-    "ua_transcription": "syn"
-  },
-  {
-    "cz_translation": "synovia",
-    "cz_transcription": "синовія",
-    "ua_translation": "сини",
-    "ua_transcription": "syny"
-  },
-  {
-    "cz_translation": "kamarát",
-    "cz_transcription": "камарат",
-    "ua_translation": "друг",
-    "ua_transcription": "druh"
-  },
-  {
-    "cz_translation": "kamaráti",
-    "cz_transcription": "камаратї",
-    "ua_translation": "друзі",
-    "ua_transcription": "druzi"
-  },
-  {
-    "cz_translation": "Potrebujem byť chvíľku sama. Potrebujem byť chvíľku sám.",
-    "cz_transcription": "Потребуєм бить хвільку сама Потребуєм бить хвільку сам",
-    "ua_translation": "Мені потрібно побути самій. / Мені потрібно побути самому.",
-    "ua_transcription": "Meni potribno pobuty samij / Meni potribno pobuty samomu"
-  },
-  {
-    "cz_translation": "Potrebujem objatie.",
-    "cz_transcription": "Потребуєм обятє",
-    "ua_translation": "Обійми мене, будь ласка.",
-    "ua_transcription": "Obijmy mene, buď laska"
-  }
+  { "main": "Potrebujem objatie.", "uk": "Обійми мене, будь ласка." }
 ]
-

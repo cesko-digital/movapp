@@ -17,6 +17,7 @@ const migratedDir = 'migrated';
 const transformFunction = (oldPhrase: Record<string, string>) => ({
   main: oldPhrase.cz_translation,
   uk: oldPhrase.ua_translation,
+  image: oldPhrase.image,
 });
 
 // Filepath helper method

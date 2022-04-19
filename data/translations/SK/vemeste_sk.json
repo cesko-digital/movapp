@@ -1,188 +1,33 @@
 [
-  {
-    "cz_translation": "ukrajinské veľvyslanectvo",
-    "cz_transcription": "українске вельвисланєцтво",
-    "ua_translation": "українське посольство",
-    "ua_transcription": "ukrajins’ke posol’stvo"
-  },
-  {
-    "cz_translation": "Ministerstvo vnútra ČR",
-    "cz_transcription": "Мінiстєрство внутра ЧР",
-    "ua_translation": "МВС Чехії",
-    "ua_transcription": "Em ve es Čechiji"
-  },
-  {
-    "cz_translation": "obchod",
-    "cz_transcription": "обход",
-    "ua_translation": "магазин",
-    "ua_transcription": "mahazyn"
-  },
-  {
-    "cz_translation": "supermarket",
-    "cz_transcription": "супермаркет",
-    "ua_translation": "супермаркет",
-    "ua_transcription": "supermarket"
-  },
-  {
-    "cz_translation": "potraviny",
-    "cz_transcription": "потравіни",
-    "ua_translation": "магазин їжі",
-    "ua_transcription": "mahazyn jiži"
-  },
-  {
-    "cz_translation": "drogéria",
-    "cz_transcription": "дроґерія",
-    "ua_translation": "магазин побутової хімії",
-    "ua_transcription": "mahazyn pobutovoji chimiji"
-  },
-  {
-    "cz_translation": "Hľadám drogériu.",
-    "cz_transcription": "Глядам дроґерію",
-    "ua_translation": "Шукаю магазин побутової хімії.",
-    "ua_transcription": "Šukaju mahazyn pobutovoji chimiji"
-  },
-  {
-    "cz_translation": "oblečenie",
-    "cz_transcription": "облєченє",
-    "ua_translation": "одяг",
-    "ua_transcription": "oďah"
-  },
-  {
-    "cz_translation": "papiernictvo",
-    "cz_transcription": "папієрнїцтво",
-    "ua_translation": "канцтовари",
-    "ua_transcription": "kanctovary"
-  },
-  {
-    "cz_translation": "nákupné centrum",
-    "cz_transcription": "накупне центрум",
-    "ua_translation": "торгівельний цент",
-    "ua_transcription": "torhivel’nyj cent"
-  },
-  {
-    "cz_translation": "lekáreň",
-    "cz_transcription": "лєкарень",
-    "ua_translation": "аптека",
-    "ua_transcription": "apteka"
-  },
-  {
-    "cz_translation": "Kde nájdem najbližšiu lekáreň?",
-    "cz_transcription": "Кдє найдєм найбліжшію лєкарень",
-    "ua_translation": "Де знаходиться найближча аптека?",
-    "ua_transcription": "De znachodyťsja najblyžča apteka"
-  },
-  {
-    "cz_translation": "nemocnica",
-    "cz_transcription": "нємоцнїца",
-    "ua_translation": "лікарня",
-    "ua_transcription": "likarňa"
-  },
-  {
-    "cz_translation": "Hľadám...",
-    "cz_transcription": "Глядам",
-    "ua_translation": "Шукаю...",
-    "ua_transcription": "Šukaju"
-  },
-  {
-    "cz_translation": "Potrebujem...",
-    "cz_transcription": "Потребуєм",
-    "ua_translation": "Мені потрібно...",
-    "ua_transcription": "Meni potribno"
-  },
-  {
-    "cz_translation": "Kde nájdem...",
-    "cz_transcription": "Кдє найдєм",
-    "ua_translation": "Як знайти...",
-    "ua_transcription": "Jak znajty"
-  },
-  {
-    "cz_translation": "Ako sa dostanem na...? Ako sa dostanem k...?",
-    "cz_transcription": "Aко са достанєм на / Aко са достанєм к",
-    "ua_translation": "Як дістатись до...?",
-    "ua_transcription": "Jak distatys’ do"
-  },
-  {
-    "cz_translation": "Aká je adresa...?",
-    "cz_transcription": "Aка є адреса",
-    "ua_translation": "Яка адреса у...?",
-    "ua_transcription": "Jaka adresa u"
-  },
-  {
-    "cz_translation": "Kde je najbližšia nemocnica?",
-    "cz_transcription": "Кдє є найбліжшія нємоцнїца",
-    "ua_translation": "Де найближча лікарня?",
-    "ua_transcription": "De najbližča likarňa"
-  },
-  {
-    "cz_translation": "námestie",
-    "cz_transcription": "наместє",
-    "ua_translation": "площа",
-    "ua_transcription": "plošča"
-  },
-  {
-    "cz_translation": "Námestie",
-    "cz_transcription": "Наместє",
-    "ua_translation": "Площа. Майдан.",
-    "ua_transcription": "Plošča. Majdan."
-  },
-  {
-    "cz_translation": "Ako sa dostanem na námestie?",
-    "cz_transcription": "Aко са достанєм на наместє",
-    "ua_translation": "Як дістатись до площі?",
-    "ua_transcription": "Jak distatys' do plošči"
-  },
-  {
-    "cz_translation": "autobusová zastávka",
-    "cz_transcription": "аутобусова застаука",
-    "ua_translation": "зупинка автобуса",
-    "ua_transcription": "zupynka avtobusa"
-  },
-  {
-    "cz_translation": "zastávka električky",
-    "cz_transcription": "застаука елєктрічки",
-    "ua_translation": "зупинка трамваю",
-    "ua_transcription": "zupynka tramvaju"
-  },
-  {
-    "cz_translation": "Hľadám zastávku električky.",
-    "cz_transcription": "Глядам застауку елєктрічки",
-    "ua_translation": "Шукаю зупинку трамваю.",
-    "ua_transcription": "Šukaju zupynku tramvaju"
-  },
-  {
-    "cz_translation": "stanica metra",
-    "cz_transcription": "станїца метра",
-    "ua_translation": "станція метро",
-    "ua_transcription": "stancija metro"
-  },
-  {
-    "cz_translation": "Ako sa dostanem na stanicu metra?",
-    "cz_transcription": "Aко са достанєм на станїцу метра",
-    "ua_translation": "Як дістатись до метро?",
-    "ua_transcription": "Jak distatys' do metro"
-  },
-  {
-    "cz_translation": "železničná stanica",
-    "cz_transcription": "желєзнїчна станїца",
-    "ua_translation": "вокзал",
-    "ua_transcription": "vokzal"
-  },
-  {
-    "cz_translation": "park",
-    "cz_transcription": "парк",
-    "ua_translation": "парк",
-    "ua_transcription": "park"
-  },
-  {
-    "cz_translation": "ihrisko",
-    "cz_transcription": "ігріско",
-    "ua_translation": "дитячий майданчик",
-    "ua_transcription": "dyťačij majdančik"
-  },
-  {
-    "cz_translation": "reštaurácia",
-    "cz_transcription": "рештаурація",
-    "ua_translation": "ресторан",
-    "ua_transcription": "restoran"
-  }
+  { "main": "ukrajinské veľvyslanectvo", "uk": "українське посольство" },
+  { "main": "Ministerstvo vnútra ČR", "uk": "МВС Чехії" },
+  { "main": "obchod", "uk": "магазин" },
+  { "main": "supermarket", "uk": "супермаркет" },
+  { "main": "potraviny", "uk": "магазин їжі" },
+  { "main": "drogéria", "uk": "магазин побутової хімії" },
+  { "main": "Hľadám drogériu.", "uk": "Шукаю магазин побутової хімії." },
+  { "main": "oblečenie", "uk": "одяг" },
+  { "main": "papiernictvo", "uk": "канцтовари" },
+  { "main": "nákupné centrum", "uk": "торгівельний цент" },
+  { "main": "lekáreň", "uk": "аптека" },
+  { "main": "Kde nájdem najbližšiu lekáreň?", "uk": "Де знаходиться найближча аптека?" },
+  { "main": "nemocnica", "uk": "лікарня" },
+  { "main": "Hľadám...", "uk": "Шукаю..." },
+  { "main": "Potrebujem...", "uk": "Мені потрібно..." },
+  { "main": "Kde nájdem...", "uk": "Як знайти..." },
+  { "main": "Ako sa dostanem na...? Ako sa dostanem k...?", "uk": "Як дістатись до...?" },
+  { "main": "Aká je adresa...?", "uk": "Яка адреса у...?" },
+  { "main": "Kde je najbližšia nemocnica?", "uk": "Де найближча лікарня?" },
+  { "main": "námestie", "uk": "площа" },
+  { "main": "Námestie", "uk": "Площа. Майдан." },
+  { "main": "Ako sa dostanem na námestie?", "uk": "Як дістатись до площі?" },
+  { "main": "autobusová zastávka", "uk": "зупинка автобуса" },
+  { "main": "zastávka električky", "uk": "зупинка трамваю" },
+  { "main": "Hľadám zastávku električky.", "uk": "Шукаю зупинку трамваю." },
+  { "main": "stanica metra", "uk": "станція метро" },
+  { "main": "Ako sa dostanem na stanicu metra?", "uk": "Як дістатись до метро?" },
+  { "main": "železničná stanica", "uk": "вокзал" },
+  { "main": "park", "uk": "парк" },
+  { "main": "ihrisko", "uk": "дитячий майданчик" },
+  { "main": "reštaurácia", "uk": "ресторан" }
 ]

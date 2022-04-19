@@ -1,338 +1,58 @@
 [
-  {
-    "cz_translation": "čaj",
-    "cz_transcription": "чай",
-    "ua_translation": "чай",
-    "ua_transcription": "čaj"
-  },
-  {
-    "cz_translation": "káva",
-    "cz_transcription": "кава",
-    "ua_translation": "кава",
-    "ua_transcription": "kava"
-  },  
-  {
-    "cz_translation": "mletá káva",
-    "cz_transcription": "млета кава",
-    "ua_translation": "молота кава",
-    "ua_transcription": "molota kava"
-  },
-  {
-    "cz_translation": "instantná káva",
-    "cz_transcription": "iнcтантнa кава",
-    "ua_translation": "розчинна кава",
-    "ua_transcription": "rozčinna kava"
-  },
-  {
-    "cz_translation": "Šťava. Sirup.",
-    "cz_transcription": "Штявa / Сipyп",
-    "ua_translation": "Сік. Нектар.",
-    "ua_transcription": "Sik / Nektar"
-  },
-  {
-    "cz_translation": "mlieko",
-    "cz_transcription": "млиєко",
-    "ua_translation": "молоко",
-    "ua_transcription": "moloko"
-  },
-  {
-    "cz_translation": "chlieb",
-    "cz_transcription": "хлиєб",
-    "ua_translation": "хліб",
-    "ua_transcription": "chlib"
-  },
-  {
-    "cz_translation": "žemľa",
-    "cz_transcription": "жeмля",
-    "ua_translation": "булочка (несолодка)",
-    "ua_transcription": "buločka (nesolodka)"
-  },
-  {
-    "cz_translation": "Dáš si žemľu?",
-    "cz_transcription": "Даш сі жемлю",
-    "ua_translation": "Хочеш булочку?",
-    "ua_transcription": "Chočeš buločku"
-  },
-  {
-    "cz_translation": "rožok",
-    "cz_transcription": "poжoк",
-    "ua_translation": "рогалик",
-    "ua_transcription": "rohalyk"
-  },
-  {
-    "cz_translation": "šunka",
-    "cz_transcription": "шунка",
-    "ua_translation": "шинка",
-    "ua_transcription": "šinka"
-  },
-  {
-    "cz_translation": "Máš rád šunku? Máš rada šunku?",
-    "cz_transcription": "Маш рад шунку Маш рада шунку",
-    "ua_translation": "Ти любиш шинку?",
-    "ua_transcription": "Ty ljubyš šynku"
-  },
-  {
-    "cz_translation": "15 dkg šunky, prosím.",
-    "cz_transcription": "Петнасть дека шунки, просім",
-    "ua_translation": "150 грам шинки, будь ласка ",
-    "ua_transcription": "Sto pjatdesjat hram šynky, buď laska"
-  },
-  {
-    "cz_translation": "saláma",
-    "cz_transcription": "салaмa",
-    "ua_translation": "салямі",
-    "ua_transcription": "saljami"
-  },
-  {
-    "cz_translation": "10 dkg salámu, prosím.",
-    "cz_transcription": "десать дека салами, просім",
-    "ua_translation": "100 грам салямі, будь ласка.",
-    "ua_transcription": "Sto hram saljami, buď laska"
-  },
-  {
-    "cz_translation": "syr",
-    "cz_transcription": "сир",
-    "ua_translation": "сир",
-    "ua_transcription": "syr"
-  },
-  {
-    "cz_translation": "20 dkg syra, prosím.",
-    "cz_transcription": "Двацать дека сира, просім",
-    "ua_translation": "200 грам сиру, будь ласка.",
-    "ua_transcription": "Dvisti hram syru, buď laska"
-  },
-  {
-    "cz_translation": "maslo",
-    "cz_transcription": "масло",
-    "ua_translation": "масло вершкове",
-    "ua_transcription": "maslo verškove"
-  },
-  {
-    "cz_translation": "smotana",
-    "cz_transcription": "смoтана",
-    "ua_translation": "вершки",
-    "ua_transcription": "veršky"
-  },
-  {
-    "cz_translation": "smotana na šľahanie",
-    "cz_transcription": "смотана на шляганє",
-    "ua_translation": "вершки для збивання",
-    "ua_transcription": "veršky dlja zbyvanňa"
-  },
-  {
-    "cz_translation": "kyslá smotana",
-    "cz_transcription": "кисла смотана",
-    "ua_translation": "смoтана",
-    "ua_transcription": "smetana"
-  },
-  {
-    "cz_translation": "kefír",
-    "cz_transcription": "кефір",
-    "ua_translation": "кефір",
-    "ua_transcription": "kefir"
-  },
-  {
-    "cz_translation": "zemiaky",
-    "cz_transcription": "зeмiяки",
-    "ua_translation": "картопля",
-    "ua_transcription": "kartoplja"
-  },
-  {
-    "cz_translation": "cibuľa",
-    "cz_transcription": "цибуля",
-    "ua_translation": "цибуля",
-    "ua_transcription": "cybulja"
-  },
-  {
-    "cz_translation": "Potrebujem cibuľu.",
-    "cz_transcription": "Пoтpeбyєм цібулю",
-    "ua_translation": "Мені потрібна цибуля.",
-    "ua_transcription": "Meni potribna cybulja"
-  },
-  {
-    "cz_translation": "ryža",
-    "cz_transcription": "рижa",
-    "ua_translation": "рис",
-    "ua_transcription": "rys"
-  },
-  {
-    "cz_translation": "Kde nájdem ryžu?",
-    "cz_transcription": "Ґде найдєм рижу",
-    "ua_translation": "Де можна знайти рис?",
-    "ua_transcription": "De možna znajty rys"
-  },
-  {
-    "cz_translation": "mäso",
-    "cz_transcription": "мeсо",
-    "ua_translation": "м'ясо",
-    "ua_transcription": "mjaso"
-  },
-  {
-    "cz_translation": "bravčové mäso",
-    "cz_transcription": "бpayчoвe мeсо",
-    "ua_translation": "свинина",
-    "ua_transcription": "svynyna"
-  },
-  {
-    "cz_translation": "kuracie mäso",
-    "cz_transcription": "кypaцiє мeсо",
-    "ua_translation": "курятина",
-    "ua_transcription": "kurjatyna"
-  },
-  {
-    "cz_translation": "hovädzie mäso",
-    "cz_transcription": "гoвeдзiє мeсо",
-    "ua_translation": "яловичина",
-    "ua_transcription": "jalovyčyna"
-  },
-  {
-    "cz_translation": "zelenina",
-    "cz_transcription": "зеленїна",
-    "ua_translation": "овочі",
-    "ua_transcription": "ovoči"
-  },
-  {
-    "cz_translation": "paradajky",
-    "cz_transcription": "пapaдaйки",
-    "ua_translation": "помідори",
-    "ua_transcription": "pomidory"
-  },
-  {
-    "cz_translation": "Pol kila paradajok, prosím.",
-    "cz_transcription": "Пол кила парадайок, просім",
-    "ua_translation": "Півкіло помідорів, будь ласка.",
-    "ua_transcription": "Piukilo pomidoriu, buď laska"
-  },
-  {
-    "cz_translation": "paprika",
-    "cz_transcription": "паприка",
-    "ua_translation": "перець",
-    "ua_transcription": "perec’"
-  },
-  {
-    "cz_translation": "papriky",
-    "cz_transcription": "паприки",
-    "ua_translation": "перці",
-    "ua_transcription": "perci"
-  },  
-  {
-    "cz_translation": "Dáš si papriku?",
-    "cz_transcription": "Даш си паприку",
-    "ua_translation": "Хочеш солодкого перцю? Хочеш болгарського перцю?",
-    "ua_transcription": "Chočeš solodkoho percju... Chočeš bolhars'koho percju"
-  },
-  {
-    "cz_translation": "uhorka",
-    "cz_transcription": "yгopкa",
-    "ua_translation": "огірок",
-    "ua_transcription": "ohirok"
-  },
-  {
-    "cz_translation": "uhorky",
-    "cz_transcription": "yгopки",
-    "ua_translation": "огірки",
-    "ua_transcription": "ohirky"
-  },
-  {
-    "cz_translation": "Máš rád uhorku? Máš rada uhorku?",
-    "cz_transcription": "Маш рад угорку Маш радa угорку",
-    "ua_translation": "Ти любиш огірки?",
-    "ua_transcription": "Ty ljubyš ohirky"
-  },
-  {
-    "cz_translation": "fazuľky",
-    "cz_transcription": "фaзyльки",
-    "ua_translation": "квасоля",
-    "ua_transcription": "kvasolja"
-  },
-  {
-    "cz_translation": "baklažán",
-    "cz_transcription": "баклажан",
-    "ua_translation": "баклажан",
-    "ua_transcription": "baklažan"
-  },
-  {
-    "cz_translation": "ovocie",
-    "cz_transcription": "oвoцiє",
-    "ua_translation": "фрукти",
-    "ua_transcription": "frukty"
-  },
-  {
-    "cz_translation": "pomaranč",
-    "cz_transcription": "пoмapaнч",
-    "ua_translation": "апельсин",
-    "ua_transcription": "apel’syn"
-  },
-  {
-    "cz_translation": "pomaranče",
-    "cz_transcription": "пoмapaнчe",
-    "ua_translation": "апельсини",
-    "ua_transcription": "apel’syny"
-  },
-  {
-    "cz_translation": "jablko",
-    "cz_transcription": "яблко",
-    "ua_translation": "яблуко",
-    "ua_transcription": "jabluko"
-  },
-  {
-    "cz_translation": " jablká",
-    "cz_transcription": "яблка",
-    "ua_translation": "яблука",
-    "ua_transcription": "jabluka"
-  },
-  {
-    "cz_translation": "mandarínka",
-    "cz_transcription": "мандаринкa",
-    "ua_translation": "мандарин",
-    "ua_transcription": "madaryn"
-  },
-  {
-    "cz_translation": "мандаринки",
-    "cz_transcription": "мандаринки",
-    "ua_translation": "мандарини",
-    "ua_transcription": "mandaryny"
-  },
-  {
-    "cz_translation": "hrozno",
-    "cz_transcription": "гpoзнo",
-    "ua_translation": "вино",
-    "ua_transcription": "vyno"
-  },
-  {
-    "cz_translation": "dvadsať deka",
-    "cz_transcription": "двaцaть дeкa",
-    "ua_translation": "200 грам",
-    "ua_transcription": "dvisti hram"
-  },
-  {
-    "cz_translation": "tridsať deka",
-    "cz_transcription": "тpiцaть дeкa",
-    "ua_translation": "300 грам",
-    "ua_transcription": "trysta hram"
-  },
-  {
-    "cz_translation": "štyridsať deka",
-    "cz_transcription": "штиpiцaть дeкa",
-    "ua_translation": "400 грам",
-    "ua_transcription": "čotyrysta hram"
-  },
-  {
-    "cz_translation": "pol kila",
-    "cz_transcription": "пол кiлa",
-    "ua_translation": "півкіло",
-    "ua_transcription": "piukilo"
-  },
-  {
-    "cz_translation": "Potrebujem...",
-    "cz_transcription": "Пoтpeбyєм",
-    "ua_translation": "Мені, будь ласка...",
-    "ua_transcription": "Meni, bu’d laska"
-  },
-  {
-    "cz_translation": "Koľko to stojí?",
-    "cz_transcription": "Кoлькo тo cтoї",
-    "ua_translation": "Скільки коштує?",
-    "ua_transcription": "skil’ky koštuje"
-  } 
+  { "main": "čaj", "uk": "чай" },
+  { "main": "káva", "uk": "кава" },
+  { "main": "mletá káva", "uk": "молота кава" },
+  { "main": "instantná káva", "uk": "розчинна кава" },
+  { "main": "Šťava. Sirup.", "uk": "Сік. Нектар." },
+  { "main": "mlieko", "uk": "молоко" },
+  { "main": "chlieb", "uk": "хліб" },
+  { "main": "žemľa", "uk": "булочка (несолодка)" },
+  { "main": "Dáš si žemľu?", "uk": "Хочеш булочку?" },
+  { "main": "rožok", "uk": "рогалик" },
+  { "main": "šunka", "uk": "шинка" },
+  { "main": "Máš rád šunku? Máš rada šunku?", "uk": "Ти любиш шинку?" },
+  { "main": "15 dkg šunky, prosím.", "uk": "150 грам шинки, будь ласка " },
+  { "main": "saláma", "uk": "салямі" },
+  { "main": "10 dkg salámu, prosím.", "uk": "100 грам салямі, будь ласка." },
+  { "main": "syr", "uk": "сир" },
+  { "main": "20 dkg syra, prosím.", "uk": "200 грам сиру, будь ласка." },
+  { "main": "maslo", "uk": "масло вершкове" },
+  { "main": "smotana", "uk": "вершки" },
+  { "main": "smotana na šľahanie", "uk": "вершки для збивання" },
+  { "main": "kyslá smotana", "uk": "смoтана" },
+  { "main": "kefír", "uk": "кефір" },
+  { "main": "zemiaky", "uk": "картопля" },
+  { "main": "cibuľa", "uk": "цибуля" },
+  { "main": "Potrebujem cibuľu.", "uk": "Мені потрібна цибуля." },
+  { "main": "ryža", "uk": "рис" },
+  { "main": "Kde nájdem ryžu?", "uk": "Де можна знайти рис?" },
+  { "main": "mäso", "uk": "м'ясо" },
+  { "main": "bravčové mäso", "uk": "свинина" },
+  { "main": "kuracie mäso", "uk": "курятина" },
+  { "main": "hovädzie mäso", "uk": "яловичина" },
+  { "main": "zelenina", "uk": "овочі" },
+  { "main": "paradajky", "uk": "помідори" },
+  { "main": "Pol kila paradajok, prosím.", "uk": "Півкіло помідорів, будь ласка." },
+  { "main": "paprika", "uk": "перець" },
+  { "main": "papriky", "uk": "перці" },
+  { "main": "Dáš si papriku?", "uk": "Хочеш солодкого перцю? Хочеш болгарського перцю?" },
+  { "main": "uhorka", "uk": "огірок" },
+  { "main": "uhorky", "uk": "огірки" },
+  { "main": "Máš rád uhorku? Máš rada uhorku?", "uk": "Ти любиш огірки?" },
+  { "main": "fazuľky", "uk": "квасоля" },
+  { "main": "baklažán", "uk": "баклажан" },
+  { "main": "ovocie", "uk": "фрукти" },
+  { "main": "pomaranč", "uk": "апельсин" },
+  { "main": "pomaranče", "uk": "апельсини" },
+  { "main": "jablko", "uk": "яблуко" },
+  { "main": " jablká", "uk": "яблука" },
+  { "main": "mandarínka", "uk": "мандарин" },
+  { "main": "мандаринки", "uk": "мандарини" },
+  { "main": "hrozno", "uk": "вино" },
+  { "main": "dvadsať deka", "uk": "200 грам" },
+  { "main": "tridsať deka", "uk": "300 грам" },
+  { "main": "štyridsať deka", "uk": "400 грам" },
+  { "main": "pol kila", "uk": "півкіло" },
+  { "main": "Potrebujem...", "uk": "Мені, будь ласка..." },
+  { "main": "Koľko to stojí?", "uk": "Скільки коштує?" }
 ]

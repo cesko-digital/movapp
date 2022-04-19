@@ -1,183 +1,32 @@
 [
-  {
-    "cz_translation": "horký",
-    "cz_transcription": "горки",
-    "ua_translation": "гіркий",
-    "ua_transcription": "hirkyj"
-  },
-  {
-    "cz_translation": "horúci",
-    "cz_transcription": "горуці",
-    "ua_translation": "гарячий",
-    "ua_transcription": "harjačyj"
-  },
-  {
-    "cz_translation": "peniaze",
-    "cz_transcription": "пенязе",
-    "ua_translation": "гроші",
-    "ua_transcription": "hroši"
-  },
-  {
-    "cz_translation": "hrochy",
-    "cz_transcription": "грохи",
-    "ua_translation": "бегемоти",
-    "ua_transcription": "behemoty"
-  },
-  {
-    "cz_translation": "apríl",
-    "cz_transcription": "апріл",
-    "ua_translation": "квітень",
-    "ua_transcription": "kviteň"
-  },
-  {
-    "cz_translation": "máj",
-    "cz_transcription": "май",
-    "ua_translation": "травень",
-    "ua_transcription": "traveň"
-  },
-  {
-    "cz_translation": "nemocnica",
-    "cz_transcription": "нємоцнїца",
-    "ua_translation": "лікарня",
-    "ua_transcription": "likarňa"
-  },
-  {
-    "cz_translation": "lekáreň",
-    "cz_transcription": "лєкарень",
-    "ua_translation": "аптека",
-    "ua_transcription": "apteka"
-  },
-  {
-    "cz_translation": "poskytovať",
-    "cz_transcription": "поскитовать",
-    "ua_translation": "надавати",
-    "ua_transcription": "nadavaty"
-  },
-  {
-    "cz_translation": "nadávať",
-    "cz_transcription": "надавать",
-    "ua_translation": "лаяти",
-    "ua_transcription": "lajaty"
-  },
-  {
-    "cz_translation": "nálada",
-    "cz_transcription": "налада",
-    "ua_translation": "настрій",
-    "ua_transcription": "nastrij"
-  },
-  {
-    "cz_translation": "nástroj",
-    "cz_transcription": "настрой",
-    "ua_translation": "інструмент",
-    "ua_transcription": "instrument"
-  },
-  {
-    "cz_translation": "zelenina",
-    "cz_transcription": "зелєнїна",
-    "ua_translation": "овочі",
-    "ua_transcription": "ovoči"
-  },
-  {
-    "cz_translation": "ovocie",
-    "cz_transcription": "овоціє",
-    "ua_translation": "фрукти",
-    "ua_transcription": "frukty"
-  },
-  {
-    "cz_translation": "pichnutie",
-    "cz_transcription": "піхнутє",
-    "ua_translation": "укол",
-    "ua_transcription": "ukol"
-  },
-  {
-    "cz_translation": "úloha",
-    "cz_transcription": "улога",
-    "ua_translation": "завдання",
-    "ua_transcription": "zavdanňa"
-  },
-  {
-    "cz_translation": "napraviť",
-    "cz_transcription": "направіть",
-    "ua_translation": "поправити",
-    "ua_transcription": "popravyty"
-  },
-  {
-    "cz_translation": "popraviť",
-    "cz_transcription": "поправіть",
-    "ua_translation": "стратити",
-    "ua_transcription": "stratyty"
-  },
-  {
-    "cz_translation": "nakazený",
-    "cz_transcription": "наказени",
-    "ua_translation": "заражений",
-    "ua_transcription": "zaraženyj"
-  },
-  {
-    "cz_translation": "zarazený",
-    "cz_transcription": "заразени",
-    "ua_translation": "забентежений",
-    "ua_transcription": "zabenteženyj"
-  },
-  {
-    "cz_translation": "kyslá smotana",
-    "cz_transcription": "кисла смотана",
-    "ua_translation": "сметана",
-    "ua_transcription": "smetana"
-  },
-  {
-    "cz_translation": "smotana",
-    "cz_transcription": "смотана",
-    "ua_translation": "вершки",
-    "ua_transcription": "veršky"
-  },
-  {
-    "cz_translation": "obschnutý",
-    "cz_transcription": "обсхнути",
-    "ua_translation": "черствий",
-    "ua_transcription": "čerstvyj"
-  },
-  {
-    "cz_translation": "čerstvý",
-    "cz_transcription": "черстви",
-    "ua_translation": "свіжий",
-    "ua_transcription": "svižyj"
-  },
-  {
-    "cz_translation": "cigaretový ohorok",
-    "cz_transcription": "ціґаретови огорок",
-    "ua_translation": "окурок",
-    "ua_transcription": "okurok"
-  },
-  {
-    "cz_translation": "uhorka",
-    "cz_transcription": "угорка",
-    "ua_translation": "огірок",
-    "ua_transcription": "ohirok"
-  },
-  {
-    "cz_translation": "kamarát",
-    "cz_transcription": "камарат",
-    "ua_translation": "друг",
-    "ua_transcription": "druh"
-  },
-  {
-    "cz_translation": "Druh",
-    "cz_transcription": "Друг",
-    "ua_translation": "Вид. Сорт.",
-    "ua_transcription": "Vyd. Sort."
-  },
-  {
-    "cz_translation": "skoro",
-    "cz_transcription": "скоро",
-    "ua_translation": "скоро",
-    "ua_transcription": "skoro"
-  },
-  {
-    "cz_translation": "skoro / takmer",
-    "cz_transcription": "скоро / такмер",
-    "ua_translation": "майже",
-    "ua_transcription": "majže"
-  }
+  { "main": "horký", "uk": "гіркий" },
+  { "main": "horúci", "uk": "гарячий" },
+  { "main": "peniaze", "uk": "гроші" },
+  { "main": "hrochy", "uk": "бегемоти" },
+  { "main": "apríl", "uk": "квітень" },
+  { "main": "máj", "uk": "травень" },
+  { "main": "nemocnica", "uk": "лікарня" },
+  { "main": "lekáreň", "uk": "аптека" },
+  { "main": "poskytovať", "uk": "надавати" },
+  { "main": "nadávať", "uk": "лаяти" },
+  { "main": "nálada", "uk": "настрій" },
+  { "main": "nástroj", "uk": "інструмент" },
+  { "main": "zelenina", "uk": "овочі" },
+  { "main": "ovocie", "uk": "фрукти" },
+  { "main": "pichnutie", "uk": "укол" },
+  { "main": "úloha", "uk": "завдання" },
+  { "main": "napraviť", "uk": "поправити" },
+  { "main": "popraviť", "uk": "стратити" },
+  { "main": "nakazený", "uk": "заражений" },
+  { "main": "zarazený", "uk": "забентежений" },
+  { "main": "kyslá smotana", "uk": "сметана" },
+  { "main": "smotana", "uk": "вершки" },
+  { "main": "obschnutý", "uk": "черствий" },
+  { "main": "čerstvý", "uk": "свіжий" },
+  { "main": "cigaretový ohorok", "uk": "окурок" },
+  { "main": "uhorka", "uk": "огірок" },
+  { "main": "kamarát", "uk": "друг" },
+  { "main": "Druh", "uk": "Вид. Сорт." },
+  { "main": "skoro", "uk": "скоро" },
+  { "main": "skoro / takmer", "uk": "майже" }
 ]
-

@@ -1,137 +1,24 @@
 [
-  {
-    "cz_translation": "Ako tu funguje hromadná doprava?",
-    "cz_transcription": "Aкo тy фyнґyє гpoмaднa дoпpaвa",
-    "ua_translation": "Як тут працює громадський транспорт?",
-    "ua_transcription": "Jak tut pracjuje hromads’kyj transport?"
-  },
-  {
-    "cz_translation": "Kde si môžem kúpiť lístok?",
-    "cz_transcription": "Ґдe ci мyoжeм кyпiть лиcтoк",
-    "ua_translation": "Де можна купити квиток?",
-    "ua_transcription": "De možna kupyty kvitok?"
-  },
-  {
-    "cz_translation": "lístok",
-    "cz_transcription": "листок",
-    "ua_translation": "квиток",
-    "ua_transcription": "kvytok"
-  },
-  {
-    "cz_translation": "lístky",
-    "cz_transcription": "лістки",
-    "ua_translation": "квитки",
-    "ua_transcription": "kvytky"
-  },
-  {
-    "cz_translation": "cestovný lístok",
-    "cz_transcription": "цecтoвни листок",
-    "ua_translation": "проїзний квиток",
-    "ua_transcription": "projiznyj kvytok"
-  },
-  {
-    "cz_translation": "Kedy ide...",
-    "cz_transcription": "Кeди iдє",
-    "ua_translation": "Коли їде ...?",
-    "ua_transcription": "Koly jide…?"
-  },
-
-  {
-    "cz_translation": "autobus",
-    "cz_transcription": "аутобус",
-    "ua_translation": "автобус",
-    "ua_transcription": "avtobus"
-  },
-  {
-    "cz_translation": "električka",
-    "cz_transcription": "eлeктpичкa",
-    "ua_translation": "трамвай",
-    "ua_transcription": "tramvaj"
-  },
-  {
-    "cz_translation": "vlak",
-    "cz_transcription": "влак",
-    "ua_translation": "поїзд",
-    "ua_transcription": "pojizd"
-  },
-
-  {
-    "cz_translation": "o päť minút",
-    "cz_transcription": "о пeть мiнyт",
-    "ua_translation": "за 5 хвилин",
-    "ua_transcription": "za pjať chvylyn"
-  },
-  {
-    "cz_translation": "šesť",
-    "cz_transcription": "шecть",
-    "ua_translation": "шість",
-    "ua_transcription": "šisť"
-  },
-  {
-    "cz_translation": "sedem",
-    "cz_transcription": "ceдєм",
-    "ua_translation": "сім",
-    "ua_transcription": "sim"
-  },
-  {
-    "cz_translation": "osem",
-    "cz_transcription": "oceм",
-    "ua_translation": "вісім",
-    "ua_transcription": "visim"
-  },
-  {
-    "cz_translation": "deväť",
-    "cz_transcription": "дєвeть",
-    "ua_translation": "дев'ять",
-    "ua_transcription": "devjať"
-  },
-  {
-    "cz_translation": "desať",
-    "cz_transcription": "дєcaть",
-    "ua_translation": "десять",
-    "ua_transcription": "desjať"
-  },
-
-  {
-    "cz_translation": "Ide táto električka do...?",
-    "cz_transcription": "Iдє тaтo eлeктpичкa дo",
-    "ua_translation": "Цей трамвай їде до..?",
-    "ua_transcription": "Cej tramvaj jide do"
-  },
-  {
-    "cz_translation": "Ide tento autobus do...?",
-    "cz_transcription": "Iдє тeнтo аyтобус дo",
-    "ua_translation": "Цей автобус їде до ..?",
-    "ua_transcription": "Cej avtobus jide do"
-  },
-  {
-    "cz_translation": "metro",
-    "cz_transcription": "метро",
-    "ua_translation": "метро",
-    "ua_transcription": "metro"
-  },
-  {
-    "cz_translation": "Som na linke A?",
-    "cz_transcription": "Сoм нa линкe A",
-    "ua_translation": "Це гілка А?",
-    "ua_transcription": "Ce rilka A"
-  },
-{
-    "cz_translation": "Som na linke B?",
-    "cz_transcription": "Сoм нa линкe Бе",
-    "ua_translation": "Це гілка Б?",
-    "ua_transcription": "Ce rilka Be"
-  },
-  {
-    "cz_translation": "Som na linke C?",
-    "cz_transcription": "Сoм нa линкe Це",
-    "ua_translation": "Це гілка Ц?",
-    "ua_transcription": "Ce rilka Ce"
-  },
-  {
-    "cz_translation": "Kde mám prestúpiť?",
-    "cz_transcription": "Ґдє мaм пpecтyпiть",
-    "ua_translation": "Де мені перейти (на іншу гілку)?",
-    "ua_transcription": "De meni perejty (na inšu hilku)"
-  }
+  { "main": "Ako tu funguje hromadná doprava?", "uk": "Як тут працює громадський транспорт?" },
+  { "main": "Kde si môžem kúpiť lístok?", "uk": "Де можна купити квиток?" },
+  { "main": "lístok", "uk": "квиток" },
+  { "main": "lístky", "uk": "квитки" },
+  { "main": "cestovný lístok", "uk": "проїзний квиток" },
+  { "main": "Kedy ide...", "uk": "Коли їде ...?" },
+  { "main": "autobus", "uk": "автобус" },
+  { "main": "električka", "uk": "трамвай" },
+  { "main": "vlak", "uk": "поїзд" },
+  { "main": "o päť minút", "uk": "за 5 хвилин" },
+  { "main": "šesť", "uk": "шість" },
+  { "main": "sedem", "uk": "сім" },
+  { "main": "osem", "uk": "вісім" },
+  { "main": "deväť", "uk": "дев'ять" },
+  { "main": "desať", "uk": "десять" },
+  { "main": "Ide táto električka do...?", "uk": "Цей трамвай їде до..?" },
+  { "main": "Ide tento autobus do...?", "uk": "Цей автобус їде до ..?" },
+  { "main": "metro", "uk": "метро" },
+  { "main": "Som na linke A?", "uk": "Це гілка А?" },
+  { "main": "Som na linke B?", "uk": "Це гілка Б?" },
+  { "main": "Som na linke C?", "uk": "Це гілка Ц?" },
+  { "main": "Kde mám prestúpiť?", "uk": "Де мені перейти (на іншу гілку)?" }
 ]

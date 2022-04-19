@@ -1,98 +1,18 @@
 [
-  {
-    "cz_translation": "tričko",
-    "cz_transcription": "трічко",
-    "ua_translation": "футболка",
-    "ua_transcription": "futbolka"
-  },
-  {
-    "cz_translation": "tričká",
-    "cz_transcription": "трічка",
-    "ua_translation": "футболки",
-    "ua_transcription": "futbolky"
-  },
-  {
-    "cz_translation": "nohavice",
-    "cz_transcription": "ногавіце",
-    "ua_translation": "штани",
-    "ua_transcription": "štany"
-  },
-  {
-    "cz_translation": "prádlo",
-    "cz_transcription": "прадло",
-    "ua_translation": "білизна",
-    "ua_transcription": "bilyzna"
-  },
-  {
-    "cz_translation": "ponožky",
-    "cz_transcription": "поношки",
-    "ua_translation": "шкарпетки",
-    "ua_transcription": "škarpetky"
-  },
-  {
-    "cz_translation": "mikina",
-    "cz_transcription": "мікіна",
-    "ua_translation": "толстовка",
-    "ua_transcription": "tolstouka"
-  },
-  {
-    "cz_translation": "mikiny",
-    "cz_transcription": "мікіни",
-    "ua_translation": "толстовки",
-    "ua_transcription": "tolstouky"
-  },
-  {
-    "cz_translation": "sveter",
-    "cz_transcription": "светєр",
-    "ua_translation": "светр",
-    "ua_transcription": "svetr"
-  },
-  {
-    "cz_translation": "svetre",
-    "cz_transcription": "светре",
-    "ua_translation": "светри",
-    "ua_transcription": "svetry"
-  },  
-  {
-    "cz_translation": "zimná bunda",
-    "cz_transcription": "зімна бунда",
-    "ua_translation": "зимова куртка",
-    "ua_transcription": "zimova kurtka"
-  },
-  {
-    "cz_translation": "zimné bundy",
-    "cz_transcription": "зімне бунди",
-    "ua_translation": "зимові куртки",
-    "ua_transcription": "zimovi kurtky"
-  },
-  {
-    "cz_translation": "čiapka",
-    "cz_transcription": "чіяпка",
-    "ua_translation": "шапка",
-    "ua_transcription": "šapka"
-  },
-  {
-    "cz_translation": "rukavice",
-    "cz_transcription": "рукавіце",
-    "ua_translation": "рукавиці",
-    "ua_transcription": "rukavyci"
-  },
-  {
-    "cz_translation": "pyžamo",
-    "cz_transcription": "пiжамо",
-    "ua_translation": "піжама",
-    "ua_transcription": "pižama"
-  },
-  {
-    "cz_translation": "zimné topánky",
-    "cz_transcription": "зімне топанки",
-    "ua_translation": "зимові чоботи",
-    "ua_transcription": "zymovi čoboty"
-  },
-  {
-    "cz_translation": "papuče",
-    "cz_transcription": "папуче",
-    "ua_translation": "капці",
-    "ua_transcription": "kapci"
-  }
+  { "main": "tričko", "uk": "футболка" },
+  { "main": "tričká", "uk": "футболки" },
+  { "main": "nohavice", "uk": "штани" },
+  { "main": "prádlo", "uk": "білизна" },
+  { "main": "ponožky", "uk": "шкарпетки" },
+  { "main": "mikina", "uk": "толстовка" },
+  { "main": "mikiny", "uk": "толстовки" },
+  { "main": "sveter", "uk": "светр" },
+  { "main": "svetre", "uk": "светри" },
+  { "main": "zimná bunda", "uk": "зимова куртка" },
+  { "main": "zimné bundy", "uk": "зимові куртки" },
+  { "main": "čiapka", "uk": "шапка" },
+  { "main": "rukavice", "uk": "рукавиці" },
+  { "main": "pyžamo", "uk": "піжама" },
+  { "main": "zimné topánky", "uk": "зимові чоботи" },
+  { "main": "papuče", "uk": "капці" }
 ]

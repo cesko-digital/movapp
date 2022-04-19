@@ -1,86 +1,16 @@
 [
-  {
-    "cz_translation": "Kde si môžem zmeniť peniaze?",
-    "cz_transcription": "Кдє сі муoжем зменїть пенязе",
-    "ua_translation": "Де можна обміняти гроші?",
-    "ua_transcription": "De možna obmiňaty hroši"
-  },
-  {
-    "cz_translation": "Kde nájdem...?",
-    "cz_transcription": "Кдє найдєм",
-    "ua_translation": "Де можна знайти...?",
-    "ua_transcription": "De možna znajty"
-  },
-  {
-    "cz_translation": "Môžem platiť kartou?",
-    "cz_transcription": "Муoжем платїть картоу",
-    "ua_translation": "Можна заплатити картою?",
-    "ua_transcription": "Možna zaplatyty kartoju"
-  },
-  {
-    "cz_translation": "Môžem platiť v hotovosti?",
-    "cz_transcription": "Муoжем платїть в готовостї",
-    "ua_translation": "Можна заплатити готівкою?",
-    "ua_transcription": "Možna zaplatyty hotivkoju"
-  },
-  {
-    "cz_translation": "banka",
-    "cz_transcription": "банка",
-    "ua_translation": "банк",
-    "ua_transcription": "bank"
-  },
-  {
-    "cz_translation": "Potrebujem ísť do banky.",
-    "cz_transcription": "Потребуєм ість до банки",
-    "ua_translation": "Мені потрібно в банк.",
-    "ua_transcription": "Meni potribno v bank"
-  },
-  {
-    "cz_translation": "Hľadám banku.",
-    "cz_transcription": "Глядам банку",
-    "ua_translation": "Шукаю банк.",
-    "ua_transcription": "Šukaju bank"
-  },
-  {
-    "cz_translation": "bankomat",
-    "cz_transcription": "банкомат",
-    "ua_translation": "банкомат",
-    "ua_transcription": "bankomat"
-  },
-  {
-    "cz_translation": "zmenáreň",
-    "cz_transcription": "зменарень",
-    "ua_translation": "обмін валют",
-    "ua_transcription": "obmin valjut"
-  },
-  {
-    "cz_translation": "Kde nájdem zmenáreň?",
-    "cz_transcription": "Кдє найдєм зменарень",
-    "ua_translation": "Де можна обміняти гроші?",
-    "ua_transcription": "De možna obmiňaty hroši"
-  },
-  {
-    "cz_translation": "Potrebujem si vyzdvihnúť peniaze.",
-    "cz_transcription": "Потребуєм сі виздвігнуть пенязе",
-    "ua_translation": "Мені потрібно зняти гроші.",
-    "ua_transcription": "Meni potribno zňaty hroši"
-  },
-  {
-    "cz_translation": "Moja karta nefunguje.",
-    "cz_transcription": "Моя карта нєфунґує",
-    "ua_translation": "Моя банківська карта не працює.",
-    "ua_transcription": "Moja bankivs’ka karta ne pracjuje"
-  },
-  {
-    "cz_translation": "Potrebujem si založiť účet.",
-    "cz_transcription": "Потребуєм сі заложіть учет",
-    "ua_translation": "Мені потрібно відкрити рахунок.",
-    "ua_transcription": "Meni potribno vidkryty rachunok"
-  },
-  {
-    "cz_translation": "Potrebujem previesť peniaze z účtu... na účet...",
-    "cz_transcription": "Потребуєм превієсть пенязе з учту на учет",
-    "ua_translation": "Мені потрібно перевести гроші з рахунку ... на рахунок ...",
-    "ua_transcription": "Meni potribno perevesty hroši z rachunku ... na rachunok"
-  }
+  { "main": "Kde si môžem zmeniť peniaze?", "uk": "Де можна обміняти гроші?" },
+  { "main": "Kde nájdem...?", "uk": "Де можна знайти...?" },
+  { "main": "Môžem platiť kartou?", "uk": "Можна заплатити картою?" },
+  { "main": "Môžem platiť v hotovosti?", "uk": "Можна заплатити готівкою?" },
+  { "main": "banka", "uk": "банк" },
+  { "main": "Potrebujem ísť do banky.", "uk": "Мені потрібно в банк." },
+  { "main": "Hľadám banku.", "uk": "Шукаю банк." },
+  { "main": "bankomat", "uk": "банкомат" },
+  { "main": "zmenáreň", "uk": "обмін валют" },
+  { "main": "Kde nájdem zmenáreň?", "uk": "Де можна обміняти гроші?" },
+  { "main": "Potrebujem si vyzdvihnúť peniaze.", "uk": "Мені потрібно зняти гроші." },
+  { "main": "Moja karta nefunguje.", "uk": "Моя банківська карта не працює." },
+  { "main": "Potrebujem si založiť účet.", "uk": "Мені потрібно відкрити рахунок." },
+  { "main": "Potrebujem previesť peniaze z účtu... na účet...", "uk": "Мені потрібно перевести гроші з рахунку ... на рахунок ..." }
 ]
