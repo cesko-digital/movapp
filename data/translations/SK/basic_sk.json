@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "cz_translation": "Dobrý deň.",
     "cz_transcription": "Добри дєнь",
@@ -68,13 +68,13 @@
 
   {
     "cz_translation": "Nehovorím po česky.",
-    "cz_transcription": " Нєговорім по чески",
+    "cz_transcription": " Нєговорім по чески", 
     "ua_translation": "Не розмовляю чеською.",
     "ua_transcription": "Ne rozmovljaju čes’koju"
   },
   {
     "cz_translation": "Nehovorím po slovensky.",
-    "cz_transcription": "Нєговорім по словенски",
+    "cz_transcription": "Нєговорім по словенски", 
     "ua_translation": "Не розмовляю словацькою.",
     "ua_transcription": "Ne rozmovljaju slovackoju"
   },
@@ -84,7 +84,7 @@
     "ua_translation": "Розмовляю англійською.",
     "ua_transcription": "Rozmovljaju anhlijs’koju"
   },
-  {
+{
     "cz_translation": "Hovorím po rusky.",
     "cz_transcription": "Говорім по руськи",
     "ua_translation": "Розмовляю російською.",
@@ -187,3 +187,4 @@
     "ua_transcription": "Use harazd"
   }
 ]
+

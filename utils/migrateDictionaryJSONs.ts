@@ -44,7 +44,7 @@ const migrate = (dir: string, migratedDir: string, transformFunction: (old: Tran
 
   for (const path of filesPaths) {
     const newPath = getNewFilePath(path);
-    const translations = JSON.parse(readFileSync(path, { encoding: 'utf-8' })) as TranslationJSON[];
+    const translations = JSON.parse(readFileSync(path, { encoding: 'utf-8' }));
     const migratedTranslations = translations.map(transformFunction);
     writeFileSync(newPath, JSON.stringify(migratedTranslations));
   }
