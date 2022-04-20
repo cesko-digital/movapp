@@ -7,7 +7,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 interface MemoryGameCardProps {
   card: CardType;
   scene: string;
-  selected: boolean;  
+  selected: boolean;
   onClick: (card: CardType) => void;
 }
 
@@ -18,7 +18,10 @@ const MemoryGameCard = ({ card, onClick, scene, selected }: MemoryGameCardProps)
     <>
       <div onClick={() => onClick(card)} className={styles.cell}>
         <div className={styles.cardWrapper}>
-          <div className={`${styles.front} ${card.flipped ? styles.flipped : ''} ${selected ? styles.selected : ''} ${styles[scene]} `} style={{ borderColor: card.color }}>
+          <div
+            className={`${styles.front} ${card.flipped ? styles.flipped : ''} ${selected ? styles.selected : ''} ${styles[scene]} `}
+            style={{ borderColor: card.color }}
+          >
             <Image src={card.image} layout="fill" sizes="100%" objectFit="cover" alt={card.translation[currentLanguage]} />
           </div>
         </div>

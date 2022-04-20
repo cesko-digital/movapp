@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'components/basecomponents/Button';
-import { useTranslation, Trans } from 'next-i18next';
+import { useTranslation } from 'next-i18next';
 import Card from './MemoryGameCard';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { useLanguage } from 'utils/useLanguageHook';
@@ -36,7 +36,7 @@ const addBackroundColor = (cardsData: CardDataType[]) => {
 const scenes = Object.freeze({
   init: 'init',
   begin: 'begin',
-  game: 'game',  
+  game: 'game',
   firstCardSelected: 'firstCardSelected',
   secondCardSelected: 'secondCardSelected',
   resolveCards: 'resolveCards',
@@ -46,7 +46,7 @@ const scenes = Object.freeze({
   cardsDontMatchFlipBack: 'cardsDontMatchFlipBack',
   win: 'win',
   winReward: 'winReward',
-  goNewGame: 'goNewGame'
+  goNewGame: 'goNewGame',
 });
 
 const cardFlipSound = new Audio(cardFlipClip);
@@ -59,7 +59,7 @@ const winMusic = new Audio(winMusicClip);
 winMusic.volume = 0.8;
 
 const MemoryGame = ({ cardsData }: MemoryGameProps) => {
-  const { currentLanguage, otherLanguage } = useLanguage();
+  const { otherLanguage } = useLanguage();
   const { t } = useTranslation();
 
   const [cards, setCards] = useState<CardType[]>([]);
@@ -79,18 +79,18 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
   const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
   const [timers, setTimers] = useState<ReturnType<typeof setTimeout>[]>([]);
 
-  const setTimer = (fn : () => void,delay: number) => {
+  const setTimer = (fn: () => void, delay: number) => {
     const t = setTimeout(() => {
-      setTimers(prev => prev.filter(e => e !== t));
+      setTimers((prev) => prev.filter((e) => e !== t));
       fn();
-    },delay);
-    setTimers(prev => ([...prev,t]));
-  }
+    }, delay);
+    setTimers((prev) => [...prev, t]);
+  };
 
   const clearTimers = () => {
-    timers.map(t => clearTimeout(t));
+    timers.map((t) => clearTimeout(t));
     setTimers([]);
-  }
+  };
 
   const newGame = () => {
     console.log('new game');
@@ -113,15 +113,15 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
     setCards((cards) => cards.map((card) => (card.id === cardToFlip.id ? { ...card, flipped: !card.flipped } : card)));
     cardFlipSound.play();
   };
-  
+
   const selectCard = (card: CardType) => {
     if (controlsDisabled) return;
 
     const { first, second } = selectedCards;
     if (first === null && !card.flipped) {
-      setSelectedCards((prev) => ({ ...prev, first: card }));     
+      setSelectedCards((prev) => ({ ...prev, first: card }));
     } else if (second === null && !card.flipped) {
-      setSelectedCards((prev) => ({ ...prev, second: card }));      
+      setSelectedCards((prev) => ({ ...prev, second: card }));
     }
   };
 
@@ -152,7 +152,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         newGame();
         // disable controls
         setControlsDisabled(true);
-        // play css animations        
+        // play css animations
         setTimer(() => {
           setScene(scenes.game);
         }, 1000);
@@ -183,11 +183,11 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         // resolve cards when card phrase ends
         setTimer(() => {
           setScene(scenes.resolveCards);
-        }, 1500);        
+        }, 1500);
       },
       resolveCards: () => {
-        const { first, second } = selectedCards;        
-        const cardsMatch = first?.image === second?.image;        
+        const { first, second } = selectedCards;
+        const cardsMatch = first?.image === second?.image;
 
         if (cardsMatch) {
           console.log('cards match');
@@ -210,7 +210,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
       },
       cardsMatchReward: () => {
         // play css animations and sounds
-        Math.random() > 0.5 && playPhrase(getRandomElement(phrases.good));  // 0.5
+        Math.random() > 0.5 && playPhrase(getRandomElement(phrases.good)); // 0.5
         // reset selected cards
         setSelectedCards({ first: null, second: null });
         // check win
@@ -227,7 +227,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         // disable controls
         setControlsDisabled(true);
         // play animations and sounds
-        Math.random() > 0.8 && playPhrase(getRandomElement(phrases.wrong));  // 0.8      
+        Math.random() > 0.8 && playPhrase(getRandomElement(phrases.wrong)); // 0.8
         // setTimer: show cards for a period of time to remember then flip back
         setTimer(() => {
           const { first, second } = selectedCards;
@@ -237,7 +237,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
           setScene(scenes.cardsDontMatchFlipBack);
         }, 1200);
       },
-      cardsDontMatchFlipBack: () => {        
+      cardsDontMatchFlipBack: () => {
         // wait for cards flip back
         setTimer(() => {
           setScene(scenes.game);
@@ -256,7 +256,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         // play css animations and sounds
         winMusic.play();
       },
-      goNewGame: () => {        
+      goNewGame: () => {
         // play css animations and sounds
         clearTimers();
         playPhrase(getRandomElement(phrases.newGame));
