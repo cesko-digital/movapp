@@ -3,9 +3,9 @@ import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
 import { AlphabetCard } from '../../components/basecomponents/AlphabetCard';
 import { LanguageSelect } from '../../components/basecomponents/LanguageSelect';
-import { ALPHABET_CZ } from '../../data/alphabets/cz_alphabet';
-import { ALPHABET_UA } from '../../data/alphabets/ua_alphabet';
 import SEO from 'components/basecomponents/SEO';
+import { ALPHABET_CZ } from 'data/alphabets/CZ/cz_alphabet';
+import { ALPHABET_UA } from 'data/alphabets/CZ/ua_alphabet';
 export { getStaticProps } from '../../utils/localization';
 
 const AlphabetPage = (): JSX.Element => {
