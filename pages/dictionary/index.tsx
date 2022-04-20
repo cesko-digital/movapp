@@ -5,7 +5,6 @@ import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { SearchInput } from 'components/basecomponents/Input';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
-import { categories, Category } from 'data/translations/translations';
 export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
 import { translitFromUkrainian } from 'utils/transliterate';
@@ -14,12 +13,16 @@ import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
 import { Language } from 'data/locales';
 import SEO from 'components/basecomponents/SEO';
+import { getAllCategories } from 'data/translations/Categories';
+import { Category } from 'data/translations/CategoryUtils';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
 });
 
-const allTranslations = categories.map((category) => category.translations).flat();
+const allTranslations = getAllCategories()
+  .map((category) => category.translations)
+  .flat();
 
 const getCategoryName = (category: Category, currentLanguage: Language) => {
   const mainLanguageCategory = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
@@ -130,7 +133,7 @@ const Dictionary = () => {
         {isSearching ? (
           <DictionarySearchResults search={search} results={filteredTranslations} />
         ) : (
-          categories.map((category, index) => {
+          getAllCategories().map((category, index) => {
             const categoryName = getCategoryName(category, currentLanguage);
             return (
               <Collapse

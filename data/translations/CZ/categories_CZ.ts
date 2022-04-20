@@ -1,36 +1,25 @@
-import { Phrase, TranslationJSON, isValidTranslationJSON } from 'utils/Phrase';
-// JSON translation files
-import Basic_CZ from './CZ/basic.json';
-import Cas_CZ from './CZ/cas.json';
-import HromadnaDoprava_CZ from './CZ/hromadna-doprava.json';
-import Zoo_CZ from './CZ/zoo.json';
-import NaNakupu_CZ from './CZ/na-nakupu.json';
-import NaUrade_CZ from './CZ/na-urade.json';
-import Obleceni_CZ from './CZ/obleceni.json';
-import Drogerie_CZ from './CZ/drogerie.json';
-import Penize_CZ from './CZ/penize.json';
-import Prace_CZ from './CZ/prace.json';
-import Rodina_CZ from './CZ/rodina.json';
-import Doctor_CZ from './CZ/doctor.json';
-import VDomacnosti_CZ from './CZ/vdomacnosti.json';
-import VeMeste_CZ from './CZ/vemeste.json';
-import VeSkole_CZ from './CZ/veskole.json';
-import VeSkolce_CZ from './CZ/veskolce.json';
-import Dobrovolnici_CZ from './CZ/dobrovolnici.json';
-import ZradnaSlovicka_CZ from './CZ/zradna-slovicka.json';
-import Velikonoce_CZ from './CZ/velikonoce.json';
+import Basic_CZ from './basic.json';
+import Cas_CZ from './cas.json';
+import HromadnaDoprava_CZ from './hromadna-doprava.json';
+import Zoo_CZ from './zoo.json';
+import NaNakupu_CZ from './na-nakupu.json';
+import NaUrade_CZ from './na-urade.json';
+import Obleceni_CZ from './obleceni.json';
+import Drogerie_CZ from './drogerie.json';
+import Penize_CZ from './penize.json';
+import Prace_CZ from './prace.json';
+import Rodina_CZ from './rodina.json';
+import Doctor_CZ from './doctor.json';
+import VDomacnosti_CZ from './vdomacnosti.json';
+import VeMeste_CZ from './vemeste.json';
+import VeSkole_CZ from './veskole.json';
+import VeSkolce_CZ from './veskolce.json';
+import Dobrovolnici_CZ from './dobrovolnici.json';
+import ZradnaSlovicka_CZ from './zradna-slovicka.json';
+import Velikonoce_CZ from './velikonoce.json';
+import { Category, processTranslations } from '../CategoryUtils';
 
-export interface Category {
-  nameMain: string;
-  nameUk: string;
-  translations: Phrase[];
-}
-
-const processTranslations = (translations: TranslationJSON[]) => {
-  return translations.filter(isValidTranslationJSON).map((translation) => new Phrase(translation));
-};
-
-export const categories: Category[] = [
+export const CATEGORIES_CZ: Category[] = [
   {
     nameUk: 'Основні фрази',
     nameMain: 'Základní fráze',
