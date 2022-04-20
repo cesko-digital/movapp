@@ -225,15 +225,15 @@
 
 .loading {
   position: relative;
-  user-select: none;  
+  user-select: none;
   border-width: 2px;
   border-style: solid;
   border-radius: 0.5rem;
   border-color: #023abd;
-  background-color: #023abd;  
+  background-color: #023abd;
   backface-visibility: hidden;
   image-rendering: -webkit-optimize-contrast;
-  overflow: hidden;  
+  overflow: hidden;
   animation: rotate 1s infinite ease-in-out;
   width: 3rem;
   height: 3rem;
@@ -342,8 +342,8 @@
 
 @keyframes rotate {
   0% {
-    transform: rotateY(0);    
-  }  
+    transform: rotateY(0);
+  }
   50% {
     transform: rotateY(90deg);
   }

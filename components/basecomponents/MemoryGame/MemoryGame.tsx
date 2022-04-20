@@ -13,9 +13,14 @@ import winMusicClip from './baby_shark.mp3';
 
 const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.random() * arr.length)];
 
+export interface TranslationType {
+  main: string;
+  uk: string;  
+}
+
 export interface CardDataType {
   image: string;
-  translation: { 'uk' : string ; 'main' : string };
+  translation: TranslationType;
   backgroundColor?: string;
 }
 
@@ -23,7 +28,7 @@ export interface CardType {
   id: number;
   flipped: boolean;
   image: string;
-  translation: { 'uk' : string ; 'main' : string };
+  translation: TranslationType;
   color?: string;
 }
 
@@ -79,8 +84,8 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
 
   const [scene, setScene] = useState<string>(scenes.init);
   const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
-  const [setTimer, clearTimers] = useMemo(createTimer,[]);
-  
+  const [setTimer, clearTimers] = useMemo(createTimer, []);
+
   const newGame = () => {
     console.log('new game');
     // prepare and shuffle cards
@@ -94,9 +99,10 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
     // clearTimers();
   };
 
-  const playCardWord = (card: CardType) => AudioPlayer.getInstance().playTextToSpeech(new Phrase(card.translation).getTranslation(otherLanguage), otherLanguage);
-  const playPhrase = (phrase: { [index: string]: string }) =>
-    AudioPlayer.getInstance().playTextToSpeech(phrase[otherLanguage], otherLanguage);
+  const playCardWord = (card: CardType) =>
+    AudioPlayer.getInstance().playTextToSpeech(new Phrase(card.translation).getTranslation(otherLanguage), otherLanguage);
+  const playPhrase = (phrase: TranslationType) =>
+    AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrase).getTranslation(otherLanguage), otherLanguage);
 
   const flipCard = (cardToFlip: CardType) => {
     setCards((cards) => cards.map((card) => (card.id === cardToFlip.id ? { ...card, flipped: !card.flipped } : card)));
@@ -263,9 +269,8 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
   useEffect(() => {
     return () => {
       clearTimers();
-    }
-  }, [])
-  
+    };
+  }, []);
 
   return (
     <div className="flex flex-col items-center">

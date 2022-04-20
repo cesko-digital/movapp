@@ -36,7 +36,7 @@ const MemoryGameSection = () => {
         <meta name="description" content={t('seo.dictionary_page_description')} />
         <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
       </Head>
-      <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4 overflow-hidden">        
+      <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4 overflow-hidden">
         <MemoryGame cardsData={cardsData} />
       </div>
     </div>
