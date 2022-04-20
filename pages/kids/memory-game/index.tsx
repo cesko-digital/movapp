@@ -3,14 +3,18 @@ import Head from 'next/head';
 import React from 'react';
 import kidsWords from 'data/translations/pro-deti.json';
 import dynamic from 'next/dynamic';
+import MemoryGameLoading from 'components/basecomponents/MemoryGame/MemoryGameLoading';
 export { getStaticProps } from 'utils/localization';
 
-const MemoryGame = dynamic(() => import('components/basecomponents/MemoryGame/MemoryGame'), { ssr: false });
+const MemoryGame = dynamic(() => import('components/basecomponents/MemoryGame/MemoryGame'), {
+  ssr: false,
+  loading: () => <MemoryGameLoading />,
+});
 
 const normalizeData = ({ main, uk, image }: { main: string; uk: string; image: string }) => ({
   translation: {
-    uk: uk,
-    cs: main,
+    uk,
+    main,
   },
   image,
 });
@@ -32,7 +36,7 @@ const MemoryGameSection = () => {
         <meta name="description" content={t('seo.dictionary_page_description')} />
         <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
       </Head>
-      <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4 overflow-hidden">
+      <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4 overflow-hidden">        
         <MemoryGame cardsData={cardsData} />
       </div>
     </div>

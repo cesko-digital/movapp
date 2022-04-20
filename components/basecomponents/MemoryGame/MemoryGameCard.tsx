@@ -1,8 +1,9 @@
 import React from 'react';
 import { CardType } from './MemoryGame';
-import styles from './MemoryGameCard.module.css';
+import styles from './MemoryGame.module.css';
 import Image from 'next/image';
 import { useLanguage } from 'utils/useLanguageHook';
+import { Phrase } from 'utils/Phrase';
 
 interface MemoryGameCardProps {
   card: CardType;
@@ -22,12 +23,12 @@ const MemoryGameCard = ({ card, onClick, scene, selected }: MemoryGameCardProps)
             className={`${styles.front} ${card.flipped ? styles.flipped : ''} ${selected ? styles.selected : ''} ${styles[scene]} `}
             style={{ borderColor: card.color }}
           >
-            <Image src={card.image} layout="fill" sizes="100%" objectFit="cover" alt={card.translation[currentLanguage]} />
+            <Image src={card.image} layout="fill" sizes="100%" objectFit="cover" alt={new Phrase(card.translation).getTranslation(currentLanguage)} />
           </div>
         </div>
         <div className={styles.cardWrapper}>
           <div className={`${styles.back} ${card.flipped ? styles.flipped : ''} ${styles[scene]}`}>
-            <Image src={'/kids/card_back_movapp.png'} layout="fill" sizes="100%" objectFit="cover" alt="card back" />
+            <Image src={'/kids/card_back_movapp.png'} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
           </div>
         </div>
       </div>

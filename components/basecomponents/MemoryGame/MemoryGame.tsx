@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { useTranslation } from 'next-i18next';
 import Card from './MemoryGameCard';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { useLanguage } from 'utils/useLanguageHook';
+import { Phrase } from 'utils/Phrase';
 import phrases from './MemoryGamePhrases.json';
+import createTimer from './createTimer';
 import cardFlipClip from './card_flip.mp3';
 import cardsMatchClip from './cards_match.mp3';
 import winMusicClip from './baby_shark.mp3';
@@ -13,7 +15,7 @@ const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.rando
 
 export interface CardDataType {
   image: string;
-  translation: { [index: string]: string };
+  translation: { 'uk' : string ; 'main' : string };
   backgroundColor?: string;
 }
 
@@ -21,7 +23,7 @@ export interface CardType {
   id: number;
   flipped: boolean;
   image: string;
-  translation: { [index: string]: string };
+  translation: { 'uk' : string ; 'main' : string };
   color?: string;
 }
 
@@ -77,21 +79,8 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
 
   const [scene, setScene] = useState<string>(scenes.init);
   const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
-  const [timers, setTimers] = useState<ReturnType<typeof setTimeout>[]>([]);
-
-  const setTimer = (fn: () => void, delay: number) => {
-    const t = setTimeout(() => {
-      setTimers((prev) => prev.filter((e) => e !== t));
-      fn();
-    }, delay);
-    setTimers((prev) => [...prev, t]);
-  };
-
-  const clearTimers = () => {
-    timers.map((t) => clearTimeout(t));
-    setTimers([]);
-  };
-
+  const [setTimer, clearTimers] = useMemo(createTimer,[]);
+  
   const newGame = () => {
     console.log('new game');
     // prepare and shuffle cards
@@ -102,10 +91,10 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         .map((card) => ({ ...card, image: `/kids/${card.image}.svg`, id: Math.random(), flipped: false }))
     );
     setSelectedCards({ first: null, second: null });
-    // setTimers([]);
+    // clearTimers();
   };
 
-  const playCardWord = (card: CardType) => AudioPlayer.getInstance().playTextToSpeech(card.translation[otherLanguage], otherLanguage);
+  const playCardWord = (card: CardType) => AudioPlayer.getInstance().playTextToSpeech(new Phrase(card.translation).getTranslation(otherLanguage), otherLanguage);
   const playPhrase = (phrase: { [index: string]: string }) =>
     AudioPlayer.getInstance().playTextToSpeech(phrase[otherLanguage], otherLanguage);
 
@@ -269,6 +258,14 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
     // run scene actions
     sceneActions[scene]();
   }, [scene]);
+
+  // clear timers on unmount
+  useEffect(() => {
+    return () => {
+      clearTimers();
+    }
+  }, [])
+  
 
   return (
     <div className="flex flex-col items-center">
