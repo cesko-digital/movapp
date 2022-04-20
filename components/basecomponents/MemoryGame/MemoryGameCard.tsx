@@ -24,7 +24,7 @@ const MemoryGameCard = ({ card, onClick, scene, selected }: MemoryGameCardProps)
         </div>
         <div className={styles.cardWrapper}>
           <div className={`${styles.back} ${card.flipped ? styles.flipped : ''} ${styles[scene]}`}>
-            <Image src={'/kids/card_back_movapp.png'} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
+            <Image src={'/kids/card_back_movapp.png'} layout="fill" sizes="100%" objectFit="cover" alt="card back" />
           </div>
         </div>
       </div>

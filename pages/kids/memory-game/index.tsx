@@ -7,10 +7,10 @@ export { getStaticProps } from 'utils/localization';
 
 const MemoryGame = dynamic(() => import('components/basecomponents/MemoryGame/MemoryGame'), { ssr: false });
 
-const normalizeData = ({ ua_translation, cz_translation, image }: { ua_translation: string; cz_translation: string; image: string }) => ({
+const normalizeData = ({ main, uk, image }: { main: string; uk: string; image: string }) => ({
   translation: {
-    uk: ua_translation,
-    cs: cz_translation,
+    uk: uk,
+    cs: main,
   },
   image,
 });
