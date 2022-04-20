@@ -1,6 +1,6 @@
 import { Letter } from '../alphabetTypes';
 
-export const ALPHABET_CZ: Letter[] = [
+export const ALPHABET_SK: Letter[] = [
   {
     letter: ['A', 'a'],
     transcription: '[a]',
