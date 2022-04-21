@@ -65,6 +65,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
       title: currentWikiPage?.replace(/-{1,5}/g, ' '),
       ...(await serverSideTranslations(locale ?? 'cz', ['common'])),
     },
+    revalidate: 10,
   };
 };
 
