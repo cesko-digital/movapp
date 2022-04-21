@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
-import { SearchInput } from 'components/basecomponents/Input';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
 export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
@@ -15,6 +14,7 @@ import { Language } from 'data/locales';
 import SEO from 'components/basecomponents/SEO';
 import { getAllCategories } from 'data/translations/Categories';
 import { Category } from 'data/translations/CategoryUtils';
+import { SearchInput } from 'components/basecomponents/SearchInput';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
@@ -110,7 +110,7 @@ const Dictionary = () => {
             placeholder={t('dictionary_page.search_placeholder')}
             value={search}
             resetInput={() => setSearch('')}
-            onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch((e.target as HTMLInputElement).value)}
+            setSearch={setSearch}
           />
           <Button
             ref={searchButton}
