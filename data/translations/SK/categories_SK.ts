@@ -14,6 +14,8 @@ import VeMeste from './vemeste_sk.json';
 import VeSkole from './veskole_sk.json';
 import VeSkolce from './veskolce_sk.json';
 import ZradnaSlovicka from './zradna-slovicka_sk.json';
+import Velikonoce from './velikonoce_sk.json';
+import Dobrovolnici from './dobrovnolnici_sk.json';
 import { Category, processTranslations } from '../CategoryUtils';
 
 export const CATEGORIES_SK: Category[] = [
@@ -21,6 +23,11 @@ export const CATEGORIES_SK: Category[] = [
     nameUk: 'Основні фрази',
     nameMain: 'Základné frázy',
     translations: processTranslations(Basic),
+  },
+  {
+    nameMain: 'Velikonoce',
+    nameUk: 'Великдень',
+    translations: processTranslations(Velikonoce),
   },
   {
     nameMain: 'Rodina',
@@ -96,5 +103,10 @@ export const CATEGORIES_SK: Category[] = [
     nameMain: 'Zradné slovíčka',
     nameUk: 'Слова із іншим значенням',
     translations: processTranslations(ZradnaSlovicka),
+  },
+  {
+    nameMain: 'Dobrovolníci',
+    nameUk: 'Добровольці',
+    translations: processTranslations(Dobrovolnici),
   },
 ];
