@@ -1,77 +1,77 @@
 [
   {
     "main": "panenka",
-    "uk": "паненка",
+    "uk": "лялька",
     "image": "panenka"
   },
   {
     "main": "auto",
-    "uk": "ауто",
+    "uk": "машина",
     "image": "auticka"
   },
   {
     "main": "puzzle",
-    "uk": "пуцле",
+    "uk": "пазл",
     "image": "puzzle"
   },
   {
     "main": "vláček",
-    "uk": "влачек",
+    "uk": "поїзд",
     "image": "vlacky"
   },
   {
     "main": "míč",
-    "uk": "мiч",
+    "uk": "м'яч",
     "image": "mic"
   },
   {
     "main": "omalovánky",
-    "uk": "омалованки",
+    "uk": "розмальовки",
     "image": "omalovanky"
   },
   {
     "main": "pití",
-    "uk": "пітi",
+    "uk": "напiй",
     "image": "piti"
   },
   {
     "main": "snídaně",
-    "uk": "снiданє",
+    "uk": "сніданок",
     "image": "snidane"
   },
   {
     "main": "svačina",
-    "uk": "свачіна",
+    "uk": "перекуска",
     "image": "svacina"
   },
   {
     "main": "oběd",
-    "uk": "обєд",
+    "uk": "обід",
     "image": "obed"
   },
   {
     "main": "kapesník",
-    "uk": "капеснiк",
+    "uk": "носова хустинка",
     "image": "kapesnik"
   },
   {
     "main": "postel",
-    "uk": "постел",
+    "uk": "ліжко",
     "image": "postel"
   },
   {
     "main": "záchod",
-    "uk": "заход",
+    "uk": "туалет",
     "image": "zachod"
   },
   {
     "main": "výlet",
-    "uk": "вілет",
+    "uk": "подорож",
     "image": "vylet"
   },
   {
     "main": "zahrada",
-    "uk": "заграда",
+    "uk": "cад",
     "image": "zahrada"
   },
   {
@@ -81,62 +81,62 @@
   },
   {
     "main": "bruslit",
-    "uk": "брусліт",
+    "uk": "кататися на ковзанах",
     "image": "brusleni"
   },
   {
     "main": "čistit si zuby",
-    "uk": "чістiт си зуби",
+    "uk": "чистити зуби",
     "image": "cisteni_zubu"
   },
   {
     "main": "cvičit",
-    "uk": "цвічіт",
+    "uk": "робити вправи",
     "image": "rozcvicka"
   },
   {
     "main": "Bolí mě břicho",
-    "uk": "Болi мнє бржіхо",
+    "uk": "У мене болить живіт",
     "image": "bolest_bricha"
   },
   {
     "main": "vajíčko",
-    "uk": "ваїчко",
+    "uk": "яєчко",
     "image": "vajicko"
   },
   {
     "main": "zajíček",
-    "uk": "заїчек",
+    "uk": "зайчик",
     "image": "zajicek"
   },
   {
     "main": "kuřátko",
-    "uk": "куржатко",
+    "uk": "курчатко",
     "image": "kuratko"
   },
   {
     "main": "kočičky (květy vrby jívy)",
-    "uk": "кочички (квєти врби їви)",
+    "uk": "котики (цвіт верби)",
     "image": "kocicky"
   },
   {
     "main": "beránek",
-    "uk": "беранек",
+    "uk": "баранець",
     "image": "beranek"
   },
   {
     "main": "petrklíč",
-    "uk": "петркліч",
+    "uk": "примула",
     "image": "petrklic"
   },
   {
     "main": "tulipány",
-    "uk": "тулипани",
+    "uk": "тюльпани",
     "image": "tulipany"
   },
   {
     "main": "mazanec",
-    "uk": "мазанец",
+    "uk": "пасочка",
     "image": "mazanec"
   }
 ]
