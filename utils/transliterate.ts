@@ -12,5 +12,6 @@ export const translit = (subs: [string, string][], text: string) => {
   return removePunctuation(result);
 };
 
+// Todo: make this dynamic based on country variant
 export const translitFromUkrainian = (text: string) => translit(ua2cz, text);
 export const translitToUkrainian = (text: string) => translit(cz2ua, text);
