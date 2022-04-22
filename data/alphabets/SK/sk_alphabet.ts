@@ -146,7 +146,7 @@ export const ALPHABET_SK: Letter[] = [
     ],
   },
   {
-    letter: ['Dz', 'dz'],
+    letter: ['Dz', null],
     transcription: '[дз]',
     examples: [
       {
@@ -164,7 +164,7 @@ export const ALPHABET_SK: Letter[] = [
     ],
   },
   {
-    letter: ['Dž', 'dž'],
+    letter: ['Dž', null],
     transcription: '[дж]',
     examples: [
       {
@@ -596,24 +596,6 @@ export const ALPHABET_SK: Letter[] = [
     ],
   },
   {
-    letter: ['Ř', 'ř'],
-    transcription: '[рж]',
-    examples: [
-      {
-        example: 'Řím',
-        example_transcription: 'Ржім',
-      },
-      {
-        example: 'řízek',
-        example_transcription: 'ржізек',
-      },
-      {
-        example: 'řeka',
-        example_transcription: 'ржека',
-      },
-    ],
-  },
-  {
     letter: ['S', 's'],
     transcription: '[с]',
     examples: [
@@ -718,24 +700,6 @@ export const ALPHABET_SK: Letter[] = [
       {
         example: 'úloha',
         example_transcription: 'улога',
-      },
-    ],
-  },
-  {
-    letter: ['ů', null],
-    transcription: 'довгий [у] в середині слова',
-    examples: [
-      {
-        example: 'kůň',
-        example_transcription: 'кунь',
-      },
-      {
-        example: 'schůzka',
-        example_transcription: 'схуска',
-      },
-      {
-        example: 'průkazka',
-        example_transcription: 'прукаска',
       },
     ],
   },

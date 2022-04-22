@@ -19,8 +19,8 @@ interface AlphabetCardProps {
 export const AlphabetCard = ({ examples, letter, transcription, language: playerLanguage }: AlphabetCardProps): JSX.Element => {
   const { t } = useTranslation();
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const letterHasAudio = !LETTERS_WITHOUT_AUDIO.includes(letter[0]);
   const audioSrcPath = `alphabet/${playerLanguage}-alphabet/${letter[0].toLowerCase()}.mp3`;
+  const letterHasAudio = !LETTERS_WITHOUT_AUDIO.includes(letter[0]);
 
   return (
     <div className=" grid grid-rows-[66%_34%]  shadow-[0_3px_15px_grey] sm:shadow-none group sm:hover:shadow-lg rounded-lg">
