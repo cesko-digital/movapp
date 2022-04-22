@@ -4,7 +4,6 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
-import { categories, Category } from 'data/translations/translations';
 export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
 import { translitFromUkrainian } from 'utils/transliterate';
@@ -13,23 +12,27 @@ import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
 import { Language } from 'data/locales';
 import SEO from 'components/basecomponents/SEO';
+import { getAllCategories } from 'data/translations/Categories';
+import { Category } from 'data/translations/CategoryUtils';
 import { SearchInput } from 'components/basecomponents/SearchInput';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
 });
 
-const allTranslations = categories.map((category) => category.translations).flat();
+const allTranslations = getAllCategories()
+  .map((category) => category.translations)
+  .flat();
 
 const getCategoryName = (category: Category, currentLanguage: Language) => {
-  const mainLanguageCategory = currentLanguage === 'cs' ? category.category_name_cz : category.category_name_ua;
-  const secondaryLanguageCategory = currentLanguage === 'cs' ? category.category_name_ua : category.category_name_cz;
+  const mainLanguageCategory = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
+  const secondaryLanguageCategory = currentLanguage === 'uk' ? category.nameMain : category.nameUk;
   return `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 };
 
 // Used to link directly to category with dictionary#categoryId
 const getCategoryId = (category: Category, currentLanguage: Language) => {
-  const text = currentLanguage === 'uk' ? translitFromUkrainian(category.category_name_ua) : category.category_name_cz;
+  const text = currentLanguage === 'uk' ? translitFromUkrainian(category.nameUk) : category.nameMain;
   return normalizeForId(text);
 };
 
@@ -130,15 +133,15 @@ const Dictionary = () => {
         {isSearching ? (
           <DictionarySearchResults search={search} results={filteredTranslations} />
         ) : (
-          categories.map((category, index) => {
+          getAllCategories().map((category, index) => {
             const categoryName = getCategoryName(category, currentLanguage);
             return (
               <Collapse
                 index={index}
                 id={getCategoryId(category, currentLanguage)}
-                key={category.category_name_cz}
+                key={category.nameMain}
                 title={<Marker mark={search}>{categoryName}</Marker>}
-                ariaId={category.category_name_cz}
+                ariaId={category.nameMain}
               >
                 <div className="mb-4 mx-4">
                   <ExportTranslations translations={category.translations} categoryName={categoryName} />
