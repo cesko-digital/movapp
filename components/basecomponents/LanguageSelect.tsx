@@ -2,11 +2,11 @@ import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 
 interface LanguageSelectProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   active: boolean;
-  languages: string;
+  label: string;
 }
 
 export const LanguageSelect = forwardRef((props: LanguageSelectProps, ref: React.ForwardedRef<HTMLButtonElement>): JSX.Element => {
-  const { active, languages, ...rest } = props;
+  const { active, label: languages, ...rest } = props;
   return (
     <button
       aria-selected={active}

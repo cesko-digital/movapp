@@ -3,8 +3,7 @@ import { CATEGORIES_CZ } from './CZ/categories_CZ';
 import { getCountryVariant } from 'utils/countryVariant';
 
 export const getAllCategories = () => {
-  // eslint-disable-next-line no-process-env
-  if (getCountryVariant() === 'SK') {
+  if (getCountryVariant() === 'sk') {
     return CATEGORIES_SK;
   } else {
     return CATEGORIES_CZ;

@@ -1,4 +1,4 @@
-export type Language = 'cs' | 'uk';
+export type Language = 'cs' | 'sk' | 'pl' | 'uk';
 type Locale = {
   name: string;
   locale: Language;

@@ -64,9 +64,15 @@
     "join_title": "Pridajte sa",
     "join_description": "Ak sa chcete stať členom tímu dobrovoľníkov a pomáhať nám pri ďalšom rozvoji projektu, vyplňte formulár na <0>cesko.digital/join</0> a pridajte sa do Slacku. Nájdete nás v kanáli <strong>ua-movapp</strong> (komunikujeme po česky, slovensky, anglicky a trochu aj po ukrajinsky)."
   },
-  "alphabet_page":{
-    "title": "{{cz_version}} abeceda",
-    "description": "{{cz_version_description}}"
+  "alphabet_page": {
+    "sk": {
+      "name": "Slovenská abeceda",
+      "description": "Naučte sa slovenskú abecedu. Tvorí ju 26 písmen latinskej abecedy doplnených tromi diakritickými znamienkami."
+    },
+    "uk": {
+      "name": "Ukrajinská abeceda",
+      "description": "Naučte se ukrajinskú abecedu. Nazývá se tiež ukrajinská cyrilika alebo ukrajinská azbuka. Obsahuje 33 písmen."
+    }
   },
   "seo": {
     "homepage_page_title": "Movapp.cz – aby sa Češi / Slováci a Ukrajinci ľahko dorozumeli",
