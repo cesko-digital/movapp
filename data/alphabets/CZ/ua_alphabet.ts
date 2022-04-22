@@ -1,4 +1,4 @@
-import { Letter } from './cz_alphabet';
+import { Letter } from '../alphabetTypes';
 
 export const ALPHABET_UA: Letter[] = [
   {

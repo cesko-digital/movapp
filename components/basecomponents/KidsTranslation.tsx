@@ -19,10 +19,10 @@ export const KidsTranslation = ({ transcription, translation, language }: KidsTr
     <div className="flex justify-between items-center py-2 ">
       <div className="w-full">
         <div className="flex">
-          {language === 'cs' ? (
-            <FlagCZIcon width="30px" height="24px" className="mr-3 shadow" />
-          ) : (
+          {language === 'uk' ? (
             <FlagUAIcon width="30px" height="24px" className="mr-3 shadow" />
+          ) : (
+            <FlagCZIcon width="30px" height="24px" className="mr-3 shadow" />
           )}
           <p>
             <Trans className="block my-2">{t(`dictionary_page.${language}`)}</Trans>
