@@ -1,13 +1,4 @@
-export interface ExampleType {
-  example: string;
-  example_transcription: string;
-}
-
-export interface Letter {
-  letter: [string, string | null];
-  transcription: string;
-  examples: [ExampleType, ExampleType, ExampleType];
-}
+import { Letter } from '../alphabetTypes';
 
 export const ALPHABET_CZ: Letter[] = [
   {
