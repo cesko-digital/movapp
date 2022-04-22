@@ -1,16 +1,10 @@
-export type Language = 'cs' | 'sk' | 'pl' | 'uk';
-type Locale = {
-  name: string;
-  locale: Language;
-};
+import { CountryVariant } from 'utils/countryVariant';
 
-export const LOCALES: Locale[] = [
-  {
-    name: 'Укр',
-    locale: 'uk',
-  },
-  {
-    name: 'Česky',
-    locale: 'cs',
-  },
-];
+export type Language = CountryVariant | 'uk';
+
+export const LOCALE_NAMES: Record<Language, string> = {
+  cs: 'Česky',
+  uk: 'Укр',
+  pl: 'Polski',
+  sk: 'Slovensky',
+};
