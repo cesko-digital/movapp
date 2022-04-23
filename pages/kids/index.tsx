@@ -5,6 +5,7 @@ import { Button } from '../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
 import { Phrase } from 'utils/Phrase';
 import SEO from 'components/basecomponents/SEO';
+import { getCountryVariant } from 'utils/countryVariant';
 export { getStaticProps } from '../../utils/localization';
 
 const KidsSection = () => {
@@ -18,7 +19,7 @@ const KidsSection = () => {
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="text-center sm:text-right pt-8 mr-0 sm:mr-16">
-        <a href="/kids/omalovanky.pdf" target="_blank" rel="noopener noreferrer" download>
+        <a href={`/kids/${getCountryVariant()}/omalovanky.pdf`} target="_blank" rel="noopener noreferrer" download>
           <Button text={t('kids_page.downloadPDF')} className="bg-primary-blue" />
         </a>
       </div>
