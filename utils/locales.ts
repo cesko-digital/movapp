@@ -18,7 +18,7 @@ export type Language = CountryVariant | 'uk';
  *
  * *** Your code must work in all country variants ***
  *
- *  -> Never specify a language directly, as in phrase.getTranslation('cs').
+ *  -> Never specify the main language directly, as in phrase.getTranslation('cs').
  *  -> Always use getCountryVariant to dynamically use the current country variant.
  *  -> Always use the useLanguage hook, as in const { currentLanguage } = useLanguage();,
  *     to get the currently selected language (Ukrainian or the main language of the country variant).

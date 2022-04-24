@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { AlphabetCard } from '../../components/basecomponents/AlphabetCard';
 import { LanguageSelect } from '../../components/basecomponents/LanguageSelect';
 import SEO from 'components/basecomponents/SEO';
-import { ALPHABET_CZ } from 'data/alphabets/CZ/cz_alphabet';
-import { ALPHABET_UA } from 'data/alphabets/CZ/ua_alphabet';
+import { ALPHABET_CZ } from 'data/alphabets/cs/cz_alphabet';
+import { ALPHABET_UA } from 'data/alphabets/cs/ua_alphabet';
 import { CountryVariant, getCountryVariant, Language } from 'utils/locales';
-import { ALPHABET_SK } from 'data/alphabets/SK/sk_alphabet';
+import { ALPHABET_SK } from 'data/alphabets/sk/sk_alphabet';
 import { Letter } from 'data/alphabets/alphabetTypes';
 export { getStaticProps } from '../../utils/localization';
 

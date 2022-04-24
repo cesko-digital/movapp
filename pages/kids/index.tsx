@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-import kidsWords_CZ from '../../data/translations/CZ/pro-deti.json';
-import kidsWords_SK from '../../data/translations/SK/pro-deti_sk.json';
+import kidsWords_CZ from '../../data/translations/cs/pro-deti.json';
+import kidsWords_SK from '../../data/translations/sk/pro-deti_sk.json';
 import { Button } from '../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
 import { Phrase, TranslationJSON } from 'utils/Phrase';

@@ -14,8 +14,8 @@ import { CountryVariant, getCountryVariant, Language } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
 import { Category } from 'data/translations/CategoryUtils';
 import { SearchInput } from 'components/basecomponents/SearchInput';
-import { CATEGORIES_CZ } from 'data/translations/CZ/categories_CZ';
-import { CATEGORIES_SK } from 'data/translations/SK/categories_SK';
+import { CATEGORIES_CZ } from 'data/translations/cs/categories_CZ';
+import { CATEGORIES_SK } from 'data/translations/sk/categories_SK';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
