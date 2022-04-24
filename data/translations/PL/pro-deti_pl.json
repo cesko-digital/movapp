@@ -1,0 +1,22 @@
+[
+  { "main": "lalka", "uk": "лялька" },
+  { "main": "autko", "uk": "машина" },
+  { "main": "puzzle", "uk": "пазл" },
+  { "main": "pociąg", "uk": "поїзд" },
+  { "main": "piłka", "uk": "м'яч" },
+  { "main": "kolorowanki", "uk": "розмальовки" },
+  { "main": "picie", "uk": "напiй" },
+  { "main": "śniadanie", "uk": "сніданок" },
+  { "main": "przekąska", "uk": "перекуска" },
+  { "main": "obiad", "uk": "обід" },
+  { "main": "chusteczka do nosa", "uk": "носова хустинка" },
+  { "main": "łóżko", "uk": "ліжко" },
+  { "main": "toaleta", "uk": "туалет" },
+  { "main": "wycieczka", "uk": "подорож" },
+  { "main": "ogród", "uk": "cад" },
+  { "main": "góry", "uk": "гори" },
+  { "main": "jeździć na łyżwach", "uk": "кататися на ковзанах" },
+  { "main": "myć zeby", "uk": "чистити зуби" },
+  { "main": "ćwiczyć", "uk": "робити вправи" },
+  { "main": "Boli mnie brzuszek", "uk": "У мене болить живіт" }
+]
