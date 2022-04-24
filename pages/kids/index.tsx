@@ -14,7 +14,6 @@ type KidsTranlsation = TranslationJSON & { image: string };
 const KidsWordsMap: Record<CountryVariant, KidsTranlsation[]> = {
   cs: kidsWords_CZ,
   sk: kidsWords_SK,
-  // todo change to PL when available
   pl: kidsWords_SK,
 };
 
