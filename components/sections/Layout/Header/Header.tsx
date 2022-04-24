@@ -3,10 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { HEADER_NAVIGATION } from 'data/headerNavigation';
-import { Language, LOCALE_NAMES } from 'data/locales';
+import { getCountryVariant, Language, LOCALE_NAMES } from 'utils/locales';
 import AppLogo from 'public/icons/movapp-logo.png';
 import { useLanguage } from 'utils/useLanguageHook';
-import { getCountryVariant } from 'utils/countryVariant';
 
 export const Header = () => {
   const { t } = useTranslation('common');

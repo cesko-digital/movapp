@@ -4,12 +4,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { HEADER_NAVIGATION } from 'data/headerNavigation';
-import { Language, LOCALE_NAMES } from 'data/locales';
+import { getCountryVariant, Language, LOCALE_NAMES } from 'utils/locales';
 import BurgerIcon from 'public/icons/burger.svg';
 import CloseIcon from 'public/icons/close.svg';
 import AppLogo from 'public/icons/movapp-logo.png';
 import { useLanguage } from 'utils/useLanguageHook';
-import { getCountryVariant } from 'utils/countryVariant';
 
 export const MobileHeader = () => {
   const [showNavigation, setShowNavigation] = useState(false);

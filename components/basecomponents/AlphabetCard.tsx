@@ -1,5 +1,5 @@
 import { AudioPlayer } from 'utils/AudioPlayer';
-import { Language } from 'data/locales';
+import { Language } from 'utils/locales';
 import { useTranslation } from 'next-i18next';
 import React, { useRef } from 'react';
 import PlayIcon from '../../public/icons/play.svg';

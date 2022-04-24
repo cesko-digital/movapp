@@ -6,8 +6,7 @@ import { LanguageSelect } from '../../components/basecomponents/LanguageSelect';
 import SEO from 'components/basecomponents/SEO';
 import { ALPHABET_CZ } from 'data/alphabets/CZ/cz_alphabet';
 import { ALPHABET_UA } from 'data/alphabets/CZ/ua_alphabet';
-import { Language } from 'data/locales';
-import { getCountryVariant } from 'utils/countryVariant';
+import { getCountryVariant, Language } from 'utils/locales';
 import { ALPHABET_SK } from 'data/alphabets/SK/sk_alphabet';
 export { getStaticProps } from '../../utils/localization';
 

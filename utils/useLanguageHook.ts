@@ -1,5 +1,4 @@
-import { getCountryVariant } from 'utils/countryVariant';
-import { Language } from 'data/locales';
+import { getCountryVariant, Language } from 'utils/locales';
 import { useTranslation } from 'next-i18next';
 
 export const useLanguage = () => {

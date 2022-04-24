@@ -1,6 +1,6 @@
 import PlayIcon from 'public/icons/play.svg';
 import Marker from 'react-mark.js/Marker';
-import { Language } from 'data/locales';
+import { Language } from 'utils/locales';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { useTranslation } from 'next-i18next';
 

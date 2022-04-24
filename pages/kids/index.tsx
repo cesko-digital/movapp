@@ -6,12 +6,12 @@ import { Button } from '../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
 import { Phrase, TranslationJSON } from 'utils/Phrase';
 import SEO from 'components/basecomponents/SEO';
-import { CountryVariant, getCountryVariant } from 'utils/countryVariant';
+import { CountryVariant, getCountryVariant } from 'utils/locales';
 export { getStaticProps } from '../../utils/localization';
 
 type KidsTranlsation = TranslationJSON & { image: string };
 
-const KidsWordsMap: Record<CountryVariant, KidsTranlsation[]> = {
+const KIDS_WORDS: Record<CountryVariant, KidsTranlsation[]> = {
   cs: kidsWords_CZ,
   sk: kidsWords_SK,
   pl: kidsWords_SK,
@@ -33,7 +33,7 @@ const KidsSection = () => {
         </a>
       </div>
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
-        {KidsWordsMap[getCountryVariant()].map((word, index) => {
+        {KIDS_WORDS[getCountryVariant()].map((word, index) => {
           return <KidsTranslationsContainer key={index} image={word.image} translation={new Phrase(word)} />;
         })}
       </div>

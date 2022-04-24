@@ -1,10 +1,10 @@
 import { ua2sk } from './../data/transliterations/ua2sk';
 import { sk2ua } from './../data/transliterations/sk2ua';
 import { pl2ua } from './../data/transliterations/pl2ua';
-import { CountryVariant, getCountryVariant } from 'utils/countryVariant';
 import { ua2cz } from 'data/transliterations/ua2cz';
 import { cz2ua } from './../data/transliterations/cz2ua';
 import { ua2pl } from 'data/transliterations/ua2pl';
+import { CountryVariant, getCountryVariant } from './locales';
 
 type TranslitSubstitutionTable = [string, string][];
 

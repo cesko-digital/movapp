@@ -10,7 +10,7 @@ import { translitFromUkrainian } from 'utils/transliterate';
 import { useLanguage } from 'utils/useLanguageHook';
 import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
-import { Language } from 'data/locales';
+import { Language } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
 import { getAllCategories } from 'data/translations/Categories';
 import { Category } from 'data/translations/CategoryUtils';

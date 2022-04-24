@@ -1,7 +1,7 @@
 import { useTranslation, Trans } from 'next-i18next';
 import React from 'react';
 import PlayKidsIcon from '../../public/icons/play-kids.svg';
-import { Language } from '../../data/locales';
+import { Language } from '../../utils/locales';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { Flag } from './Flag';
 interface KidsTranslationProps {
