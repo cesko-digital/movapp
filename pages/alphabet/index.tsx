@@ -6,18 +6,17 @@ import { LanguageSelect } from '../../components/basecomponents/LanguageSelect';
 import SEO from 'components/basecomponents/SEO';
 import { ALPHABET_CZ } from 'data/alphabets/CZ/cz_alphabet';
 import { ALPHABET_UA } from 'data/alphabets/CZ/ua_alphabet';
-import { getCountryVariant, Language } from 'utils/locales';
+import { CountryVariant, getCountryVariant, Language } from 'utils/locales';
 import { ALPHABET_SK } from 'data/alphabets/SK/sk_alphabet';
+import { Letter } from 'data/alphabets/alphabetTypes';
 export { getStaticProps } from '../../utils/localization';
 
 const countryVariant = getCountryVariant();
 
-const getMainAlphabet = () => {
-  if (countryVariant === 'sk') {
-    return ALPHABET_SK;
-  } else {
-    return ALPHABET_CZ;
-  }
+const ALPHABETS: Record<CountryVariant, Letter[]> = {
+  cs: ALPHABET_CZ,
+  sk: ALPHABET_SK,
+  pl: ALPHABET_SK,
 };
 
 const AlphabetPage = (): JSX.Element => {
@@ -25,7 +24,7 @@ const AlphabetPage = (): JSX.Element => {
   const { t } = useTranslation();
   const [selectedAlphabet, setSelectedAlphabet] = useState<Language>(currentLanguage);
 
-  const alphabet = selectedAlphabet === 'uk' ? ALPHABET_UA : getMainAlphabet();
+  const alphabet = selectedAlphabet === 'uk' ? ALPHABET_UA : ALPHABETS[getCountryVariant()];
 
   return (
     <>
