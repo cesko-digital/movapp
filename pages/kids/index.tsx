@@ -1,12 +1,22 @@
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-import kidsWords from '../../data/translations/CZ/pro-deti.json';
+import kidsWords_CZ from '../../data/translations/CZ/pro-deti.json';
+import kidsWords_SK from '../../data/translations/SK/pro-deti_sk.json';
 import { Button } from '../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
-import { Phrase } from 'utils/Phrase';
+import { Phrase, TranslationJSON } from 'utils/Phrase';
 import SEO from 'components/basecomponents/SEO';
-import { getCountryVariant } from 'utils/countryVariant';
+import { CountryVariant, getCountryVariant } from 'utils/countryVariant';
 export { getStaticProps } from '../../utils/localization';
+
+type KidsTranlsation = TranslationJSON & { image: string };
+
+const KidsWordsMap: Record<CountryVariant, KidsTranlsation[]> = {
+  cs: kidsWords_CZ,
+  sk: kidsWords_SK,
+  // todo change to PL when available
+  pl: kidsWords_SK,
+};
 
 const KidsSection = () => {
   const { t } = useTranslation();
@@ -24,7 +34,7 @@ const KidsSection = () => {
         </a>
       </div>
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
-        {kidsWords.map((word, index) => {
+        {KidsWordsMap[getCountryVariant()].map((word, index) => {
           return <KidsTranslationsContainer key={index} image={word.image} translation={new Phrase(word)} />;
         })}
       </div>
