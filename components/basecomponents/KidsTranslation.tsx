@@ -1,10 +1,9 @@
 import { useTranslation, Trans } from 'next-i18next';
 import React from 'react';
 import PlayKidsIcon from '../../public/icons/play-kids.svg';
-import FlagCZIcon from '../../public/icons/cz.svg';
-import FlagUAIcon from '../../public/icons/ua.svg';
 import { Language } from '../../data/locales';
 import { AudioPlayer } from 'utils/AudioPlayer';
+import { Flag } from './Flag';
 interface KidsTranslationProps {
   translation: string;
   transcription: string;
@@ -19,11 +18,7 @@ export const KidsTranslation = ({ transcription, translation, language }: KidsTr
     <div className="flex justify-between items-center py-2 ">
       <div className="w-full">
         <div className="flex">
-          {language === 'uk' ? (
-            <FlagUAIcon width="30px" height="24px" className="mr-3 shadow" />
-          ) : (
-            <FlagCZIcon width="30px" height="24px" className="mr-3 shadow" />
-          )}
+          <Flag language={language} width={30} height={24} className={'mr-3 shadow'} />
           <p>
             <Trans className="block my-2">{t(`dictionary_page.${language}`)}</Trans>
           </p>
