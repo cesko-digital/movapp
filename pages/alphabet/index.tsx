@@ -20,9 +20,9 @@ const ALPHABETS: Record<CountryVariant, Letter[]> = {
 };
 
 const AlphabetPage = (): JSX.Element => {
-  const { currentLanguage } = useLanguage();
+  const { otherLanguage } = useLanguage();
   const { t } = useTranslation();
-  const [selectedAlphabet, setSelectedAlphabet] = useState<Language>(currentLanguage);
+  const [selectedAlphabet, setSelectedAlphabet] = useState<Language>(otherLanguage);
 
   const alphabet = selectedAlphabet === 'uk' ? ALPHABET_UA : ALPHABETS[getCountryVariant()];
 
