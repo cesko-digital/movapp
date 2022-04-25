@@ -8,7 +8,7 @@ module.exports = {
     // eslint-disable-next-line no-process-env
     defaultLocale: mainLanguage,
     localePath: path.resolve('./public/locales'),
-    localeDetection: false,
+    localeDetection: true,
   },
   trailingSlash: true,
 };
