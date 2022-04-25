@@ -16,6 +16,7 @@ const countryVariant = getCountryVariant();
 const ALPHABETS: Record<CountryVariant, Letter[]> = {
   cs: ALPHABET_CZ,
   sk: ALPHABET_SK,
+  // Todo change to Polish after Polish content comes in
   pl: ALPHABET_SK,
 };
 
