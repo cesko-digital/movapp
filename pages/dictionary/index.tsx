@@ -24,6 +24,7 @@ const ExportTranslations = dynamic(() => import('../../components/sections/Expor
 const CATEGORIES_VARIANTS: Record<CountryVariant, Category[]> = {
   cs: CATEGORIES_CZ,
   sk: CATEGORIES_SK,
+  // Todo change to polish once polish content comes in
   pl: CATEGORIES_SK,
 };
 
