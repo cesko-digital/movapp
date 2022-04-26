@@ -63,7 +63,9 @@ const WikiArticle = ({ markdown, title }: InferGetStaticPropsType<typeof getStat
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  /* eslint-disable @typescript-eslint/no-non-null-assertion */
   const param = params!.article;
+
   const articles = fs.readFileSync(path.join(process.cwd(), 'articles.json'), { encoding: 'utf-8' });
 
   const currentWikiPage = (JSON.parse(articles) as string[]).find((article: string) => normalizeWikiPagesUrl(article) === param);

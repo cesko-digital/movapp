@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import React, { useMemo, useState } from 'react';
 import { normalizeWikiPagesUrl } from 'utils/textNormalizationUtils';
 import { visit } from 'unist-util-visit';
@@ -15,35 +15,34 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 const mainLanguage = process.env.NEXT_PUBLIC_COUNTRY_VARIANT || 'cs';
 
 const Wiki = ({ markdown }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [markdownString, setMarkdownString] = useState('');
   const [seoTitle, setSEOTitle] = useState('');
 
-  useMemo(() => {
-    const markdownText = unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(() => (tree) => {
-        // normalizes all internal urls to create correct links
-        visit(tree, 'link', (node) => {
-          if (!/https/.test(node.url)) {
-            node.url = `/wiki/${normalizeWikiPagesUrl(node.url)}`;
-          }
-        });
-        // replaces title if heading H1 exists
-        visit(tree, 'heading', (node) => {
-          if (node.depth === 1) {
-            setSEOTitle((node.children[0] as { value: string }).value);
-          }
-        });
-      })
-      .use(remarkRehype)
-      .use(rehypeExternalLinks)
-      .use(rehypeStringify)
-      .processSync(markdown)
-      .toString();
-
-    setMarkdownString(markdownText);
-  }, [markdown]);
+  const markdownString = useMemo(
+    () =>
+      unified()
+        .use(remarkParse)
+        .use(remarkGfm)
+        .use(() => (tree) => {
+          // normalizes all internal urls to create correct links
+          visit(tree, 'link', (node) => {
+            if (!/https/.test(node.url)) {
+              node.url = `/wiki/${normalizeWikiPagesUrl(node.url)}`;
+            }
+          });
+          // replaces title if heading H1 exists
+          visit(tree, 'heading', (node) => {
+            if (node.depth === 1) {
+              setSEOTitle((node.children[0] as { value: string }).value);
+            }
+          });
+        })
+        .use(remarkRehype)
+        .use(rehypeExternalLinks)
+        .use(rehypeStringify)
+        .processSync(markdown)
+        .toString(),
+    [markdown]
+  );
 
   return (
     <>
@@ -54,16 +53,6 @@ const Wiki = ({ markdown }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <div className="max-w-7xl m-auto" id="markdown" dangerouslySetInnerHTML={{ __html: markdownString }} />
     </>
   );
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [
-      { params: { wiki: 'wiki' }, locale: 'uk' },
-      { params: { wiki: 'wiki' }, locale: mainLanguage },
-    ],
-    fallback: false,
-  };
 };
 
 export const getStaticProps = async ({ locale }: Parameters<GetStaticProps>[0]) => {
@@ -83,7 +72,7 @@ export const getStaticProps = async ({ locale }: Parameters<GetStaticProps>[0]) 
   return {
     props: {
       markdown,
-      ...(await serverSideTranslations(locale ?? 'cz', ['common'])),
+      ...(await serverSideTranslations(locale ?? 'cs', ['common'])),
     },
   };
 };

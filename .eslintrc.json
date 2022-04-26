@@ -41,7 +41,6 @@
     "@typescript-eslint/prefer-string-starts-ends-with": ["warn"],
     "@typescript-eslint/interface-name-prefix": ["off"],
     "@typescript-eslint/prefer-interface": ["off"],
-    "@typescript-eslint/no-non-null-assertion": ["off"],
     "@typescript-eslint/explicit-member-accessibility": [
       "warn",
       {
