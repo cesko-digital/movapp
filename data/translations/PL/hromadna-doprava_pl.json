@@ -1,0 +1,23 @@
+[
+  { "main": "Jak tutaj działa komunikacja miejska?", "uk": "Як тут працює громадський транспорт?" },
+  { "main": "Gdzie mogę kupić bilet?", "uk": "Де можна купити квиток?" },
+  { "main": "lístek", "uk": "квиток" },
+  { "main": "lístky", "uk": "квитки" },
+  { "main": "jízdenka", "uk": "проїзний квиток" },
+  { "main": "Kiedy odjeżdża...?", "uk": "Коли їде...?" },
+  { "main": "autobus", "uk": "автобус" },
+  { "main": "tramwaj", "uk": "трамвай" },
+  { "main": "pociąg", "uk": "поїзд" },
+  { "main": "za pięć minut", "uk": "за 5 хвилин" },
+  { "main": "sześć", "uk": "шість" },
+  { "main": "siedem", "uk": "сім" },
+  { "main": "osiem", "uk": "вісім" },
+  { "main": "dziewięć", "uk": "дев'ять" },
+  { "main": "dziesięć", "uk": "десять" },
+  { "main": "Czy ten tramwaj jedzie do...?", "uk": "Цей трамвай їде до...?" },
+  { "main": "Czy ten autobus jedzie do...?", "uk": "Цей автобус їде до...?" },
+  { "main": "metro", "uk": "метро" },
+  { "main": "Jestem na linii 1?", "uk": "Це гілка 1?" },
+  { "main": "Jestem na linii 2?", "uk": "Це гілка 2?" },
+  { "main": "Gdzie mam się przesiąść (na inną linię)?", "uk": "Де мені перейти (на іншу гілку)?" }
+]

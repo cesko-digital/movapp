@@ -1,0 +1,103 @@
+{
+  "header": {
+    "vocabulary_link_name": "Rozmówki",
+    "forkids_link_name": "Dla dzieci",
+    "exercises_link_name": "Ćwiczenia",
+    "about_link_name": "O nas",
+    "contacts_link_name": "Kontakty",
+    "alphabet_link_name": "Alfabet"
+  },
+  "footer": {
+    "stand_with_ukraine_description": "Nezávislý informační rozcestník",
+    "help_ukraine_description": "Portal pośredniczący ofertom pomocy",
+    "czech_digital": "Przez jedynki i zera zmieniamy Czechy na lepsze (link w języku angielskim)"
+  },
+  "homepage": {
+    "title": "Naucz się podstaw polskiego i ukraińskiego na codzienne życiowe sytuacje",
+    "box_dictionary_title": "Rozmówki",
+    "box_dictionary_description": "Naucz się setki podstawowych słówek i zwrotów przez czytanie i słuchanie. Słówka są posortowane według sytuacji w których są używane.",
+    "box_child_title": "Dla dzieci",
+    "box_child_description": "Ilustrowany ukraińsko-polski słownik z kartami gotowymi do wydrukowania",
+    "box_alphabet_title": "Alfabet ukraiński",
+    "box_alphabet_description": "Naucz się znaków ukraińskiej cyrylicy. Pomogą Ci przykładowe słowa.",
+    "box_movapp_title": "Movapp to…",
+    "box_movapp_description_top": "мова [mova] znaczy język ukraiński. Movapp jest aplikacją do uczenia się języków. Celem Movapp jest ułatwić dogadanie się Polaków z Ukraińcami.",
+    "box_movapp_description_bottom": "Znajdziesz tu zbiór postawowych zwrotów komunikacyjnych w językach polskim i ukraińskim. Za niedługo dodamy narzędzia do ich ćwiczenia, oraz zalinkujemy materiały do nauki."
+  },
+  "dictionary_page": {
+    "title": "Rozmówki polsko-ukraińskie",
+    "search_button": "Szukaj",
+    "search_placeholder": "Szukany wyraz",
+    "subtitle": "Wybierz kategorię",
+    "cs": "polski",
+    "uk": "ukraiński"
+  },
+  "kids_page": {
+    "downloadPDF": "Pobierz w PDF"
+  },
+  "about_page": {
+    "title": "<strong>Movapp</strong> to projekt, który powstał w ramach inicjatywy <strong>Stojíme za Ukrajinou</strong> w społeczności ekspertów wolontariuszy <strong>Česko.Digital.</strong>",
+    "movapp_goal_title": "Nasz cel",
+    "movapp_goal_description": "Celem Movapp jest ułatwić dogadanie się Polaków z Ukraińcami. W pierwszej fazie opublikowany został zbiór podstawowych polsko-ukraińskich zwrotów. W następnych fazach stworzymy narzędzia do ich ćwiczenia, i chcemy stać się hubem narzędzi i materiałów, które pomogą z nauką polskiego i ukraińskiego.",
+    "why_movapp_title": "Dlaczego Movapp?",
+    "why_movapp_mova": "<i>Mова [mowa]</i> znaczy po ukraińsku <i>język</i>. Movapp jest aplikacją do nauki języków.",
+    "why_movapp_description": "Movapp jest dostępna za darmo jako otwarte oprogramowanie pod licencją MIT. To znamená, že ji můžete zdarma nejen používat, ale také si ji upravit (pokud umíte programovat). To znaczy, że możesz ją nie tylko wykorzystywać, ale także zmieniać (jeśli umiesz programować)",
+    "why_movapp_license": "Teksty, obrazy oraz pliki audio Movapp są pod <0>licencją CC BY-NC 4.0</0>. (Uznanie autorstwa - Użycie niekomercyjne 4.0), co znaczy, że możesz je wykorzystywać na własne potrzeby bez żadnych ograniczeń. Gdybyś chciał/a je dalej dystrybuować (w oryginalnej lub edytowanej wersji), możesz to robić tylko w celach niekomercyjnych, i z uznaniem oryginalnych autorów.",
+    "why_movapp_origin": "Oryginalnymi autorkami <0>podstawowego zestawu słów i zwrotów</0> są Tereza Javornická i Yevheniia Valova (EDUA Group). Zestaw ten jest utrzymywany oraz dalej rozszerzany przez zespół Movapp.",
+    "our_team_title": "Nasz zespół",
+    "our_team_description": "Głównymi członkami zespołu Movapp są: Martin Hassman, Oleg Antonyak, Tatiana Chytilová, Petr Illek, Valeriia Kuna i Monika Fabryová. Pomaga im szereg innych wolontariuszy.",
+    "our_team_contact": "Chcesz nam pomóc z treścią, albo przyłączyć się w inny sposób? <br/> Szukasz do nas <0>kontaktu</0>?",
+    "our_team_illustrators": "Autorkami ilustracji dla dzieci są: Alena Burneleit, Anna Lamberová, Lucie Lomová, Kateřina Vacková Mňuková i Marie Kraus.",
+    "stand_with_ukraine_title": "Stojíme za Ukrajinou",
+    "stand_with_ukraine_description": "<0>Stojíme za Ukrajinou</0> (Murem za Ukrainą) jest czeską inicjatywą wolontariuszy z przeróżnych organizacji i stowarzyszeń. Jesteśmy \"zwykłymi Kowalskimi\", którym nie jest obojętna sytuacja związana ze zbrojnym konfliktem prowadzonym przez Rosję przeciwko suwerennej, demokratycznej Ukrainie. Inicjatywa ta powstała naturalnie, pochodzi z długotrwałego wspierania Ukrainy po aneksji Krymu. Z eskalacją działań wojennych zaczęła być widoczna w przestrzeni publicznej 19 lutego 2022 roku, a od tego czasu organicznie rośnie.",
+    "czech_digital_title": "Česko.Digital",
+    "czech_digital_description": "<0>Česko.Digital</0> (Cyfrowe Czechy) jest czeską społecznością ekspertów wolontariuszy z wielu dziedzin - od IT przez prowadzenie projektów aż po marketing - którzy w swoim wolnym czasie pomagają państwu a organizacjom pozarządowym zmieniać Czechy na lepsze. Społeczność Česko.Digital załozyli w roku 2019 Jakub Nešetřil, Radka Horáková i Eva Pavlíková."
+  },
+  "contacts_page": {
+    "title": "Kontakty",
+    "email_contact_title": "Email kontaktowy:",
+    "email_contact_link": "pryvit@movapp.cz",
+    "social_media": {
+      "social_media_title": "Znajdziesz nas także na sieciach społecznościowych:"
+    },
+    "community_description": "Projekt Movapp jest rozwijany przez społeczność ekspertów wolontariuszy <0>Česko.Digital.</0>",
+    "join_title": "Dołącz do nas",
+    "join_description": "Jeśli chcesz stać się członkiem zespołu wolontariuszy i pomagać nam w dalszym rozwoju projektu, wypełnij formularz na <0>cesko.digital/join</0>, i dołącz do naszego Slacku. Znajdziesz nas w kanale <strong>ua-movapp</strong> (mówimy głównie po czesku, słowacku i angielsku, ale też trochę po ukraińsku i polsku.)"
+  },
+  "alphabet_page":{
+    "title": "{{cz_version}} abecadło",
+    "description": "{{cz_version_description}}"
+  },
+  "seo": {
+    "homepage_page_title": "Movapp.eu - żeby się Polacy z Ukraincami łatwo dogadali",
+    "homepage_page_description": "Przegląd podstawowych polsko-ukraińskich zwrotów, oraz narzędzia do ich ćwiczenia. Zbiór materiałów do nauki. Stworzono z miłością.",
+    "dictionary_page_title": "Ukrajinsko-polski słownik | Movapp.eu",
+    "dictionary_page_description": "Podstawowe polsko-ukraińskie słówka i zwroty rodzdielone według sytuacji życiowych. Stworzono z miłością.",
+    "contacts_page_title": "Kontakt | Movapp.cz",
+    "contacts_page_description": "Chcesz stać się członkiem zespołu i pomagać przy dalszym rozwoju projektu?",
+    "about_page_title": "O nas | Movapp.eu",
+    "about_page_description": "Projekt powstał w ramach inicjatywy Stojíme za Ukrajinou w społeczności woluntariuszy ekspertów Česko.Digital.",
+    "alphabet_page_title": "Alfabet ukraiński (cyrilica)",
+    "alphabet_page_description": "Naucz się ukraińskiego alfabetu. Nazywa się on także ukraińska cyrylica lub ukraińska azbuka. Zawiera 33 znaki i apostrof."
+  },
+  "export_translations": {
+    "download_phrases": "Pobierz zwroty",
+    "download": "Pobierz",
+    "comma": "przecinek",
+    "semicolon": "średnik",
+    "new_line": "nowa linijka",
+    "custom": "własny",
+    "tab": "tabulator",
+    "between_phrase_and_translation": "Między zwrotem a tłumaczeniem",
+    "between_phrases": "Między zwrotami",
+    "sharing_info": "Zawartość możesz wykorzystywać do celów prywatnych za darmo i bez ograniczeń, natomiast rozpowszechniać ją możesz tylko kierując się warunkami licencji",
+    "copy_to_clipboard": "Skopiuj zwroty do schowka",
+    "preview": "Podgląd",
+    "transcriptions": "Transkrypcja",
+    "include_transcriptions": "Zapisuj zwroty w obu alfabetach",
+    "all_phrases": "wszystkie zwroty"
+  },
+  "errors": {
+    "pageNotFound": "Strona nie została znaleziona"
+  }
+}
