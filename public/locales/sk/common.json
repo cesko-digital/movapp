@@ -22,14 +22,19 @@
     "box_alphabet_description": "Naučte sa všetky znaky ukrajinskej cyriliky. Pomôžu vám ukážkové slová.",
     "box_movapp_title": "Movapp je…",
     "box_movapp_description_top": "мова [mova] znamená po ukrajinsky jazyk. Movapp je aplikácia na precvičovanie jazykov. Cieľom Movapp.cz je uľahčiť dorozumenie medzi Slovákmi a Ukrajincami.",
-    "box_movapp_description_bottom": "Nájdete tu prehľad základných komunikačných fráz v slovenčine a ukrajinčine. Čoskoro pridáme nástroje na ich precvičovanie a rázcestník učebných materiálov."
+    "box_movapp_description_bottom": "Nájdete tu prehľad základných komunikačných fráz v slovenčine a ukrajinčine. Čoskoro pridáme nástroje na ich precvičovanie a rázcestník učebných materiálov.",
+    "box_easter_dictionary_title": "Velkonočný slovníček",
+    "box_easter_dictionary_description": "Šibi, ryby, mastné ryby, kus koláča a Velkonočné fráze.",
+    "box_easter_kids_title": "Veľká noc pre deti",
+    "box_easter_kids_description": "Zábavné obrázky a omalovánky s Velkonočnou tématikou.",
+    "box_easter_anchor": "velka_noc"
   },
   "dictionary_page": {
     "title": "Slovensko-ukrajinský slovníček",
     "search_button": "Hľadať",
     "search_placeholder": "Hľadaný výraz",
     "subtitle": "Vyberte si oblasť",
-    "cs": "po slovensky",
+    "sk": "po slovensky",
     "uk": "po ukrajinsky"
   },
   "kids_page": {
@@ -64,9 +69,15 @@
     "join_title": "Pridajte sa",
     "join_description": "Ak sa chcete stať členom tímu dobrovoľníkov a pomáhať nám pri ďalšom rozvoji projektu, vyplňte formulár na <0>cesko.digital/join</0> a pridajte sa do Slacku. Nájdete nás v kanáli <strong>ua-movapp</strong> (komunikujeme po česky, slovensky, anglicky a trochu aj po ukrajinsky)."
   },
-  "alphabet_page":{
-    "title": "{{cz_version}} abeceda",
-    "description": "{{cz_version_description}}"
+  "alphabet_page": {
+    "sk": {
+      "name": "Slovenská abeceda",
+      "description": "Naučte sa slovenskú abecedu. Tvorí ju 26 písmen latinskej abecedy doplnených tromi diakritickými znamienkami."
+    },
+    "uk": {
+      "name": "Ukrajinská abeceda",
+      "description": "Naučte se ukrajinskú abecedu. Nazývá se tiež ukrajinská cyrilika alebo ukrajinská azbuka. Obsahuje 33 písmen."
+    }
   },
   "seo": {
     "homepage_page_title": "Movapp.cz – aby sa Češi / Slováci a Ukrajinci ľahko dorozumeli",

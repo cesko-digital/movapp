@@ -1,4 +1,4 @@
-import { Language } from 'data/locales';
+import { Language } from 'utils/locales';
 import { decodeType, record, string } from 'typescript-json-decoder';
 import { translitToUkrainian, translitFromUkrainian } from './transliterate';
 

@@ -10,19 +10,26 @@ import { translitFromUkrainian } from 'utils/transliterate';
 import { useLanguage } from 'utils/useLanguageHook';
 import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
-import { Language } from 'data/locales';
+import { CountryVariant, getCountryVariant, Language } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
-import { getAllCategories } from 'data/translations/Categories';
 import { Category } from 'data/translations/CategoryUtils';
 import { SearchInput } from 'components/basecomponents/SearchInput';
+import { CATEGORIES_CZ } from 'data/translations/cs/categories_CZ';
+import { CATEGORIES_SK } from 'data/translations/sk/categories_SK';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
 });
 
-const allTranslations = getAllCategories()
-  .map((category) => category.translations)
-  .flat();
+const CATEGORIES_VARIANTS: Record<CountryVariant, Category[]> = {
+  cs: CATEGORIES_CZ,
+  sk: CATEGORIES_SK,
+  // Todo change to polish once polish content comes in
+  pl: CATEGORIES_SK,
+};
+
+const categories = CATEGORIES_VARIANTS[getCountryVariant()];
+const allTranslations = categories.map((category) => category.translations).flat();
 
 const getCategoryName = (category: Category, currentLanguage: Language) => {
   const mainLanguageCategory = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
@@ -133,7 +140,7 @@ const Dictionary = () => {
         {isSearching ? (
           <DictionarySearchResults search={search} results={filteredTranslations} />
         ) : (
-          getAllCategories().map((category, index) => {
+          categories.map((category, index) => {
             const categoryName = getCategoryName(category, currentLanguage);
             return (
               <Collapse

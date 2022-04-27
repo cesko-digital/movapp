@@ -3,7 +3,7 @@ import { useTranslation, Trans } from 'next-i18next';
 export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
 import { HTMLAttributes } from 'react';
-import { Language } from 'data/locales';
+import { Language } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
 
