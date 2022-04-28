@@ -1,6 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import React, { useMemo, useState } from 'react';
-import { normalizeWikiPagesUrl } from 'utils/textNormalizationUtils';
 import { visit } from 'unist-util-visit';
 
 import { unified } from 'unified';
@@ -22,10 +21,9 @@ const Wiki = ({ markdown }: InferGetStaticPropsType<typeof getStaticProps>) => {
         .use(remarkParse)
         .use(remarkGfm)
         .use(() => (tree) => {
-          // normalizes all internal urls to create correct links
           visit(tree, 'link', (node) => {
             if (!/https/.test(node.url)) {
-              node.url = `/wiki/${normalizeWikiPagesUrl(node.url)}`;
+              node.url = `/wiki/${node.url}`;
             }
           });
           // replaces title if heading H1 exists

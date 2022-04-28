@@ -18,10 +18,3 @@ export const normalizeForId = (text: string) => {
   );
 };
 
-export const normalizeWikiPagesUrl = (text: string) => {
-  return text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/--{1,5}/g, '-');
-};

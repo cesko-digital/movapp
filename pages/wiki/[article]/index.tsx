@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { normalizeWikiPagesUrl } from 'utils/textNormalizationUtils';
 import { visit } from 'unist-util-visit';
 import markdownLinkExtractor from 'markdown-link-extractor';
 
@@ -24,12 +23,6 @@ const WikiArticle = ({ markdown, title }: InferGetStaticPropsType<typeof getStat
       .use(remarkParse)
       .use(remarkGfm)
       .use(() => (tree) => {
-        // normalizes all internal urls to create correct links
-        visit(tree, 'link', (node) => {
-          if (!/https/.test(node.url)) {
-            node.url = normalizeWikiPagesUrl(node.url);
-          }
-        });
         // replaces title if heading H1 exists
         visit(tree, 'heading', (node) => {
           if (node.depth === 1) {
@@ -115,14 +108,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const otherArticles = await fetchWikiArticle('home', [], []);
 
   const mainLanguagePaths = mainLanguageArticles.map((article) => ({
-    params: { article: normalizeWikiPagesUrl(article) },
+    params: { article },
     locale: mainLanguage,
   }));
   const ukLanguagePaths = ukArticles.map((article) => ({
-    params: { article: normalizeWikiPagesUrl(article) },
+    params: { article },
     locale: 'uk',
   }));
-  const otherArticlesPaths = otherArticles.map((article) => ({ params: { article: normalizeWikiPagesUrl(article) } }));
+  const otherArticlesPaths = otherArticles.map((article) => ({ params: { article } }));
 
   const paths = [...mainLanguagePaths, ...ukLanguagePaths, ...otherArticlesPaths];
   return {
