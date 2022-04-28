@@ -236,7 +236,7 @@ export const ALPHABET_CZ: Letter[] = [
     ],
   },
   {
-    letter: ['Ch', null],
+    letter: ['Ch', 'ch'],
     transcription: '[х]',
     examples: [
       {
