@@ -1,0 +1,18 @@
+[
+  { "main": "tričko", "uk": "футболка" },
+  { "main": "tričká", "uk": "футболки" },
+  { "main": "nohavice", "uk": "штани" },
+  { "main": "prádlo", "uk": "білизна" },
+  { "main": "ponožky", "uk": "шкарпетки" },
+  { "main": "mikina", "uk": "толстовка" },
+  { "main": "mikiny", "uk": "толстовки" },
+  { "main": "sveter", "uk": "светр" },
+  { "main": "svetre", "uk": "светри" },
+  { "main": "zimná bunda", "uk": "зимова куртка" },
+  { "main": "zimné bundy", "uk": "зимові куртки" },
+  { "main": "čiapka", "uk": "шапка" },
+  { "main": "rukavice", "uk": "рукавиці" },
+  { "main": "pyžamo", "uk": "піжама" },
+  { "main": "zimné topánky", "uk": "зимові чоботи" },
+  { "main": "papuče", "uk": "капці" }
+]

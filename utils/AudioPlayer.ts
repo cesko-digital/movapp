@@ -1,4 +1,4 @@
-import { Language } from '../data/locales';
+import { Language } from './locales';
 
 /**
  * A singleton AudioPlayer class

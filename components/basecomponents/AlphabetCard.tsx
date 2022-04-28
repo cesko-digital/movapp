@@ -1,5 +1,5 @@
 import { AudioPlayer } from 'utils/AudioPlayer';
-import { Language } from 'data/locales';
+import { Language } from 'utils/locales';
 import { useTranslation } from 'next-i18next';
 import React, { useRef } from 'react';
 import PlayIcon from '../../public/icons/play.svg';
@@ -19,8 +19,9 @@ interface AlphabetCardProps {
 export const AlphabetCard = ({ examples, letter, transcription, language: playerLanguage }: AlphabetCardProps): JSX.Element => {
   const { t } = useTranslation();
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const letterHasAudio = !LETTERS_WITHOUT_AUDIO.includes(letter[0]);
   const audioSrcPath = `alphabet/${playerLanguage}-alphabet/${letter[0].toLowerCase()}.mp3`;
+  const letterHasAudio = !LETTERS_WITHOUT_AUDIO.includes(letter[0]);
+  const letterSpacer = ' ';
 
   return (
     <div className=" grid grid-rows-[66%_34%]  shadow-[0_3px_15px_grey] sm:shadow-none group sm:hover:shadow-lg rounded-lg">
@@ -29,6 +30,7 @@ export const AlphabetCard = ({ examples, letter, transcription, language: player
         <div className="px-4 py-2 h-full grid grid-rows-[40%_30%_30%]">
           <p className=" text-7xl  sm:text-6xl md:text-7xl py-4 md:py-2 font-light text-center group-hover:text-white transition-colors duration-500">
             {letter[0]}
+            {letterSpacer}
             {letter[1]}
           </p>
           <div className="self-end">

@@ -1,0 +1,30 @@
+[
+  { "main": "rodina", "uk": "родина" },
+  { "main": "To je moje rodina.", "uk": "Це моя родина." },
+  { "main": "To jsou moje dcery.", "uk": "Це мої доньки." },
+  { "main": "Žena. Manželka.", "uk": "Жінка" },
+  { "main": "babička", "uk": "бабуся" },
+  { "main": "máma", "uk": "мама" },
+  { "main": "sestra", "uk": "сестра" },
+  { "main": "sestry", "uk": "сестри" },
+  { "main": "dcera", "uk": "донька" },
+  { "main": "dcery", "uk": "доньки" },
+  { "main": "kamarádka", "uk": "подруга" },
+  { "main": "kamarádky", "uk": "подруги" },
+  { "main": "To je můj syn.", "uk": "Це мій син." },
+  { "main": "To jsou moji synové.", "uk": "Це мої сини." },
+  { "main": "Muž. Manžel.", "uk": "Чоловік" },
+  { "main": "dědeček", "uk": "дідусь" },
+  { "main": "táta", "uk": "тато" },
+  { "main": "bratr", "uk": "брат" },
+  { "main": "bratři", "uk": "брати" },
+  { "main": "syn", "uk": "син" },
+  { "main": "synové", "uk": "сини" },
+  { "main": "kamarád", "uk": "друг" },
+  { "main": "kamarádi", "uk": "друзі" },
+  {
+    "main": "Potřebuju být na chvilku sama. Potřebuju být na chvilku sám.",
+    "uk": "Мені потрібно побути самій. / Мені потрібно побути самому."
+  },
+  { "main": "Potřebuju obejmout.", "uk": "Обійми мене, будь ласка." }
+]

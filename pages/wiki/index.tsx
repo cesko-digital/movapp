@@ -11,8 +11,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import remarkGfm from 'remark-gfm';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
-const mainLanguage = process.env.NEXT_PUBLIC_COUNTRY_VARIANT || 'cs';
+import { getCountryVariant } from 'utils/locales';
 
 const Wiki = ({ markdown }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [seoTitle, setSEOTitle] = useState('');
@@ -61,6 +60,8 @@ export const getStaticProps = async ({ locale }: Parameters<GetStaticProps>[0]) 
     const markdown = await response.text();
     return markdown;
   };
+
+  const mainLanguage = getCountryVariant();
 
   let markdown;
   if (locale === mainLanguage) {

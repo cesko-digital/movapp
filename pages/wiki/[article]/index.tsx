@@ -13,6 +13,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import remarkGfm from 'remark-gfm';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { getCountryVariant } from 'utils/locales';
 
 const WikiArticle = ({ markdown, title }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   const [seoTitle, setSEOTitle] = useState(title);
@@ -83,7 +84,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   // list of pages which should not be fetched in nested url ex. wiki/...
   const excludedPages = ['sk', 'cs', 'pl', 'uk-pl', 'uk-cs', 'uk-sk'];
 
-  const mainLanguage = process.env.NEXT_PUBLIC_COUNTRY_VARIANT || 'cs';
+  const mainLanguage = getCountryVariant();
 
   /** Recursively finds all internal links and creates paths for pages which should be generated
    *

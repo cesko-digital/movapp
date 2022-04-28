@@ -14,11 +14,6 @@
   },
   "homepage": {
     "title": "Naučte se základy češtiny a ukrajinštiny pro běžné životní situace",
-    "box_easter_dictionary_title": "Velikonoční slovníček",
-    "box_easter_dictionary_description": "Hody, hody, doprovody, dejte vejce malovaný a naučte se velikonoční fráze.",
-    "box_easter_kids_title": "Velikonoce pro děti",
-    "box_easter_kids_description": "Zábavné obrázky a omalovánky s velikonoční tématikou.",
-    "box_easter_anchor": "velikonoce",
     "box_dictionary_title": "Slovníček",
     "box_dictionary_description": "Naučte se stovky základních slovíček a frází čtením i poslechem. Slovíčka třídíme dle životních situací.",
     "box_child_title": "Pro děti",
@@ -73,8 +68,14 @@
     "join_description": "Chcete-li se stát členem týmu dobovolníků a pomáhat nám na dalším rozvoji projektu, vyplňte formulář na <0>cesko.digital/join</0> a přidejte se do Slacku. Najdete nás v kanálu <strong>ua-movapp</strong> (komunikujeme česky, slovensky, anglicky, a trochu také ukrajinsky)."
   },
   "alphabet_page": {
-    "title": "{{cz_version}} abeceda",
-    "description": "{{cz_version_description}}"
+    "cs": {
+      "name": "Česká abeceda",
+      "description": "Naučte se českou abecedu. Tvoří ji 26 písmen latinské abecedy doplněných třemi diakritickými znaménky."
+    },
+    "uk": {
+      "name": "Ukrajinská abeceda",
+      "description": "Naučte se ukrajinskou abecedu. Nazývá se také ukrajinská cyrilice nebo ukrajinská azbuka. Obsahuje 33 znaků."
+    }
   },
   "seo": {
     "homepage_page_title": "Movapp.cz – aby se Češi a Ukrajinci snadno domluvili",
@@ -86,7 +87,9 @@
     "about_page_title": "O nás | Movapp.cz",
     "about_page_description": "Projekt vznikl v rámci iniciativy Stojíme za Ukrajinou v komunitě expertních dobrovolníků Česko.Digital.",
     "alphabet_page_title": "Ukrajinská abeceda (cyrilice)",
-    "alphabet_page_description": "Naučte se ukrajinskou abecedu. Nazývá se také ukrajinská cyrilice nebo ukrajinská azbuka. Obsahuje 33 znaků a apostrof."
+    "alphabet_page_description": "Naučte se ukrajinskou abecedu. Nazývá se také ukrajinská cyrilice nebo ukrajinská azbuka. Obsahuje 33 znaků a apostrof.",
+    "kids_page_title": "Ilustrovaný ukrajinsko-český slovníček pro děti | Movapp.cz",
+    "kids_page_description": "Obrázky pro děti s ukrajinskými a českými popisky. Namluvené v češtině a ukrajinštině. Tisk omalovánek pro děti."
   },
   "export_translations": {
     "download_phrases": "Stáhnout fráze",

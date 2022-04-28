@@ -2,10 +2,10 @@
 import { useTranslation, Trans } from 'next-i18next';
 export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
-import Head from 'next/head';
 import { HTMLAttributes } from 'react';
-import { Language } from 'data/locales';
+import { Language } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
+import SEO from 'components/basecomponents/SEO';
 
 interface LinkTextProps {
   href: string;
@@ -33,12 +33,11 @@ const About = () => {
 
   return (
     <>
-      <Head>
-        <meta name="referrer" content="no-referrer" />
-        <title>{t('seo.about_page_title')}</title>
-        <meta name="description" content={t('seo.about_page_description')} />
-        <meta name="twitter:title" content={t('seo.about_page_title')} />
-      </Head>
+      <SEO
+        title={t('seo.about_page_title')}
+        description={t('seo.about_page_description')}
+        image="https://www.movapp.cz/icons/movapp-cover.jpg"
+      />
       <div className="max-w-7xl m-auto pb-6">
         <h1 className="text-primary-blue">
           <Trans className="block my-2">{t('about_page.title')}</Trans>

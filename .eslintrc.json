@@ -18,7 +18,7 @@
   "rules": {
     "react/display-name": "off",
     "no-console": "warn",
-    "no-unused-vars": "warn",
+    "no-unused-vars": "off",
     "quotes": ["off"],
     "eqeqeq": ["warn", "always"],
     "no-process-env": ["off"],
@@ -35,6 +35,7 @@
     ],
     "@typescript-eslint/await-thenable": ["warn"],
     "@typescript-eslint/no-use-before-define": ["off"],
+    "@typescript-eslint/no-unused-vars": ["error"],
     "@typescript-eslint/no-angle-bracket-type-assertion": ["off"],
     "@typescript-eslint/no-require-imports": ["warn"],
     "@typescript-eslint/no-unnecessary-type-assertion": ["warn"],

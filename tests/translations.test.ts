@@ -29,11 +29,9 @@ test('Check all required attributes in dictionary', () => {
     for (const dictItem of section) {
       expect(dictItem).toEqual(
         expect.objectContaining({
-          cz_translation: expect.stringMatching(/^.+$/),
-          cz_transcription: expect.any(String),
-          ua_translation: expect.stringMatching(/^.+$/),
-          ua_transcription: expect.any(String),
-        }),
+          main: expect.stringMatching(/^.+$/),
+          uk: expect.stringMatching(/^.+$/),
+        })
       );
     }
   }

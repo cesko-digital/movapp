@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { HEADER_NAVIGATION } from 'data/headerNavigation';
-import { LOCALES } from 'data/locales';
+import { getCountryVariant, Language, LOCALE_NAMES } from 'utils/locales';
 import BurgerIcon from 'public/icons/burger.svg';
 import CloseIcon from 'public/icons/close.svg';
 import AppLogo from 'public/icons/movapp-logo.png';
@@ -36,11 +36,11 @@ export const MobileHeader = () => {
         </a>
       </Link>
       <ul className="flex w-full justify-end pr-5 items-center">
-        {LOCALES.map(({ name, locale }, index) => {
+        {['uk' as Language, getCountryVariant()].map((locale) => {
           return (
-            <li key={index} className={`${currentLanguage === locale && 'text-primary-yellow'} text-white mx-2`}>
+            <li key={locale} className={`${currentLanguage === locale && 'text-primary-yellow'} text-white mx-2`}>
               <Link href={router.asPath} locale={locale}>
-                <a>{name}</a>
+                <a>{LOCALE_NAMES[locale]}</a>
               </Link>
             </li>
           );

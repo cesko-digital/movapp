@@ -1,40 +1,46 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
-import { SearchInput } from 'components/basecomponents/Input';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
-import { categories, Category } from 'data/translations/translations';
 export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
-import { translit } from 'utils/transliterate';
-import { ua2cz } from 'data/transliterations/ua2cz';
+import { translitFromUkrainian } from 'utils/transliterate';
 import { useLanguage } from 'utils/useLanguageHook';
-import { normalizeForCategoryLink, normalizeForId, normalizeForSearch } from 'utils/textNormalizationUtils';
+import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
-import { Language } from 'data/locales';
+import { CountryVariant, getCountryVariant, Language } from 'utils/locales';
+import SEO from 'components/basecomponents/SEO';
+import { Category } from 'data/translations/CategoryUtils';
+import { SearchInput } from 'components/basecomponents/SearchInput';
+import { CATEGORIES_CZ } from 'data/translations/cs/categories_CZ';
+import { CATEGORIES_SK } from 'data/translations/sk/categories_SK';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
 });
 
+const CATEGORIES_VARIANTS: Record<CountryVariant, Category[]> = {
+  cs: CATEGORIES_CZ,
+  sk: CATEGORIES_SK,
+  // Todo change to polish once polish content comes in
+  pl: CATEGORIES_SK,
+};
+
+const categories = CATEGORIES_VARIANTS[getCountryVariant()];
 const allTranslations = categories.map((category) => category.translations).flat();
 
 const getCategoryName = (category: Category, currentLanguage: Language) => {
-  const mainLanguageCategory = currentLanguage === 'cs' ? category.category_name_cz : category.category_name_ua;
-  const secondaryLanguageCategory = currentLanguage === 'cs' ? category.category_name_ua : category.category_name_cz;
+  const mainLanguageCategory = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
+  const secondaryLanguageCategory = currentLanguage === 'uk' ? category.nameMain : category.nameUk;
   return `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 };
 
 // Used to link directly to category with dictionary#categoryId
 const getCategoryId = (category: Category, currentLanguage: Language) => {
-  const categoryLink =
-    currentLanguage === 'cs'
-      ? normalizeForCategoryLink(category.category_name_cz)
-      : translit(ua2cz, category.category_name_ua.toLowerCase());
-  return normalizeForId(categoryLink);
+  const text = currentLanguage === 'uk' ? translitFromUkrainian(category.nameUk) : category.nameMain;
+  return normalizeForId(text);
 };
 
 const Dictionary = () => {
@@ -79,9 +85,9 @@ const Dictionary = () => {
   });
 
   const filteredTranslations = useMemo(() => {
-    const searchText = normalizeForSearch(search);
+    const searchText = normalize(search);
     const matches = allTranslations.filter((translation) =>
-      normalizeForSearch(translation.otherTranslation + translation.ukTranslation).includes(searchText)
+      normalize(translation.otherTranslation + translation.ukTranslation).includes(searchText)
     );
     const uniqueMathces = matches.filter(
       (match, index) => matches.findIndex((phrase) => phrase.otherTranscription === match.otherTranscription) === index
@@ -91,13 +97,12 @@ const Dictionary = () => {
 
   return (
     <>
-      <Head>
-        <meta name="referrer" content="no-referrer" />
-        <title>{t('seo.dictionary_page_title')}</title>
-        <meta name="description" content={t('seo.dictionary_page_description')} />
-        <meta name="twitter:title" content={t('seo.dictionary_page_title')} />
-      </Head>
-      <div className="max-w-7xl m-auto">
+      <SEO
+        title={t('seo.dictionary_page_title')}
+        description={t('seo.dictionary_page_description')}
+        image="https://www.movapp.cz/icons/movapp-cover.jpg"
+      />
+      <div className="max-w-7xl m-auto ">
         <h1 className="text-primary-blue">{t('dictionary_page.title')}</h1>
         <div
           ref={searchContainer}
@@ -112,7 +117,7 @@ const Dictionary = () => {
             placeholder={t('dictionary_page.search_placeholder')}
             value={search}
             resetInput={() => setSearch('')}
-            onChange={(e: React.FormEvent<HTMLInputElement>) => setSearch((e.target as HTMLInputElement).value)}
+            setSearch={setSearch}
           />
           <Button
             ref={searchButton}
@@ -141,9 +146,9 @@ const Dictionary = () => {
               <Collapse
                 index={index}
                 id={getCategoryId(category, currentLanguage)}
-                key={category.category_name_cz}
+                key={category.nameMain}
                 title={<Marker mark={search}>{categoryName}</Marker>}
-                ariaId={category.category_name_cz}
+                ariaId={category.nameMain}
               >
                 <div className="mb-4 mx-4">
                   <ExportTranslations translations={category.translations} categoryName={categoryName} />
