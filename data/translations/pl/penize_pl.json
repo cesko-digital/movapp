@@ -1,0 +1,88 @@
+[
+  { "main": "Mogę zapłacić kartą?", "uk": "Можна заплатити картою?" },
+  { "main": "Mogę zapłacić gotówką?", "uk": "Можна заплатити готівкою?" },
+  { "main": "Gdzie znajdę...?", "uk": "Де можна знайти...?" },
+  { "main": "bank", "uk": "банк" },
+  { "main": "Potrzebuję iść do banku.", "uk": "Мені потрібно в банк." },
+  { "main": "Szukam banku.", "uk": "Шукаю банк." },
+  { "main": "Gdzie jest najbliższy bank?", "uk": "Де знаходиться найближчий банк?" },
+  { "main": "Gdzie jest najbliższy oddział?", "uk": "Де знаходиться найближче відділення?" },
+  { "main": "bankomat", "uk": "банкомат" },
+  { "main": "Gdzie jest najbliższy bankomat?", "uk": "Де знаходиться найближчий банкомат?" },
+  { "main": "kantor", "uk": "обмін валют" },
+  { "main": "Gdzie mogę znaleźć kantor?", "uk": "Де можна знайти обмін валют?" },
+  { "main": "Gdzie moge wymienić pieniądze?", "uk": "Де можна обміняти гроші?" },
+  { "main": "Jaki jest kurs?", "uk": "Який курс?" },
+  { "main": "Chcę założyć konto.", "uk": "Я хочу відкрити рахунок." },
+  { "main": "Potrzebuję założyć rachunek.", "uk": "Мені потрібно відкрити рахунок." },
+  { "main": "Potrzebuję przesłać pieniądze z konta ... na konto...", "uk": "Мені потрібно перевести гроші з рахунку ... на рахунок ..." },
+  { "main": "konto osobiste", "uk": "поточний рахунок" },
+  { "main": "konto oszczędnościowe", "uk": "ощадний рахунок" },
+  { "main": "Potrzebuję wypłacić pieniądze.", "uk": "Мені потрібно зняти гроші." },
+  { "main": "Czy zapłacę jakąś opłatę?", "uk": "Мені потрібно оплатити мито?" },
+  { "main": "Jaka jest opłata?", "uk": "Який розмір мита?" },
+  { "main": "Proszę, niech Pani da mi swój paszport. Proszę, niech Pan da mi swój paszport.", "uk": "Дайте, будь ласка, свій паспорт." },
+  { "main": "Zrobię kopię Pani paszportu. Zrobię kopię Pana paszportu.", "uk": "Я зроблю копію паспорту." },
+  { "main": "Tu jest mój paszport.", "uk": "Ось мій паспорт." },
+  { "main": "Jaki jest Pani numer telefonu? Jaki jest Pana numer telefonu?", "uk": "Який у вас номер телефону?" },
+  { "main": "Mój numer telefonu to...", "uk": "Мій номер телефону..." },
+  { "main": "Jaki jest Pani e-mail? Jaki jest Pana e-mail?", "uk": "Який у вас емейл?" },
+  { "main": "Mój e-mail to...", "uk": "Мій емейл..." },
+  { "main": "Ile muszę minimalnie wypłacić?", "uk": "Скільки грошей мені потрібно мінімально знімати?" },
+  { "main": "Ile mogę maksymalnie wypłacić?", "uk": "Скільки грошей мені можна максимально зняти?" },
+  { "main": "Jaki jest mój numer konta?", "uk": "Який у мене номер рахунку?" },
+  { "main": "Pani numer konta to... Pana numer konta to...", "uk": "Ваш номер рахунку..." },
+  { "main": "Jaka jest stawka oprocentownaia tego konta?", "uk": "Яка відсоткова ставка за цей рахунок?" },
+  { "main": "Kiedy dostanę kod PIN do karty płatniczej?", "uk": "Коли я зможу отримати ПІН-код до карточки?" },
+  { "main": "Zapomniałem PIN. Zapomniałam PIN.", "uk": "Я забув ПІН-код. Я забула ПІН-код." },
+  { "main": "Mam dostęp do systemu bankowości internetowej?", "uk": "У мене є мобільний додаток банка?" },
+  { "main": "Gdzie znajdę system bankowości internetowej banku?", "uk": "Де можна знайти мобільний додаток для банка?" },
+  { "main": "Jaki chce Pani login? Jaki chce Pan login?", "uk": "Який у вас буде логін?" },
+  { "main": "Jakie chce Pani hasło? Jakie chce Pan hasło?", "uk": "Який у вас буде пароль?" },
+  { "main": "Zapomniałam swój login. Zapomniałem swój login.", "uk": "Я забула свій логін. Я забув свій логін." },
+  { "main": "Zapomniałam swojego hasła. Zapomniałem swojego hasła.", "uk": "Я забула свій пароль. Я забув свій пароль." },
+  {
+    "main": "Tą informację znajdzie Pani w systemie bankowości internetowej. Tą informację znajdzie Pan w systemie bankowości internetowej.",
+    "uk": "Цю інформацію можна знайти в мобільному додатку банка."
+  },
+  {
+    "main": "Chciałabym wpłacić pieniądze. Chciałbym wpłacić pieniądze.",
+    "uk": "Я б хотіла покласти на рахунок гроші. Я б хотів покласти на рахунок гроші. "
+  },
+  { "main": "Ile pieniędzy musze wpłacić na konto?", "uk": "Скільки грошей мені потрібно покласти на рахунок?" },
+  {
+    "main": "Chciałabym wypłacić pieniądze ze swojego konta. Chciałbym wypłacić pieniądze ze swojego konta.",
+    "uk": "Я б хотіла зняти гроші зі свого рахунка. Я б хотів зняти гроші зі свого рахунка"
+  },
+  { "main": "Ile mam pieniędzy na koncie?", "uk": "Який залишок у мене на рахунку?" },
+  { "main": "Moja karta nie działa.", "uk": "Моя банківська карта не працює." },
+  { "main": "Czy ta karta będzie działać w tym bankomacie?", "uk": "Ця карта підійде до цього банкомату?" },
+  { "main": "Jaka jest opłata za wypłatę gotówki w tym bankomacie?", "uk": "Яка комісія за зняття готівки в цьому банкоматі?" },
+  { "main": "Mamy wspólne konto bankowe.", "uk": "У нас спільний рахунок." },
+  { "main": "Chcę zgłosić zgubienie karty.", "uk": "Я хочу повідомити про втрату карти." },
+  { "main": "Chcę zgłosić kradzież karty.", "uk": "Я хочу повідомити про крадіжку карти." },
+  {
+    "main": "Chciałabym ustanowić zlecenie stałe. Chciałbym ustanowić zlecenie stałe.",
+    "uk": "Я б хотіла встановити постійне обслуговування. Я б хотів встановити постійне обслуговування."
+  },
+  {
+    "main": "Chciałabym anulować to zlecenie stałe. Chciałbym anulować to zlecenie stałe.",
+    "uk": "Я б хотіла відмінити постійне обслуговування. Я б хотів відмінити постійне обслуговування"
+  },
+  { "main": "Poproszę o wyciąg bankowy z mojego konta.", "uk": "Дайте мені, будь ласка, виписку з рахунку." },
+  { "main": "Tutaj jest wniosek o założenie konta.", "uk": "Ось заява про відкриття рахунка." },
+  { "main": "Tutaj jest wniosek o kartę płatniczą.", "uk": "Ось заява на платіжну карту." },
+  { "main": "Kartę płatniczą dostanie Pani pocztą. Kartę płatniczą dostanie Pan pocztą.", "uk": "Платіжну карту ви отримаєте поштою." },
+  { "main": "Jak długo trwa przygtowanie karty?", "uk": "Як довго триває виготовлення карти?" },
+  { "main": "Kiedy dostanę kartę płatniczą?", "uk": "Коли я зможу отримати банківську карточку?" },
+  { "main": "Dwa tygodnie.", "uk": "Два тижні." },
+  { "main": "PIN dostanie Pani pocztą. PIN dostanie Pan pocztą.", "uk": "ПІН-код ви отримаєте поштою." },
+  {
+    "main": "PIN będzie Pani mogła ustawić w systemie bankowości internetowej. Pin będzie Pan mógł ustawić w systemie bankowości internetowej.",
+    "uk": "ПІН-код ви встановете в мобільному додатку."
+  },
+  {
+    "main": "Kartę płatniczą może Pani aktywować w bankomacie. Kartę płatniczą może Pan aktywować w bankomacie.",
+    "uk": "Платіжну карту ви можете активувати у банкоматі."
+  }
+]

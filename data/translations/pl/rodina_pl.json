@@ -1,0 +1,29 @@
+[
+  { "main": "To jest moja", "uk": "Це моя..." },
+  { "main": "To są moje...", "uk": "Це мої..." },
+  { "main": "Żona. Małżonka", "uk": "Жінка" },
+  { "main": "babcia", "uk": "бабуся" },
+  { "main": "mama", "uk": "мама" },
+  { "main": "siostra", "uk": "сестра" },
+  { "main": "siostry", "uk": "сестри" },
+  { "main": "córka", "uk": "донька" },
+  { "main": "córki", "uk": "доньки" },
+  { "main": "koleżanka", "uk": "подруга" },
+  { "main": "koleżanki", "uk": "подруги" },
+  { "main": "To jest mój...", "uk": "Це мій..." },
+  { "main": "To są moi...", "uk": "Це мої..." },
+  { "main": "Mąż. Małżonek.", "uk": "Чоловік" },
+  { "main": "dziadek", "uk": "дідусь" },
+  { "main": "tata", "uk": "тато" },
+  { "main": "brat", "uk": "брат" },
+  { "main": "bracia", "uk": "брати" },
+  { "main": "syn", "uk": "син" },
+  { "main": "synowie", "uk": "сини" },
+  { "main": "kolega", "uk": "друг" },
+  { "main": "koledzy", "uk": "друзі" },
+  {
+    "main": "Potrzebuję być na chwilę sama. Potrzebuję być na chwile sam.",
+    "uk": "Мені потрібно побути самій. / Мені потрібно побути самому."
+  },
+  { "main": "Przytul mnie, proszę.", "uk": "Обійми мене, будь ласка." }
+]
