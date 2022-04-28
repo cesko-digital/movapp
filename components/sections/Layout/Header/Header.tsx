@@ -11,6 +11,7 @@ export const Header = () => {
   const { t } = useTranslation('common');
   const router = useRouter();
   const { currentLanguage } = useLanguage();
+
   return (
     <header className=" bg-primary-blue w-full sticky top-0 z-10 h-14 hidden sm:block">
       <div className="max-w-7xl m-auto flex h-full justify-between items-center ">
