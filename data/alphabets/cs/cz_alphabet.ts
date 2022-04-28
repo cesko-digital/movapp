@@ -164,7 +164,7 @@ export const ALPHABET_CZ: Letter[] = [
     ],
   },
   {
-    letter: ['ě', null],
+    letter: ['Ě', 'ě'],
     transcription: "[є] (читаємо попередній приголосний м'яко)",
     examples: [
       {
@@ -614,7 +614,7 @@ export const ALPHABET_CZ: Letter[] = [
     ],
   },
   {
-    letter: ['ů', null],
+    letter: ['Ů', 'ů'],
     transcription: 'довгий [у] в середині слова',
     examples: [
       {
@@ -704,7 +704,7 @@ export const ALPHABET_CZ: Letter[] = [
     ],
   },
   {
-    letter: ['ý', null],
+    letter: ['Ý', 'ý'],
     transcription: 'довгий [и]',
     examples: [
       {
