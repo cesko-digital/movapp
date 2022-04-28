@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import React, { useMemo, useState } from 'react';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -17,12 +15,11 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 const WikiArticle = ({ markdown, title }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
-  const [markdownString, setMarkdownString] = useState('');
   const [seoTitle, setSEOTitle] = useState(title);
   const router = useRouter();
 
-  useMemo(() => {
-    const markdownText = unified()
+  const markdownString = useMemo(() => {
+    return unified()
       .use(remarkParse)
       .use(remarkGfm)
       .use(() => (tree) => {
@@ -44,8 +41,6 @@ const WikiArticle = ({ markdown, title }: InferGetStaticPropsType<typeof getStat
       .use(rehypeStringify)
       .processSync(markdown)
       .toString();
-
-    setMarkdownString(markdownText);
   }, [markdown]);
 
   if (router.isFallback) {
@@ -66,11 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   /* eslint-disable @typescript-eslint/no-non-null-assertion */
   const param = params!.article;
 
-  const articles = fs.readFileSync(path.join(process.cwd(), 'articles.json'), { encoding: 'utf-8' });
-
-  const currentWikiPage = (JSON.parse(articles) as string[]).find((article: string) => normalizeWikiPagesUrl(article) === param);
-
-  const response = await fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${currentWikiPage}.md`);
+  const response = await fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${param}.md`);
   if (response.status === 404) {
     return {
       notFound: true,
@@ -81,8 +72,8 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   return {
     props: {
       markdown,
-      title: currentWikiPage?.replace(/-{1,5}/g, ' '),
-      ...(await serverSideTranslations(locale ?? 'cz', ['common'])),
+      title: param,
+      ...(await serverSideTranslations(locale ?? 'cs', ['common'])),
     },
     revalidate: 10,
   };
@@ -120,22 +111,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const mainLanguageArticles = await fetchWikiArticle(mainLanguage, [], []);
   const ukArticles = await fetchWikiArticle(`uk-${mainLanguage}`, [], []);
-  const otherArticles = await fetchWikiArticle('Home', [], []);
-
-  // since we need to normalize articles' name in order to create paths
-  // and it is not possible to pass any data through getStaticPaths to getStaticProps besides params
-  // we need to create temporary file to extract articles' name in getStaticProps which should be fetched
-  fs.writeFileSync(path.join(process.cwd(), 'articles.json'), JSON.stringify([...mainLanguageArticles, ...ukArticles, ...otherArticles]));
+  const otherArticles = await fetchWikiArticle('home', [], []);
 
   const mainLanguagePaths = mainLanguageArticles.map((article) => ({
-    params: { article: normalizeWikiPagesUrl(article), wiki: 'wiki' },
+    params: { article: normalizeWikiPagesUrl(article) },
     locale: mainLanguage,
   }));
   const ukLanguagePaths = ukArticles.map((article) => ({
-    params: { article: normalizeWikiPagesUrl(article), wiki: 'wiki' },
+    params: { article: normalizeWikiPagesUrl(article) },
     locale: 'uk',
   }));
-  const otherArticlesPaths = otherArticles.map((article) => ({ params: { wiki: 'wiki', article: normalizeWikiPagesUrl(article) } }));
+  const otherArticlesPaths = otherArticles.map((article) => ({ params: { article: normalizeWikiPagesUrl(article) } }));
 
   const paths = [...mainLanguagePaths, ...ukLanguagePaths, ...otherArticlesPaths];
   return {

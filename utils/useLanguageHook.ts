@@ -6,7 +6,7 @@ export const useLanguage = () => {
 
   const currentLanguage = i18n.language as Language;
   const otherLanguage: Language = currentLanguage === 'uk' ? 'cs' : 'uk';
-  const domainLanguage = process.env.NEXT_PUBLIC_COUNTRY_VARIANT || 'cs'
+  const domainLanguage = process.env.NEXT_PUBLIC_COUNTRY_VARIANT || 'cs';
 
-  return { currentLanguage, otherLanguage,domainLanguage };
+  return { currentLanguage, otherLanguage, domainLanguage };
 };
