@@ -146,7 +146,7 @@ export const ALPHABET_SK: Letter[] = [
     ],
   },
   {
-    letter: ['Dz', null],
+    letter: ['Dz', 'dz'],
     transcription: '[дз]',
     examples: [
       {
@@ -164,7 +164,7 @@ export const ALPHABET_SK: Letter[] = [
     ],
   },
   {
-    letter: ['Dž', null],
+    letter: ['Dž', 'dž'],
     transcription: '[дж]',
     examples: [
       {
@@ -272,7 +272,7 @@ export const ALPHABET_SK: Letter[] = [
     ],
   },
   {
-    letter: ['Ch', null],
+    letter: ['Ch', 'ch'],
     transcription: '[х]',
     examples: [
       {
@@ -776,7 +776,7 @@ export const ALPHABET_SK: Letter[] = [
     ],
   },
   {
-    letter: ['ý', null],
+    letter: ['Ý', 'ý'],
     transcription: 'довгий [и]',
     examples: [
       {
