@@ -29,7 +29,7 @@
     "search_button": "Szukaj",
     "search_placeholder": "Szukany wyraz",
     "subtitle": "Wybierz kategorię",
-    "cs": "polski",
+    "pl": "polski",
     "uk": "ukraiński"
   },
   "kids_page": {
@@ -64,9 +64,15 @@
     "join_title": "Dołącz do nas",
     "join_description": "Jeśli chcesz stać się członkiem zespołu wolontariuszy i pomagać nam w dalszym rozwoju projektu, wypełnij formularz na <0>cesko.digital/join</0>, i dołącz do naszego Slacku. Znajdziesz nas w kanale <strong>ua-movapp</strong> (mówimy głównie po czesku, słowacku i angielsku, ale też trochę po ukraińsku i polsku.)"
   },
-  "alphabet_page":{
-    "title": "{{cz_version}} abecadło",
-    "description": "{{cz_version_description}}"
+  "alphabet_page": {
+    "pl": {
+      "name": "Polski alfabet",
+      "description": "Naucz się polskiego alfabetu. Składa się z {todo} liter alfabetu łacińskiego uzupełnionych o {todo} znaki diakrytyczne."
+    },
+    "uk": {
+      "name": "Alfabet ukraiński",
+      "description": "Dowiedz się alfabetu ukraińskiego. Jest również nazywany cyrylicą ukraińską lub cyrylicą ukraińską. Zawiera 33 znaki."
+    }
   },
   "seo": {
     "homepage_page_title": "Movapp.eu - żeby się Polacy z Ukraincami łatwo dogadali",
