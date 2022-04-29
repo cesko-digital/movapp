@@ -3,6 +3,7 @@ import { Language } from 'utils/locales';
 import { useTranslation } from 'next-i18next';
 import React, { useRef } from 'react';
 import PlayIcon from '../../public/icons/play.svg';
+import { translitFromUkrainian, translitToUkrainian } from 'utils/transliterate';
 
 const LETTERS_WITHOUT_AUDIO = ['ь'];
 
@@ -16,12 +17,13 @@ interface AlphabetCardProps {
   language: Language;
 }
 
-export const AlphabetCard = ({ examples, letter, transcription, language: playerLanguage }: AlphabetCardProps): JSX.Element => {
+export const AlphabetCard = ({ examples, letter, transcription, language }: AlphabetCardProps): JSX.Element => {
   const { t } = useTranslation();
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const audioSrcPath = `alphabet/${playerLanguage}-alphabet/${letter[0].toLowerCase()}.mp3`;
+  const audioSrcPath = `alphabet/${language}-alphabet/${letter[0].toLowerCase()}.mp3`;
   const letterHasAudio = !LETTERS_WITHOUT_AUDIO.includes(letter[0]);
   const letterSpacer = ' ';
+  const transliterate = language === 'uk' ? translitFromUkrainian : translitToUkrainian;
 
   return (
     <div className=" grid grid-rows-[66%_34%]  shadow-[0_3px_15px_grey] sm:shadow-none group sm:hover:shadow-lg rounded-lg">
@@ -67,10 +69,10 @@ export const AlphabetCard = ({ examples, letter, transcription, language: player
           return (
             <div key={index} className="grid grid-cols-[40%_45%_15%] grid-flow-col items-center pt-3 px-4">
               <p className="font-light justift-self-start break-all text-base sm:text-xs md:text-sm">{example}</p>
-              <p className="font-light text-base sm:text-xs md:text-sm">[{example_transcription}]</p>
+              <p className="font-light text-base sm:text-xs md:text-sm">[{example_transcription || transliterate(example)}]</p>
               <button
                 className="justify-self-end"
-                onClick={() => AudioPlayer.getInstance().playTextToSpeech(example, playerLanguage)}
+                onClick={() => AudioPlayer.getInstance().playTextToSpeech(example, language)}
                 aria-label={t('utils.play') + ' ' + example}
               >
                 <PlayIcon className="w-7 sm:w-4 md:w-5 stroke-red-500  cursor-pointer " />
