@@ -16,6 +16,7 @@ import { Category } from 'data/translations/CategoryUtils';
 import { SearchInput } from 'components/basecomponents/SearchInput';
 import { CATEGORIES_CZ } from 'data/translations/cs/categories_CZ';
 import { CATEGORIES_SK } from 'data/translations/sk/categories_SK';
+import { CATEGORIES_PL } from 'data/translations/pl/categories_PL';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
@@ -24,8 +25,7 @@ const ExportTranslations = dynamic(() => import('../../components/sections/Expor
 const CATEGORIES_VARIANTS: Record<CountryVariant, Category[]> = {
   cs: CATEGORIES_CZ,
   sk: CATEGORIES_SK,
-  // Todo change to polish once polish content comes in
-  pl: CATEGORIES_SK,
+  pl: CATEGORIES_PL,
 };
 
 const categories = CATEGORIES_VARIANTS[getCountryVariant()];

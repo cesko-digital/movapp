@@ -10,7 +10,10 @@
   "footer": {
     "stand_with_ukraine_description": "Nezávislý informačný rázcestník",
     "help_ukraine_description": "Portál na sprostredkovanie ponúk pomoci",
-    "czech_digital": "Cez jednotky a nuly meníme Česko k lepšiemu"
+    "czech_digital": "Cez jednotky a nuly meníme Česko k lepšiemu",
+    "join_development": "Pridaj sa k vývoju na",
+    "licence_intro": "Obsah tohoto webu je prístupný pod licenciou",
+    "licence": "CC BY-NC 4.0 Medzinárodná"
   },
   "homepage": {
     "title": "Naučte sa základy slovenčiny a ukrajinčiny pre bežné životné situácie",
@@ -80,16 +83,18 @@
     }
   },
   "seo": {
-    "homepage_page_title": "Movapp.cz – aby sa Češi / Slováci a Ukrajinci ľahko dorozumeli",
+    "homepage_page_title": "Movapp.eu – aby sa Slováci a Ukrajinci ľahko dorozumeli",
     "homepage_page_description": "Prehľad základných slovensko-ukrajinských fráz a nástroje na ich precvičovanie. Rázcestník učebných materiálov. Vytvárané s láskou.",
     "dictionary_page_title": "Ukrajinsko-slovenský slovník | Movapp.cz",
     "dictionary_page_description": "Základné slovensko-ukrajinské slovíčka a frázy rozdelené podľa životných situácií. Vytvárané s láskou.",
-    "contacts_page_title": "Kontakty | Movapp.cz",
+    "contacts_page_title": "Kontakty | sk.movapp.eu",
     "contacts_page_description": "Chcete sa stať členom tímu a pomáhať pri ďalšom rozvoji projektu?",
-    "about_page_title": "O nás | Movapp.cz",
+    "about_page_title": "O nás | sk.movapp.eu",
     "about_page_description": "Projekt vznikol v rámci iniciatívy Stojíme za Ukrajinou v komunite expertných dobrovoľníkov Česko.Digital.",
     "alphabet_page_title": "Ukrajinská abeceda (cyrilika)",
-    "alphabet_page_description": "Naučte sa ukrajinskú abecedu. Nazýva sa aj ukrajinská cyrilika alebo ukrajinská azbuka. Obsahuje 33 znakov a apostrof."
+    "alphabet_page_description": "Naučte sa ukrajinskú abecedu. Nazýva sa aj ukrajinská cyrilika alebo ukrajinská azbuka. Obsahuje 33 znakov a apostrof.",
+    "kids_page_title": "Ilustrovaný ukrajinsko-slovenský slovníček pre deti | sk.movapp.eu",
+    "kids_page_description": "Obrázky pre deti s ukrajinskými a slovesnkými popismi. Nahovorené v slovenčine a ukrajinštině. Vytlačiť omalovánky pro děti."
   },
   "export_translations": {
     "download_phrases": "Stiahnuť frázy",
