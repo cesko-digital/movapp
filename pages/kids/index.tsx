@@ -2,6 +2,7 @@ import { useTranslation } from 'next-i18next';
 import React from 'react';
 import kidsWords_CZ from '../../data/translations/cs/pro-deti.json';
 import kidsWords_SK from '../../data/translations/sk/pro-deti_sk.json';
+import kidsWords_PL from '../../data/translations/pl/pro-deti_pl.json';
 import { Button } from '../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
 import { Phrase, TranslationJSON } from 'utils/Phrase';
@@ -14,8 +15,7 @@ type KidsTranlsation = TranslationJSON & { image: string };
 const KIDS_WORDS: Record<CountryVariant, KidsTranlsation[]> = {
   cs: kidsWords_CZ,
   sk: kidsWords_SK,
-  // Todo change to polish once polish content comes in
-  pl: kidsWords_SK,
+  pl: kidsWords_PL,
 };
 
 const KidsSection = () => {

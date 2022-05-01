@@ -37,7 +37,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['B', 'b'],
     transcription: '[]',
     examples: [
@@ -55,7 +55,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['C', 'c'],
     transcription: '[]',
     examples: [
@@ -109,7 +109,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Cz', 'cz'],
     transcription: '[]',
     examples: [
@@ -127,7 +127,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['D', 'd'],
     transcription: '[]',
     examples: [
@@ -145,7 +145,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Dź', 'dź'],
     transcription: '[]',
     examples: [
@@ -163,7 +163,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Dzi', 'dzi'],
     transcription: '[]',
     examples: [
@@ -181,7 +181,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Dż', 'dż'],
     transcription: '[]',
     examples: [
@@ -199,7 +199,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['E', 'e'],
     transcription: '[]',
     examples: [
@@ -235,7 +235,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['F', 'f'],
     transcription: '[]',
     examples: [
@@ -253,7 +253,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['G', 'g'],
     transcription: '[]',
     examples: [
@@ -271,7 +271,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['H', 'h'],
     transcription: '[]',
     examples: [
@@ -289,7 +289,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['I', 'i'],
     transcription: '[]',
     examples: [
@@ -307,7 +307,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['J', 'j'],
     transcription: '[]',
     examples: [
@@ -325,7 +325,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['K', 'k'],
     transcription: '[]',
     examples: [
@@ -343,7 +343,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['L', 'l'],
     transcription: '[]',
     examples: [
@@ -361,7 +361,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Ł', 'ł'],
     transcription: '[]',
     examples: [
@@ -379,7 +379,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['M', 'm'],
     transcription: '[]',
     examples: [
@@ -397,7 +397,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['N', 'n'],
     transcription: '[]',
     examples: [
@@ -415,7 +415,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Ń', 'ń'],
     transcription: '[]',
     examples: [
@@ -433,7 +433,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Ni', 'ni'],
     transcription: '[]',
     examples: [
@@ -451,7 +451,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['O', 'o'],
     transcription: '[]',
     examples: [
@@ -469,7 +469,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Ó', 'ó'],
     transcription: '[]',
     examples: [
@@ -487,7 +487,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['P', 'p'],
     transcription: '[]',
     examples: [
@@ -505,7 +505,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['R', 'r'],
     transcription: '[]',
     examples: [
@@ -523,7 +523,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Rz', 'rz'],
     transcription: '[]',
     examples: [
@@ -541,7 +541,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['S', 's'],
     transcription: '[]',
     examples: [
@@ -559,7 +559,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Ś', 'ś'],
     transcription: '[]',
     examples: [
@@ -577,7 +577,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Si', 'si'],
     transcription: '[]',
     examples: [
@@ -595,7 +595,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Sz', 'sz'],
     transcription: '[]',
     examples: [
@@ -613,7 +613,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['T', 't'],
     transcription: '[]',
     examples: [
@@ -631,7 +631,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['U', 'u'],
     transcription: '[]',
     examples: [
@@ -649,7 +649,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['W', 'w'],
     transcription: '[]',
     examples: [
@@ -667,7 +667,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Y', 'y'],
     transcription: '[]',
     examples: [
@@ -685,7 +685,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Z', 'z'],
     transcription: '[]',
     examples: [
@@ -703,7 +703,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-    {
+  {
     letter: ['Ź', 'ź'],
     transcription: '[]',
     examples: [
@@ -721,7 +721,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-      {
+  {
     letter: ['Zi', 'zi'],
     transcription: '[]',
     examples: [
@@ -739,7 +739,7 @@ export const ALPHABET_PL: Letter[] = [
       },
     ],
   },
-      {
+  {
     letter: ['Ż', 'ż'],
     transcription: '[]',
     examples: [

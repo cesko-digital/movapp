@@ -32,16 +32,16 @@ export const Footer = () => {
           })}
         </div>
         <p className="text-primary-black text-center text-xs pt-10">
-          Přidej se k vývoji na{' '}
+          {t('footer.join_development')}{' '}
           <Link href={'https://github.com/cesko-digital/movapp'}>
             <a target={'_blank'} className="underline">
               Github
             </a>
           </Link>{' '}
-          | Obsah tohoto webu je přístupný pod licencí{' '}
+          | {t('footer.licence_intro')}{' '}
           <Link href={'https://creativecommons.org/licenses/by-nc/4.0/'}>
             <a target={'_blank'} className="underline" title="Creative Commons - Uveďte původ-Neužívejte komerčně 4.0">
-              CC BY-NC 4.0 Mezinárodní
+              {t('footer.licence')}
             </a>
           </Link>
         </p>

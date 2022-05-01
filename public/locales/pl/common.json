@@ -8,9 +8,12 @@
     "alphabet_link_name": "Alfabet"
   },
   "footer": {
-    "stand_with_ukraine_description": "Nezávislý informační rozcestník",
+    "stand_with_ukraine_description": "Niezależny przewodnik informacyjny",
     "help_ukraine_description": "Portal pośredniczący ofertom pomocy",
-    "czech_digital": "Przez jedynki i zera zmieniamy Czechy na lepsze (link w języku angielskim)"
+    "czech_digital": "Przez jedynki i zera zmieniamy Czechy na lepsze (link w języku angielskim)",
+    "join_development": "Dołącz do rozwoju na",
+    "licence_intro": "Zawartość tej strony jest dostępna na podstawie licencji",
+    "licence": "CC BY-NC 4.0 Międzynarodowy"
   },
   "homepage": {
     "title": "Naucz się podstaw polskiego i ukraińskiego na codzienne życiowe sytuacje",
@@ -29,7 +32,7 @@
     "search_button": "Szukaj",
     "search_placeholder": "Szukany wyraz",
     "subtitle": "Wybierz kategorię",
-    "cs": "polski",
+    "pl": "polski",
     "uk": "ukraiński"
   },
   "kids_page": {
@@ -64,21 +67,29 @@
     "join_title": "Dołącz do nas",
     "join_description": "Jeśli chcesz stać się członkiem zespołu wolontariuszy i pomagać nam w dalszym rozwoju projektu, wypełnij formularz na <0>cesko.digital/join</0>, i dołącz do naszego Slacku. Znajdziesz nas w kanale <strong>ua-movapp</strong> (mówimy głównie po czesku, słowacku i angielsku, ale też trochę po ukraińsku i polsku.)"
   },
-  "alphabet_page":{
-    "title": "{{cz_version}} abecadło",
-    "description": "{{cz_version_description}}"
+  "alphabet_page": {
+    "pl": {
+      "name": "Polski alfabet",
+      "description": "Naucz się polskiego alfabetu. Składa się z 23 liter alfabetu łacińskiego uzupełnionego 4 znakami diakrytycznymi."
+    },
+    "uk": {
+      "name": "Alfabet ukraiński",
+      "description": "Dowiedz się alfabetu ukraińskiego. Jest również nazywany cyrylicą ukraińską lub cyrylicą ukraińską. Zawiera 33 znaki."
+    }
   },
   "seo": {
     "homepage_page_title": "Movapp.eu - żeby się Polacy z Ukraincami łatwo dogadali",
     "homepage_page_description": "Przegląd podstawowych polsko-ukraińskich zwrotów, oraz narzędzia do ich ćwiczenia. Zbiór materiałów do nauki. Stworzono z miłością.",
-    "dictionary_page_title": "Ukrajinsko-polski słownik | Movapp.eu",
+    "dictionary_page_title": "Ukrajinsko-polski słownik | pl.movapp.eu",
     "dictionary_page_description": "Podstawowe polsko-ukraińskie słówka i zwroty rodzdielone według sytuacji życiowych. Stworzono z miłością.",
-    "contacts_page_title": "Kontakt | Movapp.cz",
+    "contacts_page_title": "Kontakt | pl.movapp.eu",
     "contacts_page_description": "Chcesz stać się członkiem zespołu i pomagać przy dalszym rozwoju projektu?",
     "about_page_title": "O nas | Movapp.eu",
     "about_page_description": "Projekt powstał w ramach inicjatywy Stojíme za Ukrajinou w społeczności woluntariuszy ekspertów Česko.Digital.",
     "alphabet_page_title": "Alfabet ukraiński (cyrilica)",
-    "alphabet_page_description": "Naucz się ukraińskiego alfabetu. Nazywa się on także ukraińska cyrylica lub ukraińska azbuka. Zawiera 33 znaki i apostrof."
+    "alphabet_page_description": "Naucz się ukraińskiego alfabetu. Nazywa się on także ukraińska cyrylica lub ukraińska azbuka. Zawiera 33 znaki i apostrof.",
+    "kids_page_title": "Ilustrowany słownik ukraińsko-polski dla dzieci | pl.movapp.eu",
+    "kids_page_description": "Zdjęcia dla dzieci z opisem ukraińskim i polskim. Używany po słowacku i ukraińsku. Wydrukuj kolorowanki dla dzieci."
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",

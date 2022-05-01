@@ -73,6 +73,7 @@ export const getStaticProps = async ({ locale }: Parameters<GetStaticProps>[0]) 
       markdown,
       ...(await serverSideTranslations(locale ?? 'cs', ['common'])),
     },
+    revalidate: 10
   };
 };
 

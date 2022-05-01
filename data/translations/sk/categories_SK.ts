@@ -20,8 +20,8 @@ import { Category, processTranslations } from '../CategoryUtils';
 
 export const CATEGORIES_SK: Category[] = [
   {
-    nameUk: 'Основні фрази',
     nameMain: 'Základné frázy',
+    nameUk: 'Основні фрази',
     translations: processTranslations(Basic),
   },
   {
@@ -35,23 +35,23 @@ export const CATEGORIES_SK: Category[] = [
     translations: processTranslations(Rodina),
   },
   {
-    nameUk: 'Час',
     nameMain: 'Čas',
+    nameUk: 'Час',
     translations: processTranslations(Cas),
   },
   {
-    nameUk: 'Громадський транспорт',
     nameMain: 'Hromadná doprava',
+    nameUk: 'Громадський транспорт',
     translations: processTranslations(HromadnaDoprava),
   },
   {
-    nameUk: 'Їдемо в зоопарк',
     nameMain: 'Ideme do ZOO',
+    nameUk: 'Їдемо в зоопарк',
     translations: processTranslations(Zoo),
   },
   {
-    nameUk: 'Покупки',
     nameMain: 'Na nákupe',
+    nameUk: 'Покупки',
     translations: processTranslations(NaNakupu),
   },
   {
