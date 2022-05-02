@@ -1,0 +1,123 @@
+﻿{
+  "header": {
+    "vocabulary_link_name": "Slovníček",
+    "forkids_link_name": "Pre deti",
+    "exercises_link_name": "Cvičenia",
+    "about_link_name": "O nás",
+    "contacts_link_name": "Kontakty",
+    "alphabet_link_name": "Abeceda"
+  },
+  "footer": {
+    "stand_with_ukraine_description": "Nezávislý informačný rázcestník",
+    "help_ukraine_description": "Portál na sprostredkovanie ponúk pomoci",
+    "czech_digital": "Cez jednotky a nuly meníme Česko k lepšiemu",
+    "join_development": "Pridaj sa k vývoju na",
+    "licence_intro": "Obsah tohoto webu je prístupný pod licenciou",
+    "licence": "CC BY-NC 4.0 Medzinárodná"
+  },
+  "homepage": {
+    "title": "Naučte sa základy slovenčiny a ukrajinčiny pre bežné životné situácie",
+    "box_dictionary_title": "Slovníček",
+    "box_dictionary_description": "Naučte sa stovky základných slovíčok a fráz čítaním i počúvaním. Slovíčka triedime podľa životných situácií.",
+    "box_child_title": "Pre deti",
+    "box_child_description": "Ilustrovaný ukrajinsko-slovenský slovníček s desiatkami kariet na vytlačenie.",
+    "box_alphabet_title": "Ukrajinská abeceda",
+    "box_alphabet_description": "Naučte sa všetky znaky ukrajinskej cyriliky. Pomôžu vám ukážkové slová.",
+    "box_movapp_title": "Movapp je…",
+    "box_movapp_description_top": "мова [mova] znamená po ukrajinsky jazyk. Movapp je aplikácia na precvičovanie jazykov. Cieľom Movapp.cz je uľahčiť dorozumenie medzi Slovákmi a Ukrajincami.",
+    "box_movapp_description_bottom": "Nájdete tu prehľad základných komunikačných fráz v slovenčine a ukrajinčine. Čoskoro pridáme nástroje na ich precvičovanie a rázcestník učebných materiálov.",
+    "box_easter_dictionary_title": "Velkonočný slovníček",
+    "box_easter_dictionary_description": "Šibi, ryby, mastné ryby, kus koláča a Velkonočné fráze.",
+    "box_easter_kids_title": "Veľká noc pre deti",
+    "box_easter_kids_description": "Zábavné obrázky a omalovánky s Velkonočnou tématikou.",
+    "box_easter_anchor": "velka_noc"
+  },
+  "dictionary_page": {
+    "title": "Slovensko-ukrajinský slovníček",
+    "search_button": "Hľadať",
+    "search_placeholder": "Hľadaný výraz",
+    "subtitle": "Vyberte si oblasť",
+    "sk": "po slovensky",
+    "uk": "po ukrajinsky"
+  },
+  "kids_page": {
+    "downloadPDF": "Stiahnuť v PDF"
+  },
+  "about_page": {
+    "title": "<strong>Movapp.cz</strong> je projekt, ktorý vznikol v rámci iniciatívy <strong>Stojíme za Ukrajinou</strong> v komunite expertných dobrovoľníkov <strong>Česko.Digital.</strong>",
+    "movapp_goal_title": "Cieľ Movapp.cz",
+    "movapp_goal_description": "Cieľom Movapp.cz je uľahčiť dorozumenie medzi Slovákmi a Ukrajincami. V prvej fáze bol publikovaný prehľad základných slovensko-ukrajinských fráz. V ďalších fázach budeme vytvárať nástroje na ich precvičovanie a chceme sa stať rázcestníkom pre ďalšie nástroje a materiály, ktoré pomôžu s učením ukrajinčiny a slovenčiny.",
+    "why_movapp_title": "Prečo Movapp?",
+    "why_movapp_mova": "<i>Mова [mova]</i> znamená po ukrajinsky <i>jazyk</i>. Movapp je aplikácia na precvičovanie jazykov.",
+    "why_movapp_description": "Movapp je k dispozícii zdarma a je tvorená ako otvorený software pod licenciou MIT, to znamená, že ju môžete zdarma nielen používať, ale si ju aj upravovať (ak viete programovať).",
+    "why_movapp_license": "Texty, obrázky a audiosúbory Movapp sú pod <0>licenciou CC BY-NC 4.0</0>. (Uveďte pôvod-Nepoužívajte na komerčné účely 4.0), čo znamená, že ich môžete pre vlastné potreby používať úplne bez obmedzení. Ak by ste ich chceli ďalej šíriť (v pôvodnej alebo v upravenej podobe), môžete tak robiť len nekomerčným spôsobom a s uvedením pôvodných autorov.",
+    "why_movapp_origin": "Pôvodnou autorkou <0>základného súboru slov a fráz</0> je Tereza Javornická a Yevheniia Valova (EDUA Group). Tento súbor udržuje a ďalej rozširuje tím Movapp.",
+    "our_team_title": "Náš tím",
+    "our_team_description": "Kmeňovými členmi tímu Movapp.cz sú: Martin Hassman, Oleg Antonyak, Tatiana Chytilová, Petr Illek, Valeriia Kuna, Monika Fabryová, Juraj Uhlár, Bára Skálová, Tereza Javornická, Alena Burneleit, Anna Lamberová, Roman Žydyk a Martina Krejčí. A pomáha im veľa ďalších dobrovoľníkov.",
+    "our_team_illustrators": "Autorkami ilustrácií pre deti sú: Alena Burneleit, Anna Lamberová, Lucie Lomová, Kateřina Vacková Mňuková a Marie Kraus.",
+    "our_team_contact": "Chcete nám pomôcť s obsahom, alebo sa inak zapojiť? <br/>Hľadáte na nás <0>kontakt</0>?",
+    "stand_with_ukraine_title": "Stojíme za Ukrajinou",
+    "stand_with_ukraine_description": "<0>Stojíme za Ukrajinou</0> je iniciatíva dobrovoľníkov, ktorá prepája organizácie a združenia. Sme bežní radoví občania, ktorým nie je ľahostajná súčasná situácia súvisiaca s vojnovým konfliktom, ktorý vedie Rusko proti suverénnej demokratickej Ukrajine. Táto iniciatíva vznikla prirodzene, vyrastá z dlhodobej podpory Ukrajiny po anexii Krymu, s eskaláciou napätia začala byť vo verejnom priestore zrejmá 19. februára 2022 a od tej doby organicky rastie.",
+    "czech_digital_title": "Česko.Digital",
+    "czech_digital_description": "<0>Česko.Digital</0> je komunita expertných dobrovoľníkov z mnohých odborov od IT cez projektové riadenie až po marketing, ktorí vo svojom voľnom čase pomáhajú štátu a mimovládnym organizáciám a menia tak Česko k lepšiemu. Komunitu Česko.Digital založili v roku 2019 Jakub Nešetřil, Radka Horáková a Eva Pavlíková."
+  },
+  "contacts_page": {
+    "title": "Kontakty",
+    "email_contact_title": "Kontaktný email:",
+    "email_contact_link": "pryvit@movapp.cz",
+    "social_media": {
+      "social_media_title": "Nájdete nás aj na sociálnych sieťach:"
+    },
+    "community_description": "Projekt Movapp vzniká v komunite expertných dobrovoľníkov <0>Česko.Digital.</0>",
+    "join_title": "Pridajte sa",
+    "join_description": "Ak sa chcete stať členom tímu dobrovoľníkov a pomáhať nám pri ďalšom rozvoji projektu, vyplňte formulár na <0>cesko.digital/join</0> a pridajte sa do Slacku. Nájdete nás v kanáli <strong>ua-movapp</strong> (komunikujeme po česky, slovensky, anglicky a trochu aj po ukrajinsky)."
+  },
+  "alphabet_page": {
+    "sk": {
+      "name": "Slovenská abeceda",
+      "description": "Naučte sa slovenskú abecedu. Tvorí ju 26 písmen latinskej abecedy doplnených tromi diakritickými znamienkami."
+    },
+    "uk": {
+      "name": "Ukrajinská abeceda",
+      "description": "Naučte se ukrajinskú abecedu. Nazývá se tiež ukrajinská cyrilika alebo ukrajinská azbuka. Obsahuje 33 písmen."
+    }
+  },
+  "seo": {
+    "homepage_page_title": "Movapp.eu – aby sa Slováci a Ukrajinci ľahko dorozumeli",
+    "homepage_page_description": "Prehľad základných slovensko-ukrajinských fráz a nástroje na ich precvičovanie. Rázcestník učebných materiálov. Vytvárané s láskou.",
+    "dictionary_page_title": "Ukrajinsko-slovenský slovník | Movapp.cz",
+    "dictionary_page_description": "Základné slovensko-ukrajinské slovíčka a frázy rozdelené podľa životných situácií. Vytvárané s láskou.",
+    "contacts_page_title": "Kontakty | sk.movapp.eu",
+    "contacts_page_description": "Chcete sa stať členom tímu a pomáhať pri ďalšom rozvoji projektu?",
+    "about_page_title": "O nás | sk.movapp.eu",
+    "about_page_description": "Projekt vznikol v rámci iniciatívy Stojíme za Ukrajinou v komunite expertných dobrovoľníkov Česko.Digital.",
+    "alphabet_page_title": "Ukrajinská abeceda (cyrilika)",
+    "alphabet_page_description": "Naučte sa ukrajinskú abecedu. Nazýva sa aj ukrajinská cyrilika alebo ukrajinská azbuka. Obsahuje 33 znakov a apostrof.",
+    "kids_page_title": "Ilustrovaný ukrajinsko-slovenský slovníček pre deti | sk.movapp.eu",
+    "kids_page_description": "Obrázky pre deti s ukrajinskými a slovesnkými popismi. Nahovorené v slovenčine a ukrajinštině. Vytlačiť omalovánky pro děti."
+  },
+  "export_translations": {
+    "download_phrases": "Stiahnuť frázy",
+    "download": "Stiahnuť",
+    "comma": "čiarka",
+    "semicolon": "bodkočiarka",
+    "new_line": "nový riadok",
+    "custom": "vlastné",
+    "tab": "tabulátor",
+    "between_phrase_and_translation": "Medzi frázou a prekladom",
+    "between_phrases": "Medzi frázami",
+    "sharing_info": "Obsah môžete na svoje účely používať zdarma a bez obmedzení, šíriť ho ďalej môžete len za podmienok licencie",
+    "copy_to_clipboard": "Skopírovať frázy do schránky",
+    "preview": "Náhľad",
+    "transcriptions": "Transkripcia",
+    "include_transcriptions": "Zapísať frázy v oboch abecedách",
+    "all_phrases": "všetky frázy"
+  },
+  "errors": {
+    "pageNotFound": "Stránka sa nenašla"
+  },
+  "utils": {
+    "play": "prehrať"
+  }
+}
+

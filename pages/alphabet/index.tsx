@@ -3,23 +3,29 @@ import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
 import { AlphabetCard } from '../../components/basecomponents/AlphabetCard';
 import { LanguageSelect } from '../../components/basecomponents/LanguageSelect';
-import { ALPHABET_CZ } from '../../data/alphabets/cz_alphabet';
-import { ALPHABET_UA } from '../../data/alphabets/ua_alphabet';
 import SEO from 'components/basecomponents/SEO';
+import { ALPHABET_CZ } from 'data/alphabets/cs/cz_alphabet';
+import { ALPHABET_UA } from 'data/alphabets/cs/ua_alphabet';
+import { ALPHABET_SK } from 'data/alphabets/sk/sk_alphabet';
+import { ALPHABET_PL } from 'data/alphabets/pl/pl_alphabet';
+import { CountryVariant, getCountryVariant, Language } from 'utils/locales';
+import { Letter } from 'data/alphabets/alphabetTypes';
 export { getStaticProps } from '../../utils/localization';
 
+const countryVariant = getCountryVariant();
+
+const ALPHABETS: Record<CountryVariant, Letter[]> = {
+  cs: ALPHABET_CZ,
+  sk: ALPHABET_SK,
+  pl: ALPHABET_PL,
+};
+
 const AlphabetPage = (): JSX.Element => {
-  const { currentLanguage } = useLanguage();
+  const { otherLanguage } = useLanguage();
   const { t } = useTranslation();
-  const [swapLanguage, setSwapLanguage] = useState<'cz-ua' | 'ua-cz'>(currentLanguage === 'cs' ? 'ua-cz' : 'cz-ua');
+  const [selectedAlphabet, setSelectedAlphabet] = useState<Language>(otherLanguage);
 
-  const alphabet = swapLanguage === 'cz-ua' ? ALPHABET_CZ : ALPHABET_UA;
-
-  const playerLanguage = swapLanguage === 'cz-ua' ? 'cs' : 'uk';
-
-  const cz_ua_select = currentLanguage === 'cs' ? 'Česká abeceda' : 'Чеський алфавіт';
-
-  const ua_cz_select = currentLanguage === 'cs' ? 'Ukrajinská abeceda' : 'Український алфавіт';
+  const alphabet = selectedAlphabet === 'uk' ? ALPHABET_UA : ALPHABETS[getCountryVariant()];
 
   return (
     <>
@@ -29,31 +35,21 @@ const AlphabetPage = (): JSX.Element => {
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
       <div className="max-w-7xl m-auto">
-        <h1 className="text-primary-blue mb-3">
-          {t('alphabet_page.title', {
-            ua_version: swapLanguage === 'ua-cz' ? 'Український' : 'Чеський',
-            cz_version: swapLanguage === 'ua-cz' ? 'Ukrajinská' : 'Česká',
-          })}
-        </h1>
-        <p className="text-base md:text-xl">
-          {t('alphabet_page.description', {
-            cz_version_description:
-              swapLanguage === 'ua-cz'
-                ? 'Naučte se ukrajinskou abecedu. Nazývá se také ukrajinská cyrilice nebo ukrajinská azbuka. Obsahuje 33 znaků.'
-                : 'Naučte se českou abecedu. Tvoří ji 26 písmen latinské abecedy doplněných třemi diakritickými znaménky.',
-            ua_version_description:
-              swapLanguage === 'ua-cz'
-                ? 'Вивчіть український алфавіт. Він складається із 33 літер.'
-                : 'Вивчіть чеський алфавіт. Він складається з 26 літер латинського алфавіту, доповнених трьома діакритичними знаками.',
-          })}
-        </p>
+        <h1 className="text-primary-blue mb-3">{t(`alphabet_page.${selectedAlphabet}.name`)}</h1>
+        <p className="text-base md:text-xl">{t(`alphabet_page.${selectedAlphabet}.description`)}</p>
         <div className="w-full  my-5 ">
-          <LanguageSelect onClick={() => setSwapLanguage('cz-ua')} active={swapLanguage === 'cz-ua'} languages={cz_ua_select} />
-          <LanguageSelect onClick={() => setSwapLanguage('ua-cz')} active={swapLanguage === 'ua-cz'} languages={ua_cz_select} />
+          <LanguageSelect
+            onClick={() => setSelectedAlphabet(countryVariant)}
+            active={selectedAlphabet === countryVariant}
+            label={t(`alphabet_page.${countryVariant}.name`)}
+          />
+          <LanguageSelect onClick={() => setSelectedAlphabet('uk')} active={selectedAlphabet === 'uk'} label={t(`alphabet_page.uk.name`)} />
         </div>
         <div className="grid gap-6  justify-center auto-rows-[400px] sm:auto-rows-[300px] md:auto-rows-[350px] grid-cols-[repeat(auto-fill,minmax(275px,275px))] sm:grid-cols-[repeat(auto-fill,minmax(205px,205px))]  md:grid-cols-[repeat(auto-fill,minmax(240px,240px))] ">
           {alphabet.map(({ examples, letter, transcription }, index) => {
-            return <AlphabetCard language={playerLanguage} letter={letter} transcription={transcription} examples={examples} key={index} />;
+            return (
+              <AlphabetCard language={selectedAlphabet} letter={letter} transcription={transcription} examples={examples} key={index} />
+            );
           })}
         </div>
       </div>

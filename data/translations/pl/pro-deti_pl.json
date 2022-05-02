@@ -1,0 +1,22 @@
+[
+  { "main": "lalka", "uk": "лялька", "image": "panenka" },
+  { "main": "autko", "uk": "машина", "image": "auticka" },
+  { "main": "puzzle", "uk": "пазл", "image": "puzzle" },
+  { "main": "pociąg", "uk": "поїзд", "image": "vlacky" },
+  { "main": "piłka", "uk": "м'яч", "image": "mic" },
+  { "main": "kolorowanki", "uk": "розмальовки", "image": "omalovanky" },
+  { "main": "picie", "uk": "напiй", "image": "piti" },
+  { "main": "śniadanie", "uk": "сніданок", "image": "snidane" },
+  { "main": "przekąska", "uk": "перекуска", "image": "svacina" },
+  { "main": "obiad", "uk": "обід", "image": "obed" },
+  { "main": "chusteczka do nosa", "uk": "носова хустинка", "image": "kapesnik" },
+  { "main": "łóżko", "uk": "ліжко", "image": "postel" },
+  { "main": "toaleta", "uk": "туалет", "image": "zachod" },
+  { "main": "wycieczka", "uk": "подорож", "image": "vylet" },
+  { "main": "ogród", "uk": "cад", "image": "zahrada" },
+  { "main": "góry", "uk": "гори", "image": "hory" },
+  { "main": "jeździć na łyżwach", "uk": "кататися на ковзанах", "image": "brusleni" },
+  { "main": "myć zeby", "uk": "чистити зуби", "image": "cisteni_zubu" },
+  { "main": "ćwiczyć", "uk": "робити вправи", "image": "rozcvicka" },
+  { "main": "Boli mnie brzuszek", "uk": "У мене болить живіт", "image": "bolest_bricha" }
+]

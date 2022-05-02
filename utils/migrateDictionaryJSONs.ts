@@ -10,13 +10,14 @@ import { TranslationJSON } from './Phrase';
  */
 
 // Define source folder:
-const dir = 'data/translations';
+const dir = 'data/translations/SK';
 // Define target folder inside source folder:
 const migratedDir = 'migrated';
 // Define how to map old JSON object to new ones
 const transformFunction = (oldPhrase: Record<string, string>) => ({
   main: oldPhrase.cz_translation,
   uk: oldPhrase.ua_translation,
+  image: oldPhrase.image,
 });
 
 // Filepath helper method
@@ -44,7 +45,7 @@ const migrate = (dir: string, migratedDir: string, transformFunction: (old: Tran
 
   for (const path of filesPaths) {
     const newPath = getNewFilePath(path);
-    const translations = JSON.parse(readFileSync(path, { encoding: 'utf-8' })) as TranslationJSON[];
+    const translations = JSON.parse(readFileSync(path, { encoding: 'utf-8' }));
     const migratedTranslations = translations.map(transformFunction);
     writeFileSync(newPath, JSON.stringify(migratedTranslations));
   }
