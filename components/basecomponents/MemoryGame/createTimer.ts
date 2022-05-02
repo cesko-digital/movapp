@@ -1,3 +1,6 @@
+// function setTimer: enhanced setTimeout function that saves id of timer
+// function clearTimers: deactivates all active timers
+
 const createTimer = () : [(fn: () => void, delay: number) => void, () => void] => {
     
     let timers: ReturnType<typeof setTimeout>[] = [];

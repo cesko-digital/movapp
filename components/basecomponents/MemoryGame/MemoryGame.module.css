@@ -77,7 +77,7 @@
 
 .front.winReward {
   animation: dance 0.45s;
-  animation-iteration-count: 17;
+  animation-iteration-count: 11;
 }
 
 .cell:nth-child(1) .front.win {
