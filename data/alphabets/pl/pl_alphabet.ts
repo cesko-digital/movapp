@@ -3,7 +3,7 @@ import { Letter } from '../alphabetTypes';
 export const ALPHABET_PL: Letter[] = [
   {
     letter: ['A', 'a'],
-    transcription: '[]',
+    transcription: '[a]',
     examples: [
       {
         example: 'alfabet',
@@ -21,7 +21,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Ą', 'ą'],
-    transcription: '[]',
+    transcription: '[он]',
     examples: [
       {
         example: 'książka',
@@ -39,7 +39,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['B', 'b'],
-    transcription: '[]',
+    transcription: '[Б]',
     examples: [
       {
         example: 'biedronka',
@@ -57,7 +57,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['C', 'c'],
-    transcription: '[]',
+    transcription: '[ц]',
     examples: [
       {
         example: 'cebula',
@@ -75,7 +75,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Ć', 'ć'],
-    transcription: '[]',
+    transcription: '[ть]',
     examples: [
       {
         example: 'postać',
@@ -93,25 +93,25 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Ci', 'ci'],
-    transcription: '[]',
+    transcription: '[ть]',
     examples: [
       {
         example: 'babcia',
         example_transcription: '',
       },
       {
-        example: 'bocian',
+        example: 'ciepły',
         example_transcription: '',
       },
       {
-        example: 'ciasto',
+        example: 'ciągnąć',
         example_transcription: '',
       },
     ],
   },
   {
     letter: ['Cz', 'cz'],
-    transcription: '[]',
+    transcription: '[ч]',
     examples: [
       {
         example: 'czapka',
@@ -129,7 +129,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['D', 'd'],
-    transcription: '[]',
+    transcription: '[д]',
     examples: [
       {
         example: 'dom',
@@ -147,7 +147,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Dź', 'dź'],
-    transcription: '[]',
+    transcription: '[дь]',
     examples: [
       {
         example: 'łódź',
@@ -165,7 +165,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Dzi', 'dzi'],
-    transcription: '[]',
+    transcription: '[дь]',
     examples: [
       {
         example: 'budzik',
@@ -176,14 +176,14 @@ export const ALPHABET_PL: Letter[] = [
         example_transcription: '',
       },
       {
-        example: 'dziennik',
+        example: 'dziadek',
         example_transcription: '',
       },
     ],
   },
   {
     letter: ['Dż', 'dż'],
-    transcription: '[]',
+    transcription: '[дж]',
     examples: [
       {
         example: 'dżem',
@@ -201,7 +201,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['E', 'e'],
-    transcription: '[]',
+    transcription: '[е]',
     examples: [
       {
         example: 'etykieta',
@@ -219,7 +219,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Ę', 'ę'],
-    transcription: '[]',
+    transcription: '[ен]',
     examples: [
       {
         example: 'Księżyc',
@@ -237,7 +237,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['F', 'f'],
-    transcription: '[]',
+    transcription: '[ф]',
     examples: [
       {
         example: 'flaming',
@@ -255,7 +255,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['G', 'g'],
-    transcription: '[]',
+    transcription: '[ґ]',
     examples: [
       {
         example: 'grzyb',
@@ -273,7 +273,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['H', 'h'],
-    transcription: '[]',
+    transcription: '[г]',
     examples: [
       {
         example: 'hipopotam',
@@ -291,7 +291,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['I', 'i'],
-    transcription: '[]',
+    transcription: '[і]',
     examples: [
       {
         example: 'indyk',
@@ -309,7 +309,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['J', 'j'],
-    transcription: '[]',
+    transcription: '[й]',
     examples: [
       {
         example: 'jabłko',
@@ -327,7 +327,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['K', 'k'],
-    transcription: '[]',
+    transcription: '[к]',
     examples: [
       {
         example: 'kot',
@@ -345,7 +345,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['L', 'l'],
-    transcription: '[]',
+    transcription: '[ль]',
     examples: [
       {
         example: 'lampa',
@@ -363,7 +363,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Ł', 'ł'],
-    transcription: '[]',
+    transcription: '[у]',
     examples: [
       {
         example: 'łyżka',
@@ -381,7 +381,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['M', 'm'],
-    transcription: '[]',
+    transcription: '[м]',
     examples: [
       {
         example: 'moneta',
@@ -399,7 +399,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['N', 'n'],
-    transcription: '[]',
+    transcription: '[н]',
     examples: [
       {
         example: 'nowy',
@@ -417,7 +417,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Ń', 'ń'],
-    transcription: '[]',
+    transcription: '[нь]',
     examples: [
       {
         example: 'bańka',
@@ -435,7 +435,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Ni', 'ni'],
-    transcription: '[]',
+    transcription: '[нь]',
     examples: [
       {
         example: 'Niemcy',
@@ -471,7 +471,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Ó', 'ó'],
-    transcription: '[]',
+    transcription: '[у]',
     examples: [
       {
         example: 'ósmy',
@@ -489,7 +489,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['P', 'p'],
-    transcription: '[]',
+    transcription: '[п]',
     examples: [
       {
         example: 'parasol',
@@ -507,7 +507,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['R', 'r'],
-    transcription: '[]',
+    transcription: '[р]',
     examples: [
       {
         example: 'rower',
@@ -525,7 +525,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Rz', 'rz'],
-    transcription: '[]',
+    transcription: '[ж]',
     examples: [
       {
         example: 'rzemiosło',
@@ -543,7 +543,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['S', 's'],
-    transcription: '[]',
+    transcription: '[с]',
     examples: [
       {
         example: 'samolot',
@@ -561,7 +561,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Ś', 'ś'],
-    transcription: '[]',
+    transcription: '[сь]',
     examples: [
       {
         example: 'śnieg',
@@ -579,14 +579,14 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Si', 'si'],
-    transcription: '[]',
+    transcription: '[сь]',
     examples: [
       {
         example: 'siedem',
         example_transcription: '',
       },
       {
-        example: 'siedzieć',
+        example: 'siwy',
         example_transcription: '',
       },
       {
@@ -597,7 +597,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Sz', 'sz'],
-    transcription: '[]',
+    transcription: '[ш]',
     examples: [
       {
         example: 'szuflada',
@@ -615,7 +615,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['T', 't'],
-    transcription: '[]',
+    transcription: '[т]',
     examples: [
       {
         example: 'tablica',
@@ -633,7 +633,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['U', 'u'],
-    transcription: '[]',
+    transcription: '[У]',
     examples: [
       {
         example: 'Ukraina',
@@ -651,7 +651,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['W', 'w'],
-    transcription: '[]',
+    transcription: '[в]',
     examples: [
       {
         example: 'wifi',
@@ -669,7 +669,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Y', 'y'],
-    transcription: '[]',
+    transcription: '[и]',
     examples: [
       {
         example: 'siwy',
@@ -687,7 +687,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Z', 'z'],
-    transcription: '[]',
+    transcription: '[з]',
     examples: [
       {
         example: 'zaliczka',
@@ -705,7 +705,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Ź', 'ź'],
-    transcription: '[]',
+    transcription: '[зь]',
     examples: [
       {
         example: 'źrebak',
@@ -723,7 +723,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['Zi', 'zi'],
-    transcription: '[]',
+    transcription: '[зь]',
     examples: [
       {
         example: 'ziemia',
@@ -734,14 +734,14 @@ export const ALPHABET_PL: Letter[] = [
         example_transcription: '',
       },
       {
-        example: 'zielony',
+        example: 'zima',
         example_transcription: '',
       },
     ],
   },
   {
     letter: ['Ż', 'ż'],
-    transcription: '[]',
+    transcription: '[ж]',
     examples: [
       {
         example: 'żyrafa',
@@ -752,7 +752,7 @@ export const ALPHABET_PL: Letter[] = [
         example_transcription: '',
       },
       {
-        example: 'życie',
+        example: 'Paryż',
         example_transcription: '',
       },
     ],
