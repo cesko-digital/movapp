@@ -2,40 +2,26 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { useTranslation } from 'next-i18next';
 import Card from './MemoryGameCard';
-import { AudioPlayer } from 'utils/AudioPlayer';
-import { useLanguage } from 'utils/useLanguageHook';
-import { Phrase } from 'utils/Phrase';
-import phrases from './MemoryGamePhrases.json';
+import { TranslationJSON } from 'utils/Phrase';
+import { getCountryVariant } from 'utils/locales';
+import phrases_CZ from 'data/translations/cs/memory-game.json';
 import createTimer from './createTimer';
+import usePlayPhrase from './usePlayPhrase';
+
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.random() * arr.length)];
 
-export interface TranslationType {
-  main: string;
-  uk: string;
-}
+const addBackroundColor = (cardsData: {}[]) =>
+  cardsData.map((item, i) => ({ ...item, color: `hsl(${(360 / cardsData.length) * i},50%,50%)` }));
 
-export interface CardDataType {
-  image: string;
-  translation: TranslationType;
-  backgroundColor?: string;
-}
-
-export interface CardType {
-  id: number;
-  flipped: boolean;
-  image: string;
-  translation: TranslationType;
-  color?: string;
-}
-
-interface MemoryGameProps {
-  cardsData: CardDataType[];
-}
-
-const addBackroundColor = (cardsData: CardDataType[]) => {
-  return cardsData.map((item, i) => ({ ...item, color: `hsl(${(360 / cardsData.length) * i},50%,50%)` }));
+const PHRASES = {
+  cs: phrases_CZ,
+  sk: phrases_CZ,
+  pl: phrases_CZ,
 };
+
+const phrases = PHRASES[getCountryVariant()];
 
 enum Scenes {
   init = 'init',
@@ -62,8 +48,23 @@ cardsMatchSound.volume = 0.25;
 const winMusic = new Audio('/kids/reward_song.mp3');
 winMusic.volume = 0.8;
 
+export interface CardDataType {
+  image: string;
+  translation: TranslationJSON;
+}
+
+export type CardType = CardDataType & {
+  id: number;
+  flipped: boolean;
+  color: string;  
+};
+
+interface MemoryGameProps {
+  cardsData: CardDataType[];
+}
+
 const MemoryGame = ({ cardsData }: MemoryGameProps) => {
-  const { currentLanguage, otherLanguage } = useLanguage();
+  const { playCardPhraseOtherLang, playCardPhraseCurrentLang, playPhraseRandomLang } = usePlayPhrase();
   const { t } = useTranslation();
 
   const [cards, setCards] = useState<CardType[]>([]);
@@ -87,8 +88,8 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
     console.log('new game');
     // prepare and shuffle cards, pick 8 cards
     const pickedCards = cardsData.sort(() => Math.random() - 0.5).slice(0, 8);
-
-    const coloredCards = addBackroundColor(pickedCards);
+    const coloredCards = addBackroundColor(pickedCards) as (CardDataType & { color: string })[];
+    
     setCards(
       [...coloredCards, ...coloredCards]
         .sort(() => Math.random() - 0.5)
@@ -97,17 +98,6 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
     setSelectedCards({ first: null, second: null });
     // clearTimers();
   };
-
-  const playCardWordOtherLang = (card: CardType) =>
-    AudioPlayer.getInstance().playTextToSpeech(new Phrase(card.translation).getTranslation(otherLanguage), otherLanguage);
-  const playCardWordCurrentLang = (card: CardType) =>
-    AudioPlayer.getInstance().playTextToSpeech(new Phrase(card.translation).getTranslation(currentLanguage), currentLanguage);
-  const playPhraseOtherLang = (phrase: TranslationType) =>
-    AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrase).getTranslation(otherLanguage), otherLanguage);
-  const playPhraseCurrentLang = (phrase: TranslationType) =>
-    AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrase).getTranslation(currentLanguage), currentLanguage);
-  const playPhraseRandomLang = (phrase: TranslationType) =>
-    Math.random() < 0.5 ? playPhraseOtherLang(phrase) : playPhraseCurrentLang(phrase);
 
   const flipCard = (cardToFlip: CardType) => {
     setCards((cards) => cards.map((card) => (card.id === cardToFlip.id ? { ...card, flipped: !card.flipped } : card)));
@@ -142,7 +132,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
 
   // resolve game states
   useEffect(() => {
-    const phraseMaxLength = 2000;
+    const phraseMaxLength = 2500;
     const sceneActions: { [index: string]: () => void } = {
       init: () => {
         // begin new game automaticaly
@@ -168,23 +158,21 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         // play css animations and sounds
         const { first: card } = selectedCards;
         flipCard(card!); // 0.3s
-        playCardWordOtherLang(card!); // cca 1.2s
-        // go back to game scene when card phrase ends
+        playCardPhraseOtherLang(card!);
+        
         setTimer(() => {
           setScene(Scenes.game);
         }, 600); // reduced for fastrer UX
       },
-      secondCardSelected: () => {
+      secondCardSelected: async () => {
         // disable controls
         setControlsDisabled(true);
         // play css animations and sounds
         const { second: card } = selectedCards;
         flipCard(card!); // 0.3s
-        playCardWordCurrentLang(card!); // cca 1.2s
-        // resolve cards when card phrase ends
-        setTimer(() => {
-          setScene(Scenes.resolveCards);
-        }, phraseMaxLength);
+
+        await playCardPhraseCurrentLang(card!);        
+        setScene(Scenes.resolveCards);
       },
       resolveCards: () => {
         const { first, second } = selectedCards;
@@ -209,13 +197,9 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
           setScene(Scenes.cardsMatchReward);
         }, 700);
       },
-      cardsMatchReward: () => {
-        let delay = 700;
+      cardsMatchReward: async () => {        
         // play css animations and sounds
-        if (Math.random() > 0.5) {
-          delay = phraseMaxLength; // extend delay to phrase max length
-          playPhraseRandomLang(getRandomElement(phrases.good));
-        }
+        Math.random() > 0.5 &&  await playPhraseRandomLang(getRandomElement(phrases.good));        
         // reset selected cards
         setSelectedCards({ first: null, second: null });
         // check win
@@ -226,25 +210,21 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
           } else {
             setScene(Scenes.game);
           }
-        }, delay);
+        }, 700);
       },
-      cardsDontMatch: () => {
-        let delay = 1200;
+      cardsDontMatch: async () => {        
         // disable controls
         setControlsDisabled(true);
         // play animations and sounds
-        if (Math.random() > 0.8) {
-          delay = phraseMaxLength; // extend delay to phrase max length
-          playPhraseRandomLang(getRandomElement(phrases.wrong));
-        }
-        // setTimer: show cards for a period of time to remember then flip back
-        setTimer(() => {
-          const { first, second } = selectedCards;
-          flipCard(first!);
-          flipCard(second!);
-          setSelectedCards({ first: null, second: null });
-          setScene(Scenes.cardsDontMatchFlipBack);
-        }, delay);
+        await delay(1000);
+        Math.random() > 0.8 && await playPhraseRandomLang(getRandomElement(phrases.wrong));          
+        
+        // setTimer: show cards for some time to remember then flip back        
+        const { first, second } = selectedCards;
+        flipCard(first!);
+        flipCard(second!);
+        setSelectedCards({ first: null, second: null });
+        setScene(Scenes.cardsDontMatchFlipBack);        
       },
       cardsDontMatchFlipBack: () => {
         // wait for cards flip back
@@ -252,23 +232,22 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
           setScene(Scenes.game);
         }, 300);
       },
-      win: () => {
+      win: async () => {
         // disable controls
         setControlsDisabled(true);
         // play css animations and sounds
-        playPhraseRandomLang(getRandomElement(phrases.win));
-        setTimer(() => {
-          setScene(Scenes.winReward);
-        }, phraseMaxLength);
+        await playPhraseRandomLang(getRandomElement(phrases.win));
+        await delay(200);
+        setScene(Scenes.winReward);        
       },
       winReward: () => {
         // play css animations and sounds
         winMusic.play();
       },
-      goNewGame: () => {
-        // play css animations and sounds
+      goNewGame: () => {        
         clearTimers();
-        playPhraseRandomLang(getRandomElement(phrases.newGame));
+        // play css animations and sounds
+        playPhraseRandomLang(getRandomElement(phrases.newGame));        
         setTimer(() => {
           setScene(Scenes.begin);
         }, 500);
