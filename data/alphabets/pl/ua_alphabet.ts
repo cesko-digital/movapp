@@ -7,15 +7,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'алфавіт',
-        example_transcription: 'alfavit',
+        example_transcription: '',
       },
       {
         example: 'автомобіль',
-        example_transcription: 'avtomobiľ',
+        example_transcription: '',
       },
       {
         example: 'ананас',
-        example_transcription: 'ananas',
+        example_transcription: '',
       },
     ],
   },
@@ -25,33 +25,33 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'банан',
-        example_transcription: 'banan',
+        example_transcription: '',
       },
       {
         example: 'будинок',
-        example_transcription: 'budynok',
+        example_transcription: '',
       },
       {
         example: 'безліч',
-        example_transcription: 'bezlič',
+        example_transcription: '',
       },
     ],
   },
   {
     letter: ['В', 'в'],
-    transcription: '[v]',
+    transcription: '[w]',
     examples: [
       {
         example: 'вода',
-        example_transcription: 'voda',
+        example_transcription: '',
       },
       {
         example: 'виделка',
-        example_transcription: 'vydelka',
+        example_transcription: '',
       },
       {
         example: 'вулиця',
-        example_transcription: 'vulycja',
+        example_transcription: '',
       },
     ],
   },
@@ -61,15 +61,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'голова',
-        example_transcription: 'holova',
+        example_transcription: '',
       },
       {
         example: 'грати',
-        example_transcription: 'hraty',
+        example_transcription: '',
       },
       {
         example: 'готель',
-        example_transcription: 'hoteľ',
+        example_transcription: '',
       },
     ],
   },
@@ -79,15 +79,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'ґумка',
-        example_transcription: 'gumka',
+        example_transcription: '',
       },
       {
         example: 'ґанок',
-        example_transcription: 'ganok',
+        example_transcription: '',
       },
       {
         example: 'ґудзик',
-        example_transcription: 'gudzyk',
+        example_transcription: '',
       },
     ],
   },
@@ -97,15 +97,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'дім',
-        example_transcription: 'dim',
+        example_transcription: '',
       },
       {
         example: 'дерево',
-        example_transcription: 'derevo',
+        example_transcription: '',
       },
       {
         example: 'добрий',
-        example_transcription: 'dobryj',
+        example_transcription: '',
       },
     ],
   },
@@ -115,15 +115,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'екскаватор',
-        example_transcription: 'ekskavator',
+        example_transcription: '',
       },
       {
         example: 'екватор',
-        example_transcription: 'ekvator',
+        example_transcription: '',
       },
       {
         example: 'дерево',
-        example_transcription: 'derevo',
+        example_transcription: '',
       },
     ],
   },
@@ -133,33 +133,33 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'Європа',
-        example_transcription: 'Jevropa',
+        example_transcription: '',
       },
       {
         example: 'єдиний',
-        example_transcription: 'jedynyj',
+        example_transcription: '',
       },
       {
         example: 'життєвий',
-        example_transcription: 'žyttěvyj',
+        example_transcription: '',
       },
     ],
   },
   {
     letter: ['Ж', 'ж'],
-    transcription: '[ž]',
+    transcription: '[ż]',
     examples: [
       {
         example: 'жінка',
-        example_transcription: 'žinka',
+        example_transcription: '',
       },
       {
         example: 'життя',
-        example_transcription: 'žytťa',
+        example_transcription: '',
       },
       {
         example: 'між',
-        example_transcription: 'miž',
+        example_transcription: '',
       },
     ],
   },
@@ -169,15 +169,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'зуб',
-        example_transcription: 'zub',
+        example_transcription: '',
       },
       {
         example: 'залізниця',
-        example_transcription: 'zaliznycja',
+        example_transcription: '',
       },
       {
         example: 'вокзал',
-        example_transcription: 'vokzal',
+        example_transcription: '',
       },
     ],
   },
@@ -187,15 +187,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'сир',
-        example_transcription: 'syr',
+        example_transcription: '',
       },
       {
         example: 'невинний',
-        example_transcription: 'nevynnyj',
+        example_transcription: '',
       },
       {
         example: 'кмітливий',
-        example_transcription: 'kmitlyvyj',
+        example_transcription: '',
       },
     ],
   },
@@ -205,15 +205,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'Інтернет',
-        example_transcription: 'internet',
+        example_transcription: '',
       },
       {
         example: 'іграшка',
-        example_transcription: 'ihraška',
+        example_transcription: '',
       },
       {
         example: 'цікавий',
-        example_transcription: 'cikavyj',
+        example_transcription: '',
       },
     ],
   },
@@ -223,15 +223,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'їжак',
-        example_transcription: 'jižak',
+        example_transcription: '',
       },
       {
         example: 'їсти',
-        example_transcription: 'jisty',
+        example_transcription: '',
       },
       {
         example: 'їхати',
-        example_transcription: 'jichaty',
+        example_transcription: '',
       },
     ],
   },
@@ -241,15 +241,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'йогурт',
-        example_transcription: 'johurt',
+        example_transcription: '',
       },
       {
         example: 'інтересний',
-        example_transcription: 'interesnyj',
+        example_transcription: '',
       },
       {
         example: 'довгий',
-        example_transcription: 'dovhyj',
+        example_transcription: '',
       },
     ],
   },
@@ -259,15 +259,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'кімната',
-        example_transcription: 'kimnata',
+        example_transcription: '',
       },
       {
         example: 'ковдра',
-        example_transcription: 'kovdra',
+        example_transcription: '',
       },
       {
         example: 'камінь',
-        example_transcription: 'kamiň',
+        example_transcription: '',
       },
     ],
   },
@@ -277,15 +277,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'любов',
-        example_transcription: 'ľubof',
+        example_transcription: '',
       },
       {
         example: 'літо',
-        example_transcription: 'lito',
+        example_transcription: '',
       },
       {
         example: 'лопата',
-        example_transcription: 'lopata',
+        example_transcription: '',
       },
     ],
   },
@@ -295,15 +295,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'мова',
-        example_transcription: 'mova',
+        example_transcription: '',
       },
       {
         example: 'місто',
-        example_transcription: 'misto',
+        example_transcription: '',
       },
       {
         example: 'музика',
-        example_transcription: 'muzyka',
+        example_transcription: '',
       },
     ],
   },
@@ -313,15 +313,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'новини',
-        example_transcription: 'novyny',
+        example_transcription: '',
       },
       {
         example: 'ніс',
-        example_transcription: 'nis',
+        example_transcription: '',
       },
       {
         example: 'ніж',
-        example_transcription: 'niž',
+        example_transcription: '',
       },
     ],
   },
@@ -331,15 +331,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'озеро',
-        example_transcription: 'ozero',
+        example_transcription: '',
       },
       {
         example: 'овочі',
-        example_transcription: 'ovoči',
+        example_transcription: '',
       },
       {
         example: 'повінь',
-        example_transcription: 'poviň',
+        example_transcription: '',
       },
     ],
   },
@@ -349,15 +349,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'правда',
-        example_transcription: 'pravda',
+        example_transcription: '',
       },
       {
         example: 'паста',
-        example_transcription: 'pasta',
+        example_transcription: '',
       },
       {
         example: 'помідор',
-        example_transcription: 'pomidor',
+        example_transcription: '',
       },
     ],
   },
@@ -367,15 +367,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'риба',
-        example_transcription: 'ryba',
+        example_transcription: '',
       },
       {
         example: 'робота',
-        example_transcription: 'robota',
+        example_transcription: '',
       },
       {
         example: 'ринок',
-        example_transcription: 'rynok',
+        example_transcription: '',
       },
     ],
   },
@@ -385,15 +385,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'село',
-        example_transcription: 'selo',
+        example_transcription: '',
       },
       {
         example: 'сонце',
-        example_transcription: 'sonce',
+        example_transcription: '',
       },
       {
         example: 'сіль',
-        example_transcription: 'siľ',
+        example_transcription: '',
       },
     ],
   },
@@ -403,15 +403,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'тато',
-        example_transcription: 'tato',
+        example_transcription: '',
       },
       {
         example: 'туман',
-        example_transcription: 'tuman',
+        example_transcription: '',
       },
       {
         example: 'телевізор',
-        example_transcription: 'televizor',
+        example_transcription: '',
       },
     ],
   },
@@ -421,15 +421,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'Україна',
-        example_transcription: 'Ukrajina',
+        example_transcription: '',
       },
       {
         example: 'удав',
-        example_transcription: 'udav',
+        example_transcription: '',
       },
       {
         example: 'дуб',
-        example_transcription: 'dub',
+        example_transcription: '',
       },
     ],
   },
@@ -439,15 +439,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'фізика',
-        example_transcription: 'fizyka',
+        example_transcription: '',
       },
       {
         example: 'фаворит',
-        example_transcription: 'favoryt',
+        example_transcription: '',
       },
       {
         example: 'Фінляндія',
-        example_transcription: 'Finľandija',
+        example_transcription: '',
       },
     ],
   },
@@ -457,15 +457,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'хліб',
-        example_transcription: 'chlib',
+        example_transcription: '',
       },
       {
         example: 'ховати',
-        example_transcription: 'chovaty',
+        example_transcription: '',
       },
       {
         example: 'хвіст',
-        example_transcription: 'chvist',
+        example_transcription: '',
       },
     ],
   },
@@ -475,87 +475,87 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'цибуля',
-        example_transcription: 'cybuľa',
+        example_transcription: '',
       },
       {
         example: 'церква',
-        example_transcription: 'cerkva',
+        example_transcription: '',
       },
       {
         example: 'цукор',
-        example_transcription: 'cukor',
+        example_transcription: '',
       },
     ],
   },
   {
     letter: ['Ч', 'ч'],
-    transcription: '[č]',
+    transcription: '[cz]',
     examples: [
       {
         example: 'Чехія',
-        example_transcription: 'Čechija',
+        example_transcription: '',
       },
       {
         example: 'чесний',
-        example_transcription: 'česnyj',
+        example_transcription: '',
       },
       {
         example: 'читати',
-        example_transcription: 'čytaty',
+        example_transcription: '',
       },
     ],
   },
   {
     letter: ['Ш', 'ш'],
-    transcription: '[š]',
+    transcription: '[sz]',
     examples: [
       {
         example: 'шампунь',
-        example_transcription: 'šampuň',
+        example_transcription: '',
       },
       {
         example: 'шина',
-        example_transcription: 'šyna',
+        example_transcription: '',
       },
       {
         example: 'кошик',
-        example_transcription: 'košyk',
+        example_transcription: '',
       },
     ],
   },
   {
     letter: ['Щ', 'щ'],
-    transcription: '[šč]',
+    transcription: '[szcz]',
     examples: [
       {
         example: 'щука',
-        example_transcription: 'ščuka',
+        example_transcription: '',
       },
       {
         example: 'кущ',
-        example_transcription: 'kušč',
+        example_transcription: '',
       },
       {
         example: 'щеня',
-        example_transcription: 'ščeňa',
+        example_transcription: '',
       },
     ],
   },
   {
     letter: ['ь', null],
-    transcription: 'měkký znak',
+    transcription: 'miękki znak',
     examples: [
       {
         example: 'сіль',
-        example_transcription: 'siľ',
+        example_transcription: '',
       },
       {
         example: 'лінь',
-        example_transcription: 'ľiň',
+        example_transcription: '',
       },
       {
         example: 'вільний',
-        example_transcription: 'viľnyj',
+        example_transcription: '',
       },
     ],
   },
@@ -565,15 +565,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'юнак',
-        example_transcription: 'junak',
+        example_transcription: '',
       },
       {
         example: 'ювілей',
-        example_transcription: 'juvilej',
+        example_transcription: '',
       },
       {
         example: 'любити',
-        example_transcription: 'ľubyty',
+        example_transcription: '',
       },
     ],
   },
@@ -583,15 +583,15 @@ export const ALPHABET_UA: Letter[] = [
     examples: [
       {
         example: 'яблуко',
-        example_transcription: 'jabluko',
+        example_transcription: '',
       },
       {
         example: 'яма',
-        example_transcription: 'jama',
+        example_transcription: '',
       },
       {
         example: 'якор',
-        example_transcription: 'jakor',
+        example_transcription: '',
       },
     ],
   },
