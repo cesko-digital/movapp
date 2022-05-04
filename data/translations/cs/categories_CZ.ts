@@ -17,6 +17,8 @@ import VeSkolce_CZ from './veskolce.json';
 import Dobrovolnici_CZ from './dobrovolnici.json';
 import ZradnaSlovicka_CZ from './zradna-slovicka.json';
 import Velikonoce_CZ from './velikonoce.json';
+import Cisla_CZ from './cisla.json';
+import Barvy_CZ from './barvy.json';
 import { Category, processTranslations } from '../CategoryUtils';
 
 export const CATEGORIES_CZ: Category[] = [
@@ -24,11 +26,6 @@ export const CATEGORIES_CZ: Category[] = [
     nameMain: 'Základní fráze',
     nameUk: 'Основні фрази',
     translations: processTranslations(Basic_CZ),
-  },
-  {
-    nameMain: 'Velikonoce',
-    nameUk: 'Великдень',
-    translations: processTranslations(Velikonoce_CZ),
   },
   {
     nameMain: 'Rodina',
@@ -41,6 +38,16 @@ export const CATEGORIES_CZ: Category[] = [
     translations: processTranslations(Cas_CZ),
   },
   {
+    nameMain: 'Čísla',
+    nameUk: 'Цифри',
+    translations: processTranslations(Cisla_CZ),
+  },
+  {
+    nameMain: 'Barvy',
+    nameUk: 'Кольори',
+    translations: processTranslations(Barvy_CZ),
+  },
+  {
     nameMain: 'Hromadná doprava',
     nameUk: 'Громадський транспорт',
     translations: processTranslations(HromadnaDoprava_CZ),
@@ -49,6 +56,11 @@ export const CATEGORIES_CZ: Category[] = [
     nameMain: 'Jedeme do ZOO',
     nameUk: 'Їдемо в зоопарк',
     translations: processTranslations(Zoo_CZ),
+  },
+  {
+    nameMain: 'Velikonoce',
+    nameUk: 'Великдень',
+    translations: processTranslations(Velikonoce_CZ),
   },
   {
     nameMain: 'Na nákupu',
