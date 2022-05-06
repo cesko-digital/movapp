@@ -47,16 +47,12 @@ h6 {
 
 #markdown a {
   color: #013abd;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 #markdown p {
   font-weight: 300;
   margin-bottom: 1rem;
-}
-
-#markdown p a {
-  font-weight: 400;
 }
 
 #markdown p img {
