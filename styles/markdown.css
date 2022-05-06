@@ -37,12 +37,17 @@ h6 {
   margin: 0 0 1rem 1.5rem;
 }
 
+#markdown li {
+  font-weight: 300;
+}
+
 #markdown li p {
   display: inline;
 }
 
 #markdown a {
   color: #013abd;
+  font-weight: 400;
 }
 
 #markdown p {
