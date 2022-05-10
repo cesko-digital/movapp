@@ -46,6 +46,11 @@ const nextConfig = {
         destination: '/kids/omalovanky.pdf',
         permanent: true,
       },
+      {
+        source: '/raketa', // Short link printed into magazine Raketa to Raketa dictionary category
+        destination: '/dictionary#casopis_raketa_detem',
+        permanent: true,
+      },
     ];
   },
 };
