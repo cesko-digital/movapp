@@ -12,7 +12,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.random() * arr.length)];
 
-const addBackroundColor = (cardsData: {}[]) =>
+const addBackroundColor = (cardsData: (Record<string, unknown>)[]) =>
   cardsData.map((item, i) => ({ ...item, color: `hsl(${(360 / cardsData.length) * i},50%,50%)` }));
 
 const PHRASES = {
@@ -48,7 +48,7 @@ cardsMatchSound.volume = 0.25;
 const winMusic = new Audio('/kids/reward_song.mp3');
 winMusic.volume = 0.8;
 
-export interface CardDataType {
+export type CardDataType = {
   image: string;
   translation: TranslationJSON;
 }
@@ -131,8 +131,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
   }, [selectedCards]);
 
   // resolve game states
-  useEffect(() => {
-    const phraseMaxLength = 2500;
+  useEffect(() => {    
     const sceneActions: { [index: string]: () => void } = {
       init: () => {
         // begin new game automaticaly

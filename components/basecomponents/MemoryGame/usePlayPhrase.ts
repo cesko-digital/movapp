@@ -8,15 +8,15 @@ const playTextToSpeech = (text: string, language: Language): Promise<number> =>
     const source = `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;
     const sound = new Audio(source);
 
-    sound.onerror = (e) => {
+    sound.onerror = () => {
       console.warn(sound!.error!.message);
       setTimeout(() => resolve(1000), 1000);
     };
-    sound.onabort = (e) => {
+    sound.onabort = () => {
       console.warn('Audio play aborted');
       setTimeout(() => resolve(1000), 1000);
     };
-    sound.oncanplaythrough = (e) => {
+    sound.oncanplaythrough = () => {
       sound.play();
     };
     sound.onended = () => resolve(sound!.duration);
