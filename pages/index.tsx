@@ -9,6 +9,7 @@ import ChildIcon from '../public/icons/child.svg';
 import AlphabetIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
 import SEO from 'components/basecomponents/SEO';
+import { DownloadAppStore } from '../components/basecomponents/DownloadAppStore';
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
@@ -75,6 +76,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+      <DownloadAppStore />
     </>
   );
 };
