@@ -21,11 +21,16 @@ export const Collapse = ({ title, children, ariaId, id }: CollapseProps): JSX.El
   const router = useRouter();
 
   const hyperLink = typeof window !== 'undefined' && `${window.location.origin}/${router.locale}${router.pathname}#${id}`;
-
   useEffect(() => {
-    if (id && router.asPath.includes(id)) {
+    const path = router.asPath;
+    const bookmark = path.substring(path.indexOf('#') + 1);
+
+    if (id === bookmark && !expanded) {
       setExpanded(true);
+    } else {
+      setExpanded(false);
     }
+    /* eslint-disable react-hooks/exhaustive-deps */
   }, [id, router]);
 
   return (
