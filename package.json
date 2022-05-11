@@ -28,6 +28,7 @@
     "next-i18next": "^10.5.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
     "react-mark.js": "^3.1.16",
     "rehype-external-links": "^1.0.1",
     "rehype-stringify": "^9.0.3",
