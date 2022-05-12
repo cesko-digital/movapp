@@ -19,6 +19,7 @@ import ZradnaSlovicka_CZ from './zradna-slovicka.json';
 import Velikonoce_CZ from './velikonoce.json';
 import Cisla_CZ from './cisla.json';
 import Barvy_CZ from './barvy.json';
+import ExternalRaketa_CZ from './raketa.json';
 import { Category, processTranslations } from '../CategoryUtils';
 
 export const CATEGORIES_CZ: Category[] = [
@@ -126,5 +127,10 @@ export const CATEGORIES_CZ: Category[] = [
     nameMain: 'Zrádná slovíčka',
     nameUk: 'Слова із іншим значенням',
     translations: processTranslations(ZradnaSlovicka_CZ),
+  },
+  {
+    nameMain: 'Časopis Raketa dětem',
+    nameUk: 'Журнал Ракета для дітей',
+    translations: processTranslations(ExternalRaketa_CZ),
   },
 ];
