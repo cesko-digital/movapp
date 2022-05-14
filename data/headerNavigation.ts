@@ -16,6 +16,10 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
     name: 'header.forkids_link_name',
     link: '/kids',
   },
+  {
+    name: 'header.wiki_link_name',
+    link: '/wiki',
+  },
   // {
   //   name: 'header.exercises_link_name',
   //   link: '/exercises',
