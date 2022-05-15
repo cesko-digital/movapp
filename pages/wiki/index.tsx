@@ -13,7 +13,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { getCountryVariant } from 'utils/locales';
 
 export const sanitizeWikiParam = (param: string): string => {
-  return param.replace(/[^A-za-z0-9-]/g, '');
+  return param.replace(/[^A-za-z0-9-]/g, '').slice(0, 150);
 };
 
 const Wiki = ({ markdown }: InferGetStaticPropsType<typeof getStaticProps>) => {
