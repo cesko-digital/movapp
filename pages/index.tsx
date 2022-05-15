@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import HeartsUkraine from '../public/icons/hearts-for-ukraine.png';
 import DictionaryIcon from '../public/icons/book.svg';
+import WikiIcon from '../public/icons/books.svg';
 import ChildIcon from '../public/icons/child.svg';
 import AlphabetIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
@@ -57,7 +58,16 @@ const Home: NextPage = () => {
               <p>{t('homepage.box_alphabet_description')}</p>
             </div>
           </div>
-          <div className="grid md:grid-cols-[70%_30%] gap-8 mt-10">
+          <div className="grid md:grid-cols-3 gap-8 mt-10">
+            <div className="homepage-box w-full group hover:text-primary-blue    pr-4 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
+              <WikiIcon className="w-8 mb-2 fill-primary-blue group-hover:fill-primary-red" />
+              <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
+                <Link href={'/wiki'}>
+                  <a>{t('homepage.box_wiki_title')}</a>
+                </Link>
+              </h2>
+              <p className="mb-2">{t('homepage.box_wiki_description')}</p>
+            </div>
             <div className="homepage-box group hover:text-primary-blue my-6 md:my-0">
               <MovappIcon className="w-8 mb-2 fill-primary-blue group-hover:fill-primary-red" />
               <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
