@@ -1,9 +1,8 @@
 import React, { useMemo, useState } from 'react';
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { visit } from 'unist-util-visit';
 import markdownLinkExtractor from 'markdown-link-extractor';
-
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -13,8 +12,19 @@ import remarkGfm from 'remark-gfm';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { getCountryVariant } from 'utils/locales';
+import { sanitizeWikiParam } from '.';
+import { ParsedUrlQuery } from 'querystring';
 
-const WikiArticle = ({ markdown, title }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
+interface UrlParams extends ParsedUrlQuery {
+  article: string;
+}
+
+interface WikiArticleProps {
+  markdown: string;
+  title: string;
+}
+
+const WikiArticle = ({ markdown, title }: WikiArticleProps): JSX.Element => {
   const [seoTitle, setSEOTitle] = useState(title);
   const router = useRouter();
 
@@ -51,11 +61,9 @@ const WikiArticle = ({ markdown, title }: InferGetStaticPropsType<typeof getStat
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
-  /* eslint-disable @typescript-eslint/no-non-null-assertion */
-  const param = params!.article;
-
-  const response = await fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${param}.md`);
+export const getStaticProps: GetStaticProps<WikiArticleProps, UrlParams> = async ({ params, locale }) => {
+  const articleId = params?.article ?? '';
+  const response = await fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${sanitizeWikiParam(articleId)}.md`);
   if (response.status === 404) {
     return {
       notFound: true,
@@ -66,14 +74,14 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   return {
     props: {
       markdown,
-      title: param,
+      title: articleId,
       ...(await serverSideTranslations(locale ?? 'cs', ['common'])),
     },
     revalidate: 10,
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<UrlParams> = async () => {
   // list of pages which should not be fetched in nested url ex. wiki/...
   const excludedPages = ['sk', 'cs', 'pl', 'uk-pl', 'uk-cs', 'uk-sk'];
 
@@ -87,7 +95,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
    * @returns
    */
   const fetchWikiArticle = async (articleName: string, tracking: string[], paths: string[]): Promise<string[]> => {
-    const response = await fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${articleName}.md`);
+    const response = await fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${sanitizeWikiParam(articleName)}.md`);
     const markdown = await response.text();
 
     const { links } = markdownLinkExtractor(markdown);
