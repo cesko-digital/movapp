@@ -3,7 +3,9 @@ import type { NextPage } from 'next';
 export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
 import Image from 'next/image';
-import HeartsUkraine from '../public/icons/hearts-for-ukraine.png';
+import HeartsUkraine_CZ from '../public/icons/hearts/hearts-for-ukraine_CZ-UA.png';
+import HeartsUkraine_SK from '../public/icons/hearts/hearts-for-ukraine_SK-UA.png';
+import HeartsUkraine_PL from '../public/icons/hearts/hearts-for-ukraine_PL-UA.png';
 import DictionaryIcon from '../public/icons/book.svg';
 import WikiIcon from '../public/icons/books.svg';
 import ChildIcon from '../public/icons/child.svg';
@@ -11,6 +13,14 @@ import AlphabetIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
 import SEO from 'components/basecomponents/SEO';
 import { DownloadAppStore } from '../components/basecomponents/DownloadAppStore';
+import { CountryVariant, getCountryVariant } from '../utils/locales';
+import { ReactNode } from 'react';
+
+const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
+  cs: <Image src={HeartsUkraine_CZ} alt="Česká a Ukrajinská vlajka v srdcích." width={140} height={164} />,
+  sk: <Image src={HeartsUkraine_SK} alt="Slovenská a Ukrajinská vlajka v srdciach." width={140} height={164} />,
+  pl: <Image src={HeartsUkraine_PL} alt="Polskie i Ukraińskie flagi w sercach" width={140} height={164} />,
+};
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
@@ -80,9 +90,7 @@ const Home: NextPage = () => {
                 <em>{t('homepage.box_movapp_description_bottom')}</em>
               </p>
             </div>
-            <div className="justify-self-center my-4 md:my-0">
-              <Image src={HeartsUkraine} alt="Česká a Ukrajinská vlajka v srdcích." width={140} height={164} />
-            </div>
+            <div className="justify-self-center my-4 md:my-0">{HEARTS_IMAGE[getCountryVariant()]}</div>
           </div>
         </div>
       </div>
