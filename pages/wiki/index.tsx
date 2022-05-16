@@ -12,6 +12,10 @@ import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { getCountryVariant } from 'utils/locales';
 
+export const sanitizeWikiParam = (param: string): string => {
+  return param.replace(/[^A-za-z0-9-]/g, '').slice(0, 150);
+};
+
 const Wiki = ({ markdown }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [seoTitle, setSEOTitle] = useState('');
 
@@ -54,7 +58,7 @@ const Wiki = ({ markdown }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps = async ({ locale }: Parameters<GetStaticProps>[0]) => {
   const getWikiPage = async (article: string) => {
-    const response = await fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${article}.md`);
+    const response = await fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${sanitizeWikiParam(article)}.md`);
     const markdown = await response.text();
     return markdown;
   };
