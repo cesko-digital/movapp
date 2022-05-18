@@ -138,5 +138,30 @@
     "main": "mazanec",
     "uk": "пасочка",
     "image": "mazanec"
+  },
+  {
+    "main": "mák",
+    "uk": "мак",
+    "image": "mak"
+  },
+  {
+    "main": "pampeliška",
+    "uk": "кульбаба",
+    "image": "pampeliska"
+  },
+  {
+    "main": "šeřík",
+    "uk": "бузок",
+    "image": "serik"
+  },
+  {
+    "main": "slunečnice",
+    "uk": "соняшник",
+    "image": "slunecnice"
+  },
+  {
+    "main": "magnólie",
+    "uk": "магнолія",
+    "image": "magnolie"
   }
 ]
