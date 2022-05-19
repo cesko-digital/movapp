@@ -35,14 +35,14 @@ export const Collapse = ({ title, children, ariaId, id }: CollapseProps): JSX.El
 
   return (
     <div id={id} className={`bg-white block border-b-1 border-b-primary-grey  group`}>
-      <div className="grid grid-cols-[2%_98%] p-2 md:p-4">
+      <div className="flex gap-2 p-2 md:p-4">
         <LinkIcon
           onClick={() => hyperLink && copyToClipboard(hyperLink)}
           className="w-3 h-3 justify-self-center self-center cursor-pointer md:w-4 md:h-4 md:group-hover:visible md:invisible inline-block active:scale-125 active:fill-primary-yellow active:stroke-primary-yellow transition duration-100 fill-primary-blue stroke-primary-blue"
         />
         <button
           onClick={() => setExpanded(!expanded)}
-          className="w-full  flex justify-between  items-center "
+          className="w-full flex flex-1 justify-between  items-center "
           aria-expanded={expanded}
           id={`${ariaId}_button`}
         >
