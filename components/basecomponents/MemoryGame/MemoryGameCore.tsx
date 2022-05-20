@@ -5,6 +5,8 @@ import Card from './MemoryGameCard';
 import { TranslationJSON } from 'utils/Phrase';
 import { getCountryVariant } from 'utils/locales';
 import phrases_CZ from 'data/translations/cs/memory-game.json';
+import phrases_PL from 'data/translations/pl/memory-game.json';
+import phrases_SK from 'data/translations/sk/memory-game.json';
 import createTimer from './createTimer';
 import usePlayPhrase from './usePlayPhrase';
 
@@ -12,18 +14,18 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.random() * arr.length)];
 
-const addBackroundColor = (cardsData: (Record<string, unknown>)[]) =>
+const addBackroundColor = (cardsData: Record<string, unknown>[]) =>
   cardsData.map((item, i) => ({ ...item, color: `hsl(${(360 / cardsData.length) * i},50%,50%)` }));
 
-const PHRASES = {
+const GAME_NARRATION_PHRASES = {
   cs: phrases_CZ,
-  sk: phrases_CZ,
-  pl: phrases_CZ,
+  sk: phrases_PL,
+  pl: phrases_SK,
 };
 
-const phrases = PHRASES[getCountryVariant()];
+const phrases = GAME_NARRATION_PHRASES[getCountryVariant()];
 
-enum Scenes {
+enum Scene {
   init = 'init',
   begin = 'begin',
   game = 'game',
@@ -39,57 +41,72 @@ enum Scenes {
   goNewGame = 'goNewGame',
 }
 
-const cardFlipSound = new Audio('/kids/card_flip.mp3');
-cardFlipSound.volume = 0.2;
-
-const cardsMatchSound = new Audio('/kids/reward_sfx.mp3');
-cardsMatchSound.volume = 0.25;
-
-const winMusic = new Audio('/kids/reward_song.mp3');
-winMusic.volume = 0.8;
-
-export type CardDataType = {
+export type CardData = {
   image: string;
   translation: TranslationJSON;
-}
+};
 
-export type CardType = CardDataType & {
+export type Card = CardData & {
   id: number;
   flipped: boolean;
-  color: string;  
+  color: string;
 };
 
 interface MemoryGameProps {
-  cardsData: CardDataType[];
+  audio: {
+    cardFlipSound: string;
+    cardsMatchSound: string;
+    winMusic: string;
+  };
+  styles: Record<string, string>;
+  cardsData: CardData[];
+  cardBackImage: string;
 }
 
-const MemoryGame = ({ cardsData }: MemoryGameProps) => {
+const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps) => {
   const { playCardPhraseOtherLang, playCardPhraseCurrentLang, playPhraseRandomLang } = usePlayPhrase();
   const { t } = useTranslation();
 
-  const [cards, setCards] = useState<CardType[]>([]);
+  const [cards, setCards] = useState<Card[]>([]);
 
   interface SelectedCards {
-    first: CardType | null;
-    second: CardType | null;
+    first: Card | null;
+    second: Card | null;
   }
 
   const [selectedCards, setSelectedCards] = useState<SelectedCards>({ first: null, second: null });
 
-  const isSelected = (card: CardType) =>
+  const isSelected = (card: Card) =>
     (selectedCards.first !== null && card.id === selectedCards.first.id) ||
     (selectedCards.second !== null && card.id === selectedCards.second.id);
 
-  const [scene, setScene] = useState<Scenes>(Scenes.init);
+  const [scene, setScene] = useState<Scene>(Scene.init);
   const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
   const [setTimer, clearTimers] = useMemo(createTimer, []);
+
+  const { cardFlipSound, cardsMatchSound, winMusic } = useMemo(() => {
+    const cardFlipSound = new Audio(audio.cardFlipSound);
+    cardFlipSound.volume = 0.2;
+
+    const cardsMatchSound = new Audio(audio.cardsMatchSound);
+    cardsMatchSound.volume = 0.1;
+
+    const winMusic = new Audio(audio.winMusic);
+    winMusic.volume = 0.8;
+
+    return {
+      cardFlipSound,
+      cardsMatchSound,
+      winMusic,
+    };
+  }, []);
 
   const newGame = () => {
     console.log('new game');
     // prepare and shuffle cards, pick 8 cards
     const pickedCards = cardsData.sort(() => Math.random() - 0.5).slice(0, 8);
-    const coloredCards = addBackroundColor(pickedCards) as (CardDataType & { color: string })[];
-    
+    const coloredCards = addBackroundColor(pickedCards) as (CardData & { color: string })[];
+
     setCards(
       [...coloredCards, ...coloredCards]
         .sort(() => Math.random() - 0.5)
@@ -99,19 +116,19 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
     // clearTimers();
   };
 
-  const flipCard = (cardToFlip: CardType) => {
+  const flipCard = (cardToFlip: Card) => {
     setCards((cards) => cards.map((card) => (card.id === cardToFlip.id ? { ...card, flipped: !card.flipped } : card)));
     cardFlipSound.play();
   };
 
-  const selectCard = (card: CardType) => {
+  const selectCard = (card: Card) => {
     if (controlsDisabled) return;
 
     const { first, second } = selectedCards;
     if (first === null && !card.flipped) {
-      setSelectedCards((prev) => ({ ...prev, first: card }));
+      setSelectedCards({ ...selectedCards, first: card });
     } else if (second === null && !card.flipped) {
-      setSelectedCards((prev) => ({ ...prev, second: card }));
+      setSelectedCards({ ...selectedCards, second: card });
     }
   };
 
@@ -122,20 +139,20 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
     const bothCardsSelected = first !== null && second !== null;
 
     if (bothCardsSelected) {
-      setScene(Scenes.secondCardSelected);
+      setScene(Scene.secondCardSelected);
       return;
     }
     if (first !== null) {
-      setScene(Scenes.firstCardSelected);
+      setScene(Scene.firstCardSelected);
     }
   }, [selectedCards]);
 
   // resolve game states
-  useEffect(() => {    
-    const sceneActions: { [index: string]: () => void } = {
+  useEffect(() => {
+    const sceneActions: Record<Scene, () => void> = {
       init: () => {
         // begin new game automaticaly
-        setScene(Scenes.begin);
+        setScene(Scene.begin);
       },
       begin: () => {
         // new game
@@ -144,7 +161,7 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         setControlsDisabled(true);
         // play css animations
         setTimer(() => {
-          setScene(Scenes.game);
+          setScene(Scene.game);
         }, 1000);
       },
       game: () => {
@@ -158,9 +175,9 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         const { first: card } = selectedCards;
         flipCard(card!); // 0.3s
         playCardPhraseOtherLang(card!);
-        
+
         setTimer(() => {
-          setScene(Scenes.game);
+          setScene(Scene.game);
         }, 600); // reduced for fastrer UX
       },
       secondCardSelected: async () => {
@@ -170,8 +187,8 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         const { second: card } = selectedCards;
         flipCard(card!); // 0.3s
 
-        await playCardPhraseCurrentLang(card!);        
-        setScene(Scenes.resolveCards);
+        await playCardPhraseCurrentLang(card!);
+        setScene(Scene.resolveCards);
       },
       resolveCards: () => {
         const { first, second } = selectedCards;
@@ -179,10 +196,10 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
 
         if (cardsMatch) {
           console.log('cards match');
-          setScene(Scenes.cardsMatch);
+          setScene(Scene.cardsMatch);
         } else {
           console.log('cards dont match');
-          setScene(Scenes.cardsDontMatch);
+          setScene(Scene.cardsDontMatch);
         }
       },
       cardsMatch: () => {
@@ -193,42 +210,42 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         setTimer(() => cardsMatchSound.play(), 100); // sync to animation
 
         setTimer(() => {
-          setScene(Scenes.cardsMatchReward);
+          setScene(Scene.cardsMatchReward);
         }, 700);
       },
-      cardsMatchReward: async () => {        
+      cardsMatchReward: async () => {
         // play css animations and sounds
-        Math.random() > 0.5 &&  await playPhraseRandomLang(getRandomElement(phrases.good));        
+        Math.random() > 0.5 && (await playPhraseRandomLang(getRandomElement(phrases.good)));
         // reset selected cards
         setSelectedCards({ first: null, second: null });
         // check win
         setTimer(() => {
           if (cards.every((card) => card.flipped)) {
             console.log('win');
-            setScene(Scenes.win);
+            setScene(Scene.win);
           } else {
-            setScene(Scenes.game);
+            setScene(Scene.game);
           }
         }, 700);
       },
-      cardsDontMatch: async () => {        
+      cardsDontMatch: async () => {
         // disable controls
         setControlsDisabled(true);
         // play animations and sounds
         await delay(1000);
-        Math.random() > 0.8 && await playPhraseRandomLang(getRandomElement(phrases.wrong));          
-        
-        // setTimer: show cards for some time to remember then flip back        
+        Math.random() > 0.8 && (await playPhraseRandomLang(getRandomElement(phrases.wrong)));
+
+        // setTimer: show cards for some time to remember then flip back
         const { first, second } = selectedCards;
         flipCard(first!);
         flipCard(second!);
         setSelectedCards({ first: null, second: null });
-        setScene(Scenes.cardsDontMatchFlipBack);        
+        setScene(Scene.cardsDontMatchFlipBack);
       },
       cardsDontMatchFlipBack: () => {
         // wait for cards flip back
         setTimer(() => {
-          setScene(Scenes.game);
+          setScene(Scene.game);
         }, 300);
       },
       win: async () => {
@@ -237,18 +254,18 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
         // play css animations and sounds
         await playPhraseRandomLang(getRandomElement(phrases.win));
         await delay(200);
-        setScene(Scenes.winReward);        
+        setScene(Scene.winReward);
       },
       winReward: () => {
         // play css animations and sounds
         winMusic.play();
       },
-      goNewGame: () => {        
+      goNewGame: () => {
         clearTimers();
         // play css animations and sounds
-        playPhraseRandomLang(getRandomElement(phrases.newGame));        
+        playPhraseRandomLang(getRandomElement(phrases.newGame));
         setTimer(() => {
-          setScene(Scenes.begin);
+          setScene(Scene.begin);
         }, 500);
       },
     };
@@ -265,13 +282,19 @@ const MemoryGame = ({ cardsData }: MemoryGameProps) => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="py-5">
-        <Button className="bg-primary-blue" text={t('utils.new_game')} onClick={() => setScene(Scenes.goNewGame)} />
-      </div>
-      <div className="grid grid-cols-4 gap-2">
+    <div className={styles.app}>
+      <Button className={styles.newGameButton} text={t('utils.new_game')} onClick={() => setScene(Scene.goNewGame)} />
+      <div className={styles.board}>
         {cards.map((card) => (
-          <Card key={card.id} onClick={selectCard} card={card} scene={scene} selected={isSelected(card)} />
+          <Card
+            key={card.id}
+            onClick={selectCard}
+            card={card}
+            scene={scene}
+            styles={styles}
+            selected={isSelected(card)}
+            cardBackImage={cardBackImage}
+          />
         ))}
       </div>
     </div>

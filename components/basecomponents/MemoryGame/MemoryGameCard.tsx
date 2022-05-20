@@ -1,23 +1,24 @@
 import React from 'react';
-import { CardType } from './MemoryGame';
-import styles from './MemoryGame.module.css';
+import { Card } from './MemoryGameCore';
 import Image from 'next/image';
 import { useLanguage } from 'utils/useLanguageHook';
 import { Phrase } from 'utils/Phrase';
 
 interface MemoryGameCardProps {
-  card: CardType;
+  card: Card;
   scene: string;
   selected: boolean;
-  onClick: (card: CardType) => void;
+  styles: Record<string, string>;
+  cardBackImage: string;
+  onClick: (card: Card) => void;
 }
 
-const MemoryGameCard = ({ card, onClick, scene, selected }: MemoryGameCardProps): JSX.Element => {
+const MemoryGameCard = ({ card, cardBackImage, onClick, scene, selected, styles }: MemoryGameCardProps): JSX.Element => {
   const { currentLanguage } = useLanguage();
 
   return (
     <>
-      <div onClick={() => onClick(card)} className={styles.cell}>
+      <div onClick={() => onClick(card)} className={`${styles.cell} ${styles.cell}`}>
         <div className={styles.cardWrapper}>
           <div
             className={`${styles.front} ${card.flipped ? styles.flipped : ''} ${selected ? styles.selected : ''} ${styles[scene]} `}
@@ -34,7 +35,7 @@ const MemoryGameCard = ({ card, onClick, scene, selected }: MemoryGameCardProps)
         </div>
         <div className={styles.cardWrapper}>
           <div className={`${styles.back} ${card.flipped ? styles.flipped : ''} ${styles[scene]}`}>
-            <Image src={'/kids/card_back_movapp.png'} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
+            <Image src={cardBackImage} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
           </div>
         </div>
       </div>
