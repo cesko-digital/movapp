@@ -2,6 +2,7 @@
   "header": {
     "vocabulary_link_name": "Словник",
     "forkids_link_name": "Для дітей",
+    "wiki_link_name": "Wiki",
     "exercises_link_name": "Завдання",
     "about_link_name": "Про нас",
     "contacts_link_name": "Контакти",
@@ -23,9 +24,12 @@
     "box_child_description": "Ілюстрований чесько-український словник із десятками карток для друку.", 
     "box_alphabet_title": "Чеський алфавіт",
     "box_alphabet_description": "Вивчіть всі літери чеського алфавіту. Вам допоможуть приклади слів.",
+    "box_wiki_title": "Wiki",
+    "box_wiki_description": "Вказівник мобільних додатків для вивчення чеської мови та інших корисних матеріалів. Інструкції та поради для навчання.",
     "box_movapp_title": "Movapp це...",
     "box_movapp_description_top": " \"Мова\" [mova] означає українською мова. Movapp — це додаток для вивчення мови. Метою Movapp.eu є полегшення спілкування між чехами та українцями.",
-    "box_movapp_description_bottom": "Тут ви знайдете список базових чесько-українських слів та фраз. Незабаром ми додамо інструменти для практики цих фраз."
+    "box_movapp_description_bottom": "Тут ви знайдете список базових чесько-українських слів та фраз. Незабаром ми додамо інструменти для практики цих фраз.",
+    "download_on": "Завантажити на"
   },
   "dictionary_page": {
     "search_button": "Знайти",

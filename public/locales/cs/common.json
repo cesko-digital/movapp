@@ -2,6 +2,7 @@
   "header": {
     "vocabulary_link_name": "Slovníček",
     "forkids_link_name": "Pro děti",
+    "wiki_link_name": "Wiki",
     "exercises_link_name": "Cvičení",
     "about_link_name": "O nás",
     "contacts_link_name": "Kontakty",
@@ -23,9 +24,12 @@
     "box_child_description": "Ilustrovaný ukrajinsko-český slovníček s desítkami tisknutelných karet.",
     "box_alphabet_title": "Ukrajinská abeceda",
     "box_alphabet_description": "Naučte se všechny znaky ukrajinské cyrilice. Pomohou vám ukázková slova.",
+    "box_wiki_title": "Wiki",
+    "box_wiki_description": "Rozcestník po aplikacích ke studiu ukrajinštiny a po dalších materiálech. Návody a rady k učení.",
     "box_movapp_title": "Movapp je…",
     "box_movapp_description_top": "мова [mova] znamená ukrajinsky jazyk. Movapp je aplikace pro trénink jazyků. Cílem Movapp.cz je usnadnit dorozumění mezi Čechy a Ukrajinci.",
-    "box_movapp_description_bottom": "Najdete tu přehled základních komunikačních frází v češtině a ukrajinštině. Brzy přidáme nástroje k jejich procvičování a rozcestník na materiály k učení."
+    "box_movapp_description_bottom": "Najdete tu přehled základních komunikačních frází v češtině a ukrajinštině. Brzy přidáme nástroje k jeji8h procvičování a rozcestník na materiály k učení.",
+    "download_on": "Stáhnout na"
   },
   "dictionary_page": {
     "title": "Česko-ukrajinský slovníček",
