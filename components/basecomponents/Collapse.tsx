@@ -25,10 +25,8 @@ export const Collapse = ({ title, children, ariaId, id }: CollapseProps): JSX.El
     const path = router.asPath;
     const bookmark = path.substring(path.indexOf('#') + 1);
 
-    if (id === bookmark && !expanded) {
+    if (id === bookmark) {
       setExpanded(true);
-    } else {
-      setExpanded(false);
     }
     /* eslint-disable react-hooks/exhaustive-deps */
   }, [id, router]);
