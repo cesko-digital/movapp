@@ -1,9 +1,9 @@
 export { getStaticProps } from '../utils/localization';
-import { useTranslation } from 'next-i18next';
+// import { useTranslation } from 'next-i18next';
 import { DownloadAppStore } from '../components/basecomponents/DownloadAppStore';
 
-const Custom404 = () => {
-  const { t } = useTranslation();
+const MobileAppsPage = () => {
+  // const { t } = useTranslation();
   return (
     <div className="flex justify-center flex-col items-center flex-grow">
       <h1 className="mb-8">Download Movapp as a mobile app</h1>
@@ -13,4 +13,4 @@ const Custom404 = () => {
   );
 };
 
-export default Custom404;
+export default MobileAppsPage;
