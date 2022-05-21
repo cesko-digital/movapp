@@ -94,7 +94,9 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <DownloadAppStore />
+      <div className="mx-auto my-12">
+        <DownloadAppStore />
+      </div>
     </>
   );
 };
