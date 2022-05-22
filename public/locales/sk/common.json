@@ -17,11 +17,15 @@
     "licence": "CC BY-NC 4.0 Medzinárodná"
   },
   "homepage": {
-    "title": "Naučte sa základy slovenčiny a ukrajinčiny pre bežné životné situácie",
+    "title": {
+      "sk": "Naučte sa základy slovenčiny a ukrajinčiny pre bežné životné situácie"
+    },
     "box_dictionary_title": "Slovníček",
     "box_dictionary_description": "Naučte sa stovky základných slovíčok a fráz čítaním i počúvaním. Slovíčka triedime podľa životných situácií.",
     "box_child_title": "Pre deti",
-    "box_child_description": "Ilustrovaný ukrajinsko-slovenský slovníček s desiatkami kariet na vytlačenie.",
+    "box_child_description": {
+      "sk": "Ilustrovaný ukrajinsko-slovenský slovníček s desiatkami kariet na vytlačenie."
+    },
     "box_alphabet_title": "Ukrajinská abeceda",
     "box_alphabet_description": "Naučte sa všetky znaky ukrajinskej cyriliky. Pomôžu vám ukážkové slová.",
     "box_wiki_title": "Wiki",
@@ -36,7 +40,9 @@
     "download_on": "Stiahnuť na"
   },
   "dictionary_page": {
-    "title": "Slovensko-ukrajinský slovníček",
+    "title": {
+      "sk": "Slovensko-ukrajinský slovníček"
+    },
     "search_button": "Hľadať",
     "search_placeholder": "Hľadaný výraz",
     "subtitle": "Vyberte si oblasť",
@@ -48,8 +54,10 @@
   },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> je projekt, ktorý vznikol v rámci iniciatívy <strong>Stojíme za Ukrajinou</strong> v komunite expertných dobrovoľníkov <strong>Česko.Digital.</strong>",
-    "movapp_goal_title": "Cieľ Movapp.cz",
-    "movapp_goal_description": "Cieľom Movapp.cz je uľahčiť dorozumenie medzi Slovákmi a Ukrajincami. V prvej fáze bol publikovaný prehľad základných slovensko-ukrajinských fráz. V ďalších fázach budeme vytvárať nástroje na ich precvičovanie a chceme sa stať rázcestníkom pre ďalšie nástroje a materiály, ktoré pomôžu s učením ukrajinčiny a slovenčiny.",
+    "movapp_goal_title": "Cieľ Movapp",
+    "movapp_goal_description": {
+      "sk": "Cieľom Movapp je uľahčiť dorozumenie medzi Slovákmi a Ukrajincami. V prvej fáze bol publikovaný prehľad základných slovensko-ukrajinských fráz. V ďalších fázach budeme vytvárať nástroje na ich precvičovanie a chceme sa stať rázcestníkom pre ďalšie nástroje a materiály, ktoré pomôžu s učením ukrajinčiny a slovenčiny."
+    },
     "why_movapp_title": "Prečo Movapp?",
     "why_movapp_mova": "<i>Mова [mova]</i> znamená po ukrajinsky <i>jazyk</i>. Movapp je aplikácia na precvičovanie jazykov.",
     "why_movapp_description": "Movapp je k dispozícii zdarma a je tvorená ako otvorený software pod licenciou MIT, to znamená, že ju môžete zdarma nielen používať, ale si ju aj upravovať (ak viete programovať).",

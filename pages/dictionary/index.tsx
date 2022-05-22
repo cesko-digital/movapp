@@ -103,7 +103,7 @@ const Dictionary = () => {
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
       <div className="max-w-7xl m-auto ">
-        <h1 className="text-primary-blue">{t('dictionary_page.title')}</h1>
+        <h1 className="text-primary-blue">{t(`dictionary_page.title.${getCountryVariant()}`)}</h1>
         <div
           ref={searchContainer}
           className={`${

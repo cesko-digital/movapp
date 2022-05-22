@@ -33,7 +33,7 @@ const Home: NextPage = () => {
       />
       <div className="bg-homepage-hero bg-center pt-20 pb-[10rem] pl-4 pr-4 bg-cover">
         <h1 className="text-center max-w-3xl m-auto pt-12 pb-12 text-primary-blue text-3xl sm:text-4xl leading-snug">
-          {t('homepage.title')}
+          {t(`homepage.title.${getCountryVariant()}`)}
         </h1>
       </div>
       <div className="max-w-7xl m-auto px-2 sm:px-4">
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
                   <a>{t('homepage.box_child_title')}</a>
                 </Link>
               </h2>
-              <p>{t('homepage.box_child_description')}</p>
+              <p>{t(`homepage.box_child_description.${getCountryVariant()}`)}</p>
             </div>
             <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
               <AlphabetIcon className="w-6 mb-2 group-hover:fill-primary-red" />

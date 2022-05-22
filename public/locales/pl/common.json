@@ -17,11 +17,15 @@
     "licence": "CC BY-NC 4.0 Międzynarodowa"
   },
   "homepage": {
-    "title": "Naucz się podstaw polskiego i ukraińskiego na codzienne życiowe sytuacje",
+    "title": {
+      "pl": "Naucz się podstaw polskiego i ukraińskiego na codzienne życiowe sytuacje"
+    },
     "box_dictionary_title": "Rozmówki",
     "box_dictionary_description": "Naucz się setki podstawowych słówek i zwrotów przez czytanie i słuchanie. Słówka są posortowane według sytuacji w których są używane.",
     "box_child_title": "Dla dzieci",
-    "box_child_description": "Ilustrowany ukraińsko-polski słownik z kartami gotowymi do wydrukowania",
+    "box_child_description": {
+      "pl": "Ilustrowany ukraińsko-polski słownik z kartami gotowymi do wydrukowania"
+    },
     "box_alphabet_title": "Alfabet ukraiński",
     "box_alphabet_description": "Naucz się znaków ukraińskiej cyrylicy. Pomogą Ci przykładowe słowa.",
     "box_wiki_title": "Wiki",
@@ -31,7 +35,9 @@
     "download_on": "Pobierz w"
   },
   "dictionary_page": {
-    "title": "Rozmówki polsko-ukraińskie",
+    "title": {
+      "pl": "Rozmówki polsko-ukraińskie"
+    },
     "search_button": "Szukaj",
     "search_placeholder": "Szukany wyraz",
     "subtitle": "Wybierz kategorię",
@@ -44,7 +50,9 @@
   "about_page": {
     "title": "<strong>Movapp.eu</strong> to projekt, który powstał w ramach inicjatywy <strong>Stojíme za Ukrajinou</strong> w społeczności ekspertów wolontariuszy <strong>Česko.Digital.</strong>",
     "movapp_goal_title": "Nasz cel",
-    "movapp_goal_description": "Celem Movapp.eu jest ułatwić dogadanie się Polaków z Ukraińcami. W pierwszej fazie opublikowany został zbiór podstawowych polsko-ukraińskich zwrotów. W następnych fazach stworzymy narzędzia do ich ćwiczenia, i chcemy stać się hubem narzędzi i materiałów, które pomogą z nauką polskiego i ukraińskiego.",
+    "movapp_goal_description": {
+      "pl": "Celem Movapp jest ułatwić dogadanie się Polaków z Ukraińcami. W pierwszej fazie opublikowany został zbiór podstawowych polsko-ukraińskich zwrotów. W następnych fazach stworzymy narzędzia do ich ćwiczenia, i chcemy stać się hubem narzędzi i materiałów, które pomogą z nauką polskiego i ukraińskiego."
+    },
     "why_movapp_title": "Dlaczego Movapp?",
     "why_movapp_mova": "<i>Mова [mowa]</i> znaczy po ukraińsku <i>język</i>. Movapp jest aplikacją do nauki języków.",
     "why_movapp_description": "Movapp.eu jest dostępna za darmo jako otwarte oprogramowanie pod licencją MIT. To znaczy, że możesz ją nie tylko wykorzystywać, ale także zmieniać (jeśli umiesz programować)",
