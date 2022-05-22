@@ -27,8 +27,8 @@ const Home: NextPage = () => {
   return (
     <>
       <SEO
-        title={t('seo.homepage_page_title')}
-        description={t('seo.homepage_page_description')}
+        title={t(`seo.homepage_page_title.${getCountryVariant()}`)}
+        description={t(`seo.homepage_page_description.${getCountryVariant()}`)}
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
       <div className="bg-homepage-hero bg-center pt-20 pb-[10rem] pl-4 pr-4 bg-cover">
