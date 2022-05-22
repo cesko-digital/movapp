@@ -85,9 +85,9 @@ const Home: NextPage = () => {
                   <a>{t('homepage.box_movapp_title')}</a>
                 </Link>
               </h2>
-              <p className="mb-2">{t('homepage.box_movapp_description_top')}</p>
+              <p className="mb-2">{t(`homepage.box_movapp_description_top.${getCountryVariant}`)}</p>
               <p>
-                <em>{t('homepage.box_movapp_description_bottom')}</em>
+                <em>{t(`homepage.box_movapp_description_bottom.${getCountryVariant()}`)}</em>
               </p>
             </div>
             <div className="justify-self-center my-4 md:my-0">{HEARTS_IMAGE[getCountryVariant()]}</div>
