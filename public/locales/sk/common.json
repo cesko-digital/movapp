@@ -94,8 +94,12 @@
     }
   },
   "seo": {
-    "homepage_page_title": "Movapp.eu – aby sa Slováci a Ukrajinci ľahko dorozumeli",
-    "homepage_page_description": "Prehľad základných slovensko-ukrajinských fráz a nástroje na ich precvičovanie. Rázcestník učebných materiálov. Vytvárané s láskou.",
+    "homepage_page_title": {
+      "sk": "Movapp.eu – aby sa Slováci a Ukrajinci ľahko dorozumeli" 
+    },
+    "homepage_page_description": {
+      "sk": "Prehľad základných slovensko-ukrajinských fráz a nástroje na ich precvičovanie. Rázcestník učebných materiálov. Vytvárané s láskou."
+    },
     "dictionary_page_title": "Ukrajinsko-slovenský slovník | Movapp.cz",
     "dictionary_page_description": "Základné slovensko-ukrajinské slovíčka a frázy rozdelené podľa životných situácií. Vytvárané s láskou.",
     "contacts_page_title": "Kontakty | sk.movapp.eu",

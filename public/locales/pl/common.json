@@ -89,8 +89,12 @@
     }
   },
   "seo": {
-    "homepage_page_title": "Movapp.eu - żeby się Polacy i Ukraińcy łatwo dogadali",
-    "homepage_page_description": "Przegląd podstawowych polsko-ukraińskich zwrotów, oraz narzędzia do ich ćwiczenia. Zbiór materiałów do nauki. Stworzono z miłością.",
+    "homepage_page_title": {
+      "pl": "Movapp.eu - żeby się Polacy i Ukraińcy łatwo dogadali"
+    },
+    "homepage_page_description": {
+      "pl": "Przegląd podstawowych polsko-ukraińskich zwrotów, oraz narzędzia do ich ćwiczenia. Zbiór materiałów do nauki. Stworzono z miłością."
+    },
     "dictionary_page_title": "Słownik ukraińsko-polski | Movapp.eu",
     "dictionary_page_description": "Podstawowe polsko-ukraińskie słówka i zwroty podzielone według sytuacji życiowych. Stworzono z miłością.",
     "contacts_page_title": "Kontakt | Movapp.eu",

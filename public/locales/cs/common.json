@@ -93,8 +93,12 @@
     }
   },
   "seo": {
-    "homepage_page_title": "Movapp.cz – aby se Češi a Ukrajinci snadno domluvili",
-    "homepage_page_description": "Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou.",
+    "homepage_page_title": {
+      "cs": "Movapp.cz – aby se Češi a Ukrajinci snadno domluvili"
+    },
+    "homepage_page_description": {
+      "cs": "Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou."
+    },
     "dictionary_page_title": "Ukrajinsko-český slovník | Movapp.cz",
     "dictionary_page_description": "Základní česko-ukrajinská slovíčka a fráze rozdělená podle životních situací. Vytvářeno s láskou.",
     "contacts_page_title": "Kontakty | Movapp.cz",
