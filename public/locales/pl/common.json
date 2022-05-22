@@ -30,8 +30,12 @@
     "box_alphabet_description": "Naucz się znaków ukraińskiej cyrylicy. Pomogą Ci przykładowe słowa.",
     "box_wiki_title": "Wiki",
     "box_movapp_title": "Movapp to…",
-    "box_movapp_description_top": "мова [mova] znaczy język ukraiński. Movapp jest aplikacją do uczenia się języków. Celem Movapp jest ułatwić dogadanie się Polaków z Ukraińcami.",
-    "box_movapp_description_bottom": "Znajdziesz tu zbiór postawowych zwrotów komunikacyjnych w językach polskim i ukraińskim. Za niedługo dodamy narzędzia do ich ćwiczenia, oraz zalinkujemy materiały do nauki.",
+    "box_movapp_description_top": {
+      "pl": "мова [mova] znaczy język ukraiński. Movapp jest aplikacją do uczenia się języków. Celem Movapp jest ułatwić dogadanie się Polaków z Ukraińcami."
+    },
+    "box_movapp_description_bottom": {
+      "pl": "Znajdziesz tu zbiór postawowych zwrotów komunikacyjnych w językach polskim i ukraińskim. Za niedługo dodamy narzędzia do ich ćwiczenia, oraz zalinkujemy materiały do nauki."
+    },
     "download_on": "Pobierz w"
   },
   "dictionary_page": {
@@ -96,10 +100,10 @@
       "pl": "Przegląd podstawowych polsko-ukraińskich zwrotów, oraz narzędzia do ich ćwiczenia. Zbiór materiałów do nauki. Stworzono z miłością."
     },
     "dictionary_page_title": {
-      "pl": "Słownik ukraińsko-polski | Movapp.eu" 
+      "pl": "Słownik ukraińsko-polski | Movapp.eu"
     },
     "dictionary_page_description": {
-      "pl": "Podstawowe polsko-ukraińskie słówka i zwroty podzielone według sytuacji życiowych. Stworzono z miłością." 
+      "pl": "Podstawowe polsko-ukraińskie słówka i zwroty podzielone według sytuacji życiowych. Stworzono z miłością."
     },
     "contacts_page_title": "Kontakt | Movapp.eu",
     "contacts_page_description": "Chcesz stać się członkiem zespołu i pomagać przy dalszym rozwoju projektu?",
@@ -108,7 +112,7 @@
     "alphabet_page_title": "Alfabet ukraiński (cyrilica)",
     "alphabet_page_description": "Naucz się ukraińskiego alfabetu. Nazywa się on także ukraińska cyrylica lub ukraińska azbuka. Zawiera 33 znaki i apostrof.",
     "kids_page_title": {
-      "pl": "Ilustrowany słownik ukraińsko-polski dla dzieci | pl.movapp.eu" 
+      "pl": "Ilustrowany słownik ukraińsko-polski dla dzieci | pl.movapp.eu"
     },
     "kids_page_description": {
       "pl": "Zdjęcia dla dzieci z opisem ukraińskim i polskim. Używany po słowacku i ukraińsku. Wydrukuj kolorowanki dla dzieci."

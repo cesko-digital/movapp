@@ -31,8 +31,12 @@
     "box_wiki_title": "Wiki",
     "box_wiki_description": "Rozcestník po aplikacích ke studiu ukrajinštiny a po dalších materiálech. Návody a rady k učení.",
     "box_movapp_title": "Movapp je…",
-    "box_movapp_description_top": "мова [mova] znamená ukrajinsky jazyk. Movapp je aplikace pro trénink jazyků. Cílem Movapp.cz je usnadnit dorozumění mezi Čechy a Ukrajinci.",
-    "box_movapp_description_bottom": "Najdete tu přehled základních komunikačních frází v češtině a ukrajinštině. Brzy přidáme nástroje k jeji8h procvičování a rozcestník na materiály k učení.",
+    "box_movapp_description_top": {
+      "cs": "мова [mova] znamená ukrajinsky jazyk. Movapp je aplikace pro trénink jazyků. Cílem Movapp.cz je usnadnit dorozumění mezi Čechy a Ukrajinci."
+    },
+    "box_movapp_description_bottom": {
+      "cs": "Najdete tu přehled základních komunikačních frází v češtině a ukrajinštině. Brzy přidáme nástroje k jejich procvičování a rozcestník na materiály k učení." 
+    },
     "download_on": "Stáhnout na"
   },
   "dictionary_page": {
@@ -112,7 +116,7 @@
     "alphabet_page_title": "Ukrajinská abeceda (cyrilice) se zvuky a příklady",
     "alphabet_page_description": "Naučte se ukrajinskou abecedu. Nazývá se také ukrajinská cyrilice nebo ukrajinská azbuka. Obsahuje 33 znaků a apostrof. Všechny znaky jsme pro vás namluvili a přidali jsme několik příkladů, aby se vám dobře učily.",
     "kids_page_title": {
-      "cs": "Ilustrovaný ukrajinsko-český slovníček pro děti | Movapp.cz" 
+      "cs": "Ilustrovaný ukrajinsko-český slovníček pro děti | Movapp.cz"
     },
     "kids_page_description": {
       "cs": "Obrázky pro děti s ukrajinskými a českými popisky. Namluvené v češtině a ukrajinštině. Tisk omalovánek pro děti."

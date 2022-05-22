@@ -30,8 +30,12 @@
     "box_alphabet_description": "Naučte sa všetky znaky ukrajinskej cyriliky. Pomôžu vám ukážkové slová.",
     "box_wiki_title": "Wiki",
     "box_movapp_title": "Movapp je…",
-    "box_movapp_description_top": "мова [mova] znamená po ukrajinsky jazyk. Movapp je aplikácia na precvičovanie jazykov. Cieľom Movapp.cz je uľahčiť dorozumenie medzi Slovákmi a Ukrajincami.",
-    "box_movapp_description_bottom": "Nájdete tu prehľad základných komunikačných fráz v slovenčine a ukrajinčine. Čoskoro pridáme nástroje na ich precvičovanie a rázcestník učebných materiálov.",
+    "box_movapp_description_top": {
+      "sk": "мова [mova] znamená po ukrajinsky jazyk. Movapp je aplikácia na precvičovanie jazykov. Cieľom Movapp.cz je uľahčiť dorozumenie medzi Slovákmi a Ukrajincami."
+    },
+    "box_movapp_description_bottom": {
+      "sk": "Nájdete tu prehľad základných komunikačných fráz v slovenčine a ukrajinčine. Čoskoro pridáme nástroje na ich precvičovanie a rázcestník učebných materiálov." 
+    },
     "box_easter_dictionary_title": "Velkonočný slovníček",
     "box_easter_dictionary_description": "Šibi, ryby, mastné ryby, kus koláča a Velkonočné fráze.",
     "box_easter_kids_title": "Veľká noc pre deti",
@@ -95,7 +99,7 @@
   },
   "seo": {
     "homepage_page_title": {
-      "sk": "Movapp.eu – aby sa Slováci a Ukrajinci ľahko dorozumeli" 
+      "sk": "Movapp.eu – aby sa Slováci a Ukrajinci ľahko dorozumeli"
     },
     "homepage_page_description": {
       "sk": "Prehľad základných slovensko-ukrajinských fráz a nástroje na ich precvičovanie. Rázcestník učebných materiálov. Vytvárané s láskou."
@@ -104,7 +108,7 @@
       "sk": "Ukrajinsko-slovenský slovník | Movapp.cz"
     },
     "dictionary_page_description": {
-      "sk": "Základné slovensko-ukrajinské slovíčka a frázy rozdelené podľa životných situácií. Vytvárané s láskou." 
+      "sk": "Základné slovensko-ukrajinské slovíčka a frázy rozdelené podľa životných situácií. Vytvárané s láskou."
     },
     "contacts_page_title": "Kontakty | sk.movapp.eu",
     "contacts_page_description": "Chcete sa stať členom tímu a pomáhať pri ďalšom rozvoji projektu?",
@@ -113,11 +117,11 @@
     "alphabet_page_title": "Ukrajinská abeceda (cyrilika)",
     "alphabet_page_description": "Naučte sa ukrajinskú abecedu. Nazýva sa aj ukrajinská cyrilika alebo ukrajinská azbuka. Obsahuje 33 znakov a apostrof.",
     "kids_page_title": {
-      "sk": "Ilustrovaný ukrajinsko-slovenský slovníček pre deti | sk.movapp.eu" 
+      "sk": "Ilustrovaný ukrajinsko-slovenský slovníček pre deti | sk.movapp.eu"
     },
     "kids_page_description": {
-      "sk": "Obrázky pre deti s ukrajinskými a slovesnkými popismi. Nahovorené v slovenčine a ukrajinštině. Vytlačiť omalovánky pro děti." 
-    } 
+      "sk": "Obrázky pre deti s ukrajinskými a slovesnkými popismi. Nahovorené v slovenčine a ukrajinštině. Vytlačiť omalovánky pro děti."
+    }
   },
   "export_translations": {
     "download_phrases": "Stiahnuť frázy",
@@ -143,4 +147,3 @@
     "play": "prehrať"
   }
 }
-
