@@ -99,8 +99,12 @@
     "homepage_page_description": {
       "cs": "Přehled základních česko-ukrajinských frází a nástroje k jejich procvičování. Rozcestník materiálů k učení. Vytvářeno s láskou."
     },
-    "dictionary_page_title": "Ukrajinsko-český slovník | Movapp.cz",
-    "dictionary_page_description": "Základní česko-ukrajinská slovíčka a fráze rozdělená podle životních situací. Vytvářeno s láskou.",
+    "dictionary_page_title": {
+      "cs": "Ukrajinsko-český slovník | Movapp.cz"
+    },
+    "dictionary_page_description": {
+      "cs": "Základní česko-ukrajinská slovíčka a fráze rozdělená podle životních situací. Vytvářeno s láskou."
+    },
     "contacts_page_title": "Kontakty | Movapp.cz",
     "contacts_page_description": "Chcete se stát členem týmu a pomáhat na dalším rozvoji projektu?",
     "about_page_title": "O nás | Movapp.cz",
