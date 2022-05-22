@@ -62,10 +62,10 @@ const Home: NextPage = () => {
               <AlphabetIcon className="w-6 mb-2 group-hover:fill-primary-red" />
               <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
                 <Link href={'/alphabet'}>
-                  <a>{t('homepage.box_alphabet_title')}</a>
+                  <a>{t(`homepage.box_alphabet_title.${getCountryVariant()}`)}</a>
                 </Link>
               </h2>
-              <p>{t('homepage.box_alphabet_description')}</p>
+              <p>{t(`homepage.box_alphabet_description.${getCountryVariant()}`)}</p>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-8 mt-10">
@@ -85,7 +85,7 @@ const Home: NextPage = () => {
                   <a>{t('homepage.box_movapp_title')}</a>
                 </Link>
               </h2>
-              <p className="mb-2">{t(`homepage.box_movapp_description_top.${getCountryVariant}`)}</p>
+              <p className="mb-2">{t(`homepage.box_movapp_description_top.${getCountryVariant()}`)}</p>
               <p>
                 <em>{t(`homepage.box_movapp_description_bottom.${getCountryVariant()}`)}</em>
               </p>

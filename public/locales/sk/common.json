@@ -26,8 +26,12 @@
     "box_child_description": {
       "sk": "Ilustrovaný ukrajinsko-slovenský slovníček s desiatkami kariet na vytlačenie."
     },
-    "box_alphabet_title": "Ukrajinská abeceda",
-    "box_alphabet_description": "Naučte sa všetky znaky ukrajinskej cyriliky. Pomôžu vám ukážkové slová.",
+    "box_alphabet_title": {
+      "sk": "Ukrajinská abeceda"
+    },
+    "box_alphabet_description": {
+      "sk": "Naučte sa všetky znaky ukrajinskej cyriliky. Pomôžu vám ukážkové slová."
+    },
     "box_wiki_title": "Wiki",
     "box_movapp_title": "Movapp je…",
     "box_movapp_description_top": {

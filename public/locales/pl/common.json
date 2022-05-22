@@ -26,8 +26,12 @@
     "box_child_description": {
       "pl": "Ilustrowany ukraińsko-polski słownik z kartami gotowymi do wydrukowania"
     },
-    "box_alphabet_title": "Alfabet ukraiński",
-    "box_alphabet_description": "Naucz się znaków ukraińskiej cyrylicy. Pomogą Ci przykładowe słowa.",
+    "box_alphabet_title": {
+      "pl": "Alfabet ukraiński"
+    },
+    "box_alphabet_description": {
+      "pl": "Naucz się znaków ukraińskiej cyrylicy. Pomogą Ci przykładowe słowa."
+    },
     "box_wiki_title": "Wiki",
     "box_movapp_title": "Movapp to…",
     "box_movapp_description_top": {

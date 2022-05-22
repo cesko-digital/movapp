@@ -26,8 +26,12 @@
     "box_child_description": {
       "cs": "Ilustrovaný ukrajinsko-český slovníček s desítkami tisknutelných karet."
     },
-    "box_alphabet_title": "Ukrajinská abeceda",
-    "box_alphabet_description": "Naučte se všechny znaky ukrajinské cyrilice. Pomohou vám ukázková slova.",
+    "box_alphabet_title": {
+      "cs": "Ukrajinská abeceda"
+    },
+    "box_alphabet_description": {
+      "cs": "Naučte se všechny znaky ukrajinské cyrilice. Pomohou vám ukázková slova."
+    },
     "box_wiki_title": "Wiki",
     "box_wiki_description": "Rozcestník po aplikacích ke studiu ukrajinštiny a po dalších materiálech. Návody a rady k učení.",
     "box_movapp_title": "Movapp je…",
