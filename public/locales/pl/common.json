@@ -107,8 +107,12 @@
     "about_page_description": "Projekt powstał w ramach inicjatywy Stojíme za Ukrajinou w społeczności woluntariuszy ekspertów Česko.Digital.",
     "alphabet_page_title": "Alfabet ukraiński (cyrilica)",
     "alphabet_page_description": "Naucz się ukraińskiego alfabetu. Nazywa się on także ukraińska cyrylica lub ukraińska azbuka. Zawiera 33 znaki i apostrof.",
-    "kids_page_title": "Ilustrowany słownik ukraińsko-polski dla dzieci | pl.movapp.eu",
-    "kids_page_description": "Zdjęcia dla dzieci z opisem ukraińskim i polskim. Używany po słowacku i ukraińsku. Wydrukuj kolorowanki dla dzieci."
+    "kids_page_title": {
+      "pl": "Ilustrowany słownik ukraińsko-polski dla dzieci | pl.movapp.eu" 
+    },
+    "kids_page_description": {
+      "pl": "Zdjęcia dla dzieci z opisem ukraińskim i polskim. Używany po słowacku i ukraińsku. Wydrukuj kolorowanki dla dzieci."
+    }
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",

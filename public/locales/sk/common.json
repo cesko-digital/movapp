@@ -112,8 +112,12 @@
     "about_page_description": "Projekt vznikol v rámci iniciatívy Stojíme za Ukrajinou v komunite expertných dobrovoľníkov Česko.Digital.",
     "alphabet_page_title": "Ukrajinská abeceda (cyrilika)",
     "alphabet_page_description": "Naučte sa ukrajinskú abecedu. Nazýva sa aj ukrajinská cyrilika alebo ukrajinská azbuka. Obsahuje 33 znakov a apostrof.",
-    "kids_page_title": "Ilustrovaný ukrajinsko-slovenský slovníček pre deti | sk.movapp.eu",
-    "kids_page_description": "Obrázky pre deti s ukrajinskými a slovesnkými popismi. Nahovorené v slovenčine a ukrajinštině. Vytlačiť omalovánky pro děti."
+    "kids_page_title": {
+      "sk": "Ilustrovaný ukrajinsko-slovenský slovníček pre deti | sk.movapp.eu" 
+    },
+    "kids_page_description": {
+      "sk": "Obrázky pre deti s ukrajinskými a slovesnkými popismi. Nahovorené v slovenčine a ukrajinštině. Vytlačiť omalovánky pro děti." 
+    } 
   },
   "export_translations": {
     "download_phrases": "Stiahnuť frázy",
