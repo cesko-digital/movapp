@@ -1,6 +1,12 @@
+interface SubmenuItem {
+  name: string;
+  link: string;
+}
+
 interface HeaderNavigation {
   name: string;
   link: string;
+  submenu?: SubmenuItem[];
 }
 
 export const HEADER_NAVIGATION: HeaderNavigation[] = [
@@ -15,6 +21,20 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
   {
     name: 'header.forkids_link_name',
     link: '/kids',
+    submenu: [
+      {
+        name: 'header.forkids_words',
+        link: '/kids',
+      },
+      {
+        name: 'header.forkids_stories',
+        link: '/kids/stories',
+      },
+      {
+        name: 'header.forkids_memorygame',
+        link: '/kids/memorygame',
+      },
+    ],
   },
   {
     name: 'header.wiki_link_name',

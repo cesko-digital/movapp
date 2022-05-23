@@ -12,6 +12,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 
 export const MobileHeader = () => {
   const [showNavigation, setShowNavigation] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const { t } = useTranslation();
   const router = useRouter();
   const { currentLanguage } = useLanguage();
@@ -53,12 +54,29 @@ export const MobileHeader = () => {
       {showNavigation && (
         <div className="bg-primary-blue z-50 absolute py-5 top-14 w-full left-0">
           <ul className="z-50">
-            {HEADER_NAVIGATION.map(({ name, link }, index) => {
+            {HEADER_NAVIGATION.map(({ name, link, submenu }, index) => {
               return (
                 <li key={index} className={`text-white text-center text-lg py-2 ${router.asPath.includes(link) && 'text-primary-yellow'}`}>
-                  <Link href={link}>
-                    <a>{t(name)}</a>
-                  </Link>
+                  {submenu === undefined ? (
+                    <Link href={link}>
+                      <a>{t(name)}</a>
+                    </Link>
+                  ) : (
+                    <>
+                      <button onClick={() => setShowDropdown(!showDropdown)}>{t(name)}</button>
+                      <div className={`${showDropdown ? '' : 'hidden'} w-44 m-auto`}>
+                        <ul className="py-1 text-sm text-white text-center">
+                          {submenu?.map(({ name, link }) => (
+                            <li key={name}>
+                              <Link href={link}>
+                                <a className="block px-4 py-2">{t(name)}</a>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  )}
                 </li>
               );
             })}
