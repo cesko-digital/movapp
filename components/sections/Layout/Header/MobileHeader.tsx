@@ -30,7 +30,7 @@ export const MobileHeader = () => {
   }, [router, showNavigation]);
 
   return (
-    <header className="sm:hidden sticky top-0 h-14 bg-primary-blue z-10 w-full flex justify-between items-center px-2">
+    <header className="md:hidden sticky top-0 h-14 bg-primary-blue z-10 w-full flex justify-between items-center px-2">
       <Link href={'/'}>
         <a className="logo">
           <Image src={AppLogo} width={150} height={45} alt="Movapp logo" />

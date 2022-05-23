@@ -15,7 +15,7 @@ export const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
-    <header className=" bg-primary-blue w-full sticky top-0 z-10 h-14 hidden sm:block">
+    <header className="bg-primary-blue w-full sticky top-0 z-10 h-14 hidden md:block">
       <div className="max-w-7xl m-auto flex h-full justify-between items-center ">
         <Link href={'/'}>
           <a className="logo">
