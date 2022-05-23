@@ -2,6 +2,9 @@
   "header": {
     "vocabulary_link_name": "Slovníček",
     "forkids_link_name": "Pro děti",
+    "forkids_words": "Slovíčka",
+    "forkids_stories": "Pohádky",
+    "forkids_memorygame": "Pexeso",
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Cvičení",
     "about_link_name": "O nás",
@@ -43,7 +46,8 @@
     "not_found_results": "Nic nenalezeno"
   },
   "kids_page": {
-    "downloadPDF": "Stáhnout v PDF"
+    "downloadPDF": "Stáhnout v PDF",
+    "playStory": "Přehrát a přečíst pohádku"
   },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> je projekt, který vznikl v rámci iniciativy <strong>Stojíme za Ukrajinou</strong> v komunitě expertních dobrovolníků <strong>Česko.Digital.</strong>",

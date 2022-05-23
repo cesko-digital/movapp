@@ -1,0 +1,162 @@
+[
+    {
+      "main": "Byl jednou jeden tatínek, který žil se svou dceruškou Mařenkou a synkem Jeníčkem.",
+      "uk": "Жив був один тато, який жив з донькою Маренкою та сином Єнічком.",
+      "start_cs": 0,
+      "end_cs": 5.169454,
+      "start_uk": 0,
+      "end_uk": 5.266735
+    },
+    {
+      "main": "Bydleli v chaloupce uprostřed lesa.",
+      "uk": "Жили вони в хатинці посеред лісу.",
+      "start_cs": 5.169454,
+      "end_cs": 8.255466,
+      "start_uk": 5.266735,
+      "end_uk": 8.225199
+    },
+    {
+      "main": "Tatínek pracoval jako dřevorubec a děti s ním často chodily do lesa, když tatínek pracoval.",
+      "uk": "Татусь працював лісорубом, і діти часто ходили з ним до лісу, коли він працював.",
+      "start_cs": 8.255466,
+      "end_cs": 14.113421,
+      "start_uk": 8.225199,
+      "end_uk": 14.206634
+    },
+    {
+      "main": "Zatímco kácel stromy, děti si v lese hrály a mlsaly lesní jahody a borůvky.",
+      "uk": "Поки він рубав дерева, діти гралися в лісі і ласували лісовою суницею та чорницею.",
+      "start_cs": 14.113421,
+      "end_cs": 18.720522,
+      "start_uk": 14.206634,
+      "end_uk": 20.222149
+    },
+    {
+      "main": "Jednoho dne se zatoulaly příliš daleko a nemohly najít cestu domů.",
+      "uk": "Одного разу вони зайшли дуже далеко і не могли знайти дорогу додому.",
+      "start_cs": 18.720522,
+      "end_cs": 23.728981,
+      "start_uk": 20.222149,
+      "end_uk": 25.309772
+    },
+    {
+      "main": "Bloudily lesem, volaly tatínka, plakaly. Hledaly, ale najít nemohly.",
+      "uk": "Вони блукали лісом, кликали тата, плакали. Шукали, але знайти не змогли.",
+      "start_cs": 23.728981,
+      "end_cs": 29.62166,
+      "start_uk": 25.309772,
+      "end_uk": 32.425899
+    },
+    {
+      "main": "Když padla tma, vylezl Jeníček na strom a rozhlédl se po lese.",
+      "uk": "Коли стало поночі, Єнічек виліз на дерево і подивився на ліс.",
+      "start_cs": 29.62166,
+      "end_cs": 33.671269,
+      "start_uk": 32.425899,
+      "end_uk": 37.540829
+    },
+    {
+      "main": "V dálce uviděl světýlko. 'To musí být naše chaloupka!' zavolal na Mařenku.",
+      "uk": "Вдалині він побачив світло. - Мабуть, це наша хатинка! - закричав він Маренці.",
+      "start_cs": 33.671269,
+      "end_cs": 39.765995,
+      "start_uk": 37.540829,
+      "end_uk": 45.580696
+    },
+    {
+      "main": "Děti se vydaly za světlem a opravdu zakrátko došly k chaloupce.",
+      "uk": "Діти попрямували за світлом і невдовзі дійшли до хатинки.",
+      "start_cs": 39.765995,
+      "end_cs": 44.439299,
+      "start_uk": 45.580696,
+      "end_uk": 49.814251
+    },
+    {
+      "main": "Nebyla to však jejich chaloupka. Tahle byla celá z perníku.",
+      "uk": "Але це була не їхня хатинка. Ця хатинка була повністю зроблена із пряника.",
+      "start_cs": 44.439299,
+      "end_cs": 49.420644,
+      "start_uk": 49.814251,
+      "end_uk": 56.589761
+    },
+    {
+      "main": "Děti se zaradovaly! Měly už hlad, a tak si opatrně vzaly z chaloupky kousek perníku.",
+      "uk": "Діти зраділи! Вони вже були голодні, тому обережно відламали від хатинки шматок пряника.",
+      "start_cs": 49.420644,
+      "end_cs": 55.703803,
+      "start_uk": 56.589761,
+      "end_uk": 64.065032
+    },
+    {
+      "main": "Najednou se s prásknutím otevřely dveře. Děti se vylekaly.",
+      "uk": "Раптом з тріском відчинилися двері. Діти злякалися.",
+      "start_cs": 55.703803,
+      "end_cs": 60.906079,
+      "start_uk": 64.065032,
+      "end_uk": 69.173521
+    },
+    {
+      "main": "Z chaloupky se vyšourala babička. Pozvala děti do chaloupky, nabídla jim jídlo a přespání.",
+      "uk": "З хатинки вийшла бабуся. Вона запросила дітей до хатинки, пригостила їх їжею та запропонувала ночівлю.",
+      "start_cs": 60.906079,
+      "end_cs": 68.0275,
+      "start_uk": 69.173521,
+      "end_uk": 77.449666
+    },
+    {
+      "main": "Nebyla to ale hodná babička, byla to zlá čarodějnice.",
+      "uk": "Але це не була добра бабуся, це була зла відьма.",
+      "start_cs": 68.0275,
+      "end_cs": 72.076924,
+      "start_uk": 77.449666,
+      "end_uk": 81.227056
+    },
+    {
+      "main": "Děti zavřela do komory, aby si je tam vykrmila a mohla je pak sníst.",
+      "uk": "Вона зачинила дітей у погріб, щоб відгодувати їх  і потім  з'їсти.",
+      "start_cs": 72.076924,
+      "end_cs": 76.436695,
+      "start_uk": 81.227056,
+      "end_uk": 86.464946
+    },
+    {
+      "main": "Dětem se podařilo prolézt okénkem a utéct.",
+      "uk": "Дітям вдалося вибратися через вікно і втекти.",
+      "start_cs": 76.436695,
+      "end_cs": 79.743333,
+      "start_uk": 86.464946,
+      "end_uk": 90.379104
+    },
+    {
+      "main": "Běžely temným lesem, utíkaly a utíkaly, co jim síly stačily.",
+      "uk": "Вони бігли темним лісом, тікали і тікали, поки вистачало сил.",
+      "start_cs": 79.743333,
+      "end_cs": 84.570215,
+      "start_uk": 90.379104,
+      "end_uk": 95.295047
+    },
+    {
+      "main": "Najednou se ocitly před jinou chaloupkou. A byla to jejich chaloupka!",
+      "uk": "Раптом вони опинилися перед іншою хатинкою. І це була їхня хатинка!",
+      "start_cs": 84.570215,
+      "end_cs": 90.131021,
+      "start_uk": 95.295047,
+      "end_uk": 101.793503
+    },
+    {
+      "main": "Z chaloupky vyběhl tatínek. Objal obě děti a všichni byli rádi, že se zase našli.",
+      "uk": "З хатинки вибіг тато. Він обійняв обох дітей, і всі були раді, що вони знайшлися.",
+      "start_cs": 90.131021,
+      "end_cs": 96.566067,
+      "start_uk": 101.793503,
+      "end_uk": 109.168795
+    },
+    {
+      "main": "A už se nikdy nespustili z očí.",
+      "uk": "І відтоді вони ніколи не випускали один одного з очей.",
+      "start_cs": 96.566067,
+      "end_cs": 98.952,
+      "start_uk": 109.168795,
+      "end_uk": 113.304
+    }
+  ]

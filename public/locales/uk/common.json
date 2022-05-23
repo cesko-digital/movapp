@@ -2,6 +2,9 @@
   "header": {
     "vocabulary_link_name": "Словник",
     "forkids_link_name": "Для дітей",
+    "forkids_words": "Слова",
+    "forkids_stories": "Казки",
+    "forkids_memorygame": "Гра Memory",
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Завдання",
     "about_link_name": "Про нас",
@@ -43,7 +46,8 @@
     "not_found_results": "Не знайдено"
   },
   "kids_page": {
-    "downloadPDF": "Завантажити у форматі .pdf"
+    "downloadPDF": "Завантажити у форматі .pdf",
+    "playStory": "Подивитись та прочитати казку"
   },
   "about_page": {
     "title": "<strong>Movapp.eu</strong> – це проект, який створено в рамках ініціативи <strong>Stojíme za Ukrajinou</strong> в спільноті експертів-волонтерів <strong>Česko.Digital.</strong>",
