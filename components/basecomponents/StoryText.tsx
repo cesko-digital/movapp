@@ -30,7 +30,7 @@ const StoryText = ({ languageText, languagePlay, audio, id, onPlaying }: StoryTe
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const selectedStory = () => {
-    const stories = {
+    const stories: Record<string, StoryPhrase[]> = {
       chaloupka: oPernikoveChaloupce,
       mesicky: oDvanactiMesickach,
     };

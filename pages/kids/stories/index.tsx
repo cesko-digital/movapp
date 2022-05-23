@@ -3,9 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 import SEO from 'components/basecomponents/SEO';
-import stories from './stories';
+import stories from '../../../data/stories';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useLanguage } from 'utils/useLanguageHook';
+import { GetStaticProps } from 'next';
 
 interface StoriesSectionProps {
   stories: Story[];
@@ -70,7 +71,7 @@ const StoriesSection = ({ stories }: StoriesSectionProps) => {
   );
 };
 
-export const getStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: { stories, ...(await serverSideTranslations(locale ?? 'cs', ['common'])) },
   };

@@ -1,27 +1,33 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { useTranslation } from 'next-i18next';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
 import StoryReader from '../../../components/basecomponents/StoryReader';
-import stories from './stories';
+import stories from '../../../data/stories';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { Story } from './index';
+import { getCountryVariant, Language } from '../../../utils/locales';
 
 interface StoriesProps {
-  story: Story;
+  story: Story | undefined;
 }
 
 interface UrlParams extends ParsedUrlQuery {
   story: string;
 }
 
-const StoriesContainer = ({ story }: StoriesProps): JSX.Element => {
+const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
   const { currentLanguage } = useLanguage();
+  const { t } = useTranslation();
+
+  if (!story) {
+    return 'Story not found';
+  }
+
   const title = story.title[currentLanguage];
 
-  const { t } = useTranslation();
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -m-2 sm:-m-5 p-12">
       <SEO
@@ -36,9 +42,17 @@ const StoriesContainer = ({ story }: StoriesProps): JSX.Element => {
   );
 };
 export const getStaticPaths: GetStaticPaths<UrlParams> = async () => {
-  const paths = stories.map((story) => ({
-    params: { story: story.slug },
-  }));
+  const paths: { params: { story: string }; locale: Language }[] = [];
+  stories.forEach((story) => {
+    paths.push({
+      params: { story: story.slug },
+      locale: 'uk',
+    });
+    paths.push({
+      params: { story: story.slug },
+      locale: getCountryVariant(),
+    });
+  });
 
   return {
     paths,
