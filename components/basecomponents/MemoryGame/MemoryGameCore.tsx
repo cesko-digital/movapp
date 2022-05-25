@@ -19,8 +19,8 @@ const addBackroundColor = (cardsData: Record<string, unknown>[]) =>
 
 const GAME_NARRATION_PHRASES = {
   cs: phrases_CS,
-  sk: phrases_PL,
-  pl: phrases_SK,
+  sk: phrases_SK,
+  pl: phrases_PL,
 };
 
 const phrases = GAME_NARRATION_PHRASES[getCountryVariant()];
