@@ -120,5 +120,9 @@
   },
   "utils": {
     "play": "přehrát"
+  },
+  "apps": {
+    "download_app": "Stáhnout Movapp mobilní aplikaci",
+    "android_soon": "Android verze už brzy!"
   }
 }

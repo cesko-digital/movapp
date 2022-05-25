@@ -128,5 +128,9 @@
   },
   "utils": {
     "play": "відтворити"
+  },
+  "apps": {
+    "download_app": "Завантажте Movapp як мобільний додаток",
+    "android_soon": "Версія для Android незабаром!"
   }
 }
