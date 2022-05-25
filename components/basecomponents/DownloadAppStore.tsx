@@ -4,7 +4,7 @@ import { AiFillApple } from 'react-icons/ai';
 export const DownloadAppStore = () => {
   const { t } = useTranslation();
   return (
-    <div className="mx-auto mb-12 mt-20 flex justify-center align-middle">
+    <div className="flex justify-center align-middle">
       <a
         href="https://apps.apple.com/app/apple-store/id1617768476?pt=124252508&ct=web-movappcz&mt=8"
         target="_blank"

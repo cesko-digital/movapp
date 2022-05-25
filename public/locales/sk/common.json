@@ -149,5 +149,9 @@
   },
   "utils": {
     "play": "prehrať"
+  },
+  "apps": {
+    "download_app": "Stiahnúť Movapp mobilnú aplikáciu",
+    "android_soon": "Verzia pre Android už čoskoro!"
   }
 }
