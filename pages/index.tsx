@@ -27,13 +27,13 @@ const Home: NextPage = () => {
   return (
     <>
       <SEO
-        title={t('seo.homepage_page_title')}
-        description={t('seo.homepage_page_description')}
+        title={t(`seo.homepage_page_title.${getCountryVariant()}`)}
+        description={t(`seo.homepage_page_description.${getCountryVariant()}`)}
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
       <div className="bg-homepage-hero bg-center pt-20 pb-[10rem] pl-4 pr-4 bg-cover">
         <h1 className="text-center max-w-3xl m-auto pt-12 pb-12 text-primary-blue text-3xl sm:text-4xl leading-snug">
-          {t('homepage.title')}
+          {t(`homepage.title.${getCountryVariant()}`)}
         </h1>
       </div>
       <div className="max-w-7xl m-auto px-2 sm:px-4">
@@ -56,16 +56,16 @@ const Home: NextPage = () => {
                   <a>{t('homepage.box_child_title')}</a>
                 </Link>
               </h2>
-              <p>{t('homepage.box_child_description')}</p>
+              <p>{t(`homepage.box_child_description.${getCountryVariant()}`)}</p>
             </div>
             <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
               <AlphabetIcon className="w-6 mb-2 group-hover:fill-primary-red" />
               <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
                 <Link href={'/alphabet'}>
-                  <a>{t('homepage.box_alphabet_title')}</a>
+                  <a>{t(`homepage.box_alphabet_title.${getCountryVariant()}`)}</a>
                 </Link>
               </h2>
-              <p>{t('homepage.box_alphabet_description')}</p>
+              <p>{t(`homepage.box_alphabet_description.${getCountryVariant()}`)}</p>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-8 mt-10">
@@ -85,9 +85,9 @@ const Home: NextPage = () => {
                   <a>{t('homepage.box_movapp_title')}</a>
                 </Link>
               </h2>
-              <p className="mb-2">{t('homepage.box_movapp_description_top')}</p>
+              <p className="mb-2">{t(`homepage.box_movapp_description_top.${getCountryVariant()}`)}</p>
               <p>
-                <em>{t('homepage.box_movapp_description_bottom')}</em>
+                <em>{t(`homepage.box_movapp_description_bottom.${getCountryVariant()}`)}</em>
               </p>
             </div>
             <div className="justify-self-center my-4 md:my-0">{HEARTS_IMAGE[getCountryVariant()]}</div>

@@ -16,12 +16,12 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
       <Script data-domain={PLAUSIBLE_DOMAINS[getCountryVariant()]} src="https://plausible.io/js/plausible.js" />
-      <main className="bg-white sm:bg-primary-grey pt-2 pb-5 min-h-screen px-2 m-auto">{children}</main>
+      <main className="bg-white flex-1 w-full sm:bg-primary-grey pt-2 pb-5 min-h-full px-2 m-auto">{children}</main>
       <Footer />
       <ScrollToTop />
-    </>
+    </div>
   );
 };

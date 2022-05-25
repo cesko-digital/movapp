@@ -46,7 +46,7 @@ export const Footer = () => {
           </Link>{' '}
           | {t('footer.licence_intro')}{' '}
           <Link href={'https://creativecommons.org/licenses/by-nc/4.0/'}>
-            <a target={'_blank'} className="underline" title="Creative Commons - Uveďte původ-Neužívejte komerčně 4.0">
+            <a target={'_blank'} className="underline" title="Creative Commons - Attribution required, Non-commercial use only 4.0">
               {t('footer.licence')}
             </a>
           </Link>
