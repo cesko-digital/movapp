@@ -1,42 +1,42 @@
 {  
   "good": [    
     {
-      "main": "Pokračuj!",
-      "uk": "Kontynuuj!"
+      "main": "Kontynuuj!",
+      "uk": "Продовжуй!"
     },
     {
-      "main": "Výborně!",
-      "uk": "Świetnie!"
+      "main": "Świetnie!",
+      "uk": "Відмінно!"
     },
     {
-      "main": "To je moc dobré!",
-      "uk": "Bardzo dobrze!"
+      "main": "Bardzo dobrze!",
+      "uk": "Дуже добре!"
     }
   ],
   "wrong": [
     {
-      "main": "Zkus to znovu.",
-      "uk": "Spróbuj jeszcze raz."
+      "main": "Spróbuj jeszcze raz.",
+      "uk": "Спробуй ще раз."
     },
     {
-      "main": "Nevadí.",
-      "uk": "Nie ma znaczenia."
+      "main": "Nic się nie stało",
+      "uk": "Не важливо."
     }
   ],
   "newGame": [
     {
-      "main": "Budeme si hrát.",
-      "uk": "Zagramy."
+      "main": "Zagrajmy!",
+      "uk": "Будемо гратися."
     }
   ],
   "win": [
     {
-      "main": "Děkuji za hru.",
-      "uk": "Dzięki za grę."
+      "main": "Dzięki za grę.",
+      "uk": "Дякую за гру."
     },
     {
-      "main": "Gratuluji.",
-      "uk": "Gratulacje."
+      "main": "Gratulacje.",
+      "uk": "Вітаю."
     }
   ]
 }

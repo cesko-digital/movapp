@@ -9,34 +9,34 @@
       "uk": "Відмінно!"
     },
     {
-      "main": "To je moc dobré!",
-      "uk": "To je veľmi dobré!"
+      "main": "To je veľmi dobré!",
+      "uk": "Дуже добре!"
     }
   ],
   "wrong": [
     {
-      "main": "Zkus to znovu.",
-      "uk": "Skús to znovu."
+      "main": "Skús to znovu.",
+      "uk": "Спробуй ще раз."
     },
     {
       "main": "Nevadí.",
-      "uk": "Nevadí."
+      "uk": "Не важливо."
     }
   ],
   "newGame": [
     {
-      "main": "Budeme si hrát.",
-      "uk": "Budeme sa hrať."
+      "main": "Budeme sa hrať.",
+      "uk": "Будемо гратися."
     }
   ],
   "win": [
     {
-      "main": "Děkuji za hru.",
-      "uk": "Ďakujem za hru."
+      "main": "Ďakujem za hru.",
+      "uk": "Дякую за гру."
     },
     {
-      "main": "Gratuluji.",
-      "uk": "Gratulujem."
+      "main": "Gratulujem.",
+      "uk": "Вітаю."
     }
   ]
 }
