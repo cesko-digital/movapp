@@ -106,7 +106,10 @@
 }
 
 .front.flipped.selected.cardsMatch {
-  animation: shake 0.7s, shine 0.7s;
+  animation: shake 0.7s, shine 0.7s;  
+}
+
+.cell.flipped.selected {  
   z-index: 1000;
 }
 

@@ -148,6 +148,7 @@
     "pageNotFound": "Stránka sa nenašla"
   },
   "utils": {
-    "play": "prehrať"
+    "play": "prehrať",
+    "new_game": "Nová hra"
   }
 }

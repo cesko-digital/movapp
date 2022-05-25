@@ -18,10 +18,15 @@ const MemoryGameCard = ({ card, cardBackImage, onClick, scene, selected, styles 
 
   return (
     <>
-      <div onClick={() => onClick(card)} className={`${styles.cell} ${styles.cell}`}>
+      <div
+        onClick={() => onClick(card)}
+        className={`${styles.cell} ${card.flipped ? styles.flipped : ''} ${selected ? styles.selected : ''}`}
+      >
         <div className={styles.cardWrapper}>
           <div
-            className={`${styles.front} ${card.flipped ? styles.flipped : ''} ${selected ? styles.selected : ''} ${styles[scene]} `}
+            className={`${styles.front} ${card.flipped ? styles.flipped : ''} ${selected ? styles.selected : ''} ${
+              styles[scene] ? styles[scene] : ''
+            } `}
             style={{ borderColor: card.color }}
           >
             <Image
@@ -34,7 +39,7 @@ const MemoryGameCard = ({ card, cardBackImage, onClick, scene, selected, styles 
           </div>
         </div>
         <div className={styles.cardWrapper}>
-          <div className={`${styles.back} ${card.flipped ? styles.flipped : ''} ${styles[scene]}`}>
+          <div className={`${styles.back} ${card.flipped ? styles.flipped : ''} ${styles[scene] ? styles[scene] : ''}`}>
             <Image src={cardBackImage} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
           </div>
         </div>

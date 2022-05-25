@@ -141,5 +141,9 @@
   },
   "errors": {
     "pageNotFound": "Strona nie została znaleziona"
+  },
+  "utils": {
+    "play": "odtwarzanie",
+    "new_game": "Nowa gra"
   }
 }

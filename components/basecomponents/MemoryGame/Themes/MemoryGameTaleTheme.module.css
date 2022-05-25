@@ -114,7 +114,10 @@
 }
 
 .front.flipped.selected.cardsMatch {
-  animation: glow 0.7s, turn 0.7s;
+  animation: glow 0.7s, turn 0.7s;  
+}
+
+.cell.flipped.selected {  
   z-index: 1000;
 }
 
