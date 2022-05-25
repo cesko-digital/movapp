@@ -149,7 +149,8 @@
   },
   "export_translations": {
     "download_phrases": "Stiahnuť frázy",
-    "download": "Stiahnuť",
+    "export_phrases": "Exportovať fráze",
+    "export": "Exportovať",
     "comma": "čiarka",
     "semicolon": "bodkočiarka",
     "new_line": "nový riadok",

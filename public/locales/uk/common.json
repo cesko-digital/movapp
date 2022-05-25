@@ -193,11 +193,12 @@
     },
     "kids_page_storiesTitle": {
       "cs": "Прочитайте та прослухайте чеські та українські казки"
-    } 
+    }
   },
   "export_translations": {
     "download_phrases": "Завантажити фрази",
-    "download": "Завантажити",
+    "export_phrases": "Експортувати фрази",
+    "export": "Експортувати",
     "comma": "кома",
     "semicolon": "крапка з комою",
     "new_line": "новий рядок",
@@ -226,3 +227,4 @@
     "new_game": "Нова гра"
   }
 }
+

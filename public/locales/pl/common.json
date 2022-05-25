@@ -147,7 +147,8 @@
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",
-    "download": "Pobierz",
+    "export_phrases": "Eksport zwroty",
+    "export": "Eksport",
     "comma": "przecinek",
     "semicolon": "średnik",
     "new_line": "nowa linijka",

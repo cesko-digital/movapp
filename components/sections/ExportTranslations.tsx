@@ -4,6 +4,7 @@ import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
 import { useLanguage } from 'utils/useLanguageHook';
 import { Phrase } from 'utils/Phrase';
+import { TiExport } from 'react-icons/ti';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
@@ -11,7 +12,7 @@ const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 interface ExportTranslationsProps {
   translations: Phrase[];
   categoryName: string;
-  trigger?: ReactNode;
+  triggerLabel?: string;
 }
 
 interface SeparatorOption {
@@ -60,7 +61,7 @@ const Separator = () => (
   </div>
 );
 
-const ExportTranslations = ({ translations, categoryName, trigger }: ExportTranslationsProps) => {
+const ExportTranslations = ({ translations, categoryName, triggerLabel }: ExportTranslationsProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
   const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
@@ -93,14 +94,11 @@ const ExportTranslations = ({ translations, categoryName, trigger }: ExportTrans
 
   return (
     <>
-      <button onClick={() => setIsModalOpen(true)}>
-        {trigger ? (
-          trigger
-        ) : (
-          <span className="cursor-pointer underline text-primary-blue inline-block">{t('export_translations.download_phrases')}</span>
-        )}
+      <button className="cursor-pointer underline text-primary-blue inline-flex gap-x-1 items-center" onClick={() => setIsModalOpen(true)}>
+        <TiExport className="w-5 h-5" />
+        <span>{triggerLabel || t('export_translations.export_phrases')}</span>
       </button>
-      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.download')} ${categoryName}`}>
+      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.export')} ${categoryName}`}>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div>
             <H3>{t('export_translations.between_phrase_and_translation')}:</H3>
