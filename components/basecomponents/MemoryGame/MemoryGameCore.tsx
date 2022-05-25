@@ -4,9 +4,9 @@ import { useTranslation } from 'next-i18next';
 import Card from './MemoryGameCard';
 import { TranslationJSON } from 'utils/Phrase';
 import { getCountryVariant } from 'utils/locales';
-import phrases_CZ from 'data/translations/cs/memory-game.json';
-import phrases_PL from 'data/translations/pl/memory-game.json';
-import phrases_SK from 'data/translations/sk/memory-game.json';
+import phrases_CS from './memory-game-cs.json';
+import phrases_PL from './memory-game-pl.json';
+import phrases_SK from './memory-game-sk.json';
 import createTimer from './createTimer';
 import usePlayPhrase from './usePlayPhrase';
 
@@ -18,7 +18,7 @@ const addBackroundColor = (cardsData: Record<string, unknown>[]) =>
   cardsData.map((item, i) => ({ ...item, color: `hsl(${(360 / cardsData.length) * i},50%,50%)` }));
 
 const GAME_NARRATION_PHRASES = {
-  cs: phrases_CZ,
+  cs: phrases_CS,
   sk: phrases_PL,
   pl: phrases_SK,
 };
