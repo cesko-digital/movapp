@@ -20,8 +20,24 @@ export const Collapse = ({ title, children, ariaId, id }: CollapseProps): JSX.El
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
 
+  const getSectionHyperlink = (): string | undefined => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const hyperlinkBits = [window.location.origin];
+
+    if (router.locale && router.locale !== router.defaultLocale) {
+      hyperlinkBits.push(`/${router.locale}`);
+    }
+
+    hyperlinkBits.push(`${router.pathname}#${id}`);
+
+    return hyperlinkBits.join('');
+  };
+
   const handleLinkClick = async () => {
-    const hyperLink = typeof window !== 'undefined' && `${window.location.origin}/${router.locale}${router.pathname}#${id}`;
+    const hyperLink = getSectionHyperlink();
 
     if (hyperLink) {
       await router.push(hyperLink);
