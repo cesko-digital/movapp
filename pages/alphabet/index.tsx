@@ -34,23 +34,29 @@ const AlphabetPage = (): JSX.Element => {
         description={t('seo.alphabet_page_description')}
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
-      <div className="max-w-7xl m-auto">
-        <h1 className="text-primary-blue mb-3">{t(`alphabet_page.${selectedAlphabet}.name`)}</h1>
-        <p className="text-base md:text-xl">{t(`alphabet_page.${selectedAlphabet}.description`)}</p>
-        <div className="w-full  my-5 ">
-          <LanguageSelect
-            onClick={() => setSelectedAlphabet(countryVariant)}
-            active={selectedAlphabet === countryVariant}
-            label={t(`alphabet_page.${countryVariant}.name`)}
-          />
-          <LanguageSelect onClick={() => setSelectedAlphabet('uk')} active={selectedAlphabet === 'uk'} label={t(`alphabet_page.uk.name`)} />
-        </div>
-        <div className="grid gap-6  justify-center auto-rows-[400px] sm:auto-rows-[300px] md:auto-rows-[350px] grid-cols-[repeat(auto-fill,minmax(275px,275px))] sm:grid-cols-[repeat(auto-fill,minmax(205px,205px))]  md:grid-cols-[repeat(auto-fill,minmax(240px,240px))] ">
-          {alphabet.map(({ examples, letter, transcription }, index) => {
-            return (
-              <AlphabetCard language={selectedAlphabet} letter={letter} transcription={transcription} examples={examples} key={index} />
-            );
-          })}
+      <div>
+        <div className="max-w-7xl m-auto">
+          <h1 className="text-primary-blue mb-3">{t(`alphabet_page.${selectedAlphabet}.name`)}</h1>
+          <p className="text-base md:text-xl">{t(`alphabet_page.${selectedAlphabet}.description`)}</p>
+          <div className="w-full  my-5 ">
+            <LanguageSelect
+              onClick={() => setSelectedAlphabet(countryVariant)}
+              active={selectedAlphabet === countryVariant}
+              label={t(`alphabet_page.${countryVariant}.name`)}
+            />
+            <LanguageSelect
+              onClick={() => setSelectedAlphabet('uk')}
+              active={selectedAlphabet === 'uk'}
+              label={t(`alphabet_page.uk.name`)}
+            />
+          </div>
+          <div className="grid gap-6  justify-center auto-rows-[400px] sm:auto-rows-[300px] md:auto-rows-[350px] grid-cols-[repeat(auto-fill,minmax(275px,275px))] sm:grid-cols-[repeat(auto-fill,minmax(205px,205px))]  md:grid-cols-[repeat(auto-fill,minmax(240px,240px))] ">
+            {alphabet.map(({ examples, letter, transcription }, index) => {
+              return (
+                <AlphabetCard language={selectedAlphabet} letter={letter} transcription={transcription} examples={examples} key={index} />
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

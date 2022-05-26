@@ -102,62 +102,64 @@ const Dictionary = () => {
         description={t(`seo.dictionary_page_description.${getCountryVariant()}`)}
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
-      <div className="max-w-7xl m-auto ">
-        <h1 className="text-primary-blue">{t(`dictionary_page.title.${getCountryVariant()}`)}</h1>
-        <div
-          ref={searchContainer}
-          className={`${
-            isSticky ? 'bg-primary-blue transition duration-500  -mx-2 w-auto px-2  pb-2' : 'm-0 '
-          } flex items-center sticky   top-14  transition-all duration-500`}
-        >
-          <SearchInput
-            id="search"
-            hiddenLabel
-            label={t('dictionary_page.search_input_label')}
-            placeholder={t('dictionary_page.search_placeholder')}
-            value={search}
-            resetInput={() => setSearch('')}
-            setSearch={setSearch}
-          />
-          <Button
-            ref={searchButton}
+      <div>
+        <div className="max-w-7xl m-auto ">
+          <h1 className="text-primary-blue">{t(`dictionary_page.title.${getCountryVariant()}`)}</h1>
+          <div
+            ref={searchContainer}
             className={`${
-              isSticky ? 'text-black bg-primary-yellow' : 'bg-primary-blue'
-            } ml-5 justify-self-center border-1 hidden self-center md:block `}
-            text={t('dictionary_page.search_button')}
+              isSticky ? 'bg-primary-blue transition duration-500  -mx-2 w-auto px-2  pb-2' : 'm-0 '
+            } flex items-center sticky   top-14  transition-all duration-500`}
+          >
+            <SearchInput
+              id="search"
+              hiddenLabel
+              label={t('dictionary_page.search_input_label')}
+              placeholder={t('dictionary_page.search_placeholder')}
+              value={search}
+              resetInput={() => setSearch('')}
+              setSearch={setSearch}
+            />
+            <Button
+              ref={searchButton}
+              className={`${
+                isSticky ? 'text-black bg-primary-yellow' : 'bg-primary-blue'
+              } ml-5 justify-self-center border-1 hidden self-center md:block `}
+              text={t('dictionary_page.search_button')}
+            />
+          </div>
+          <ExportTranslations
+            translations={allTranslations}
+            categoryName={t('export_translations.all_phrases')}
+            trigger={
+              <span className="cursor-pointer py-2 underline text-primary-blue inline-block">
+                {t('export_translations.download')} {t('export_translations.all_phrases')}
+              </span>
+            }
           />
+          <h2 className="text-primary-blue">{t(isSearching ? 'dictionary_page.results_subtitle' : 'dictionary_page.subtitle')}</h2>
+          {isSearching ? (
+            <DictionarySearchResults search={search} results={filteredTranslations} />
+          ) : (
+            categories.map((category, index) => {
+              const categoryName = getCategoryName(category, currentLanguage);
+              return (
+                <Collapse
+                  index={index}
+                  id={getCategoryId(category, currentLanguage)}
+                  key={category.nameMain}
+                  title={<Marker mark={search}>{categoryName}</Marker>}
+                  ariaId={category.nameMain}
+                >
+                  <div className="mb-4 mx-4">
+                    <ExportTranslations translations={category.translations} categoryName={categoryName} />
+                  </div>
+                  <CategoryDictionary searchText={search} translations={category.translations} />
+                </Collapse>
+              );
+            })
+          )}
         </div>
-        <ExportTranslations
-          translations={allTranslations}
-          categoryName={t('export_translations.all_phrases')}
-          trigger={
-            <span className="cursor-pointer py-2 underline text-primary-blue inline-block">
-              {t('export_translations.download')} {t('export_translations.all_phrases')}
-            </span>
-          }
-        />
-        <h2 className="text-primary-blue">{t(isSearching ? 'dictionary_page.results_subtitle' : 'dictionary_page.subtitle')}</h2>
-        {isSearching ? (
-          <DictionarySearchResults search={search} results={filteredTranslations} />
-        ) : (
-          categories.map((category, index) => {
-            const categoryName = getCategoryName(category, currentLanguage);
-            return (
-              <Collapse
-                index={index}
-                id={getCategoryId(category, currentLanguage)}
-                key={category.nameMain}
-                title={<Marker mark={search}>{categoryName}</Marker>}
-                ariaId={category.nameMain}
-              >
-                <div className="mb-4 mx-4">
-                  <ExportTranslations translations={category.translations} categoryName={categoryName} />
-                </div>
-                <CategoryDictionary searchText={search} translations={category.translations} />
-              </Collapse>
-            );
-          })
-        )}
       </div>
     </>
   );
