@@ -5,19 +5,27 @@ import { AlphabetCard } from '../../components/basecomponents/AlphabetCard';
 import { LanguageSelect } from '../../components/basecomponents/LanguageSelect';
 import SEO from 'components/basecomponents/SEO';
 import { ALPHABET_CZ } from 'data/alphabets/cs/cz_alphabet';
-import { ALPHABET_UA } from 'data/alphabets/cs/ua_alphabet';
 import { ALPHABET_SK } from 'data/alphabets/sk/sk_alphabet';
 import { ALPHABET_PL } from 'data/alphabets/pl/pl_alphabet';
+import { ALPHABET_UA_cs } from 'data/alphabets/cs/ua_alphabet';
+import { ALPHABET_UA_sk } from 'data/alphabets/sk/ua_alphabet';
+import { ALPHABET_UA_pl } from 'data/alphabets/pl/ua_alphabet';
 import { CountryVariant, getCountryVariant, Language } from 'utils/locales';
 import { Letter } from 'data/alphabets/alphabetTypes';
 export { getStaticProps } from '../../utils/localization';
 
 const countryVariant = getCountryVariant();
 
-const ALPHABETS: Record<CountryVariant, Letter[]> = {
+const MAIN_ALPHABET: Record<CountryVariant, Letter[]> = {
   cs: ALPHABET_CZ,
   sk: ALPHABET_SK,
   pl: ALPHABET_PL,
+};
+
+const UK_ALPHABET: Record<CountryVariant, Letter[]> = {
+  cs: ALPHABET_UA_cs,
+  sk: ALPHABET_UA_sk,
+  pl: ALPHABET_UA_pl,
 };
 
 const AlphabetPage = (): JSX.Element => {
@@ -25,7 +33,7 @@ const AlphabetPage = (): JSX.Element => {
   const { t } = useTranslation();
   const [selectedAlphabet, setSelectedAlphabet] = useState<Language>(otherLanguage);
 
-  const alphabet = selectedAlphabet === 'uk' ? ALPHABET_UA : ALPHABETS[getCountryVariant()];
+  const alphabet = selectedAlphabet === 'uk' ? UK_ALPHABET[getCountryVariant()] : MAIN_ALPHABET[getCountryVariant()];
 
   return (
     <>
