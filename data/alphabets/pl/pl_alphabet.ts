@@ -453,7 +453,7 @@ export const ALPHABET_PL: Letter[] = [
   },
   {
     letter: ['O', 'o'],
-    transcription: '[]',
+    transcription: '[о]',
     examples: [
       {
         example: 'olej',
