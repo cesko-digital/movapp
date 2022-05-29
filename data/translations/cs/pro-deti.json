@@ -163,5 +163,45 @@
     "main": "magnólie",
     "uk": "магнолія",
     "image": "magnolie"
+  },
+  {
+    "main": "statečný rytíř",
+    "uk": "хоробрийпринцеса",
+    "image": "rytir"
+  },
+  {
+    "main": "krásná princezna",
+    "uk": "прекрасна принцеса",
+    "image": "princezna"
+  },
+  {
+    "main": "král",
+    "uk": "король",
+    "image": "kral"
+  },
+  {
+    "main": "zlatý prsten",
+    "uk": "золотий перстень",
+    "image": "prsten"
+  },
+  {
+    "main": "poklad",
+    "uk": "скарб",
+    "image": "poklad"
+  },
+  {
+    "main": "tříhlavý drak",
+    "uk": "триголовий дракон",
+    "image": "drak"
+  },
+  {
+    "main": "hrad",
+    "uk": "замок",
+    "image": "hrad"
+  },
+  {
+    "main": "kůň",
+    "uk": "кінь",
+    "image": "kun"
   }
 ]
