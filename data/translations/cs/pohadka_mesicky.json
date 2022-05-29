@@ -1,162 +1,162 @@
 [
     {
       "main": "Byla jednou jedna macecha, která žila se svou vlastní dcerou Holenou a nevlastní dcerou Maruškou.",
-      "uk": "Була колись одна мачуха, яка жила зі своєю власною дочкою Голеною і падчеркою Марусею.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "Жила - була колись одна мачуха, яка жила зі своєю дочкою Голеною і падчеркою Марусею.",
+      "start_cs": 14.533,
+      "end_cs": 22.358,
+      "start_uk": 14.7455,
+      "end_uk": 21.7205
     },
     {
       "main": "Zatímco Holena nedělala nic, jen odpočívala a zdobila se, Maruška se starala o dům i o zvířata.",
-      "uk": "Поки Голена нічого не робила, а тільки відпочивала і прикрашалася, Маруся доглядала за будинком і тваринами.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "Поки Голена била байдики,  відпочивала і чепурилася, Маруся доглядала за будинком і тваринами.",
+      "start_cs": 22.358,
+      "end_cs": 30.908,
+      "start_uk": 21.7205,
+      "end_uk": 29.733
     },
     {
       "main": "Jednoho zimního dne zavolala macecha Marušku a dala jí podivný úkol:",
       "uk": "Одного зимового дня мачуха покликала Марусю і дала їй дивне завдання:",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "start_cs": 30.908,
+      "end_cs": 36.3455,
+      "start_uk": 29.733,
+      "end_uk": 35.108
     },
     {
       "main": "'Holena si chce přivonět k fialkám. Přines jí jich kytičku. A to ti povídám, bez fialek se domů nevracej!'",
-      "uk": "'Голена хоче понюхати фіалки. Принеси їй квіти. Кажу тобі, без фіалок додому не повертайся!'",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "'Голена хоче понюхати фіалки. Принеси їй квіти. І щоб без фіалок додому не верталася!'",
+      "start_cs": 36.3455,
+      "end_cs": 47.1205,
+      "start_uk": 35.108,
+      "end_uk": 44.4955
     },
     {
       "main": "Maruška se vydala k louce, kde na jaře fialky obvykle kvetou.",
-      "uk": "Маруся попрямувала до лугу, де навесні зазвичай цвітуть фіалки.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "Маруся попрямувала до лугу, де зазвичай навесні цвітуть фіалки.",
+      "start_cs": 47.1205,
+      "end_cs": 53.0705,
+      "start_uk": 44.4955,
+      "end_uk": 50.358
     },
     {
       "main": "Ale že byla zima a všude kolem ležel sníh, tušila Maruška, že se domů už nevrátí.",
-      "uk": "Але що було холодно, а довкола лежав сніг, Маруся підозрювала, що додому вже не вернеться.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "Але була зима, довкола лежав сніг, і Маруся гадала, що додому таки не повернеться.",
+      "start_cs": 53.0705,
+      "end_cs": 60.6955,
+      "start_uk": 50.358,
+      "end_uk": 57.858
     },
     {
       "main": "Byla celá unavená a promrzlá, když tu náhle uviděla velký oheň.",
-      "uk": "Вона була втомлена і змерзла, коли раптом побачила великий вогонь.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "Вона втомилась і змерзла, коли раптом побачила велике вогнище.",
+      "start_cs": 60.6955,
+      "end_cs": 67.108,
+      "start_uk": 57.858,
+      "end_uk": 63.7955
     },
     {
       "main": "Došla až k němu, aby se zahřála.",
       "uk": "Вона підійшла до нього, щоб зігрітися.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "start_cs": 67.108,
+      "end_cs": 71.3955,
+      "start_uk": 63.7955,
+      "end_uk": 68.1205
     },
     {
       "main": "Kolem ohniště sedělo dvanáct mužů, dvanáct měsíců.",
       "uk": "Навколо вогнища сиділо 12 чоловік, 12 місяців.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "start_cs": 71.3955,
+      "end_cs": 77.4205,
+      "start_uk": 68.1205,
+      "end_uk": 74.3455
     },
     {
       "main": "Na nejvyšší židli seděl Leden.",
       "uk": "На найвищому стільці сидів Січень.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "start_cs": 77.4205,
+      "end_cs": 81.333,
+      "start_uk": 74.3455,
+      "end_uk": 78.4205
     },
     {
       "main": "Zeptal se Marušky, co v lese hledá.",
       "uk": "Він запитав Марусю, що вона шукає в лісі.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "start_cs": 81.333,
+      "end_cs": 85.783,
+      "start_uk": 78.4205,
+      "end_uk": 83.0705
     },
     {
       "main": "Když mu vše pověděla, předal Leden vládu Březnu - a na chvilku přišlo jaro.",
-      "uk": "Коли вона розповіла йому все, Січень передав уряд Березня - і на мить прийшла весна.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "Коли вона розповіла йому про все, Січень передав свою владу Березню - і на мить прийшла весна.",
+      "start_cs": 85.783,
+      "end_cs": 92.7955,
+      "start_uk": 83.0705,
+      "end_uk": 90.4705
     },
     {
       "main": "Fialky rozkvetly, Maruška si je natrhala, poděkovala a s kytičkou utíkala domů.",
-      "uk": "Фіалки зацвіли, Маруся надерла їх, подякувала і з квіточкою побігла додому.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "Фіалки зацвіли, Маруся зірвала їх, подякувала і з квітками побігла додому.",
+      "start_cs": 92.7955,
+      "end_cs": 100.558,
+      "start_uk": 90.4705,
+      "end_uk": 97.683
     },
     {
       "main": "Holena se divila, odkud Maruška přinesla fialky, ale hned vymyslela nový úkol.",
-      "uk": "Голена дивувалася, звідки Маруся принесла фіалки, але тут же придумала нове завдання.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "Голена дивувалася, звідки Маруся принесла фіалки, та відразу вигадала нове завдання.",
+      "start_cs": 100.558,
+      "end_cs": 108.0205,
+      "start_uk": 97.683,
+      "end_uk": 105.283
     },
     {
       "main": "'Chci si dát lesní jahody. Přines mi jich hrst. A to ti povídám, bez jahod se domů nevracej!'",
-      "uk": "'Хочу лісової суниці. Принеси мені жменю. Кажу тобі, без суниці додому не вертайся!'",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "'Хочу лісової суниці. Принеси мені жменю. І щоб без суниці додому не верталася!'",
+      "start_cs": 108.0205,
+      "end_cs": 117.8205,
+      "start_uk": 105.283,
+      "end_uk": 114.158
     },
     {
       "main": "Tentokrát se u ohniště vlády ujal Červen, a Maruška tak mohla přinést domů plnou hrst jahod.",
-      "uk": "Цього разу біля вогнища уряду взявся Червень, тож Маруся могла принести додому цілу жменю суниці.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "Цього разу біля вогнища головувати взявся Червень, тож Маруся змогла принести додому цілу жменю суниць.",
+      "start_cs": 117.8205,
+      "end_cs": 126.033,
+      "start_uk": 114.158,
+      "end_uk": 122.2705
     },
     {
       "main": "Holena se rozzuřila a poslala Marušku pro červená jablka.",
       "uk": "Голена розлютилася і послала Марусю за червоними яблуками.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "start_cs": 126.033,
+      "end_cs": 131.458,
+      "start_uk": 122.2705,
+      "end_uk": 127.933
     },
     {
       "main": "A znovu měsícové Marušce pomohli, když se vlády ujal Září.",
-      "uk": "І знову місячники допомогли Марусі, коли владу очолив Вересень.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "І знову місяці допомогли Марусі, бо головував Вересень.",
+      "start_cs": 131.458,
+      "end_cs": 137.508,
+      "start_uk": 127.933,
+      "end_uk": 133.2205
     },
     {
       "main": "Holena nemohla uvěřit vlastním očím, když jablka viděla, a spolu s macechou se vydala najít si své vlastní poklady.",
-      "uk": "Голена не могла повірити власним очам, коли побачила яблука, і разом з мачухою вирушила на пошуки власних скарбів.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "Голена не могла повірити власним очам, коли побачила яблука, і разом з мачухою вирушила на пошуки  скарбів для себе.",
+      "start_cs": 137.508,
+      "end_cs": 146.9705,
+      "start_uk": 133.2205,
+      "end_uk": 142.433
     },
     {
       "main": "Ale že byla zlá a líná, že neuměla poprosit ani poděkovat, měsícové jí nepomohli a Holena i s macechou v lese umrzly a domů se už nikdy nevrátily.",
-      "uk": "Але що вона була лиха й лінива, що не вміла просити й не дякувати, місячники їй не допомогли, і Голена з мачухою замерзли в лісі, і додому так і не повернулися.",
-      "start_cs": 0,
-      "end_cs": 5.169454,
-      "start_uk": 0,
-      "end_uk": 5.266735
+      "uk": "Але вона була зла й ледача, не вміла просити й дякувати, і місяці їй не допомогли, і Голена з мачухою замерзли в лісі до смерті і додому так і не повернулися.",
+      "start_cs": 146.9705,
+      "end_cs": 157.083,
+      "start_uk": 142.433,
+      "end_uk": 152.633
     }
   ]

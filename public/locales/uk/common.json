@@ -25,6 +25,8 @@
     "box_dictionary_description": "Вивчіть сотні базових слів та фраз, читаючи й слухаючи. Слова та фрази розділені на категорії відповідно до життєвих ситуацій.",
     "box_child_title": "для дітей",
     "box_child_description": "Ілюстрований чесько-український словник із десятками карток для друку.", 
+    "box_child_memorygame": "Pexeso - procvičujte slovíčka v oblíbené hře.",
+    "box_child_stories": "Pohádky - přečtěte si a přehrajte si české a ukrajinské pohádky.",
     "box_alphabet_title": "Чеський алфавіт",
     "box_alphabet_description": "Вивчіть всі літери чеського алфавіту. Вам допоможуть приклади слів.",
     "box_wiki_title": "Wiki",
@@ -47,7 +49,11 @@
   },
   "kids_page": {
     "downloadPDF": "Завантажити у форматі .pdf",
-    "playStory": "Подивитись та прочитати казку"
+    "playStory": "Подивитись та прочитати казку",
+    "czechStories": "Чеські народні казки",
+    "ukrainianStories": "Українські народні казки",
+    "stories": "Казки",
+    "homepage": "Домашня сторінка"
   },
   "about_page": {
     "title": "<strong>Movapp.eu</strong> – це проект, який створено в рамках ініціативи <strong>Stojíme za Ukrajinou</strong> в спільноті експертів-волонтерів <strong>Česko.Digital.</strong>",

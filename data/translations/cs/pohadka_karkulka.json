@@ -1,0 +1,162 @@
+[
+    {
+      "main": "Byla jednou jedna holčička, která bydlela s maminkou na kraji lesa. Jmenovala se Červená Karkulka.",
+      "uk": "Жила-була дівчинка із матусею в хатинці на узліссі великого лісу. Її звали Червоною Шапочкою.",
+      "start_cs": 14.308,
+      "end_cs": 23.5205,
+      "start_uk": 14.1205,
+      "end_uk": 22.883
+    },
+    {
+      "main": "Jednoho dne maminka řekla, 'Karkulko, babička má dnes svátek. Běž ji navštívit. Dej si ale pozor - v lese žije vlk!'",
+      "uk": "Одного дня мама каже їй: 'Червона Шапочко,  у бабусі сьогодні іменини. Біжи до неї в гості. Але пам'ятай: у лісі живе вовк!'",
+      "start_cs": 23.5205,
+      "end_cs": 35.583,
+      "start_uk": 22.883,
+      "end_uk": 35.2705
+    },
+    {
+      "main": "Karkulka si do košíku sbalila bábovku a kytičku, rozloučila se s maminkou a vyrazila na cestu.",
+      "uk": "Червона Шапочка склала у кошик пиріг і букет квітів, попрощалась з матусею та вирушила в дорогу.",
+      "start_cs": 35.583,
+      "end_cs": 43.8455,
+      "start_uk": 35.2705,
+      "end_uk": 43.208
+    },
+    {
+      "main": "Šla lesem, když tu najednou před Karkulkou stojí velký vlk. 'Kampak jdeš?'",
+      "uk": "Йде собі Червона Шапочка лісом, аж раптом їй назустріч великий вовк. 'Куди ти йдеш?'",
+      "start_cs":  43.8455,
+      "end_cs": 51.6205,
+      "start_uk": 43.208,
+      "end_uk": 51.5455
+    },
+    {
+      "main": "Karkulka vlkovi pověděla, 'Jdu za babičkou, má dneska svátek. Nesu jí bábovku.'",
+      "uk": "Шапочка відповідає вовку: 'Я йду до бабусі на іменини. Несу їй пиріг.'",
+      "start_cs": 51.6205,
+      "end_cs": 60.2705,
+      "start_uk": 51.5455,
+      "end_uk": 59.058
+    },
+    {
+      "main": "Vlk se otočil a odběhl zpátky do lesa. A lesem rovnou k babiččině chaloupce.",
+      "uk": "Вовк розвернувся та побіг назад у ліс. Він прямував до бабусиної хатинки.",
+      "start_cs": 60.2705,
+      "end_cs": 68.108,
+      "start_uk": 59.058,
+      "end_uk": 65.4205
+    },
+    {
+      "main": "Zaklepal na dveře a z chaloupky se ozvala babička, 'Kdo tam?'",
+      "uk": "Вовк постукав у двері, і з хатинки почувся бабусин голос: 'Хто там?'",
+      "start_cs": 68.108,
+      "end_cs": 73.7705,
+      "start_uk": 65.4205,
+      "end_uk": 72.0705
+    },
+    {
+      "main": "'To jsem já, Karkulka,' zavolal vlk tenkým hláskem.",
+      "uk": "'Це я, Червона Шапочка!' - пропищав вовк тонесеньким голосом.",
+      "start_cs": 73.7705,
+      "end_cs": 79.4455,
+      "start_uk": 72.0705,
+      "end_uk": 79.133
+    },
+    {
+      "main": "'Tak pojď dál, Karkulko, je otevřeno,' řekla babička.",
+      "uk": "'Так заходь, онученько, двері відчинені.' - промовила бабуся.",
+      "start_cs": 79.4455,
+      "end_cs": 85.383,
+      "start_uk": 79.133,
+      "end_uk": 86.083
+    },
+    {
+      "main": "Vlk skočil do světničky a chramst - babičku snědl.",
+      "uk": "Вовк заскочив до хатинки і - гам - з'їв бабусю.",
+      "start_cs": 85.383,
+      "end_cs": 90.858,
+      "start_uk": 86.083,
+      "end_uk": 91.3705
+    },
+    {
+      "main": "Zalezl do babiččiny postele, nasadil si její brýle a čekal na Karkulku.",
+      "uk": "Вовк заліз у бабусине ліжко, натягнув на себе її окуляри і став чекати на Шапочку. ",
+      "start_cs": 90.858,
+      "end_cs": 97.708,
+      "start_uk": 91.3705,
+      "end_uk": 98.858
+    },
+    {
+      "main": "Když Karkulka přišla, podivila se a ptá se 'Babičko, proč máš tak velké uši?'",
+      "uk": "Коли Червона Шапочка прийшла, подивилась та й питає: 'Бабусю, а чому у тебе такі великі вуха?'",
+      "start_cs": 97.708,
+      "end_cs": 104.933,
+      "start_uk": 98.858,
+      "end_uk": 107.1705
+    },
+    {
+      "main": "'To abych tě lépe slyšela,' řekl vlk vysokým hlasem.",
+      "uk": "'Щоб краще тебе чути!', сказав вовк тоненьким голосом.",
+      "start_cs": 104.933,
+      "end_cs": 110.458,
+      "start_uk": 107.1705,
+      "end_uk": 112.758
+    },
+    {
+      "main": "'Proč máš tak velké oči?' - 'To abych tě lépe viděla.'",
+      "uk": "'Чому у тебе такі великі вуха?' - 'Щоб краще тебе бачити!'",
+      "start_cs": 110.458,
+      "end_cs": 116.4455,
+      "start_uk": 112.758,
+      "end_uk": 119.033
+    },
+    {
+      "main": "'Proč máš tak velké zuby?' - 'To abych tě mohl lépe sníst!' A vlk snědl i ji.",
+      "uk": "'Чому у тебе такі великі зуби?' - 'Щоб з'їсти тебе!' Та вовк проковтнув і її.",
+      "start_cs": 116.4455,
+      "end_cs": 124.6955,
+      "start_uk": 119.033,
+      "end_uk": 127.533
+    },
+    {
+      "main": "Zmožený velkým jídlem vlk usnul. A jak chrápal!",
+      "uk": "Після такого ситного обіду вовк одразу заснув. Аж захропів!",
+      "start_cs": 124.6955,
+      "end_cs": 130.7955,
+      "start_uk": 127.533,
+      "end_uk": 134.1455
+    },
+    {
+      "main": "Chrápání přivedlo k chaloupce myslivce.",
+      "uk": "На звук вовчого хропіння до хатинки зайшов мисливець.",
+      "start_cs": 130.7955,
+      "end_cs": 135.333,
+      "start_uk": 134.1455,
+      "end_uk": 139.3455
+    },
+    {
+      "main": "Zachránil babičku i Karkulku z vlkova břicha. To pak naplnil kamením.",
+      "uk": "Він витягнув Червону Шапочку та бабусю із вовчого живота, натомість поклав туди купу каміння.",
+      "start_cs": 135.333,
+      "end_cs": 142.8705,
+      "start_uk": 139.3455,
+      "end_uk": 146.3705
+    },
+    {
+      "main": "Vlk se probudil a měl velkou žízeň.",
+      "uk": "Вовк прокинувся від страшної спраги.",
+      "start_cs": 142.8705,
+      "end_cs": 147.208,
+      "start_uk": 146.3705,
+      "end_uk": 150.5455
+    },
+    {
+      "main": "Odplazil se ke studni, těžké kameny ho převážily, a on už nikdy ze studny nevylezl ven.",
+      "uk": "Він поповз до криниці, аж там - камені булькнули на дно разом із ним. Так він у криниці і лишився повік.",
+      "start_cs": 147.208,
+      "end_cs": 153.658,
+      "start_uk": 150.5455,
+      "end_uk": 158.783
+    }
+  ]

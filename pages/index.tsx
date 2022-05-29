@@ -11,6 +11,7 @@ import WikiIcon from '../public/icons/books.svg';
 import ChildIcon from '../public/icons/child.svg';
 import AlphabetIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
+import KidsSunIcon from '../public/icons/sun.svg';
 import SEO from 'components/basecomponents/SEO';
 import { DownloadAppStore } from '../components/basecomponents/DownloadAppStore';
 import { CountryVariant, getCountryVariant } from '../utils/locales';
@@ -49,14 +50,29 @@ const Home: NextPage = () => {
               </h2>
               <p>{t('homepage.box_dictionary_description')}</p>
             </div>
-            <div className="homepage-box w-full group hover:text-primary-blue    pr-4 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
+            <div className="w-full pr-4 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
               <ChildIcon className="w-6 mb-2 group-hover:fill-primary-red" />
               <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
-                <Link href={'/kids'}>
-                  <a>{t('homepage.box_child_title')}</a>
-                </Link>
+                <p>{t('homepage.box_child_title')}</p>
               </h2>
-              <p>{t('homepage.box_child_description')}</p>
+              <div className="mb-2 flex">
+                <KidsSunIcon className="mr-2 w-6" />
+                <Link href={'/kids'}>
+                  <a className="hover:text-primary-blue w-4/5">{t('homepage.box_child_description')}</a>
+                </Link>
+              </div>
+              <div className="mb-2 flex">
+                <KidsSunIcon className="mr-2 w-6" />
+                <Link href={'/kids/memorygame'}>
+                  <a className="hover:text-primary-blue w-4/5">{t('homepage.box_child_memorygame')}</a>
+                </Link>
+              </div>
+              <div className="flex">
+                <KidsSunIcon className="mr-2 w-6" />
+                <Link href={'/kids/stories'}>
+                  <a className="hover:text-primary-blue w-4/5">{t('homepage.box_child_stories')}</a>
+                </Link>
+              </div>
             </div>
             <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
               <AlphabetIcon className="w-6 mb-2 group-hover:fill-primary-red" />

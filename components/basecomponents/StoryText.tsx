@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, MutableRefObject } from 'react';
 import oPernikoveChaloupce from '../../data/translations/cs/pohadka_pernikovachaloupka.json';
 import oDvanactiMesickach from '../../data/translations/cs/pohadka_mesicky.json';
+import oCerveneKarkulce from '../../data/translations/cs/pohadka_karkulka.json';
+import oKoblizkovi from '../../data/translations/cs/pohadka_koblizek.json';
+import oIvasikovi from '../../data/translations/cs/pohadka_ivasik.json';
+import oHusach from '../../data/translations/cs/pohadka_husy.json';
 
 interface StoryTextProps {
   audio: HTMLAudioElement | null;
@@ -33,6 +37,10 @@ const StoryText = ({ languageText, languagePlay, audio, id, onPlaying }: StoryTe
     const stories: Record<string, StoryPhrase[]> = {
       chaloupka: oPernikoveChaloupce,
       mesicky: oDvanactiMesickach,
+      karkulka: oCerveneKarkulce,
+      koblizek: oKoblizkovi,
+      husy: oHusach,
+      ivasik: oIvasikovi,
     };
     return stories[id];
   };

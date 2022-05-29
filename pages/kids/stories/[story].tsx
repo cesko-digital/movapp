@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
@@ -35,8 +36,19 @@ const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
         description={t('seo.kids_page_description')}
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
+      <p className="px-6 py-4 flex items-center overflow-hidden  md:w-4/5 m-auto">
+        <Link href={`/`}>
+          <a className="mr-2 hover:text-primary-blue">{t('kids_page.homepage')}</a>
+        </Link>{' '}
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+        </svg>{' '}
+        <Link href={`/kids/stories`}>
+          <a className="ml-2 hover:text-primary-blue">{t('kids_page.stories')}</a>
+        </Link>
+      </p>
       <div className="px-6 py-4 flex rounded-2xl overflow-hidden shadow-xl bg-white md:w-4/5 m-auto">
-        <StoryReader language={currentLanguage} title={title} id={story.slug} />
+        <StoryReader language={currentLanguage} title={title} id={story.slug} country={story.country} />
       </div>
     </div>
   );

@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import ChaloupkaCZ from '../../public/kids/O perníkové chaloupce - CS.mp3';
-import ChaloupkaUK from '../../public/kids/O perníkové chaloupce - UK.mp3';
+import ChaloupkaCZ from '../../public/kids/PernikovaChaloupka-CS.mp3';
+import ChaloupkaUK from '../../public/kids/PernikovaChaloupka-UK.mp3';
+import KarkulkaCZ from '../../public/kids/CervenaKarkulka-CS.mp3';
+import KarkulkaUK from '../../public/kids/CervenaKarkulka-UK.mp3';
+import MesickyCZ from '../../public/kids/DvanactMesicku-CS.mp3';
+import MesickyUK from '../../public/kids/DvanactMesicku-UK.mp3';
+import KoblizekCZ from '../../public/kids/Kolobok-CS.mp3';
+import KoblizekUK from '../../public/kids/Kolobok-UK.mp3';
+import HusyCZ from '../../public/kids/HusyLebedi-CS.mp3';
+import HusyUK from '../../public/kids/HusyLebedi-UK.mp3';
+import IvasikCZ from '../../public/kids/IvasikTelesik-CS.mp3';
+import IvasikUK from '../../public/kids/IvasikTelesik-UK.mp3';
 import PlayIcon from '../../public/icons/stories-play.svg';
 import PauseIcon from '../../public/icons/stories-pause.svg';
 import StopIcon from '../../public/icons/stories-stop.svg';
@@ -12,9 +22,10 @@ interface StoryReaderProps {
   language: Language;
   title: string;
   id: string;
+  country: string;
 }
 
-const StoryReader = ({ language, title, id }: StoryReaderProps): JSX.Element => {
+const StoryReader = ({ language, title, id, country }: StoryReaderProps): JSX.Element => {
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekValue, setSeekValue] = useState(0);
@@ -22,11 +33,31 @@ const StoryReader = ({ language, title, id }: StoryReaderProps): JSX.Element => 
   const [languagePlay, setLanguagePlay] = useState(language);
 
   // this is not functional url, waiting for media to be uploaded to github
-  // const source = `https://github.com/met/tts-assets/blob/main/movapp${id}.mp3?raw=true`;
+  // const source = ` https://data.movapp.eu/billingual-reader/${id}-${language}.mp3`;
 
   useEffect(() => {
-    setAudio(new Audio(languagePlay === 'cs' ? ChaloupkaCZ : ChaloupkaUK));
-  }, [languagePlay]);
+    if (id === 'chaloupka') {
+      setAudio(new Audio(languagePlay === 'cs' ? ChaloupkaCZ : ChaloupkaUK));
+    }
+    if (id === 'mesicky') {
+      setAudio(new Audio(languagePlay === 'cs' ? MesickyCZ : MesickyUK));
+    }
+    if (id === 'karkulka') {
+      setAudio(new Audio(languagePlay === 'cs' ? KarkulkaCZ : KarkulkaUK));
+    }
+    if (id === 'koblizek') {
+      setAudio(new Audio(languagePlay === 'cs' ? KoblizekCZ : KoblizekUK));
+    }
+    if (id === 'ivasik') {
+      setAudio(new Audio(languagePlay === 'cs' ? IvasikCZ : IvasikUK));
+    }
+    if (id === 'husy') {
+      setAudio(new Audio(languagePlay === 'cs' ? HusyCZ : HusyUK));
+    }
+    return () => {
+      setAudio(null); // clean up function
+    };
+  }, [languagePlay, id]);
 
   const playStory = () => {
     if (audio !== null) {
@@ -124,8 +155,17 @@ const StoryReader = ({ language, title, id }: StoryReaderProps): JSX.Element => 
         <p className="mr-2/10 text-xl text-right">{time}</p>
       </div>
       <div className="md:flex">
-        <StoryText audio={audio} languageText="cs" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
-        <StoryText audio={audio} languageText="uk" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
+        {country === 'CZ' ? (
+          <>
+            <StoryText audio={audio} languageText="cs" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
+            <StoryText audio={audio} languageText="uk" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
+          </>
+        ) : (
+          <>
+            <StoryText audio={audio} languageText="uk" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
+            <StoryText audio={audio} languageText="cs" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
+          </>
+        )}
       </div>
     </div>
   );

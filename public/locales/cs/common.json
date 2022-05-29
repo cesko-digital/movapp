@@ -25,6 +25,8 @@
     "box_dictionary_description": "Naučte se stovky základních slovíček a frází čtením i poslechem. Slovíčka třídíme dle životních situací.",
     "box_child_title": "Pro děti",
     "box_child_description": "Ilustrovaný ukrajinsko-český slovníček s desítkami tisknutelných karet.",
+    "box_child_memorygame": "Pexeso - procvičujte slovíčka v oblíbené hře.",
+    "box_child_stories": "Pohádky - přečtěte si a přehrajte si české a ukrajinské pohádky.",
     "box_alphabet_title": "Ukrajinská abeceda",
     "box_alphabet_description": "Naučte se všechny znaky ukrajinské cyrilice. Pomohou vám ukázková slova.",
     "box_wiki_title": "Wiki",
@@ -47,7 +49,11 @@
   },
   "kids_page": {
     "downloadPDF": "Stáhnout v PDF",
-    "playStory": "Přehrát a přečíst pohádku"
+    "playStory": "Přehrát a přečíst pohádku",
+    "czechStories": "České lidové pohádky",
+    "ukrainianStories": "Ukrajinské lidové pohádky",
+    "stories": "Pohádky",
+    "homepage": "Hlavní stránka"
   },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> je projekt, který vznikl v rámci iniciativy <strong>Stojíme za Ukrajinou</strong> v komunitě expertních dobrovolníků <strong>Česko.Digital.</strong>",
