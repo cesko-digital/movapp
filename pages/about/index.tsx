@@ -3,7 +3,7 @@ import { useTranslation, Trans } from 'next-i18next';
 export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
 import { HTMLAttributes } from 'react';
-import { Language } from 'utils/locales';
+import { getCountryVariant, Language } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
 
@@ -43,7 +43,7 @@ const About = () => {
           <Trans className="block my-2">{t('about_page.title')}</Trans>
         </h1>
         <H2>{t('about_page.movapp_goal_title')}</H2>
-        {t('about_page.movapp_goal_description')}
+        {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
         <H2>{t('about_page.why_movapp_title')}</H2>
         <P>
           <Trans i18nKey={'about_page.why_movapp_mova'} />

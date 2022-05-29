@@ -20,7 +20,31 @@ export const Collapse = ({ title, children, ariaId, id }: CollapseProps): JSX.El
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
 
-  const hyperLink = typeof window !== 'undefined' && `${window.location.origin}/${router.locale}${router.pathname}#${id}`;
+  const getSectionHyperlink = (): string | undefined => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const hyperlinkBits = [window.location.origin];
+
+    if (router.locale && router.locale !== router.defaultLocale) {
+      hyperlinkBits.push(`/${router.locale}`);
+    }
+
+    hyperlinkBits.push(`${router.pathname}#${id}`);
+
+    return hyperlinkBits.join('');
+  };
+
+  const handleLinkClick = async () => {
+    const hyperLink = getSectionHyperlink();
+
+    if (hyperLink) {
+      await router.push(hyperLink);
+      copyToClipboard(hyperLink);
+    }
+  };
+
   useEffect(() => {
     const path = router.asPath;
     const bookmark = path.substring(path.indexOf('#') + 1);
@@ -35,7 +59,7 @@ export const Collapse = ({ title, children, ariaId, id }: CollapseProps): JSX.El
     <div id={id} className={`bg-white block border-b-1 border-b-primary-grey  group`}>
       <div className="flex gap-2 p-2 md:p-4">
         <LinkIcon
-          onClick={() => hyperLink && copyToClipboard(hyperLink)}
+          onClick={handleLinkClick}
           className="w-3 h-3 justify-self-center self-center cursor-pointer md:w-4 md:h-4 md:group-hover:visible md:invisible inline-block active:scale-125 active:fill-primary-yellow active:stroke-primary-yellow transition duration-100 fill-primary-blue stroke-primary-blue"
         />
         <button

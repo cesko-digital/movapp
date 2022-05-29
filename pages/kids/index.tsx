@@ -24,8 +24,8 @@ const KidsSection = () => {
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
       <SEO
-        title={t('seo.kids_page_title')}
-        description={t('seo.kids_page_description')}
+        title={t(`seo.kids_page_title.${getCountryVariant()}`)}
+        description={t(`seo.kids_page_description.${getCountryVariant()}`)}
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="text-center sm:text-right pt-8 mr-0 sm:mr-16">
