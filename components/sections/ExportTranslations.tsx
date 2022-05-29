@@ -96,7 +96,7 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
     <>
       <button className="cursor-pointer underline text-primary-blue inline-flex gap-x-1 items-center" onClick={() => setIsModalOpen(true)}>
         <TiExport className="w-5 h-5" />
-        <span>{triggerLabel || t('export_translations.export_phrases')}</span>
+        <span>{triggerLabel ?? t('export_translations.export_phrases')}</span>
       </button>
       <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.export')} ${categoryName}`}>
         <div className="grid grid-cols-1 sm:grid-cols-2">
