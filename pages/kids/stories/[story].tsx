@@ -30,12 +30,8 @@ const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
   const title = story.title[currentLanguage];
 
   return (
-    <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -m-2 sm:-m-5 p-12">
-      <SEO
-        title={t('seo.kids_page_title')}
-        description={t('seo.kids_page_description')}
-        image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
-      />
+    <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -m-2 sm:-m-5 md:p-12">
+      <SEO title={t('seo.kids_page_title')} description={t('seo.kids_page_description')} image="https://www.movapp.cz/kids/hrad.png" />
       <p className="px-6 py-4 flex items-center overflow-hidden  md:w-4/5 m-auto">
         <Link href={`/`}>
           <a className="mr-2 hover:text-primary-blue">{t('kids_page.homepage')}</a>
