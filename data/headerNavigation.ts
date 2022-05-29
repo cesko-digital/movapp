@@ -3,7 +3,7 @@ import { CountryVariant } from "utils/locales";
 interface HeaderNavigation {
   name: string;
   link: string;
-  onlyForLanguageVariants?: CountryVariant
+  onlyForLanguageVariants?: CountryVariant[]
 }
 
 export const HEADER_NAVIGATION: HeaderNavigation[] = [
@@ -22,7 +22,7 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
   {
     name: 'header.wiki_link_name',
     link: '/wiki',
-    onlyForLanguageVariants: "cs"
+    onlyForLanguageVariants: ["cs"]
   },
   // {
   //   name: 'header.exercises_link_name',
