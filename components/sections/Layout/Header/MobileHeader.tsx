@@ -53,7 +53,8 @@ export const MobileHeader = () => {
       {showNavigation && (
         <div className="bg-primary-blue z-50 absolute py-5 top-14 w-full left-0">
           <ul className="z-50">
-            {HEADER_NAVIGATION.map(({ name, link }, index) => {
+            {HEADER_NAVIGATION.map(({ name, link, onlyForLanguageVariants }, index) => {
+              if ((!!onlyForLanguageVariants && !onlyForLanguageVariants.includes(getCountryVariant()))) return
               return (
                 <li key={index} className={`text-white text-center text-lg py-2 ${router.asPath.includes(link) && 'text-primary-yellow'}`}>
                   <Link href={link}>
