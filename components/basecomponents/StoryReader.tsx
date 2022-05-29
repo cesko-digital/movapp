@@ -1,59 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import ChaloupkaCZ from '../../public/kids/PernikovaChaloupka-CS.mp3';
-import ChaloupkaUK from '../../public/kids/PernikovaChaloupka-UK.mp3';
-import KarkulkaCZ from '../../public/kids/CervenaKarkulka-CS.mp3';
-import KarkulkaUK from '../../public/kids/CervenaKarkulka-UK.mp3';
-import MesickyCZ from '../../public/kids/DvanactMesicku-CS.mp3';
-import MesickyUK from '../../public/kids/DvanactMesicku-UK.mp3';
-import KoblizekCZ from '../../public/kids/Kolobok-CS.mp3';
-import KoblizekUK from '../../public/kids/Kolobok-UK.mp3';
-import HusyCZ from '../../public/kids/HusyLebedi-CS.mp3';
-import HusyUK from '../../public/kids/HusyLebedi-UK.mp3';
-import IvasikCZ from '../../public/kids/IvasikTelesik-CS.mp3';
-import IvasikUK from '../../public/kids/IvasikTelesik-UK.mp3';
 import PlayIcon from '../../public/icons/stories-play.svg';
 import PauseIcon from '../../public/icons/stories-pause.svg';
 import StopIcon from '../../public/icons/stories-stop.svg';
 import { Language } from '../../utils/locales';
+import { useLanguage } from 'utils/useLanguageHook';
 import { Flag } from './Flag';
 import StoryText from './StoryText';
 
 interface StoryReaderProps {
-  language: Language;
+  // language: Language;
   title: string;
   id: string;
   country: string;
 }
 
-const StoryReader = ({ language, title, id, country }: StoryReaderProps): JSX.Element => {
+const StoryReader = ({ title, id, country }: StoryReaderProps): JSX.Element => {
+  const { currentLanguage } = useLanguage();
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekValue, setSeekValue] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [languagePlay, setLanguagePlay] = useState(language);
-
-  // this is not functional url, waiting for media to be uploaded to github
-  // const source = ` https://data.movapp.eu/billingual-reader/${id}-${language}.mp3`;
+  const [languagePlay, setLanguagePlay] = useState(currentLanguage);
 
   useEffect(() => {
-    if (id === 'chaloupka') {
-      setAudio(new Audio(languagePlay === 'cs' ? ChaloupkaCZ : ChaloupkaUK));
-    }
-    if (id === 'mesicky') {
-      setAudio(new Audio(languagePlay === 'cs' ? MesickyCZ : MesickyUK));
-    }
-    if (id === 'karkulka') {
-      setAudio(new Audio(languagePlay === 'cs' ? KarkulkaCZ : KarkulkaUK));
-    }
-    if (id === 'koblizek') {
-      setAudio(new Audio(languagePlay === 'cs' ? KoblizekCZ : KoblizekUK));
-    }
-    if (id === 'ivasik') {
-      setAudio(new Audio(languagePlay === 'cs' ? IvasikCZ : IvasikUK));
-    }
-    if (id === 'husy') {
-      setAudio(new Audio(languagePlay === 'cs' ? HusyCZ : HusyUK));
-    }
+    const source = `https://movapp-data-ifoaaj0j7-ceskodigital.vercel.app/bilingual-reading/${id}-${languagePlay}.mp3`;
+    setAudio(new Audio(source));
     return () => {
       setAudio(null); // clean up function
     };

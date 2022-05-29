@@ -66,13 +66,15 @@ export const MobileHeader = () => {
                       <button onClick={() => setShowDropdown(!showDropdown)}>{t(name)}</button>
                       <div className={`${showDropdown ? '' : 'hidden'} w-44 m-auto`}>
                         <ul className="py-1 text-sm text-white text-center">
-                          {submenu?.map(({ name, link }) => (
-                            <li key={name}>
-                              <Link href={link}>
-                                <a className="block px-4 py-2">{t(name)}</a>
-                              </Link>
-                            </li>
-                          ))}
+                          {submenu
+                            ?.filter((item) => item.countryVariant.includes(getCountryVariant()))
+                            .map(({ name, link }) => (
+                              <li key={name}>
+                                <Link href={link}>
+                                  <a className="block px-4 py-2">{t(`${name}.${getCountryVariant()}`)}</a>
+                                </Link>
+                              </li>
+                            ))}
                         </ul>
                       </div>
                     </>

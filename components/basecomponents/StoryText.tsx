@@ -35,12 +35,12 @@ const StoryText = ({ languageText, languagePlay, audio, id, onPlaying }: StoryTe
 
   const selectedStory = () => {
     const stories: Record<string, StoryPhrase[]> = {
-      chaloupka: oPernikoveChaloupce,
-      mesicky: oDvanactiMesickach,
-      karkulka: oCerveneKarkulce,
-      koblizek: oKoblizkovi,
-      husy: oHusach,
-      ivasik: oIvasikovi,
+      'pernikova-chaloupka': oPernikoveChaloupce,
+      'dvanact-mesicku': oDvanactiMesickach,
+      'cervena-karkulka': oCerveneKarkulce,
+      kolobok: oKoblizkovi,
+      'husy-lebedi': oHusach,
+      'ivasik-telesik': oIvasikovi,
     };
     return stories[id];
   };

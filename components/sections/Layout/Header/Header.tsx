@@ -42,15 +42,17 @@ export const Header = () => {
                         className={`absolute z-10 ${showDropdown ? '' : 'hidden'} bg-white divide-y divide-gray-100 rounded shadow w-44`}
                       >
                         <ul className="py-1 text-sm text-gray-700">
-                          {submenu?.map(({ name, link }) => (
-                            <li key={name}>
-                              <Link href={link}>
-                                <a onClick={() => setShowDropdown(false)} className="block px-4 py-2 hover:bg-gray-100">
-                                  {t(name)}
-                                </a>
-                              </Link>
-                            </li>
-                          ))}
+                          {submenu
+                            ?.filter((item) => item.countryVariant.includes(getCountryVariant()))
+                            .map(({ name, link }) => (
+                              <li key={name}>
+                                <Link href={link}>
+                                  <a onClick={() => setShowDropdown(false)} className="block px-4 py-2 hover:bg-gray-100">
+                                    {t(`${name}.${getCountryVariant()}`)}
+                                  </a>
+                                </Link>
+                              </li>
+                            ))}
                         </ul>
                       </div>
                     </>

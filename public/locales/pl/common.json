@@ -2,6 +2,12 @@
   "header": {
     "vocabulary_link_name": "Rozmówki",
     "forkids_link_name": "Dla dzieci",
+    "forkids_words": {
+      "pl": "Słówka"
+    },
+    "forkids_memorygame": {
+      "pl":"Memory"
+    },
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Ćwiczenia",
     "about_link_name": "O nas",
@@ -23,6 +29,9 @@
     "box_dictionary_title": "Rozmówki",
     "box_dictionary_description": "Naucz się setki podstawowych słówek i zwrotów przez czytanie i słuchanie. Słówka są posortowane według sytuacji w których są używane.",
     "box_child_title": "Dla dzieci",
+    "box_child_memorygame": {
+      "pl": "Memory - ćwicz słówka w ulubionej grze!"
+    },
     "box_child_description": {
       "pl": "Ilustrowany ukraińsko-polski słownik z kartami gotowymi do wydrukowania"
     },

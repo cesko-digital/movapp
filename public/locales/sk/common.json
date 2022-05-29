@@ -2,6 +2,12 @@
   "header": {
     "vocabulary_link_name": "Slovníček",
     "forkids_link_name": "Pre deti",
+    "forkids_words": {
+      "sk": "Slovíčka"
+    },
+    "forkids_memorygame": {
+      "sk":"Pexeso"
+    },
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Cvičenia",
     "about_link_name": "O nás",
@@ -21,6 +27,9 @@
       "sk": "Naučte sa základy slovenčiny a ukrajinčiny pre bežné životné situácie"
     },
     "box_dictionary_title": "Slovníček",
+    "box_child_memorygame": {
+      "sk": "Pexeso - precvičujte si slovíčka v obľúbenej hre."
+    },
     "box_dictionary_description": "Naučte sa stovky základných slovíčok a fráz čítaním i počúvaním. Slovíčka triedime podľa životných situácií.",
     "box_child_title": "Pre deti",
     "box_child_description": {

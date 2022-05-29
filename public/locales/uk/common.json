@@ -2,7 +2,11 @@
   "header": {
     "vocabulary_link_name": "Словник",
     "forkids_link_name": "Для дітей",
-    "forkids_words": "Слова",
+    "forkids_words": {
+      "cs": "Слова",
+      "sk": "Слова",
+      "pl": "Слова"
+    },
     "forkids_stories": "Казки",
     "forkids_memorygame": "Гра Memory",
     "wiki_link_name": "Wiki",
@@ -27,9 +31,14 @@
     },
     "box_dictionary_title": "Словник",
     "box_dictionary_description": "Вивчіть сотні базових слів та фраз, читаючи й слухаючи. Слова та фрази розділені на категорії відповідно до життєвих ситуацій.",
-    "box_child_memorygame": "Pexeso - procvičujte slovíčka v oblíbené hře.",
-    "box_child_stories": "Pohádky - přečtěte si a přehrajte si české a ukrajinské pohádky.",
+    "box_child_stories": "Казки - прочитайте та прослухайте чеські та українські казки.",
     "box_child_title": "Для дітей",
+    "box_child_memorygame": {
+      "cs": "Гра Memory - тренуйте слова в улюбленій грі.",
+      "sk": "Гра Memory - тренуйте слова в улюбленій грі.",
+      "pl": "Гра Memory - тренуйте слова в улюбленій грі."
+    },
+
     "box_child_description": {
       "cs": "Ілюстрований чесько-український словник із десятками карток для друку.",
       "sk": "Ілюстрований словацько-український словник із десятками карток для друку.",

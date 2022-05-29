@@ -64,15 +64,17 @@ const Home: NextPage = () => {
               <div className="mb-2 flex">
                 <KidsSunIcon className="mr-2 w-6" />
                 <Link href={'/kids/memory-game'}>
-                  <a className="hover:text-primary-blue w-4/5">{t(`homepage.box_child_memorygame`)}</a>
+                  <a className="hover:text-primary-blue w-4/5">{t(`homepage.box_child_memorygame.${getCountryVariant()}`)}</a>
                 </Link>
               </div>
-              <div className="flex">
-                <KidsSunIcon className="mr-2 w-6" />
-                <Link href={'/kids/stories'}>
-                  <a className="hover:text-primary-blue w-4/5">{t(`homepage.box_child_stories`)}</a>
-                </Link>
-              </div>
+              {getCountryVariant() === 'cs' ? (
+                <div className="flex">
+                  <KidsSunIcon className="mr-2 w-6" />
+                  <Link href={'/kids/stories'}>
+                    <a className="hover:text-primary-blue w-4/5">{t(`homepage.box_child_stories`)}</a>
+                  </Link>
+                </div>
+              ) : null}
             </div>
             <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
               <AlphabetIcon className="w-6 mb-2 group-hover:fill-primary-red" />

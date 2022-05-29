@@ -48,7 +48,7 @@ const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
         </Link>
       </p>
       <div className="px-6 py-4 flex rounded-2xl overflow-hidden shadow-xl bg-white md:w-4/5 m-auto">
-        <StoryReader language={currentLanguage} title={title} id={story.slug} country={story.country} />
+        <StoryReader title={title} id={story.slug} country={story.country} />
       </div>
     </div>
   );
