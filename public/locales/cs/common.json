@@ -161,6 +161,8 @@
   },
   "apps": {
     "download_app": "Stáhnout Movapp mobilní aplikaci",
-    "android_soon": "Android verze už brzy!"
+    "android_soon": "Android verze už brzy!",
+    "play": "přehrát",
+    "new_game": "Nová hra"
   }
 }

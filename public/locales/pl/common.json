@@ -145,5 +145,9 @@
   "apps": {
     "download_app": "Pobierz Movapp jako aplikację mobilną",
     "android_soon": "Wersja na Androida już wkrótce!"
+  },
+  "utils": {
+    "play": "odtwarzanie",
+    "new_game": "Nowa gra"
   }
 }

@@ -1,3 +1,4 @@
+import { rejects } from 'assert';
 import { Language } from './locales';
 
 /**
@@ -40,4 +41,25 @@ export class AudioPlayer {
   playTextToSpeech = (text: string, language: Language) => {
     this.play(this.getGoogleTTSAudio(text, language));
   };
+
+  playTextToSpeechAsync = (text: string, language: Language): Promise<void> => {    
+    return new Promise((resolve) => {     
+      const sound = this.getGoogleTTSAudio(text, language);
+  
+      sound.onerror = () => {
+        console.warn(sound!.error!.message);
+        resolve();
+      };
+      sound.onabort = () => {
+        console.warn('Audio play aborted');
+        resolve();
+      };
+      sound.oncanplay = () => {
+        this.play(sound);
+      };
+      sound.onpause = () => resolve();
+      sound.onended = () => resolve();
+    });
+  };
+  
 }
