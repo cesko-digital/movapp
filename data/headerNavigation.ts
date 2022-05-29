@@ -32,7 +32,7 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
       },
       {
         name: 'header.forkids_memorygame',
-        link: '/kids/memorygame',
+        link: '/kids/memory-game',
       },
     ],
   },

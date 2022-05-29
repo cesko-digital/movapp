@@ -148,7 +148,8 @@
     "pageNotFound": "Stránka sa nenašla"
   },
   "utils": {
-    "play": "prehrať"
+    "play": "prehrať",
+    "new_game": "Nová hra"
   },
   "apps": {
     "download_app": "Stiahnúť Movapp mobilnú aplikáciu",

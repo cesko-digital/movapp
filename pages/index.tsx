@@ -63,7 +63,7 @@ const Home: NextPage = () => {
               </div>
               <div className="mb-2 flex">
                 <KidsSunIcon className="mr-2 w-6" />
-                <Link href={'/kids/memorygame'}>
+                <Link href={'/kids/memory-game'}>
                   <a className="hover:text-primary-blue w-4/5">{t(`homepage.box_child_memorygame`)}</a>
                 </Link>
               </div>
