@@ -24,8 +24,9 @@ export const Header = () => {
         </Link>
         <nav className="w-full">
           <ul className="flex justify-end items-center pr-10">
-            {HEADER_NAVIGATION.map(({ name, link, submenu }) => {
+            {HEADER_NAVIGATION.map(({ name, link, submenu, onlyForLanguageVariants }) => {
               const activePage = router.asPath.includes(link);
+              if (!!onlyForLanguageVariants && !onlyForLanguageVariants.includes(getCountryVariant())) return;
               return (
                 <li
                   key={name}

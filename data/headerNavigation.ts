@@ -5,11 +5,11 @@ interface SubmenuItem {
   link: string;
   countryVariant: CountryVariant[];
 }
-
 interface HeaderNavigation {
   name: string;
   link: string;
   submenu?: SubmenuItem[];
+  onlyForLanguageVariants?: CountryVariant[];
 }
 
 export const HEADER_NAVIGATION: HeaderNavigation[] = [
@@ -45,6 +45,7 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
   {
     name: 'header.wiki_link_name',
     link: '/wiki',
+    onlyForLanguageVariants: ['cs'],
   },
   // {
   //   name: 'header.exercises_link_name',
