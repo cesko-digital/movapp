@@ -132,29 +132,30 @@ const Dictionary = () => {
             translations={allTranslations}
             categoryName={t('export_translations.all_phrases')}
             triggerLabel={`${t('export_translations.export')} ${t('export_translations.all_phrases')}`}
-        />
-        <h2 className="text-primary-blue">{t(isSearching ? 'dictionary_page.results_subtitle' : 'dictionary_page.subtitle')}</h2>
-        {isSearching ? (
-          <DictionarySearchResults search={search} results={filteredTranslations} />
-        ) : (
-          categories.map((category, index) => {
-            const categoryName = getCategoryName(category, currentLanguage);
-            return (
-              <Collapse
-                index={index}
-                id={getCategoryId(category, currentLanguage)}
-                key={category.nameMain}
-                title={<Marker mark={search}>{categoryName}</Marker>}
-                ariaId={category.nameMain}
-              >
-                <div className="mb-4 mx-4">
-                  <ExportTranslations translations={category.translations} categoryName={categoryName} />
-                </div>
-                <CategoryDictionary searchText={search} translations={category.translations} />
-              </Collapse>
-            );
-          })
-        )}</div>
+          />
+          <h2 className="text-primary-blue">{t(isSearching ? 'dictionary_page.results_subtitle' : 'dictionary_page.subtitle')}</h2>
+          {isSearching ? (
+            <DictionarySearchResults search={search} results={filteredTranslations} />
+          ) : (
+            categories.map((category, index) => {
+              const categoryName = getCategoryName(category, currentLanguage);
+              return (
+                <Collapse
+                  index={index}
+                  id={getCategoryId(category, currentLanguage)}
+                  key={category.nameMain}
+                  title={<Marker mark={search}>{categoryName}</Marker>}
+                  ariaId={category.nameMain}
+                >
+                  <div className="mb-4 mx-4">
+                    <ExportTranslations translations={category.translations} categoryName={categoryName} />
+                  </div>
+                  <CategoryDictionary searchText={search} translations={category.translations} />
+                </Collapse>
+              );
+            })
+          )}
+        </div>
       </div>
     </>
   );
