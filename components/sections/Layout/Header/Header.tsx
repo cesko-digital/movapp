@@ -49,7 +49,7 @@ export const Header = () => {
                               <li key={name}>
                                 <Link href={link}>
                                   <a onClick={() => setShowDropdown(false)} className="block px-4 py-2 hover:bg-gray-100">
-                                    {t(`${name}.${getCountryVariant()}`)}
+                                    {t(name)}
                                   </a>
                                 </Link>
                               </li>

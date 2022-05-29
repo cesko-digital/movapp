@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PlayIcon from '../../public/icons/stories-play.svg';
 import PauseIcon from '../../public/icons/stories-pause.svg';
 import StopIcon from '../../public/icons/stories-stop.svg';
@@ -8,57 +8,63 @@ import { Flag } from './Flag';
 import StoryText from './StoryText';
 
 interface StoryReaderProps {
-  // language: Language;
-  title: string;
+  titleCurrent: string;
+  titleOther: string;
   id: string;
   country: string;
 }
 
-const StoryReader = ({ title, id, country }: StoryReaderProps): JSX.Element => {
+const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps): JSX.Element => {
   const { currentLanguage } = useLanguage();
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [seekValue, setSeekValue] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [languagePlay, setLanguagePlay] = useState(currentLanguage);
 
+  // using useRef to prevent keeping playing audio when changing route, see: https://stackoverflow.com/questions/37949895/stop-audio-on-route-change-in-react
+  const audio = useRef<HTMLAudioElement | null>(null);
+
   useEffect(() => {
     const source = `https://movapp-data-ifoaaj0j7-ceskodigital.vercel.app/bilingual-reading/${id}-${languagePlay}.mp3`;
-    setAudio(new Audio(source));
+    audio.current = new Audio(source);
     return () => {
-      setAudio(null); // clean up function
+      if (audio.current !== null) {
+        audio.current.pause();
+      }
     };
   }, [languagePlay, id]);
 
   const playStory = () => {
-    if (audio !== null) {
-      audio.play();
+    if (audio.current !== null) {
+      audio.current.play();
       setIsPlaying(true);
     }
   };
 
   const pauseStory = () => {
-    if (audio !== null) {
-      audio.pause();
+    if (audio.current !== null) {
+      audio.current.pause();
       setIsPlaying(false);
     }
   };
 
   const stopStory = () => {
-    if (audio !== null) {
-      audio.pause();
-      audio.currentTime = 0;
+    if (audio.current !== null) {
+      audio.current.pause();
+      audio.current.currentTime = 0;
       setIsPlaying(false);
     }
   };
 
   useEffect(() => {
-    if (audio !== null) {
-      audio.ontimeupdate = () => {
-        setCurrentTime(audio.currentTime);
-        setSeekValue((audio.currentTime / audio.duration) * 100);
-        if (audio.currentTime === audio.duration) {
-          setIsPlaying(false);
+    if (audio.current !== null) {
+      audio.current.ontimeupdate = () => {
+        if (audio.current !== null) {
+          setCurrentTime(audio.current.currentTime);
+          setSeekValue(audio.current.duration ? (audio.current.currentTime / audio.current.duration) * 100 : 0);
+          if (audio.current.currentTime === audio.current.duration) {
+            setIsPlaying(false);
+          }
         }
       };
     }
@@ -67,6 +73,7 @@ const StoryReader = ({ title, id, country }: StoryReaderProps): JSX.Element => {
   const time = `${Math.floor(currentTime / 60)}`.padStart(2, '0') + ':' + `${Math.floor(currentTime % 60)}`.padStart(2, '0');
 
   const handleLanguageChange = (language: Language) => {
+    setSeekValue(0);
     setLanguagePlay(language);
     stopStory();
   };
@@ -75,7 +82,9 @@ const StoryReader = ({ title, id, country }: StoryReaderProps): JSX.Element => {
     <div className="w-full">
       <div className="controls max-h-[20vh]">
         <div className="flex items-center">
-          <h2>{title}</h2>
+          <h2>
+            {titleCurrent} / {titleOther}
+          </h2>
           <button onClick={() => handleLanguageChange('cs')}>
             <Flag
               language="cs"
@@ -116,8 +125,8 @@ const StoryReader = ({ title, id, country }: StoryReaderProps): JSX.Element => {
               step="1"
               value={seekValue}
               onChange={(e) => {
-                const seekto = audio !== null ? audio.duration * (Number(e.target.value) / 100) : 0;
-                audio !== null ? (audio.currentTime = seekto) : null;
+                const seekto = audio.current !== null ? audio.current.duration * (Number(e.target.value) / 100) : 0;
+                audio.current !== null ? (audio.current.currentTime = seekto) : null;
                 setSeekValue(Number(e.target.value));
               }}
             />
@@ -128,13 +137,13 @@ const StoryReader = ({ title, id, country }: StoryReaderProps): JSX.Element => {
       <div className="md:flex">
         {country === 'CZ' ? (
           <>
-            <StoryText audio={audio} languageText="cs" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
-            <StoryText audio={audio} languageText="uk" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
+            <StoryText audio={audio.current} languageText="cs" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
+            <StoryText audio={audio.current} languageText="uk" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
           </>
         ) : (
           <>
-            <StoryText audio={audio} languageText="uk" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
-            <StoryText audio={audio} languageText="cs" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
+            <StoryText audio={audio.current} languageText="uk" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
+            <StoryText audio={audio.current} languageText="cs" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
           </>
         )}
       </div>

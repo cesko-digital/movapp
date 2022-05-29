@@ -62,7 +62,7 @@ const StoryText = ({ languageText, languagePlay, audio, id, onPlaying }: StoryTe
     const start = `start_${languagePlay}` as ObjectKey;
     const end = `end_${languagePlay}` as ObjectKey;
     if (audio !== null) {
-      return audio.currentTime > phrase[start] && audio.currentTime < phrase[end];
+      return audio?.currentTime > phrase[start] && audio?.currentTime < phrase[end];
     } else {
       return false;
     }
@@ -72,7 +72,7 @@ const StoryText = ({ languageText, languagePlay, audio, id, onPlaying }: StoryTe
     type ObjectKey = keyof typeof phrase;
     const end = `end_${languagePlay}` as ObjectKey;
     if (audio !== null) {
-      return audio.currentTime >= phrase[end];
+      return audio?.currentTime >= phrase[end];
     } else {
       return false;
     }

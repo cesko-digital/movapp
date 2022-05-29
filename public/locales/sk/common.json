@@ -2,12 +2,8 @@
   "header": {
     "vocabulary_link_name": "Slovníček",
     "forkids_link_name": "Pre deti",
-    "forkids_words": {
-      "sk": "Slovíčka"
-    },
-    "forkids_memorygame": {
-      "sk":"Pexeso"
-    },
+    "forkids_words": "Slovíčka",
+    "forkids_memorygame": "Pexeso",
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Cvičenia",
     "about_link_name": "O nás",

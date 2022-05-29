@@ -12,7 +12,7 @@ const stories = [
     country: 'CZ',
   },
   {
-    title: { cs: 'O červené karkulce', uk: 'Червона Шапочка' },
+    title: { cs: 'O červené Karkulce', uk: 'Червона Шапочка' },
     slug: 'cervena-karkulka',
     duration: '3 min',
     country: 'CZ',

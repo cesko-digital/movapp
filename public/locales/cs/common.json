@@ -2,15 +2,9 @@
   "header": {
     "vocabulary_link_name": "Slovníček",
     "forkids_link_name": "Pro děti",
-    "forkids_words": {
-      "cs": "Slovíčka"
-    },
-    "forkids_stories": {
-      "cs":"Pohádky"
-    },
-    "forkids_memorygame": {
-      "cs":"Pexeso"
-    },
+    "forkids_words": "Slovíčka",
+    "forkids_stories": "Pohádky",
+    "forkids_memorygame": "Pexeso",
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Cvičení",
     "about_link_name": "O nás",
@@ -142,6 +136,9 @@
     },
     "kids_page_description": {
       "cs": "Obrázky pro děti s ukrajinskými a českými popisky. Namluvené v češtině a ukrajinštině. Tisk omalovánek pro děti."
+    },
+    "kids_page_storiesTitle": {
+      "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"
     }
   },
   "export_translations": {

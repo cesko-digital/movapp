@@ -72,7 +72,7 @@ export const MobileHeader = () => {
                             .map(({ name, link }) => (
                               <li key={name}>
                                 <Link href={link}>
-                                  <a className="block px-4 py-2">{t(`${name}.${getCountryVariant()}`)}</a>
+                                  <a className="block px-4 py-2">{t(name)}</a>
                                 </Link>
                               </li>
                             ))}

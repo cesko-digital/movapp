@@ -6,8 +6,9 @@ import SEO from 'components/basecomponents/SEO';
 import stories from '../../../data/stories';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useLanguage } from 'utils/useLanguageHook';
+import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps } from 'next';
-
+import Custom404 from '../../404';
 interface StoriesSectionProps {
   stories: Story[];
 }
@@ -65,17 +66,20 @@ const StoriesSection = ({ stories }: StoriesSectionProps) => {
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
       <SEO
-        title={t('seo.kids_page_title')}
+        title={t(`seo.kids_page_storiesTitle.${getCountryVariant()}`)}
         description={t('seo.kids_page_description')}
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
-
-      <div className="min-h-screen m-auto py-10 px-2 sm:px-4">
-        <h2 className="text-primary-blue text-center">{t('kids_page.czechStories')}</h2>
-        {stories_CZ.map((story) => storyPanel(story))}
-        <h2 className="text-primary-blue text-center mt-12">{t('kids_page.ukrainianStories')}</h2>
-        {stories_UK.map((story) => storyPanel(story))}
-      </div>
+      {getCountryVariant() === 'cs' ? (
+        <div className="min-h-screen m-auto py-10 px-2 sm:px-4">
+          <h2 className="text-primary-blue text-center">{t('kids_page.czechStories')}</h2>
+          {stories_CZ.map((story) => storyPanel(story))}
+          <h2 className="text-primary-blue text-center mt-12">{t('kids_page.ukrainianStories')}</h2>
+          {stories_UK.map((story) => storyPanel(story))}
+        </div>
+      ) : (
+        <Custom404 />
+      )}
     </div>
   );
 };

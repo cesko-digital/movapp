@@ -2,12 +2,8 @@
   "header": {
     "vocabulary_link_name": "Rozmówki",
     "forkids_link_name": "Dla dzieci",
-    "forkids_words": {
-      "pl": "Słówka"
-    },
-    "forkids_memorygame": {
-      "pl":"Memory"
-    },
+    "forkids_words": "Słówka",
+    "forkids_memorygame": "Memory",
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Ćwiczenia",
     "about_link_name": "O nas",
@@ -129,6 +125,9 @@
     },
     "kids_page_description": {
       "pl": "Zdjęcia dla dzieci z opisem ukraińskim i polskim. Używany po słowacku i ukraińsku. Wydrukuj kolorowanki dla dzieci."
+    },
+    "kids_page_storiesTitle": {
+      "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"
     }
   },
   "export_translations": {
