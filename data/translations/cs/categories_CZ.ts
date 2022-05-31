@@ -20,6 +20,7 @@ import Velikonoce_CZ from './velikonoce.json';
 import Cisla_CZ from './cisla.json';
 import Barvy_CZ from './barvy.json';
 import RozkvetlaLouka_CZ from './kytky.json';
+import Pohadky_CZ from './pohadky.json'
 import ExternalRaketa_CZ from './raketa.json';
 import { Category, processTranslations } from '../CategoryUtils';
 
@@ -128,6 +129,11 @@ export const CATEGORIES_CZ: Category[] = [
     nameMain: 'Rozkvetlá louka',
     nameUk: 'Квітковий луг',
     translations: processTranslations(RozkvetlaLouka_CZ),
+  },
+  {
+    nameMain: 'Pohádky',
+    nameUk: 'Казки',
+    translations: processTranslations(Pohadky_CZ),
   },
   {
     nameMain: 'Zrádná slovíčka',
