@@ -42,6 +42,14 @@ export class AudioPlayer {
   };
 
   playTextToSpeechAsync = (text: string, language: Language): Promise<void> => {
+    const userAgent = navigator.userAgent || navigator.vendor;
+
+    if (/iPad|iPhone|iPod/i.test(userAgent)) {
+      return new Promise((resolve) => {
+        resolve();
+      });
+    }
+
     const sound = this.getGoogleTTSAudio(text, language);
     this.play(sound);
     return new Promise((resolve) => {
