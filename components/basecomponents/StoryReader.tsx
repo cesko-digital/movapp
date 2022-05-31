@@ -25,7 +25,7 @@ const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps
   const audio = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const source = `https://movapp-data-ifoaaj0j7-ceskodigital.vercel.app/bilingual-reading/${id}-${languagePlay}.mp3`;
+    const source = `https://data.movapp.eu/bilingual-reading/${id}-${languagePlay}.mp3`;
     audio.current = new Audio(source);
     return () => {
       if (audio.current !== null) {
@@ -60,9 +60,11 @@ const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps
     if (audio.current !== null) {
       audio.current.ontimeupdate = () => {
         if (audio.current !== null) {
-          setCurrentTime(audio.current.currentTime);
-          setSeekValue(audio.current.duration ? (audio.current.currentTime / audio.current.duration) * 100 : 0);
-          if (audio.current.currentTime === audio.current.duration) {
+          const duration = audio.current.duration;
+          const actualTime = audio.current.currentTime;
+          setCurrentTime(actualTime);
+          setSeekValue(duration ? (actualTime / duration) * 100 : 0);
+          if (actualTime === duration) {
             setIsPlaying(false);
           }
         }

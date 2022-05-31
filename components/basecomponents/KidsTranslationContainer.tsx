@@ -25,7 +25,7 @@ export const KidsTranslationsContainer = ({ translation, image }: KidsTranslatio
   const secondaryTranslation = translation.getTranslation(otherLanguage);
 
   return (
-    <div className="max-w-sm rounded-2xl overflow-hidden shadow-xl w-72 m-5 md:m-8 bg-[#f7e06a] max-h-[32rem]">
+    <div className="max-w-sm rounded-2xl overflow-hidden shadow-xl w-72 m-5 md:m-8 bg-[#f7e06a] max-h-[34rem]">
       <button
         className="w-72 h-72 relative bg-white"
         onClick={() => AudioPlayer.getInstance().playTextToSpeech(secondaryTranslation, otherLanguage)}
