@@ -1,9 +1,15 @@
-import { CountryVariant } from "utils/locales";
+import { CountryVariant } from 'utils/locales';
 
+interface SubmenuItem {
+  name: string;
+  link: string;
+  countryVariant: CountryVariant[];
+}
 interface HeaderNavigation {
   name: string;
   link: string;
-  onlyForLanguageVariants?: CountryVariant[]
+  submenu?: SubmenuItem[];
+  onlyForLanguageVariants?: CountryVariant[];
 }
 
 export const HEADER_NAVIGATION: HeaderNavigation[] = [
@@ -18,11 +24,28 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
   {
     name: 'header.forkids_link_name',
     link: '/kids',
+    submenu: [
+      {
+        name: 'header.forkids_words',
+        link: '/kids',
+        countryVariant: ['cs', 'pl', 'sk'],
+      },
+      {
+        name: 'header.forkids_stories',
+        link: '/kids/stories',
+        countryVariant: ['cs'],
+      },
+      {
+        name: 'header.forkids_memorygame',
+        link: '/kids/memory-game',
+        countryVariant: ['cs', 'pl', 'sk'],
+      },
+    ],
   },
   {
     name: 'header.wiki_link_name',
     link: '/wiki',
-    onlyForLanguageVariants: ["cs"]
+    onlyForLanguageVariants: ['cs'],
   },
   // {
   //   name: 'header.exercises_link_name',

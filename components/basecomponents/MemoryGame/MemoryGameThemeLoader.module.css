@@ -1,0 +1,54 @@
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.themeNav {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+
+.themeButton {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background-color: #023abd;
+  border-color: #023abd;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-left: -0.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  image-rendering: -webkit-optimize-contrast;
+  animation: zoom .2s .1s backwards;
+  cursor: default;
+  transition: transform 0.2s;
+}
+
+.themeButton:hover {  
+  transform: scale(1.02);   
+}
+
+.themeButton:active {  
+  transform: scale(0.95);  
+}
+
+@media (min-width: 640px) {
+  .themeButton {
+    width: 4rem;
+    height: 4rem;
+    margin-left: -1rem;
+  }
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

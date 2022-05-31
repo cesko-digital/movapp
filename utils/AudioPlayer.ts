@@ -40,4 +40,29 @@ export class AudioPlayer {
   playTextToSpeech = (text: string, language: Language) => {
     this.play(this.getGoogleTTSAudio(text, language));
   };
+
+  playTextToSpeechAsync = (text: string, language: Language): Promise<void> => {
+    const userAgent = navigator.userAgent || navigator.vendor;
+
+    if (/iPad|iPhone|iPod/i.test(userAgent)) {
+      return new Promise((resolve) => {
+        resolve();
+      });
+    }
+
+    const sound = this.getGoogleTTSAudio(text, language);
+    this.play(sound);
+    return new Promise((resolve) => {
+      sound.onerror = () => {
+        console.warn(sound?.error?.message);
+        resolve();
+      };
+      sound.onabort = () => {
+        console.warn('Audio play aborted');
+        resolve();
+      };
+      sound.onpause = () => resolve();
+      sound.onended = () => resolve();
+    });
+  };
 }
