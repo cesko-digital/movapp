@@ -180,15 +180,16 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
           setScene(Scene.game);
         }, 600); // reduced for fastrer UX
       },
-      secondCardSelected: async () => {
+      secondCardSelected: () => {
         // disable controls
         setControlsDisabled(true);
         // play css animations and sounds
         const { second: card } = selectedCards;
         flipCard(card!); // 0.3s
 
-        await playCardPhraseCurrentLang(card!);
-        setScene(Scene.resolveCards);
+        playCardPhraseCurrentLang(card!).then(() => {
+          setScene(Scene.resolveCards);
+        });
       },
       resolveCards: () => {
         const { first, second } = selectedCards;
@@ -213,9 +214,11 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
           setScene(Scene.cardsMatchReward);
         }, 700);
       },
-      cardsMatchReward: async () => {
+      cardsMatchReward: () => {
         // play css animations and sounds
-        Math.random() > 0.5 && (await playPhraseRandomLang(getRandomElement(phrases.good)));
+        if (Math.random() > 0.5) {
+          playPhraseRandomLang(getRandomElement(phrases.good));
+        }
         // reset selected cards
         setSelectedCards({ first: null, second: null });
         // check win
@@ -228,19 +231,22 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
           }
         }, 700);
       },
-      cardsDontMatch: async () => {
+      cardsDontMatch: () => {
         // disable controls
         setControlsDisabled(true);
         // play animations and sounds
-        await delay(1000);
-        Math.random() > 0.8 && (await playPhraseRandomLang(getRandomElement(phrases.wrong)));
+        setTimeout(() => {
+          if (Math.random() > 0.8) {
+            playPhraseRandomLang(getRandomElement(phrases.wrong));
+          }
 
-        // setTimer: show cards for some time to remember then flip back
-        const { first, second } = selectedCards;
-        flipCard(first!);
-        flipCard(second!);
-        setSelectedCards({ first: null, second: null });
-        setScene(Scene.cardsDontMatchFlipBack);
+          // setTimer: show cards for some time to remember then flip back
+          const { first, second } = selectedCards;
+          flipCard(first!);
+          flipCard(second!);
+          setSelectedCards({ first: null, second: null });
+          setScene(Scene.cardsDontMatchFlipBack);
+        }, 1000);
       },
       cardsDontMatchFlipBack: () => {
         // wait for cards flip back
@@ -248,13 +254,13 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
           setScene(Scene.game);
         }, 300);
       },
-      win: async () => {
+      win: () => {
         // disable controls
         setControlsDisabled(true);
         // play css animations and sounds
-        await playPhraseRandomLang(getRandomElement(phrases.win));
-        await delay(200);
-        setScene(Scene.winReward);
+        playPhraseRandomLang(getRandomElement(phrases.win)).then(() => {
+          setScene(Scene.winReward);
+        });
       },
       winReward: () => {
         // play css animations and sounds
