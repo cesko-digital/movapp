@@ -124,6 +124,9 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
   const selectCard = (card: Card) => {
     if (controlsDisabled) return;
 
+    // Test debug
+    playPhraseRandomLang(getRandomElement(phrases.good));
+
     const { first, second } = selectedCards;
     if (first === null && !card.flipped) {
       setSelectedCards({ ...selectedCards, first: card });
