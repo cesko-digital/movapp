@@ -78,7 +78,7 @@ const Home: NextPage = () => {
                 <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
                   <ChildDictionaryIcon className="w-6 mb-2 group-hover:fill-primary-red" />
                   <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
-                    <Link href={'/kids'}>
+                    <Link href={t('homepage.box_child_dictionary_link')}>
                       <a>{t('homepage.box_child_dictionary_title')}</a>
                     </Link>
                   </h2>
