@@ -10,7 +10,7 @@ import phrases_SK from './memory-game-sk.json';
 import createTimer from './createTimer';
 import usePlayPhrase from './usePlayPhrase';
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+// const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.random() * arr.length)];
 
