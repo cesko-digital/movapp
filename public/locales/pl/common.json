@@ -2,6 +2,8 @@
   "header": {
     "vocabulary_link_name": "Rozmówki",
     "forkids_link_name": "Dla dzieci",
+    "forkids_words": "Słówka",
+    "forkids_memorygame": "Memory",
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Ćwiczenia",
     "about_link_name": "O nas",
@@ -23,6 +25,9 @@
     "box_dictionary_title": "Rozmówki",
     "box_dictionary_description": "Naucz się setki podstawowych słówek i zwrotów przez czytanie i słuchanie. Słówka są posortowane według sytuacji w których są używane.",
     "box_child_title": "Dla dzieci",
+    "box_child_memorygame": {
+      "pl": "Memory - ćwicz słówka w ulubionej grze!"
+    },
     "box_child_description": {
       "pl": "Ilustrowany ukraińsko-polski słownik z kartami gotowymi do wydrukowania"
     },
@@ -135,6 +140,9 @@
     },
     "kids_page_description": {
       "pl": "Zdjęcia dla dzieci z opisem ukraińskim i polskim. Używany po słowacku i ukraińsku. Wydrukuj kolorowanki dla dzieci."
+    },
+    "kids_page_storiesTitle": {
+      "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"
     }
   },
   "export_translations": {
@@ -160,5 +168,9 @@
   "apps": {
     "download_app": "Pobierz Movapp jako aplikację mobilną",
     "android_soon": "Wersja na Androida już wkrótce!"
+  },
+  "utils": {
+    "play": "odtwarzanie",
+    "new_game": "Nowa gra"
   }
 }

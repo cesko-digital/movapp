@@ -1,4 +1,5 @@
 import { useTranslation } from 'next-i18next';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -11,6 +12,7 @@ export const Header = () => {
   const { t } = useTranslation('common');
   const router = useRouter();
   const { currentLanguage } = useLanguage();
+  const [showDropdown, setShowDropdown] = useState(false);
 
   return (
     <header className="bg-primary-blue w-full sticky top-0 z-10 h-14 hidden md:block">
@@ -22,17 +24,40 @@ export const Header = () => {
         </Link>
         <nav className="w-full">
           <ul className="flex justify-end items-center pr-10">
-            {HEADER_NAVIGATION.map(({ name, link, onlyForLanguageVariants }) => {
+            {HEADER_NAVIGATION.map(({ name, link, submenu, onlyForLanguageVariants }) => {
               const activePage = router.asPath.includes(link);
-              if (!!onlyForLanguageVariants && !onlyForLanguageVariants.includes(getCountryVariant())) return
+              if (!!onlyForLanguageVariants && !onlyForLanguageVariants.includes(getCountryVariant())) return;
               return (
                 <li
                   key={name}
                   className={`${activePage && 'border-b-2 border-b-primary-yellow'} hover:text-primary-yellow text-white mx-2 `}
                 >
-                  <Link href={link}>
-                    <a>{t(name)}</a>
-                  </Link>
+                  {submenu === undefined ? (
+                    <Link href={link}>
+                      <a>{t(name)}</a>
+                    </Link>
+                  ) : (
+                    <>
+                      <button onClick={() => setShowDropdown(!showDropdown)}>{t(name)}</button>
+                      <div
+                        className={`absolute z-10 ${showDropdown ? '' : 'hidden'} bg-white divide-y divide-gray-100 rounded shadow w-44`}
+                      >
+                        <ul className="py-1 text-sm text-gray-700">
+                          {submenu
+                            ?.filter((item) => item.countryVariant.includes(getCountryVariant()))
+                            .map(({ name, link }) => (
+                              <li key={name}>
+                                <Link href={link}>
+                                  <a onClick={() => setShowDropdown(false)} className="block px-4 py-2 hover:bg-gray-100">
+                                    {t(name)}
+                                  </a>
+                                </Link>
+                              </li>
+                            ))}
+                        </ul>
+                      </div>
+                    </>
+                  )}
                 </li>
               );
             })}

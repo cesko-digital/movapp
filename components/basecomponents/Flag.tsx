@@ -1,8 +1,8 @@
 import { Language } from 'utils/locales';
-import czFlag from '../../public/flags/cz.svg';
-import skFlag from '../../public/flags/sk.svg';
-import plFlag from '../../public/flags/pl.svg';
-import uaFlag from '../../public/flags/ua.svg';
+import czFlag from '../../public/flags/czech.svg';
+import skFlag from '../../public/flags/slovak.svg';
+import plFlag from '../../public/flags/polish.svg';
+import uaFlag from '../../public/flags/ukrainian.svg';
 import { ComponentType, HTMLProps } from 'react';
 
 const COUNTRY_FLAG: Record<Language, ComponentType<HTMLProps<HTMLOrSVGImageElement>>> = {
