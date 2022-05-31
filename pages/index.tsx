@@ -64,7 +64,7 @@ const Home: NextPage = () => {
                       <a>{t('homepage.box_child_memory_title')}</a>
                     </Link>
                   </h2>
-                  <p>{t(`homepage.box_child_memory_description.${getCountryVariant()}`)}</p>
+                  <p>{t(`homepage.box_child_memory_description`)}</p>
                 </div>
                 <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
                   <ChildIcon className="w-6 mb-2 group-hover:fill-primary-red" />
@@ -82,7 +82,7 @@ const Home: NextPage = () => {
                       <a>{t('homepage.box_child_dictionary_title')}</a>
                     </Link>
                   </h2>
-                  <p>{t(`homepage.box_child_dictionary_description.${getCountryVariant()}`)}</p>
+                  <p>{t(`homepage.box_child_dictionary_description`)}</p>
                 </div>
               </div>
             </div>

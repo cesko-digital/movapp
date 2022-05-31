@@ -33,9 +33,7 @@
     "box_child_section_title": "Міжнародний день дітей - 1 червня",
     "box_child_section_image_author": "Авторка: Марічка Горбатенко, 11 років",
     "box_child_dictionary_title": "Казковий словник",
-    "box_child_dictionary_description": {
-      "cs": "Знаєте, як перетворити принца на жабу?"
-    },
+    "box_child_dictionary_description": "Знаєте, як перетворити принца на жабу?",
     "box_child_dictionary_link": "/dictionary#kazky",
     "box_child_words_title": "Ілюстрований словник",
     "box_child_words_description": {
@@ -46,9 +44,7 @@
       "cs": "Прочитайте а послухайте чеські та українські казки."
     },
     "box_child_memory_title": "Гра Memory",
-    "box_child_memory_description": {
-      "cs": "Тренуйте слова в улубленій грі з унікальними малюнками."
-    },
+    "box_child_memory_description": "Тренуйте слова в улубленій грі з унікальними малюнками.",
     "box_alphabet_title": {
       "cs": "Чеський алфавіт",
       "sk": "Словацький алфавіт",
