@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 * {
   font-family: 'Roboto', 'Source Sans Pro';
   scroll-margin: 116px 0 0 0;
@@ -28,7 +27,6 @@ h2 {
     font-size: 24px;
     margin: 0.5rem 0;
   }
-
   h2 {
     font-weight: 700;
     line-height: 26px;
@@ -47,7 +45,21 @@ h2 {
   inset: 0;
 }
 
-/** removes white space under an image */
+
+/* Removes white space under an image. */
+
 .logo span {
   display: block !important;
+}
+
+
+/* Override the next image theming. */
+
+.child-section__image span {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.child-section__image img {
+  object-fit: contain;
 }

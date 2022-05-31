@@ -9,6 +9,10 @@ import HeartsUkraine_PL from '../public/icons/hearts/hearts-for-ukraine_PL-UA.pn
 import DictionaryIcon from '../public/icons/book.svg';
 import WikiIcon from '../public/icons/books.svg';
 import ChildIcon from '../public/icons/child.svg';
+import ChildSectionImg from '../public/icons/maricka-gorbatenko-2022.jpg';
+import MemoryGameIcon from '../public/icons/block-question-light.svg';
+import ChildStoriesIcon from '../public/icons/gingerbread-man-light.svg';
+import ChildDictionaryIcon from '../public/icons/frog-light.svg';
 import AlphabetIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
 import SEO from 'components/basecomponents/SEO';
@@ -37,8 +41,59 @@ const Home: NextPage = () => {
         </h1>
       </div>
       <div className="max-w-7xl m-auto px-2 sm:px-4">
+        {/* Child section */}
+        <div className="child-section max-w-7xl bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] p-4 sm:p-8 md:p-12 shadow-xxl mt-[-6rem] mb-8">
+            
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:col-start-1 md:col-end-2 md:grid-cols-1 gap-8">
+              <h2 className="md:mt-0 text-primary-blue">{t(`homepage.box_child_section_title`)}</h2>
+              <div className='sm:grid grid-cols-2 md:grid-cols-1 gap-8'>
+                <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
+                  <ChildStoriesIcon className="w-6 mb-2 group-hover:fill-primary-red" />
+                  <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
+                    <Link href={'/kids/stories'}>
+                      <a>{t('homepage.box_child_stories_title')}</a>
+                    </Link>
+                  </h2>
+                  <p>{t(`homepage.box_child_stories_description.${getCountryVariant()}`)}</p>
+                </div>
+                <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
+                  <MemoryGameIcon className="w-6 mb-2 group-hover:fill-primary-red" />
+                  <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
+                    <Link href={'/kids/memory-game'}>
+                      <a>{t('homepage.box_child_memory_title')}</a>
+                    </Link>
+                  </h2>
+                  <p>{t(`homepage.box_child_memory_description.${getCountryVariant()}`)}</p>
+                </div>
+                <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
+                  <ChildIcon className="w-6 mb-2 group-hover:fill-primary-red" />
+                  <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
+                    <Link href={'/kids'}>
+                      <a>{t('homepage.box_child_words_title')}</a>
+                    </Link>
+                  </h2>
+                  <p>{t(`homepage.box_child_words_description.${getCountryVariant()}`)}</p>
+                </div>
+                <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
+                  <ChildDictionaryIcon className="w-6 mb-2 group-hover:fill-primary-red" />
+                  <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
+                    <Link href={'/kids'}>
+                      <a>{t('homepage.box_child_dictionary_title')}</a>
+                    </Link>
+                  </h2>
+                  <p>{t(`homepage.box_child_dictionary_description.${getCountryVariant()}`)}</p>
+                </div>
+              </div>
+            </div>
+            <div className="child-section__image md:col-start-2 md:col-end-4 md:row-start-1 md:row-end-2">
+              <Image src={ChildSectionImg} alt={t(`homepage.box_section_image_author`)} />
+              {t(`homepage.box_child_section_image_author`)}
+            </div>
+          </div>
+        </div>
         {/* Standard section */}
-        <div className="max-w-7xl bg-white p-4 sm:p-8 md:p-12 shadow-xxl mt-[-6rem] mb-8">
+        <div className="max-w-7xl bg-white p-4 sm:p-8 md:p-12 shadow-xxl mb-8">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="homepage-box w-full group hover:text-primary-blue    pr-4 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
               <DictionaryIcon className="w-6 mb-2 group-hover:fill-primary-red" />
