@@ -99,6 +99,7 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
         <span>{triggerLabel ?? t('export_translations.export_phrases')}</span>
       </button>
       <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.export')} ${categoryName}`}>
+        <p>{t('export_translations.subtitle_note')}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div>
             <H3>{t('export_translations.between_phrase_and_translation')}:</H3>

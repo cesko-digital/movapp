@@ -163,7 +163,8 @@
     "preview": "Náhľad",
     "transcriptions": "Transkripcia",
     "include_transcriptions": "Zapísať frázy v oboch abecedách",
-    "all_phrases": "všetky frázy"
+    "all_phrases": "všetky frázy",
+    "subtitle_note": "Frázy si môžte stiahnuť v preferovanom formáte a importovať do vašich poznámok alebo aplikácie na učenie jazykov, napr. Quizlet alebo Anki."
   },
   "errors": {
     "pageNotFound": "Stránka sa nenašla"
