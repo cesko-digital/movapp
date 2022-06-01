@@ -7,12 +7,14 @@ import { HEADER_NAVIGATION } from 'data/headerNavigation';
 import { getCountryVariant, Language, LOCALE_NAMES } from 'utils/locales';
 import AppLogo from 'public/icons/movapp-logo.png';
 import { useLanguage } from 'utils/useLanguageHook';
+import { useClickOutside } from '../../../hooks/useClickOutside';
 
 export const Header = () => {
   const { t } = useTranslation('common');
   const router = useRouter();
   const { currentLanguage } = useLanguage();
   const [showDropdown, setShowDropdown] = useState(false);
+  const { ref } = useClickOutside(() => setShowDropdown(false));
 
   return (
     <header className="bg-primary-blue w-full sticky top-0 z-10 h-14 hidden md:block">
@@ -37,7 +39,7 @@ export const Header = () => {
                       <a>{t(name)}</a>
                     </Link>
                   ) : (
-                    <>
+                    <div ref={ref}>
                       <button onClick={() => setShowDropdown(!showDropdown)}>{t(name)}</button>
                       <div
                         className={`absolute z-10 ${showDropdown ? '' : 'hidden'} bg-white divide-y divide-gray-100 rounded shadow w-44`}
@@ -56,7 +58,7 @@ export const Header = () => {
                             ))}
                         </ul>
                       </div>
-                    </>
+                    </div>
                   )}
                 </li>
               );
