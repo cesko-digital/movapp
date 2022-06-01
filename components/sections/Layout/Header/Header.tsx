@@ -14,7 +14,7 @@ export const Header = () => {
   const router = useRouter();
   const { currentLanguage } = useLanguage();
   const [showDropdown, setShowDropdown] = useState(false);
-  const { ref } = useClickOutside(() => setShowDropdown(false));
+  const { ref } = useClickOutside<HTMLDivElement>(() => setShowDropdown(false));
 
   return (
     <header className="bg-primary-blue w-full sticky top-0 z-10 h-14 hidden md:block">
