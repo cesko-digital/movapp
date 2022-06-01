@@ -17,8 +17,8 @@ export const KidsTranslation = ({ transcription, translation, language }: KidsTr
   return (
     <div className="flex justify-between items-center py-2 ">
       <div className="w-full">
-        <div className="flex">
-          <Flag language={language} width={30} height={24} className={'mr-3 shadow'} />
+        <div className="flex items-center mb-2">
+          <Flag language={language} width={30} height={30} className={'mr-3'} />
           <p>
             <Trans className="block my-2">{t(`dictionary_page.${language}`)}</Trans>
           </p>

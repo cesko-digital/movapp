@@ -2,6 +2,9 @@
   "header": {
     "vocabulary_link_name": "Slovníček",
     "forkids_link_name": "Pro děti",
+    "forkids_words": "Slovíčka",
+    "forkids_stories": "Pohádky",
+    "forkids_memorygame": "Pexeso",
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Cvičení",
     "about_link_name": "O nás",
@@ -23,9 +26,28 @@
     "box_dictionary_title": "Slovníček",
     "box_dictionary_description": "Naučte se stovky základních slovíček a frází čtením i poslechem. Slovíčka třídíme dle životních situací.",
     "box_child_title": "Pro děti",
+    "box_child_stories": "Pohádky - přečtěte si a přehrajte si české a ukrajinské pohádky.",
+    "box_child_memorygame": {
+      "cs": "Pexeso - procvičujte slovíčka v oblíbené hře."
+    },
     "box_child_description": {
       "cs": "Ilustrovaný ukrajinsko-český slovníček s desítkami tisknutelných karet."
     },
+    "box_child_section_title": "Den dětí - 1. června",
+    "box_child_section_image_author": "Autorka: Marička Gorbatenko, 11 let",
+    "box_child_dictionary_title": "Pohádkový slovníček",
+    "box_child_dictionary_description": "Víte jak proměnit prince v žábu?",
+    "box_child_dictionary_link": "/dictionary#pohadky",
+    "box_child_words_title": "Ilustrovaný slovníček",
+    "box_child_words_description": {
+      "cs": "Ukrajinsko-český slovníček s desítkami tisknutelných obrázkových karet."
+    },
+    "box_child_stories_title": "Pohádky",
+    "box_child_stories_description": {
+      "cs": "Přečtěte a přehrajte si české a ukrajinské pohádky."
+    },
+    "box_child_memory_title": "Pexeso",
+    "box_child_memory_description": "Procvičujte slovíčka v oblíbené hře s unikátními obrázky.",
     "box_alphabet_title": {
       "cs": "Ukrajinská abeceda"
     },
@@ -39,7 +61,7 @@
       "cs": "мова [mova] znamená ukrajinsky jazyk. Movapp je aplikace pro trénink jazyků. Cílem Movapp.cz je usnadnit dorozumění mezi Čechy a Ukrajinci."
     },
     "box_movapp_description_bottom": {
-      "cs": "Najdete tu přehled základních komunikačních frází v češtině a ukrajinštině. Brzy přidáme nástroje k jejich procvičování a rozcestník na materiály k učení." 
+      "cs": "Najdete tu přehled základních komunikačních frází v češtině a ukrajinštině. Brzy přidáme nástroje k jejich procvičování a rozcestník na materiály k učení."
     },
     "download_on": "Stáhnout na"
   },
@@ -57,7 +79,12 @@
     "not_found_results": "Nic nenalezeno"
   },
   "kids_page": {
-    "downloadPDF": "Stáhnout v PDF"
+    "downloadPDF": "Stáhnout v PDF",
+    "playStory": "Přehrát a přečíst pohádku",
+    "czechStories": "České lidové pohádky",
+    "ukrainianStories": "Ukrajinské lidové pohádky",
+    "stories": "Pohádky",
+    "homepage": "Hlavní stránka"
   },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> je projekt, který vznikl v rámci iniciativy <strong>Stojíme za Ukrajinou</strong> v komunitě expertních dobrovolníků <strong>Česko.Digital.</strong>",
@@ -124,6 +151,9 @@
     },
     "kids_page_description": {
       "cs": "Obrázky pro děti s ukrajinskými a českými popisky. Namluvené v češtině a ukrajinštině. Tisk omalovánek pro děti."
+    },
+    "kids_page_storiesTitle": {
+      "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"
     }
   },
   "export_translations": {
@@ -147,10 +177,13 @@
     "pageNotFound": "Stránka nebyla nalezena"
   },
   "utils": {
-    "play": "přehrát"
+    "play": "přehrát",
+    "new_game": "Nová hra"
   },
   "apps": {
     "download_app": "Stáhnout Movapp mobilní aplikaci",
-    "android_soon": "Android verze už brzy!"
+    "android_soon": "Android verze už brzy!",
+    "play": "přehrát",
+    "new_game": "Nová hra"
   }
 }

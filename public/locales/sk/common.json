@@ -2,6 +2,8 @@
   "header": {
     "vocabulary_link_name": "Slovníček",
     "forkids_link_name": "Pre deti",
+    "forkids_words": "Slovíčka",
+    "forkids_memorygame": "Pexeso",
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Cvičenia",
     "about_link_name": "O nás",
@@ -21,11 +23,29 @@
       "sk": "Naučte sa základy slovenčiny a ukrajinčiny pre bežné životné situácie"
     },
     "box_dictionary_title": "Slovníček",
+    "box_child_memorygame": {
+      "sk": "Pexeso - precvičujte si slovíčka v obľúbenej hre."
+    },
     "box_dictionary_description": "Naučte sa stovky základných slovíčok a fráz čítaním i počúvaním. Slovíčka triedime podľa životných situácií.",
     "box_child_title": "Pre deti",
     "box_child_description": {
       "sk": "Ilustrovaný ukrajinsko-slovenský slovníček s desiatkami kariet na vytlačenie."
     },
+    "box_child_section_title": "Den dětí - 1. června",
+    "box_child_section_image_author": "Autorka: Marička Gorbatenko, 11 let",
+    "box_child_dictionary_title": "Pohádkový slovníček",
+    "box_child_dictionary_description": "Víte jak proměnit prince v žábu?",
+    "box_child_dictionary_link": "/dictionary#kazky",
+    "box_child_words_title": "Ilustrovaný slovníček",
+    "box_child_words_description": {
+      "cs": "Ukrajinsko-český slovníček s desítkami tisknutelných obrázkových karet."
+    },
+    "box_child_stories_title": "Pohádky",
+    "box_child_stories_description": {
+      "cs": "Přečtěte a přehrajte si české a ukrajinské pohádky."
+    },
+    "box_child_memory_title": "Pexeso",
+    "box_child_memory_description": "Procvičujte slovíčka v oblíbené hře s unikátními obrázky.",
     "box_alphabet_title": {
       "sk": "Ukrajinská abeceda"
     },
@@ -38,7 +58,7 @@
       "sk": "мова [mova] znamená po ukrajinsky jazyk. Movapp je aplikácia na precvičovanie jazykov. Cieľom Movapp.cz je uľahčiť dorozumenie medzi Slovákmi a Ukrajincami."
     },
     "box_movapp_description_bottom": {
-      "sk": "Nájdete tu prehľad základných komunikačných fráz v slovenčine a ukrajinčine. Čoskoro pridáme nástroje na ich precvičovanie a rázcestník učebných materiálov." 
+      "sk": "Nájdete tu prehľad základných komunikačných fráz v slovenčine a ukrajinčine. Čoskoro pridáme nástroje na ich precvičovanie a rázcestník učebných materiálov."
     },
     "box_easter_dictionary_title": "Velkonočný slovníček",
     "box_easter_dictionary_description": "Šibi, ryby, mastné ryby, kus koláča a Velkonočné fráze.",
@@ -148,10 +168,13 @@
     "pageNotFound": "Stránka sa nenašla"
   },
   "utils": {
-    "play": "prehrať"
+    "play": "prehrať",
+    "new_game": "Nová hra"
   },
   "apps": {
     "download_app": "Stiahnúť Movapp mobilnú aplikáciu",
-    "android_soon": "Verzia pre Android už čoskoro!"
+    "android_soon": "Verzia pre Android už čoskoro!",
+    "play": "prehrať",
+    "new_game": "Nová hra"
   }
 }
