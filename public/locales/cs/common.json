@@ -158,7 +158,8 @@
   },
   "export_translations": {
     "download_phrases": "Stáhnout fráze",
-    "download": "Stáhnout",
+    "export_phrases": "Exportovat fráze",
+    "export": "Exportovat",
     "comma": "čárka",
     "semicolon": "středník",
     "new_line": "nová řádka",
@@ -171,7 +172,8 @@
     "preview": "Náhled",
     "transcriptions": "Transkripce",
     "include_transcriptions": "Zapsat fráze v obou abecedách",
-    "all_phrases": "všechny fráze"
+    "all_phrases": "všechny fráze",
+    "subtitle_note": "Fráze si můžete stáhnout v preferovaném formátu a importovat do vašich poznámek nebo aplikace na učení jazyků, např. Quizlet nebo Anki."
   },
   "errors": {
     "pageNotFound": "Stránka nebyla nalezena"

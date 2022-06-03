@@ -147,7 +147,8 @@
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",
-    "download": "Pobierz",
+    "export_phrases": "Eksport zwroty",
+    "export": "Eksport",
     "comma": "przecinek",
     "semicolon": "średnik",
     "new_line": "nowa linijka",
@@ -160,7 +161,8 @@
     "preview": "Podgląd",
     "transcriptions": "Transkrypcja",
     "include_transcriptions": "Zapisuj zwroty w obu alfabetach",
-    "all_phrases": "wszystkie zwroty"
+    "all_phrases": "wszystkie zwroty",
+    "subtitle_note": "Możesz pobrać frazy w preferowanym formacie i zaimportować je do swoich notatek lub aplikacji do nauki języków, takich jak Quizlet lub Anki."
   },
   "errors": {
     "pageNotFound": "Strona nie została znaleziona"
