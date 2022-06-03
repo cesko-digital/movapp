@@ -27,6 +27,9 @@ module.exports = {
       },
       font: {
         ['sans-pro']: "Source Sans Pro"
+      },
+      scale: {
+        '110': '1.1',
       }
     },
   },
