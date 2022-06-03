@@ -20,6 +20,7 @@ import SEO from 'components/basecomponents/SEO';
 import { DownloadAppStore } from '../components/basecomponents/DownloadAppStore';
 import { CountryVariant, getCountryVariant } from '../utils/locales';
 import { ReactNode } from 'react';
+import { DownloadGooglePlay } from '../components/basecomponents/DownloadGooglePlay';
 
 const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
   cs: <Image src={HeartsUkraine_CZ} alt="Česká a Ukrajinská vlajka v srdcích." width={140} height={164} />,
@@ -44,11 +45,10 @@ const Home: NextPage = () => {
       <div className="max-w-7xl m-auto px-2 sm:px-4">
         {/* Child section */}
         <div className="child-section max-w-7xl bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] p-4 sm:p-8 md:p-12 shadow-xxl mt-[-6rem] mb-8">
-            
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="grid md:col-start-1 md:col-end-2 md:grid-cols-1 gap-8">
               <h2 className="md:mt-0 text-primary-blue">{t(`homepage.box_child_section_title`)}</h2>
-              <div className='sm:grid grid-cols-2 md:grid-cols-1 gap-8'>
+              <div className="sm:grid grid-cols-2 md:grid-cols-1 gap-8">
                 <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
                   <ChildStoriesIcon className="w-6 mb-2 group-hover:fill-primary-red" />
                   <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
@@ -169,8 +169,9 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="mx-auto my-12">
+      <div className="mx-auto my-12 flex items-center flex-wrap justify-center">
         <DownloadAppStore />
+        <DownloadGooglePlay />
       </div>
     </>
   );
