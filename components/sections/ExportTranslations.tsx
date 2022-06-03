@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, ReactNode, useState } from 'react';
+import { DetailedHTMLProps, Fragment, InputHTMLAttributes, LabelHTMLAttributes, useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
