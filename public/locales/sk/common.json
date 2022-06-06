@@ -145,6 +145,12 @@
     },
     "kids_page_description": {
       "sk": "Obrázky pre deti s ukrajinskými a slovesnkými popismi. Nahovorené v slovenčine a ukrajinštině. Vytlačiť omalovánky pro děti."
+    },
+    "kids_page_storiesTitle": {
+      "sk": "Prečítajte a vypočujte si slovenské a ukrajinské ľudové rozprávky"
+    },
+    "kids_page_storiesDescription": {
+      "sk": "Prečítajte a vypočujte si slovenské a ukrajinské ľudové rozprávky"
     }
   },
   "export_translations": {
