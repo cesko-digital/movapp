@@ -16,7 +16,7 @@ import ChildDictionaryIcon from '../public/icons/frog-light.svg';
 import AlphabetIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
 import KidsSunIcon from '../public/icons/sun.svg';
-import EnFlag from '../public/icons/en-flag.svg';
+import CzFlag from '../public/icons/cz-flag.svg';
 import PlFlag from '../public/icons/pl-flag.svg';
 import SkFlag from '../public/icons/sk-flag.svg';
 import SEO from 'components/basecomponents/SEO';
@@ -32,11 +32,16 @@ const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
 };
 
 interface Languages {
-  country: string;
   svg: ReactNode;
+  link: string;
+  country: string;
 }
 
-const LanguagesFlags: Languages[] = [{country: "eu", svg: <EnFlag/>}, {country: "sk", svg: <SkFlag/>}, {country: "pl", svg: <PlFlag/>}]
+const LanguagesFlags: Languages[] = [
+  { svg: <CzFlag />, link: 'movapp.cz', country: 'cs' },
+  { svg: <SkFlag />, link: 'sk.movapp.eu', country: 'sk' },
+  { svg: <PlFlag />, link: 'pl.movapp.eu', country: 'pl' },
+];
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
@@ -177,29 +182,32 @@ const Home: NextPage = () => {
             </div>
             <div className="justify-self-center my-4 md:my-0">{HEARTS_IMAGE[getCountryVariant()]}</div>
           </div>
-          {/* Apps section */}
-          <div className="grid md:grid-cols-3 gap-4 md:gap-8 mt-28 items-center">
-            <p className="text-xl text-center md:text-left">Stáhnout do mobilu</p>
-            <div className='flex flex-col md:flex-row items-center'>
-              <div className='mx-auto md:mx-0 hover:scale-110 transition-all'><DownloadAppStore /></div>
-              <div className='mx-auto md:mx-0 hover:scale-110 transition-all'><DownloadGooglePlay /></div>
-            </div>
-          </div>          
+        </div>
+      </div>
+      {/* Apps section */}
+      <div className="mx-auto my-12 flex flex-col items-center">
+        <h2 className="mb-3">Stáhnout do mobilu</h2>
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="mx-auto md:mx-0 hover:scale-110 transition-all">
+            <DownloadAppStore />
+          </div>
+          <div className="mx-auto md:mx-0 hover:scale-110 transition-all">
+            <DownloadGooglePlay />
+          </div>
         </div>
       </div>
       {/* Languages section */}
-      <div className="mx-auto my-12 flex flex-col items-center">
-        <h2 className='mb-6'>Movapp mluví dalšími jazyky</h2>
-        <div className='flex flex-col sm:flex-row items-center'>
-        {LanguagesFlags.map((language, i) => (
-          <Link href={`https://www.movapp.${language.country}`} passHref={true} key={i}>
-            <a className='mx-8 mb-6 flex flex-col items-center hover:cursor-pointer hover:scale-110 transition-all' >
-              {language.svg}
-              <p>movapp.{language.country}</p>
-            </a>
-          </Link>
-          )
-        )}
+      <div className="mx-auto mb-12 mt-8 flex flex-col items-center">
+        <h2 className="">Movapp mluví dalšími jazyky</h2>
+        <div className="flex flex-col sm:flex-row items-center">
+          {LanguagesFlags.filter(({ country }) => country !== getCountryVariant()).map(({ svg, link }, i) => (
+            <Link href={`https://${link}`} passHref={true} key={i}>
+              <a className="mx-8 mb-6 flex flex-col items-center hover:cursor-pointer hover:scale-110 transition-all">
+                {svg}
+                <p>{link}</p>
+              </a>
+            </Link>
+          ))}
         </div>
       </div>
     </>

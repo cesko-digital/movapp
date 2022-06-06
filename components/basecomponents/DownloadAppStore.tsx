@@ -7,13 +7,18 @@ export const DownloadAppStore = () => {
   const { t } = useTranslation();
   return (
     <div className="flex">
-      <a href={DOWNLOAD_IOS_URL} target="_blank" rel="noreferrer" className="bg-black text-white px-3 py-2 rounded-lg flex border-2 border-gray-400 border-gray ">
+      <a
+        href={DOWNLOAD_IOS_URL}
+        target="_blank"
+        rel="noreferrer"
+        className="bg-black text-white px-1 py-1 rounded-lg flex border-2 border-gray-400 border-gray min-w-[216px]"
+      >
         <div>
-          <AiFillApple size={42} className="mb-1 mr-1" />
+          <AiFillApple size={49} className="mb-1 mr-1" />
         </div>
         <div className="flex flex-col justify-center mr-1">
-          <div className="text-xs leading-none whitespace-nowrap mb-1">{t('homepage.download_on')}</div>
-          <div className="text-xl leading-none whitespace-nowrap">App Store</div>
+          <div className="text-sm leading-none whitespace-nowrap font-light uppercase">{t('homepage.download_on')}</div>
+          <div className="text-2xl leading-none whitespace-nowrap">App Store</div>
         </div>
       </a>
     </div>
