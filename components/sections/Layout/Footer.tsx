@@ -2,6 +2,7 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FOOTER_NAVIGATION } from 'data/footerNavigation';
+import { getCountryVariant } from 'utils/locales';
 
 export const Footer = () => {
   const { t } = useTranslation();
@@ -24,9 +25,10 @@ export const Footer = () => {
           </a>
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-center">
-          {FOOTER_NAVIGATION.map(({ title, link, description }, index) => {
+          {FOOTER_NAVIGATION.map(({ title, link, description, languages }, index) => {
+            const languageSuffix = getCountryVariant();
             return (
-              <Link key={index} href={link}>
+              <Link key={index} href={`${link}/${languages.includes(languageSuffix) ? languageSuffix : ''}`}>
                 <a target={'_blank'} className="sm:w-2/6">
                   <div className="py-1">
                     <p className="text-primary-black text-center text-sm sm:text-base font-bold my-2">{title}</p>
