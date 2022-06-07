@@ -13,6 +13,8 @@ import usePlayPhrase from './usePlayPhrase';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { Phrase } from 'utils/Phrase';
 
+const player = new Audio();
+
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.random() * arr.length)];
@@ -181,10 +183,21 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       //setScene(Scene.begin);
     },
     begin: () => {
-      AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrases_CS.good[0]).getTranslation('uk'), 'uk');        
+      player.src = audio.cardsMatchSound;
+      player.play();
+      setTimeout(()=>{
+        player.src = audio.cardFlipSound;
+        player.play();
+      },1500);
     },
     game: () => {        
-      setTimeout(() => AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrases_CS.good[0]).getTranslation('uk'), 'uk'), 1500);
+      player.src = audio.cardsMatchSound;
+      player.play();
+      player.onended = ()=> {
+        player.src = audio.cardFlipSound;
+        player.onended = () => {};
+        player.play();
+      };
     },
     firstCardSelected: () => {       
       playTTSAsync();
@@ -332,14 +345,14 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       <Button className={styles.newGameButton} text="setTimeout=>sound.play()" onClick={() => setTimeout(() => cardsMatchSound.play(),1500)} />
       <Button className={styles.newGameButton} text="playSoundAsync" onClick={async () => {await delay(1500); cardsMatchSound.play()}} />
       <Button className={styles.newGameButton} text="playTTSAsync" onClick={playTTSAsync} /> */}
-      <Button className={styles.newGameButton} text="changeScene-playTTS" onClick={() => playTimeout(cardsMatchSound)} />
-      <Button className={styles.newGameButton} text="changeScene-playTTS-setTimeout" onClick={() => changeScene(Scene.game)} />
+      <Button className={styles.newGameButton} text="changeScene-player-setTimeout" onClick={() => changeScene(Scene.begin)} />
+      <Button className={styles.newGameButton} text="changeScene-player-onended" onClick={() => changeScene(Scene.game)} />
       {/* <Button className={styles.newGameButton} text="changeScene-playTTSasync" onClick={() => changeScene(Scene.firstCardSelected)} /> */}
       {/* <Button className={styles.newGameButton} text="changeScene=>changeScene-playTTS" onClick={() => changeScene(Scene.secondCardSelected)} /> */}
       {/* <Button className={styles.newGameButton} text="changeScene=>sound.play()" onClick={() => changeScene(Scene.resolveCards)} /> */}
       {/* <Button className={styles.newGameButton} text="changeScene=>playTTS; sound.play()" onClick={() => changeScene(Scene.cardsMatch)} /> */}
-      <Button className={styles.newGameButton} text="changeScene=>await playTTSasync" onClick={() => changeScene(Scene.cardsMatchReward)} />
-      <Button className={styles.newGameButton} text="changeScene=>playTTS-setTimeout; sound.play()" onClick={() => changeScene(Scene.cardsDontMatch)} />       
+      {/* <Button className={styles.newGameButton} text="changeScene=>await playTTSasync" onClick={() => changeScene(Scene.cardsMatchReward)} /> */}
+      {/* <Button className={styles.newGameButton} text="changeScene=>playTTS-setTimeout; sound.play()" onClick={() => changeScene(Scene.cardsDontMatch)} />        */}
     </div>
   );
 };
