@@ -184,13 +184,13 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrases_CS.good[0]).getTranslation('uk'), 'uk');        
     },
     game: () => {        
-      setTimer(() => AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrases_CS.good[0]).getTranslation('uk'), 'uk'), 1500);
+      setTimeout(() => AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrases_CS.good[0]).getTranslation('uk'), 'uk'), 1500);
     },
     firstCardSelected: () => {       
       playTTSAsync();
     },
     secondCardSelected: () => {      
-      setTimer(() => changeScene(Scene.begin), 1500);
+      setTimeout(() => changeScene(Scene.begin), 1500);
     },
     resolveCards: () => {
       cardsMatchSound.play();
@@ -199,26 +199,14 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrases_CS.good[0]).getTranslation('uk'), 'uk');
       cardsMatchSound.play();
     },
-    cardsMatchReward: async () => {        
+    cardsMatchReward: async () => {
+      await delay(1500);        
       await playTTSAsync();
       console.log("***");     
     },
     cardsDontMatch: () => {
-      // // disable controls
-      // setControlsDisabled(true);
-      // // play animations and sounds
-      // setTimeout(() => {
-      //   if (Math.random() > 0.8) {
-      //     playPhraseRandomLang(getRandomElement(phrases.wrong));
-      //   }
-
-      //   // setTimer: show cards for some time to remember then flip back
-      //   const { first, second } = selectedCards;
-      //   flipCard(first!);
-      //   flipCard(second!);
-      //   setSelectedCards({ first: null, second: null });
-      //   setScene(Scene.cardsDontMatchFlipBack);
-      // }, 1000);
+      setTimeout(() => AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrases_CS.good[0]).getTranslation('uk'), 'uk'), 1500);
+      cardsMatchSound.play();
     },
     cardsDontMatchFlipBack: () => {
       // // wait for cards flip back
@@ -336,21 +324,22 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
     };
   }, []);
 
+  const playTimeout = (snd: HTMLAudioElement) => setTimeout(() => snd.play(), 1500);
   
-
   return (
     <div className={styles.app}>
       {/* <Button className={styles.newGameButton} text="sound.play()" onClick={() => cardsMatchSound.play()} />
       <Button className={styles.newGameButton} text="setTimeout=>sound.play()" onClick={() => setTimeout(() => cardsMatchSound.play(),1500)} />
       <Button className={styles.newGameButton} text="playSoundAsync" onClick={async () => {await delay(1500); cardsMatchSound.play()}} />
       <Button className={styles.newGameButton} text="playTTSAsync" onClick={playTTSAsync} /> */}
-      <Button className={styles.newGameButton} text="changeScene-playTTS" onClick={() => changeScene(Scene.begin)} />
+      <Button className={styles.newGameButton} text="changeScene-playTTS" onClick={() => playTimeout(cardsMatchSound)} />
       <Button className={styles.newGameButton} text="changeScene-playTTS-setTimeout" onClick={() => changeScene(Scene.game)} />
-      <Button className={styles.newGameButton} text="changeScene-playTTSasync" onClick={() => changeScene(Scene.firstCardSelected)} />
-      <Button className={styles.newGameButton} text="changeScene=>changeScene-playTTS" onClick={() => changeScene(Scene.secondCardSelected)} />
-      <Button className={styles.newGameButton} text="changeScene=>sound.play()" onClick={() => changeScene(Scene.resolveCards)} />
-      <Button className={styles.newGameButton} text="changeScene=>playTTS; sound.play()" onClick={() => changeScene(Scene.cardsMatch)} />
-      <Button className={styles.newGameButton} text="changeScene=>await playTTSasync" onClick={() => changeScene(Scene.cardsMatchReward)} />      
+      {/* <Button className={styles.newGameButton} text="changeScene-playTTSasync" onClick={() => changeScene(Scene.firstCardSelected)} /> */}
+      {/* <Button className={styles.newGameButton} text="changeScene=>changeScene-playTTS" onClick={() => changeScene(Scene.secondCardSelected)} /> */}
+      {/* <Button className={styles.newGameButton} text="changeScene=>sound.play()" onClick={() => changeScene(Scene.resolveCards)} /> */}
+      {/* <Button className={styles.newGameButton} text="changeScene=>playTTS; sound.play()" onClick={() => changeScene(Scene.cardsMatch)} /> */}
+      <Button className={styles.newGameButton} text="changeScene=>await playTTSasync" onClick={() => changeScene(Scene.cardsMatchReward)} />
+      <Button className={styles.newGameButton} text="changeScene=>playTTS-setTimeout; sound.play()" onClick={() => changeScene(Scene.cardsDontMatch)} />       
     </div>
   );
 };
