@@ -24,7 +24,7 @@
     "eslint-config-prettier": "^8.5.0",
     "jest": "^27.5.1",
     "mark.js": "^8.11.1",
-    "markdown-link-extractor": "^2.0.1",
+    "markdown-link-extractor": "^3.0.2",
     "marked": "^4.0.12",
     "next": "12.1.0",
     "next-i18next": "^10.5.0",
