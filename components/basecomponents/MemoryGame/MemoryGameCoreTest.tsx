@@ -188,7 +188,7 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       setTimeout(()=>{
         player.src = audio.cardFlipSound;
         player.play();
-      },1500);
+      },2000);
     },
     game: () => {        
       player.src = audio.cardsMatchSound;
@@ -199,8 +199,13 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         player.play();
       };
     },
-    firstCardSelected: () => {       
-      playTTSAsync();
+    firstCardSelected: () => {
+      player.src = audio.cardsMatchSound;
+      player.play();
+      setTimeout(()=>{
+        player.src = audio.cardFlipSound;
+        player.play();
+      },500);
     },
     secondCardSelected: () => {      
       setTimeout(() => changeScene(Scene.begin), 1500);
@@ -345,7 +350,8 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       <Button className={styles.newGameButton} text="setTimeout=>sound.play()" onClick={() => setTimeout(() => cardsMatchSound.play(),1500)} />
       <Button className={styles.newGameButton} text="playSoundAsync" onClick={async () => {await delay(1500); cardsMatchSound.play()}} />
       <Button className={styles.newGameButton} text="playTTSAsync" onClick={playTTSAsync} /> */}
-      <Button className={styles.newGameButton} text="changeScene-player-setTimeout" onClick={() => changeScene(Scene.begin)} />
+      <Button className={styles.newGameButton} text="changeScene-player-setTimeout-long" onClick={() => changeScene(Scene.begin)} />
+      <Button className={styles.newGameButton} text="changeScene-player-setTimeout-short" onClick={() => changeScene(Scene.firstCardSelected)} />
       <Button className={styles.newGameButton} text="changeScene-player-onended" onClick={() => changeScene(Scene.game)} />
       {/* <Button className={styles.newGameButton} text="changeScene-playTTSasync" onClick={() => changeScene(Scene.firstCardSelected)} /> */}
       {/* <Button className={styles.newGameButton} text="changeScene=>changeScene-playTTS" onClick={() => changeScene(Scene.secondCardSelected)} /> */}
