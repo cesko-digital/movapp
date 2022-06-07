@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './MemoryGameTaleTheme.module.css';
-import MemoryGame from '../MemoryGameCore';
+import MemoryGame from '../MemoryGameCoreTest';
 import { TranslationJSON } from 'utils/Phrase';
 import { CountryVariant, getCountryVariant } from 'utils/locales';
 import kidsWords_CS from 'data/translations/cs/pro-deti.json';
