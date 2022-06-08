@@ -185,9 +185,9 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
     begin: () => {
       player.src = audio.cardsMatchSound;
       player.play();
-      setTimeout(()=>{
+      setTimeout(()=>{        
         player.src = audio.cardFlipSound;
-        player.play();
+        player.play();        
       },2000);
     },
     game: () => {        
@@ -202,20 +202,35 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
     firstCardSelected: () => {
       player.src = audio.cardsMatchSound;
       player.play();
-      setTimeout(()=>{
-        player.src = audio.cardFlipSound;
-        player.play();
+      setTimeout(()=>{        
+        changeScene(Scene.begin);
       },500);
     },
-    secondCardSelected: () => {      
-      setTimeout(() => changeScene(Scene.begin), 1500);
+    secondCardSelected: async () => {      
+      player.src = audio.cardsMatchSound;
+      player.play();
+      await delay(2000);
+      player.src = audio.cardFlipSound;
+      player.play();
+      await delay(1000);
+      changeScene(Scene.begin);      
     },
     resolveCards: () => {
-      cardsMatchSound.play();
+      player.src = audio.cardsMatchSound;
+      player.play();
+      setTimeout(()=>{
+        player.pause();        
+        player.src = audio.cardFlipSound;
+        player.play();        
+      },500);
     },
     cardsMatch: () => {
-      AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrases_CS.good[0]).getTranslation('uk'), 'uk');
-      cardsMatchSound.play();
+      player.src = audio.cardsMatchSound;
+      player.play();
+      setTimeout(()=>{
+        player.src = audio.cardFlipSound;
+        player.play();        
+      },2000);
     },
     cardsMatchReward: async () => {
       await delay(1500);        
@@ -350,9 +365,9 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       <Button className={styles.newGameButton} text="setTimeout=>sound.play()" onClick={() => setTimeout(() => cardsMatchSound.play(),1500)} />
       <Button className={styles.newGameButton} text="playSoundAsync" onClick={async () => {await delay(1500); cardsMatchSound.play()}} />
       <Button className={styles.newGameButton} text="playTTSAsync" onClick={playTTSAsync} /> */}
-      <Button className={styles.newGameButton} text="changeScene-player-setTimeout-long" onClick={() => changeScene(Scene.begin)} />
-      <Button className={styles.newGameButton} text="changeScene-player-setTimeout-short" onClick={() => changeScene(Scene.firstCardSelected)} />
-      <Button className={styles.newGameButton} text="changeScene-player-onended" onClick={() => changeScene(Scene.game)} />
+      <Button className={styles.newGameButton} text="changeScene-player-async-long=>changeScene-player-setTimeout-long" onClick={() => changeScene(Scene.secondCardSelected)} />
+      <Button className={styles.newGameButton} text="changeScene-player-setTimeout-short=>changeScene-player-setTimeout-long" onClick={() => changeScene(Scene.firstCardSelected)} />
+      <Button className={styles.newGameButton} text="changeScene-player-setTimeout-pause" onClick={() => changeScene(Scene.resolveCards)} />
       {/* <Button className={styles.newGameButton} text="changeScene-playTTSasync" onClick={() => changeScene(Scene.firstCardSelected)} /> */}
       {/* <Button className={styles.newGameButton} text="changeScene=>changeScene-playTTS" onClick={() => changeScene(Scene.secondCardSelected)} /> */}
       {/* <Button className={styles.newGameButton} text="changeScene=>sound.play()" onClick={() => changeScene(Scene.resolveCards)} /> */}
