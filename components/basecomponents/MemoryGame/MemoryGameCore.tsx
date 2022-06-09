@@ -137,7 +137,7 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
     const sceneActions: Record<Scene, () => void> = {
       init: () => {
         // begin new game automaticaly
-        setScene(Scene.begin);
+        //setScene(Scene.begin);
       },
       begin: () => {
         // new game
@@ -244,8 +244,7 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       },
       goNewGame: () => {
         clearTimers();
-        // play css animations and sounds
-        playPhraseRandomLang(getRandomElement(phrases.newGame));
+        // play css animations and sounds        
         setTimer(() => {
           setScene(Scene.begin);
         }, 500);
@@ -265,9 +264,9 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
 
   return (
     <div className={styles.app}>
-      <Button className={styles.newGameButton} text={t('utils.new_game')} onClick={() => setScene(Scene.goNewGame)} />
+      <Button className={styles.newGameButton} text={t('utils.new_game')} onClick={() => {playPhraseRandomLang(getRandomElement(phrases.newGame));setScene(Scene.goNewGame);}} />
       <div className={styles.board}>
-        {cards.map((card) => (
+        {(scene !== Scene.init) && cards.map((card) => (
           <Card
             key={card.id}
             onClick={selectCard}
