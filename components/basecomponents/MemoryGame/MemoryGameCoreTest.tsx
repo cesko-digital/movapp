@@ -278,8 +278,7 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         //await play(audio.cardFlipSound);        
       },
       cardsDontMatch: () => {
-        setTimeout(() => AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrases_CS.good[0]).getTranslation('uk'), 'uk'), 1500);
-        cardsMatchSound.play();
+        AudioPlayer.getInstance().playTextToSpeech(new Phrase(phrases_CS.good[0]).getTranslation('uk'), 'uk');        
       },
       cardsDontMatchFlipBack: () => {
         // wait for cards flip back
@@ -421,6 +420,7 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       {/* <Button className={styles.newGameButton} text="changeScene=>sound.play()" onClick={() => changeScene(Scene.resolveCards)} /> */}
       {/* <Button className={styles.newGameButton} text="changeScene=>playTTS; sound.play()" onClick={() => changeScene(Scene.cardsMatch)} /> */}
       <Button className={styles.newGameButton} text="changeScene=>await play" onClick={() => changeScene(Scene.cardsMatchReward)} />
+      <Button className={styles.newGameButton} text="changeScene=>playTTS" onClick={() => changeScene(Scene.cardsDontMatch)} />
       {/* <Button className={styles.newGameButton} text="load;sound.play()" onClick={() => {const a = new Audio();
         a.src = audio.cardsMatchSound;
         a.load();
