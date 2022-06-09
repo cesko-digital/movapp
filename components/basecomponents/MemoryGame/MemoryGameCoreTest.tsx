@@ -65,9 +65,8 @@ const createAudioPlayer = () => {
 
   return play;
 };
-const play = createAudioPlayer();
 
-const player = new Audio();
+const play = AudioPlayer.getInstance().playSrc;
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -209,23 +208,6 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
     }
   }, [selectedCards]);
 
-  const playTTSAsync = () => {
-    const sound = AudioPlayer.getInstance().getGoogleTTSAudio(new Phrase(phrases_CS.good[0]).getTranslation('uk'), 'uk');
-    return new Promise<void>((resolve) => {
-      sound.oncanplay = () => {
-        sound.play().catch(resolve);
-      };
-      sound.onerror = () => {
-        resolve();
-      };
-      sound.onabort = () => {
-        resolve();
-      };
-      sound.onpause = () => resolve();
-      sound.onended = () => resolve();
-    });
-  };
-
   const changeScene = (scene: Scene) => {
     setScene(scene);
     sceneActions[scene]();
@@ -238,54 +220,49 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         //setScene(Scene.begin);
       },
       begin: () => {
-        player.src = audio.cardsMatchSound;
-        player.play();
-        setTimeout(() => {
-          player.src = audio.cardFlipSound;
-          player.play();
-        }, 2000);
+        play(audio.cardsMatchSound);
       },
       game: () => {
-        player.src = audio.cardsMatchSound;
-        player.play();
-        player.onended = () => {
-          player.src = audio.cardFlipSound;
-          player.onended = () => {};
-          player.play();
-        };
+        // player.src = audio.cardsMatchSound;
+        // player.play();
+        // player.onended = () => {
+        //   player.src = audio.cardFlipSound;
+        //   player.onended = () => {};
+        //   player.play();
+        // };
       },
       firstCardSelected: () => {
-        player.src = audio.cardsMatchSound;
-        player.play();
-        setTimeout(() => {
-          changeScene(Scene.begin);
-        }, 500);
+        // player.src = audio.cardsMatchSound;
+        // player.play();
+        // setTimeout(() => {
+        //   changeScene(Scene.begin);
+        // }, 500);
       },
       secondCardSelected: async () => {
-        player.src = audio.cardsMatchSound;
-        player.play();
-        await delay(2000);
-        player.src = audio.cardFlipSound;
-        player.play();
-        await delay(1000);
-        changeScene(Scene.begin);
+        // player.src = audio.cardsMatchSound;
+        // player.play();
+        // await delay(2000);
+        // player.src = audio.cardFlipSound;
+        // player.play();
+        // await delay(1000);
+        // changeScene(Scene.begin);
       },
       resolveCards: () => {
-        player.src = audio.cardsMatchSound;
-        player.play();
-        setTimeout(() => {
-          player.pause();
-          player.src = audio.cardFlipSound;
-          player.play();
-        }, 500);
+        // player.src = audio.cardsMatchSound;
+        // player.play();
+        // setTimeout(() => {
+        //   player.pause();
+        //   player.src = audio.cardFlipSound;
+        //   player.play();
+        // }, 500);
       },
       cardsMatch: () => {
-        player.src = audio.cardsMatchSound;
-        player.play();
-        setTimeout(() => {
-          player.src = audio.cardFlipSound;
-          player.play();
-        }, 2000);
+        // player.src = audio.cardsMatchSound;
+        // player.play();
+        // setTimeout(() => {
+        //   player.src = audio.cardFlipSound;
+        //   player.play();
+        // }, 2000);
       },
       cardsMatchReward: async () => {
         await play(audio.cardsMatchSound).then(()=>console.log("first resolved"));

@@ -7,7 +7,7 @@ import { Language } from './locales';
  */
 export class AudioPlayer {
   private static instance: AudioPlayer | null = null;
-  currentAudio: HTMLAudioElement | null = null;
+  currentAudio: HTMLAudioElement = new Audio();
 
   // Prohibits creating new instances outside the class using 'new AudioPlayer()'
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -15,7 +15,7 @@ export class AudioPlayer {
 
   static getInstance(): AudioPlayer {
     if (!this.instance) {
-      this.instance = new AudioPlayer();
+      this.instance = new AudioPlayer();      
     }
 
     return this.instance;
@@ -24,45 +24,46 @@ export class AudioPlayer {
   play = (newAudio: HTMLAudioElement | null) => {
     if (!newAudio) {
       return;
-    }
-    if (this.currentAudio) {
-      this.currentAudio.pause();
-    }
-    newAudio.play();
-    this.currentAudio = newAudio;
+    }    
+    //this.currentAudio.pause();
+    this.playSrc(newAudio.src);
   };
 
+  playSrc = (src: string) => {
+    this.currentAudio.src = src;
+    this.currentAudio.load();
+
+    return new Promise<void>((resolve) => {
+      this.currentAudio.oncanplay = () => {
+        console.log('ready to play', this.currentAudio.src);
+        this.currentAudio.play().catch(() => {
+          console.log('catch', this.currentAudio.src);            
+          resolve();
+        });
+      };
+      this.currentAudio.onerror = () => {
+        console.log('error', this.currentAudio.src);          
+        resolve();
+      };
+      this.currentAudio.onabort = () => {
+        console.log('aborted', this.currentAudio.src);          
+        resolve();
+      };
+      this.currentAudio.onpause = () => {
+        console.log('paused', this.currentAudio.src);          
+      };
+      this.currentAudio.onended = () => {
+        console.log('ended', this.currentAudio.src);          
+        resolve();
+      };
+    });    
+  }
+
   getGoogleTTSAudio = (text: string, language: Language) => {
-    const source = `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;
-    return new Audio(source);
+    return `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;    
   };
 
   playTextToSpeech = (text: string, language: Language) => {
-    this.play(this.getGoogleTTSAudio(text, language));
-  };
-
-  playTextToSpeechAsync = (text: string, language: Language): Promise<void> => {
-    const userAgent = navigator.userAgent || navigator.vendor;
-
-    if (/iPad|iPhone|iPod/i.test(userAgent)) {
-      return new Promise((resolve) => {
-        resolve();
-      });
-    }
-
-    const sound = this.getGoogleTTSAudio(text, language);
-    this.play(sound);
-    return new Promise((resolve) => {
-      sound.onerror = () => {
-        console.warn(sound?.error?.message);
-        resolve();
-      };
-      sound.onabort = () => {
-        console.warn('Audio play aborted');
-        resolve();
-      };
-      sound.onpause = () => resolve();
-      sound.onended = () => resolve();
-    });
-  };
+    this.playSrc(this.getGoogleTTSAudio(text, language));
+  };  
 }
