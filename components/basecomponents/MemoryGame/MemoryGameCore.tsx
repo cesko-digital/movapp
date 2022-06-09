@@ -88,7 +88,7 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
   const [setTimer, clearTimers] = useMemo(createTimer, []);
 
   const newGame = () => {
-    console.log('new game');
+    //console.log('new game');
     // prepare and shuffle cards, pick 8 cards
     const pickedCards = cardsData.sort(() => Math.random() - 0.5).slice(0, 8);
     const coloredCards = addBackroundColor(pickedCards) as (CardData & { color: string })[];
@@ -181,10 +181,10 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         const cardsMatch = first?.image === second?.image;
 
         if (cardsMatch) {
-          console.log('cards match');
+          //console.log('cards match');
           setScene(Scene.cardsMatch);
         } else {
-          console.log('cards dont match');
+          //console.log('cards dont match');
           setScene(Scene.cardsDontMatch);
         }
       },
@@ -195,23 +195,22 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         // cardsMatch animation 0.7s
         delay(100);
         await playAudio(audio.cardsMatchSound); // sync to animation
-        setScene(Scene.cardsMatchReward);        
+        setScene(Scene.cardsMatchReward);
       },
       cardsMatchReward: async () => {
         // play css animations and sounds
         Math.random() > 0.5 && (await playPhraseRandomLang(getRandomElement(phrases.good)));
         // reset selected cards
-        
+
         // check win
-        
-          if (cards.every((card) => card.flipped)) {
-            console.log('win');
-            setScene(Scene.win);
-          } else {
-            setSelectedCards({ first: null, second: null });
-            setScene(Scene.game);
-          }
-        
+
+        if (cards.every((card) => card.flipped)) {
+          //console.log('win');
+          setScene(Scene.win);
+        } else {
+          setSelectedCards({ first: null, second: null });
+          setScene(Scene.game);
+        }
       },
       cardsDontMatch: async () => {
         // disable controls
@@ -229,10 +228,10 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         setScene(Scene.cardsDontMatchFlipBack);
       },
       cardsDontMatchFlipBack: () => {
-        // wait for cards flip back        
-        setScene(Scene.game);        
+        // wait for cards flip back
+        setScene(Scene.game);
       },
-      win: async () => {        
+      win: async () => {
         // play css animations and sounds
         await playPhraseRandomLang(getRandomElement(phrases.win));
         await delay(200);
@@ -244,13 +243,13 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       },
       goNewGame: () => {
         clearTimers();
-        // play css animations and sounds        
+        // play css animations and sounds
         setTimer(() => {
           setScene(Scene.begin);
         }, 500);
       },
     };
-    console.log(`scene is: ${scene}`);
+    //console.log(`scene is: ${scene}`);
     // run scene actions
     sceneActions[scene]();
   }, [scene]);
@@ -264,19 +263,27 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
 
   return (
     <div className={styles.app}>
-      <Button className={styles.newGameButton} text={t('utils.new_game')} onClick={() => {playPhraseRandomLang(getRandomElement(phrases.newGame));setScene(Scene.goNewGame);}} />
+      <Button
+        className={styles.newGameButton}
+        text={t('utils.new_game')}
+        onClick={() => {
+          playPhraseRandomLang(getRandomElement(phrases.newGame));
+          setScene(Scene.goNewGame);
+        }}
+      />
       <div className={styles.board}>
-        {(scene !== Scene.init) && cards.map((card) => (
-          <Card
-            key={card.id}
-            onClick={selectCard}
-            card={card}
-            scene={scene}
-            styles={styles}
-            selected={isSelected(card)}
-            cardBackImage={cardBackImage}
-          />
-        ))}
+        {scene !== Scene.init &&
+          cards.map((card) => (
+            <Card
+              key={card.id}
+              onClick={selectCard}
+              card={card}
+              scene={scene}
+              styles={styles}
+              selected={isSelected(card)}
+              cardBackImage={cardBackImage}
+            />
+          ))}
       </div>
     </div>
   );

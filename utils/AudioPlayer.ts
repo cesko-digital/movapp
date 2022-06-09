@@ -15,7 +15,7 @@ export class AudioPlayer {
 
   static getInstance(): AudioPlayer {
     if (!this.instance) {
-      this.instance = new AudioPlayer();      
+      this.instance = new AudioPlayer();
     }
 
     return this.instance;
@@ -24,8 +24,8 @@ export class AudioPlayer {
   play = (newAudio: HTMLAudioElement | null) => {
     if (!newAudio) {
       return;
-    }    
-    
+    }
+
     this.playSrc(newAudio.src);
   };
 
@@ -36,35 +36,35 @@ export class AudioPlayer {
 
     return new Promise<void>((resolve) => {
       this.currentAudio.oncanplay = () => {
-        console.log('ready to play', this.currentAudio.src);
+        //console.log('ready to play', this.currentAudio.src);
         this.currentAudio.play().catch(() => {
-          console.log('catch', this.currentAudio.src);            
+          //console.log('catch', this.currentAudio.src);
           resolve();
         });
       };
       this.currentAudio.onerror = () => {
-        console.log('error', this.currentAudio.src);          
+        //console.log('error', this.currentAudio.src);
         resolve();
       };
       this.currentAudio.onabort = () => {
-        console.log('aborted', this.currentAudio.src);          
+        //console.log('aborted', this.currentAudio.src);
         resolve();
       };
       this.currentAudio.onpause = () => {
-        console.log('paused', this.currentAudio.src);          
+        //console.log('paused', this.currentAudio.src);
       };
       this.currentAudio.onended = () => {
-        console.log('ended', this.currentAudio.src);          
+        //console.log('ended', this.currentAudio.src);
         resolve();
       };
-    });    
-  }
+    });
+  };
 
   getGoogleTTSAudio = (text: string, language: Language) => {
-    return `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;    
+    return `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;
   };
 
   playTextToSpeech = (text: string, language: Language) => {
     return this.playSrc(this.getGoogleTTSAudio(text, language));
-  };  
+  };
 }
