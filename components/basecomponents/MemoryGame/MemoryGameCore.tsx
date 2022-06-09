@@ -9,6 +9,9 @@ import phrases_PL from './memory-game-pl.json';
 import phrases_SK from './memory-game-sk.json';
 import createTimer from './createTimer';
 import usePlayPhrase from './usePlayPhrase';
+import { AudioPlayer } from 'utils/AudioPlayer';
+
+const playAudio = AudioPlayer.getInstance().playSrc;
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -84,23 +87,6 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
   const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
   const [setTimer, clearTimers] = useMemo(createTimer, []);
 
-  const { cardFlipSound, cardsMatchSound, winMusic } = useMemo(() => {
-    const cardFlipSound = new Audio(audio.cardFlipSound);
-    cardFlipSound.volume = 0.2;
-
-    const cardsMatchSound = new Audio(audio.cardsMatchSound);
-    cardsMatchSound.volume = 0.1;
-
-    const winMusic = new Audio(audio.winMusic);
-    winMusic.volume = 0.8;
-
-    return {
-      cardFlipSound,
-      cardsMatchSound,
-      winMusic,
-    };
-  }, []);
-
   const newGame = () => {
     console.log('new game');
     // prepare and shuffle cards, pick 8 cards
@@ -118,14 +104,10 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
 
   const flipCard = (cardToFlip: Card) => {
     setCards((cards) => cards.map((card) => (card.id === cardToFlip.id ? { ...card, flipped: !card.flipped } : card)));
-    cardFlipSound.play();
   };
 
   const selectCard = (card: Card) => {
-    if (controlsDisabled) return;
-
-    // Test debug
-    playPhraseRandomLang(getRandomElement(phrases.good));
+    if (controlsDisabled || isSelected(card) || card.flipped) return;
 
     const { first, second } = selectedCards;
     if (first === null && !card.flipped) {
@@ -150,131 +132,129 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
     }
   }, [selectedCards]);
 
-  const changeScene = (scene: Scene) => {
-    setScene(scene);
-    sceneActions[scene]();
-  };
+  // resolve game states
+  useEffect(() => {
+    const sceneActions: Record<Scene, () => void> = {
+      init: () => {
+        // begin new game automaticaly
+        setScene(Scene.begin);
+      },
+      begin: () => {
+        // new game
+        newGame();
+        // disable controls
+        setControlsDisabled(true);
+        // play css animations
+        setTimer(() => {
+          setScene(Scene.game);
+        }, 1000);
+      },
+      game: () => {
+        // enable controls
+        setControlsDisabled(false);
+      },
+      firstCardSelected: async () => {
+        // disable controls
+        setControlsDisabled(true);
+        // play css animations and sounds
+        const { first: card } = selectedCards;
+        flipCard(card!); // 0.3s
+        await playAudio(audio.cardFlipSound);
+        playCardPhraseOtherLang(card!);
 
-  const sceneActions: Record<Scene, () => void> = {
-    init: () => {
-      // begin new game automaticaly
-      changeScene(Scene.begin);
-    },
-    begin: () => {
-      // new game
-      newGame();
-      // disable controls
-      setControlsDisabled(true);
-      // play css animations
-      setTimer(() => {
-        changeScene(Scene.game);
-      }, 1000);
-    },
-    game: () => {
-      // enable controls
-      setControlsDisabled(false);
-    },
-    firstCardSelected: () => {
-      // disable controls
-      setControlsDisabled(true);
-      // play css animations and sounds
-      const { first: card } = selectedCards;
-      flipCard(card!); // 0.3s
-      playCardPhraseOtherLang(card!);
+        setTimer(() => {
+          setScene(Scene.game);
+        }, 600); // reduced for fastrer UX
+      },
+      secondCardSelected: async () => {
+        // disable controls
+        setControlsDisabled(true);
+        // play css animations and sounds
+        const { second: card } = selectedCards;
+        flipCard(card!); // 0.3s
+        await playAudio(audio.cardFlipSound);
+        await playCardPhraseCurrentLang(card!);
+        setScene(Scene.resolveCards);
+      },
+      resolveCards: () => {
+        const { first, second } = selectedCards;
+        const cardsMatch = first?.image === second?.image;
 
-      setTimer(() => {
-        changeScene(Scene.game);
-      }, 600); // reduced for fastrer UX
-    },
-    secondCardSelected: async () => {
-      // disable controls
-      setControlsDisabled(true);
-      // play css animations and sounds
-      const { second: card } = selectedCards;
-      flipCard(card!); // 0.3s
-
-      await playCardPhraseCurrentLang(card!);
-      changeScene(Scene.resolveCards);
-    },
-    resolveCards: () => {
-      const { first, second } = selectedCards;
-      const cardsMatch = first?.image === second?.image;
-
-      if (cardsMatch) {
-        console.log('cards match');
-        changeScene(Scene.cardsMatch);
-      } else {
-        console.log('cards dont match');
-        changeScene(Scene.cardsDontMatch);
-      }
-    },
-    cardsMatch: () => {
-      // disable controls
-      setControlsDisabled(true);
-      // play css animations and sounds
-      // cardsMatch animation 0.7s
-      setTimer(() => cardsMatchSound.play(), 100); // sync to animation
-
-      setTimer(() => {
-        changeScene(Scene.cardsMatchReward);
-      }, 700);
-    },
-    cardsMatchReward: async () => {
-      // play css animations and sounds
-      Math.random() > 0.5 && (await playPhraseRandomLang(getRandomElement(phrases.good)));
-      // reset selected cards
-      setSelectedCards({ first: null, second: null });
-      // check win
-      setTimer(() => {
-        if (cards.every((card) => card.flipped)) {
-          console.log('win');
-          changeScene(Scene.win);
+        if (cardsMatch) {
+          console.log('cards match');
+          setScene(Scene.cardsMatch);
         } else {
-          changeScene(Scene.game);
+          console.log('cards dont match');
+          setScene(Scene.cardsDontMatch);
         }
-      }, 700);
-    },
-    cardsDontMatch: async () => {
-      // disable controls
-      setControlsDisabled(true);
-      // play animations and sounds
-      await delay(1000);
-      Math.random() > 0.8 && (await playPhraseRandomLang(getRandomElement(phrases.wrong)));
+      },
+      cardsMatch: async () => {
+        // disable controls
+        setControlsDisabled(true);
+        // play css animations and sounds
+        // cardsMatch animation 0.7s
+        delay(100);
+        await playAudio(audio.cardsMatchSound); // sync to animation
+        setScene(Scene.cardsMatchReward);        
+      },
+      cardsMatchReward: async () => {
+        // play css animations and sounds
+        Math.random() > 0.5 && (await playPhraseRandomLang(getRandomElement(phrases.good)));
+        // reset selected cards
+        
+        // check win
+        
+          if (cards.every((card) => card.flipped)) {
+            console.log('win');
+            setScene(Scene.win);
+          } else {
+            setSelectedCards({ first: null, second: null });
+            setScene(Scene.game);
+          }
+        
+      },
+      cardsDontMatch: async () => {
+        // disable controls
+        setControlsDisabled(true);
+        // play animations and sounds
+        await delay(1000);
+        Math.random() > 0.8 && (await playPhraseRandomLang(getRandomElement(phrases.wrong)));
 
-      // setTimer: show cards for some time to remember then flip back
-      const { first, second } = selectedCards;
-      flipCard(first!);
-      flipCard(second!);
-      setSelectedCards({ first: null, second: null });
-      changeScene(Scene.cardsDontMatchFlipBack);
-    },
-    cardsDontMatchFlipBack: () => {
-      // wait for cards flip back
-      setTimer(() => {
-        changeScene(Scene.game);
-      }, 300);
-    },
-    win: async () => {
-      // disable controls
-      setControlsDisabled(true);
-      // play css animations and sounds
-      await playPhraseRandomLang(getRandomElement(phrases.win));
-      await delay(200);
-      changeScene(Scene.winReward);
-    },
-    winReward: () => {
-      // play css animations and sounds
-      winMusic.play();
-    },
-    goNewGame: () => {
-      clearTimers();
-      // play css animations and sounds
-      playPhraseRandomLang(getRandomElement(phrases.newGame));
-      setTimer(() => {
-        changeScene(Scene.begin);
-      }, 500);
-    },
-  };
+        // setTimer: show cards for some time to remember then flip back
+        const { first, second } = selectedCards;
+        flipCard(first!);
+        flipCard(second!);
+        await playAudio(audio.cardFlipSound);
+        setSelectedCards({ first: null, second: null });
+        setScene(Scene.cardsDontMatchFlipBack);
+      },
+      cardsDontMatchFlipBack: () => {
+        // wait for cards flip back        
+        setScene(Scene.game);        
+      },
+      win: async () => {        
+        // play css animations and sounds
+        await playPhraseRandomLang(getRandomElement(phrases.win));
+        await delay(200);
+        setScene(Scene.winReward);
+      },
+      winReward: () => {
+        // play css animations and sounds
+        playAudio(audio.winMusic);
+      },
+      goNewGame: () => {
+        clearTimers();
+        // play css animations and sounds
+        playPhraseRandomLang(getRandomElement(phrases.newGame));
+        setTimer(() => {
+          setScene(Scene.begin);
+        }, 500);
+      },
+    };
+    console.log(`scene is: ${scene}`);
+    // run scene actions
+    sceneActions[scene]();
+  }, [scene]);
 
   // clear timers on unmount
   useEffect(() => {

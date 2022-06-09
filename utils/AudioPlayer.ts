@@ -65,6 +65,6 @@ export class AudioPlayer {
   };
 
   playTextToSpeech = (text: string, language: Language) => {
-    this.playSrc(this.getGoogleTTSAudio(text, language));
+    return this.playSrc(this.getGoogleTTSAudio(text, language));
   };  
 }
