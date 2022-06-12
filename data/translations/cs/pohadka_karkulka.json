@@ -8,8 +8,8 @@
       "end_uk": 22.883
     },
     {
-      "main": "Jednoho dne maminka řekla, 'Karkulko, babička má dnes svátek. Běž ji navštívit. Dej si ale pozor - v lese žije vlk!'",
-      "uk": "Одного дня мама каже їй: 'Червона Шапочко,  у бабусі сьогодні іменини. Біжи до неї в гості. Але пам'ятай: у лісі живе вовк!'",
+      "main": "Jednoho dne maminka řekla, „Karkulko, babička má dnes svátek. Běž ji navštívit. Dej si ale pozor - v lese žije vlk!“",
+      "uk": "Одного дня мама каже їй: „Червона Шапочко,  у бабусі сьогодні іменини. Біжи до неї в гості. Але пам'ятай: у лісі живе вовк!“",
       "start_cs": 23.5205,
       "end_cs": 35.583,
       "start_uk": 22.883,
@@ -24,16 +24,16 @@
       "end_uk": 43.208
     },
     {
-      "main": "Šla lesem, když tu najednou před Karkulkou stojí velký vlk. 'Kampak jdeš?'",
-      "uk": "Йде собі Червона Шапочка лісом, аж раптом їй назустріч великий вовк. 'Куди ти йдеш?'",
+      "main": "Šla lesem, když tu najednou před Karkulkou stojí velký vlk. „Kampak jdeš?“",
+      "uk": "Йде собі Червона Шапочка лісом, аж раптом їй назустріч великий вовк. „Куди ти йдеш?“",
       "start_cs":  43.8455,
       "end_cs": 51.6205,
       "start_uk": 43.208,
       "end_uk": 51.5455
     },
     {
-      "main": "Karkulka vlkovi pověděla, 'Jdu za babičkou, má dneska svátek. Nesu jí bábovku.'",
-      "uk": "Шапочка відповідає вовку: 'Я йду до бабусі на іменини. Несу їй пиріг.'",
+      "main": "Karkulka vlkovi pověděla, „Jdu za babičkou, má dneska svátek. Nesu jí bábovku.“",
+      "uk": "Шапочка відповідає вовку: „Я йду до бабусі на іменини. Несу їй пиріг.“",
       "start_cs": 51.6205,
       "end_cs": 60.2705,
       "start_uk": 51.5455,
@@ -48,24 +48,24 @@
       "end_uk": 65.4205
     },
     {
-      "main": "Zaklepal na dveře a z chaloupky se ozvala babička, 'Kdo tam?'",
-      "uk": "Вовк постукав у двері, і з хатинки почувся бабусин голос: 'Хто там?'",
+      "main": "Zaklepal na dveře a z chaloupky se ozvala babička, „Kdo tam?“",
+      "uk": "Вовк постукав у двері, і з хатинки почувся бабусин голос: „Хто там?“",
       "start_cs": 68.108,
       "end_cs": 73.7705,
       "start_uk": 65.4205,
       "end_uk": 72.0705
     },
     {
-      "main": "'To jsem já, Karkulka,' zavolal vlk tenkým hláskem.",
-      "uk": "'Це я, Червона Шапочка!' - пропищав вовк тонесеньким голосом.",
+      "main": "„To jsem já, Karkulka,“ zavolal vlk tenkým hláskem.",
+      "uk": "„Це я, Червона Шапочка!“ - пропищав вовк тонесеньким голосом.",
       "start_cs": 73.7705,
       "end_cs": 79.4455,
       "start_uk": 72.0705,
       "end_uk": 79.133
     },
     {
-      "main": "'Tak pojď dál, Karkulko, je otevřeno,' řekla babička.",
-      "uk": "'Так заходь, онученько, двері відчинені.' - промовила бабуся.",
+      "main": "„Tak pojď dál, Karkulko, je otevřeno,“ řekla babička.",
+      "uk": "„Так заходь, онученько, двері відчинені.“ - промовила бабуся.",
       "start_cs": 79.4455,
       "end_cs": 85.383,
       "start_uk": 79.133,
@@ -88,32 +88,32 @@
       "end_uk": 98.858
     },
     {
-      "main": "Když Karkulka přišla, podivila se a ptá se 'Babičko, proč máš tak velké uši?'",
-      "uk": "Коли Червона Шапочка прийшла, подивилась та й питає: 'Бабусю, а чому у тебе такі великі вуха?'",
+      "main": "Když Karkulka přišla, podivila se a ptá se „Babičko, proč máš tak velké uši?“",
+      "uk": "Коли Червона Шапочка прийшла, подивилась та й питає: „Бабусю, а чому у тебе такі великі вуха?“",
       "start_cs": 97.708,
       "end_cs": 104.933,
       "start_uk": 98.858,
       "end_uk": 107.1705
     },
     {
-      "main": "'To abych tě lépe slyšela,' řekl vlk vysokým hlasem.",
-      "uk": "'Щоб краще тебе чути!', сказав вовк тоненьким голосом.",
+      "main": "„To abych tě lépe slyšela,“ řekl vlk vysokým hlasem.",
+      "uk": "„Щоб краще тебе чути!“, сказав вовк тоненьким голосом.",
       "start_cs": 104.933,
       "end_cs": 110.458,
       "start_uk": 107.1705,
       "end_uk": 112.758
     },
     {
-      "main": "'Proč máš tak velké oči?' - 'To abych tě lépe viděla.'",
-      "uk": "'Чому у тебе такі великі вуха?' - 'Щоб краще тебе бачити!'",
+      "main": "„Proč máš tak velké oči?“ - „To abych tě lépe viděla.“",
+      "uk": "„Чому у тебе такі великі вуха?“ - „Щоб краще тебе бачити!“",
       "start_cs": 110.458,
       "end_cs": 116.4455,
       "start_uk": 112.758,
       "end_uk": 119.033
     },
     {
-      "main": "'Proč máš tak velké zuby?' - 'To abych tě mohl lépe sníst!' A vlk snědl i ji.",
-      "uk": "'Чому у тебе такі великі зуби?' - 'Щоб з'їсти тебе!' Та вовк проковтнув і її.",
+      "main": "„Proč máš tak velké zuby?“ - „To abych tě mohl lépe sníst!“ A vlk snědl i ji.",
+      "uk": "„Чому у тебе такі великі зуби?“ - „Щоб з'їсти тебе!“ Та вовк проковтнув і її.",
       "start_cs": 116.4455,
       "end_cs": 124.6955,
       "start_uk": 119.033,
