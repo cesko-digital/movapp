@@ -16,32 +16,17 @@ import ChildDictionaryIcon from '../public/icons/frog-light.svg';
 import AlphabetIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
 import KidsSunIcon from '../public/icons/sun.svg';
-import CzFlag from '../public/icons/cz-flag.svg';
-import PlFlag from '../public/icons/pl-flag.svg';
-import SkFlag from '../public/icons/sk-flag.svg';
 import SEO from 'components/basecomponents/SEO';
-import { DownloadAppStore } from '../components/basecomponents/DownloadAppStore';
 import { CountryVariant, getCountryVariant } from '../utils/locales';
 import { ReactNode } from 'react';
-import { DownloadGooglePlay } from '../components/basecomponents/DownloadGooglePlay';
+import { AppsButtons } from 'components/sections/AppsButtons';
+import { LanguagesFlags } from 'components/sections/LanguagesFlags';
 
 const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
   cs: <Image src={HeartsUkraine_CZ} alt="Česká a Ukrajinská vlajka v srdcích." width={140} height={164} />,
   sk: <Image src={HeartsUkraine_SK} alt="Slovenská a Ukrajinská vlajka v srdciach." width={140} height={164} />,
   pl: <Image src={HeartsUkraine_PL} alt="Polskie i Ukraińskie flagi w sercach" width={140} height={164} />,
 };
-
-interface Languages {
-  svg: ReactNode;
-  link: string;
-  country: string;
-}
-
-const LanguagesFlags: Languages[] = [
-  { svg: <CzFlag />, link: 'movapp.cz', country: 'cs' },
-  { svg: <SkFlag />, link: 'sk.movapp.eu', country: 'sk' },
-  { svg: <PlFlag />, link: 'pl.movapp.eu', country: 'pl' },
-];
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
@@ -184,32 +169,8 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      {/* Apps section */}
-      <div className="mx-auto my-12 flex flex-col items-center">
-        <h2 className="mb-3">Stáhnout do mobilu</h2>
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="mx-auto md:mx-0 hover:scale-110 transition-all">
-            <DownloadAppStore />
-          </div>
-          <div className="mx-auto md:mx-0 hover:scale-110 transition-all">
-            <DownloadGooglePlay />
-          </div>
-        </div>
-      </div>
-      {/* Languages section */}
-      <div className="mx-auto mb-12 mt-8 flex flex-col items-center">
-        <h2 className="">Movapp mluví dalšími jazyky</h2>
-        <div className="flex flex-col sm:flex-row items-center">
-          {LanguagesFlags.filter(({ country }) => country !== getCountryVariant()).map(({ svg, link }, i) => (
-            <Link href={`https://${link}`} passHref={true} key={i}>
-              <a className="mx-8 mb-6 flex flex-col items-center hover:cursor-pointer hover:scale-110 transition-all">
-                {svg}
-                <p>{link}</p>
-              </a>
-            </Link>
-          ))}
-        </div>
-      </div>
+      <AppsButtons />
+      <LanguagesFlags />
     </>
   );
 };
