@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { useTranslation } from 'next-i18next';
@@ -17,7 +18,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.random() * arr.length)];
 
-const addBackroundColor = (cardsData: Record<string, unknown>[]) =>
+const addBackroundColor = (cardsData: CardData[]) =>
   cardsData.map((item, i) => ({ ...item, color: `hsl(${(360 / cardsData.length) * i},50%,50%)` }));
 
 const GAME_NARRATION_PHRASES = {
@@ -50,9 +51,10 @@ export type CardData = {
 };
 
 export type Card = CardData & {
-  id: number;
+  id: string;
   flipped: boolean;
   color: string;
+  useMainLang: boolean;
 };
 
 interface MemoryGameProps {
@@ -67,7 +69,7 @@ interface MemoryGameProps {
 }
 
 const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps) => {
-  const { playCardPhraseOtherLang, playCardPhraseCurrentLang, playPhraseRandomLang } = usePlayPhrase();
+  const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase();
   const { t } = useTranslation();
 
   const [cards, setCards] = useState<Card[]>([]);
@@ -94,9 +96,10 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
     const coloredCards = addBackroundColor(pickedCards) as (CardData & { color: string })[];
 
     setCards(
-      [...coloredCards, ...coloredCards]
-        .sort(() => Math.random() - 0.5)
-        .map((card) => ({ ...card, image: `/kids/${card.image}.svg`, id: Math.random(), flipped: false }))
+      [
+        ...coloredCards.map((card,index) => ({ ...card, image: `/kids/${card.image}.svg`, id: `card-other-${index}`, flipped: false, useMainLang: false })),
+        ...coloredCards.map((card,index) => ({ ...card, image: `/kids/${card.image}.svg`, id: `card-main-${index}`, flipped: false, useMainLang: true })),
+      ].sort(() => Math.random() - 0.5)
     );
     setSelectedCards({ first: null, second: null });
     // clearTimers();
@@ -158,9 +161,10 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         setControlsDisabled(true);
         // play css animations and sounds
         const { first: card } = selectedCards;
-        flipCard(card!); // 0.3s
+        if (!card) return;
+        flipCard(card); // 0.3s
         await playAudio(audio.cardFlipSound);
-        playCardPhraseOtherLang(card!);
+        playCardPhrase(card);
 
         setTimer(() => {
           setScene(Scene.game);
@@ -171,9 +175,10 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         setControlsDisabled(true);
         // play css animations and sounds
         const { second: card } = selectedCards;
-        flipCard(card!); // 0.3s
+        if (!card) return;
+        flipCard(card); // 0.3s
         await playAudio(audio.cardFlipSound);
-        await playCardPhraseCurrentLang(card!);
+        await playCardPhrase(card);
         setScene(Scene.resolveCards);
       },
       resolveCards: () => {
@@ -221,8 +226,9 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
 
         // setTimer: show cards for some time to remember then flip back
         const { first, second } = selectedCards;
-        flipCard(first!);
-        flipCard(second!);
+        if (!first || !second) return;
+        flipCard(first);
+        flipCard(second);
         await playAudio(audio.cardFlipSound);
         setSelectedCards({ first: null, second: null });
         setScene(Scene.cardsDontMatchFlipBack);
@@ -259,7 +265,7 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
     return () => {
       clearTimers();
     };
-  }, []);
+  }, [clearTimers]);
 
   return (
     <div className={styles.app}>

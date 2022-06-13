@@ -1,28 +1,16 @@
+import React from 'react';
 import styles from './MemoryGameDefaultTheme.module.css';
 import MemoryGame from '../MemoryGameCore';
-import { TranslationJSON } from 'utils/Phrase';
-import { CountryVariant, getCountryVariant } from 'utils/locales';
 import kidsWords_CS from 'data/translations/cs/pro-deti.json';
 import kidsWords_SK from 'data/translations/sk/pro-deti_sk.json';
 import kidsWords_PL from 'data/translations/pl/pro-deti_pl.json';
+import normalizeCardsData from '../normalizeCardsData';
 
-type KidsTranlsation = TranslationJSON & { image: string };
-
-const KIDS_WORDS: Record<CountryVariant, KidsTranlsation[]> = {
+const KIDS_WORDS = {
   cs: kidsWords_CS,
   sk: kidsWords_SK,
   pl: kidsWords_PL,
 };
-
-const normalizeData = ({ main, uk, image }: { main: string; uk: string; image: string }) => ({
-  translation: {
-    uk,
-    main,
-  },
-  image,
-});
-
-const cardsData = KIDS_WORDS[getCountryVariant()].map(normalizeData);
 
 const gameData = {
   audio: {
@@ -32,7 +20,7 @@ const gameData = {
   },
   styles,
   cardBackImage: '/kids/memory-game/card_back_movapp.png',
-  cardsData,
+  cardsData: normalizeCardsData(KIDS_WORDS),
 };
 
 const MemoryGameWithTheme = () => <MemoryGame {...gameData} />;

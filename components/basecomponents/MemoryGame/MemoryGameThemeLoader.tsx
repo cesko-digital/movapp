@@ -6,15 +6,24 @@ import Image from 'next/image';
 const DefaultTheme = React.lazy(() => import('./Themes/MemoryGameDefaultTheme'));
 const TaleTheme = React.lazy(() => import('./Themes/MemoryGameTaleTheme'));
 
-export enum Theme {
-  default = 'default',
-  tale = 'tale',
+type Theme = {
+  id: string;
+  image: string;
+  component: React.LazyExoticComponent<() => JSX.Element>;
 }
 
-const themeImages = {
-  [Theme.default]: '/kids/memory-game/card_back_movapp.png',
-  [Theme.tale]: '/kids/memory-game/talecard.png',
-};
+const themes: Theme[] = [
+  {
+    id: "default",
+    image: '/kids/memory-game/card_back_movapp.png',
+    component: DefaultTheme,
+  },
+  {
+    id: "tale",
+    image: '/kids/memory-game/talecard.png',
+    component: TaleTheme,
+  },
+]
 
 const ThemeButton = ({ image, onClick }: { image: string; onClick: () => void }) => (
   <div className={styles.themeButton} onClick={onClick}>
@@ -22,20 +31,19 @@ const ThemeButton = ({ image, onClick }: { image: string; onClick: () => void })
   </div>
 );
 
-const MemoryGameThemeLoader = (props: { theme: Theme }) => {
+const MemoryGameThemeLoader = (props: { theme: string }) => {
   const [theme, setTheme] = useState(props.theme);
 
   return (
     <React.Suspense fallback={<MemoryGameLoading />}>
       <div className={styles.app}>
         <div className={styles.themeNav}>
-          {Object.entries(themeImages).map(([theme, image]) => (
-            <ThemeButton key={Math.random()} image={image} onClick={() => setTheme(theme as Theme)} />
+          {themes.map(({id, image}) => (
+            <ThemeButton key={id} image={image} onClick={() => setTheme(id)} />
           ))}
         </div>
-
-        {theme === Theme.default && <DefaultTheme />}
-        {theme === Theme.tale && <TaleTheme />}
+        {theme === "default" && <DefaultTheme />}
+        {theme === "tale" && <TaleTheme />}
       </div>
     </React.Suspense>
   );
