@@ -97,8 +97,20 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
 
     setCards(
       [
-        ...coloredCards.map((card,index) => ({ ...card, image: `/kids/${card.image}.svg`, id: `card-other-${index}`, flipped: false, useMainLang: false })),
-        ...coloredCards.map((card,index) => ({ ...card, image: `/kids/${card.image}.svg`, id: `card-main-${index}`, flipped: false, useMainLang: true })),
+        ...coloredCards.map((card, index) => ({
+          ...card,
+          image: `/kids/${card.image}.svg`,
+          id: `card-other-${index}`,
+          flipped: false,
+          useMainLang: false,
+        })),
+        ...coloredCards.map((card, index) => ({
+          ...card,
+          image: `/kids/${card.image}.svg`,
+          id: `card-main-${index}`,
+          flipped: false,
+          useMainLang: true,
+        })),
       ].sort(() => Math.random() - 0.5)
     );
     setSelectedCards({ first: null, second: null });

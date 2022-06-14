@@ -8,8 +8,7 @@ const playTextToSpeech = AudioPlayer.getInstance().playTextToSpeech;
 const usePlayPhrase = () => {
   const { currentLanguage, otherLanguage } = useLanguage();
 
-  const playCardPhrase = (card: Card) =>
-    card.useMainLang ? playCardPhraseCurrentLang(card) : playCardPhraseOtherLang(card);
+  const playCardPhrase = (card: Card) => (card.useMainLang ? playCardPhraseCurrentLang(card) : playCardPhraseOtherLang(card));
 
   const playCardPhraseCurrentLang = (card: Card) =>
     playTextToSpeech(new Phrase(card.translation).getTranslation(currentLanguage), currentLanguage);
@@ -26,7 +25,14 @@ const usePlayPhrase = () => {
   const playPhraseRandomLang = (phrase: TranslationJSON) =>
     Math.random() < 0.5 ? playPhraseOtherLang(phrase) : playPhraseCurrentLang(phrase);
 
-  return { playCardPhrase, playCardPhraseCurrentLang, playCardPhraseOtherLang, playPhraseCurrentLang, playPhraseOtherLang, playPhraseRandomLang };
+  return {
+    playCardPhrase,
+    playCardPhraseCurrentLang,
+    playCardPhraseOtherLang,
+    playPhraseCurrentLang,
+    playPhraseOtherLang,
+    playPhraseRandomLang,
+  };
 };
 
 export default usePlayPhrase;

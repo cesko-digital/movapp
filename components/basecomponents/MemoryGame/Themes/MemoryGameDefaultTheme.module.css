@@ -1,17 +1,17 @@
 .newGameButton {
   background-color: #023abd;
   margin-bottom: 1.25rem;
-  animation: unhide .7s .5s backwards;
+  animation: unhide 0.7s 0.5s backwards;
   cursor: default;
-  transition: transform 0.2s;  
+  transition: transform 0.2s;
 }
 
-.newGameButton:hover {  
-  transform: scale(1.02);   
+.newGameButton:hover {
+  transform: scale(1.02);
 }
 
-.newGameButton:active {  
-  transform: scale(0.95);  
+.newGameButton:active {
+  transform: scale(0.95);
 }
 
 .app {
@@ -23,8 +23,8 @@
 .board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 0.5rem;
-  min-width: 344px;
+  grid-gap: 0.3rem;
+  width: calc(4 * 20vw + 3 * 0.3rem);
 }
 
 .init {
@@ -34,8 +34,8 @@
 .front,
 .back,
 .cell {
-  width: 5rem;
-  height: 5rem;
+  width: 20vw;
+  height: 20vw;   
   position: relative;
 }
 
@@ -49,8 +49,8 @@
 }
 
 .cardWrapper:hover {
-  transition: transform 0.3s;  
-  transform: rotateY(-7deg);    
+  transition: transform 0.3s;
+  transform: rotateY(-7deg);
 }
 
 .front,
@@ -106,10 +106,10 @@
 }
 
 .front.flipped.selected.cardsMatch {
-  animation: shake 0.7s, shine 0.7s;  
+  animation: shake 0.7s, shine 0.7s;
 }
 
-.cell.flipped.selected {  
+.cell.flipped.selected {
   z-index: 1000;
 }
 
@@ -268,14 +268,16 @@
     height: 9rem;
   }
   .board {
-    min-width: 600px;
+    width: calc(4 * 9rem + 3 * 0.5rem);
+    grid-gap: 0.5rem;    
   }
   .newGameButton {
     padding: 0.75rem 1.5rem;
     font-size: 1.3rem;
   }
-  .front,.back {
-  border-width: 4px;
+  .front,
+  .back {
+    border-width: 4px;
   }
 }
 
@@ -388,4 +390,3 @@
     transform: rotateY(0);
   }
 }
-

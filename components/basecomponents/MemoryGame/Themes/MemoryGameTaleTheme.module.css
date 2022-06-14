@@ -1,27 +1,28 @@
 .newGameButton {
   background-color: transparent;
   background-image: url(/kids/memory-game/talebutton.png);
-  background-size: 150px 75px;
+  background-size: 100% 100%;
   color: black;
   font-size: 1.2rem;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 800;
-  width: 150px;
-  height: 75px;
+  width: 26vw;
+  min-width: 120px;
+  height: 13vw;
+  min-height: 60px;
   margin-bottom: 1.25rem;
   animation: pop 0.3s 0.3s backwards;
   cursor: default;
-  transition: transform 0.2s;  
+  transition: transform 0.2s;
 }
 
-.newGameButton:hover {  
-  transform: scale(1.02);  
+.newGameButton:hover {
+  transform: scale(1.02);
 }
 
-.newGameButton:active {  
-  transform: scale(0.95);  
+.newGameButton:active {
+  transform: scale(0.95);
 }
-
 
 .app {
   display: flex;
@@ -32,8 +33,8 @@
 .board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 0.5rem;
-  min-width: 344px;
+  grid-gap: 0.3rem;
+  width: calc(4 * 20vw + 3 * 0.3rem);
 }
 
 .init {
@@ -43,8 +44,8 @@
 .front,
 .back,
 .cell {
-  width: 5rem;
-  height: 5rem;
+  width: 20vw;
+  height: 20vw;
   position: relative;
 }
 
@@ -58,8 +59,8 @@
 }
 
 .cardWrapper:hover {
-  transition: transform 0.3s;  
-  transform: rotateY(-7deg);    
+  transition: transform 0.3s;
+  transform: rotateY(-7deg);
 }
 
 .front,
@@ -78,7 +79,7 @@
 .back {
   border-color: black;
   background-color: black;
-  border-width: 2px;  
+  border-width: 2px;
 }
 
 .front {
@@ -114,10 +115,10 @@
 }
 
 .front.flipped.selected.cardsMatch {
-  animation: glow 0.7s, turn 0.7s;  
+  animation: glow 0.7s, turn 0.7s;
 }
 
-.cell.flipped.selected {  
+.cell.flipped.selected {
   z-index: 1000;
 }
 
@@ -276,7 +277,8 @@
     height: 9rem;
   }
   .board {
-    min-width: 600px;
+    width: calc(4 * 9rem + 3 * 0.5rem);
+    grid-gap: 0.5rem;
   }
   .newGameButton {
     background-size: 200px 100px;
@@ -286,7 +288,8 @@
     height: 100px;
     image-rendering: pixelated;
   }
-  .front,.back {
+  .front,
+  .back {
     border-width: 4px;
     border-radius: 8px;
   }

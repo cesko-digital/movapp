@@ -10,20 +10,20 @@ type Theme = {
   id: string;
   image: string;
   component: React.LazyExoticComponent<() => JSX.Element>;
-}
+};
 
 const themes: Theme[] = [
   {
-    id: "default",
+    id: 'default',
     image: '/kids/memory-game/card_back_movapp.png',
     component: DefaultTheme,
   },
   {
-    id: "tale",
+    id: 'tale',
     image: '/kids/memory-game/talecard.png',
     component: TaleTheme,
   },
-]
+];
 
 const ThemeButton = ({ image, onClick }: { image: string; onClick: () => void }) => (
   <div className={styles.themeButton} onClick={onClick}>
@@ -38,12 +38,12 @@ const MemoryGameThemeLoader = (props: { theme: string }) => {
     <React.Suspense fallback={<MemoryGameLoading />}>
       <div className={styles.app}>
         <div className={styles.themeNav}>
-          {themes.map(({id, image}) => (
+          {themes.map(({ id, image }) => (
             <ThemeButton key={id} image={image} onClick={() => setTheme(id)} />
           ))}
         </div>
-        {theme === "default" && <DefaultTheme />}
-        {theme === "tale" && <TaleTheme />}
+        {theme === 'default' && <DefaultTheme />}
+        {theme === 'tale' && <TaleTheme />}
       </div>
     </React.Suspense>
   );
