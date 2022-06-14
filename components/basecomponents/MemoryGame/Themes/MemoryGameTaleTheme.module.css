@@ -269,15 +269,15 @@
   animation-delay: 0;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .front,
   .back,
   .cell {
-    width: 9rem;
-    height: 9rem;
+    width: 11rem;
+    height: 11rem;
   }
   .board {
-    width: calc(4 * 9rem + 3 * 0.5rem);
+    width: calc(4 * 11rem + 3 * 0.5rem);
     grid-gap: 0.5rem;
   }
   .newGameButton {
