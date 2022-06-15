@@ -7,12 +7,12 @@
   font-family: 'Times New Roman', Times, serif;
   font-weight: 800;
   width: 26vw;
-  min-width: 120px;
+  min-width: 8rem;
   height: 13vw;
-  min-height: 60px;
+  min-height: 4rem;
   margin-bottom: 1.25rem;
   animation: pop 0.3s 0.3s backwards;
-  cursor: default;
+  -webkit-tap-highlight-color: transparent;  
   transition: transform 0.2s;
 }
 
@@ -56,12 +56,14 @@
 
 .cardWrapper {
   position: absolute;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 }
 
-.cardWrapper:hover {
+/* .cardWrapper:hover {
   transition: transform 0.3s;
   transform: rotateY(-7deg);
-}
+} */
 
 .front,
 .back {
@@ -267,6 +269,12 @@
 
 .cell:nth-child(4) .back.begin {
   animation-delay: 0;
+}
+
+@media (min-width: 640px) {  
+  .newGameButton {    
+    font-size: 1.3rem;    
+  }  
 }
 
 @media (min-width: 768px) {

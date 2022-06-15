@@ -5,11 +5,11 @@ const createTimer = (): [(fn: () => void, delay: number) => void, () => void] =>
   let timers: ReturnType<typeof setTimeout>[] = [];
 
   const setTimer = (fn: () => void, delay: number): void => {
-    const t = setTimeout(() => {
-      timers = timers.filter((e) => e !== t);
+    const currentTimer = setTimeout(() => {
+      timers = timers.filter((timer) => timer !== currentTimer);
       fn();
     }, delay);
-    timers = [...timers, t];
+    timers = [...timers, currentTimer];
   };
 
   const clearTimers = () => {

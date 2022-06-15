@@ -1,9 +1,13 @@
 .newGameButton {
   background-color: #023abd;
   margin-bottom: 1.25rem;
-  animation: unhide 0.7s 0.5s backwards;
-  cursor: default;
+  animation: unhide 0.7s 0.5s backwards;  
+  -webkit-tap-highlight-color: transparent;
   transition: transform 0.2s;
+  width: 20vw;
+  min-width: 7rem;
+  height: 8vw;
+  min-height: 3rem;
 }
 
 .newGameButton:hover {
@@ -46,12 +50,14 @@
 
 .cardWrapper {
   position: absolute;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 }
 
-.cardWrapper:hover {
+/* .cardWrapper:hover {
   transition: transform 0.3s;
   transform: rotateY(-7deg);
-}
+} */
 
 .front,
 .back {
@@ -260,6 +266,12 @@
   animation-delay: 0;
 }
 
+@media (min-width: 640px) {  
+  .newGameButton {    
+    font-size: 1.3rem;    
+  }  
+}
+
 @media (min-width: 768px) {
   .front,
   .back,
@@ -271,9 +283,10 @@
     width: calc(4 * 11rem + 3 * 0.5rem);
     grid-gap: 0.5rem;    
   }
-  .newGameButton {
-    padding: 0.75rem 1.5rem;
-    font-size: 1.3rem;
+  .newGameButton {    
+    font-size: 1.5rem;
+    width: 11rem;
+    height: 4.5rem;
   }
   .front,
   .back {
