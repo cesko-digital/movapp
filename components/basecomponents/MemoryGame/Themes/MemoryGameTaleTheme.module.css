@@ -3,13 +3,13 @@
   background-image: url(/kids/memory-game/talebutton.png);
   background-size: 100% 100%;
   color: black;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 800;
   width: 26vw;
-  min-width: 8rem;
+  min-width: 9rem;
   height: 13vw;
-  min-height: 4rem;
+  min-height: 4.5rem;
   margin-bottom: 1.25rem;
   animation: pop 0.3s 0.3s backwards;
   -webkit-tap-highlight-color: transparent;  
