@@ -31,19 +31,18 @@ const ThemeButton = ({ image, onClick }: { image: string; onClick: () => void })
   </div>
 );
 
-const MemoryGameThemeLoader = (props: { theme: string }) => {
-  const [theme, setTheme] = useState(props.theme);
+const MemoryGameThemeLoader = () => {
+  const [currentTheme, setCurrentTheme] = useState(themes[0]);
 
   return (
     <React.Suspense fallback={<MemoryGameLoading />}>
       <div className={styles.app}>
         <div className={styles.themeNav}>
-          {themes.map(({ id, image }) => (
-            <ThemeButton key={id} image={image} onClick={() => setTheme(id)} />
+          {themes.map((theme) => (
+            <ThemeButton key={theme.id} image={theme.image} onClick={() => setCurrentTheme(theme)} />
           ))}
         </div>
-        {theme === 'default' && <DefaultTheme />}
-        {theme === 'tale' && <TaleTheme />}
+        {React.createElement(currentTheme.component)}
       </div>
     </React.Suspense>
   );

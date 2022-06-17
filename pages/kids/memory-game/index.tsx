@@ -20,7 +20,7 @@ const MemoryGameSection = () => {
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap flex-col items-center min-h-screen m-auto sm:py-10 py-2 px-2 sm:px-4 overflow-hidden">
-        <MemoryGame theme="default" />
+        <MemoryGame />
       </div>
     </div>
   );
