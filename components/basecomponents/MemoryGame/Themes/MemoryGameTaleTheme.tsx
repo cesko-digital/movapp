@@ -3,12 +3,6 @@ import styles from './MemoryGameTaleTheme.module.css';
 import MemoryGame from '../MemoryGameCore';
 import getCardsData from '../getCardsData';
 
-// const KIDS_WORDS: Record<CountryVariant, KidsTranlsation[]> = {
-//     cs: { /* filter tale words from kids json */ },
-//     sk: { /* filter tale words from kids json */ },
-//     pl: { /* filter tale words from kids json */ },
-//   };
-
 const gameData = {
   audio: {
     cardFlipSound: '/kids/memory-game/card_flip.mp3',
@@ -17,7 +11,7 @@ const gameData = {
   },
   styles,
   cardBackImage: '/kids/memory-game/talecard.png',
-  cardsData: getCardsData(),
+  cardsData: getCardsData(), // TODO: filter cards for current theme
 };
 
 const MemoryGameWithTheme = () => <MemoryGame {...gameData} />;

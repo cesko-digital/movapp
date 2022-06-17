@@ -61,11 +61,6 @@
   cursor: pointer;
 }
 
-/* .cardWrapper:hover {
-  transition: transform 0.3s;
-  transform: rotateY(-7deg);
-} */
-
 .front,
 .back {
   user-select: none;

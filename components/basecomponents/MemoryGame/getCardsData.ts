@@ -1,5 +1,5 @@
 import { KidsTranslation } from 'pages/kids/index';
-import { CountryVariant, getCountryVariant } from 'utils/locales';
+import { getCountryVariant } from 'utils/locales';
 import kidsWords_CS from 'data/translations/cs/pro-deti.json';
 import kidsWords_SK from 'data/translations/sk/pro-deti_sk.json';
 import kidsWords_PL from 'data/translations/pl/pro-deti_pl.json';
