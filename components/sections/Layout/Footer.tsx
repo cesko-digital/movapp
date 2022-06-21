@@ -3,9 +3,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FOOTER_NAVIGATION } from 'data/footerNavigation';
 import { getCountryVariant } from 'utils/locales';
+import { useLanguage } from 'utils/useLanguageHook';
 
 export const Footer = () => {
   const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
+
+  const footerNavigationLinks = Object.entries(FOOTER_NAVIGATION)
+    .map(([country, links]) => {
+      if (getCountryVariant() === country) return links[currentLanguage];
+    })
+    .filter((links) => links)
+    .flat();
+
   return (
     <footer className="bg-primary-yellow">
       <div className="max-w-4xl m-auto p-2 sm:py-5 ">
@@ -24,11 +34,10 @@ export const Footer = () => {
             <Image src="/icons/socials/linkedin.svg" width="34px" height="34px" alt="LinkedIn" />
           </a>
         </div>
-        <div className="flex flex-col sm:flex-row justify-between items-center">
-          {FOOTER_NAVIGATION.map(({ title, link, description, languages }, index) => {
-            const languageSuffix = getCountryVariant();
+        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start">
+          {footerNavigationLinks.map(({ title, link, description }, index) => {
             return (
-              <Link key={index} href={`${link}/${languages.includes(languageSuffix) ? languageSuffix : ''}`}>
+              <Link key={index} href={link}>
                 <a target={'_blank'} className="sm:w-2/6">
                   <div className="py-1">
                     <p className="text-primary-black text-center text-sm sm:text-base font-bold my-2">{title}</p>
