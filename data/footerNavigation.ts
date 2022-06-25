@@ -1,25 +1,19 @@
-interface FooterNavigation {
-  cs: {
-    cs: FooterLinks[];
-    uk: FooterLinks[];
-  };
-  sk: {
-    sk: FooterLinks[];
-    uk: FooterLinks[];
-  };
-  pl: {
-    pl: FooterLinks[];
-    uk: FooterLinks[];
-  };
-}
+import { CountryVariant } from 'utils/locales';
 
-interface FooterLinks {
+interface Links {
   title: string;
   description: string;
   link: string;
 }
 
-export const FOOTER_NAVIGATION: FooterNavigation = {
+interface FooterLinks {
+  cs?: Links[];
+  sk?: Links[];
+  pl?: Links[];
+  uk: Links[];
+}
+
+export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
   cs: {
     cs: [
       {

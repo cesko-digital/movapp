@@ -9,12 +9,7 @@ export const Footer = () => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
-  const footerNavigationLinks = Object.entries(FOOTER_NAVIGATION)
-    .map(([country, links]) => {
-      if (getCountryVariant() === country) return links[currentLanguage];
-    })
-    .filter((links) => links)
-    .flat();
+  const footerNavigationLinks = FOOTER_NAVIGATION[getCountryVariant()][currentLanguage];
 
   return (
     <footer className="bg-primary-yellow">
@@ -34,8 +29,8 @@ export const Footer = () => {
             <Image src="/icons/socials/linkedin.svg" width="34px" height="34px" alt="LinkedIn" />
           </a>
         </div>
-        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start">
-          {footerNavigationLinks.map(({ title, link, description }, index) => {
+        <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start">
+          {footerNavigationLinks?.map(({ title, link, description }, index) => {
             return (
               <Link key={index} href={link}>
                 <a target={'_blank'} className="sm:w-2/6">
