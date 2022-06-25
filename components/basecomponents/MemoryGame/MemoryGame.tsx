@@ -90,7 +90,6 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
   const [setTimer, clearTimers] = useMemo(createTimer, []);
 
   const newGame = () => {
-    //console.log('new game');
     // prepare and shuffle cards, pick 8 cards
     const pickedCards = cardsData.sort(() => Math.random() - 0.5).slice(0, 8);
     const coloredCards = addBackroundColor(pickedCards) as (CardData & { color: string })[];
@@ -114,7 +113,6 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       ].sort(() => Math.random() - 0.5)
     );
     setSelectedCards({ first: null, second: null });
-    // clearTimers();
   };
 
   const flipCard = (cardToFlip: Card) => {
@@ -198,10 +196,8 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         const cardsMatch = first?.image === second?.image;
 
         if (cardsMatch) {
-          //console.log('cards match');
           setScene(Scene.cardsMatch);
         } else {
-          //console.log('cards dont match');
           setScene(Scene.cardsDontMatch);
         }
       },
@@ -218,11 +214,8 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         // play css animations and sounds
         Math.random() > 0.5 && (await playPhraseRandomLang(getRandomElement(phrases.good)));
         // reset selected cards
-
         // check win
-
         if (cards.every((card) => card.flipped)) {
-          //console.log('win');
           setScene(Scene.win);
         } else {
           setSelectedCards({ first: null, second: null });
@@ -230,7 +223,6 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         }
       },
       cardsDontMatch: async () => {
-        // disable controls
         setControlsDisabled(true);
         // play animations and sounds
         await delay(1000);
@@ -267,9 +259,10 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
         }, 500);
       },
     };
-    //console.log(`scene is: ${scene}`);
     // run scene actions
     sceneActions[scene]();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scene]);
 
   // clear timers on unmount

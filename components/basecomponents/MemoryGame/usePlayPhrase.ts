@@ -1,7 +1,7 @@
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { useLanguage } from 'utils/useLanguageHook';
 import { Phrase, TranslationJSON } from 'utils/Phrase';
-import { Card } from './MemoryGameCore';
+import { Card } from './MemoryGame';
 
 const playTextToSpeech = AudioPlayer.getInstance().playTextToSpeech;
 

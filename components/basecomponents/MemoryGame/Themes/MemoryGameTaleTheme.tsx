@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './MemoryGameTaleTheme.module.css';
-import MemoryGame from '../MemoryGameCore';
+import MemoryGame from '../MemoryGame';
 import getCardsData from '../getCardsData';
 
 const gameData = {

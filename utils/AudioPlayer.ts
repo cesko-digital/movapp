@@ -36,25 +36,17 @@ export class AudioPlayer {
 
     return new Promise<void>((resolve) => {
       this.currentAudio.oncanplay = () => {
-        //console.log('ready to play', this.currentAudio.src);
         this.currentAudio.play().catch(() => {
-          //console.log('catch', this.currentAudio.src);
           resolve();
         });
       };
       this.currentAudio.onerror = () => {
-        //console.log('error', this.currentAudio.src);
         resolve();
       };
       this.currentAudio.onabort = () => {
-        //console.log('aborted', this.currentAudio.src);
         resolve();
       };
-      this.currentAudio.onpause = () => {
-        //console.log('paused', this.currentAudio.src);
-      };
       this.currentAudio.onended = () => {
-        //console.log('ended', this.currentAudio.src);
         resolve();
       };
     });
