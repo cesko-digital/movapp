@@ -17,7 +17,7 @@ export const DownloadAppStore = () => {
           <AiFillApple size={49} className="mb-1 mr-1" />
         </div>
         <div className="flex flex-col justify-center mr-1">
-          <div className="text-sm leading-none whitespace-nowrap font-light">{t('homepage.download_on')}</div>
+          <div className="text-sm leading-none whitespace-nowrap">{t('homepage.download_on')}</div>
           <div className="text-2xl leading-none whitespace-nowrap">App Store</div>
         </div>
       </a>
