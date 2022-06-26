@@ -35,13 +35,8 @@ const getCategoryId = (category: Category, currentLanguage: Language) => {
 };
 
 const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(dictionary.main);
-
-  const categories = getCategories(dictionary);
-  console.log(categories);
-
-  const allTranslations = getAllPhrases(dictionary);
-  console.log(allTranslations);
+  const categories = useMemo(() => getCategories(dictionary), [dictionary]);
+  const allTranslations = useMemo(() => getAllPhrases(dictionary), [dictionary]);
 
   const [search, setSearch] = useState('');
   const [isSticky, setIsSticky] = useState(false);
@@ -92,7 +87,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
       (match, index) => matches.findIndex((phrase) => phrase.otherTranscription === match.otherTranscription) === index
     );
     return uniqueMathces;
-  }, [search]);
+  }, [search, allTranslations]);
 
   return (
     <>
