@@ -1,25 +1,19 @@
 import { useTranslation } from 'next-i18next';
-import React from 'react';
-import kidsWords_CZ from '../../data/translations/cs/pro-deti.json';
-import kidsWords_SK from '../../data/translations/sk/pro-deti_sk.json';
-import kidsWords_PL from '../../data/translations/pl/pro-deti_pl.json';
+import React, { useMemo } from 'react';
 import { Button } from '../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
-import { Phrase, TranslationJSON } from 'utils/Phrase';
+import { TranslationJSON } from 'utils/Phrase';
 import SEO from 'components/basecomponents/SEO';
-import { CountryVariant, getCountryVariant } from 'utils/locales';
-export { getStaticProps } from '../../utils/localization';
+import { getCountryVariant } from 'utils/locales';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { DictionaryDataObject, fetchDictionary, getKidsCategory } from '../../utils/getDictionaryData';
+import { getServerSideTranslations } from '../../utils/localization';
 
 export type KidsTranslation = TranslationJSON & { image: string };
 
-const KIDS_WORDS: Record<CountryVariant, KidsTranslation[]> = {
-  cs: kidsWords_CZ,
-  sk: kidsWords_SK,
-  pl: kidsWords_PL,
-};
-
-const KidsSection = () => {
+const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
+  const kidsCategory = useMemo(() => getKidsCategory(dictionary), [dictionary]);
 
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
@@ -34,12 +28,31 @@ const KidsSection = () => {
         </a>
       </div>
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
-        {KIDS_WORDS[getCountryVariant()].map((word, index) => {
-          return <KidsTranslationsContainer key={index} image={word.image} translation={new Phrase(word)} />;
+        {kidsCategory?.translations.map((phrase) => {
+          return (
+            <KidsTranslationsContainer
+              key={phrase.otherTranslation}
+              // Todo: remove the replace once movapp-data is fixed
+              imageUrl={phrase.imageUrl?.replace('data.movapp.eu/images/', 'data.movapp.eu/images/source/') ?? ''}
+              phrase={phrase}
+            />
+          );
         })}
       </div>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps<{ dictionary: DictionaryDataObject }> = async ({ locale }) => {
+  const dictionary = await fetchDictionary();
+  const localeTranslations = await getServerSideTranslations(locale);
+
+  return {
+    props: {
+      dictionary,
+      ...localeTranslations,
+    },
+  };
 };
 
 export default KidsSection;

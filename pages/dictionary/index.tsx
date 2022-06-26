@@ -13,7 +13,7 @@ import { getCountryVariant, Language } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
 import { Category } from 'data/translations/CategoryUtils';
 import { SearchInput } from 'components/basecomponents/SearchInput';
-import { DictionaryDataObject, getAllPhrases, getCategories } from '../../utils/getDictionaryData';
+import { DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDictionaryData';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
 
@@ -156,8 +156,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
 };
 
 export const getStaticProps: GetStaticProps<{ dictionary: DictionaryDataObject }> = async ({ locale }) => {
-  const res = await fetch(`https://data.movapp.eu/uk-${getCountryVariant()}-dictionary.json`);
-  const dictionary: DictionaryDataObject = (await res.json()) as DictionaryDataObject;
+  const dictionary = await fetchDictionary();
   const localeTranslations = await getServerSideTranslations(locale);
 
   return {

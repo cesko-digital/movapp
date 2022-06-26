@@ -7,11 +7,11 @@ import { Flag } from './Flag';
 interface KidsTranslationProps {
   translation: string;
   transcription: string;
-  image: string;
+  soundUrl: string;
   language: Language;
 }
 
-export const KidsTranslation = ({ transcription, translation, language }: KidsTranslationProps): JSX.Element => {
+export const KidsTranslation = ({ transcription, translation, language, soundUrl }: KidsTranslationProps): JSX.Element => {
   const { t } = useTranslation();
 
   return (
@@ -26,10 +26,7 @@ export const KidsTranslation = ({ transcription, translation, language }: KidsTr
         <p className="self-start w-full font-semibold">{translation}</p>
         <p className="text-gray-500">{`[ ${transcription} ]`}</p>
       </div>
-      <button
-        onClick={() => AudioPlayer.getInstance().playTextToSpeech(translation, language)}
-        aria-label={t('utils.play') + ' ' + translation}
-      >
+      <button onClick={() => AudioPlayer.getInstance().playSrc(soundUrl)} aria-label={t('utils.play') + ' ' + translation}>
         <PlayKidsIcon className="cursor-pointer active:scale-75 transition-all duration-300" />
       </button>
     </div>
