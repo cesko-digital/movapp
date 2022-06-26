@@ -1,3 +1,4 @@
+import { Phrase } from 'utils/Phrase';
 import { Language } from 'utils/locales';
 
 export interface DictionaryDataObject {
@@ -87,11 +88,22 @@ export const getCategories = (dictionaryObject: DictionaryDataObject): Category2
       nameMain: categoryObject.name.main,
       nameUk: categoryObject.name.source,
       translations: categoryObject.phrases
-        .map((phraseId) => {
-          return new Phrase2(dictionaryObject.phrases[phraseId]);
-        })
-        .filter(Boolean),
+        .map((phraseId) => dictionaryObject.phrases[phraseId])
+        // Some phrases might be missing for some language variants
+        .filter(Boolean)
+        .map((phrase) => new Phrase2(phrase)),
     };
+
+    // categoryObject.phrases.forEach((phraseId) => {
+    //   const phrase: PhraseDataObject | undefined = dictionaryObject.phrases[phraseId];
+    //   if (!phrase) {
+    //     // eslint-disable-next-line no-console
+    //     console.log(`Phrase ${phraseId} not found`);
+    //   } else {
+    //     result.translations.push(new Phrase2(phrase));
+    //   }
+    // });
+    // return result;
   });
 };
 

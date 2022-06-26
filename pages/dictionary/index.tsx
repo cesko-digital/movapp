@@ -156,7 +156,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
 };
 
 export const getStaticProps: GetStaticProps<{ dictionary: DictionaryDataObject }> = async ({ locale }) => {
-  const res = await fetch('https://data.movapp.eu/uk-cs-dictionary.json');
+  const res = await fetch(`https://data.movapp.eu/uk-${getCountryVariant()}-dictionary.json`);
   const dictionary: DictionaryDataObject = (await res.json()) as DictionaryDataObject;
   const localeTranslations = await getServerSideTranslations(locale);
 
