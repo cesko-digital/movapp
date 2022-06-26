@@ -13,10 +13,7 @@ import { CountryVariant, getCountryVariant, Language } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
 import { Category } from 'data/translations/CategoryUtils';
 import { SearchInput } from 'components/basecomponents/SearchInput';
-import { CATEGORIES_CZ } from 'data/translations/cs/categories_CZ';
-import { CATEGORIES_SK } from 'data/translations/sk/categories_SK';
-import { CATEGORIES_PL } from 'data/translations/pl/categories_PL';
-import { DictionaryDataObject } from '../../utils/getDictionaryData';
+import { DictionaryDataObject, getAllPhrases, getCategories } from '../../utils/getDictionaryData';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
 
@@ -24,15 +21,6 @@ import { getServerSideTranslations } from '../../utils/localization';
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
 });
-
-const CATEGORIES_VARIANTS: Record<CountryVariant, Category[]> = {
-  cs: CATEGORIES_CZ,
-  sk: CATEGORIES_SK,
-  pl: CATEGORIES_PL,
-};
-
-const categories = CATEGORIES_VARIANTS[getCountryVariant()];
-const allTranslations = categories.map((category) => category.translations).flat();
 
 const getCategoryName = (category: Category, currentLanguage: Language) => {
   const mainLanguageCategory = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
@@ -48,6 +36,12 @@ const getCategoryId = (category: Category, currentLanguage: Language) => {
 
 const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   console.log(dictionary.main);
+
+  const categories = getCategories(dictionary);
+  console.log(categories);
+
+  const allTranslations = getAllPhrases(dictionary);
+  console.log(allTranslations);
 
   const [search, setSearch] = useState('');
   const [isSticky, setIsSticky] = useState(false);
