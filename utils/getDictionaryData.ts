@@ -1,4 +1,3 @@
-import { Phrase } from 'utils/Phrase';
 import { Language } from 'utils/locales';
 
 export interface DictionaryDataObject {
@@ -83,28 +82,21 @@ export class Phrase2 {
 }
 
 export const getCategories = (dictionaryObject: DictionaryDataObject): Category2[] => {
-  return dictionaryObject.categories.map((categoryObject) => {
-    return {
-      nameMain: categoryObject.name.main,
-      nameUk: categoryObject.name.source,
-      translations: categoryObject.phrases
-        .map((phraseId) => dictionaryObject.phrases[phraseId])
-        // Some phrases might be missing for some language variants
-        .filter(Boolean)
-        .map((phrase) => new Phrase2(phrase)),
-    };
+  const categoriesToExclude = ['recSHyEn6N0hAqUBp']; // For Kids category
 
-    // categoryObject.phrases.forEach((phraseId) => {
-    //   const phrase: PhraseDataObject | undefined = dictionaryObject.phrases[phraseId];
-    //   if (!phrase) {
-    //     // eslint-disable-next-line no-console
-    //     console.log(`Phrase ${phraseId} not found`);
-    //   } else {
-    //     result.translations.push(new Phrase2(phrase));
-    //   }
-    // });
-    // return result;
-  });
+  return dictionaryObject.categories
+    .filter((category) => categoriesToExclude.includes(category.id) === false)
+    .map((categoryObject) => {
+      return {
+        nameMain: categoryObject.name.main,
+        nameUk: categoryObject.name.source,
+        translations: categoryObject.phrases
+          .map((phraseId) => dictionaryObject.phrases[phraseId])
+          // Some phrases might be missing for some language variants
+          .filter(Boolean)
+          .map((phrase) => new Phrase2(phrase)),
+      };
+    });
 };
 
 export const getAllPhrases = (dictionaryObject: DictionaryDataObject): Phrase2[] => {

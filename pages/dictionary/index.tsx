@@ -9,7 +9,7 @@ import { translitFromUkrainian } from 'utils/transliterate';
 import { useLanguage } from 'utils/useLanguageHook';
 import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
-import { CountryVariant, getCountryVariant, Language } from 'utils/locales';
+import { getCountryVariant, Language } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
 import { Category } from 'data/translations/CategoryUtils';
 import { SearchInput } from 'components/basecomponents/SearchInput';
