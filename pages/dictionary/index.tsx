@@ -4,7 +4,6 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
-export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
 import { translitFromUkrainian } from 'utils/transliterate';
 import { useLanguage } from 'utils/useLanguageHook';
@@ -17,6 +16,10 @@ import { SearchInput } from 'components/basecomponents/SearchInput';
 import { CATEGORIES_CZ } from 'data/translations/cs/categories_CZ';
 import { CATEGORIES_SK } from 'data/translations/sk/categories_SK';
 import { CATEGORIES_PL } from 'data/translations/pl/categories_PL';
+import { DictionaryDataObject } from '../../utils/getDictionaryData';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { getServerSideTranslations } from '../../utils/localization';
+
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
@@ -43,7 +46,9 @@ const getCategoryId = (category: Category, currentLanguage: Language) => {
   return normalizeForId(text);
 };
 
-const Dictionary = () => {
+const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  console.log(dictionary.main);
+
   const [search, setSearch] = useState('');
   const [isSticky, setIsSticky] = useState(false);
 
@@ -104,12 +109,12 @@ const Dictionary = () => {
       />
       <div>
         <div className="max-w-7xl m-auto ">
-        <h1 className="text-primary-blue">{t(`dictionary_page.title.${getCountryVariant()}`)}</h1>
-        <div
-          ref={searchContainer}
-          className={`${
-            isSticky ? 'bg-primary-blue transition duration-500  -mx-2 w-auto px-2' : 'm-0 '
-          } flex items-center sticky top-14  transition-all duration-500 pb-2`}
+          <h1 className="text-primary-blue">{t(`dictionary_page.title.${getCountryVariant()}`)}</h1>
+          <div
+            ref={searchContainer}
+            className={`${
+              isSticky ? 'bg-primary-blue transition duration-500  -mx-2 w-auto px-2' : 'm-0 '
+            } flex items-center sticky top-14  transition-all duration-500 pb-2`}
           >
             <SearchInput
               id="search"
@@ -159,6 +164,19 @@ const Dictionary = () => {
       </div>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps<{ dictionary: DictionaryDataObject }> = async ({ locale }) => {
+  const res = await fetch('https://data.movapp.eu/uk-cs-dictionary.json');
+  const dictionary: DictionaryDataObject = (await res.json()) as DictionaryDataObject;
+  const localeTranslations = await getServerSideTranslations(locale);
+
+  return {
+    props: {
+      dictionary,
+      ...localeTranslations,
+    },
+  };
 };
 
 export default Dictionary;
