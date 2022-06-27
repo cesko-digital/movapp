@@ -25,7 +25,7 @@ export const CATEGORIES_SK: Category[] = [
     translations: processTranslations(Basic),
   },
   {
-    nameMain: 'Velká Noc',
+    nameMain: 'Veľká Noc',
     nameUk: 'Великдень',
     translations: processTranslations(Velikonoce),
   },
