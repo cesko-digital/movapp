@@ -106,8 +106,8 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
         link: 'https://pomagamukrainie.gov.pl/ua',
       },
       {
-        title: 'Dla obywateli Ukrainy',
-        description: 'footer.stand_with_ukraine_description',
+        title: 'www.gov.pl/ua',
+        description: 'Сайт Республіки Польща для громадян України',
         link: 'https://www.gov.pl/web/ua',
       },
       {
