@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from './MemoryGameCore';
+import { Card } from './MemoryGame';
 import Image from 'next/image';
 import { useLanguage } from 'utils/useLanguageHook';
 import { Phrase } from 'utils/Phrase';

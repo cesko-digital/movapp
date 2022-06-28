@@ -10,9 +10,9 @@ import SEO from 'components/basecomponents/SEO';
 import { CountryVariant, getCountryVariant } from 'utils/locales';
 export { getStaticProps } from '../../utils/localization';
 
-type KidsTranlsation = TranslationJSON & { image: string };
+export type KidsTranslation = TranslationJSON & { image: string };
 
-const KIDS_WORDS: Record<CountryVariant, KidsTranlsation[]> = {
+const KIDS_WORDS: Record<CountryVariant, KidsTranslation[]> = {
   cs: kidsWords_CZ,
   sk: kidsWords_SK,
   pl: kidsWords_PL,

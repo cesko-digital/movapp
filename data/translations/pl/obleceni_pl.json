@@ -1,6 +1,6 @@
 [
-  { "main": "tiszert", "uk": "футболка" },
-  { "main": "tiszerty", "uk": "футболки" },
+  { "main": "koszsulka", "uk": "футболка" },
+  { "main": "koszulki", "uk": "футболки" },
   { "main": "bluza", "uk": "толстовка" },
   { "main": "bluzy", "uk": "толстовки" },
   { "main": "sweter", "uk": "светр" },
@@ -10,7 +10,7 @@
   { "main": "sukienka", "uk": "сукня" },
   { "main": "spódnica", "uk": "спідниця" },
   { "main": "bluzka", "uk": "жіноча сорочка" },
-  { "main": "blůza", "uk": "блуза" },
+  { "main": "bluza", "uk": "блуза" },
   { "main": "piżama", "uk": "піжама" },
   { "main": "bielizna", "uk": "білизна" },
   { "main": "skarpetki", "uk": "шкарпетки" },

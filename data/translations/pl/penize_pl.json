@@ -32,7 +32,7 @@
   { "main": "Ile mogę maksymalnie wypłacić?", "uk": "Скільки грошей мені можна максимально зняти?" },
   { "main": "Jaki jest mój numer konta?", "uk": "Який у мене номер рахунку?" },
   { "main": "Pani numer konta to... Pana numer konta to...", "uk": "Ваш номер рахунку..." },
-  { "main": "Jaka jest stawka oprocentownaia tego konta?", "uk": "Яка відсоткова ставка за цей рахунок?" },
+  { "main": "Jaka jest stawka oprocentowania tego konta?", "uk": "Яка відсоткова ставка за цей рахунок?" },
   { "main": "Kiedy dostanę kod PIN do karty płatniczej?", "uk": "Коли я зможу отримати ПІН-код до карточки?" },
   { "main": "Zapomniałem PIN. Zapomniałam PIN.", "uk": "Я забув ПІН-код. Я забула ПІН-код." },
   { "main": "Mam dostęp do systemu bankowości internetowej?", "uk": "У мене є мобільний додаток банка?" },
@@ -66,7 +66,7 @@
     "uk": "Я б хотіла встановити постійне обслуговування. Я б хотів встановити постійне обслуговування."
   },
   {
-    "main": "Chciałabym anulować to zlecenie stałe. Chciałbym anulować to zlecenie stałe.",
+    "main": "Chciałabym anulować zlecenie stałe. Chciałbym anulować zlecenie stałe.",
     "uk": "Я б хотіла відмінити постійне обслуговування. Я б хотів відмінити постійне обслуговування"
   },
   { "main": "Poproszę o wyciąg bankowy z mojego konta.", "uk": "Дайте мені, будь ласка, виписку з рахунку." },
