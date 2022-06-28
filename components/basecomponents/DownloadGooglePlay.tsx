@@ -9,7 +9,7 @@ export const DownloadGooglePlay = () => {
   return (
     <a href={DOWNLOAD_ANDROID_URL} target="_blank" rel="noreferrer">
       <img
-        className="h-28 min-w-[290px]"
+        className="h-24 min-w-[240px]"
         alt="Get it on Google Play"
         src={`https://play.google.com/intl/en_us/badges/static/images/badges/${badgeLanguage}_badge_web_generic.png`}
       />

@@ -13,10 +13,10 @@ import AlphabetIcon from '../public/icons/book-font.svg';
 import MovappIcon from '../public/icons/movapp-bw-icon.svg';
 import KidsSunIcon from '../public/icons/sun.svg';
 import SEO from 'components/basecomponents/SEO';
-import { DownloadAppStore } from '../components/basecomponents/DownloadAppStore';
 import { CountryVariant, getCountryVariant } from '../utils/locales';
 import { ReactNode } from 'react';
-import { DownloadGooglePlay } from '../components/basecomponents/DownloadGooglePlay';
+import { AppsButtons } from 'components/sections/AppsButtons';
+import { LanguagesFlags } from 'components/sections/LanguagesFlags';
 
 const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
   cs: <Image src={HeartsUkraine_CZ} alt="Česká a Ukrajinská vlajka v srdcích." width={140} height={164} />,
@@ -115,10 +115,8 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="mx-auto my-12 flex items-center flex-wrap justify-center">
-        <DownloadAppStore />
-        <DownloadGooglePlay />
-      </div>
+      {getCountryVariant() === 'cs' && <AppsButtons />}
+      <LanguagesFlags />
     </>
   );
 };
