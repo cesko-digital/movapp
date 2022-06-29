@@ -2,9 +2,15 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FOOTER_NAVIGATION } from 'data/footerNavigation';
+import { getCountryVariant } from 'utils/locales';
+import { useLanguage } from 'utils/useLanguageHook';
 
 export const Footer = () => {
   const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
+
+  const footerNavigationLinks = FOOTER_NAVIGATION[getCountryVariant()][currentLanguage];
+
   return (
     <footer className="bg-primary-yellow">
       <div className="max-w-4xl m-auto p-2 sm:py-5 ">
@@ -23,8 +29,8 @@ export const Footer = () => {
             <Image src="/icons/socials/linkedin.svg" width="34px" height="34px" alt="LinkedIn" />
           </a>
         </div>
-        <div className="flex flex-col sm:flex-row justify-between items-center">
-          {FOOTER_NAVIGATION.map(({ title, link, description }, index) => {
+        <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start">
+          {footerNavigationLinks?.map(({ title, link, description }, index) => {
             return (
               <Link key={index} href={link}>
                 <a target={'_blank'} className="sm:w-2/6">

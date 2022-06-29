@@ -104,12 +104,12 @@ const Dictionary = () => {
       />
       <div>
         <div className="max-w-7xl m-auto ">
-          <h1 className="text-primary-blue">{t(`dictionary_page.title.${getCountryVariant()}`)}</h1>
-          <div
-            ref={searchContainer}
-            className={`${
-              isSticky ? 'bg-primary-blue transition duration-500  -mx-2 w-auto px-2  pb-2' : 'm-0 '
-            } flex items-center sticky   top-14  transition-all duration-500`}
+        <h1 className="text-primary-blue">{t(`dictionary_page.title.${getCountryVariant()}`)}</h1>
+        <div
+          ref={searchContainer}
+          className={`${
+            isSticky ? 'bg-primary-blue transition duration-500  -mx-2 w-auto px-2' : 'm-0 '
+          } flex items-center sticky top-14  transition-all duration-500 pb-2`}
           >
             <SearchInput
               id="search"
@@ -131,11 +131,7 @@ const Dictionary = () => {
           <ExportTranslations
             translations={allTranslations}
             categoryName={t('export_translations.all_phrases')}
-            trigger={
-              <span className="cursor-pointer py-2 underline text-primary-blue inline-block">
-                {t('export_translations.download')} {t('export_translations.all_phrases')}
-              </span>
-            }
+            triggerLabel={`${t('export_translations.export')} ${t('export_translations.all_phrases')}`}
           />
           <h2 className="text-primary-blue">{t(isSearching ? 'dictionary_page.results_subtitle' : 'dictionary_page.subtitle')}</h2>
           {isSearching ? (

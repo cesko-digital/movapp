@@ -7,7 +7,7 @@ import { Language } from './locales';
  */
 export class AudioPlayer {
   private static instance: AudioPlayer | null = null;
-  currentAudio: HTMLAudioElement | null = null;
+  currentAudio: HTMLAudioElement = new Audio();
 
   // Prohibits creating new instances outside the class using 'new AudioPlayer()'
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -25,44 +25,38 @@ export class AudioPlayer {
     if (!newAudio) {
       return;
     }
-    if (this.currentAudio) {
-      this.currentAudio.pause();
-    }
-    newAudio.play();
-    this.currentAudio = newAudio;
+
+    this.playSrc(newAudio.src);
+  };
+
+  playSrc = (src: string) => {
+    this.currentAudio.pause();
+    this.currentAudio.src = src;
+    this.currentAudio.load();
+
+    return new Promise<void>((resolve) => {
+      this.currentAudio.oncanplay = () => {
+        this.currentAudio.play().catch(() => {
+          resolve();
+        });
+      };
+      this.currentAudio.onerror = () => {
+        resolve();
+      };
+      this.currentAudio.onabort = () => {
+        resolve();
+      };
+      this.currentAudio.onended = () => {
+        resolve();
+      };
+    });
   };
 
   getGoogleTTSAudio = (text: string, language: Language) => {
-    const source = `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;
-    return new Audio(source);
+    return `https://translate.google.com/translate_tts?tl=${language}&q=${encodeURIComponent(text)}&client=tw-ob`;
   };
 
   playTextToSpeech = (text: string, language: Language) => {
-    this.play(this.getGoogleTTSAudio(text, language));
-  };
-
-  playTextToSpeechAsync = (text: string, language: Language): Promise<void> => {
-    const userAgent = navigator.userAgent || navigator.vendor;
-
-    if (/iPad|iPhone|iPod/i.test(userAgent)) {
-      return new Promise((resolve) => {
-        resolve();
-      });
-    }
-
-    const sound = this.getGoogleTTSAudio(text, language);
-    this.play(sound);
-    return new Promise((resolve) => {
-      sound.onerror = () => {
-        console.warn(sound?.error?.message);
-        resolve();
-      };
-      sound.onabort = () => {
-        console.warn('Audio play aborted');
-        resolve();
-      };
-      sound.onpause = () => resolve();
-      sound.onended = () => resolve();
-    });
+    return this.playSrc(this.getGoogleTTSAudio(text, language));
   };
 }

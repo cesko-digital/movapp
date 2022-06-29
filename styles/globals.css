@@ -51,15 +51,3 @@ h2 {
 .logo span {
   display: block !important;
 }
-
-
-/* Override the next image theming. */
-
-.child-section__image span {
-  height: 100% !important;
-  width: 100% !important;
-}
-
-.child-section__image img {
-  object-fit: contain;
-}

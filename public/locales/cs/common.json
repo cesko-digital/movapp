@@ -33,21 +33,6 @@
     "box_child_description": {
       "cs": "Ilustrovaný ukrajinsko-český slovníček s desítkami tisknutelných karet."
     },
-    "box_child_section_title": "Den dětí - 1. června",
-    "box_child_section_image_author": "Autorka: Marička Gorbatenko, 11 let",
-    "box_child_dictionary_title": "Pohádkový slovníček",
-    "box_child_dictionary_description": "Víte jak proměnit prince v žábu?",
-    "box_child_dictionary_link": "/dictionary#pohadky",
-    "box_child_words_title": "Ilustrovaný slovníček",
-    "box_child_words_description": {
-      "cs": "Ukrajinsko-český slovníček s desítkami tisknutelných obrázkových karet."
-    },
-    "box_child_stories_title": "Pohádky",
-    "box_child_stories_description": {
-      "cs": "Přečtěte a přehrajte si české a ukrajinské pohádky."
-    },
-    "box_child_memory_title": "Pexeso",
-    "box_child_memory_description": "Procvičujte slovíčka v oblíbené hře s unikátními obrázky.",
     "box_alphabet_title": {
       "cs": "Ukrajinská abeceda"
     },
@@ -63,7 +48,9 @@
     "box_movapp_description_bottom": {
       "cs": "Najdete tu přehled základních komunikačních frází v češtině a ukrajinštině. Brzy přidáme nástroje k jejich procvičování a rozcestník na materiály k učení."
     },
-    "download_on": "Stáhnout na"
+    "download_app": "Stáhnout do mobilu",
+    "download_on": "Stáhnout na",
+    "languages": "Movapp mluví dalšími jazyky"
   },
   "dictionary_page": {
     "title": {
@@ -154,11 +141,15 @@
     },
     "kids_page_storiesTitle": {
       "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"
+    },
+    "kids_page_storiesDescription": {
+      "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"
     }
   },
   "export_translations": {
     "download_phrases": "Stáhnout fráze",
-    "download": "Stáhnout",
+    "export_phrases": "Exportovat fráze",
+    "export": "Exportovat",
     "comma": "čárka",
     "semicolon": "středník",
     "new_line": "nová řádka",
@@ -171,7 +162,8 @@
     "preview": "Náhled",
     "transcriptions": "Transkripce",
     "include_transcriptions": "Zapsat fráze v obou abecedách",
-    "all_phrases": "všechny fráze"
+    "all_phrases": "všechny fráze",
+    "subtitle_note": "Fráze si můžete stáhnout v preferovaném formátu a importovat do vašich poznámek nebo aplikace na učení jazyků, např. Quizlet nebo Anki."
   },
   "errors": {
     "pageNotFound": "Stránka nebyla nalezena"

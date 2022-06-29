@@ -31,21 +31,6 @@
     "box_child_description": {
       "pl": "Ilustrowany ukraińsko-polski słownik z kartami gotowymi do wydrukowania"
     },
-    "box_child_section_title": "Den dětí - 1. června",
-    "box_child_section_image_author": "Autorka: Marička Gorbatenko, 11 let",
-    "box_child_dictionary_title": "Pohádkový slovníček",
-    "box_child_dictionary_description": "Víte jak proměnit prince v žábu?",
-    "box_child_dictionary_link": "/dictionary#kazky",
-    "box_child_words_title": "Ilustrovaný slovníček",
-    "box_child_words_description": {
-      "cs": "Ukrajinsko-český slovníček s desítkami tisknutelných obrázkových karet."
-    },
-    "box_child_stories_title": "Pohádky",
-    "box_child_stories_description": {
-      "cs": "Přečtěte a přehrajte si české a ukrajinské pohádky."
-    },
-    "box_child_memory_title": "Pexeso",
-    "box_child_memory_description": "Procvičujte slovíčka v oblíbené hře s unikátními obrázky.",
     "box_alphabet_title": {
       "pl": "Alfabet ukraiński"
     },
@@ -60,7 +45,9 @@
     "box_movapp_description_bottom": {
       "pl": "Znajdziesz tu zbiór postawowych zwrotów komunikacyjnych w językach polskim i ukraińskim. Za niedługo dodamy narzędzia do ich ćwiczenia, oraz zalinkujemy materiały do nauki."
     },
-    "download_on": "Pobierz w"
+    "download_app": "Pobierz na komórkę",
+    "download_on": "Pobierz w",
+    "languages": "Movapp mówi innymi językami"
   },
   "dictionary_page": {
     "title": {
@@ -142,12 +129,16 @@
       "pl": "Zdjęcia dla dzieci z opisem ukraińskim i polskim. Używany po słowacku i ukraińsku. Wydrukuj kolorowanki dla dzieci."
     },
     "kids_page_storiesTitle": {
-      "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"
+      "pl": "Czytaj i słuchaj polskich i ukraińskich opowieści ludowych"
+    },
+    "kids_page_storiesDescription": {
+      "pl": "Czytaj i słuchaj polskich i ukraińskich opowieści ludowych"
     }
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",
-    "download": "Pobierz",
+    "export_phrases": "Eksport zwroty",
+    "export": "Eksport",
     "comma": "przecinek",
     "semicolon": "średnik",
     "new_line": "nowa linijka",
@@ -160,7 +151,8 @@
     "preview": "Podgląd",
     "transcriptions": "Transkrypcja",
     "include_transcriptions": "Zapisuj zwroty w obu alfabetach",
-    "all_phrases": "wszystkie zwroty"
+    "all_phrases": "wszystkie zwroty",
+    "subtitle_note": "Możesz pobrać frazy w preferowanym formacie i zaimportować je do swoich notatek lub aplikacji do nauki języków, takich jak Quizlet lub Anki."
   },
   "errors": {
     "pageNotFound": "Strona nie została znaleziona"
