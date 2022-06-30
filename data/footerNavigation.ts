@@ -36,7 +36,7 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
       {
         title: 'Pomáhej Ukrajině',
         description: 'footer.help_ukraine_description',
-        link: 'https://www.pomahejukrajine.cz/uk',
+        link: 'https://www.pomahejukrajine.cz/ua',
       },
       {
         title: 'Stojíme za Ukrajinou',
