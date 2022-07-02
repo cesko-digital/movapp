@@ -8,10 +8,18 @@ SITE_URLS = {
   pl: 'https://pl.movapp.eu',
 };
 
+EXCLUSIONS = {
+  cs: [],
+  sk: ['/wiki*', '/uk/wiki*'],
+  pl: ['/wiki*', '/uk/wiki*'],
+};
+
+excludeArray = countryVariant === 'cs' ? [] : ['/wiki'];
+
 module.exports = {
   siteUrl: SITE_URLS[countryVariant],
   generateRobotsTxt: true,
-  exclude: ['/404', '/uk/404'],
+  exclude: ['/404', '/uk/404', ...EXCLUSIONS[countryVariant]],
   priority: null,
   changefreq: null,
   generateIndexSitemap: false,
