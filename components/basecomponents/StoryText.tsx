@@ -79,7 +79,7 @@ const StoryText = ({ languageText, languagePlay, audio, id, onPlaying }: StoryTe
   };
 
   return (
-    <div className="mt-10 md:flex bg-slate-100 divide-y-8 divide-white md:divide-y-0 md:w-1/2">
+    <div className="mt-4 md:flex bg-slate-100 divide-y-8 divide-white md:divide-y-0 md:w-1/2">
       <div className="max-h-[30vh] md:max-h-full overflow-y-scroll md:overflow-auto" ref={containerRef}>
         {selectedStory().map((phrase: StoryPhrase, index: number) => {
           return (
