@@ -82,9 +82,9 @@ const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps
 
   return (
     <div className="w-full">
-      <div className="controls max-h-[20vh]">
+      <div className="controls">
         <div className="flex items-center">
-          <h2>
+          <h2 className="p-0 m-0">
             {titleCurrent} / {titleOther}
           </h2>
           <button onClick={() => handleLanguageChange('cs')}>
@@ -104,7 +104,7 @@ const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps
             />
           </button>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center pt-4">
           <div className="flex">
             <button onClick={() => (isPlaying ? pauseStory() : playStory())}>
               {isPlaying ? (
