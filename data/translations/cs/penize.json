@@ -1,6 +1,10 @@
 [
   { "main": "Mohu platit kartou?", "uk": "Можна заплатити картою?" },
   { "main": "Mohu platit hotově?", "uk": "Можна заплатити готівкою?" },
+  { "main": "peníze", "uk": "гроші" },
+  { "main": "hotovost", "uk": "готівка" },
+  { "main": "bankovky", "uk": "купюри" },
+  { "main": "mince", "uk": "монети" },
   { "main": "banka", "uk": "банк" },
   { "main": "Potřebuji jít do banky.", "uk": "Мені потрібно в банк." },
   { "main": "Hledám banku.", "uk": "Шукаю банк." },

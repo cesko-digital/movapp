@@ -45,7 +45,9 @@
     "box_movapp_description_bottom": {
       "pl": "Znajdziesz tu zbiór postawowych zwrotów komunikacyjnych w językach polskim i ukraińskim. Za niedługo dodamy narzędzia do ich ćwiczenia, oraz zalinkujemy materiały do nauki."
     },
-    "download_on": "Pobierz w"
+    "download_app": "Pobierz na komórkę",
+    "download_on": "Pobierz w",
+    "languages": "Movapp mówi innymi językami"
   },
   "dictionary_page": {
     "title": {
@@ -127,10 +129,10 @@
       "pl": "Zdjęcia dla dzieci z opisem ukraińskim i polskim. Używany po słowacku i ukraińsku. Wydrukuj kolorowanki dla dzieci."
     },
     "kids_page_storiesTitle": {
-      "pl": "Todo"
+      "pl": "Czytaj i słuchaj polskich i ukraińskich opowieści ludowych"
     },
     "kids_page_storiesDescription": {
-      "pl": "Todo"
+      "pl": "Czytaj i słuchaj polskich i ukraińskich opowieści ludowych"
     }
   },
   "export_translations": {
