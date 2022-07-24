@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import React, { useMemo } from 'react';
 import { Button } from '../../components/basecomponents/Button';
 import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
-import { TranslationJSON } from 'utils/Phrase';
+import { TranslationJSON } from 'utils/Phrase_deprecated';
 import SEO from 'components/basecomponents/SEO';
 import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';

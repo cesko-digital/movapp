@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from './MemoryGame';
 import Image from 'next/image';
 import { useLanguage } from 'utils/useLanguageHook';
-import { Phrase_deprecated } from 'utils/Phrase';
+import { Phrase_deprecated } from 'utils/Phrase_deprecated';
 
 interface MemoryGameCardProps {
   card: Card;
