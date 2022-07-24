@@ -11,9 +11,8 @@ import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
 import { getCountryVariant, Language } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
-import { Category } from 'data/translations/CategoryUtils';
 import { SearchInput } from 'components/basecomponents/SearchInput';
-import { DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDictionaryData';
+import { Category2, DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDictionaryData';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
 
@@ -22,14 +21,14 @@ const ExportTranslations = dynamic(() => import('../../components/sections/Expor
   ssr: false,
 });
 
-const getCategoryName = (category: Category, currentLanguage: Language) => {
+const getCategoryName = (category: Category2, currentLanguage: Language) => {
   const mainLanguageCategory = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
   const secondaryLanguageCategory = currentLanguage === 'uk' ? category.nameMain : category.nameUk;
   return `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 };
 
 // Used to link directly to category with dictionary#categoryId
-const getCategoryId = (category: Category, currentLanguage: Language) => {
+const getCategoryId = (category: Category2, currentLanguage: Language) => {
   const text = currentLanguage === 'uk' ? translitFromUkrainian(category.nameUk) : category.nameMain;
   return normalizeForId(text);
 };
@@ -81,10 +80,10 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
   const filteredTranslations = useMemo(() => {
     const searchText = normalize(search);
     const matches = allTranslations.filter((translation) =>
-      normalize(translation.otherTranslation + translation.ukTranslation).includes(searchText)
+      normalize(translation.getTranslation() + translation.getTranslation('uk')).includes(searchText)
     );
     const uniqueMathces = matches.filter(
-      (match, index) => matches.findIndex((phrase) => phrase.otherTranscription === match.otherTranscription) === index
+      (match, index) => matches.findIndex((phrase) => phrase.getTranscription() === match.getTranscription()) === index
     );
     return uniqueMathces;
   }, [search, allTranslations]);

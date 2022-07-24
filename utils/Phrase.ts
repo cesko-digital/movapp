@@ -19,7 +19,7 @@ export const isValidTranslationJSON = (input: TranslationJSON): input is Transla
   }
 };
 
-export class Phrase {
+export class Phrase_deprecated {
   ukTranslation: string;
   ukTranscription: string;
   otherTranslation: string;

@@ -1,10 +1,10 @@
 import { TranslationContainer } from 'components/basecomponents/TranslationsContainer';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useRef, useState } from 'react';
-import { Phrase2 } from '../../utils/getDictionaryData';
+import { Phrase } from '../../utils/getDictionaryData';
 
 interface DictionarySearchResultsProps {
-  results: Phrase2[];
+  results: Phrase[];
   search: string;
 }
 

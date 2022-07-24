@@ -31,9 +31,9 @@ const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticPro
         {kidsCategory?.translations.map((phrase) => {
           return (
             <KidsTranslationsContainer
-              key={phrase.otherTranslation}
+              key={phrase.getTranslation('uk')}
               // Todo: remove the replace once movapp-data is fixed
-              imageUrl={phrase.imageUrl?.replace('data.movapp.eu/images/', 'data.movapp.eu/images/source/') ?? ''}
+              imageUrl={phrase.getImageUrl()?.replace('data.movapp.eu/images/', 'data.movapp.eu/images/source/') ?? ''}
               phrase={phrase}
             />
           );

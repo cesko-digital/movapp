@@ -35,52 +35,41 @@ export interface TranslationDataObject {
 export interface Category2 {
   nameMain: string;
   nameUk: string;
-  translations: Phrase2[];
+  translations: Phrase[];
 }
 
-export class Phrase2 {
-  ukTranslation: string;
-  ukTranscription: string;
-  ukSoundUrl: string;
-  otherTranslation: string;
-  otherTranscription: string;
-  otherSoundUrl: string;
-  imageUrl: string | null;
+export class Phrase {
+  private phraseData: PhraseDataObject;
 
   constructor(phraseObject: PhraseDataObject) {
-    // To do later: generate transcription automatically here
-    this.ukTranslation = phraseObject.source.translation;
-    this.ukTranscription = phraseObject.source.transcription;
-    this.ukSoundUrl = phraseObject.source.sound_url;
-    this.otherTranslation = phraseObject.main.translation;
-    this.otherTranscription = phraseObject.main.transcription;
-    this.otherSoundUrl = phraseObject.main.sound_url;
-    this.imageUrl = phraseObject.image_url;
+    this.phraseData = phraseObject;
   }
 
-  getTranslation = (language: Language) => {
+  getTranslation = (language?: Language) => {
     if (language === 'uk') {
-      return this.ukTranslation;
+      return this.phraseData.source.translation;
     } else {
-      return this.otherTranslation;
+      return this.phraseData.main.translation;
     }
   };
 
-  getTranscription = (language: Language) => {
+  getTranscription = (language?: Language) => {
     if (language === 'uk') {
-      return this.ukTranscription;
+      return this.phraseData.source.transcription;
     } else {
-      return this.otherTranscription;
+      return this.phraseData.main.transcription;
     }
   };
 
-  getSoundUrl = (language: Language) => {
+  getSoundUrl = (language?: Language) => {
     if (language === 'uk') {
-      return this.ukSoundUrl;
+      return this.phraseData.source.sound_url;
     } else {
-      return this.otherSoundUrl;
+      return this.phraseData.main.sound_url;
     }
   };
+
+  getImageUrl = () => this.phraseData.image_url;
 }
 
 const KIDS_CATEGORY_ID = 'recSHyEn6N0hAqUBp';
@@ -93,7 +82,7 @@ const parseCategory = (categoryObject: CategoryDataObject, dictionaryObject: Dic
       .map((phraseId) => dictionaryObject.phrases[phraseId])
       // Some phrases might be missing for some language variants
       .filter(Boolean)
-      .map((phrase) => new Phrase2(phrase)),
+      .map((phrase) => new Phrase(phrase)),
   };
 };
 
@@ -105,8 +94,8 @@ export const getCategories = (dictionaryObject: DictionaryDataObject): Category2
     .map((category) => parseCategory(category, dictionaryObject));
 };
 
-export const getAllPhrases = (dictionaryObject: DictionaryDataObject): Phrase2[] => {
-  return [...Object.values(dictionaryObject.phrases)].map((phraseObject) => new Phrase2(phraseObject));
+export const getAllPhrases = (dictionaryObject: DictionaryDataObject): Phrase[] => {
+  return [...Object.values(dictionaryObject.phrases)].map((phraseObject) => new Phrase(phraseObject));
 };
 
 export const getKidsCategory = (dictionaryObject: DictionaryDataObject): Category2 | undefined => {
