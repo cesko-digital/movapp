@@ -4,46 +4,39 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
-export { getStaticProps } from 'utils/localization';
 import Marker from 'react-mark.js/Marker';
 import { translitFromUkrainian } from 'utils/transliterate';
 import { useLanguage } from 'utils/useLanguageHook';
 import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
-import { CountryVariant, getCountryVariant, Language } from 'utils/locales';
+import { getCountryVariant, Language } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
-import { Category } from 'data/translations/CategoryUtils';
 import { SearchInput } from 'components/basecomponents/SearchInput';
-import { CATEGORIES_CZ } from 'data/translations/cs/categories_CZ';
-import { CATEGORIES_SK } from 'data/translations/sk/categories_SK';
-import { CATEGORIES_PL } from 'data/translations/pl/categories_PL';
+import { Category2, DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDictionaryData';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { getServerSideTranslations } from '../../utils/localization';
+
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
 });
 
-const CATEGORIES_VARIANTS: Record<CountryVariant, Category[]> = {
-  cs: CATEGORIES_CZ,
-  sk: CATEGORIES_SK,
-  pl: CATEGORIES_PL,
-};
-
-const categories = CATEGORIES_VARIANTS[getCountryVariant()];
-const allTranslations = categories.map((category) => category.translations).flat();
-
-const getCategoryName = (category: Category, currentLanguage: Language) => {
+const getCategoryName = (category: Category2, currentLanguage: Language) => {
   const mainLanguageCategory = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
   const secondaryLanguageCategory = currentLanguage === 'uk' ? category.nameMain : category.nameUk;
   return `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 };
 
 // Used to link directly to category with dictionary#categoryId
-const getCategoryId = (category: Category, currentLanguage: Language) => {
+const getCategoryId = (category: Category2, currentLanguage: Language) => {
   const text = currentLanguage === 'uk' ? translitFromUkrainian(category.nameUk) : category.nameMain;
   return normalizeForId(text);
 };
 
-const Dictionary = () => {
+const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const categories = useMemo(() => getCategories(dictionary), [dictionary]);
+  const allTranslations = useMemo(() => getAllPhrases(dictionary), [dictionary]);
+
   const [search, setSearch] = useState('');
   const [isSticky, setIsSticky] = useState(false);
 
@@ -87,13 +80,13 @@ const Dictionary = () => {
   const filteredTranslations = useMemo(() => {
     const searchText = normalize(search);
     const matches = allTranslations.filter((translation) =>
-      normalize(translation.otherTranslation + translation.ukTranslation).includes(searchText)
+      normalize(translation.getTranslation() + translation.getTranslation('uk')).includes(searchText)
     );
     const uniqueMathces = matches.filter(
-      (match, index) => matches.findIndex((phrase) => phrase.otherTranscription === match.otherTranscription) === index
+      (match, index) => matches.findIndex((phrase) => phrase.getTranscription() === match.getTranscription()) === index
     );
     return uniqueMathces;
-  }, [search]);
+  }, [search, allTranslations]);
 
   return (
     <>
@@ -159,6 +152,18 @@ const Dictionary = () => {
       </div>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps<{ dictionary: DictionaryDataObject }> = async ({ locale }) => {
+  const dictionary = await fetchDictionary();
+  const localeTranslations = await getServerSideTranslations(locale);
+
+  return {
+    props: {
+      dictionary,
+      ...localeTranslations,
+    },
+  };
 };
 
 export default Dictionary;
