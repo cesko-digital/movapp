@@ -1,5 +1,9 @@
 import { getCountryVariant, Language } from 'utils/locales';
 
+/**
+ * Dictionary
+ * */
+
 export interface DictionaryDataObject {
   source: Language;
   main: Language;
@@ -110,4 +114,34 @@ export const getKidsCategory = (dictionaryObject: DictionaryDataObject): Categor
 export const fetchDictionary = async () => {
   const result = await (await fetch(`https://data.movapp.eu/uk-${getCountryVariant()}-dictionary.json`)).json();
   return result as DictionaryDataObject;
+};
+
+/**
+ * Alphabet
+ * */
+
+export interface Letter {
+  id: string;
+  letters: [string, string | null];
+  examples: TranslationDataObject[];
+  sound_url: string;
+  transcription: string;
+}
+
+export interface AlphabetDataObject {
+  // uk
+  source: Language;
+  // cs, sk, pl
+  main: Language;
+  data: Letter[];
+}
+
+export const fetchAlphabetUk = async () => {
+  const result = await (await fetch(`https://data.movapp.eu/uk-${getCountryVariant()}-alphabet.json`)).json();
+  return result as AlphabetDataObject;
+};
+
+export const fetchAlphabetMain = async () => {
+  const result = await (await fetch(`https://data.movapp.eu/${getCountryVariant()}-uk-alphabet.json`)).json();
+  return result as AlphabetDataObject;
 };

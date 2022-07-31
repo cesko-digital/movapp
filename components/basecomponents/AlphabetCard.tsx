@@ -3,27 +3,23 @@ import { Language } from 'utils/locales';
 import { useTranslation } from 'next-i18next';
 import React, { useRef } from 'react';
 import PlayIcon from '../../public/icons/play.svg';
-import { translitFromUkrainian, translitToUkrainian } from 'utils/transliterate';
+import { TranslationDataObject } from '../../utils/getDictionaryData';
 
 const LETTERS_WITHOUT_AUDIO = ['ь'];
 
 interface AlphabetCardProps {
-  examples: {
-    example: string;
-    example_transcription: string;
-  }[];
-  letter: [string, string | null];
+  examples: TranslationDataObject[];
+  letters: [string, string | null];
   transcription: string;
   language: Language;
 }
 
-export const AlphabetCard = ({ examples, letter, transcription, language }: AlphabetCardProps): JSX.Element => {
+export const AlphabetCard = ({ examples, letters, transcription, language }: AlphabetCardProps): JSX.Element => {
   const { t } = useTranslation();
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const audioSrcPath = `alphabet/${language}-alphabet/${letter[0].toLowerCase()}.mp3`;
-  const letterHasAudio = !LETTERS_WITHOUT_AUDIO.includes(letter[0]);
+  const audioSrcPath = `alphabet/${language}-alphabet/${letters[0].toLowerCase()}.mp3`;
+  const letterHasAudio = !LETTERS_WITHOUT_AUDIO.includes(letters[0]);
   const letterSpacer = ' ';
-  const transliterate = language === 'uk' ? translitFromUkrainian : translitToUkrainian;
 
   return (
     <div className=" grid grid-rows-[66%_34%]  shadow-[0_3px_15px_grey] sm:shadow-none group sm:hover:shadow-lg rounded-lg">
@@ -31,16 +27,16 @@ export const AlphabetCard = ({ examples, letter, transcription, language }: Alph
       <div className="bg-white rounded-t-lg  group-hover:bg-primary-blue transition-colors duration-500">
         <div className="px-4 py-2 h-full grid grid-rows-[40%_30%_30%]">
           <p className=" text-7xl  sm:text-6xl md:text-7xl py-4 md:py-2 font-light text-center group-hover:text-white transition-colors duration-500">
-            {letter[0]}
+            {letters[0]}
             {letterSpacer}
-            {letter[1]}
+            {letters[1]}
           </p>
           <div className="self-end">
             {letterHasAudio && (
               <button
                 onClick={() => AudioPlayer.getInstance().play(audioRef.current)}
                 className="w-16 sm:w-8 md:w-12 m-auto block"
-                aria-label={t('utils.play') + ' ' + letter[0]}
+                aria-label={t('utils.play') + ' ' + letters[0]}
               >
                 <audio ref={audioRef} src={audioSrcPath} />
                 <PlayIcon className="py-1 stroke-red-500 cursor-pointer" />{' '}
@@ -65,15 +61,15 @@ export const AlphabetCard = ({ examples, letter, transcription, language }: Alph
       </div>
       {/* Examples part */}
       <div className="bg-primary-yellow py-1 md:py-3 rounded-b-lg">
-        {examples.map(({ example, example_transcription }, index) => {
+        {examples.map(({ transcription, translation, sound_url }, index) => {
           return (
             <div key={index} className="grid grid-cols-[40%_45%_15%] grid-flow-col items-center pt-3 px-4">
-              <p className="font-light justift-self-start break-all text-base sm:text-xs md:text-sm">{example}</p>
-              <p className="font-light text-base sm:text-xs md:text-sm">[{example_transcription || transliterate(example)}]</p>
+              <p className="font-light justift-self-start break-all text-base sm:text-xs md:text-sm">{translation}</p>
+              <p className="font-light text-base sm:text-xs md:text-sm">[{transcription}]</p>
               <button
                 className="justify-self-end"
-                onClick={() => AudioPlayer.getInstance().playTextToSpeech(example, language)}
-                aria-label={t('utils.play') + ' ' + example}
+                onClick={() => AudioPlayer.getInstance().playSrc(sound_url)}
+                aria-label={t('utils.play') + ' ' + translation}
               >
                 <PlayIcon className="w-7 sm:w-4 md:w-5 stroke-red-500  cursor-pointer " />
               </button>
