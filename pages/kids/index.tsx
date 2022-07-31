@@ -29,14 +29,7 @@ const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticPro
       </div>
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
         {kidsCategory?.translations.map((phrase) => {
-          return (
-            <KidsTranslationsContainer
-              key={phrase.getTranslation('uk')}
-              // Todo: remove the replace once movapp-data is fixed
-              imageUrl={phrase.getImageUrl()?.replace('data.movapp.eu/images/', 'data.movapp.eu/images/source/') ?? ''}
-              phrase={phrase}
-            />
-          );
+          return <KidsTranslationsContainer key={phrase.getTranslation('uk')} imageUrl={phrase.getImageUrl()} phrase={phrase} />;
         })}
       </div>
     </div>
