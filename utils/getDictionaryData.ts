@@ -36,7 +36,7 @@ export interface TranslationDataObject {
   transcription: string;
 }
 
-export interface Category2 {
+export interface Category {
   nameMain: string;
   nameUk: string;
   translations: Phrase[];
@@ -78,7 +78,7 @@ export class Phrase {
 
 const KIDS_CATEGORY_ID = 'recSHyEn6N0hAqUBp';
 
-const parseCategory = (categoryObject: CategoryDataObject, dictionaryObject: DictionaryDataObject): Category2 => {
+const parseCategory = (categoryObject: CategoryDataObject, dictionaryObject: DictionaryDataObject): Category => {
   return {
     nameMain: categoryObject.name.main,
     nameUk: categoryObject.name.source,
@@ -90,7 +90,7 @@ const parseCategory = (categoryObject: CategoryDataObject, dictionaryObject: Dic
   };
 };
 
-export const getCategories = (dictionaryObject: DictionaryDataObject): Category2[] => {
+export const getCategories = (dictionaryObject: DictionaryDataObject): Category[] => {
   const categoriesToExclude = [KIDS_CATEGORY_ID];
 
   return dictionaryObject.categories
@@ -102,7 +102,7 @@ export const getAllPhrases = (dictionaryObject: DictionaryDataObject): Phrase[] 
   return [...Object.values(dictionaryObject.phrases)].map((phraseObject) => new Phrase(phraseObject));
 };
 
-export const getKidsCategory = (dictionaryObject: DictionaryDataObject): Category2 | undefined => {
+export const getKidsCategory = (dictionaryObject: DictionaryDataObject): Category | undefined => {
   const categoryObject = dictionaryObject.categories.find((category) => category.id === KIDS_CATEGORY_ID);
   if (!categoryObject) {
     return undefined;

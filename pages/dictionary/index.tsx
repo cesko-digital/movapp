@@ -12,7 +12,7 @@ import { DictionarySearchResults } from 'components/sections/DictionarySearchRes
 import { getCountryVariant, Language } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
 import { SearchInput } from 'components/basecomponents/SearchInput';
-import { Category2, DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDictionaryData';
+import { Category, DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDictionaryData';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
 
@@ -21,14 +21,14 @@ const ExportTranslations = dynamic(() => import('../../components/sections/Expor
   ssr: false,
 });
 
-const getCategoryName = (category: Category2, currentLanguage: Language) => {
+const getCategoryName = (category: Category, currentLanguage: Language) => {
   const mainLanguageCategory = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
   const secondaryLanguageCategory = currentLanguage === 'uk' ? category.nameMain : category.nameUk;
   return `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 };
 
 // Used to link directly to category with dictionary#categoryId
-const getCategoryId = (category: Category2, currentLanguage: Language) => {
+const getCategoryId = (category: Category, currentLanguage: Language) => {
   const text = currentLanguage === 'uk' ? translitFromUkrainian(category.nameUk) : category.nameMain;
   return normalizeForId(text);
 };
