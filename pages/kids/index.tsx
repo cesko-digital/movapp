@@ -6,7 +6,7 @@ import { TranslationJSON } from 'utils/Phrase_deprecated';
 import SEO from 'components/basecomponents/SEO';
 import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { DictionaryDataObject, fetchDictionary, getKidsCategory } from '../../utils/getDictionaryData';
+import { DictionaryDataObject, fetchDictionary, getKidsCategory } from '../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../utils/localization';
 
 export type KidsTranslation = TranslationJSON & { image: string };

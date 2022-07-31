@@ -1,7 +1,7 @@
 import { TranslationComponent } from './TranslationComponent';
 import { forwardRef } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
-import { Phrase } from '../../utils/getDictionaryData';
+import { Phrase } from '../../utils/getDataUtils';
 
 interface PhraseContainerProps {
   translation: Phrase;

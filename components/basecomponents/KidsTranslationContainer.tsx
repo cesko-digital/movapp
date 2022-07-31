@@ -4,7 +4,7 @@ import { KidsTranslation } from './KidsTranslation';
 import { useLanguage } from 'utils/useLanguageHook';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { useTranslation } from 'next-i18next';
-import { Phrase } from '../../utils/getDictionaryData';
+import { Phrase } from '../../utils/getDataUtils';
 
 interface KidsTranslationContainerProps {
   phrase: Phrase;

@@ -6,7 +6,7 @@ import { LanguageSelect } from '../../components/basecomponents/LanguageSelect';
 import SEO from 'components/basecomponents/SEO';
 import { getCountryVariant, Language } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { AlphabetDataObject, fetchAlphabetMain, fetchAlphabetUk } from '../../utils/getDictionaryData';
+import { AlphabetDataObject, fetchAlphabetMain, fetchAlphabetUk } from '../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../utils/localization';
 
 const countryVariant = getCountryVariant();

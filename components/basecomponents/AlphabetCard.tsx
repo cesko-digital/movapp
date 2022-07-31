@@ -2,7 +2,7 @@ import { AudioPlayer } from 'utils/AudioPlayer';
 import { useTranslation } from 'next-i18next';
 import React, { useRef } from 'react';
 import PlayIcon from '../../public/icons/play.svg';
-import { TranslationDataObject } from '../../utils/getDictionaryData';
+import { TranslationDataObject } from '../../utils/getDataUtils';
 
 interface AlphabetCardProps {
   examples: TranslationDataObject[];

@@ -12,7 +12,7 @@ import { DictionarySearchResults } from 'components/sections/DictionarySearchRes
 import { getCountryVariant, Language } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
 import { SearchInput } from 'components/basecomponents/SearchInput';
-import { Category, DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDictionaryData';
+import { Category, DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDataUtils';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
 

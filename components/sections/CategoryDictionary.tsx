@@ -1,5 +1,5 @@
 import { TranslationContainer as TranslationContainer } from 'components/basecomponents/TranslationsContainer';
-import { Phrase } from '../../utils/getDictionaryData';
+import { Phrase } from '../../utils/getDataUtils';
 
 interface CategoryDictionaryProps {
   translations: Phrase[];
