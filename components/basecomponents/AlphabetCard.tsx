@@ -1,24 +1,20 @@
 import { AudioPlayer } from 'utils/AudioPlayer';
-import { Language } from 'utils/locales';
 import { useTranslation } from 'next-i18next';
 import React, { useRef } from 'react';
 import PlayIcon from '../../public/icons/play.svg';
 import { TranslationDataObject } from '../../utils/getDictionaryData';
 
-const LETTERS_WITHOUT_AUDIO = ['ь'];
-
 interface AlphabetCardProps {
   examples: TranslationDataObject[];
   letters: [string, string | null];
   transcription: string;
-  language: Language;
+  letterSoundUrl: string | null;
 }
 
-export const AlphabetCard = ({ examples, letters, transcription, language }: AlphabetCardProps): JSX.Element => {
+export const AlphabetCard = ({ examples, letters, transcription, letterSoundUrl }: AlphabetCardProps): JSX.Element => {
   const { t } = useTranslation();
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const audioSrcPath = `alphabet/${language}-alphabet/${letters[0].toLowerCase()}.mp3`;
-  const letterHasAudio = !LETTERS_WITHOUT_AUDIO.includes(letters[0]);
+  const letterHasAudio = letterSoundUrl !== null;
   const letterSpacer = ' ';
 
   return (
@@ -38,7 +34,7 @@ export const AlphabetCard = ({ examples, letters, transcription, language }: Alp
                 className="w-16 sm:w-8 md:w-12 m-auto block"
                 aria-label={t('utils.play') + ' ' + letters[0]}
               >
-                <audio ref={audioRef} src={audioSrcPath} />
+                <audio ref={audioRef} src={letterSoundUrl} />
                 <PlayIcon className="py-1 stroke-red-500 cursor-pointer" />{' '}
               </button>
             )}

@@ -124,7 +124,7 @@ export interface Letter {
   id: string;
   letters: [string, string | null];
   examples: TranslationDataObject[];
-  sound_url: string;
+  sound_url: string | null;
   transcription: string;
 }
 
