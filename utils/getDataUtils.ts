@@ -145,4 +145,3 @@ export const fetchAlphabetMain = async () => {
   const result = await (await fetch(`https://data.movapp.eu/${getCountryVariant()}-uk-alphabet.json`)).json();
   return result as AlphabetDataObject;
 };
-
