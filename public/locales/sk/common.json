@@ -62,7 +62,9 @@
     "search_placeholder": "Hľadaný výraz",
     "subtitle": "Vyberte si oblasť",
     "sk": "po slovensky",
-    "uk": "po ukrajinsky"
+    "uk": "po ukrajinsky",
+    "results_subtitle": "Výsledky vyhľadávania",
+    "not_found_results": "Nič nenájdené"
   },
   "kids_page": {
     "downloadPDF": "Stiahnuť v PDF"

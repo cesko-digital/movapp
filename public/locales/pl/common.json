@@ -57,7 +57,9 @@
     "search_placeholder": "Szukany wyraz",
     "subtitle": "Wybierz kategorię",
     "pl": "polski",
-    "uk": "ukraiński"
+    "uk": "ukraiński",
+    "results_subtitle": "Wyniki wyszukiwania",
+    "not_found_results": "Nic nie znaleziono"
   },
   "kids_page": {
     "downloadPDF": "Pobierz w PDF"
