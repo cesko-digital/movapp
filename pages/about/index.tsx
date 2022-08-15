@@ -72,6 +72,9 @@ const About = () => {
           components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" />]}
         />
 
+        <H2>{t('about_page.how_to_find_us_title')}</H2>
+        <Trans i18nKey={'about_page.how_to_find_us_description'} />
+
         <H2>{t('about_page.stand_with_ukraine_title')}</H2>
         <Trans
           i18nKey={'about_page.stand_with_ukraine_description'}
@@ -79,9 +82,6 @@ const About = () => {
         />
         <H2>{t('about_page.czech_digital_title')}</H2>
         <Trans i18nKey={'about_page.czech_digital_description'} components={[<LinkText href="https://cesko.digital/" target="_blank" />]} />
-
-        <H2>{t('about_page.how_to_find_us_title')}</H2>
-        <Trans i18nKey={'about_page.how_to_find_us_description'} />
       </div>
     </>
   );
