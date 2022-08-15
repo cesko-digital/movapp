@@ -1,9 +1,13 @@
 import Image from 'next/image';
 
-export const SocialMedia = (props: React.HTMLProps<HTMLAnchorElement>): JSX.Element => (
+type Props = {
+  className?: React.HTMLProps<Pick<HTMLAnchorElement, 'className'>>;
+};
+
+export const SocialMedia = ({ className }: Props): JSX.Element => (
   <>
     {socialMedia.map(({ name, link, img }) => (
-      <a key={name} href={link} target="_blank" rel="noreferrer" className={`ml-2 first:ml-0 ${props.className}`}>
+      <a key={name} href={link} target="_blank" rel="noreferrer" className={`ml-2 first:ml-0 ${className}`}>
         <Image src={img} width="34px" height="34px" alt={name} />
       </a>
     ))}
