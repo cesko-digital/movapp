@@ -12,15 +12,6 @@ export const useAudionSource = (id: string) => {
   const audio = React.useRef<HTMLAudioElement | null>(null);
   const source = `https://data.movapp.eu/bilingual-reading/${id}-${languagePlay}.mp3`;
 
-  React.useEffect(() => {
-    audio.current = new Audio(source);
-    return () => {
-      if (audio.current !== null) {
-        audio.current.pause();
-      }
-    };
-  }, [languagePlay, id, source]);
-
   const isPlaying = () => {
     if (audio.current !== null) {
       return !audio.current?.paused;
@@ -40,16 +31,16 @@ export const useAudionSource = (id: string) => {
     }
   };
 
-  const stopStory = () => {
+  const stopStory = React.useCallback(() => {
     if (audio.current !== null) {
       pauseStory();
       audio.current.currentTime = 0;
     }
-  };
+  }, []);
 
   const playPhrase = (start: number) => {
     if (audio.current !== null) {
-        const playing = isPlaying();
+      const playing = isPlaying();
       setSeekToPhrase(start);
       if (playing) {
         pauseStory();
@@ -60,6 +51,22 @@ export const useAudionSource = (id: string) => {
       }
     }
   };
+
+  React.useEffect(() => {
+    audio.current = new Audio(source);
+    return () => {
+      if (audio.current !== null) {
+        stopStory();
+      }
+    };
+  }, [languagePlay, id, source, stopStory]);
+
+  React.useEffect(() => {
+    audio.current = new Audio(source);
+    return () => {
+      audio.current = null;
+    };
+  }, [source]);
 
   React.useEffect(() => {
     if (audio.current !== null) {

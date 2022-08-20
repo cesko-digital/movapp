@@ -21,6 +21,7 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
     useAudionSource(id);
 
   const isPlayingAudio = isPlaying();
+
   const handleLanguageChange = (language: Language) => {
     setSeekValue(0);
     setLanguagePlay(language);
