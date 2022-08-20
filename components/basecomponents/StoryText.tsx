@@ -11,7 +11,7 @@ interface StoryTextProps {
   languageText: string;
   languagePlay: string;
   id: string;
-  onPlaying: (playing: boolean) => void;
+  onClick: (start: number) => void;
 }
 
 interface StoryPhrase {
@@ -29,7 +29,7 @@ const scrollToRef = (ref: MutableRefObject<HTMLParagraphElement | null>, div: Mu
   }
 };
 
-const StoryText = ({ languageText, languagePlay, audio, id, onPlaying }: StoryTextProps): JSX.Element => {
+const StoryText = ({ languageText, languagePlay, audio, id, onClick }: StoryTextProps): JSX.Element => {
   const phraseRef = useRef<HTMLParagraphElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -48,14 +48,6 @@ const StoryText = ({ languageText, languagePlay, audio, id, onPlaying }: StoryTe
   useEffect(() => {
     return scrollToRef(phraseRef, containerRef);
   }, [phraseRef?.current?.offsetTop]);
-
-  const playPhrase = (start: number) => {
-    if (audio !== null) {
-      audio.currentTime = start;
-      audio.play();
-      onPlaying(true);
-    }
-  };
 
   const playing = (phrase: StoryPhrase) => {
     type ObjectKey = keyof typeof phrase;
@@ -84,7 +76,12 @@ const StoryText = ({ languageText, languagePlay, audio, id, onPlaying }: StoryTe
         {selectedStory().map((phrase: StoryPhrase, index: number) => {
           return (
             <div key={index}>
-              <button onClick={() => playPhrase(languagePlay === 'cs' ? phrase.start_cs : phrase.start_uk)} className="text-left">
+              <button
+                onClick={() => {
+                  onClick(languagePlay === 'cs' ? phrase.start_cs : phrase.start_uk);
+                }}
+                className="text-left"
+              >
                 <p
                   key={index}
                   ref={playing(phrase) ? phraseRef : null}

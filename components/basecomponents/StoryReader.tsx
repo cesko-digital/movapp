@@ -19,6 +19,7 @@ const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps
   const [currentTime, setCurrentTime] = useState(0);
   const [seekValue, setSeekValue] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [timeProgress, setTimeProgress] = useState<number>();
   const [languagePlay, setLanguagePlay] = useState(currentLanguage);
 
   // using useRef to prevent keeping playing audio when changing route, see: https://stackoverflow.com/questions/37949895/stop-audio-on-route-change-in-react
@@ -56,6 +57,15 @@ const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps
     }
   };
 
+  const onPlayPhrase = (start: number) => {
+    if (audio.current !== null) {
+      setTimeProgress(start);
+      audio.current.currentTime = start;
+      audio.current.play();
+      setIsPlaying(true);
+    }
+  };
+
   useEffect(() => {
     if (audio.current !== null) {
       audio.current.ontimeupdate = () => {
@@ -71,6 +81,16 @@ const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps
       };
     }
   });
+
+  useEffect(() => {
+    if (timeProgress) {
+      setSeekValue(timeProgress);
+      if (audio.current !== null) {
+        audio.current.currentTime = timeProgress;
+        audio.current.play();
+      }
+    }
+  }, [timeProgress]);
 
   const time = `${Math.floor(currentTime / 60)}`.padStart(2, '0') + ':' + `${Math.floor(currentTime % 60)}`.padStart(2, '0');
 
@@ -116,7 +136,6 @@ const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps
               )}
             </button>
             <button onClick={() => stopStory()}>
-              {' '}
               <StopIcon className="cursor-pointer active:scale-75 transition-all duration-300" width="50" height="50" />
             </button>
           </div>
@@ -139,13 +158,31 @@ const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps
       <div className="md:flex">
         {country === 'CZ' ? (
           <>
-            <StoryText audio={audio.current} languageText="cs" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
-            <StoryText audio={audio.current} languageText="uk" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
+            <StoryText
+              audio={audio.current}
+              languageText="cs"
+              onClick={(start) => {
+                onPlayPhrase(start);
+                setLanguagePlay('cs');
+              }}
+              languagePlay={languagePlay}
+              id={id}
+            />
+            <StoryText
+              audio={audio.current}
+              languageText="uk"
+              onClick={(start) => {
+                onPlayPhrase(start);
+                setLanguagePlay('uk');
+              }}
+              languagePlay={languagePlay}
+              id={id}
+            />
           </>
         ) : (
           <>
-            <StoryText audio={audio.current} languageText="uk" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
-            <StoryText audio={audio.current} languageText="cs" languagePlay={languagePlay} onPlaying={setIsPlaying} id={id} />
+            <StoryText audio={audio.current} languageText="uk" onClick={() => setLanguagePlay('uk')} languagePlay={languagePlay} id={id} />
+            <StoryText audio={audio.current} languageText="cs" onClick={() => setLanguagePlay('cs')} languagePlay={languagePlay} id={id} />
           </>
         )}
       </div>
