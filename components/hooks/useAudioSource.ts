@@ -3,7 +3,6 @@ import { useLanguage } from 'utils/useLanguageHook';
 
 export const useAudionSource = (id: string) => {
   const { currentLanguage } = useLanguage();
-  const [isPlaying, setIsPlaying] = React.useState(false);
   const [seekToPhrase, setSeekToPhrase] = React.useState<number>();
   const [currentTime, setCurrentTime] = React.useState(0);
   const [seekValue, setSeekValue] = React.useState(0);
@@ -22,34 +21,43 @@ export const useAudionSource = (id: string) => {
     };
   }, [languagePlay, id, source]);
 
+  const isPlaying = () => {
+    if (audio.current !== null) {
+      return !audio.current?.paused;
+    }
+    return false;
+  };
+
   const playStory = () => {
     if (audio.current !== null) {
       audio.current.play();
-      setIsPlaying(true);
     }
   };
 
   const pauseStory = () => {
     if (audio.current !== null) {
       audio.current.pause();
-      setIsPlaying(false);
     }
   };
 
   const stopStory = () => {
     if (audio.current !== null) {
-      audio.current.pause();
+      pauseStory();
       audio.current.currentTime = 0;
-      setIsPlaying(false);
     }
   };
 
   const playPhrase = (start: number) => {
     if (audio.current !== null) {
+        const playing = isPlaying();
       setSeekToPhrase(start);
+      if (playing) {
+        pauseStory();
+      }
       audio.current.currentTime = start;
-      audio.current.play();
-      setIsPlaying(true);
+      if (!playing) {
+        playStory();
+      }
     }
   };
 
@@ -61,9 +69,6 @@ export const useAudionSource = (id: string) => {
           const actualTime = audio.current.currentTime;
           setCurrentTime(actualTime);
           setSeekValue(duration ? (actualTime / duration) * 100 : 0);
-          if (actualTime === duration) {
-            setIsPlaying(false);
-          }
         }
       };
     }
@@ -74,7 +79,7 @@ export const useAudionSource = (id: string) => {
       setSeekValue(seekToPhrase);
       if (audio.current !== null) {
         audio.current.currentTime = seekToPhrase;
-        audio.current.play();
+        playStory();
       }
     }
   }, [seekToPhrase]);
@@ -87,7 +92,6 @@ export const useAudionSource = (id: string) => {
     seekValue,
     setSeekValue,
     isPlaying,
-    setIsPlaying,
     playStory,
     pauseStory,
     stopStory,
