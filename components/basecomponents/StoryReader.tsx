@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import PlayIcon from '../../public/icons/stories-play.svg';
 import PauseIcon from '../../public/icons/stories-pause.svg';
 import StopIcon from '../../public/icons/stories-stop.svg';
-import { Language } from '../../utils/locales';
+import { getCountryVariant, Language } from '../../utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import { Flag } from './Flag';
 import StoryText from './StoryText';
@@ -14,7 +14,7 @@ interface StoryReaderProps {
   country: string;
 }
 
-const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps): JSX.Element => {
+const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.Element => {
   const { currentLanguage } = useLanguage();
   const [currentTime, setCurrentTime] = useState(0);
   const [seekValue, setSeekValue] = useState(0);
@@ -155,36 +155,20 @@ const StoryReader = ({ titleCurrent, titleOther, id, country }: StoryReaderProps
           <p className="text-xl text-right">{time}</p>
         </div>
       </div>
-      <div className="md:flex">
-        {country === 'CZ' ? (
-          <>
-            <StoryText
-              audio={audio.current}
-              languageText="cs"
-              onClick={(start) => {
-                onPlayPhrase(start);
-                setLanguagePlay('cs');
-              }}
-              languagePlay={languagePlay}
-              id={id}
-            />
-            <StoryText
-              audio={audio.current}
-              languageText="uk"
-              onClick={(start) => {
-                onPlayPhrase(start);
-                setLanguagePlay('uk');
-              }}
-              languagePlay={languagePlay}
-              id={id}
-            />
-          </>
-        ) : (
-          <>
-            <StoryText audio={audio.current} languageText="uk" onClick={() => setLanguagePlay('uk')} languagePlay={languagePlay} id={id} />
-            <StoryText audio={audio.current} languageText="cs" onClick={() => setLanguagePlay('cs')} languagePlay={languagePlay} id={id} />
-          </>
-        )}
+      <div className={`md:flex ${currentLanguage !== 'uk' ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+        {['uk' as Language, getCountryVariant()].map((local) => (
+          <StoryText
+            key={local}
+            audio={audio.current}
+            languageText={local}
+            onClick={(start) => {
+              onPlayPhrase(start);
+              setLanguagePlay(local);
+            }}
+            languagePlay={languagePlay}
+            id={id}
+          />
+        ))}
       </div>
     </div>
   );
