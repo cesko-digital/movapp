@@ -100,6 +100,8 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
     stopStory();
   };
 
+  const locales = ['uk' as Language, getCountryVariant()];
+
   return (
     <div className="w-full">
       <div className="controls">
@@ -107,23 +109,22 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
           <h2 className="p-0 m-0 text-sm sm:text-base md:text-xl">
             {titleCurrent} / {titleOther}
           </h2>
-          <div className="flex items-center">
-            <button onClick={() => handleLanguageChange('cs')}>
-              <Flag
-                language="cs"
-                width={27}
-                height={27}
-                className={`mr-3 ml-3 ease-in-out duration-300 ${languagePlay === 'cs' ? 'scale-125' : ''}`}
-              />
-            </button>
-            <button onClick={() => handleLanguageChange('uk')}>
-              <Flag
-                language="uk"
-                width={27}
-                height={27}
-                className={`ease-in-out duration-300 ${languagePlay === 'uk' ? 'scale-125' : ''}`}
-              />
-            </button>
+          <div className={`flex items-center ${currentLanguage !== 'uk' ? 'flex-row-reverse' : 'flex-row'}`}>
+            {locales.map((local) => (
+              <button
+                key={local}
+                onClick={() => {
+                  handleLanguageChange(local);
+                }}
+              >
+                <Flag
+                  language={local}
+                  width={27}
+                  height={27}
+                  className={`ml-3 ease-in-out duration-300 ${local === languagePlay && 'scale-125'}`}
+                />
+              </button>
+            ))}
           </div>
         </div>
         <div className="flex items-center justify-between pt-2">
@@ -155,8 +156,8 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
           <p className="text-xl text-right">{time}</p>
         </div>
       </div>
-      <div className={`md:flex ${currentLanguage !== 'uk' ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
-        {['uk' as Language, getCountryVariant()].map((local) => (
+      <div className={`flex ${currentLanguage !== 'uk' ? 'flex-col-reverse md:flex-row-reverse' : 'flex-col md:flex-row'}`}>
+        {locales.map((local) => (
           <StoryText
             key={local}
             audio={audio.current}
