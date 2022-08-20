@@ -29,7 +29,7 @@ const scrollToRef = (ref: MutableRefObject<HTMLParagraphElement | null>, div: Mu
   }
 };
 
-const StoryText = ({ languageText, languagePlay, audio, id, onClick }: StoryTextProps): JSX.Element => {
+const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryTextProps): JSX.Element => {
   const phraseRef = useRef<HTMLParagraphElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
