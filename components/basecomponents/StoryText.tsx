@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { MutableRefObject, useEffect, useRef } from 'react';
 import oPernikoveChaloupce from '../../data/translations/cs/pohadka_pernikovachaloupka.json';
 import oDvanactiMesickach from '../../data/translations/cs/pohadka_mesicky.json';
 import oCerveneKarkulce from '../../data/translations/cs/pohadka_karkulka.json';
@@ -23,8 +23,15 @@ interface StoryPhrase {
   end_uk: number;
 }
 
+const scrollToRef = (ref: MutableRefObject<HTMLParagraphElement | null>, div: MutableRefObject<HTMLDivElement | null>) => {
+  if (ref.current !== null && div.current !== null) {
+    div.current.scrollTo(0, ref.current.offsetTop - div.current.offsetTop - 100);
+  }
+};
+
 const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryTextProps): JSX.Element => {
   const phraseRef = useRef<HTMLParagraphElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const selectedStory = () => {
     const stories: Record<string, StoryPhrase[]> = {
@@ -39,11 +46,8 @@ const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryText
   };
 
   useEffect(() => {
-    if (phraseRef.current !== null) {
-      return phraseRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-    /* eslint-disable react-hooks/exhaustive-deps */
-  }, [phraseRef.current]);
+    return scrollToRef(phraseRef, containerRef);
+  }, [phraseRef?.current?.offsetTop]);
 
   const playing = (phrase: StoryPhrase) => {
     type ObjectKey = keyof typeof phrase;
@@ -68,7 +72,7 @@ const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryText
 
   return (
     <div className="mt-4 md:flex bg-slate-100 divide-y-8 divide-white md:divide-y-0 md:w-1/2">
-      <div className="max-h-[30vh] md:max-h-full overflow-y-scroll md:overflow-auto">
+      <div className="max-h-[30vh] md:max-h-full overflow-y-scroll md:overflow-auto" ref={containerRef}>
         {selectedStory().map((phrase: StoryPhrase, index: number) => {
           return (
             <div key={index}>
