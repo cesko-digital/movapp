@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, existsSync, mkdirSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 import { primitive } from 'typescript-json-decoder/dist/types';
-import { TranslationJSON } from './Phrase';
+import { TranslationJSON } from './Phrase_deprecated';
 
 /**
  * You can use this utility script to migrate translation JSON files into a new structure

@@ -9,8 +9,8 @@ import rehypeStringify from 'rehype-stringify';
 import rehypeExternalLinks from 'rehype-external-links';
 import remarkGfm from 'remark-gfm';
 import Head from 'next/head';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { getCountryVariant } from 'utils/locales';
+import { getServerSideTranslations } from '../../utils/localization';
 
 export const sanitizeWikiParam = (param: string): string => {
   return param.replace(/[^A-za-z0-9-]/g, '').slice(0, 150);
@@ -56,7 +56,7 @@ const Wiki = ({ markdown }: InferGetStaticPropsType<typeof getStaticProps>) => {
   );
 };
 
-export const getStaticProps = async ({ locale }: Parameters<GetStaticProps>[0]) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const getWikiPage = async (article: string) => {
     const response = await fetch(`https://raw.githubusercontent.com/wiki/cesko-digital/movapp/${sanitizeWikiParam(article)}.md`);
     const markdown = await response.text();
@@ -75,7 +75,7 @@ export const getStaticProps = async ({ locale }: Parameters<GetStaticProps>[0]) 
   return {
     props: {
       markdown,
-      ...(await serverSideTranslations(locale ?? 'cs', ['common'])),
+      ...(await getServerSideTranslations(locale)),
     },
     revalidate: 10,
   };
