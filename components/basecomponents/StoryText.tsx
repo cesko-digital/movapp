@@ -89,7 +89,7 @@ const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryText
               played(phrase) && 'text-[#64a5da]'
             }`}
           >
-            {languageText === 'cs' ? `${phrase.start_cs + ' - ' + phrase.main}` : `${phrase.start_uk + ' - ' + phrase.uk}`}
+            {languageText === 'cs' ? phrase.main : phrase.uk}
           </p>
         ))}
       </div>
