@@ -70,29 +70,28 @@ const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryText
     }
   };
 
+  const handleClick = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
+    const phraseId = e.currentTarget.id.replace(languageText, '').replace('-', '');
+
+    onClick(Number(phraseId));
+  };
+
   return (
     <div className="mt-4 md:flex bg-slate-100 divide-y-8 divide-white md:divide-y-0 md:w-1/2">
       <div className="max-h-[30vh] md:max-h-full overflow-y-scroll md:overflow-auto" ref={containerRef}>
-        {selectedStory().map((phrase: StoryPhrase, index: number) => {
-          return (
-            <div key={index}>
-              <button
-                onClick={() => {
-                  onClick(languagePlay === 'cs' ? phrase.start_cs : phrase.start_uk);
-                }}
-                className="text-left"
-              >
-                <p
-                  key={index}
-                  ref={playing(phrase) ? phraseRef : null}
-                  className={`mx-6 my-2 ${playing(phrase) ? 'text-[#013ABD]' : ''} ${played(phrase) ? 'text-[#64a5da]' : ''}`}
-                >
-                  {languageText === 'cs' ? phrase.main : phrase.uk}
-                </p>
-              </button>
-            </div>
-          );
-        })}
+        {selectedStory().map((phrase: StoryPhrase, index: number) => (
+          <p
+            key={index}
+            onClick={handleClick}
+            ref={playing(phrase) ? phraseRef : null}
+            id={languageText === 'uk' ? `${'uk-' + phrase.start_uk}` : `${'cs-' + phrase.start_cs}`}
+            className={`hover:cursor-pointer mx-6 my-4 text-left ${playing(phrase) && 'text-[#013ABD]'} ${
+              played(phrase) && 'text-[#64a5da]'
+            }`}
+          >
+            {languageText === 'cs' ? `${phrase.start_cs + ' - ' + phrase.main}` : `${phrase.start_uk + ' - ' + phrase.uk}`}
+          </p>
+        ))}
       </div>
     </div>
   );

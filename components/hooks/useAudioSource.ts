@@ -38,7 +38,7 @@ export const useAudionSource = (id: string) => {
     }
   }, []);
 
-  const playPhrase = (start: number) => {
+  const playPhrase = React.useCallback((start: number) => {
     if (audio.current !== null) {
       const playing = isPlaying();
       setSeekToPhrase(start);
@@ -46,11 +46,9 @@ export const useAudionSource = (id: string) => {
         pauseStory();
       }
       audio.current.currentTime = start;
-      if (!playing) {
-        playStory();
-      }
+      playStory();
     }
-  };
+  }, []);
 
   React.useEffect(() => {
     audio.current = new Audio(source);
@@ -85,11 +83,10 @@ export const useAudionSource = (id: string) => {
     if (seekToPhrase) {
       setSeekValue(seekToPhrase);
       if (audio.current !== null) {
-        audio.current.currentTime = seekToPhrase;
-        playStory();
+        playPhrase(seekToPhrase);
       }
     }
-  }, [seekToPhrase]);
+  }, [seekToPhrase, playPhrase]);
 
   const time = `${Math.floor(currentTime / 60)}`.padStart(2, '0') + ':' + `${Math.floor(currentTime % 60)}`.padStart(2, '0');
 
