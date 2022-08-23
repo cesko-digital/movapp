@@ -133,6 +133,12 @@
     },
     "kids_page_storiesDescription": {
       "pl": "Czytaj i słuchaj polskich i ukraińskich opowieści ludowych"
+    },
+    "kids_page_memorygame_title": {
+      "pl": "Zagraj w mówiące memory z ukraińskimi i czeskimi słówkami"
+    },
+    "kids_page_memorygame_description": {
+      "pl": "Ukraińsko-czeskie mówiące memory dla dzieci z ilustracjami."
     }
   },
   "export_translations": {
