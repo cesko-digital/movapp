@@ -146,6 +146,12 @@
     },
     "kids_page_storiesDescription": {
       "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"
+    },
+    "kids_page_memorygame_title": {
+      "cs": "Zahrajte si mluvící pexeso s ukrajinskými a českými slovíčky"
+    },
+    "kids_page_memorygame_description": {
+      "cs": "Ukrajinsko-české mluvící pexeso pro děti s ilustrovanými obrázky."
     }
   },
   "export_translations": {
