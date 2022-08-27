@@ -47,7 +47,7 @@ export const useAudionSource = (id: string) => {
         audio.current.currentTime = time;
         playStory();
       }
-    }, 950);
+    }, 500);
   }, []);
 
   React.useEffect(() => {
