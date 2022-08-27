@@ -1,9 +1,10 @@
+import { PhraseInfo } from 'components/basecomponents/StoryText';
 import React from 'react';
+import { Language } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 
 export const useAudionSource = (id: string) => {
   const { currentLanguage } = useLanguage();
-  const [seekToPhrase, setSeekToPhrase] = React.useState<number>();
   const [currentTime, setCurrentTime] = React.useState(0);
   const [seekValue, setSeekValue] = React.useState(0);
   const [isPlaying, setIsPlaying] = React.useState(false);
@@ -34,14 +35,19 @@ export const useAudionSource = (id: string) => {
     }
   }, []);
 
-  const playPhrase = React.useCallback((start: number) => {
-    if (audio.current !== null) {
-      if (isPlaying) {
-        pauseStory();
+  const playPhrase = React.useCallback((value: PhraseInfo) => {
+    const { time, language } = value;
+
+    setLanguagePlay(language as Language);
+    setSeekValue(time);
+
+    // keep setTimeout value below 951. It's the most below value, that the browser on Apple devices know and that can enable autoplay.
+    setTimeout(() => {
+      if (audio.current !== null) {
+        audio.current.currentTime = time;
+        playStory();
       }
-      audio.current.currentTime = start;
-      playStory();
-    }
+    }, 950);
   }, []);
 
   React.useEffect(() => {
@@ -73,15 +79,6 @@ export const useAudionSource = (id: string) => {
     }
   });
 
-  React.useEffect(() => {
-    if (seekToPhrase) {
-      setSeekValue(seekToPhrase);
-      if (audio.current !== null) {
-        playPhrase(seekToPhrase);
-      }
-    }
-  }, [seekToPhrase, playPhrase]);
-
   const time = `${Math.floor(currentTime / 60)}`.padStart(2, '0') + ':' + `${Math.floor(currentTime % 60)}`.padStart(2, '0');
 
   return {
@@ -94,7 +91,6 @@ export const useAudionSource = (id: string) => {
     pauseStory,
     stopStory,
     playPhrase,
-    setSeekToPhrase,
     time,
     audio,
   };

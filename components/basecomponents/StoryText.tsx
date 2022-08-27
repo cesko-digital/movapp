@@ -6,12 +6,14 @@ import oKoblizkovi from '../../data/translations/cs/pohadka_koblizek.json';
 import oIvasikovi from '../../data/translations/cs/pohadka_ivasik.json';
 import oHusach from '../../data/translations/cs/pohadka_husy.json';
 
+export type PhraseInfo = { language: string; time: number };
+
 interface StoryTextProps {
   audio: HTMLAudioElement | null;
   languageText: string;
   languagePlay: string;
   id: string;
-  onClick: (start: number) => void;
+  onClick: ({ language, time }: PhraseInfo) => void;
 }
 
 interface StoryPhrase {
@@ -73,7 +75,9 @@ const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryText
   const handleClick = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
     const phraseId = e.currentTarget.id.replace(languageText, '').replace('-', '');
 
-    onClick(Number(phraseId));
+    const phraseInfo: PhraseInfo = { language: languageText, time: Number(phraseId) };
+
+    onClick(phraseInfo);
   };
 
   return (
