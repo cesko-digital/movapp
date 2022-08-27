@@ -17,10 +17,19 @@ interface StoryReaderProps {
 
 const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.Element => {
   const { currentLanguage } = useLanguage();
-  const { audio, languagePlay, setLanguagePlay, setSeekValue, seekValue, stopStory, isPlaying, pauseStory, playStory, time, setSeekToPhrase } =
-    useAudionSource(id);
-
-  const isPlayingAudio = isPlaying();
+  const {
+    audio,
+    languagePlay,
+    setLanguagePlay,
+    setSeekValue,
+    seekValue,
+    stopStory,
+    isPlaying,
+    pauseStory,
+    playStory,
+    time,
+    setSeekToPhrase,
+  } = useAudionSource(id);
 
   const handleLanguageChange = (language: Language) => {
     setSeekValue(0);
@@ -57,8 +66,8 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
         </div>
         <div className="flex items-center justify-between pt-2">
           <div className="flex">
-            <button onClick={() => (isPlayingAudio ? pauseStory() : playStory())}>
-              {isPlayingAudio ? (
+            <button onClick={() => (isPlaying ? pauseStory() : playStory())}>
+              {isPlaying ? (
                 <PauseIcon className="cursor-pointer active:scale-75 transition-all duration-300 mr-1.5" width="50" height="50" />
               ) : (
                 <PlayIcon className="cursor-pointer active:scale-75 transition-all duration-300 mr-1.5" width="50" height="50" />
@@ -91,7 +100,7 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
             audio={audio.current}
             languageText={local}
             onClick={(start) => {
-              setSeekToPhrase(start)
+              setSeekToPhrase(start);
               setLanguagePlay(local);
             }}
             languagePlay={languagePlay}

@@ -6,27 +6,23 @@ export const useAudionSource = (id: string) => {
   const [seekToPhrase, setSeekToPhrase] = React.useState<number>();
   const [currentTime, setCurrentTime] = React.useState(0);
   const [seekValue, setSeekValue] = React.useState(0);
+  const [isPlaying, setIsPlaying] = React.useState(false);
   const [languagePlay, setLanguagePlay] = React.useState(currentLanguage);
 
   // using useRef to prevent keeping playing audio when changing route, see: https://stackoverflow.com/questions/37949895/stop-audio-on-route-change-in-react
   const audio = React.useRef<HTMLAudioElement | null>(null);
   const source = `https://data.movapp.eu/bilingual-reading/${id}-${languagePlay}.mp3`;
 
-  const isPlaying = () => {
-    if (audio.current !== null) {
-      return !audio.current?.paused;
-    }
-    return false;
-  };
-
   const playStory = () => {
     if (audio.current !== null) {
+      setIsPlaying(true);
       audio.current.play();
     }
   };
 
   const pauseStory = () => {
     if (audio.current !== null) {
+      setIsPlaying(false);
       audio.current.pause();
     }
   };
@@ -40,8 +36,7 @@ export const useAudionSource = (id: string) => {
 
   const playPhrase = React.useCallback((start: number) => {
     if (audio.current !== null) {
-      const playing = isPlaying();
-      if (playing) {
+      if (isPlaying) {
         pauseStory();
       }
       audio.current.currentTime = start;
