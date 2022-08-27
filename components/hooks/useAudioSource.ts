@@ -41,7 +41,7 @@ export const useAudionSource = (id: string) => {
     setLanguagePlay(language as Language);
     setSeekValue(time);
 
-    // keep setTimeout value below 951. It's the most below value, that the browser on Apple devices know and that can enable autoplay.
+    // Keep setTimeout value below 951. It is the lowest value, that the browser on Apple devices know and that it can enable autoplay.
     setTimeout(() => {
       if (audio.current !== null) {
         audio.current.currentTime = time;
