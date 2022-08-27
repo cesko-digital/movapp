@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { useTranslation } from 'next-i18next';
 import Card from './MemoryGameCard';
-import { TranslationJSON } from 'utils/Phrase';
+import { TranslationJSON } from 'utils/Phrase_deprecated';
 import { getCountryVariant } from 'utils/locales';
 import phrases_CS from './memory-game-cs.json';
 import phrases_PL from './memory-game-pl.json';

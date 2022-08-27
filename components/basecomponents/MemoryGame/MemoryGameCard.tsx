@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from './MemoryGame';
 import Image from 'next/image';
 import { useLanguage } from 'utils/useLanguageHook';
-import { Phrase } from 'utils/Phrase';
+import { Phrase_deprecated } from 'utils/Phrase_deprecated';
 
 interface MemoryGameCardProps {
   card: Card;
@@ -34,7 +34,7 @@ const MemoryGameCard = ({ card, cardBackImage, onClick, scene, selected, styles 
               layout="fill"
               sizes="100%"
               objectFit="cover"
-              alt={new Phrase(card.translation).getTranslation(currentLanguage)}
+              alt={new Phrase_deprecated(card.translation).getTranslation(currentLanguage)}
             />
           </div>
         </div>

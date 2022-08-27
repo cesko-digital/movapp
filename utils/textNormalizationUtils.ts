@@ -17,4 +17,3 @@ export const normalizeForId = (text: string) => {
       .replace(/[()]/g, '')
   );
 };
-

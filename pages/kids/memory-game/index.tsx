@@ -15,8 +15,8 @@ const MemoryGameSection = () => {
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
       <SEO
-        title={t(`seo.kids_page_title.${getCountryVariant()}`)}
-        description={t(`seo.kids_page_description.${getCountryVariant()}`)}
+        title={t(`seo.kids_page_memorygame_title.${getCountryVariant()}`)}
+        description={t(`seo.kids_page_memorygame_description.${getCountryVariant()}`)}
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap flex-col items-center min-h-screen m-auto sm:py-10 py-2 px-2 sm:px-4 overflow-hidden">

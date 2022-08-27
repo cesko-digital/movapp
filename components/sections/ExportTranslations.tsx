@@ -3,8 +3,8 @@ import { Button } from 'components/basecomponents/Button';
 import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
 import { useLanguage } from 'utils/useLanguageHook';
-import { Phrase } from 'utils/Phrase';
 import { TiExport } from 'react-icons/ti';
+import { Phrase } from '../../utils/getDataUtils';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
