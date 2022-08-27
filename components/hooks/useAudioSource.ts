@@ -41,7 +41,6 @@ export const useAudionSource = (id: string) => {
   const playPhrase = React.useCallback((start: number) => {
     if (audio.current !== null) {
       const playing = isPlaying();
-      setSeekToPhrase(start);
       if (playing) {
         pauseStory();
       }
@@ -100,6 +99,7 @@ export const useAudionSource = (id: string) => {
     pauseStory,
     stopStory,
     playPhrase,
+    setSeekToPhrase,
     time,
     audio,
   };

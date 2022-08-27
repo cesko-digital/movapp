@@ -17,7 +17,7 @@ interface StoryReaderProps {
 
 const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.Element => {
   const { currentLanguage } = useLanguage();
-  const { audio, languagePlay, setLanguagePlay, setSeekValue, seekValue, stopStory, isPlaying, pauseStory, playStory, time, playPhrase } =
+  const { audio, languagePlay, setLanguagePlay, setSeekValue, seekValue, stopStory, isPlaying, pauseStory, playStory, time, setSeekToPhrase } =
     useAudionSource(id);
 
   const isPlayingAudio = isPlaying();
@@ -91,7 +91,7 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
             audio={audio.current}
             languageText={local}
             onClick={(start) => {
-              playPhrase(start);
+              setSeekToPhrase(start)
               setLanguagePlay(local);
             }}
             languagePlay={languagePlay}
