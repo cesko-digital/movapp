@@ -1,8 +1,8 @@
 import SEO from 'components/basecomponents/SEO';
 import { Trans, useTranslation } from 'next-i18next';
-import { LinkText } from 'pages/about';
 export { getStaticProps } from 'utils/localization';
 import { SocialMedia } from 'components/basecomponents/SocialMedia';
+import { LinkText } from 'components/Typography';
 
 const Contacts = () => {
   const { t } = useTranslation();
