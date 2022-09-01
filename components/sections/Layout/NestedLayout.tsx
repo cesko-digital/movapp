@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -5,15 +6,15 @@ interface NestedLayoutProps {
   children: React.ReactNode;
 }
 
-// TODO translations
-const secondaryNavigation: { name: string; link: string }[] = [
-  { name: 'O nás', link: '/about' },
-  { name: 'O projektu', link: '/about/project' },
-  { name: 'Náš tým', link: '/about/team' },
-];
-
 export const NestedLayout = ({ children }: NestedLayoutProps) => {
   const { route } = useRouter();
+  const { t } = useTranslation();
+  
+  const secondaryNavigation: { name?: string; link: string }[] = [
+    { name: t('secondary_navigation.about'), link: '/about' },
+    { name: t('secondary_navigation.about_project'), link: '/about/project' },
+    { name: t('secondary_navigation.about_team'), link: '/about/team' },
+  ];
 
   const getActiveRoute = () => secondaryNavigation.find(({ link }) => link.includes(route));
 

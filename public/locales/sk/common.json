@@ -184,6 +184,11 @@
     "play": "prehrať",
     "new_game": "Nová hra"
   },
+  "secondary_navigation": {
+    "about": "Empty",
+    "about_project": "Empty",
+    "about_team": "Empty"
+  },
   "team": {
     "ios": "Empty",
     "android": "Empty",

@@ -188,6 +188,11 @@
     "play": "přehrát",
     "new_game": "Nová hra"
   },
+  "secondary_navigation": {
+    "about": "O nás",
+    "about_project": "O projektu",
+    "about_team": "Náš tým"
+  },
   "team": {
     "ios": "Vývoj Apple aplikace",
     "android": "Vývoj Android aplikace",
