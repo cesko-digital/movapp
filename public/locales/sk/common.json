@@ -183,5 +183,16 @@
     "android_soon": "Verzia pre Android už čoskoro!",
     "play": "prehrať",
     "new_game": "Nová hra"
+  },
+  "team": {
+    "ios": "Empty",
+    "android": "Empty",
+    "web": "Empty",
+    "leadership": "Empty",
+    "marketing": "Empty",
+    "content_creation": "Empty",
+    "design": "Empty",
+    "testing": "Empty",
+    "acknowledgements": "Empty"
   }
 }
