@@ -5,6 +5,7 @@ interface NestedLayoutProps {
   children: React.ReactNode;
 }
 
+// TODO translations
 const secondaryNavigation: { name: string; link: string }[] = [
   { name: 'O nás', link: '/about' },
   { name: 'O projektu', link: '/about/project' },

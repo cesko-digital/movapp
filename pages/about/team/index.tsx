@@ -6,7 +6,7 @@ import { NextPageWithLayout } from 'pages/_app';
 import React from 'react';
 import { getServerSideTranslations } from 'utils/localization';
 import { useLanguage } from 'utils/useLanguageHook';
-import { NestedLayout } from '../_NestedLayout';
+import { NestedLayout } from '../layout';
 
 interface Members {
   sections: [
@@ -21,32 +21,34 @@ interface Members {
   ];
 }
 
-const Team: NextPageWithLayout<{ teams: Members }> = ({ teams }) => {
+interface Teams {
+  team: string;
+  members: string;
+}
+
+// TODO translations
+const Team: NextPageWithLayout<{ teams: Teams[] }> = ({ teams }) => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
-
-  const pluck = teams.sections.map(({ name, members }) => ({
-    name,
-    members: members.map(({ name }) => name).join(', '),
-  }));
 
   return (
     <>
       <SEO
-        title={t('seo.about_page_title')}
+        title={t('seo.about_team_title')}
         description={t('seo.about_page_description')}
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
+        
       <H2>{t('about_page.our_team_title')}</H2>
 
-      {pluck.map(({ name, members }) => (
-        <React.Fragment key={name}>
-          <H2>{name}</H2>
+      {teams.map(({ team, members }) => (
+        <React.Fragment key={team}>
+          <H2>{team}</H2>
           <P className="inline-block">{members}</P>
         </React.Fragment>
       ))}
 
-      <P className='mt-10'>
+      <P className="mt-10">
         <Trans
           i18nKey={'about_page.our_team_contact'}
           components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" key="/contacts" />]}
@@ -72,9 +74,14 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     };
   }
 
+  const pluck: Teams[] = teams.sections.map(({ name, members }) => ({
+    team: name,
+    members: members.map(({ name }) => name).join(', '),
+  }));
+
   return {
     props: {
-      teams,
+      teams: pluck,
       ...(await getServerSideTranslations(locale)),
     },
   };

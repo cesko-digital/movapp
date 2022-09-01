@@ -1,18 +1,19 @@
 import SEO from 'components/basecomponents/SEO';
 import { H2, LinkText, P } from 'components/Typography';
 import { Trans, useTranslation } from 'next-i18next';
-import { NestedLayout } from 'pages/about/_NestedLayout';
+import { NestedLayout } from 'pages/about/layout';
 import { NextPageWithLayout } from 'pages/_app';
 import { getCountryVariant } from 'utils/locales';
 export { getStaticProps } from 'utils/localization';
 
+// TODO translations
 const Project: NextPageWithLayout = () => {
   const { t } = useTranslation();
 
   return (
     <>
       <SEO
-        title={t('seo.about_page_title')}
+        title={t('seo.about_project_title')}
         description={t('seo.about_page_description')}
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
