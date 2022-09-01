@@ -1,7 +1,7 @@
 import { useTranslation, Trans } from 'next-i18next';
 export { getStaticProps } from 'utils/localization';
 import SEO from 'components/basecomponents/SEO';
-import { NestedLayout } from 'pages/about/layout';
+import { NestedLayout } from 'components/sections/Layout/NestedLayout';
 import { NextPageWithLayout } from 'pages/_app';
 import { H2, LinkText } from 'components/Typography';
 

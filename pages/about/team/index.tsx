@@ -6,7 +6,7 @@ import { NextPageWithLayout } from 'pages/_app';
 import React from 'react';
 import { getServerSideTranslations } from 'utils/localization';
 import { useLanguage } from 'utils/useLanguageHook';
-import { NestedLayout } from '../layout';
+import { NestedLayout } from '../../../components/sections/Layout/NestedLayout';
 
 interface Members {
   sections: [

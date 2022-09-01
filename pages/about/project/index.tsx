@@ -1,7 +1,7 @@
 import SEO from 'components/basecomponents/SEO';
 import { H2, LinkText, P } from 'components/Typography';
 import { Trans, useTranslation } from 'next-i18next';
-import { NestedLayout } from 'pages/about/layout';
+import { NestedLayout } from 'components/sections/Layout/NestedLayout';
 import { NextPageWithLayout } from 'pages/_app';
 import { getCountryVariant } from 'utils/locales';
 export { getStaticProps } from 'utils/localization';
