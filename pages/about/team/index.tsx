@@ -2,6 +2,7 @@ import SEO from 'components/basecomponents/SEO';
 import { H2, LinkText, P } from 'components/Typography';
 import { GetStaticProps } from 'next';
 import { Trans, useTranslation } from 'next-i18next';
+import Image from 'next/image';
 import { NextPageWithLayout } from 'pages/_app';
 import React from 'react';
 import { getServerSideTranslations } from 'utils/localization';
@@ -64,7 +65,10 @@ const Team: NextPageWithLayout<{ teams: Teams[] }> = ({ teams }) => {
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
 
-      <H2>{t('about_page.our_team_title')}</H2>
+      <div className="text-center mb-9">
+        <H2>{t('about_page.our_team_title')}</H2>
+        <Image src="/team/team-photo.jpg" width="1240" height="768" alt="team" />
+      </div>
 
       {teams.map(({ team, members }) => (
         <React.Fragment key={team}>
