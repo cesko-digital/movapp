@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 type Props = {
-  className?: React.HTMLProps<Pick<HTMLAnchorElement, 'className'>>;
+  className?: string;
 };
 
 export const SocialMedia = ({ className }: Props): JSX.Element => (
