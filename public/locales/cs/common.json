@@ -192,16 +192,5 @@
     "about": "O nás",
     "about_project": "O projektu",
     "about_team": "Náš tým"
-  },
-  "team": {
-    "ios": "Vývoj Apple aplikace",
-    "android": "Vývoj Android aplikace",
-    "web": "Vývoj webu",
-    "leadership": "Vedení projektu",
-    "marketing": "Marketing",
-    "content_creation": "Tvorba obsahu",
-    "design": "UX tým",
-    "testing": "Testování",
-    "acknowledgements": "Děkujeme týmu z České spořitelny"
   }
 }
