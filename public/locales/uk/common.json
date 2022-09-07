@@ -166,9 +166,9 @@
     },
     "contacts_page_title": "Контакти | Movapp.eu",
     "contacts_page_description": "Бажаєте стати учасником команди та сприяти подальшому розвитку проекту?",
-    "about_page_title": "Хто ми | Movapp.eu",
+    "about_page_title": "Про нас | Movapp.eu",
     "about_project_title": "Empty | Movapp.eu",
-    "about_team_title": "Empty | Movapp.eu",
+    "about_team_title": "Наша команда | Movapp.eu",
     "about_page_description": "Проєкт, створений в рамках ініціативи Stojime za Ukrajinou в спільноті експертів-волонтерів Cesko.Digital.",
     "alphabet_page_title": "Чеський алфавіт зі звуками та прикладами.",
     "alphabet_page_description": "Вивчіть чеський алфавіт. Він складається з 26 літер латинського алфавіту, доповнених трьома діакритичними знаками. Ми озвучили для вас усі мовні знаки й додали кілька прикладів, щоб вам було легко їх вивчити.",
@@ -236,8 +236,8 @@
     "new_game": "Нова гра"
   },
   "secondary_navigation": {
-    "about": "Empty",
+    "about": "Про нас",
     "about_project": "Empty",
-    "about_team": "Empty"
+    "about_team": "Наша команда"
   }
 }
