@@ -48,12 +48,12 @@ const Team: NextPageWithLayout<{ teams: Teams[] }> = ({ teams }) => {
       <div className="text-center mb-9">
         <H2>{t('about_page.our_team_title')}</H2>
         <Image
-          src="/team/team-photo.jpg"
+          src="https://www.movapp.cz/images/team/small-team-photo.jpg"
           width="580"
           height="280"
           alt="team"
           className='hover:cursor-pointer'
-          onClick={() => window.open('https://drive.google.com/file/d/1T08-Lq987CpXDEC9I-DiUVNb5wJ-Jopk/view', '_blank')}
+          onClick={() => window.open('https://www.movapp.cz/images/team/large-team-photo.jpg', '_blank')}
         />
       </div>
 
