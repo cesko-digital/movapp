@@ -6,7 +6,6 @@ import { NextPageWithLayout } from 'pages/_app';
 import { getCountryVariant } from 'utils/locales';
 export { getStaticProps } from 'utils/localization';
 
-// TODO translations
 const Project: NextPageWithLayout = () => {
   const { t } = useTranslation();
 

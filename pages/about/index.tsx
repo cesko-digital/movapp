@@ -5,7 +5,6 @@ import { NestedLayout } from 'components/sections/Layout/NestedLayout';
 import { NextPageWithLayout } from 'pages/_app';
 import { H2, LinkText } from 'components/Typography';
 
-// TODO translations
 const About: NextPageWithLayout = () => {
   const { t } = useTranslation();
 
