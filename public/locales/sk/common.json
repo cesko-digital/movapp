@@ -128,8 +128,8 @@
     "contacts_page_title": "Kontakty | sk.movapp.eu",
     "contacts_page_description": "Chcete sa stať členom tímu a pomáhať pri ďalšom rozvoji projektu?",
     "about_page_title": "O nás | sk.movapp.eu",
-    "about_project_title": "Empty | Movapp.eu",
-    "about_team_title": "Empty | Movapp.eu",
+    "about_project_title": "O projekte | Movapp.eu",
+    "about_team_title": "Náš tím | Movapp.eu",
     "about_page_description": "Projekt vznikol v rámci iniciatívy Stojíme za Ukrajinou v komunite expertných dobrovoľníkov Česko.Digital.",
     "alphabet_page_title": "Ukrajinská abeceda (cyrilika)",
     "alphabet_page_description": "Naučte sa ukrajinskú abecedu. Nazýva sa aj ukrajinská cyrilika alebo ukrajinská azbuka. Obsahuje 33 znakov a apostrof.",
@@ -185,8 +185,8 @@
     "new_game": "Nová hra"
   },
   "secondary_navigation": {
-    "about": "Empty",
-    "about_project": "Empty",
-    "about_team": "Empty"
+    "about": "O nás",
+    "about_project": "O projekte",
+    "about_team": "Náš tím"
   }
 }
