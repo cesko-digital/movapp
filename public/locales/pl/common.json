@@ -123,8 +123,8 @@
     "contacts_page_title": "Kontakt | Movapp.eu",
     "contacts_page_description": "Chcesz stać się członkiem zespołu i pomagać przy dalszym rozwoju projektu?",
     "about_page_title": "O nas | Movapp.eu",
-    "about_project_title": "Empty | Movapp.eu",
-    "about_team_title": "Empty | Movapp.eu",
+    "about_project_title": "O projekcie | Movapp.eu",
+    "about_team_title": "Nasz zespół | Movapp.eu",
     "about_page_description": "Projekt powstał w ramach inicjatywy Stojíme za Ukrajinou w społeczności woluntariuszy ekspertów Česko.Digital.",
     "alphabet_page_title": "Alfabet ukraiński (cyrilica)",
     "alphabet_page_description": "Naucz się ukraińskiego alfabetu. Nazywa się on także ukraińska cyrylica lub ukraińska azbuka. Zawiera 33 znaki i apostrof.",
@@ -178,8 +178,8 @@
     "new_game": "Nowa gra"
   },
   "secondary_navigation": {
-    "about": "Empty",
-    "about_project": "Empty",
-    "about_team": "Empty"
+    "about": "O nas",
+    "about_project": "O projekcie",
+    "about_team": "Nasz zespół"
   }
 }
