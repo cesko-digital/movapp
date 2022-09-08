@@ -48,7 +48,7 @@ const Team: NextPageWithLayout<{ teams: Teams[] }> = ({ teams }) => {
       <div className="text-center mb-9">
         <H2>{t('about_page.our_team_title')}</H2>
         <Image
-          src="https://www.movapp.cz/images/team/small-team-photo.jpg"
+          src="/images/team/small-team-photo.jpg"
           width="580"
           height="280"
           alt="team"
