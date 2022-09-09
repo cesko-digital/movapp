@@ -1,8 +1,8 @@
 import Script from 'next/script';
 import { Footer } from './Footer';
-import Header from './Header/index';
 import { ScrollToTop } from 'components/basecomponents/ScrollToTop';
 import { CountryVariant, getCountryVariant } from 'utils/locales';
+import { Header } from './Header';
 
 const PLAUSIBLE_DOMAINS: Record<CountryVariant, string> = {
   cs: 'movapp.cz, all.movapp.eu',
