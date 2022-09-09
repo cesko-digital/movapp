@@ -50,7 +50,7 @@ const Team: NextPage<{ teams: Teams[] }> = ({ teams }) => {
           width="580"
           height="280"
           alt="team"
-          className='hover:cursor-pointer'
+          className="hover:cursor-pointer"
           onClick={() => window.open('https://www.movapp.cz/images/team/large-team-photo.jpg', '_blank')}
         />
       </div>
@@ -68,7 +68,7 @@ const Team: NextPage<{ teams: Teams[] }> = ({ teams }) => {
           components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" key="/contacts" />]}
         />
       </P>
-    </ div>
+    </div>
   );
 };
 
