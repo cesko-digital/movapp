@@ -16,6 +16,8 @@ export const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const { ref } = useClickOutside<HTMLDivElement>(() => setShowDropdown(false));
 
+  console.log('ref', ref);
+
   return (
     <header className="bg-primary-blue w-full sticky top-0 z-10 h-14 hidden md:block">
       <div className="max-w-7xl m-auto flex h-full justify-between items-center ">
@@ -39,23 +41,32 @@ export const Header = () => {
                       <a>{t(name)}</a>
                     </Link>
                   ) : (
-                    <div ref={ref}>
+                    <div ref={ref} className="bg-red-500">
                       <button onClick={() => setShowDropdown(!showDropdown)}>{t(name)}</button>
                       <div
-                        className={`absolute z-10 ${showDropdown ? '' : 'hidden'} bg-white divide-y divide-gray-100 rounded shadow w-44`}
+                        className={`absolute z-10 ${!showDropdown && 'hidden'} bg-white divide-y divide-gray-100 rounded shadow w-44`}
                       >
-                        <ul className="py-1 text-sm text-gray-700">
+                        <ul className="py-2 px-2 text-sm text-gray-700 list-inside list-disc leading-8">
                           {submenu
                             ?.filter((item) => item.countryVariant.includes(getCountryVariant()))
-                            .map(({ name, link }) => (
-                              <li key={name}>
-                                <Link href={link}>
-                                  <a onClick={() => setShowDropdown(false)} className="block px-4 py-2 hover:bg-gray-100">
-                                    {t(name)}
-                                  </a>
-                                </Link>
-                              </li>
-                            ))}
+                            .map(({ name, link }) => {
+                              const activeSubPage = router.asPath === link;
+
+                              return (
+                                <li key={name}>
+                                  <Link href={link}>
+                                    <a
+                                      onClick={() => setShowDropdown(false)}
+                                      className={`hover:border-b-2 hover:border-b-primary-yellow ${
+                                        activeSubPage && 'border-b-2 border-b-primary-yellow'
+                                      }`}
+                                    >
+                                      {t(name)}
+                                    </a>
+                                  </Link>
+                                </li>
+                              );
+                            })}
                         </ul>
                       </div>
                     </div>
