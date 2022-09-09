@@ -1,13 +1,11 @@
 import SEO from 'components/basecomponents/SEO';
 import { H2, LinkText, P } from 'components/Typography';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import { Trans, useTranslation } from 'next-i18next';
 import Image from 'next/image';
-import { NextPageWithLayout } from 'pages/_app';
 import React from 'react';
 import { getServerSideTranslations } from 'utils/localization';
 import { useLanguage } from 'utils/useLanguageHook';
-import { NestedLayout } from '../../../components/sections/Layout/NestedLayout';
 
 interface Members {
   sections: [
@@ -33,12 +31,12 @@ interface Teams {
   members: string;
 }
 
-const Team: NextPageWithLayout<{ teams: Teams[] }> = ({ teams }) => {
+const Team: NextPage<{ teams: Teams[] }> = ({ teams }) => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
   return (
-    <>
+    <div className="max-w-7xl m-auto pb-6">
       <SEO
         title={t('seo.about_team_title')}
         description={t('seo.about_page_description')}
@@ -70,15 +68,11 @@ const Team: NextPageWithLayout<{ teams: Teams[] }> = ({ teams }) => {
           components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" key="/contacts" />]}
         />
       </P>
-    </>
+    </ div>
   );
 };
 
 export default Team;
-
-Team.getLayout = function getLayout(page: React.ReactElement) {
-  return <NestedLayout>{page}</NestedLayout>;
-};
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const promise = await fetch('https://data.movapp.eu/team.v1.json');

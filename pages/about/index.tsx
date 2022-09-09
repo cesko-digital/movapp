@@ -1,20 +1,24 @@
 import { useTranslation, Trans } from 'next-i18next';
 export { getStaticProps } from 'utils/localization';
 import SEO from 'components/basecomponents/SEO';
-import { NestedLayout } from 'components/sections/Layout/NestedLayout';
-import { NextPageWithLayout } from 'pages/_app';
 import { H2, LinkText } from 'components/Typography';
+import { NextPage } from 'next';
 
-const About: NextPageWithLayout = () => {
+const About: NextPage = () => {
   const { t } = useTranslation();
 
   return (
-    <>
+    <div className="max-w-7xl m-auto pb-6">
       <SEO
         title={t('seo.about_page_title')}
         description={t('seo.about_page_description')}
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
+
+      <div className="text-center mb-9">
+        <H2>{t('secondary_navigation.about')}</H2>
+      </div>
+
       <h1 className="text-primary-blue pb-4">
         <Trans>{t('about_page.title')}</Trans>
       </h1>
@@ -31,12 +35,8 @@ const About: NextPageWithLayout = () => {
         i18nKey={'about_page.czech_digital_description'}
         components={[<LinkText href="https://cesko.digital/" target="_blank" key="https://cesko.digital/" />]}
       />
-    </>
+    </div>
   );
-};
-
-About.getLayout = function getLayout(page: React.ReactElement) {
-  return <NestedLayout>{page}</NestedLayout>;
 };
 
 export default About;

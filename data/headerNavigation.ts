@@ -54,6 +54,11 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
   {
     name: 'header.about_link_name',
     link: '/about',
+    submenu: [
+      { name: 'secondary_navigation.about', link: '/about', countryVariant: ['cs', 'pl', 'sk'] },
+      { name: 'secondary_navigation.about_project', link: '/about/project', countryVariant: ['cs', 'pl', 'sk'] },
+      { name: 'secondary_navigation.about_team', link: '/about/team', countryVariant: ['cs', 'pl', 'sk'] },
+    ],
   },
   {
     name: 'header.contacts_link_name',

@@ -1,21 +1,25 @@
 import SEO from 'components/basecomponents/SEO';
 import { H2, LinkText, P } from 'components/Typography';
 import { Trans, useTranslation } from 'next-i18next';
-import { NestedLayout } from 'components/sections/Layout/NestedLayout';
-import { NextPageWithLayout } from 'pages/_app';
 import { getCountryVariant } from 'utils/locales';
+import { NextPage } from 'next';
 export { getStaticProps } from 'utils/localization';
 
-const Project: NextPageWithLayout = () => {
+const Project: NextPage = () => {
   const { t } = useTranslation();
 
   return (
-    <>
+    <div className="max-w-7xl m-auto pb-6">
       <SEO
         title={t('seo.about_project_title')}
         description={t('seo.about_page_description')}
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
+
+      <div className="text-center mb-9">
+        <H2>{t('secondary_navigation.about_project')}</H2>
+      </div>
+
       <H2>{t('about_page.movapp_goal_title')}</H2>
       {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
       <H2>{t('about_page.why_movapp_title')}</H2>
@@ -48,12 +52,8 @@ const Project: NextPageWithLayout = () => {
           />,
         ]}
       />
-    </>
+    </div>
   );
 };
 
 export default Project;
-
-Project.getLayout = function getLayout(page: React.ReactElement) {
-  return <NestedLayout>{page}</NestedLayout>;
-};
