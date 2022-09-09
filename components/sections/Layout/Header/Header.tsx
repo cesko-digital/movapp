@@ -1,22 +1,18 @@
 import { useTranslation } from 'next-i18next';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { HEADER_NAVIGATION } from 'data/headerNavigation';
+import { HeaderNavigation, HEADER_NAVIGATION, SubmenuItem } from 'data/headerNavigation';
 import { getCountryVariant, Language, LOCALE_NAMES } from 'utils/locales';
 import AppLogo from 'public/icons/movapp-logo.png';
 import { useLanguage } from 'utils/useLanguageHook';
 import { useClickOutside } from '../../../hooks/useClickOutside';
+import clsx from 'clsx';
 
 export const Header = () => {
-  const { t } = useTranslation('common');
   const router = useRouter();
   const { currentLanguage } = useLanguage();
-  const [showDropdown, setShowDropdown] = useState(false);
-  const { ref } = useClickOutside<HTMLDivElement>(() => setShowDropdown(false));
-
-  console.log('ref', ref);
 
   return (
     <header className="bg-primary-blue w-full sticky top-0 z-10 h-14 hidden md:block">
@@ -26,61 +22,12 @@ export const Header = () => {
             <Image src={AppLogo} width={150} height={44} alt="Movapp logo" />
           </a>
         </Link>
-        <nav className="w-full">
-          <ul className="flex justify-end items-center pr-10">
-            {HEADER_NAVIGATION.map(({ name, link, submenu, onlyForLanguageVariants }) => {
-              const activePage = router.asPath.includes(link);
-              if (!!onlyForLanguageVariants && !onlyForLanguageVariants.includes(getCountryVariant())) return;
-              return (
-                <li
-                  key={name}
-                  className={`${activePage && 'border-b-2 border-b-primary-yellow'} hover:text-primary-yellow text-white mx-2 `}
-                >
-                  {submenu === undefined ? (
-                    <Link href={link}>
-                      <a>{t(name)}</a>
-                    </Link>
-                  ) : (
-                    <div ref={ref} className="bg-red-500">
-                      <button onClick={() => setShowDropdown(!showDropdown)}>{t(name)}</button>
-                      <div
-                        className={`absolute z-10 ${!showDropdown && 'hidden'} bg-white divide-y divide-gray-100 rounded shadow w-44`}
-                      >
-                        <ul className="py-2 px-2 text-sm text-gray-700 list-inside list-disc leading-8">
-                          {submenu
-                            ?.filter((item) => item.countryVariant.includes(getCountryVariant()))
-                            .map(({ name, link }) => {
-                              const activeSubPage = router.asPath === link;
-
-                              return (
-                                <li key={name}>
-                                  <Link href={link}>
-                                    <a
-                                      onClick={() => setShowDropdown(false)}
-                                      className={`hover:border-b-2 hover:border-b-primary-yellow ${
-                                        activeSubPage && 'border-b-2 border-b-primary-yellow'
-                                      }`}
-                                    >
-                                      {t(name)}
-                                    </a>
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                        </ul>
-                      </div>
-                    </div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+        <Navigation />
         {['uk' as Language, getCountryVariant()].map((locale) => {
           return (
             <Link key={locale} href={router.asPath} locale={locale}>
               <a>
-                <span className={`text-white cursor-pointer mx-2 ${currentLanguage === locale && 'text-primary-yellow'}`}>
+                <span className={clsx({ 'text-white cursor-pointer mx-2': true, [styles.currentLanguage]: currentLanguage === locale })}>
                   {LOCALE_NAMES[locale]}
                 </span>
               </a>
@@ -90,4 +37,139 @@ export const Header = () => {
       </div>
     </header>
   );
+};
+
+const styles = {
+  currentLanguage: 'text-primary-yellow',
+};
+
+interface OpenDropdown {
+  open: boolean;
+  id?: string;
+}
+
+interface NavigationItems extends HeaderNavigation {
+  active?: boolean;
+}
+
+const Navigation: React.FC = () => {
+  const { asPath } = useRouter();
+  const { t } = useTranslation('common');
+  const [dropdown, setDropdown] = useState<OpenDropdown>({ open: false });
+  const { ref } = useClickOutside<HTMLDivElement>(() => setDropdown({ open: false }));
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const id = e.currentTarget.id;
+
+    setDropdown({ open: !dropdown.open, id });
+  };
+
+  const items: NavigationItems[] = HEADER_NAVIGATION.map((item) => {
+    const { link } = item;
+
+    if (new RegExp(link).test(asPath)) {
+      return {
+        ...item,
+        active: true,
+      };
+    }
+
+    return { ...item };
+  });
+
+  return (
+    <nav className="w-full pr-10">
+      <div className="container flex flex-wrap justify-end items-center mx-auto" ref={ref}>
+        <div className="hidden w-full md:block md:w-auto" id="mobile-menu">
+          <ul className="flex">
+            {items.map(({ name, link, submenu, onlyForLanguageVariants, active }, index) => (
+              <li
+                className={clsx({
+                  'hover:text-primary-yellow text-white mx-2 flex': true,
+                  'border-b-2 border-b-primary-yellow': active,
+                  hidden: !!onlyForLanguageVariants && !onlyForLanguageVariants.includes(getCountryVariant()),
+                })}
+                aria-haspopup="menu"
+                key={index}
+              >
+                {submenu ? (
+                  <>
+                    <button
+                      id={index.toString()}
+                      type="button"
+                      aria-haspopup="menu"
+                      aria-expanded={dropdown ? 'true' : 'false'}
+                      onClick={handleClick}
+                    >
+                      {t(name)}
+                    </button>
+                    <Dropdown submenu={submenu} dropdown={dropdown} id={index.toString()} callback={(val) => setDropdown({ open: val })} />
+                  </>
+                ) : (
+                  <Link href={link}>{t(name)}</Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+interface DropdownItems extends SubmenuItem {
+  active?: boolean;
+}
+
+const Dropdown: React.FC<{ submenu: SubmenuItem[]; dropdown: OpenDropdown; id: string; callback: (val: boolean) => void }> = ({
+  submenu,
+  dropdown,
+  id,
+  callback,
+}) => {
+  const { t } = useTranslation('common');
+  const { asPath } = useRouter();
+  const visible = dropdown.id === id;
+
+  const items: DropdownItems[] = submenu
+    .filter((item) => item.countryVariant.includes(getCountryVariant()))
+    .map((item) => {
+      const { link } = item;
+
+      if (link === asPath) {
+        return {
+          ...item,
+          active: true,
+        };
+      }
+
+      return { ...item };
+    });
+
+  return (
+    <div className={`absolute top-12`}>
+      <ul className={clsx({ [stylesDrop.basic]: true, hidden: !visible || !dropdown.open })}>
+        {items.map(({ name, link, active }, index) => {
+          return (
+            <li
+              key={index}
+              id={id}
+              className={clsx({ [stylesDrop.active]: active, 'hover:text-primary-blue py-1 text-sm': true })}
+              onClick={() => 
+                callback(false)
+              }
+            >
+              <Link href={link}>{t(name)}</Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
+
+const stylesDrop = {
+  basic: 'bg-white text-gray-700 w-44 flex flex-col pl-6 py-2 rounded-lg',
+  active: 'list-disc',
 };

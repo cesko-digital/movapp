@@ -21,6 +21,7 @@
     "@heroicons/react": "^1.0.6",
     "@svgr/webpack": "^6.2.1",
     "@types/jest": "^27.4.1",
+    "clsx": "^1.2.1",
     "eslint-config-prettier": "^8.5.0",
     "jest": "^27.5.1",
     "mark.js": "^8.11.1",

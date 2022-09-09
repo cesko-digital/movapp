@@ -1,11 +1,11 @@
 import { CountryVariant } from 'utils/locales';
 
-interface SubmenuItem {
+export interface SubmenuItem {
   name: string;
   link: string;
   countryVariant: CountryVariant[];
 }
-interface HeaderNavigation {
+export interface HeaderNavigation {
   name: string;
   link: string;
   submenu?: SubmenuItem[];
