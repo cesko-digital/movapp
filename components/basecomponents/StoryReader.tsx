@@ -6,7 +6,7 @@ import { getCountryVariant, Language } from '../../utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import { Flag } from './Flag';
 import StoryText from './StoryText';
-import { useAudionSource } from 'components/hooks/useAudioSource';
+import { useStoryReader } from 'components/hooks/useStoryReader';
 
 interface StoryReaderProps {
   titleCurrent: string;
@@ -18,7 +18,7 @@ interface StoryReaderProps {
 const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.Element => {
   const { currentLanguage } = useLanguage();
   const { audio, languagePlay, setLanguagePlay, setSeekValue, seekValue, stopStory, isPlaying, pauseStory, playStory, time, playPhrase } =
-    useAudionSource(id);
+    useStoryReader(id);
 
   const handleLanguageChange = (language: Language) => {
     setSeekValue(0);
@@ -87,12 +87,12 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
           <StoryText
             key={local}
             audio={audio.current}
-            languageText={local}
+            textLanguage={local}
             onClick={(value) => {
               playPhrase(value);
               setLanguagePlay(local);
             }}
-            languagePlay={languagePlay}
+            audioLanguage={languagePlay}
             id={id}
           />
         ))}

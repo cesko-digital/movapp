@@ -3,7 +3,7 @@ import React from 'react';
 import { Language } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 
-export const useAudionSource = (id: string) => {
+export const useStoryReader = (id: string) => {
   const { currentLanguage } = useLanguage();
   const [currentTime, setCurrentTime] = React.useState(0);
   const [seekValue, setSeekValue] = React.useState(0);

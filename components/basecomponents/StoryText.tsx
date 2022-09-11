@@ -5,13 +5,14 @@ import oCerveneKarkulce from '../../data/translations/cs/pohadka_karkulka.json';
 import oKoblizkovi from '../../data/translations/cs/pohadka_koblizek.json';
 import oIvasikovi from '../../data/translations/cs/pohadka_ivasik.json';
 import oHusach from '../../data/translations/cs/pohadka_husy.json';
+import { Language } from 'utils/locales';
 
-export type PhraseInfo = { language: string; time: number };
+export type PhraseInfo = { language: Language; time: number };
 
 interface StoryTextProps {
   audio: HTMLAudioElement | null;
-  languageText: string;
-  languagePlay: string;
+  textLanguage: Language;
+  audioLanguage: Language;
   id: string;
   onClick: ({ language, time }: PhraseInfo) => void;
 }
@@ -31,7 +32,7 @@ const scrollToRef = (ref: MutableRefObject<HTMLParagraphElement | null>, div: Mu
   }
 };
 
-const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryTextProps): JSX.Element => {
+const StoryText = ({ textLanguage, audioLanguage, id, audio, onClick }: StoryTextProps): JSX.Element => {
   const phraseRef = useRef<HTMLParagraphElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -53,8 +54,8 @@ const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryText
 
   const playing = (phrase: StoryPhrase) => {
     type ObjectKey = keyof typeof phrase;
-    const start = `start_${languagePlay}` as ObjectKey;
-    const end = `end_${languagePlay}` as ObjectKey;
+    const start = `start_${audioLanguage}` as ObjectKey;
+    const end = `end_${audioLanguage}` as ObjectKey;
     if (audio !== null) {
       return audio?.currentTime > phrase[start] && audio?.currentTime < phrase[end];
     } else {
@@ -64,7 +65,7 @@ const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryText
 
   const played = (phrase: StoryPhrase) => {
     type ObjectKey = keyof typeof phrase;
-    const end = `end_${languagePlay}` as ObjectKey;
+    const end = `end_${audioLanguage}` as ObjectKey;
     if (audio !== null) {
       return audio?.currentTime >= phrase[end];
     } else {
@@ -73,9 +74,9 @@ const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryText
   };
 
   const handleClick = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
-    const phraseId = e.currentTarget.id.replace(languageText, '').replace('-', '');
+    const startTime = e.currentTarget.id.replace(textLanguage, '').replace('-', '');
 
-    const phraseInfo: PhraseInfo = { language: languageText, time: Number(phraseId) };
+    const phraseInfo: PhraseInfo = { language: textLanguage, time: Number(startTime) };
 
     onClick(phraseInfo);
   };
@@ -88,12 +89,12 @@ const StoryText = ({ languageText, languagePlay, id, audio, onClick }: StoryText
             key={index}
             onClick={handleClick}
             ref={playing(phrase) ? phraseRef : null}
-            id={languageText === 'uk' ? `${'uk-' + phrase.start_uk}` : `${'cs-' + phrase.start_cs}`}
+            id={textLanguage === 'uk' ? `${'uk-' + phrase.start_uk}` : `${'cs-' + phrase.start_cs}`}
             className={`hover:cursor-pointer mx-6 my-4 text-left ${playing(phrase) && 'text-[#013ABD]'} ${
               played(phrase) && 'text-[#64a5da]'
             }`}
           >
-            {languageText === 'cs' ? phrase.main : phrase.uk}
+            {textLanguage === 'cs' ? phrase.main : phrase.uk}
           </p>
         ))}
       </div>
