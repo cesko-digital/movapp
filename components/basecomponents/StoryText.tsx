@@ -74,7 +74,7 @@ const StoryText = ({ textLanguage, audioLanguage, id, audio, onClick }: StoryTex
   };
 
   const handleClick = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
-    const startTime = e.currentTarget.id.replace(textLanguage, '').replace('-', '');
+    const startTime = e.currentTarget.id;
 
     const phraseInfo: PhraseInfo = { language: textLanguage, time: Number(startTime) };
 
@@ -89,7 +89,7 @@ const StoryText = ({ textLanguage, audioLanguage, id, audio, onClick }: StoryTex
             key={index}
             onClick={handleClick}
             ref={playing(phrase) ? phraseRef : null}
-            id={textLanguage === 'uk' ? `${'uk-' + phrase.start_uk}` : `${'cs-' + phrase.start_cs}`}
+            id={textLanguage === 'uk' ? phrase.start_uk.toString() : phrase.start_cs.toString()}
             className={`hover:cursor-pointer mx-6 my-4 text-left ${playing(phrase) && 'text-[#013ABD]'} ${
               played(phrase) && 'text-[#64a5da]'
             }`}
