@@ -16,8 +16,6 @@ export const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const { ref } = useClickOutside<HTMLDivElement>(() => setShowDropdown(false));
 
-  console.log('ref', ref);
-
   return (
     <header className="bg-primary-blue w-full sticky top-0 z-10 h-14 hidden md:block">
       <div className="max-w-7xl m-auto flex h-full justify-between items-center ">
@@ -43,9 +41,7 @@ export const Header = () => {
                   ) : (
                     <div ref={ref} className="bg-red-500">
                       <button onClick={() => setShowDropdown(!showDropdown)}>{t(name)}</button>
-                      <div
-                        className={`absolute z-10 ${!showDropdown && 'hidden'} bg-white divide-y divide-gray-100 rounded shadow w-44`}
-                      >
+                      <div className={`absolute z-10 ${!showDropdown && 'hidden'} bg-white divide-y divide-gray-100 rounded shadow w-44`}>
                         <ul className="py-2 px-2 text-sm text-gray-700 list-inside list-disc leading-8">
                           {submenu
                             ?.filter((item) => item.countryVariant.includes(getCountryVariant()))
