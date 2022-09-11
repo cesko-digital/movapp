@@ -62,8 +62,8 @@ If you have questions, [write to us on Slack](https://cesko-digital.slack.com/ar
    ...
    <p>{t('homepage.box_child_title')}</p>
    ```
-* **Language variants**: We use the `NEXT_PUBLIC_COUNTRY_VARIANT` to decide whether to build the Czech, Slovak or Polish variant of the site. See `locales.ts` for more details. When making changes, check that your code works in all language variants. The merge request pipeline automatically deploys the preview of each language variant.
-* Data management:
+* **Language variants**: We use the `NEXT_PUBLIC_COUNTRY_VARIANT` environment variable to decide whether to build the Czech, Slovak or Polish variant of the site. See `locales.ts` for more details. When making changes, check that your code works in all language variants. The merge request pipeline automatically deploys the preview of each language variant.
+* **Data management**:
   * We use [Airtable](https://airtable.com/appLciQqZNGDR3J6W?) for managing the site content (phrases, categories).
   * The data is pulled into the [movapp-data](https://github.com/cesko-digital/movapp-data) repository, enriched with sounds generated using Azure text-to-speech API and hosted on a CDN at [data.movapp.eu](data.movapp.eu)
   * This website, as well as mobile apps pull the data from the CDN.
