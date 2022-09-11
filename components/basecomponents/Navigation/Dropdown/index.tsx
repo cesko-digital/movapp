@@ -39,7 +39,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ submenu, dropdown, id, callb
     });
 
   return (
-    <div className="mt-3 md:mt-0 md:absolute md:top-12">
+    <div className="md:absolute md:top-12">
       <ul className={clsx({ [styles.basic]: true, hidden: !visible || !dropdown.open })}>
         {items.map(({ name, link, active }, index) => {
           return (
@@ -62,5 +62,5 @@ export const Dropdown: React.FC<DropdownProps> = ({ submenu, dropdown, id, callb
 };
 
 const styles = {
-  basic: ' bg-blue-600 text-white w-44 flex flex-col py-2 rounded-lg text-center md:text-left md:text-gray-700 md:pl-6 md:bg-white',
+  basic: ' bg-blue-600 text-white w-44 flex flex-col mt-3 py-2 rounded-lg text-center md:text-left md:text-gray-700 md:pl-6 md:bg-white md:mt-0',
 };
