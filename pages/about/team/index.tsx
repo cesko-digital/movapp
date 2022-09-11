@@ -46,12 +46,12 @@ const Team: NextPage<{ teams: Teams[] }> = ({ teams }) => {
       <div className="text-center mb-9">
         <H2>{t('about_page.our_team_title')}</H2>
         <Image
-          src="/images/team/small-team-photo.jpg"
-          width="580"
-          height="280"
+          src="https://data.movapp.eu/images/team/small-team-photo.jpg"
+          width="320"
+          height="180"
           alt="team"
-          className='hover:cursor-pointer'
-          onClick={() => window.open('https://www.movapp.cz/images/team/large-team-photo.jpg', '_blank')}
+          className="hover:cursor-pointer"
+          onClick={() => window.open('https://data.movapp.eu/images/team/large-team-photo.jpg', '_blank')}
         />
       </div>
 
@@ -68,7 +68,7 @@ const Team: NextPage<{ teams: Teams[] }> = ({ teams }) => {
           components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" key="/contacts" />]}
         />
       </P>
-    </ div>
+    </div>
   );
 };
 
