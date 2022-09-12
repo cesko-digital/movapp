@@ -115,7 +115,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      {getCountryVariant() === 'cs' && <AppsButtons />}
+      <AppsButtons />
       <LanguagesFlags />
     </>
   );
