@@ -50,7 +50,9 @@
     ],
     "prettier/prettier": [
       "warn",
-      {},
+      {
+        "endOfLine": "auto"
+      },
       {
         "usePrettierrc": true
       }
