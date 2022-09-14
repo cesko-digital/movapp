@@ -46,7 +46,7 @@ If you have questions, [write to us on Slack](https://cesko-digital.slack.com/ar
 ### Development Guidelines 
 
 * TypeScript everywhere (as much as posisble) Avoid the use of `any`, `as` typecasting, `ts-ignore`. 
-* Tailwind everywhere (as much as possible). We are trying to keep the styling appraoch consistent so stick to Tailwind unless you have a specific reason to use something else.
+* Tailwind everywhere (as much as possible). We are trying to keep the styling approach consistent so stick to Tailwind unless you have a specific reason to use something else.
 * Use `eslint` and `prettier` in your IDE.
 * Keep it simple. A lot of our contributors are junior/mid-level developers so we favor code-readability and easy onboarding to optimal performance and code cleverness. Dumb is readable, readable is smart.
 * Don't reinvent the wheel. For more complex, standard components (modal, dropdown, etc) we use 3rd party headless libraries like [HeadlessUI](https://headlessui.com/) or [RadixUI](https://www.radix-ui.com/).
@@ -67,8 +67,6 @@ If you have questions, [write to us on Slack](https://cesko-digital.slack.com/ar
   * We use [Airtable](https://airtable.com/appLciQqZNGDR3J6W?) for managing the site content (phrases, categories).
   * The data is pulled into the [movapp-data](https://github.com/cesko-digital/movapp-data) repository, enriched with sounds generated using Azure text-to-speech API and hosted on a CDN at [data.movapp.eu](data.movapp.eu)
   * This website, as well as mobile apps pull the data from the CDN.
-
-  
 
 
 ## Contributions
