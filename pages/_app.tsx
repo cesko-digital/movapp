@@ -18,7 +18,6 @@ import Head from 'next/head';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const { locales, asPath } = useRouter();
-
   return (
     <>
       <Head>

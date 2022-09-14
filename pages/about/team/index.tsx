@@ -7,7 +7,7 @@ import React from 'react';
 import { getServerSideTranslations } from 'utils/localization';
 import { useLanguage } from 'utils/useLanguageHook';
 
-interface Members {
+interface TeamStucture {
   sections: [
     {
       name: {
@@ -26,12 +26,12 @@ interface Members {
   ];
 }
 
-interface Teams {
-  team: Members['sections'][number]['name'];
+interface TeamSection {
+  team: TeamStucture['sections'][number]['name'];
   members: string;
 }
 
-const Team: NextPage<{ teams: Teams[] }> = ({ teams }) => {
+const Team: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
@@ -76,7 +76,7 @@ export default Team;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const promise = await fetch('https://data.movapp.eu/team.v1.json');
-  const teams: Members = await promise.json();
+  const teams: TeamStucture = await promise.json();
 
   if (promise.status === 404) {
     return {
@@ -84,7 +84,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     };
   }
 
-  const pluck: Teams[] = teams.sections.map(({ name, members }) => ({
+  const pluck: TeamSection[] = teams.sections.map(({ name, members }) => ({
     team: name,
     members: members.map(({ name }) => name).join(', '),
   }));
