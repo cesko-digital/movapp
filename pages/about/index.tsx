@@ -1,11 +1,38 @@
 import { useTranslation, Trans } from 'next-i18next';
-export { getStaticProps } from 'utils/localization';
-import { getCountryVariant, Language } from 'utils/locales';
+import { getCountryVariant } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
 import { H2, LinkText, P } from 'components/Typography';
+import Image from 'next/image';
+import React from 'react';
+import { GetStaticProps, NextPage } from 'next';
+import { getServerSideTranslations } from 'utils/localization';
 
-const About = () => {
+interface TeamStucture {
+  sections: [
+    {
+      name: {
+        cs: string;
+        pl: string;
+        uk: string;
+        sk: string;
+        en: string;
+      };
+      members: [
+        {
+          name: string;
+        }
+      ];
+    }
+  ];
+}
+
+interface TeamSection {
+  team: TeamStucture['sections'][number]['name'];
+  members: string;
+}
+
+const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
@@ -42,13 +69,28 @@ const About = () => {
         />
 
         <H2>{t('about_page.our_team_title')}</H2>
-        <P>{t('about_page.our_team_description')}</P>
-        <P>{t('about_page.our_team_illustrators')}</P>
-
-        <Trans
-          i18nKey={'about_page.our_team_contact'}
-          components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" />]}
+        <Image
+          src="https://data.movapp.eu/images/team/small-team-photo.jpg"
+          width="320"
+          height="180"
+          alt="team"
+          className="hover:cursor-pointer"
+          onClick={() => window.open('https://data.movapp.eu/images/team/large-team-photo.jpg', '_blank')}
         />
+
+        {teams.map(({ team, members }) => (
+          <React.Fragment key={team[currentLanguage]}>
+            <H2>{team[currentLanguage]}</H2>
+            <P className="inline-block">{members}</P>
+          </React.Fragment>
+        ))}
+
+        <div className="my-4">
+          <Trans
+            i18nKey={'about_page.our_team_contact'}
+            components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" />]}
+          />
+        </div>
 
         <H2>{t('about_page.how_to_find_us_title')}</H2>
         <Trans i18nKey={'about_page.how_to_find_us_description'} />
@@ -66,3 +108,26 @@ const About = () => {
 };
 
 export default About;
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const promise = await fetch('https://data.movapp.eu/team.v1.json');
+  const teams: TeamStucture = await promise.json();
+
+  if (promise.status === 404) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const pluck: TeamSection[] = teams.sections.map(({ name, members }) => ({
+    team: name,
+    members: members.map(({ name }) => name).join(', '),
+  }));
+
+  return {
+    props: {
+      teams: pluck,
+      ...(await getServerSideTranslations(locale)),
+    },
+  };
+};
