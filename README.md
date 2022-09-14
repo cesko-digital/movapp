@@ -24,9 +24,9 @@ Source code is available under the MIT license. Text, pictures and audiofiles ar
 
 If you want to help us, fill in the form at [cesko.digital/join](https://cesko.digital/join) and join Slack. You can find us in the _ua-movapp_ channel (we speak Czech, Slovak, English, and a little bit Ukrainian).
 
-## Vývoj
+## Development
 
-Web je napsaný v [Next.js](https://nextjs.org/) a hostovaný na [Vercelu](https://vercel.com/). Lokálně si ho můžete rozběhnout takhle:
+The web is written in [Next.js](https://nextjs.org/) and hosted on [Vercel](https://vercel.com/). To run it locally:
 
 ```bash
 git clone https://github.com/cesko-digital/movapp.git
@@ -35,13 +35,39 @@ npm install
 npm run dev
 ```
 
-Před zasláním push request si ověřte, zva vám proběhnou testy
+Run tests: 
 
 ```bash
 npm test
 ```
 
-Kdybyste narazili, [ozvěte se ve Slacku](https://cesko-digital.slack.com/archives/C036GLKL7ME).
+If you have questions, [write to us on Slack](https://cesko-digital.slack.com/archives/C036GLKL7ME) or create an issue
+
+### Development Guidelines 
+
+* TypeScript everywhere (as much as posisble) Avoid the use of `any`, `as` typecasting, `ts-ignore`. 
+* Tailwind everywhere (as much as possible). We are trying to keep the styling approach consistent so stick to Tailwind unless you have a specific reason to use something else.
+* Use `eslint` and `prettier` in your IDE.
+* Keep it simple. A lot of our contributors are junior/mid-level developers so we favor code-readability and easy onboarding to optimal performance and code cleverness. Dumb is readable, readable is smart.
+* Don't reinvent the wheel. For more complex, standard components (modal, dropdown, etc) we use 3rd party headless libraries like [HeadlessUI](https://headlessui.com/) or [RadixUI](https://www.radix-ui.com/).
+
+### Development Onboarding Notes
+
+* [Intro to Next.js](https://www.youtube.com/watch?v=Sklc_fQBmcs&ab_channel=Fireship)
+* [Intro to TypeScript](https://www.youtube.com/watch?v=zQnBQ4tB3ZA&ab_channel=Fireship)
+* [Intro to Tailwind](https://www.youtube.com/watch?v=mr15Xzb1Ook&ab_channel=Fireship)
+* **Localization**: We use `next-i18next` to switch localization between the main site language (i.e., Czech) and Ukrainian. 
+   ``` 
+   const { t } = useTranslation();
+   ...
+   <p>{t('homepage.box_child_title')}</p>
+   ```
+* **Language variants**: We use the `NEXT_PUBLIC_COUNTRY_VARIANT` environment variable to decide whether to build the Czech, Slovak or Polish variant of the site. See `locales.ts` for more details. When making changes, check that your code works in all language variants. The merge request pipeline automatically deploys the preview of each language variant.
+* **Data management**:
+  * We use [Airtable](https://airtable.com/appLciQqZNGDR3J6W?) for managing the site content (phrases, categories).
+  * The data is pulled into the [movapp-data](https://github.com/cesko-digital/movapp-data) repository, enriched with sounds generated using Azure text-to-speech API and hosted on a CDN at [data.movapp.eu](data.movapp.eu)
+  * This website, as well as mobile apps pull the data from the CDN.
+
 
 ## Contributions
 
