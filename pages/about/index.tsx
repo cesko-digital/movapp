@@ -1,33 +1,38 @@
-/* eslint-disable react/jsx-key*/
 import { useTranslation, Trans } from 'next-i18next';
-export { getStaticProps } from 'utils/localization';
-import Link from 'next/link';
-import { HTMLAttributes } from 'react';
-import { getCountryVariant, Language } from 'utils/locales';
+import { getCountryVariant } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
+import { H2, LinkText, P } from 'components/Typography';
+import Image from 'next/image';
+import React from 'react';
+import { GetStaticProps, NextPage } from 'next';
+import { getServerSideTranslations } from 'utils/localization';
 
-interface LinkTextProps {
-  href: string;
-  children?: string;
-  target?: '_blank' | '_self';
-  locale?: Language;
+interface TeamStucture {
+  sections: [
+    {
+      name: {
+        cs: string;
+        pl: string;
+        uk: string;
+        sk: string;
+        en: string;
+      };
+      members: [
+        {
+          name: string;
+        }
+      ];
+    }
+  ];
 }
 
-export const LinkText = ({ href, children, target, locale }: LinkTextProps) => {
-  return (
-    <Link locale={locale} href={href}>
-      <a target={target} className="underline text-primary-blue">
-        {children}
-      </a>
-    </Link>
-  );
-};
+interface TeamSection {
+  team: TeamStucture['sections'][number]['name'];
+  members: string;
+}
 
-const H2 = ({ ...props }: HTMLAttributes<HTMLHeadingElement>) => <h2 className="mb-1 mt-5 sm:my-4 text-primary-blue" {...props} />;
-const P = ({ ...props }: HTMLAttributes<HTMLParagraphElement>) => <p className="mb-6" {...props} />;
-
-const About = () => {
+const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
@@ -53,24 +58,45 @@ const About = () => {
           <Trans
             i18nKey={'about_page.why_movapp_license'}
             t={t}
-            components={[<LinkText href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" />]}
+            components={[<LinkText href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" key="creativecommons" />]}
           />
         </P>
 
         <Trans
           i18nKey={'about_page.why_movapp_origin'}
           t={t}
-          components={[<LinkText href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw" target="_blank" />]}
+          components={[
+            <LinkText
+              href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw"
+              target="_blank"
+              key="drive.google.com"
+            />,
+          ]}
         />
 
         <H2>{t('about_page.our_team_title')}</H2>
-        <P>{t('about_page.our_team_description')}</P>
-        <P>{t('about_page.our_team_illustrators')}</P>
-
-        <Trans
-          i18nKey={'about_page.our_team_contact'}
-          components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" />]}
+        <Image
+          src="https://data.movapp.eu/images/team/small-team-photo.jpg"
+          width="320"
+          height="180"
+          alt="team"
+          className="hover:cursor-pointer"
+          onClick={() => window.open('https://data.movapp.eu/images/team/large-team-photo.jpg', '_blank')}
         />
+
+        {teams.map(({ team, members }) => (
+          <React.Fragment key={team[currentLanguage]}>
+            <H2>{team[currentLanguage]}</H2>
+            <P className="inline-block">{members}</P>
+          </React.Fragment>
+        ))}
+
+        <div className="my-4">
+          <Trans
+            i18nKey={'about_page.our_team_contact'}
+            components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" key="contacts" />]}
+          />
+        </div>
 
         <H2>{t('about_page.how_to_find_us_title')}</H2>
         <Trans i18nKey={'about_page.how_to_find_us_description'} />
@@ -78,13 +104,40 @@ const About = () => {
         <H2>{t('about_page.stand_with_ukraine_title')}</H2>
         <Trans
           i18nKey={'about_page.stand_with_ukraine_description'}
-          components={[<LinkText href="https://stojimezaukrajinou.cz/" target="_blank" />]}
+          components={[<LinkText href="https://stojimezaukrajinou.cz/" target="_blank" key="stojimezaukrajinou" />]}
         />
+
         <H2>{t('about_page.czech_digital_title')}</H2>
-        <Trans i18nKey={'about_page.czech_digital_description'} components={[<LinkText href="https://cesko.digital/" target="_blank" />]} />
+        <Trans
+          i18nKey={'about_page.czech_digital_description'}
+          components={[<LinkText href="https://cesko.digital/" target="_blank" key="cesko.digital" />]}
+        />
       </div>
     </>
   );
 };
 
 export default About;
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const promise = await fetch('https://data.movapp.eu/team.v1.json');
+  const teams: TeamStucture = await promise.json();
+
+  if (promise.status === 404) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const pluck: TeamSection[] = teams.sections.map(({ name, members }) => ({
+    team: name,
+    members: members.map(({ name }) => name).join(', '),
+  }));
+
+  return {
+    props: {
+      teams: pluck,
+      ...(await getServerSideTranslations(locale)),
+    },
+  };
+};
