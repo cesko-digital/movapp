@@ -1,31 +1,9 @@
-/* eslint-disable react/jsx-key*/
 import { useTranslation, Trans } from 'next-i18next';
 export { getStaticProps } from 'utils/localization';
-import Link from 'next/link';
-import { HTMLAttributes } from 'react';
 import { getCountryVariant, Language } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
-
-interface LinkTextProps {
-  href: string;
-  children?: string;
-  target?: '_blank' | '_self';
-  locale?: Language;
-}
-
-export const LinkText = ({ href, children, target, locale }: LinkTextProps) => {
-  return (
-    <Link locale={locale} href={href}>
-      <a target={target} className="underline text-primary-blue">
-        {children}
-      </a>
-    </Link>
-  );
-};
-
-const H2 = ({ ...props }: HTMLAttributes<HTMLHeadingElement>) => <h2 className="mb-1 mt-5 sm:my-4 text-primary-blue" {...props} />;
-const P = ({ ...props }: HTMLAttributes<HTMLParagraphElement>) => <p className="mb-6" {...props} />;
+import { H2, LinkText, P } from 'components/Typography';
 
 const About = () => {
   const { t } = useTranslation();
