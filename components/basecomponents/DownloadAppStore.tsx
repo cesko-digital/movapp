@@ -6,7 +6,7 @@ export const DOWNLOAD_IOS_URL = 'https://apps.apple.com/app/apple-store/id161776
 export const DownloadAppStore = () => {
   const { t } = useTranslation();
   return (
-    <div className="flex">
+    <div className="flex h-[4.5rem]">
       <a
         href={DOWNLOAD_IOS_URL}
         target="_blank"
