@@ -1,7 +1,7 @@
 import 'styles/globals.css';
 import 'styles/markdown.css';
 import type { AppProps } from 'next/app';
-import { Layout } from 'components/sections/Layout/Layout';
+import { Layout, PLAUSIBLE_DOMAINS } from 'components/sections/Layout/Layout';
 import { appWithTranslation } from 'next-i18next';
 import '@fontsource/roboto/900.css';
 import '@fontsource/roboto/700.css';
@@ -15,11 +15,13 @@ import '@fontsource/source-sans-pro/300.css';
 import '@fontsource/source-sans-pro/600.css';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import PlausibleProvider from 'next-plausible';
+import { getCountryVariant } from '../utils/locales';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const { locales, asPath } = useRouter();
   return (
-    <>
+    <PlausibleProvider domain={PLAUSIBLE_DOMAINS[getCountryVariant()]}>
       <Head>
         <link rel="alternate" hrefLang="x-default" href={`https://www.movapp.cz${asPath}`} />
         {locales?.map((locale, index) => {
@@ -29,7 +31,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>
+    </PlausibleProvider>
   );
 };
 
