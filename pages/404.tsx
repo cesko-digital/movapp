@@ -8,6 +8,7 @@ const Custom404 = () => {
   const { t } = useTranslation();
   const plausible = usePlausible();
   useEffect(() => {
+    console.log('sending plauslbe in use effect');
     plausible('404', { props: { path: document.location.pathname } });
   }, [plausible]);
 
