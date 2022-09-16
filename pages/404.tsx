@@ -11,7 +11,19 @@ const Custom404 = () => {
     plausible('404', { props: { path: document.location.pathname } });
   }, [plausible]);
 
-  return <NextErrorComponent statusCode={404} title={t('errors.pageNotFound')} />;
+  return (
+    <>
+      <button
+        onClick={() => {
+          console.log('sending 404');
+          plausible('404', { props: { path: document.location.pathname } });
+        }}
+      >
+        Send 404 signal
+      </button>
+      <NextErrorComponent statusCode={404} title={t('errors.pageNotFound')} />;
+    </>
+  );
 };
 
 export default Custom404;
