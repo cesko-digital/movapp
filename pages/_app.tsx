@@ -15,11 +15,19 @@ import '@fontsource/source-sans-pro/300.css';
 import '@fontsource/source-sans-pro/600.css';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import PlausibleProvider from 'next-plausible';
+import { CountryVariant, getCountryVariant } from '../utils/locales';
+
+export const PLAUSIBLE_DOMAINS: Record<CountryVariant, string> = {
+  cs: 'movapp.cz, all.movapp.eu',
+  sk: 'sk.movapp.eu, all.movapp.eu',
+  pl: 'pl.movapp.eu, all.movapp.eu',
+};
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const { locales, asPath } = useRouter();
   return (
-    <>
+    <PlausibleProvider domain={PLAUSIBLE_DOMAINS[getCountryVariant()]}>
       <Head>
         <link rel="alternate" hrefLang="x-default" href={`https://www.movapp.cz${asPath}`} />
         {locales?.map((locale, index) => {
@@ -29,7 +37,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>
+    </PlausibleProvider>
   );
 };
 
