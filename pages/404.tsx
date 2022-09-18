@@ -8,20 +8,11 @@ const Custom404 = () => {
   const { t } = useTranslation();
   const plausible = usePlausible();
   useEffect(() => {
-    console.log('sending plauslbe in use effect');
     plausible('404', { props: { path: document.location.pathname } });
   }, [plausible]);
 
   return (
     <>
-      <button
-        onClick={() => {
-          console.log('sending 404');
-          plausible('404', { props: { path: document.location.pathname } });
-        }}
-      >
-        Send 404 signal
-      </button>
       <NextErrorComponent statusCode={404} title={t('errors.pageNotFound')} />;
     </>
   );
