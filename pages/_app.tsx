@@ -30,7 +30,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <PlausibleProvider domain={PLAUSIBLE_DOMAINS[getCountryVariant()]}>
       <Head>
         <link rel="alternate" hrefLang="x-default" href={`https://www.movapp.cz${asPath}`} />
-        {/* <Script data-domain={PLAUSIBLE_DOMAINS[getCountryVariant()]} src="https://plausible.io/js/plausible.js" /> */}
         {locales?.map((locale, index) => {
           return <link key={index} rel="alternate" hrefLang={locale} href={`https://www.movapp.cz/${locale}${asPath}`} />;
         })}
