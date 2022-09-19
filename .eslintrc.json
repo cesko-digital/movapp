@@ -26,6 +26,12 @@
     "sort-imports": ["off"],
     "func-style": ["error", "expression"],
     "prefer-arrow-callback": ["error"],
+    "react/jsx-no-target-blank": [
+      "error",
+      {
+        "allowReferrer": true
+      }
+    ],
     "@typescript-eslint/explicit-function-return-type": [
       "off",
       {
