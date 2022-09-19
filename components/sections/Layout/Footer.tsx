@@ -1,26 +1,15 @@
-import Spinner from 'components/basecomponents/Spinner/Spinner';
-import { Modal } from 'components/basecomponents/Modal';
 import { SocialMedia } from 'components/basecomponents/SocialMedia';
 import { FOOTER_NAVIGATION } from 'data/footerNavigation';
 import { useTranslation } from 'next-i18next';
-import { useCallback, useState } from 'react';
 import { getCountryVariant } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
+import Feedback from '../Feedback/Feedback';
 
 export const Footer = () => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
   const footerNavigationLinks = FOOTER_NAVIGATION[getCountryVariant()][currentLanguage];
-  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
-  const [showLoading, setShowLoading] = useState(true);
-  const closeModal = useCallback(() => {
-    setIsFeedbackModalOpen(false);
-  }, []);
-  const openModal = useCallback(() => {
-    setShowLoading(true);
-    setIsFeedbackModalOpen(true);
-  }, []);
 
   return (
     <footer className="bg-primary-yellow">
@@ -41,13 +30,7 @@ export const Footer = () => {
             );
           })}
         </div>
-        {currentLanguage === 'cs' && (
-          <p className="text-primary-black text-center pt-6">
-            <button onClick={openModal} className="border-2 border-black p-1 hover:border-primary-red">
-              {t('footer.feedback')}
-            </button>
-          </p>
-        )}
+        <Feedback />
         <p className="text-primary-black text-center text-xs pt-6">
           {t('footer.join_development')}{' '}
           <a href={'https://github.com/cesko-digital/movapp'} target={'_blank'} className="underline" rel="noopener">
@@ -65,19 +48,6 @@ export const Footer = () => {
           </a>
         </p>
       </div>
-      <Modal closeModal={closeModal} isOpen={isFeedbackModalOpen}>
-        <div className={`absolute flex justify-center items-center w-full h-96 ${showLoading ? '' : 'hidden'}`}>
-          <Spinner />
-        </div>
-        <iframe
-          className="airtable-embed"
-          src={`https://airtable.com/embed/${t('footer.feedback_form_id')}`}
-          frameBorder="0"
-          width="100%"
-          height="533"
-          onLoad={() => setShowLoading(false)}
-        />
-      </Modal>
     </footer>
   );
 };
