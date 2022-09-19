@@ -1,15 +1,27 @@
+import Spinner from 'components/basecomponents/Spinner/Spinner';
+import { Modal } from 'components/basecomponents/Modal';
+import { SocialMedia } from 'components/basecomponents/SocialMedia';
+import { FOOTER_NAVIGATION } from 'data/footerNavigation';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { FOOTER_NAVIGATION } from 'data/footerNavigation';
+import { useCallback, useState } from 'react';
 import { getCountryVariant } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
-import { SocialMedia } from 'components/basecomponents/SocialMedia';
 
 export const Footer = () => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
   const footerNavigationLinks = FOOTER_NAVIGATION[getCountryVariant()][currentLanguage];
+  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
+  const closeModal = useCallback(() => {
+    setIsFeedbackModalOpen(false);
+  }, []);
+  const openModal = useCallback(() => {
+    setShowLoading(true);
+    setIsFeedbackModalOpen(true);
+  }, []);
 
   return (
     <footer className="bg-primary-yellow">
@@ -32,21 +44,43 @@ export const Footer = () => {
             );
           })}
         </div>
-        <p className="text-primary-black text-center text-xs pt-10">
+        {currentLanguage === 'cs' && (
+          <p className="text-primary-black text-center pt-6">
+            <button onClick={openModal} className="border-2 border-black p-1 hover:border-primary-red">
+              {t('footer.feedback')}
+            </button>
+          </p>
+        )}
+        <p className="text-primary-black text-center text-xs pt-6">
           {t('footer.join_development')}{' '}
-          <Link href={'https://github.com/cesko-digital/movapp'}>
-            <a target={'_blank'} className="underline">
-              GitHub
-            </a>
-          </Link>{' '}
+          <a href={'https://github.com/cesko-digital/movapp'} target={'_blank'} className="underline" rel="noreferrer">
+            GitHub
+          </a>{' '}
           | {t('footer.licence_intro')}{' '}
-          <Link href={'https://creativecommons.org/licenses/by-nc/4.0/'}>
-            <a target={'_blank'} className="underline" title="Creative Commons - Attribution required, Non-commercial use only 4.0">
-              {t('footer.licence')}
-            </a>
-          </Link>
+          <a
+            href={'https://creativecommons.org/licenses/by-nc/4.0/'}
+            target={'_blank'}
+            className="underline"
+            rel="noreferrer"
+            title="Creative Commons - Attribution required, Non-commercial use only 4.0"
+          >
+            {t('footer.licence')}
+          </a>
         </p>
       </div>
+      <Modal closeModal={closeModal} isOpen={isFeedbackModalOpen}>
+        <div className={`absolute flex justify-center items-center w-full h-96 ${showLoading ? '' : 'hidden'}`}>
+          <Spinner />
+        </div>
+        <iframe
+          className="airtable-embed"
+          src={`https://airtable.com/embed/${t('footer.feedback_form_id')}`}
+          frameBorder="0"
+          width="100%"
+          height="533"
+          onLoad={() => setShowLoading(false)}
+        />
+      </Modal>
     </footer>
   );
 };
