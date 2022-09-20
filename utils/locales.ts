@@ -37,7 +37,7 @@ export const getCountryVariant = (): CountryVariant => {
 
 export const LOCALE_NAMES: Record<Language, string> = {
   cs: 'Česky',
-  uk: 'Укр',
+  uk: 'Українська',
   pl: 'Polski',
   sk: 'Slovensky',
 };
