@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { getCountryVariant } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 
-const Feedback = dynamic(() => import('../Feedback/Feedback'), {
+const Feedback = dynamic(() => import('../../basecomponents/Feedback'), {
   ssr: false,
 });
 

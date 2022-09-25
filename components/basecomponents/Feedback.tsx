@@ -1,8 +1,8 @@
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
-import { Modal } from '../../basecomponents/Modal';
-import Spinner from '../../basecomponents/Spinner/Spinner';
+import { Modal } from './Modal';
+import Spinner from './Spinner/Spinner';
 
 const Feedback = () => {
   const { t } = useTranslation();

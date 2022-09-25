@@ -1,6 +1,5 @@
 import { PhraseInfo } from 'components/basecomponents/StoryText';
 import React from 'react';
-import { Language } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 
 export const useStoryReader = (id: string) => {
@@ -38,7 +37,7 @@ export const useStoryReader = (id: string) => {
   const playPhrase = React.useCallback((value: PhraseInfo) => {
     const { time, language } = value;
 
-    setLanguagePlay(language as Language);
+    setLanguagePlay(language);
     setSeekValue(time);
 
     // Keep setTimeout value below 951. It is the lowest value, that the browser on Apple devices know and that it can enable autoplay.
