@@ -1,29 +1,38 @@
 import { useTranslation } from 'next-i18next';
-import dynamic from 'next/dynamic';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
+import { Modal } from '../../basecomponents/Modal';
+import Spinner from '../../basecomponents/Spinner/Spinner';
 
-const FeedbackModal = dynamic(() => import('./FeedbackModalClientSide'), {
-  ssr: false,
-});
 const Feedback = () => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
+  if (currentLanguage !== 'cs') {
+    return null;
+  }
 
-  const openModal = useCallback(() => {
-    setIsFeedbackModalOpen(true);
-  }, []);
+  const url = encodeURIComponent(document.location.href);
+  const iframeSrc = `https://airtable.com/embed/${t(
+    'footer.feedback_form_id'
+  )}?prefill_url=${url}&hide_url=true&prefill_language=${currentLanguage}&hide_language=true`;
 
-  return currentLanguage === 'cs' ? (
-    <p className="text-primary-black text-center pt-6">
-      <button onClick={openModal} className="border-2 border-black p-1 hover:border-primary-red">
-        {t('footer.feedback')}
-      </button>
-      <FeedbackModal isFeedbackModalOpen={isFeedbackModalOpen} setIsFeedbackModalOpen={setIsFeedbackModalOpen} />
-    </p>
-  ) : null;
+  return (
+    <>
+      <div className="text-center">
+        <button onClick={() => setModalOpen(true)} className="border-2 border-black p-1 hover:border-primary-red mt-6">
+          {t('footer.feedback')}
+        </button>
+      </div>
+      <Modal closeModal={() => setModalOpen(false)} isOpen={modalOpen} unmount>
+        <div className={`absolute flex justify-center items-center w-full h-96 -z-10`}>
+          <Spinner />
+        </div>
+        <iframe className="airtable-embed" src={iframeSrc} frameBorder="0" width="100%" height="533" />
+      </Modal>
+    </>
+  );
 };
 
 export default Feedback;

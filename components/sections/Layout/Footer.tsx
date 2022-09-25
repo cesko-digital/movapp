@@ -1,14 +1,17 @@
 import { SocialMedia } from 'components/basecomponents/SocialMedia';
 import { FOOTER_NAVIGATION } from 'data/footerNavigation';
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import { getCountryVariant } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
-import Feedback from '../Feedback/Feedback';
+
+const Feedback = dynamic(() => import('../Feedback/Feedback'), {
+  ssr: false,
+});
 
 export const Footer = () => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
-
   const footerNavigationLinks = FOOTER_NAVIGATION[getCountryVariant()][currentLanguage];
 
   return (
