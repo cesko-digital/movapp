@@ -7,7 +7,7 @@ const PDF_OPTIONS: pdf.CreateOptions = {
   orientation: 'portrait',
   border: '10mm',
   footer: {
-    height: '10mm',
+    height: '1mm',
   },
   type: 'pdf',
   timeout: 30000,

@@ -129,7 +129,7 @@ export interface Letter {
 }
 
 export interface AlphabetDataObject {
-  // uk
+  // uk (for Ukrainian alphabet)
   source: Language;
   // cs, sk, pl
   main: Language;
@@ -145,4 +145,3 @@ export const fetchAlphabetMain = async () => {
   const result = await (await fetch(`https://data.movapp.eu/${getCountryVariant()}-uk-alphabet.json`)).json();
   return result as AlphabetDataObject;
 };
-

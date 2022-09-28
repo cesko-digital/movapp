@@ -8,17 +8,19 @@ const PdfFooter: FunctionComponent = () => (
       color: '#666',
     }}
   >
-    This is a sample footer
+    Další učební materiály najdete na Movapp.cz
   </div>
 );
 
 const PdfLayout: FunctionComponent = ({ children }) => (
   <html>
+    {/* It seems the Tailwind link only works with native html head */}
+    {/* eslint-disable-next-line @next/next/no-head-element */}
     <head>
       <meta charSet="utf8" />
-      <link rel="stylesheet" href="http://localhost:1234/static/pdf.css" />
+      <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"></link>
     </head>
-    <body>
+    <body style={{ fontSize: '12px' }}>
       {children}
       <PdfFooter />
     </body>
