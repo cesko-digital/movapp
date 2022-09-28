@@ -1,13 +1,12 @@
-// @ts-check
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const fs = require('fs');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const puppeteer = require('puppeteer');
 
-const exportPdf = async (/** @type {string} */ path, /** @type {`${string}.pdf` } */ filename) => {
+const exportPdf = async (path: string, filename: `${string}.pdf`) => {
   const HTMLcontent = fs.readFileSync(`.next/server/pages/${path}.html`, 'utf8');
   const CSSpath = '.next/static/css/';
-  const CSSfiles = fs.readdirSync(CSSpath).filter((fn) => fn.endsWith('.css'));
+  const CSSfiles: string[] = fs.readdirSync(CSSpath).filter((fn: any) => fn.endsWith('.css'));
   let CSScontent = '';
   CSSfiles.forEach((file) => {
     CSScontent += fs.readFileSync(CSSpath + file, 'utf8');
@@ -40,3 +39,5 @@ const exportPdf = async (/** @type {string} */ path, /** @type {`${string}.pdf` 
 };
 
 exportPdf('cs/alphabet', 'csAlphabet.pdf');
+
+export {};
