@@ -3,16 +3,21 @@ import React from 'react';
 import AlphabetPdf from '../../components/pdfs/alphabetPdf';
 import { componentToPDFBuffer } from '../../components/pdfs/utils/reactToPdf';
 import PdfLayout from '../../components/pdfs/utils/PdfLayout';
+import { fetchAlphabetMain, fetchAlphabetUk } from '../../utils/getDataUtils';
 
 class PDF extends React.Component {
   static async getInitialProps({ res }: NextPageContext) {
     // const exportPDF = query.exportPDF === 'true';
     // const isServer = !!req;
 
+    const alphabetMain = await fetchAlphabetMain();
+    const alphabetUk = await fetchAlphabetUk();
+    // const localeTranslations = await getServerSideTranslations(locale);
+
     if (res) {
       const buffer = await componentToPDFBuffer(
         <PdfLayout>
-          <AlphabetPdf title={'Alphabet'} />
+          <AlphabetPdf title={'Alphabet'} alphabetMain={alphabetMain} alphabetUk={alphabetUk} />
         </PdfLayout>
       );
 

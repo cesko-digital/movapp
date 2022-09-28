@@ -1,21 +1,58 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { GetStaticProps } from 'next';
 import { FunctionComponent } from 'react';
+import { AlphabetDataObject, fetchAlphabetMain, fetchAlphabetUk } from '../../utils/getDataUtils';
+import csCommon from '../../public/locales/cs/common.json';
+
+type Props = {
+  title: string;
+  alphabetMain: AlphabetDataObject;
+  alphabetUk: AlphabetDataObject;
+};
+
+const getProperty = (obj: Record<string, any>, path: string) => {
+  let current = obj;
+  path.split('.').forEach((p) => {
+    current = current[p];
+  });
+  return current;
+};
+
+const translateInPdf = (key: string) => {
+  console.log(key);
+  // console.log(csCommon);
+  console.log(getProperty(csCommon, key));
+  return getProperty(csCommon, key);
+  // return csCommon[key];
+};
 
 /* eslint-disable jsx-a11y/alt-text */
-const AlphabetPdf: FunctionComponent<{ title: string }> = ({ title }) => (
-  <div>
-    <h1>{title}</h1>
-    <img src="https://cdn.pixabay.com/photo/2016/09/21/04/46/barley-field-1684052_1280.jpg" width="300px" />
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus non
-      enim praesent elementum facilisis leo vel. Sodales ut eu sem integer vitae justo. Duis ultricies lacus sed turpis tincidunt id. Non
-      arcu risus quis varius quam. Etiam non quam lacus suspendisse faucibus interdum posuere lorem ipsum. Feugiat vivamus at augue eget
-      arcu. Aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat. Eget lorem dolor sed viverra ipsum nunc aliquet
-      bibendum. Varius duis at consectetur lorem donec massa sapien faucibus et. Consequat nisl vel pretium lectus. Vitae suscipit tellus
-      mauris a. Mauris nunc congue nisi vitae suscipit.
-    </p>
-  </div>
-);
+const AlphabetPdf: FunctionComponent<Props> = ({ title, alphabetMain }) => {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <p className="text-base md:text-xl">{translateInPdf(`alphabet_page.uk.description`)}</p>
+      {alphabetMain.data.map((letter) => (
+        <p key={letter.id}>{letter.letters.toString()}</p>
+      ))}
+      <img src="https://cdn.pixabay.com/photo/2016/09/21/04/46/barley-field-1684052_1280.jpg" width="300px" />;{' '}
+    </div>
+  );
+};
+
+export const getServerSideProps: GetStaticProps<{ alphabetMain: AlphabetDataObject; alphabetUk: AlphabetDataObject }> = async ({}) => {
+  const alphabetMain = await fetchAlphabetMain();
+  const alphabetUk = await fetchAlphabetUk();
+  // const localeTranslations = await getServerSideTranslations(locale);
+
+  return {
+    props: {
+      alphabetMain,
+      alphabetUk,
+      // ...localeTranslations,
+    },
+  };
+};
 
 export default AlphabetPdf;
