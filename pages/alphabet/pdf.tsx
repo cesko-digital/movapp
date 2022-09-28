@@ -5,7 +5,6 @@ import { componentToPDFBuffer } from '../../components/pdfs/utils/reactToPdf';
 import PdfLayout from '../../components/pdfs/utils/PdfLayout';
 import { AlphabetDataObject, fetchAlphabetMain, fetchAlphabetUk } from '../../utils/getDataUtils';
 import { Language } from '../../utils/locales';
-import { rest } from 'cypress/types/lodash';
 
 class PDF extends React.Component {
   static async getInitialProps({ res, query, locale }: NextPageContext) {
