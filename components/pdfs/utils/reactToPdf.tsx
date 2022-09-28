@@ -11,6 +11,7 @@ const PDF_OPTIONS: pdf.CreateOptions = {
   },
   type: 'pdf',
   timeout: 30000,
+  directory: '/tmp',
 };
 
 export const componentToPDFBuffer = (component: ReactElement): Promise<Buffer> => {
