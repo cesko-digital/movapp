@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-const renderPDFFooter = () => (
+const PdfFooter: FunctionComponent = () => (
   <div
     id="pageFooter"
     style={{
@@ -12,7 +12,7 @@ const renderPDFFooter = () => (
   </div>
 );
 
-const PDFLayout: FunctionComponent = ({ children }) => (
+const PdfLayout: FunctionComponent = ({ children }) => (
   <html>
     <head>
       <meta charSet="utf8" />
@@ -20,9 +20,9 @@ const PDFLayout: FunctionComponent = ({ children }) => (
     </head>
     <body>
       {children}
-      {renderPDFFooter()}
+      <PdfFooter />
     </body>
   </html>
 );
 
-export default PDFLayout;
+export default PdfLayout;
