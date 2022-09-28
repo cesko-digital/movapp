@@ -11,8 +11,9 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "test": "jest",
-    "postbuild": "next-sitemap && node utils/exportPdfAlphabet.js",
-    "ts-watch": "npx tsc --noEmit --incremental --watch --preserveWatchOutput"
+    "postbuild": "next-sitemap && yarn generate-pdfs",
+    "ts-watch": "npx tsc --noEmit --incremental --watch --preserveWatchOutput",
+    "generate-pdfs": "node utils/exportPdfAlphabet.js"
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.3",

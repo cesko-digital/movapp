@@ -1,13 +1,17 @@
+// @ts-check
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const fs = require('fs')
+const fs = require('fs');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const puppeteer = require('puppeteer');
 
-(async () => {
-  const HTMLcontent = fs.readFileSync('.next/server/pages/cs/alphabet.html', 'utf8');
+const exportPdf = async (/** @type {string} */ path, /** @type {`${string}.pdf` } */ filename) => {
+  const HTMLcontent = fs.readFileSync(`.next/server/pages/${path}.html`, 'utf8');
   const CSSpath = '.next/static/css/';
   const CSSfiles = fs.readdirSync(CSSpath).filter((fn) => fn.endsWith('.css'));
-  const CSScontent = fs.readFileSync(CSSpath + CSSfiles[3], 'utf8');
+  let CSScontent = '';
+  CSSfiles.forEach((file) => {
+    CSScontent += fs.readFileSync(CSSpath + file, 'utf8');
+  });
 
   const browser = await puppeteer.launch({
     headless: true,
@@ -21,7 +25,7 @@ const puppeteer = require('puppeteer');
   await page.evaluateHandle('document.fonts.ready');
 
   await page.pdf({
-    path: 'public/alphabet.pdf',
+    path: `public/pdf/${filename}`,
     format: 'A4',
     scale: 0.67,
     margin: {
@@ -32,4 +36,7 @@ const puppeteer = require('puppeteer');
     },
   });
   await browser.close();
-})();
+  console.log('PDF generated', filename);
+};
+
+exportPdf('cs/alphabet', 'csAlphabet.pdf');
