@@ -17,6 +17,6 @@
     "baseUrl": ".",
     "downlevelIteration": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next-sitemap.config.js", "utils/exportPdfAlphabet.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next-sitemap.config.js", "next-i18next.config.js"],
   "exclude": ["node_modules"]
 }
