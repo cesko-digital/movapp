@@ -13,7 +13,7 @@
     "test": "jest",
     "postbuild": "next-sitemap && yarn generate-pdfs",
     "ts-watch": "npx tsc --noEmit --incremental --watch --preserveWatchOutput",
-    "generate-pdfs": "ts-node --skip-project utils/exportPdfAlphabet.ts"
+    "generate-pdfs": "ts-node --skip-project utils/exportPdfs.ts"
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.3",
