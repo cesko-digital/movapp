@@ -20,23 +20,23 @@ const AlphabetPage = ({ alphabet }: InferGetStaticPropsType<typeof getStaticProp
         <div className="max-w-4xl m-auto">
           <h1 className="text-primary-blue mt-0 mb-3">{t(`alphabet_page.${alphabetCode}.name`)}</h1>
           <p className="text-xl font-light">{t(`alphabet_page.${alphabetCode}.description`)}</p>
-          <div className="grid grid-cols-[auto,auto,1fr] gap-3 mt-8 text-xl font-medium">
+          <table className="mt-8 text-xl font-medium">
             {alphabet.data.map(({ examples, transcription, letters }, index) => (
-              <>
-                <div key={index}>{letters.join(', ')}</div>
-                <div className="text-gray-500 max-w-[200px]" key={index}>
+              <tr key={index}>
+                <td className="align-top p-2">{letters.join(', ')}</td>
+                <td className="align-top p-2 text-gray-600  max-w-[200px]" key={index}>
                   {transcription}
-                </div>
-                <div>
+                </td>
+                <td className="align-top p-2">
                   {examples.map((example, index) => (
-                    <span className="font-light" key={index}>
-                      {example.translation} [{example.transcription}],{' '}
+                    <span className="font-light " key={index}>
+                      {example.translation} [{example.transcription}]{index !== examples.length - 1 ? ', ' : null}
                     </span>
                   ))}{' '}
-                </div>
-              </>
+                </td>
+              </tr>
             ))}
-          </div>
+          </table>
         </div>
       </div>
     </>
