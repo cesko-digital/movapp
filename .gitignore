@@ -44,4 +44,4 @@ public/sitemap.xml
 public/sitemap-0.xml
 
 # auto-generated PDF
-public/pdf/*
+public/pdf/*.pdf
