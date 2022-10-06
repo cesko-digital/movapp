@@ -26,18 +26,23 @@ const exportPdf = async (path: string, filename: `${string}.pdf`) => {
   await page.pdf({
     path: `public/pdf/${filename}`,
     format: 'A4',
-    scale: 0.67,
+    scale: 0.8,
     margin: {
       top: '10mm',
       left: '10mm',
       right: '10mm',
       bottom: '10mm',
     },
+    displayHeaderFooter: true,
+    headerTemplate: '<div></div>',
+    footerTemplate:
+      '<div id="footer-template" style="font-size:10px !important; color:#808080; padding-left:10px;">Find more education content at Movapp.cz</div>',
   });
   await browser.close();
   console.log('PDF generated', filename);
 };
 
-exportPdf('cs/alphabet', 'csAlphabet.pdf');
+exportPdf('cs/alphabet/pdf/uk', 'cs_ukAlphabet.pdf');
+exportPdf('cs/alphabet/pdf/cs', 'cs_csAlphabet.pdf');
 
 export {};
