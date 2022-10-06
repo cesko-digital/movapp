@@ -1,5 +1,5 @@
 import { useLanguage } from 'utils/useLanguageHook';
-import { useTranslation } from 'next-i18next';
+import { Trans, useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
 import { AlphabetCard } from '../../components/basecomponents/AlphabetCard';
 import { LanguageSelect } from '../../components/basecomponents/LanguageSelect';
@@ -30,10 +30,18 @@ const AlphabetPage = ({ alphabetMain, alphabetUk }: InferGetStaticPropsType<type
           <h1 className="text-primary-blue mb-3">{t(`alphabet_page.${selectedAlphabet}.name`)}</h1>
           <p className="text-base md:text-xl">{t(`alphabet_page.${selectedAlphabet}.description`)}</p>
           <p className="text-base md:text-xl">
-            Abecedu si múžete{' '}
-            <a className="underline text-primary-blue" href={`/pdf/${selectedAlphabet}Alphabet.pdf`} rel="noreferrer" target="_blank">
-              stáhnout jako PDF.
-            </a>
+            <Trans
+              i18nKey={'alphabet_page.download'}
+              components={[
+                <a
+                  key="download PDF"
+                  className="underline text-primary-blue"
+                  href={`/pdf/${selectedAlphabet}Alphabet.pdf`}
+                  rel="noreferrer"
+                  target="_blank"
+                />,
+              ]}
+            />
           </p>
           <div className="w-full  my-5 ">
             <LanguageSelect
