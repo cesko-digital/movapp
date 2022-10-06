@@ -49,12 +49,12 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
 };
 
 if (getCountryVariant() === 'pl') {
-  exportPdf('pl/alphabet/pdf/uk', 'sk_ukAlphabet.pdf', 'pl');
-  exportPdf('pl/alphabet/pdf/pl', 'uk_plAlphabet.pdf', 'uk');
+  exportPdf('pl/alphabet/pdf/uk', 'ukAlphabet.pdf', 'pl');
+  exportPdf('uk/alphabet/pdf/pl', 'plAlphabet.pdf', 'uk');
 } else if (getCountryVariant() === 'sk') {
-  exportPdf('sk/alphabet/pdf/uk', 'sk_ukAlphabet.pdf', 'sk');
-  exportPdf('sk/alphabet/pdf/sk', 'uk_skAlphabet.pdf', 'uk');
+  exportPdf('sk/alphabet/pdf/uk', 'ukAlphabet.pdf', 'sk');
+  exportPdf('uk/alphabet/pdf/sk', 'skAlphabet.pdf', 'uk');
 } else {
-  exportPdf('cs/alphabet/pdf/uk', 'cs_ukAlphabet.pdf', 'cs');
-  exportPdf('cs/alphabet/pdf/cs', 'uk_csAlphabet.pdf', 'uk');
+  exportPdf('cs/alphabet/pdf/uk', 'ukAlphabet.pdf', 'cs');
+  exportPdf('uk/alphabet/pdf/cs', 'csAlphabet.pdf', 'uk');
 }
