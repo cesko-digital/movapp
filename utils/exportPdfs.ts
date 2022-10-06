@@ -1,10 +1,7 @@
-import { getCountryVariant } from 'utils/locales';
 /* eslint-disable no-console */
-import { Language } from '../utils/locales';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const fs = require('fs');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const puppeteer = require('puppeteer');
+import { Language, getCountryVariant } from '../utils/locales';
+import fs from 'fs';
+import puppeteer from 'puppeteer';
 
 const FOOTER: Record<Language, string> = {
   cs: 'Více naučných materiálů naleznete na <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
