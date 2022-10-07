@@ -14,7 +14,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
   const HTMLcontent = fs.readFileSync(`.next/server/pages/${path}.html`, 'utf8');
   const CSSpath = '.next/static/css/';
   const CSSfiles: string[] = fs.readdirSync(CSSpath).filter((fn: any) => fn.endsWith('.css'));
-  let CSScontent = '';
+  let CSScontent = "@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100&display=swap');";
   CSSfiles.forEach((file) => {
     CSScontent += fs.readFileSync(CSSpath + file, 'utf8');
   });
