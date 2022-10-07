@@ -3,6 +3,12 @@ import { Language, getCountryVariant } from '../utils/locales';
 import fs from 'fs';
 import puppeteer from 'puppeteer';
 
+/** This script is meant to run after build (as specified in package.json.scripts.postbuild) to generate PDFs from specific pages.
+ * This approach was adopted from https://harrisonpim.com/blog/creating-a-downloadable-pdf-copy-of-a-page-using-next-js-and-puppeteer
+ * Thanks a lot, Harrison!
+ */
+
+/** The PFD footer is localized but otherwise common for all PDFs for now */
 const FOOTER: Record<Language, string> = {
   cs: 'Více naučných materiálů naleznete na <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
   sk: 'Viac náučných materiálov nájdete na <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
@@ -10,6 +16,12 @@ const FOOTER: Record<Language, string> = {
   uk: 'Ви можете знайти більше навчальних матеріалів на <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
 };
 
+/**
+ * Turns a page into a PDF file as saves it inside the `public/pdf` folder
+ * @param path Route of the Next.js page you want to save as PDF. Must include the locale at the beginning (even if it is the default one)
+ * @param filename The name of the generated PDF file.
+ * @param footerLanguage Language of the footer
+ */
 const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage: Language) => {
   const HTMLcontent = fs.readFileSync(`.next/server/pages/${path}.html`, 'utf8');
   const CSSpath = '.next/static/css/';
@@ -48,6 +60,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
   console.log('PDF generated', filename);
 };
 
+// For each language variant, specify which pages you want to generate:
 try {
   const countryVariant = getCountryVariant();
   if (countryVariant === 'pl') {
