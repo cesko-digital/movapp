@@ -74,6 +74,7 @@ If you have questions, [write to us on Slack](https://cesko-digital.slack.com/ar
   - Pages donwloadable as PDFs have a `pdf.tsx` or `pdf/[param].tsx` file next to their `index.html`. This file contains the simplified print-friendly version of the page.
     - Tip: Flexbox or CSS grid styling can result in ugly page break inside rows/elements. Prefer using tables, divs, paragraphs in combination with [break-inside](https://developer.mozilla.org/en-US/docs/Web/CSS/break-inside) CSS rule to produce clean page breaks.  
   - The page is generated during `npm run build` and then the `exportPdfs.ts` post-build script uses `pupeeteer` to turn the html file into a PDF a saves it in the `public/pdf` folder. See the script for implementation details.
+    - Warning: Always run always run post-build scripts with `"NODE_OPTIONS='--unhandled-rejections=strict'`. Otherwise, they can fail on Vercel without killing the build, blocking the build slot for other deployments before the Vercel's 45 min timeout. 
   - The generated PDFs are not commited to git, but generated on Vercel with every deployment.
   - The pdfs inside public folder are then accesible from regular Next pages: `<a href="/pdf/generatedFile".pdf>Download PDF</a>`
 
