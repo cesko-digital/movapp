@@ -17,20 +17,23 @@ const FOOTER: Record<Language, string> = {
 };
 
 /**
- * Turns a page into a PDF file as saves it inside the `public/pdf` folder
+ * Turns a page into a PDF file and saves it inside the `public/pdf` folder. Must run AFTER the site is built.
  * @param path Route of the Next.js page you want to save as PDF. Must include the locale at the beginning (even if it is the default one)
  * @param filename The name of the generated PDF file.
  * @param footerLanguage Language of the footer
  */
 const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage: Language) => {
+  // Grab generated HTML
   const HTMLcontent = fs.readFileSync(`.next/server/pages/${path}.html`, 'utf8');
-  const CSSpath = '.next/static/css/';
-  const CSSfiles: string[] = fs.readdirSync(CSSpath).filter((fn: any) => fn.endsWith('.css'));
+  // Include fonts at the beginning, then compile all generated CSS
   let CSScontent = "@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100&display=swap');";
+  const CSSpath = '.next/static/css/';
+  const CSSfiles = fs.readdirSync(CSSpath).filter((fileName) => fileName.endsWith('.css'));
   CSSfiles.forEach((file) => {
     CSScontent += fs.readFileSync(CSSpath + file, 'utf8');
   });
 
+  // Launch headless browser and export the page to PDF
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--font-render-hinting=none'],

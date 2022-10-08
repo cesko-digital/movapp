@@ -32,7 +32,7 @@ const AlphabetPage = ({ alphabet }: InferGetStaticPropsType<typeof getStaticProp
                     <span className="font-light " key={index}>
                       {example.translation} [{example.transcription}]{index !== examples.length - 1 ? ', ' : null}
                     </span>
-                  ))}{' '}
+                  ))}
                 </td>
               </tr>
             ))}
@@ -84,7 +84,5 @@ export const getStaticPaths: GetStaticPaths<UrlParams> = () => {
     fallback: false,
   };
 };
-
-AlphabetPage.skipLayout = true;
 
 export default AlphabetPage;
