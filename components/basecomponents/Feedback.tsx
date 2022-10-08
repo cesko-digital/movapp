@@ -9,7 +9,7 @@ const Feedback = () => {
   const { currentLanguage } = useLanguage();
   const [modalOpen, setModalOpen] = useState(false);
 
-  if (currentLanguage !== 'cs') {
+  if (currentLanguage === 'pl') {
     return null;
   }
 
