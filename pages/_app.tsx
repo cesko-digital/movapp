@@ -26,6 +26,7 @@ export const PLAUSIBLE_DOMAINS: Record<CountryVariant, string> = {
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const { locales, asPath } = useRouter();
+  const router = useRouter();
   return (
     <PlausibleProvider domain={PLAUSIBLE_DOMAINS[getCountryVariant()]}>
       <Head>
@@ -34,9 +35,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           return <link key={index} rel="alternate" hrefLang={locale} href={`https://www.movapp.cz/${locale}${asPath}`} />;
         })}
       </Head>
-      <Layout>
+      {router.asPath.includes('pdf') ? (
         <Component {...pageProps} />
-      </Layout>
+      ) : (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      )}
     </PlausibleProvider>
   );
 };

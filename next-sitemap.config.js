@@ -1,20 +1,22 @@
+// @ts-check
 /** @type {import('next-sitemap').IConfig} */
 
+/** @type {string} */
 const countryVariant = process.env.NEXT_PUBLIC_COUNTRY_VARIANT ?? 'cs';
 
-SITE_URLS = {
+/** @type {Object<string,string>} */
+const SITE_URLS = {
   cs: 'https://www.movapp.cz',
   sk: 'https://sk.movapp.eu',
   pl: 'https://pl.movapp.eu',
 };
 
-EXCLUSIONS = {
+/** @type {Object<string,Array<string>>}} */
+const EXCLUSIONS = {
   cs: [],
   sk: ['/wiki*', '/uk/wiki*'],
   pl: ['/wiki*', '/uk/wiki*'],
 };
-
-excludeArray = countryVariant === 'cs' ? [] : ['/wiki'];
 
 module.exports = {
   siteUrl: SITE_URLS[countryVariant],

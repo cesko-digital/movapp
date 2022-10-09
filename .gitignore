@@ -42,3 +42,6 @@ yarn-error.log*
 public/robots.txt
 public/sitemap.xml
 public/sitemap-0.xml
+
+# auto-generated PDF
+public/pdf/*.pdf

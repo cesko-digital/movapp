@@ -116,7 +116,8 @@
     "uk": {
       "name": "Ukrajinská abeceda",
       "description": "Naučte se ukrajinskou abecedu. Nazývá se také ukrajinská cyrilice nebo ukrajinská azbuka. Obsahuje 33 znaků."
-    }
+    },
+    "download": "Abecedu si můžete <0>stáhnout jako PDF</0>."
   },
   "seo": {
     "homepage_page_title": {
