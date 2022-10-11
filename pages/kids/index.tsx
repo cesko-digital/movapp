@@ -35,7 +35,7 @@ const _KidsPlayer = ({ translations }: KidsPlayerProps) => (
       durationInFrames={translations.length * 30 * 3}
       compositionWidth={800}
       compositionHeight={600}
-      numberOfSharedAudioTags={0}
+      numberOfSharedAudioTags={2}
       fps={30}
       style={{
         width: 800,
