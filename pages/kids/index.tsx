@@ -8,8 +8,47 @@ import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { DictionaryDataObject, fetchDictionary, getKidsCategory } from '../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../utils/localization';
+import { Player } from '@remotion/player';
+import KidsComp from 'components/basecomponents/KidsCompSeq';
+import dynamic from 'next/dynamic';
+import { Phrase } from '../../utils/getDataUtils';
+import { AudioPlayer } from 'utils/AudioPlayer';
 
 export type KidsTranslation = TranslationJSON & { image: string };
+
+interface KidsPlayerProps {
+  translations: Phrase[];
+}
+
+const _KidsPlayer = ({ translations }: KidsPlayerProps) => (
+  <div className="flex items-center flex-col">
+    <Button
+      className="bg-primary-blue"
+      text="play remotion"
+      onClick={() => {
+        AudioPlayer.getInstance().playSrc(translations[0].getSoundUrl('uk'));
+      }}
+    />
+    <Player
+      component={KidsComp}
+      inputProps={{ translations }}
+      durationInFrames={translations.length * 30 * 3}
+      compositionWidth={800}
+      compositionHeight={600}
+      numberOfSharedAudioTags={0}
+      fps={30}
+      style={{
+        width: 800,
+        height: 600,
+      }}
+      controls
+    />
+  </div>
+);
+
+const KidsPlayer = dynamic(() => Promise.resolve(_KidsPlayer), {
+  ssr: false,
+});
 
 const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
@@ -27,6 +66,9 @@ const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticPro
           <Button text={t('kids_page.downloadPDF')} className="bg-primary-blue" />
         </a>
       </div>
+
+      {kidsCategory && <KidsPlayer translations={kidsCategory?.translations} />}
+
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
         {kidsCategory?.translations.map((phrase) => {
           return <KidsTranslationsContainer key={phrase.getTranslation('uk')} imageUrl={phrase.getImageUrl()} phrase={phrase} />;
