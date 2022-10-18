@@ -13,26 +13,43 @@ const KidsCompOld = ({ translations }: KidsCompProps) => {
 
   const duration = fps * 3; // in seconds
 
-  const sequenceList = useMemo(
-    () =>
-      translations.map((phrase, i) => {
-        return (
-          <Sequence key={phrase.getTranslation('uk')} from={i * duration} durationInFrames={(i + 1) * duration}>
-            <AbsoluteFill
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: 'white',
-              }}
-            >
-              <KidsTranslationsContainer imageUrl={phrase.getImageUrl()} phrase={phrase} />
-              <Audio src={phrase.getSoundUrl('uk')} />
-            </AbsoluteFill>
-          </Sequence>
-        );
-      }),
-    [translations, duration]
-  );
+  // const sequenceList = useMemo(
+  //   () =>
+  //     translations.map((phrase, i) => {
+  //       return (
+  //         <Sequence key={phrase.getTranslation('uk')} from={i * duration} durationInFrames={(i + 1) * duration}>
+  //           <AbsoluteFill
+  //             style={{
+  //               justifyContent: 'center',
+  //               alignItems: 'center',
+  //               backgroundColor: 'white',
+  //             }}
+  //           >
+  //             <KidsTranslationsContainer imageUrl={phrase.getImageUrl()} phrase={phrase} />
+  //             <Audio src={phrase.getSoundUrl('uk')} />
+  //           </AbsoluteFill>
+  //         </Sequence>
+  //       );
+  //     }),
+  //   [translations, duration]
+  // );
+
+  const sequenceList = translations.map((phrase, i) => {
+    return (
+      <Sequence key={phrase.getTranslation('uk')} from={i * duration} durationInFrames={(i + 1) * duration}>
+        <AbsoluteFill
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'white',
+          }}
+        >
+          <KidsTranslationsContainer imageUrl={phrase.getImageUrl()} phrase={phrase} />
+          <Audio src={phrase.getSoundUrl('uk')} />
+        </AbsoluteFill>
+      </Sequence>
+    );
+  });
 
   return <>{sequenceList}</>;
 };

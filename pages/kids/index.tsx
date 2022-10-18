@@ -34,7 +34,7 @@ const _KidsPlayer = ({ translations }: KidsPlayerProps) => (
       durationInFrames={translations.length * 30 * 3}
       compositionWidth={800}
       compositionHeight={600}
-      numberOfSharedAudioTags={translations.length}
+      numberOfSharedAudioTags={5}
       fps={30}
       style={{
         width: 800,
@@ -66,7 +66,7 @@ const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticPro
         </a>
       </div>
 
-      {kidsCategory && <KidsPlayer translations={kidsCategory?.translations} />}
+      {kidsCategory && <KidsPlayer translations={kidsCategory?.translations.slice(0, 3)} />}
 
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
         {kidsCategory?.translations.map((phrase) => {
