@@ -12,7 +12,6 @@ import { Player } from '@remotion/player';
 import KidsComp from 'components/basecomponents/KidsCompSeq';
 import dynamic from 'next/dynamic';
 import { Phrase } from '../../utils/getDataUtils';
-import { AudioPlayer } from 'utils/AudioPlayer';
 
 export type KidsTranslation = TranslationJSON & { image: string };
 
@@ -22,20 +21,20 @@ interface KidsPlayerProps {
 
 const _KidsPlayer = ({ translations }: KidsPlayerProps) => (
   <div className="flex items-center flex-col">
-    <Button
+    {/* <Button
       className="bg-primary-blue"
       text="play remotion"
       onClick={() => {
         AudioPlayer.getInstance().playSrc(translations[0].getSoundUrl('uk'));
       }}
-    />
+    /> */}
     <Player
       component={KidsComp}
       inputProps={{ translations }}
       durationInFrames={translations.length * 30 * 3}
       compositionWidth={800}
       compositionHeight={600}
-      numberOfSharedAudioTags={2}
+      numberOfSharedAudioTags={translations.length}
       fps={30}
       style={{
         width: 800,
