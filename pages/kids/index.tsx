@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useTranslation } from 'next-i18next';
 import React, { useMemo } from 'react';
 import { Button } from '../../components/basecomponents/Button';
@@ -9,15 +10,47 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { DictionaryDataObject, fetchDictionary, getKidsCategory } from '../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../utils/localization';
 import { Player } from '@remotion/player';
-import KidsComp from 'components/basecomponents/KidsCompSeq';
+// import KidsComp from 'components/basecomponents/KidsCompSeq';
+import { AbsoluteFill, Audio, Sequence } from 'remotion';
 import dynamic from 'next/dynamic';
 import { Phrase } from '../../utils/getDataUtils';
+import { AudioPlayer } from 'utils/AudioPlayer';
 
 export type KidsTranslation = TranslationJSON & { image: string };
 
 interface KidsPlayerProps {
   translations: Phrase[];
 }
+
+const SequenceList = ({ translations, duration }: { translations: Phrase[]; duration: number }) => {
+  // const getAudioComp = useMemo(()=>{
+
+  // return (src: string) => <Audio src={src} />
+  //   },[translations]);
+
+  return (
+    <>
+      {translations.map((phrase, i) => {
+        return (
+          <Sequence key={phrase.getTranslation('uk')} from={i * duration} durationInFrames={(i + 1) * duration}>
+            <AbsoluteFill
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'white',
+              }}
+            >
+              <KidsTranslationsContainer imageUrl={phrase.getImageUrl()} phrase={phrase} />
+              <Audio src={phrase.getSoundUrl('uk')} startFrom={0} endAt={120} />
+              {/* {getAudioComp(phrase.getSoundUrl('uk'))} */}
+            </AbsoluteFill>
+          </Sequence>
+        );
+      })}
+      {/* <Audio src={translations[].getSoundUrl('uk')} /> */}
+    </>
+  );
+};
 
 const _KidsPlayer = ({ translations }: KidsPlayerProps) => (
   <div className="flex items-center flex-col">
@@ -29,12 +62,12 @@ const _KidsPlayer = ({ translations }: KidsPlayerProps) => (
       }}
     /> */}
     <Player
-      component={KidsComp}
-      inputProps={{ translations }}
-      durationInFrames={translations.length * 30 * 3}
+      component={SequenceList}
+      inputProps={{ translations, duration: 30 * 5 }}
+      durationInFrames={translations.length * 30 * 5}
       compositionWidth={800}
       compositionHeight={600}
-      numberOfSharedAudioTags={5}
+      numberOfSharedAudioTags={1}
       fps={30}
       style={{
         width: 800,
@@ -66,7 +99,7 @@ const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticPro
         </a>
       </div>
 
-      {kidsCategory && <KidsPlayer translations={kidsCategory?.translations.slice(0, 3)} />}
+      {kidsCategory && <KidsPlayer translations={kidsCategory?.translations.slice(0, 5)} />}
 
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
         {kidsCategory?.translations.map((phrase) => {
