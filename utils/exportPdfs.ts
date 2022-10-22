@@ -1,3 +1,5 @@
+import { CountryVariant } from './locales';
+import { fetchDictionary } from './getDataUtils';
 /* eslint-disable no-console */
 import { Language, getCountryVariant } from '../utils/locales';
 import fs from 'fs';
@@ -57,15 +59,24 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
     },
     displayHeaderFooter: true,
     headerTemplate: '<div></div>',
-    footerTemplate: `<div id="footer-template" style="font-size:10px !important; color:#808080; padding-left:10px;">${FOOTER[footerLanguage]}</div>`,
+    footerTemplate: `<div id="footer-template" style="font-size:10px !important; color:#808080; padding-left:20px;">${FOOTER[footerLanguage]}</div>`,
   });
   await browser.close();
   console.log('PDF generated', filename);
 };
 
+const generateDictionaryPdfs = async (country: CountryVariant) => {
+  const categories = (await fetchDictionary()).categories;
+  for (const category of categories) {
+    exportPdf(`${country}/dictionary/pdf/${category.id}`, `${category.name.main}.pdf`, country);
+  }
+};
+
 // For each language variant, specify which pages you want to generate:
 try {
   const countryVariant = getCountryVariant();
+
+  // Alphabet PDFs
   if (countryVariant === 'pl') {
     exportPdf('pl/alphabet/pdf/uk', 'ukAlphabet.pdf', 'pl');
     exportPdf('uk/alphabet/pdf/pl', 'plAlphabet.pdf', 'uk');
@@ -76,6 +87,8 @@ try {
     exportPdf('cs/alphabet/pdf/uk', 'ukAlphabet.pdf', 'cs');
     exportPdf('uk/alphabet/pdf/cs', 'csAlphabet.pdf', 'uk');
   }
+
+  generateDictionaryPdfs(countryVariant);
 } catch (error) {
   console.log(error);
 }

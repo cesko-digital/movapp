@@ -1,4 +1,5 @@
-import { getCountryVariant, Language } from 'utils/locales';
+import { getCountryVariant, Language } from '../utils/locales';
+import fetch from 'node-fetch';
 
 /**
  * Dictionary

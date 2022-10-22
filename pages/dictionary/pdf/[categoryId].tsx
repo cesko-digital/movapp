@@ -21,20 +21,24 @@ const DictionaryCategoryPDF = ({ dictionary, categoryId }: InferGetStaticPropsTy
     <>
       <div>
         <div className="max-w-4xl m-auto">
-          <h1 className="text-primary-blue mt-0 mb-3">{(category.nameUk, category.nameMain)}</h1>
+          <h1 className="text-primary-blue mt-0 mb-3">
+            {category.nameMain}, {category.nameUk}
+          </h1>
           <table className="mt-8 text-xl font-medium">
-            {category.translations.map((phrase, index) => (
-              <tr key={index}>
-                <td className="align-top p-2">
-                  {phrase.getTranslation(country)}&nbsp; &nbsp;
-                  <span className="text-gray-500">[{phrase.getTranscription(country)}]</span>
-                </td>
-                <td className="align-top p-2">
-                  {phrase.getTranslation('uk')}&nbsp; &nbsp;
-                  <span className="text-gray-500">[{phrase.getTranscription('uk')}]</span>
-                </td>
-              </tr>
-            ))}
+            <tbody>
+              {category.translations.map((phrase, index) => (
+                <tr key={index}>
+                  <td className="align-top p-2">
+                    {phrase.getTranslation(country)}&nbsp; &nbsp;
+                    <span className="text-gray-500">[{phrase.getTranscription(country)}]</span>
+                  </td>
+                  <td className="align-top p-2">
+                    {phrase.getTranslation('uk')}&nbsp; &nbsp;
+                    <span className="text-gray-500">[{phrase.getTranscription('uk')}]</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         </div>
       </div>
