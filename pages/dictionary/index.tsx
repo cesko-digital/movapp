@@ -16,6 +16,7 @@ import { Category, DictionaryDataObject, fetchDictionary, getAllPhrases, getCate
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
 import Link from 'next/link';
+import { LinkText } from '../../components/Typography';
 
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
@@ -143,7 +144,9 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                 >
                   <div className="mb-4 mx-4">
                     <ExportTranslations translations={category.translations} categoryName={categoryName} />
-                    <Link href={`dictionary/pdf/${category.id}`}>PDF</Link>
+                    <LinkText href={`/pdf/${category.nameMain}.pdf`} locale={getCountryVariant()} target="_blank">
+                      Stáhnout PDF
+                    </LinkText>
                   </div>
                   <CategoryDictionary searchText={search} translations={category.translations} />
                 </Collapse>
