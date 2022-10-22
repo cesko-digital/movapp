@@ -59,7 +59,8 @@
     "pl": "polski",
     "uk": "ukraiński",
     "results_subtitle": "Wyniki wyszukiwania",
-    "not_found_results": "Nic nie znaleziono"
+    "not_found_results": "Nic nie znaleziono",
+    "download_pdf": "Pobierz w PDF"
   },
   "kids_page": {
     "downloadPDF": "Pobierz w PDF"

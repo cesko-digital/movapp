@@ -66,7 +66,8 @@
     "sk": "po slovensky",
     "uk": "po ukrajinsky",
     "results_subtitle": "Výsledky vyhľadávania",
-    "not_found_results": "Nič nenájdené"
+    "not_found_results": "Nič nenájdené",
+    "download_pdf": "Stiahnuť v PDF"
   },
   "kids_page": {
     "downloadPDF": "Stiahnuť v PDF"

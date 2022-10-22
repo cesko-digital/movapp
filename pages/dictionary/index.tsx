@@ -151,7 +151,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                       className="ml-3 inline-flex gap-x-1 items-center"
                     >
                       <AiOutlineFilePdf className="w-5 h-5" />
-                      Stáhnout PDF
+                      {t('dictionary_page.download_pdf')}
                     </TextLink>
                   </div>
                   <CategoryDictionary searchText={search} translations={category.translations} />
