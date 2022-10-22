@@ -28,13 +28,13 @@ const DictionaryCategoryPDF = ({ dictionary, categoryId }: InferGetStaticPropsTy
             <tbody>
               {category.translations.map((phrase, index) => (
                 <tr key={index}>
-                  <td className="align-top p-2">
+                  <td className="align-top py-2 px-3">
                     {phrase.getTranslation(country)}&nbsp; &nbsp;
-                    <span className="text-gray-500">[{phrase.getTranscription(country)}]</span>
+                    <span className="text-gray-600">[{phrase.getTranscription(country)}]</span>
                   </td>
-                  <td className="align-top p-2">
+                  <td className="align-top py-2 px-3">
                     {phrase.getTranslation('uk')}&nbsp; &nbsp;
-                    <span className="text-gray-500">[{phrase.getTranscription('uk')}]</span>
+                    <span className="text-gray-600">[{phrase.getTranscription('uk')}]</span>
                   </td>
                 </tr>
               ))}
