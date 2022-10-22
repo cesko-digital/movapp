@@ -12,10 +12,10 @@ import puppeteer from 'puppeteer';
 
 /** The PFD footer is localized but otherwise common for all PDFs for now */
 const FOOTER: Record<Language, string> = {
-  cs: 'Více naučných materiálů naleznete na <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
-  sk: 'Viac náučných materiálov nájdete na <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
-  pl: 'Więcej materiałów edukacyjnych można znaleźć na stronie <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
-  uk: 'Ви можете знайти більше навчальних матеріалів на <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
+  cs: 'Více naučných materiálů naleznete na <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>.',
+  sk: 'Viac náučných materiálov nájdete na <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>.',
+  pl: 'Więcej materiałów edukacyjnych można znaleźć na stronie <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>.',
+  uk: 'Ви можете знайти більше навчальних матеріалів на <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>.',
 };
 
 /**
@@ -24,7 +24,7 @@ const FOOTER: Record<Language, string> = {
  * @param filename The name of the generated PDF file.
  * @param footerLanguage Language of the footer
  */
-const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage: Language) => {
+const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage?: Language) => {
   // Grab generated HTML
   const HTMLcontent = fs.readFileSync(`.next/server/pages/${path}.html`, 'utf8');
   // Include fonts and disable color printing strategy at the beginning, then compile all generated CSS
@@ -40,6 +40,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
   CSSfiles.forEach((file) => {
     CSScontent += fs.readFileSync(CSSpath + file, 'utf8');
   });
+  const footerContent = footerLanguage ? FOOTER[footerLanguage] : `${FOOTER['uk']}<br/>${FOOTER[getCountryVariant()]}`;
 
   // Launch headless browser and export the page to PDF
   const browser = await puppeteer.launch({
@@ -61,34 +62,25 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
       top: '10mm',
       left: '10mm',
       right: '10mm',
-      bottom: '10mm',
+      bottom: '15mm',
     },
     displayHeaderFooter: true,
     headerTemplate: '<div></div>',
-    footerTemplate: `<div id="footer-template" style="font-size:10px !important; color:#808080; padding-left:35px;">${FOOTER[footerLanguage]}</div>`,
+    footerTemplate: `<div id="footer-template" style="font-size:9px !important; color:#808080; padding-left:35px; padding-right:35px;">${footerContent}</div>`,
   });
   await browser.close();
   console.log('PDF generated', filename);
 };
 
 const generateAlphabetPdfs = (country: CountryVariant) => {
-  // For each language variant, specify which pages you want to generate:
-  if (country === 'pl') {
-    exportPdf('pl/alphabet/pdf/uk', 'ukAlphabet.pdf', 'pl');
-    exportPdf('uk/alphabet/pdf/pl', 'plAlphabet.pdf', 'uk');
-  } else if (country === 'sk') {
-    exportPdf('sk/alphabet/pdf/uk', 'ukAlphabet.pdf', 'sk');
-    exportPdf('uk/alphabet/pdf/sk', 'skAlphabet.pdf', 'uk');
-  } else {
-    exportPdf('cs/alphabet/pdf/uk', 'ukAlphabet.pdf', 'cs');
-    exportPdf('uk/alphabet/pdf/cs', 'csAlphabet.pdf', 'uk');
-  }
+  exportPdf(`${country}/alphabet/pdf/uk`, `ukAlphabet.pdf`, country);
+  exportPdf(`uk/alphabet/pdf/${country}`, `${country}Alphabet.pdf`, 'uk');
 };
 
 const generateDictionaryPdfs = async (country: CountryVariant) => {
   const categories = (await fetchDictionary()).categories;
   for (const category of categories) {
-    exportPdf(`${country}/dictionary/pdf/${category.id}`, `${category.name.main}.pdf`, country);
+    exportPdf(`${country}/dictionary/pdf/${category.id}`, `${category.name.main}.pdf`);
   }
 };
 
