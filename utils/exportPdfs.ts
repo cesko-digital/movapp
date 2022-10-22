@@ -27,8 +27,14 @@ const FOOTER: Record<Language, string> = {
 const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage: Language) => {
   // Grab generated HTML
   const HTMLcontent = fs.readFileSync(`.next/server/pages/${path}.html`, 'utf8');
-  // Include fonts at the beginning, then compile all generated CSS
-  let CSScontent = "@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100&display=swap');";
+  // Include fonts and disable color printing strategy at the beginning, then compile all generated CSS
+  let CSScontent = `
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100&display=swap');
+    
+    html {
+      -webkit-print-color-adjust: exact;
+    }
+  `;
   const CSSpath = '.next/static/css/';
   const CSSfiles = fs.readdirSync(CSSpath).filter((fileName) => fileName.endsWith('.css'));
   CSSfiles.forEach((file) => {
