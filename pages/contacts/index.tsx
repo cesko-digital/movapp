@@ -2,7 +2,7 @@ import SEO from 'components/basecomponents/SEO';
 import { Trans, useTranslation } from 'next-i18next';
 export { getStaticProps } from 'utils/localization';
 import { SocialMedia } from 'components/basecomponents/SocialMedia';
-import { LinkText } from 'components/Typography';
+import { TextLink } from 'components/Typography';
 
 const Contacts = () => {
   const { t } = useTranslation();
@@ -32,7 +32,7 @@ const Contacts = () => {
         <Trans
           i18nKey={'contacts_page.community_description'}
           t={t}
-          components={[<LinkText href="https://cesko.digital/" target="_blank" key="cesko.digital" />]}
+          components={[<TextLink href="https://cesko.digital/" target="_blank" key="cesko.digital" />]}
         ></Trans>
         <h2 className={`${heading_style}`}>
           <Trans>{t('contacts_page.join_title')}</Trans>
@@ -41,7 +41,7 @@ const Contacts = () => {
           <Trans
             i18nKey={'contacts_page.join_description'}
             t={t}
-            components={[<LinkText href="https://cesko.digital/join" target="_blank" key="cesko.digital/join" />]}
+            components={[<TextLink href="https://cesko.digital/join" target="_blank" key="cesko.digital/join" />]}
           ></Trans>
         </p>
       </div>
