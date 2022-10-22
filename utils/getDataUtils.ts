@@ -78,7 +78,7 @@ export class Phrase {
 
 const KIDS_CATEGORY_ID = 'recSHyEn6N0hAqUBp';
 
-const parseCategory = (categoryObject: CategoryDataObject, dictionaryObject: DictionaryDataObject): Category => {
+export const parseCategory = (categoryObject: CategoryDataObject, dictionaryObject: DictionaryDataObject): Category => {
   return {
     nameMain: categoryObject.name.main,
     nameUk: categoryObject.name.source,
