@@ -22,7 +22,9 @@ const DictionaryCategoryPDF = ({ dictionary, categoryId }: InferGetStaticPropsTy
       <div>
         <div className="max-w-4xl m-auto">
           <h1 className="text-primary-blue mt-0 mb-3">
-            {category.nameMain}, {category.nameUk}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={'https://www.movapp.cz/icons/movapp-logo.png'} width="120px" className="mx-3 inline-block" alt="Movapp logo" />
+            {category.nameMain} - {category.nameUk}
           </h1>
           <table className="mt-8 text-xl font-medium">
             <tbody>
