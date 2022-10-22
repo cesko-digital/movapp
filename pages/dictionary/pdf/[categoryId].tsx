@@ -25,10 +25,14 @@ const DictionaryCategoryPDF = ({ dictionary, categoryId }: InferGetStaticPropsTy
           <table className="mt-8 text-xl font-medium">
             {category.translations.map((phrase, index) => (
               <tr key={index}>
-                <td className="align-top p-2">{phrase.getTranslation(country)}</td>
-                <td className="align-top p-2 text-gray-600  max-w-[200px]">{phrase.getTranscription(country)}</td>
-                <td className="align-top p-2">{phrase.getTranslation('uk')}</td>
-                <td className="align-top p-2 text-gray-600  max-w-[200px]">{phrase.getTranscription('uk')}</td>
+                <td className="align-top p-2">
+                  {phrase.getTranslation(country)}&nbsp; &nbsp;
+                  <span className="text-gray-500">[{phrase.getTranscription(country)}]</span>
+                </td>
+                <td className="align-top p-2">
+                  {phrase.getTranslation('uk')}&nbsp; &nbsp;
+                  <span className="text-gray-500">[{phrase.getTranscription('uk')}]</span>
+                </td>
               </tr>
             ))}
           </table>
@@ -46,8 +50,6 @@ export const getStaticProps: GetStaticProps<
   UrlParams
 > = async ({ locale, params }) => {
   const dictionary = await fetchDictionary();
-  //   const categoryObject = dictionary.categories.find((category) => category.id === params?.categoryId);
-
   const localeTranslations = await getServerSideTranslations(locale);
 
   return {
@@ -59,13 +61,12 @@ export const getStaticProps: GetStaticProps<
   };
 };
 
-export const getStaticPaths: GetStaticPaths<UrlParams> = () => {
+export const getStaticPaths: GetStaticPaths<UrlParams> = async () => {
+  const dictionary = await fetchDictionary();
+
   return {
-    paths: [
-      {
-        params: { categoryId: 'recdabyHkJhGf7U5D' },
-      },
-    ],
+    // 'recdabyHkJhGf7U5D'
+    paths: dictionary.categories.map((category) => ({ params: { categoryId: category.id } })),
     fallback: false,
   };
 };

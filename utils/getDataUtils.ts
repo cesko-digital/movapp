@@ -37,6 +37,7 @@ export interface TranslationDataObject {
 }
 
 export interface Category {
+  id: string;
   nameMain: string;
   nameUk: string;
   translations: Phrase[];
@@ -80,6 +81,7 @@ const KIDS_CATEGORY_ID = 'recSHyEn6N0hAqUBp';
 
 export const parseCategory = (categoryObject: CategoryDataObject, dictionaryObject: DictionaryDataObject): Category => {
   return {
+    id: categoryObject.id,
     nameMain: categoryObject.name.main,
     nameUk: categoryObject.name.source,
     translations: categoryObject.phrases

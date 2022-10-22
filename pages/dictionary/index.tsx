@@ -15,6 +15,7 @@ import { SearchInput } from 'components/basecomponents/SearchInput';
 import { Category, DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDataUtils';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
+import Link from 'next/link';
 
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
@@ -142,6 +143,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                 >
                   <div className="mb-4 mx-4">
                     <ExportTranslations translations={category.translations} categoryName={categoryName} />
+                    <Link href={`dictionary/pdf/${category.id}`}>PDF</Link>
                   </div>
                   <CategoryDictionary searchText={search} translations={category.translations} />
                 </Collapse>
