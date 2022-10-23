@@ -14,7 +14,7 @@ interface CountryVariantFlag {
 }
 
 const flags: CountryVariantFlag[] = [
-  { svg: <CzFlag />, link: 'movapp.cz', country: 'cs', language: 'Český' },
+  { svg: <CzFlag />, link: 'movapp.cz', country: 'cs', language: 'Česky' },
   { svg: <SkFlag />, link: 'sk.movapp.eu', country: 'sk', language: 'Slovensky' },
   { svg: <PlFlag />, link: 'pl.movapp.eu', country: 'pl', language: 'Polski' },
 ];
