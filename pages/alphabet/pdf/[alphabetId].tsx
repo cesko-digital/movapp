@@ -5,6 +5,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../../utils/localization';
 import { AlphabetDataObject, fetchAlphabetMain, fetchAlphabetUk } from '../../../utils/getDataUtils';
 import { ParsedUrlQuery } from 'querystring';
+import TitleMovappLogo from '../../../components/basecomponents/PdfComponents/TitleMovappLogo';
 
 interface UrlParams extends ParsedUrlQuery {
   alphabetId: Language;
@@ -17,7 +18,10 @@ const AlphabetPage = ({ alphabet }: InferGetStaticPropsType<typeof getStaticProp
   return (
     <div>
       <div className="max-w-4xl m-auto">
-        <h1 className="text-primary-blue mt-0 mb-3">{t(`alphabet_page.${alphabetCode}.name`)}</h1>
+        <h1 className="text-primary-blue mt-0 mb-3">
+          <TitleMovappLogo />
+          {t(`alphabet_page.${alphabetCode}.name`)}
+        </h1>
         <p className="text-xl font-light">{t(`alphabet_page.${alphabetCode}.description`)}</p>
         <table className="mt-8 text-xl font-medium">
           {alphabet.data.map(({ examples, transcription, letters }, index) => (
