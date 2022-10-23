@@ -10,12 +10,13 @@ interface CountryVariantFlag {
   svg: ReactNode;
   link: string;
   country: CountryVariant;
+  language: string;
 }
 
 const flags: CountryVariantFlag[] = [
-  { svg: <CzFlag />, link: 'movapp.cz', country: 'cs' },
-  { svg: <SkFlag />, link: 'sk.movapp.eu', country: 'sk' },
-  { svg: <PlFlag />, link: 'pl.movapp.eu', country: 'pl' },
+  { svg: <CzFlag />, link: 'movapp.cz', country: 'cs', language: 'Česky' },
+  { svg: <SkFlag />, link: 'sk.movapp.eu', country: 'sk', language: 'Slovensky' },
+  { svg: <PlFlag />, link: 'pl.movapp.eu', country: 'pl', language: 'Polski' },
 ];
 
 export const LanguagesFlags = () => {
@@ -27,11 +28,11 @@ export const LanguagesFlags = () => {
       <div className="flex flex-col sm:flex-row items-center">
         {flags
           .filter(({ country }) => country !== getCountryVariant())
-          .map(({ svg, link, country }) => (
+          .map(({ svg, link, country, language }) => (
             <Link href={`https://${link}`} passHref={true} key={country}>
               <a className="mx-8 mb-6 flex flex-col items-center hover:cursor-pointer hover:scale-110 transition-all">
                 {svg}
-                <p>{link}</p>
+                <p>{language}</p>
               </a>
             </Link>
           ))}
