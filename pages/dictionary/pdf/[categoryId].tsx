@@ -3,7 +3,9 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../../utils/localization';
 import { DictionaryDataObject, fetchDictionary, parseCategory } from '../../../utils/getDataUtils';
 import { ParsedUrlQuery } from 'querystring';
-import { getCountryVariant } from '../../../utils/locales';
+import { getCountryVariant, Language } from '../../../utils/locales';
+import { useLanguage } from '../../../utils/useLanguageHook';
+import { getCategoryName } from '../../../components/sections/Dictionary/dictionaryUtils';
 
 interface UrlParams extends ParsedUrlQuery {
   categoryId: string;
@@ -12,11 +14,14 @@ interface UrlParams extends ParsedUrlQuery {
 const DictionaryCategoryPDF = ({ dictionary, categoryId }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   const categoryObject = dictionary.categories.find((category) => category.id === categoryId);
   const category = categoryObject ? parseCategory(categoryObject, dictionary) : null;
-  const country = getCountryVariant();
+  const { currentLanguage, otherLanguage } = useLanguage();
 
   if (!category) {
     return <div>Category not found.</div>;
   }
+
+  const categoryName = getCategoryName(category, currentLanguage);
+
   return (
     <>
       <div>
@@ -24,20 +29,15 @@ const DictionaryCategoryPDF = ({ dictionary, categoryId }: InferGetStaticPropsTy
           <h1 className="text-primary-blue mt-0 mb-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={'https://www.movapp.cz/icons/movapp-logo.png'} width="120px" className="mx-3 inline-block" alt="Movapp logo" />
-            {category.nameMain} - {category.nameUk}
+            {categoryName}
           </h1>
           <table className="mt-8 text-xl font-medium">
             <tbody>
               {category.translations.map((phrase, index) => (
-                <tr key={index}>
-                  <td className="align-top py-2 px-3">
-                    {phrase.getTranslation(country)}&nbsp; &nbsp;
-                    <span className="text-gray-600">[{phrase.getTranscription(country)}]</span>
-                  </td>
-                  <td className="align-top py-2 px-3">
-                    {phrase.getTranslation('uk')}&nbsp; &nbsp;
-                    <span className="text-gray-600">[{phrase.getTranscription('uk')}]</span>
-                  </td>
+                <tr key={index} className="break-inside-avoid">
+                  <td className="align-top py-2 px-3">{phrase.getTranslation(currentLanguage)}</td>
+                  <td className="align-top py-2 px-3">{phrase.getTranslation(otherLanguage)}</td>
+                  <td className="align-top py-2 px-3 text-gray-600">[{phrase.getTranscription(otherLanguage)}]</td>
                 </tr>
               ))}
             </tbody>
@@ -70,9 +70,21 @@ export const getStaticProps: GetStaticProps<
 export const getStaticPaths: GetStaticPaths<UrlParams> = async () => {
   const dictionary = await fetchDictionary();
 
+  const paths: { params: { categoryId: string }; locale: Language }[] = [];
+  dictionary.categories.forEach((category) => {
+    paths.push({
+      params: { categoryId: category.id },
+      locale: 'uk',
+    });
+    paths.push({
+      params: { categoryId: category.id },
+      locale: getCountryVariant(),
+    });
+  });
+
+  // example category id: 'recdabyHkJhGf7U5D'
   return {
-    // 'recdabyHkJhGf7U5D'
-    paths: dictionary.categories.map((category) => ({ params: { categoryId: category.id } })),
+    paths,
     fallback: false,
   };
 };

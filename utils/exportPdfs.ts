@@ -62,7 +62,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
       top: '10mm',
       left: '10mm',
       right: '10mm',
-      bottom: '15mm',
+      bottom: footerLanguage ? '10mm' : '15mm',
     },
     displayHeaderFooter: true,
     headerTemplate: '<div></div>',
@@ -72,27 +72,31 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
   console.log('PDF generated', filename);
 };
 
-const generateAlphabetPdfs = (country: CountryVariant) => {
+const generateAlphabetPDFs = async (country: CountryVariant) => {
   exportPdf(`${country}/alphabet/pdf/uk`, `ukAlphabet.pdf`, country);
   exportPdf(`uk/alphabet/pdf/${country}`, `${country}Alphabet.pdf`, 'uk');
 };
 
-const generateDictionaryPdfs = async (country: CountryVariant) => {
+const generateDictionaryPDFs = async (country: CountryVariant) => {
   const categories = (await fetchDictionary()).categories;
   for (const category of categories) {
-    exportPdf(`${country}/dictionary/pdf/${category.id}`, `${category.name.main}.pdf`);
+    exportPdf(`${country}/dictionary/pdf/${category.id}`, `${category.name.main}.pdf`, country);
+    exportPdf(`uk/dictionary/pdf/${category.id}`, `${category.name.source}.pdf`, 'uk');
   }
 };
 
 const main = async () => {
   try {
     const country = getCountryVariant();
-    generateAlphabetPdfs(country);
-    await generateDictionaryPdfs(country);
+    generateAlphabetPDFs(country);
+    generateDictionaryPDFs(country);
   } catch (error) {
     console.log(error);
   }
 };
 
+// Silence EventEmitter memory warning https://github.com/puppeteer/puppeteer/issues/594 for now
+// Running exports sequentially would fix it but be 10x slower
+process.setMaxListeners(100);
 // Script starts from here
 main();
