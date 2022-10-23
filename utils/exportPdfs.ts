@@ -21,7 +21,7 @@ const COUNTRY = getCountryVariant();
 const WEB_LINK: Record<CountryVariant, string> = {
   cs: '<a style="color: blue;" href="https://movapp.cz">www.movapp.cz</a>',
   sk: '<a style="color: blue;" href="https://sk.movapp.eu/">sk.movapp.eu</a>',
-  pl: '<a style="color: blue;" href="https://pl.movapp.eu">pl.movapp.eu</a>.',
+  pl: '<a style="color: blue;" href="https://pl.movapp.eu">pl.movapp.eu</a>',
 };
 
 const MOVAPP_TAGLINE: Record<Language, string> = {
