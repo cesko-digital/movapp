@@ -11,7 +11,7 @@ import puppeteer from 'puppeteer';
  */
 
 /**
- * Dynamically loading the country from env variables works inside a post-build script work fine in Vercel
+ * NOTE: Dynamically loading the country from env variables here (inside a post-build script) work fine in Vercel
  * but not locally. If you need to locally test generating PDFs of other language variants, hard-code that value here like this
  * const COUNTRY: CountryVariant = "sk"
  * To-do: Figure out how to properly load env variables here, `dotenv` does not seem to work.
@@ -73,7 +73,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
       top: '10mm',
       left: '10mm',
       right: '10mm',
-      bottom: footerLanguage ? '10mm' : '15mm',
+      bottom: '10mm',
     },
     displayHeaderFooter: true,
     headerTemplate: '<div></div>',
@@ -107,7 +107,7 @@ const generateAlphabetPDFs = async (country: CountryVariant) => {
 };
 
 const generateDictionaryPDFs = async (country: CountryVariant) => {
-  const categories = (await fetchDictionary(COUNTRY)).categories;
+  const categories = (await fetchDictionary(country)).categories;
   for (const category of categories) {
     exportPdf(`${country}/dictionary/pdf/${category.id}`, `${category.name.main}.pdf`, country, category.name.main);
     exportPdf(`uk/dictionary/pdf/${category.id}`, `${category.name.source}.pdf`, 'uk', category.name.source);

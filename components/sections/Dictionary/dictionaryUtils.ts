@@ -9,7 +9,7 @@ export const getCategoryName = (category: Category, currentLanguage: Language) =
   return `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
 };
 
-// Used to link directly to category with dictionary#categoryId
+// Used to anchor-link directly to category with dictionary#categoryId
 export const getCategoryId = (category: Category, currentLanguage: Language) => {
   const text = currentLanguage === 'uk' ? translitFromUkrainian(category.nameUk) : category.nameMain;
   return normalizeForId(text);
