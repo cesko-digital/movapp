@@ -28,8 +28,9 @@ const AlphabetPage = ({ alphabet }: InferGetStaticPropsType<typeof getStaticProp
               </td>
               <td className="align-top p-2">
                 {examples.map((example, index) => (
-                  <span className="font-light" key={index}>
-                    {example.translation} [{example.transcription}]{index !== examples.length - 1 ? ', ' : null}
+                  <span key={index}>
+                    {example.translation} <span className="font-light text-gray-600">[{example.transcription}]</span>
+                    {index !== examples.length - 1 ? ', ' : null}
                   </span>
                 ))}
               </td>

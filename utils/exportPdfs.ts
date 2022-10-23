@@ -10,12 +10,18 @@ import puppeteer from 'puppeteer';
  * Thanks a lot, Harrison!
  */
 
+const FOOTER_LINK: Record<CountryVariant, string> = {
+  cs: '<a style="color: blue;" href="movapp.cz">www.movapp.cz</a>',
+  sk: '<a style="color: blue;" href="sk.movapp.eu">sk.movapp.eu</a>',
+  pl: '<a style="color: blue;" href="pl.movapp.eu">pl.movapp.eu</a>.',
+};
+
 /** The PFD footer is localized but otherwise common for all PDFs for now */
 const FOOTER: Record<Language, string> = {
-  cs: 'Více naučných materiálů naleznete na <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>.',
-  sk: 'Viac náučných materiálov nájdete na <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>.',
-  pl: 'Więcej materiałów edukacyjnych można znaleźć na stronie <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>.',
-  uk: 'Ви можете знайти більше навчальних матеріалів на <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>.',
+  cs: `Více naučných materiálů naleznete na ${FOOTER_LINK['cs']}.`,
+  sk: `Viac náučných materiálov nájdete na ${FOOTER_LINK['sk']}.`,
+  pl: `Więcej materiałów edukacyjnych można znaleźć na stronie ${FOOTER_LINK['pl']}.`,
+  uk: `Ви можете знайти більше навчальних матеріалів на ${FOOTER_LINK[getCountryVariant()]}.`,
 };
 
 /**
@@ -30,7 +36,6 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
   // Include fonts and disable color printing strategy at the beginning, then compile all generated CSS
   let CSScontent = `
     @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100&display=swap');
-    
     html {
       -webkit-print-color-adjust: exact;
     }
