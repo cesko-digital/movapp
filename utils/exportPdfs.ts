@@ -10,17 +10,25 @@ import puppeteer from 'puppeteer';
  * Thanks a lot, Harrison!
  */
 
+/**
+ * Dynamically loading the country from env variables works inside a post-build script work fine in Vercel
+ * but not locally. If you need to locally test generating PDFs of other language variants, hard-code that value here like this
+ * const COUNTRY: CountryVariant = "sk"
+ * To-do: Figure out how to properly load env variables here, `dotenv` does not seem to work.
+ */
+const COUNTRY = getCountryVariant();
+
 const WEB_LINK: Record<CountryVariant, string> = {
-  cs: '<a style="color: blue;" href="movapp.cz">www.movapp.cz</a>',
-  sk: '<a style="color: blue;" href="sk.movapp.eu">sk.movapp.eu</a>',
-  pl: '<a style="color: blue;" href="pl.movapp.eu">pl.movapp.eu</a>.',
+  cs: '<a style="color: blue;" href="https://movapp.cz">www.movapp.cz</a>',
+  sk: '<a style="color: blue;" href="https://sk.movapp.eu/">sk.movapp.eu</a>',
+  pl: '<a style="color: blue;" href="https://pl.movapp.eu">pl.movapp.eu</a>.',
 };
 
 const MOVAPP_TAGLINE: Record<Language, string> = {
   cs: `Více naučných materiálů naleznete na ${WEB_LINK['cs']}.`,
   sk: `Viac náučných materiálov nájdete na ${WEB_LINK['sk']}.`,
   pl: `Więcej materiałów edukacyjnych można znaleźć na stronie ${WEB_LINK['pl']}.`,
-  uk: `Ви можете знайти більше навчальних матеріалів на ${WEB_LINK[getCountryVariant()]}.`,
+  uk: `Ви можете знайти більше навчальних матеріалів на ${WEB_LINK[COUNTRY]}.`,
 };
 
 /**
@@ -99,7 +107,7 @@ const generateAlphabetPDFs = async (country: CountryVariant) => {
 };
 
 const generateDictionaryPDFs = async (country: CountryVariant) => {
-  const categories = (await fetchDictionary()).categories;
+  const categories = (await fetchDictionary(COUNTRY)).categories;
   for (const category of categories) {
     exportPdf(`${country}/dictionary/pdf/${category.id}`, `${category.name.main}.pdf`, country, category.name.main);
     exportPdf(`uk/dictionary/pdf/${category.id}`, `${category.name.source}.pdf`, 'uk', category.name.source);
@@ -108,9 +116,8 @@ const generateDictionaryPDFs = async (country: CountryVariant) => {
 
 const main = async () => {
   try {
-    const country = getCountryVariant();
-    generateAlphabetPDFs(country);
-    generateDictionaryPDFs(country);
+    generateAlphabetPDFs(COUNTRY);
+    generateDictionaryPDFs(COUNTRY);
   } catch (error) {
     console.log(error);
   }

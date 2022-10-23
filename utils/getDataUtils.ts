@@ -1,3 +1,4 @@
+import { CountryVariant } from './locales';
 import { getCountryVariant, Language } from '../utils/locales';
 import fetch from 'node-fetch';
 
@@ -114,8 +115,8 @@ export const getKidsCategory = (dictionaryObject: DictionaryDataObject): Categor
   }
 };
 
-export const fetchDictionary = async () => {
-  const result = await (await fetch(`https://data.movapp.eu/uk-${getCountryVariant()}-dictionary.json`)).json();
+export const fetchDictionary = async (country?: CountryVariant) => {
+  const result = await (await fetch(`https://data.movapp.eu/uk-${country ?? getCountryVariant()}-dictionary.json`)).json();
   return result as DictionaryDataObject;
 };
 
