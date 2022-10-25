@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+import { CountryVariant } from './locales';
+import { fetchDictionary } from './getDataUtils';
 import { Language, getCountryVariant } from '../utils/locales';
 import fs from 'fs';
 import puppeteer from 'puppeteer';
@@ -8,12 +10,25 @@ import puppeteer from 'puppeteer';
  * Thanks a lot, Harrison!
  */
 
-/** The PFD footer is localized but otherwise common for all PDFs for now */
-const FOOTER: Record<Language, string> = {
-  cs: 'Více naučných materiálů naleznete na <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
-  sk: 'Viac náučných materiálov nájdete na <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
-  pl: 'Więcej materiałów edukacyjnych można znaleźć na stronie <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
-  uk: 'Ви можете знайти більше навчальних матеріалів на <a style="color: blue;" href="movapp.eu">www.movapp.eu</a>',
+/**
+ * NOTE: Dynamically loading the country from env variables here (inside a post-build script) work fine in Vercel
+ * but not locally. If you need to locally test generating PDFs of other language variants, hard-code that value here like this
+ * const COUNTRY: CountryVariant = "sk"
+ * To-do: Figure out how to properly load env variables here, `dotenv` does not seem to work.
+ */
+const COUNTRY = getCountryVariant();
+
+const WEB_LINK: Record<CountryVariant, string> = {
+  cs: '<a style="color: blue;" href="https://movapp.cz">www.movapp.cz</a>',
+  sk: '<a style="color: blue;" href="https://sk.movapp.eu/">sk.movapp.eu</a>',
+  pl: '<a style="color: blue;" href="https://pl.movapp.eu">pl.movapp.eu</a>',
+};
+
+const MOVAPP_TAGLINE: Record<Language, string> = {
+  cs: `Více naučných materiálů naleznete na ${WEB_LINK['cs']}.`,
+  sk: `Viac náučných materiálov nájdete na ${WEB_LINK['sk']}.`,
+  pl: `Więcej materiałów edukacyjnych można znaleźć na stronie ${WEB_LINK['pl']}.`,
+  uk: `Ви можете знайти більше навчальних матеріалів на ${WEB_LINK[COUNTRY]}.`,
 };
 
 /**
@@ -22,11 +37,16 @@ const FOOTER: Record<Language, string> = {
  * @param filename The name of the generated PDF file.
  * @param footerLanguage Language of the footer
  */
-const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage: Language) => {
+const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage: Language, footerTitle?: string) => {
   // Grab generated HTML
   const HTMLcontent = fs.readFileSync(`.next/server/pages/${path}.html`, 'utf8');
-  // Include fonts at the beginning, then compile all generated CSS
-  let CSScontent = "@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100&display=swap');";
+  // Include fonts and disable color printing strategy at the beginning, then compile all generated CSS
+  let CSScontent = `
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100&display=swap');
+    html {
+      -webkit-print-color-adjust: exact;
+    }
+  `;
   const CSSpath = '.next/static/css/';
   const CSSfiles = fs.readdirSync(CSSpath).filter((fileName) => fileName.endsWith('.css'));
   CSSfiles.forEach((file) => {
@@ -57,25 +77,54 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
     },
     displayHeaderFooter: true,
     headerTemplate: '<div></div>',
-    footerTemplate: `<div id="footer-template" style="font-size:10px !important; color:#808080; padding-left:10px;">${FOOTER[footerLanguage]}</div>`,
+    footerTemplate: `
+      <div 
+        id="footer-template" 
+        style="font-size:9px !important;
+          color:#808080;
+          padding-left:35px;
+          padding-right:35px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;"
+      >
+        <div>${MOVAPP_TAGLINE[footerLanguage]}</div>
+        <div>  
+          <b>${footerTitle ?? ''}</b>           
+          <span class="pageNumber"></span>
+          /
+          <span class="totalPages"></span>
+      </div>`,
   });
   await browser.close();
   console.log('PDF generated', filename);
 };
 
-// For each language variant, specify which pages you want to generate:
-try {
-  const countryVariant = getCountryVariant();
-  if (countryVariant === 'pl') {
-    exportPdf('pl/alphabet/pdf/uk', 'ukAlphabet.pdf', 'pl');
-    exportPdf('uk/alphabet/pdf/pl', 'plAlphabet.pdf', 'uk');
-  } else if (countryVariant === 'sk') {
-    exportPdf('sk/alphabet/pdf/uk', 'ukAlphabet.pdf', 'sk');
-    exportPdf('uk/alphabet/pdf/sk', 'skAlphabet.pdf', 'uk');
-  } else {
-    exportPdf('cs/alphabet/pdf/uk', 'ukAlphabet.pdf', 'cs');
-    exportPdf('uk/alphabet/pdf/cs', 'csAlphabet.pdf', 'uk');
+const generateAlphabetPDFs = async (country: CountryVariant) => {
+  exportPdf(`${country}/alphabet/pdf/uk`, `ukAlphabet.pdf`, country);
+  exportPdf(`uk/alphabet/pdf/${country}`, `${country}Alphabet.pdf`, 'uk');
+};
+
+const generateDictionaryPDFs = async (country: CountryVariant) => {
+  const categories = (await fetchDictionary(country)).categories;
+  for (const category of categories) {
+    exportPdf(`${country}/dictionary/pdf/${category.id}`, `${category.name.main}.pdf`, country, category.name.main);
+    exportPdf(`uk/dictionary/pdf/${category.id}`, `${category.name.source}.pdf`, 'uk', category.name.source);
   }
-} catch (error) {
-  console.log(error);
-}
+};
+
+const main = async () => {
+  try {
+    generateAlphabetPDFs(COUNTRY);
+    generateDictionaryPDFs(COUNTRY);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// Silence EventEmitter memory warning https://github.com/puppeteer/puppeteer/issues/594 for now
+// Running exports sequentially would fix it but be 10x slower
+process.setMaxListeners(100);
+// Script starts from here
+main();

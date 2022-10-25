@@ -2,7 +2,7 @@ import { useTranslation, Trans } from 'next-i18next';
 import { getCountryVariant } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
-import { H2, LinkText, P } from 'components/Typography';
+import { H2, TextLink, P } from 'components/Typography';
 import Image from 'next/image';
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
@@ -58,7 +58,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           <Trans
             i18nKey={'about_page.why_movapp_license'}
             t={t}
-            components={[<LinkText href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" key="creativecommons" />]}
+            components={[<TextLink href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" key="creativecommons" />]}
           />
         </P>
 
@@ -66,7 +66,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           i18nKey={'about_page.why_movapp_origin'}
           t={t}
           components={[
-            <LinkText
+            <TextLink
               href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw"
               target="_blank"
               key="drive.google.com"
@@ -94,7 +94,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         <div className="my-4">
           <Trans
             i18nKey={'about_page.our_team_contact'}
-            components={[<LinkText href={`/contacts`} locale={currentLanguage} target="_self" key="contacts" />]}
+            components={[<TextLink href={`/contacts`} locale={currentLanguage} target="_self" key="contacts" />]}
           />
         </div>
 
@@ -104,13 +104,13 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         <H2>{t('about_page.stand_with_ukraine_title')}</H2>
         <Trans
           i18nKey={'about_page.stand_with_ukraine_description'}
-          components={[<LinkText href="https://stojimezaukrajinou.cz/" target="_blank" key="stojimezaukrajinou" />]}
+          components={[<TextLink href="https://stojimezaukrajinou.cz/" target="_blank" key="stojimezaukrajinou" />]}
         />
 
         <H2>{t('about_page.czech_digital_title')}</H2>
         <Trans
           i18nKey={'about_page.czech_digital_description'}
-          components={[<LinkText href="https://cesko.digital/" target="_blank" key="cesko.digital" />]}
+          components={[<TextLink href="https://cesko.digital/" target="_blank" key="cesko.digital" />]}
         />
       </div>
     </>

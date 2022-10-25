@@ -65,7 +65,8 @@
     "cs": "česky",
     "uk": "ukrajinsky",
     "results_subtitle": "Výsledky vyhledávání",
-    "not_found_results": "Nic nenalezeno"
+    "not_found_results": "Nic nenalezeno",
+    "download_pdf": "Stáhnout v PDF"
   },
   "kids_page": {
     "downloadPDF": "Stáhnout v PDF",

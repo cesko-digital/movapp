@@ -5,33 +5,23 @@ import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
 import Marker from 'react-mark.js/Marker';
-import { translitFromUkrainian } from 'utils/transliterate';
 import { useLanguage } from 'utils/useLanguageHook';
-import { normalizeForId, normalize } from 'utils/textNormalizationUtils';
+import { normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
-import { getCountryVariant, Language } from 'utils/locales';
+import { getCountryVariant } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
 import { SearchInput } from 'components/basecomponents/SearchInput';
-import { Category, DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDataUtils';
+import { DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDataUtils';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
+import { TextLink } from '../../components/Typography';
+import { AiOutlineFilePdf } from 'react-icons/ai';
+import { getCategoryName, getCategoryId } from '../../components/sections/Dictionary/dictionaryUtils';
 
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
 });
-
-const getCategoryName = (category: Category, currentLanguage: Language) => {
-  const mainLanguageCategory = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
-  const secondaryLanguageCategory = currentLanguage === 'uk' ? category.nameMain : category.nameUk;
-  return `${mainLanguageCategory}` + ' - ' + `${secondaryLanguageCategory}`;
-};
-
-// Used to link directly to category with dictionary#categoryId
-const getCategoryId = (category: Category, currentLanguage: Language) => {
-  const text = currentLanguage === 'uk' ? translitFromUkrainian(category.nameUk) : category.nameMain;
-  return normalizeForId(text);
-};
 
 const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const categories = useMemo(() => getCategories(dictionary), [dictionary]);
@@ -132,6 +122,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
           ) : (
             categories.map((category, index) => {
               const categoryName = getCategoryName(category, currentLanguage);
+              const categoryPdfName = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
               return (
                 <Collapse
                   index={index}
@@ -142,6 +133,15 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                 >
                   <div className="mb-4 mx-4">
                     <ExportTranslations translations={category.translations} categoryName={categoryName} />
+                    <TextLink
+                      href={`/pdf/${categoryPdfName}.pdf`}
+                      target="_blank"
+                      className="ml-3 inline-flex gap-x-1 items-center"
+                      locale={getCountryVariant()}
+                    >
+                      <AiOutlineFilePdf className="w-5 h-5" />
+                      {t('dictionary_page.download_pdf')}
+                    </TextLink>
                   </div>
                   <CategoryDictionary searchText={search} translations={category.translations} />
                 </Collapse>

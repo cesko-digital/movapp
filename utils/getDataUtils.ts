@@ -1,4 +1,6 @@
-import { getCountryVariant, Language } from 'utils/locales';
+import { CountryVariant } from './locales';
+import { getCountryVariant, Language } from '../utils/locales';
+import fetch from 'node-fetch';
 
 /**
  * Dictionary
@@ -37,6 +39,7 @@ export interface TranslationDataObject {
 }
 
 export interface Category {
+  id: string;
   nameMain: string;
   nameUk: string;
   translations: Phrase[];
@@ -78,8 +81,9 @@ export class Phrase {
 
 const KIDS_CATEGORY_ID = 'recSHyEn6N0hAqUBp';
 
-const parseCategory = (categoryObject: CategoryDataObject, dictionaryObject: DictionaryDataObject): Category => {
+export const parseCategory = (categoryObject: CategoryDataObject, dictionaryObject: DictionaryDataObject): Category => {
   return {
+    id: categoryObject.id,
     nameMain: categoryObject.name.main,
     nameUk: categoryObject.name.source,
     translations: categoryObject.phrases
@@ -111,8 +115,8 @@ export const getKidsCategory = (dictionaryObject: DictionaryDataObject): Categor
   }
 };
 
-export const fetchDictionary = async () => {
-  const result = await (await fetch(`https://data.movapp.eu/uk-${getCountryVariant()}-dictionary.json`)).json();
+export const fetchDictionary = async (country?: CountryVariant) => {
+  const result = await (await fetch(`https://data.movapp.eu/uk-${country ?? getCountryVariant()}-dictionary.json`)).json();
   return result as DictionaryDataObject;
 };
 
