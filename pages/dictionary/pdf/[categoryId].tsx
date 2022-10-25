@@ -6,7 +6,7 @@ import { ParsedUrlQuery } from 'querystring';
 import { getCountryVariant, Language } from '../../../utils/locales';
 import { useLanguage } from '../../../utils/useLanguageHook';
 import { getCategoryName } from '../../../components/sections/Dictionary/dictionaryUtils';
-import TitleMovappLogo from '../../../components/basecomponents/PdfComponents/TitleMovappLogo';
+import PdfHeader from '../../../components/basecomponents/PdfComponents/PdfHeader';
 
 interface UrlParams extends ParsedUrlQuery {
   categoryId: string;
@@ -27,10 +27,7 @@ const DictionaryCategoryPDF = ({ dictionary, categoryId }: InferGetStaticPropsTy
     <>
       <div>
         <div className="max-w-4xl m-auto">
-          <h1 className="text-primary-blue mt-0 mb-3">
-            <TitleMovappLogo />
-            {categoryName}
-          </h1>
+          <PdfHeader title={categoryName} />
           <table className="mt-8 text-xl font-medium">
             <tbody>
               {category.translations.map((phrase, index) => (
