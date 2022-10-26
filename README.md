@@ -81,3 +81,9 @@ If you have questions, [write to us on Slack](https://cesko-digital.slack.com/ar
 ## Contributions
 
 - Transliteration tables between Czech and Ukrainian were kindly provided by: [vsistek/ua-translit-cz/](https://github.com/vsistek/ua-translit-cz/) under an MIT license.
+
+## Other repositories
+
+- [Movapp data repository](https://github.com/cesko-digital/movapp-data)
+- [Movapp for iOS](https://github.com/cesko-digital/movapp-apple)
+- [Movapp for Android](https://github.com/cesko-digital/movapp-android)
