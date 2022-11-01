@@ -45,23 +45,6 @@ h2 {
   inset: 0;
 }
 
-.youtube-banner {
-  background-color: #013ABD;
-  height: 770px;
-}
-
-@media (min-width: 640px) {  
-  .youtube-banner {
-    height: 680px;
-  }
-}
-
-@media (min-width: 1024px) {  
-  .youtube-banner {
-    height: 260px;
-  }
-}
-
 /* Removes white space under an image. */
 
 .logo span {

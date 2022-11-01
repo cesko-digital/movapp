@@ -27,6 +27,7 @@ const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
+  const displayYoutubeBanner = getCountryVariant() === 'cs' || getCountryVariant() === 'sk';
   return (
     <>
       <SEO
@@ -34,7 +35,7 @@ const Home: NextPage = () => {
         description={t(`seo.homepage_page_description.${getCountryVariant()}`)}
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
-      {getCountryVariant() === 'cs' || getCountryVariant() === 'sk' ? (
+      {displayYoutubeBanner ? (
         <YoutubeLinkBanner />
       ) : (
         <div className="bg-homepage-hero bg-center pt-20 pb-[10rem] pl-4 pr-4 bg-cover">
@@ -45,12 +46,7 @@ const Home: NextPage = () => {
       )}
       <div className="max-w-7xl m-auto px-2 sm:px-4">
         {/* Standard section */}
-        <div
-          className={
-            'max-w-7xl bg-white p-4 sm:p-8 md:p-12 shadow-xxl mb-8 ' +
-            (getCountryVariant() === 'cs' || getCountryVariant() === 'sk' ? '' : 'mt-[-6rem]')
-          }
-        >
+        <div className={'max-w-7xl bg-white p-4 sm:p-8 md:p-12 shadow-xxl mb-8 ' + (displayYoutubeBanner ? '' : 'mt-[-6rem]')}>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="homepage-box w-full group hover:text-primary-blue    pr-4 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
               <DictionaryIcon className="w-6 mb-2 group-hover:fill-primary-red" />
