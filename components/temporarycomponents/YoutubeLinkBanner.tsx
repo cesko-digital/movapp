@@ -34,7 +34,7 @@ const YOUTUBE_VIDEO_CODES_UK: Array<string> = [
   'KMz8hsfnC3Q', //18 - У зоопарку
 ];
 
-export const YoutubeLinkBanner = () => {
+const YoutubeLinkBanner = () => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
   const isUk = currentLanguage === 'uk';
@@ -82,3 +82,5 @@ export const YoutubeLinkBanner = () => {
     </div>
   );
 };
+
+export default YoutubeLinkBanner;

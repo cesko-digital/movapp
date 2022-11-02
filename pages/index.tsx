@@ -17,7 +17,7 @@ import { CountryVariant, getCountryVariant } from '../utils/locales';
 import { ReactNode } from 'react';
 import { AppsButtons } from 'components/sections/AppsButtons';
 import { LanguagesFlags } from 'components/sections/LanguagesFlags';
-import { YoutubeLinkBanner } from 'components/temporarycomponents/YoutubeLinkBanner';
+import dynamic from 'next/dynamic';
 
 const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
   cs: <Image src={HeartsUkraine_CZ} alt="Česká a Ukrajinská vlajka v srdcích." width={140} height={164} />,
@@ -28,6 +28,12 @@ const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
 const Home: NextPage = () => {
   const { t } = useTranslation();
   const displayYoutubeBanner = getCountryVariant() === 'cs' || getCountryVariant() === 'sk';
+  
+  const YoutubeLinkBanner = dynamic(
+    () => import('../components/temporarycomponents/YoutubeLinkBanner'), 
+    {ssr: false}
+  );
+  
   return (
     <>
       <SEO
