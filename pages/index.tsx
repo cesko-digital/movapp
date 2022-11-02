@@ -25,15 +25,11 @@ const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
   pl: <Image src={HeartsUkraine_PL} alt="Polskie i Ukraińskie flagi w sercach" width={140} height={164} />,
 };
 
+const YoutubeLinkBanner = dynamic(() => import('../components/temporarycomponents/YoutubeLinkBanner'), { ssr: false });
+
 const Home: NextPage = () => {
   const { t } = useTranslation();
   const displayYoutubeBanner = getCountryVariant() === 'cs' || getCountryVariant() === 'sk';
-  
-  const YoutubeLinkBanner = dynamic(
-    () => import('../components/temporarycomponents/YoutubeLinkBanner'), 
-    {ssr: false}
-  );
-  
   return (
     <>
       <SEO
