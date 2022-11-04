@@ -49,7 +49,7 @@ const YoutubeLinkBanner = () => {
     <div className="max-w-7xl m-auto px-2 sm:px-4">
       <div className="youtube-banner bg-[#013ABD] h-[770px] pt-20 px-2 flex flex-col overflow-hidden justify-between sm:px-12 sm:relative sm:h-[680px] lg:flex-row lg:pb-6 lg:pt-6 lg:h-[260px]">
         <div className="lg:flex lg:flex-col lg:justify-center">
-          <h2 className="m-0 p-0 text-4xl text-white pb-10 lg:text-3xl lg:pb-4">{t(`homepage.title.${getCountryVariant()}`)}</h2>
+          <h1 className="m-0 p-0 text-4xl text-white pb-10 lg:pb-4">{t(`homepage.title.${getCountryVariant()}`)}</h1>
           <a href={getRandomYotubeVideoCode()} target={'_blank'} rel="noopener">
             <YoutubeLinkIcon className="cursor-pointer hover:fill-[#BD1E1F]" />
           </a>
