@@ -30,6 +30,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <PlausibleProvider domain={PLAUSIBLE_DOMAINS[getCountryVariant()]}>
       <Head>
+        <meta name="apple-itunes-app" content="app-id=1617768476" />
         <link rel="alternate" hrefLang="x-default" href={`https://www.movapp.cz${asPath}`} />
         {locales?.map((locale, index) => {
           return <link key={index} rel="alternate" hrefLang={locale} href={`https://www.movapp.cz/${locale}${asPath}`} />;
