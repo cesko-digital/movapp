@@ -22,7 +22,6 @@ const SEO = ({ title, description, image }: Props) => {
       <meta name="twitter:image" content={image} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="apple-itunes-app" content="app-id=1617768476" />
     </Head>
   );
 };
