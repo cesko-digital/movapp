@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 const DefaultTheme = React.lazy(() => import('./Themes/MemoryGameDefaultTheme'));
 const TaleTheme = React.lazy(() => import('./Themes/MemoryGameTaleTheme'));
+const XmasTheme = React.lazy(() => import('./Themes/MemoryGameXmasTheme'));
 
 type Theme = {
   id: string;
@@ -23,6 +24,11 @@ const themes: Theme[] = [
     image: '/kids/memory-game/talecard.png',
     component: TaleTheme,
   },
+  {
+    id: 'xmas',
+    image: '/kids/memory-game/xmascard.png',
+    component: XmasTheme,
+  },
 ];
 
 const ThemeButton = ({ image, onClick }: { image: string; onClick: () => void }) => (
@@ -32,7 +38,7 @@ const ThemeButton = ({ image, onClick }: { image: string; onClick: () => void })
 );
 
 const MemoryGameThemeLoader = () => {
-  const [currentTheme, setCurrentTheme] = useState(themes[0]);
+  const [currentTheme, setCurrentTheme] = useState(themes[2]);
 
   return (
     <React.Suspense fallback={<MemoryGameLoading />}>

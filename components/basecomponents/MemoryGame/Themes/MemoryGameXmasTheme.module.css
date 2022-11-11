@@ -1,15 +1,21 @@
 .newGameButton {
-  background-color: #023abd;
+  background-color: transparent;
+  background-image: url(/kids/memory-game/xmasbutton.gif);
+  background-size: 100% 100%;
+  color: #64562a;
+  font-size: 1.15rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 800;
+  width: 38vw;
+  min-width: 14rem;
+  height: 13.5vw;
+  min-height: 5rem;
   margin-bottom: 1.25rem;
-  animation: unhide 0.7s 0.5s backwards;  
-  -webkit-tap-highlight-color: transparent;
+  animation: pop 0.3s 0.3s backwards;
+  -webkit-tap-highlight-color: transparent;  
   transition: transform 0.2s;
-  width: 20vw;
-  min-width: 7rem;
-  height: 8vw;
-  min-height: 3rem;
   padding:0;
-  margin-top: 0.5rem;
+  padding-top:1.3rem;  
 }
 
 .newGameButton:hover {
@@ -41,7 +47,7 @@
 .back,
 .cell {
   width: 20vw;
-  height: 20vw;   
+  height: 20vw;
   position: relative;
 }
 
@@ -62,7 +68,7 @@
   transition: transform 300ms linear;
   border-width: 2px;
   border-style: solid;
-  border-radius: 0.75rem;
+  border-radius: 6px;
   background-color: white;
   backface-visibility: hidden;
   image-rendering: -webkit-optimize-contrast;
@@ -70,9 +76,9 @@
 }
 
 .back {
+  border-color: #c9a431;
+  background-color: #c9a431;
   border-width: 2px;
-  border-color: #023abd;
-  background-color: #023abd;
 }
 
 .front {
@@ -96,7 +102,7 @@
 }
 
 .goNewGame {
-  animation: hide 0.3s forwards;
+  animation: hide 0.3s both;
 }
 
 .begin {
@@ -104,12 +110,11 @@
 }
 
 .back.begin {
-  animation-timing-function: linear;
-  animation: unhide 0.1s forwards, slide-from-bottom 0.5s both, show 0.8s;
+  animation: unhide 0.1s both, pop 0.3s both;
 }
 
 .front.flipped.selected.cardsMatch {
-  animation: shake 0.7s, shine 0.7s;
+  animation: glow 0.7s, turn 0.7s;
 }
 
 .cell.flipped.selected {
@@ -121,8 +126,8 @@
 }
 
 .front.winReward {
-  animation: dance 0.45s;
-  animation-iteration-count: 24;
+  animation: show 0.45s, glow 0.7s;
+  animation-iteration-count: 11;
 }
 
 .cell:nth-child(1) .front.win {
@@ -203,7 +208,7 @@
   animation-delay: 0.3s;
 }
 
-.cell:nth-child(15) .back.begin {
+.cell:nth-child(5) .back.begin {
   animation-delay: 0.25s;
 }
 
@@ -223,7 +228,7 @@
   animation-delay: 0.2s;
 }
 
-.cell:nth-child(10) .back.begin {
+.cell:nth-child(8) .back.begin {
   animation-delay: 0.15s;
 }
 
@@ -231,11 +236,11 @@
   animation-delay: 0.1s;
 }
 
-.cell:nth-child(8) .back.begin {
+.cell:nth-child(10) .back.begin {
   animation-delay: 0.2s;
 }
 
-.cell:nth-child(7) .back.begin {
+.cell:nth-child(2) .back.begin {
   animation-delay: 0.15s;
 }
 
@@ -243,11 +248,11 @@
   animation-delay: 0.1s;
 }
 
-.cell:nth-child(5) .back.begin {
+.cell:nth-child(15) .back.begin {
   animation-delay: 0.05s;
 }
 
-.cell:nth-child(4) .back.begin {
+.cell:nth-child(1) .back.begin {
   animation-delay: 0.15s;
 }
 
@@ -255,11 +260,11 @@
   animation-delay: 0.1s;
 }
 
-.cell:nth-child(2) .back.begin {
+.cell:nth-child(7) .back.begin {
   animation-delay: 0.05s;
 }
 
-.cell:nth-child(1) .back.begin {
+.cell:nth-child(4) .back.begin {
   animation-delay: 0;
 }
 
@@ -278,16 +283,20 @@
   }
   .board {
     width: calc(4 * 11rem + 3 * 0.5rem);
-    grid-gap: 0.5rem;    
+    grid-gap: 0.5rem;
   }
-  .newGameButton {    
+  .newGameButton {
+    background-size: 320px 114px;
     font-size: 1.5rem;
-    width: 11rem;
-    height: 4.5rem;
+    font-weight: 800;
+    width: 320px;
+    height: 114px;
+    padding-top: 28px;    
   }
   .front,
   .back {
     border-width: 4px;
+    border-radius: 8px;
   }
 }
 
@@ -300,6 +309,17 @@
     transform: scale(0.8);
     animation-timing-function: ease-out;
   }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    animation-timing-function: cubic-bezier(0.3, 2.5, 0.39, 0.51);
+  }
+
   100% {
     transform: scale(1);
   }
@@ -380,15 +400,6 @@
   }
 }
 
-@keyframes slide-from-bottom {
-  0% {
-    top: 100vh;
-  }
-  100% {
-    top: 0;
-  }
-}
-
 @keyframes rotate {
   0% {
     transform: rotateY(0);
@@ -398,5 +409,53 @@
   }
   100% {
     transform: rotateY(0);
+  }
+}
+
+@keyframes glow {
+  10% {
+    border-color: gold;
+    box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.5);
+  }
+  25% {
+    border-color: red;
+    box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    border-color: greenyellow;
+    box-shadow: 0 0 20px 5px rgba(173, 255, 47, 0.5);
+  }
+  75% {
+    border-color: rgb(255, 0, 255);
+    box-shadow: 0 0 20px 5px rgba(255, 0, 255, 0.5);
+  }
+  90% {
+    border-color: rgb(0, 247, 255);
+    box-shadow: 0 0 20px 5px rgba(0, 247, 255, 0.5);
+  }
+}
+
+@keyframes turn {
+  0% {
+    transform: rotateZ(0) scale(1);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: rotateZ(180deg) scale(0.5);
+  }
+  100% {
+    transform: rotateZ(360deg) scale(1);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
   }
 }

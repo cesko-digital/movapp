@@ -22,7 +22,7 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  image-rendering: -webkit-optimize-contrast;
+  /* image-rendering: -webkit-optimize-contrast; */
   animation: zoom .2s .1s backwards;
   -webkit-tap-highlight-color: transparent;  
   transition: transform 0.2s;
