@@ -32,6 +32,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
 
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
+  const isCs = currentLanguage === 'cs';
 
   const searchContainer = useRef<HTMLDivElement | null>(null);
   const searchButton = useRef<HTMLButtonElement | null>(null);
@@ -88,6 +89,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
       <div>
         <div className="max-w-7xl m-auto ">
           <h1 className="text-primary-blue">{t(`dictionary_page.title.${getCountryVariant()}`)}</h1>
+          {isCs ? <p className="text-base pb-2 md:text-xl">{t(`dictionary_page.description.${getCountryVariant()}`)}</p> : null}
           <div
             ref={searchContainer}
             className={`${

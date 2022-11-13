@@ -58,9 +58,12 @@
     "title": {
       "cs": "Česko-ukrajinský slovníček"
     },
+    "description": {
+      "cs": "Tisícovka česko-ukrajinských slov a frází. Projděte je dle kategorií nebo použijte vyhledávání. Pro výslovnost si pusťte audio, pomůže vám i přepis abecedy."
+    },
     "search_input_label": "Vyhledejte slovo nebo frázi",
     "search_button": "Hledat",
-    "search_placeholder": "Hledaný výraz",
+    "search_placeholder": "Stačí zadat slovo z hledaného výrazu",
     "subtitle": "Vyberte si oblast",
     "cs": "česky",
     "uk": "ukrajinsky",
