@@ -12,10 +12,10 @@
   min-height: 5rem;
   margin-bottom: 1.25rem;
   animation: pop 0.3s 0.3s backwards;
-  -webkit-tap-highlight-color: transparent;  
+  -webkit-tap-highlight-color: transparent;
   transition: transform 0.2s;
-  padding:0;
-  padding-top:1.3rem;  
+  padding: 0;
+  padding-top: 1.3rem;
 }
 
 .newGameButton:hover {
@@ -114,7 +114,7 @@
 }
 
 .front.flipped.selected.cardsMatch {
-  animation: glow 0.7s, turn 0.7s;
+  animation: bell 1.4s; /* awaits sound ends */
 }
 
 .cell.flipped.selected {
@@ -268,10 +268,10 @@
   animation-delay: 0;
 }
 
-@media (min-width: 640px) {  
-  .newGameButton {    
-    font-size: 1.3rem;    
-  }  
+@media (min-width: 640px) {
+  .newGameButton {
+    font-size: 1.3rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -291,7 +291,7 @@
     font-weight: 800;
     width: 320px;
     height: 114px;
-    padding-top: 28px;    
+    padding-top: 28px;
   }
   .front,
   .back {
@@ -454,6 +454,40 @@
   }
   50% {
     transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bell {
+  0% {
+    transform: scale(1);
+    animation-timing-function: ease-in-out;
+  }
+  10% {
+    transform: scale(0.7);
+  }
+  15% {
+    transform-origin: center -50%;
+    transform: scale(0.7) rotate(30deg);
+  }
+  20% {
+    transform: scale(0.7) rotate(-30deg);
+  }
+  25% {
+    transform: scale(0.7) rotate(30deg);
+  }
+
+  30% {
+    transform: scale(0.7) rotate(-30deg);
+  }
+  35% {
+    transform: scale(0.7) rotate(30deg);
+  }
+  40% {
+    transform-origin: center -50%;
+    transform: scale(0.7) rotate(0deg);
   }
   100% {
     transform: scale(1);
