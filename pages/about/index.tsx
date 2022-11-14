@@ -8,6 +8,7 @@ import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
+import { getFlagEmoji } from 'utils/getFlagEmoji';
 
 interface TeamStucture {
   sections: [
@@ -37,8 +38,8 @@ type ArticleType = {
   title: string;
   url: string;
   sourceName: string;
-  lang: string | null; // TODO Language type
-  publishedDate: string;
+  lang: string | null;
+  publishDate: string;
 };
 
 type ArticlesListProps = {
@@ -50,20 +51,19 @@ type ArticleProps = {
 };
 
 const Article = ({ article }: ArticleProps): JSX.Element => {
-  const handleArticleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>, url: string) => {
-    e.stopPropagation();
-    url && window.open(url);
-  };
   return (
-    <div
-      className="w-full lg:max-w-full lg:flex cursor-pointer group px-2 py-1 my-1 rounded shadow border"
-      onClick={(e) => handleArticleClick(e, article.url)}
-    >
-      <h3 className="group-hover:text-primary-blue">{article.title}</h3>
+    <div className="w-full lg:max-w-full lg:flex px-2 py-1 my-1 rounded shadow border">
+      <a className="hover:text-primary-blue" href={article.url} target="_blank" rel="noreferrer">
+        {article.title}
+      </a>
       <div className="font-light">
         <span className="inline-block lg:pl-2 pr-2">{article.sourceName}</span>
-        <span className="inline-block pr-2">{new Date(article.publishedDate).toLocaleDateString()}</span>
-        {article.lang && <span className="inline-block">{article.lang}</span>}
+        <span className="inline-block pr-2">{new Date(article.publishDate).toLocaleDateString()}</span>
+        {article.lang && (
+          <span role="img" className="inline-block">
+            {getFlagEmoji(article.lang)}
+          </span>
+        )}
       </div>
     </div>
   );
