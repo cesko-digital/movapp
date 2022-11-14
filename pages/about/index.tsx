@@ -7,6 +7,7 @@ import Image from 'next/image';
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
+import articles from '../../data/articles/articles.json';
 
 interface TeamStucture {
   sections: [
@@ -31,6 +32,54 @@ interface TeamSection {
   team: TeamStucture['sections'][number]['name'];
   members: string;
 }
+
+type ArticleType = {
+  title: string;
+  url: string;
+  sourceName: string;
+  lang: string | null; // TODO Language type
+  publishedDate: string;
+};
+
+type ArticlesListProps = {
+  articles: ArticleType[];
+};
+
+type ArticleProps = {
+  article: ArticleType;
+};
+
+const Article = ({ article }: ArticleProps): JSX.Element => {
+  const handleArticleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>, url: string) => {
+    e.stopPropagation();
+    url && window.open(url);
+  };
+  return (
+    <div
+      className="w-full lg:max-w-full lg:flex cursor-pointer group px-2 py-1 my-1 rounded shadow border"
+      onClick={(e) => handleArticleClick(e, article.url)}
+    >
+      <h3 className="group-hover:text-primary-blue">{article.title}</h3>
+      <div className="font-light">
+        <span className="inline-block lg:pl-2 pr-2">{article.sourceName}</span>
+        <span className="inline-block pr-2">{new Date(article.publishedDate).toLocaleDateString()}</span>
+        {article.lang && <span className="inline-block">{article.lang}</span>}
+      </div>
+    </div>
+  );
+};
+
+const ArticlesList = ({ articles }: ArticlesListProps): JSX.Element => {
+  return (
+    <ul>
+      {articles.map((article, index) => (
+        <li key={index}>
+          <Article article={article} />
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
   const { t } = useTranslation();
@@ -73,6 +122,9 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             />,
           ]}
         />
+
+        <H2>{t('about_page.media_mentions_title')}</H2>
+        <ArticlesList articles={articles} />
 
         <H2>{t('about_page.our_team_title')}</H2>
         <Image
