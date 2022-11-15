@@ -37,7 +37,7 @@ type ArticleType = {
   title: string;
   url: string;
   sourceName: string;
-  lang: string | null;
+  lang: string;
   publishDate: string;
 };
 
@@ -49,7 +49,7 @@ type ArticleProps = {
   article: ArticleType;
 };
 
-const flagEmojis = {
+const flagEmojis: Record<string, string> = {
   uk: '🇺🇦',
   cs: '🇨🇿',
   de: '🇩🇪',
@@ -62,8 +62,6 @@ const flagEmojis = {
   sk: '🇸🇰',
 };
 
-type ObjectKey = keyof typeof flagEmojis;
-
 const Article = ({ article }: ArticleProps): JSX.Element => {
   return (
     <div className="w-full lg:max-w-full lg:flex px-2 py-1 my-1 rounded shadow border">
@@ -73,7 +71,7 @@ const Article = ({ article }: ArticleProps): JSX.Element => {
       <div className="font-light">
         <span className="inline-block lg:pl-2 pr-2">{article.sourceName}</span>
         <span className="inline-block pr-2">{new Date(article.publishDate).toLocaleDateString()}</span>
-        {article.lang && <span role="img">{flagEmojis[article.lang as ObjectKey]}</span>}
+        {article.lang && <span role="img">{flagEmojis[article.lang]}</span>}
       </div>
     </div>
   );
