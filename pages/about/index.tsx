@@ -8,7 +8,6 @@ import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
-import { getFlagEmoji } from 'utils/getFlagEmoji';
 
 interface TeamStucture {
   sections: [
@@ -50,6 +49,21 @@ type ArticleProps = {
   article: ArticleType;
 };
 
+const flagEmojis = {
+  uk: '🇺🇦',
+  cs: '🇨🇿',
+  de: '🇩🇪',
+  en: '🇬🇧',
+  es: '🇪🇸',
+  fr: '🇫🇷',
+  it: '🇮🇹',
+  pl: '🇵🇱',
+  ru: '🇷🇺',
+  sk: '🇸🇰',
+};
+
+type ObjectKey = keyof typeof flagEmojis;
+
 const Article = ({ article }: ArticleProps): JSX.Element => {
   return (
     <div className="w-full lg:max-w-full lg:flex px-2 py-1 my-1 rounded shadow border">
@@ -59,11 +73,7 @@ const Article = ({ article }: ArticleProps): JSX.Element => {
       <div className="font-light">
         <span className="inline-block lg:pl-2 pr-2">{article.sourceName}</span>
         <span className="inline-block pr-2">{new Date(article.publishDate).toLocaleDateString()}</span>
-        {article.lang && (
-          <span role="img" className="inline-block">
-            {getFlagEmoji(article.lang)}
-          </span>
-        )}
+        {article.lang && <span role="img">{flagEmojis[article.lang as ObjectKey]}</span>}
       </div>
     </div>
   );
