@@ -71,7 +71,7 @@ const Article = ({ article }: ArticleProps): JSX.Element => {
       <div className="font-light">
         <span className="inline-block lg:pl-2 pr-2">{article.sourceName}</span>
         <span className="inline-block pr-2">{new Date(article.publishDate).toLocaleDateString()}</span>
-        {article.lang && <span role="img">{flagEmojis[article.lang]}</span>}
+        <span role="img">{flagEmojis[article.lang]}</span>
       </div>
     </div>
   );
