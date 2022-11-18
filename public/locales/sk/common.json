@@ -60,8 +60,11 @@
     "title": {
       "sk": "Slovensko-ukrajinský slovníček"
     },
+    "description": {
+      "sk": "Tisíc slovensko-ukrajinských slov a fráz. Prejdite si ich podľa kategórií alebo použite vyhľadávanie. Pre výslovnosť si pustite audio, pomôže vám aj prepis abecedy."
+    },
     "search_button": "Hľadať",
-    "search_placeholder": "Hľadaný výraz",
+    "search_placeholder": "Stačí zadať slovo z hľadaného výrazu",
     "subtitle": "Vyberte si oblasť",
     "sk": "po slovensky",
     "uk": "po ukrajinsky",
