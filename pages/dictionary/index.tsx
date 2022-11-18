@@ -88,6 +88,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
       <div>
         <div className="max-w-7xl m-auto ">
           <h1 className="text-primary-blue">{t(`dictionary_page.title.${getCountryVariant()}`)}</h1>
+          <p className="text-base pb-2 md:text-xl">{t(`dictionary_page.description.${getCountryVariant()}`)}</p>
           <div
             ref={searchContainer}
             className={`${

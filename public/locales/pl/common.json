@@ -53,8 +53,11 @@
     "title": {
       "pl": "Rozmówki polsko-ukraińskie"
     },
+    "description": {
+      "pl": "Ponad tysiąc polsko-ukraińskich słów i zwrotów. Przeglądaj je według kategorii lub użyj wyszukiwania. Z wymową pomogą Ci nagranie audio oraz transkrypcja alfabetu."
+    },
     "search_button": "Szukaj",
-    "search_placeholder": "Szukany wyraz",
+    "search_placeholder": "Wystarczy wpisać słowo z szukanego zwrotu",
     "subtitle": "Wybierz kategorię",
     "pl": "polski",
     "uk": "ukraiński",
