@@ -40,6 +40,11 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
         link: '/kids/memory-game',
         countryVariant: ['cs', 'pl', 'sk'],
       },
+      {
+        name: 'header.forkids_imagequiz',
+        link: '/kids/image-quiz',
+        countryVariant: ['cs', 'pl', 'sk'],
+      },
     ],
   },
   {
