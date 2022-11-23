@@ -64,8 +64,8 @@ const flagEmojis: Record<string, string> = {
 
 const Article = ({ article }: ArticleProps): JSX.Element => {
   return (
-    <div className="w-full lg:max-w-full lg:flex px-2 py-1 my-1 rounded shadow border">
-      <a className="hover:text-primary-blue" href={article.url} target="_blank" rel="noreferrer">
+    <div className="w-full md:max-w-full md:flex p-2 md:p-4 bg-white border-b-1 border-b-primary-grey">
+      <a className="hover:text-primary-blue" href={article.url}>
         {article.title}
       </a>
       <div className="font-light">
@@ -131,9 +131,6 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           ]}
         />
 
-        <H2>{t('about_page.media_mentions_title')}</H2>
-        <ArticlesList articles={articles} />
-
         <H2>{t('about_page.our_team_title')}</H2>
         <Image
           src="https://data.movapp.eu/images/team/small-team-photo.jpg"
@@ -157,6 +154,9 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             components={[<TextLink href={`/contacts`} locale={currentLanguage} target="_self" key="contacts" />]}
           />
         </div>
+
+        <H2>{t('about_page.media_mentions_title')}</H2>
+        <ArticlesList articles={articles} />
 
         <H2>{t('about_page.how_to_find_us_title')}</H2>
         <Trans i18nKey={'about_page.how_to_find_us_description'} />
