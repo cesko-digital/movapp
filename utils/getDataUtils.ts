@@ -23,6 +23,7 @@ export interface CategoryDataObject {
   };
   description: string;
   phrases: string[];
+  hidden?: boolean;
 }
 
 export interface PhraseDataObject {
@@ -115,9 +116,12 @@ export const getKidsCategory = (dictionaryObject: DictionaryDataObject): Categor
   }
 };
 
-export const fetchDictionary = async (country?: CountryVariant) => {
-  const result = await (await fetch(`https://data.movapp.eu/uk-${country ?? getCountryVariant()}-dictionary.json`)).json();
-  return result as DictionaryDataObject;
+export const fetchDictionary = async (country?: CountryVariant): Promise<DictionaryDataObject> => {
+  const response = await fetch(`https://data.movapp.eu/uk-${country ?? getCountryVariant()}-dictionary.json`);
+  const json = (await response.json()) as DictionaryDataObject;
+  // filter out hidden categories
+  const result = { ...json, categories: json.categories.filter((category) => !category.hidden) };
+  return result;
 };
 
 /**

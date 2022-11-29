@@ -7,6 +7,7 @@ import Image from 'next/image';
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
+import articles from '../../data/articles/articles.json';
 
 interface TeamStucture {
   sections: [
@@ -31,6 +32,62 @@ interface TeamSection {
   team: TeamStucture['sections'][number]['name'];
   members: string;
 }
+
+type ArticleType = {
+  title: string;
+  url: string;
+  sourceName: string;
+  lang: string;
+  publishDate: string;
+};
+
+type ArticlesListProps = {
+  articles: ArticleType[];
+};
+
+type ArticleProps = {
+  article: ArticleType;
+};
+
+const flagEmojis: Record<string, string> = {
+  uk: '🇺🇦',
+  cs: '🇨🇿',
+  de: '🇩🇪',
+  en: '🇬🇧',
+  es: '🇪🇸',
+  fr: '🇫🇷',
+  it: '🇮🇹',
+  pl: '🇵🇱',
+  ru: '🇷🇺',
+  sk: '🇸🇰',
+};
+
+const Article = ({ article }: ArticleProps): JSX.Element => {
+  return (
+    <div className="w-full md:max-w-full md:flex p-2 md:p-4 bg-white border-b-1 border-b-primary-grey">
+      <a className="hover:text-primary-blue" href={article.url}>
+        {article.title}
+      </a>
+      <div className="font-light">
+        <span className="inline-block lg:pl-2 pr-2">{article.sourceName}</span>
+        <span className="inline-block pr-2">{new Date(article.publishDate).toLocaleDateString()}</span>
+        <span role="img">{flagEmojis[article.lang]}</span>
+      </div>
+    </div>
+  );
+};
+
+const ArticlesList = ({ articles }: ArticlesListProps): JSX.Element => {
+  return (
+    <ul>
+      {articles.map((article, index) => (
+        <li key={index}>
+          <Article article={article} />
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
   const { t } = useTranslation();
@@ -97,6 +154,9 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             components={[<TextLink href={`/contacts`} locale={currentLanguage} target="_self" key="contacts" />]}
           />
         </div>
+
+        <H2>{t('about_page.media_mentions_title')}</H2>
+        <ArticlesList articles={articles} />
 
         <H2>{t('about_page.how_to_find_us_title')}</H2>
         <Trans i18nKey={'about_page.how_to_find_us_description'} />
