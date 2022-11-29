@@ -14,7 +14,7 @@ import phrases_CS from 'components/basecomponents/MemoryGame/memory-game-cs.json
 import phrases_PL from 'components/basecomponents/MemoryGame/memory-game-pl.json';
 import phrases_SK from 'components/basecomponents/MemoryGame/memory-game-sk.json';
 import styles from './imageStyle.module.css';
-import { shuffle } from 'utils/shuffle';
+import { shuffle } from 'utils/collectionUtils';
 
 export type KidsTranslation = TranslationJSON & { image: string };
 
