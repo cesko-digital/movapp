@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 import { Phrase_deprecated, TranslationJSON } from 'utils/Phrase_deprecated';
 import { getCountryVariant } from 'utils/locales';
@@ -14,6 +14,7 @@ import phrases_CS from 'components/basecomponents/MemoryGame/memory-game-cs.json
 import phrases_PL from 'components/basecomponents/MemoryGame/memory-game-pl.json';
 import phrases_SK from 'components/basecomponents/MemoryGame/memory-game-sk.json';
 import styles from './imageStyle.module.css';
+import { shuffle } from 'utils/shuffle';
 
 export type KidsTranslation = TranslationJSON & { image: string };
 
@@ -33,63 +34,56 @@ const GAME_NARRATION_PHRASES = {
   pl: phrases_PL,
 };
 
-const matchSound = '/kids/image-quiz/positive.mp3';
-const dontMatchSound = '/kids/image-quiz/negative.mp3';
-const text = GAME_NARRATION_PHRASES[getCountryVariant()];
+enum Sound {
+  Match = '/kids/memory-game/reward_sfx.mp3',
+  DontMatch = '/kids/memory-game/card_flip.mp3',
+}
+const narrationPhrases = GAME_NARRATION_PHRASES[getCountryVariant()];
 
 const ImageQuizSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [phrases, setPhrases] = useState<Phrase[]>();
+  const kidsCategory = useMemo(() => getKidsCategory(dictionary), [dictionary]);
+  const [randomPhrases, setRandomPhrases] = useState<Phrase[]>();
   const [correctIndex, setCorrectIndex] = useState(getRandomIndex);
   const { t } = useTranslation();
   const { currentLanguage, otherLanguage } = useLanguage();
 
   useEffect(() => {
-    const _phrases: Phrase[] = shuffle(getKidsCategory(dictionary)?.translations);
-    setPhrases(_phrases);
-  }, [dictionary]);
-
+    // force the state to only be set on the client-side, so no mismatches will occur.
+    setRandomPhrases(shuffle(kidsCategory?.translations, CHOICES_COUNT));
+  }, [dictionary, kidsCategory?.translations]);
+  const playPhrase = useCallback(
+    async (phrase: Phrase) => await AudioPlayer.getInstance().playSrc(phrase.getSoundUrl(otherLanguage)),
+    [otherLanguage]
+  );
   useEffect(() => {
-    phrases?.[correctIndex] && AudioPlayer.getInstance().playSrc(phrases[correctIndex].getSoundUrl(otherLanguage));
-  });
+    randomPhrases?.[correctIndex] && playPhrase(randomPhrases[correctIndex]);
+  }, [correctIndex, playPhrase, randomPhrases]);
+
+  const playSounds = async (phrase: Phrase, key: 'good' | 'wrong', sound: Sound.Match | Sound.DontMatch) => {
+    const narrationPhrase = narrationPhrases[key][getRandomIndex(narrationPhrases[key].length)];
+    await AudioPlayer.getInstance().playSrc(sound);
+    await playPhrase(phrase);
+    await AudioPlayer.getInstance().playTextToSpeech(
+      new Phrase_deprecated(narrationPhrase).getTranslation(currentLanguage),
+      currentLanguage
+    );
+  };
 
   const handleClick = (e: React.MouseEvent, phrase: Phrase, correct: boolean) => {
-    e.preventDefault();
-    e.stopPropagation();
-
     if (correct) {
-      const textGood = text.good[getRandomIndex(text.good.length)];
-      AudioPlayer.getInstance()
-        .playSrc(matchSound)
-        .then(
-          async () =>
-            await AudioPlayer.getInstance().playTextToSpeech(
-              new Phrase_deprecated(textGood).getTranslation(currentLanguage),
-              currentLanguage
-            )
-        );
+      playSounds(phrase, 'good', Sound.Match);
       setTimeout(() => {
-        setPhrases(shuffle(phrases));
+        setRandomPhrases(shuffle(kidsCategory?.translations, CHOICES_COUNT));
         setCorrectIndex(getRandomIndex());
-      }, 4000);
+      }, 5_000);
     } else {
-      const textWrong = text.wrong[getRandomIndex(text.wrong.length)];
-      AudioPlayer.getInstance()
-        .playSrc(dontMatchSound)
-        .then(
-          async () =>
-            await AudioPlayer.getInstance().playTextToSpeech(
-              new Phrase_deprecated(textWrong).getTranslation(currentLanguage),
-              currentLanguage
-            )
-        );
+      playSounds(phrase, 'wrong', Sound.DontMatch);
     }
   };
 
-  if (!phrases?.[correctIndex]) {
+  if (!randomPhrases?.[correctIndex]) {
     return null;
   }
-
-  const otherTranslation = phrases[correctIndex].getTranslation(otherLanguage);
 
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
@@ -102,13 +96,13 @@ const ImageQuizSection = ({ dictionary }: InferGetStaticPropsType<typeof getStat
         <header>
           <KidsTranslation
             language={otherLanguage}
-            transcription={phrases[correctIndex].getTranscription(otherLanguage)}
-            translation={otherTranslation}
-            soundUrl={phrases[correctIndex].getSoundUrl(otherLanguage)}
+            transcription={randomPhrases[correctIndex].getTranscription(otherLanguage)}
+            translation={randomPhrases[correctIndex].getTranslation(otherLanguage)}
+            soundUrl={randomPhrases[correctIndex].getSoundUrl(otherLanguage)}
           />
         </header>
         <div className="flex flex-wrap justify-center px-2 sm:px-4">
-          {phrases.slice(0, CHOICES_COUNT).map((phrase, index) => {
+          {randomPhrases.map((phrase, index) => {
             return (
               <ImageContainer key={phrase.getTranslation('uk')} phrase={phrase} onClick={handleClick} correct={index === correctIndex} />
             );
@@ -125,14 +119,21 @@ const ImageContainer = ({ phrase, onClick, correct }: ImageContainerProps): JSX.
 
   return (
     <div
-      className={`max-w-sm rounded-2xl overflow-hidden shadow-xl w-72 m-5 md:m-8 bg-[#f7e06a] max-h-[34rem] ${className}`}
+      className={`max-w-sm rounded-2xl overflow-hidden shadow-xl w-72 m-5 md:m-8 bg-white max-h-[34rem] ${className}`}
       onClick={(e) => {
         setClassName(correct ? styles.match : styles.dontMatch);
         onClick(e, phrase, correct);
       }}
     >
-      <button className="w-72 h-72 relative bg-white">
-        <Image src={phrase.getImageUrl() ?? ''} layout="fill" sizes="100%" objectFit="cover" alt={phrase.getTranslation(otherLanguage)} />
+      <button className={'w-72 h-72 relative'}>
+        <Image
+          src={phrase.getImageUrl() ?? ''}
+          priority // generates <link rel="preload">
+          layout="fill"
+          sizes="100%"
+          objectFit="cover"
+          alt={phrase.getTranslation(otherLanguage)}
+        />
       </button>
     </div>
   );
@@ -148,15 +149,6 @@ export const getStaticProps: GetStaticProps<{ dictionary: DictionaryDataObject }
       ...localeTranslations,
     },
   };
-};
-
-const shuffle = (array: Phrase[] = []) => {
-  const arrayCopy = [...array];
-  for (let i = arrayCopy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
-  }
-  return arrayCopy;
 };
 
 export default ImageQuizSection;

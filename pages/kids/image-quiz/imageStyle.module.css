@@ -36,15 +36,17 @@
 
 @keyframes shine {
   50% {
-    border-color: gold;
-    box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.5);
+    border-color: green;
+    box-shadow: 0 0 20px 5px rgba(0, 128, 0, 0.3);
+    background-color: rgba(0, 128, 0, 0.3);
   }
 }
 
 @keyframes shineRed {
   50% {
-    border-color: rgb(255, 0, 0);
-    box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.5);
+    border-color: red;
+    box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.3);
+    background-color: rgba(255, 0, 0, 0.3);
   }
 }
 
