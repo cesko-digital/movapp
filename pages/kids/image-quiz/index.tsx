@@ -126,14 +126,7 @@ const ImageContainer = ({ phrase, onClick, correct }: ImageContainerProps): JSX.
       }}
     >
       <button className={'w-72 h-72 relative'}>
-        <Image
-          src={phrase.getImageUrl() ?? ''}
-          priority // generates <link rel="preload">
-          layout="fill"
-          sizes="100%"
-          objectFit="cover"
-          alt={phrase.getTranslation(otherLanguage)}
-        />
+        <Image src={phrase.getImageUrl() ?? ''} layout="fill" sizes="100%" objectFit="cover" alt={phrase.getTranslation(otherLanguage)} />
       </button>
     </div>
   );
