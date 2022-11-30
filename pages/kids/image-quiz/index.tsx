@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import Image from 'next/image';
-import { Phrase_deprecated, TranslationJSON } from 'utils/Phrase_deprecated';
+import { Phrase_deprecated } from 'utils/Phrase_deprecated';
 import { getCountryVariant } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
@@ -15,8 +15,6 @@ import phrases_PL from 'components/basecomponents/MemoryGame/memory-game-pl.json
 import phrases_SK from 'components/basecomponents/MemoryGame/memory-game-sk.json';
 import styles from './imageStyle.module.css';
 import { shuffle } from 'utils/collectionUtils';
-
-export type KidsTranslation = TranslationJSON & { image: string };
 
 interface ImageContainerProps {
   phrase: Phrase;
@@ -86,7 +84,7 @@ const ImageQuizSection = ({ dictionary }: InferGetStaticPropsType<typeof getStat
   }
 
   return (
-    <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
+    <div className="flex-1 bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
       <SEO
         title={t(`seo.kids_page_imagequiz_title.${getCountryVariant()}`)}
         description={t(`seo.kids_page_imagequiz_description.${getCountryVariant()}`)}
@@ -124,6 +122,7 @@ const ImageContainer = ({ phrase, onClick, correct }: ImageContainerProps): JSX.
         setClassName(correct ? styles.match : styles.dontMatch);
         onClick(e, phrase, correct);
       }}
+      onAnimationEnd={() => setClassName('')}
     >
       <button className={'w-72 h-72 relative'}>
         <Image src={phrase.getImageUrl() ?? ''} layout="fill" sizes="100%" objectFit="cover" alt={phrase.getTranslation(otherLanguage)} />
