@@ -3,6 +3,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { useTranslation } from 'next-i18next';
 import Card from './MemoryGameCard';
+import { TranslationJSON } from 'utils/Phrase_deprecated';
 import { getCountryVariant } from 'utils/locales';
 import phrases_CS from './memory-game-cs.json';
 import phrases_PL from './memory-game-pl.json';
@@ -10,7 +11,6 @@ import phrases_SK from './memory-game-sk.json';
 import createTimer from './createTimer';
 import usePlayPhrase from './usePlayPhrase';
 import { AudioPlayer } from 'utils/AudioPlayer';
-import { useCardsData, CardData } from './useCardsData';
 
 const playAudio = AudioPlayer.getInstance().playSrc;
 
@@ -45,6 +45,11 @@ enum Scene {
   goNewGame = 'goNewGame',
 }
 
+export type CardData = {
+  image: string;
+  translation: TranslationJSON;
+};
+
 export type Card = CardData & {
   id: string;
   flipped: boolean;
@@ -59,11 +64,11 @@ interface MemoryGameProps {
     winMusic: string;
   };
   styles: Record<string, string>;
+  cardsData: CardData[];
   cardBackImage: string;
 }
 
-const MemoryGame = ({ audio, styles, cardBackImage }: MemoryGameProps) => {
-  const cardsData = useCardsData();
+const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps) => {
   const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase();
   const { t } = useTranslation();
 

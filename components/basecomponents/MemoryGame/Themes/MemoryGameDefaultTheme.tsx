@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './MemoryGameDefaultTheme.module.css';
-import MemoryGame from '../MemoryGame';
+import MemoryGame, { CardData } from '../MemoryGame';
+import { Phrase } from 'utils/getDataUtils';
 
 const gameData = {
   audio: {
@@ -12,6 +13,6 @@ const gameData = {
   cardBackImage: '/kids/memory-game/card_back_movapp.png',
 };
 
-const MemoryGameWithTheme = () => <MemoryGame {...gameData} />;
+const MemoryGameWithTheme = (props: { cardsData: CardData[] }) => <MemoryGame {...gameData} {...props} />;
 
 export default MemoryGameWithTheme;
