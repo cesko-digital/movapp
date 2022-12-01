@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './MemoryGameDefaultTheme.module.css';
 import MemoryGame, { CardData } from '../MemoryGame';
-import { Phrase } from 'utils/getDataUtils';
 
 const gameData = {
   audio: {
