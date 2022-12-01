@@ -4,6 +4,7 @@
     "forkids_link_name": "Pre deti",
     "forkids_words": "Slovíčka",
     "forkids_memorygame": "Pexeso",
+    "forkids_imagequiz": "Obrázkový kvíz",
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Cvičenia",
     "about_link_name": "O nás",
@@ -160,7 +161,7 @@
   },
   "export_translations": {
     "download_phrases": "Stiahnuť frázy",
-    "export_phrases": "Exportovať fráze",
+    "export_phrases": "Exportovať frázy",
     "export": "Exportovať",
     "comma": "čiarka",
     "semicolon": "bodkočiarka",

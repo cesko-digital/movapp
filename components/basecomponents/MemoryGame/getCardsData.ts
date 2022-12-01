@@ -1,23 +1,17 @@
-import { KidsTranslation } from 'pages/kids/index';
 import { getCountryVariant } from 'utils/locales';
-import kidsWords_CS from 'data/translations/cs/pro-deti.json';
-import kidsWords_SK from 'data/translations/sk/pro-deti_sk.json';
-import kidsWords_PL from 'data/translations/pl/pro-deti_pl.json';
+import { Phrase } from 'utils/getDataUtils';
+import { CardData } from './MemoryGame';
 
-const KIDS_WORDS = {
-  cs: kidsWords_CS,
-  sk: kidsWords_SK,
-  pl: kidsWords_PL,
-};
-
-export const normalizeData = ({ main, uk, image }: KidsTranslation) => ({
+export const normalizeData = (phrase: Phrase) => ({
   translation: {
-    uk,
-    main,
+    uk: phrase.getTranslation('uk'),
+    main: phrase.getTranslation(getCountryVariant()),
   },
-  image,
+  image: phrase.getImageUrl() ?? '',
 });
 
-const getCardsData = () => KIDS_WORDS[getCountryVariant()].map(normalizeData);
+export const getCardsData = (phrases: Phrase[] = []): CardData[] => {
+  return phrases.map(normalizeData);
+};
 
 export default getCardsData;

@@ -9,6 +9,7 @@
   height: 8vw;
   min-height: 3rem;
   padding:0;
+  margin-top: 0.5rem;
 }
 
 .newGameButton:hover {

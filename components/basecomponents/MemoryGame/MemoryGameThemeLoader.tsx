@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import MemoryGameLoading from 'components/basecomponents/MemoryGame/MemoryGameLoading';
 import styles from './MemoryGameThemeLoader.module.css';
 import Image from 'next/image';
+import { Phrase } from 'utils/getDataUtils';
+import getCardsData from './getCardsData';
+import { CardData } from './MemoryGame';
 
 const DefaultTheme = React.lazy(() => import('./Themes/MemoryGameDefaultTheme'));
 const TaleTheme = React.lazy(() => import('./Themes/MemoryGameTaleTheme'));
+const XmasTheme = React.lazy(() => import('./Themes/MemoryGameXmasTheme'));
 
 type Theme = {
   id: string;
   image: string;
-  component: React.LazyExoticComponent<() => JSX.Element>;
+  component: React.LazyExoticComponent<(props: { cardsData: CardData[] }) => JSX.Element>;
 };
 
 const themes: Theme[] = [
@@ -23,6 +27,11 @@ const themes: Theme[] = [
     image: '/kids/memory-game/talecard.png',
     component: TaleTheme,
   },
+  {
+    id: 'xmas',
+    image: '/kids/memory-game/xmascard.png',
+    component: XmasTheme,
+  },
 ];
 
 const ThemeButton = ({ image, onClick }: { image: string; onClick: () => void }) => (
@@ -31,8 +40,9 @@ const ThemeButton = ({ image, onClick }: { image: string; onClick: () => void })
   </div>
 );
 
-const MemoryGameThemeLoader = () => {
-  const [currentTheme, setCurrentTheme] = useState(themes[0]);
+const MemoryGameThemeLoader = ({ phrases }: { phrases: Phrase[] }) => {
+  const [currentTheme, setCurrentTheme] = useState(themes[2]);
+  const cardsData = useMemo(() => getCardsData(phrases), [phrases]);
 
   return (
     <React.Suspense fallback={<MemoryGameLoading />}>
@@ -42,7 +52,7 @@ const MemoryGameThemeLoader = () => {
             <ThemeButton key={theme.id} image={theme.image} onClick={() => setCurrentTheme(theme)} />
           ))}
         </div>
-        {React.createElement(currentTheme.component)}
+        {React.createElement(currentTheme.component, { cardsData })}
       </div>
     </React.Suspense>
   );

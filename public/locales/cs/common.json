@@ -5,6 +5,7 @@
     "forkids_words": "Slovíčka",
     "forkids_stories": "Pohádky",
     "forkids_memorygame": "Pexeso",
+    "forkids_imagequiz": "Obrázkový kvíz",
     "wiki_link_name": "Wiki",
     "exercises_link_name": "Cvičení",
     "about_link_name": "O nás",
@@ -160,6 +161,12 @@
     },
     "kids_page_memorygame_description": {
       "cs": "Ukrajinsko-české mluvící pexeso pro děti s ilustrovanými obrázky."
+    },
+    "kids_page_imagequiz_title": {
+      "cs": "Zahrajte si obrázkový kvíz s ukrajinskými slovíčky"
+    },
+    "kids_page_imagequiz_description": {
+      "cs": "Zahrajte si obrázkový kvíz s ukrajinskými slovíčky"
     }
   },
   "export_translations": {
