@@ -25,11 +25,8 @@ const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
   pl: <Image src={HeartsUkraine_PL} alt="Polskie i Ukraińskie flagi w sercach" width={140} height={164} />,
 };
 
-const YoutubeLinkBanner = dynamic(() => import('../components/temporarycomponents/YoutubeLinkBanner'), { ssr: false });
-
 const Home: NextPage = () => {
   const { t } = useTranslation();
-  const displayYoutubeBanner = getCountryVariant() === 'cs' || getCountryVariant() === 'sk';
   return (
     <>
       <SEO
@@ -37,18 +34,14 @@ const Home: NextPage = () => {
         description={t(`seo.homepage_page_description.${getCountryVariant()}`)}
         image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
-      {displayYoutubeBanner ? (
-        <YoutubeLinkBanner />
-      ) : (
-        <div className="bg-homepage-hero bg-center pt-20 pb-[10rem] pl-4 pr-4 bg-cover">
-          <h1 className="text-center max-w-3xl m-auto pt-12 pb-12 text-primary-blue text-3xl sm:text-4xl leading-snug">
-            {t(`homepage.title.${getCountryVariant()}`)}
-          </h1>
-        </div>
-      )}
+      <div className="bg-homepage-hero bg-center pt-20 pb-[10rem] pl-4 pr-4 bg-cover">
+        <h1 className="text-center max-w-3xl m-auto pt-12 pb-12 text-primary-blue text-3xl sm:text-4xl leading-snug">
+          {t(`homepage.title.${getCountryVariant()}`)}
+        </h1>
+      </div>
       <div className="max-w-7xl m-auto px-2 sm:px-4">
         {/* Standard section */}
-        <div className={'max-w-7xl bg-white p-4 sm:p-8 md:p-12 shadow-xxl mb-8 ' + (displayYoutubeBanner ? '' : 'mt-[-6rem]')}>
+        <div className="max-w-7xl bg-white p-4 sm:p-8 md:p-12 shadow-xxl mb-8 mt-[-6rem]">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="homepage-box w-full group hover:text-primary-blue    pr-4 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
               <DictionaryIcon className="w-6 mb-2 group-hover:fill-primary-red" />
