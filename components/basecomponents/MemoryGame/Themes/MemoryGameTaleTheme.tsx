@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './MemoryGameTaleTheme.module.css';
-import MemoryGame from '../MemoryGame';
-import getCardsData from '../getCardsData';
+import MemoryGame, { CardData } from '../MemoryGame';
 
 const gameData = {
   audio: {
@@ -11,9 +10,8 @@ const gameData = {
   },
   styles,
   cardBackImage: '/kids/memory-game/talecard.png',
-  cardsData: getCardsData(), // TODO: filter cards for current theme
 };
 
-const MemoryGameWithTheme = () => <MemoryGame {...gameData} />;
+const MemoryGameWithTheme = (props: { cardsData: CardData[] }) => <MemoryGame {...gameData} {...props} />;
 
 export default MemoryGameWithTheme;
