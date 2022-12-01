@@ -98,14 +98,14 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
       [
         ...coloredCards.map((card, index) => ({
           ...card,
-          image: `/kids/${card.image}.svg`,
+          image: card.image,
           id: `card-other-${index}`,
           flipped: false,
           useMainLang: false,
         })),
         ...coloredCards.map((card, index) => ({
           ...card,
-          image: `/kids/${card.image}.svg`,
+          image: card.image,
           id: `card-main-${index}`,
           flipped: false,
           useMainLang: true,
