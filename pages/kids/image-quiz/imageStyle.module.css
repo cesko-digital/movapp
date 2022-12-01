@@ -1,0 +1,59 @@
+@keyframes shake {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: scale(1.1) rotateZ(-15deg);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: scale(1) rotateZ(0deg);
+  }
+}
+
+@keyframes dance {
+  0% {
+    transform: rotate3d(0) scale(1);
+    animation-timing-function: ease-out;
+  }
+  25% {
+    transform: rotate3d(1, 1, 1, -12deg) scale(0.9);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: rotate3d(0) scale(0.9);
+    animation-timing-function: ease-out;
+  }
+  75% {
+    transform: rotate3d(1, 1, 1, 12deg) scale(0.9);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: rotate3d(0) scale(1);
+  }
+}
+
+@keyframes shine {
+  50% {
+    border-color: green;
+    box-shadow: 0 0 20px 5px rgba(0, 128, 0, 0.3);
+    background-color: rgba(0, 128, 0, 0.3);
+  }
+}
+
+@keyframes shineRed {
+  50% {
+    border-color: red;
+    box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.3);
+    background-color: rgba(255, 0, 0, 0.3);
+  }
+}
+
+.match {
+  animation: dance 0.7s, shine 0.7s;
+}
+
+.dontMatch {
+  animation: shake 0.7s, shineRed 0.7s;
+}
