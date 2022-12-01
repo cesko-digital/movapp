@@ -17,7 +17,6 @@ import { CountryVariant, getCountryVariant } from '../utils/locales';
 import { ReactNode } from 'react';
 import { AppsButtons } from 'components/sections/AppsButtons';
 import { LanguagesFlags } from 'components/sections/LanguagesFlags';
-import dynamic from 'next/dynamic';
 
 const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
   cs: <Image src={HeartsUkraine_CZ} alt="Česká a Ukrajinská vlajka v srdcích." width={140} height={164} />,
