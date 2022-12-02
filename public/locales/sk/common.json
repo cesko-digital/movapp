@@ -157,6 +157,12 @@
     },
     "kids_page_memorygame_description": {
       "sk": "Ukrajinsky-slovenské hovoriace pexeso pre deti s ilustrovanými obrázkami."
+    },
+    "kids_page_imagequiz_title": {
+      "sk": "Zahrajte si obrázkový kvíz s ukrajinskými slovíčkami"
+    },
+    "kids_page_imagequiz_description": {
+      "sk": "Zahrajte si obrázkový kvíz s ukrajinskými slovíčkami"
     }
   },
   "export_translations": {
