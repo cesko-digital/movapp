@@ -9,6 +9,7 @@ import { Phrase } from '../../utils/getDataUtils';
 interface KidsTranslationContainerProps {
   phrase: Phrase;
   imageUrl: string | null;
+  id?: string;
   searchText?: string;
 }
 
@@ -17,7 +18,7 @@ interface KidsTranslationContainerProps {
  *
  * @returns
  */
-export const KidsTranslationsContainer = ({ phrase, imageUrl }: KidsTranslationContainerProps): JSX.Element => {
+export const KidsTranslationsContainer = ({ phrase, imageUrl, id }: KidsTranslationContainerProps): JSX.Element => {
   const { currentLanguage, otherLanguage } = useLanguage();
   const { t } = useTranslation();
 
@@ -31,7 +32,7 @@ export const KidsTranslationsContainer = ({ phrase, imageUrl }: KidsTranslationC
         onClick={() => AudioPlayer.getInstance().playSrc(phrase.getSoundUrl(otherLanguage))}
         aria-label={t('utils.play') + ' ' + otherTranslation}
       >
-        <Image src={imageUrl ?? ''} layout="fill" sizes="100%" objectFit="cover" alt={phrase.getTranslation(otherLanguage)} />
+        <Image id={id} src={imageUrl ?? ''} layout="fill" sizes="100%" objectFit="cover" alt={phrase.getTranslation(otherLanguage)} />
       </button>
       <div className="px-6 py-4">
         <KidsTranslation
