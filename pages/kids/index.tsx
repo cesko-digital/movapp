@@ -8,6 +8,7 @@ import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { DictionaryDataObject, fetchDictionary, getKidsCategory } from '../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../utils/localization';
+import { normalizeForId } from 'utils/textNormalizationUtils';
 
 export type KidsTranslation = TranslationJSON & { image: string };
 
@@ -29,7 +30,14 @@ const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticPro
       </div>
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
         {kidsCategory?.translations.map((phrase) => {
-          return <KidsTranslationsContainer key={phrase.getTranslation('uk')} imageUrl={phrase.getImageUrl()} phrase={phrase} />;
+          return (
+            <KidsTranslationsContainer
+              key={phrase.getTranslation('uk')}
+              id={normalizeForId(phrase.getTranslation(getCountryVariant()))}
+              imageUrl={phrase.getImageUrl()}
+              phrase={phrase}
+            />
+          );
         })}
       </div>
     </div>
