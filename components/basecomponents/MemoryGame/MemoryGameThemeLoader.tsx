@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useMemo, useState } from 'react';
 import MemoryGameLoading from 'components/basecomponents/MemoryGame/MemoryGameLoading';
 import styles from './MemoryGameThemeLoader.module.css';
