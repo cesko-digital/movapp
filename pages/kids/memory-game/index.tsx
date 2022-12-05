@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import SEO from 'components/basecomponents/SEO';
 import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
@@ -9,45 +9,62 @@ import defaultThemeStyles from '../../../components/basecomponents/MemoryGame/Th
 import taleThemeStyles from '../../../components/basecomponents/MemoryGame/Themes/MemoryGameTaleTheme.module.css';
 import xmasThemeStyles from '../../../components/basecomponents/MemoryGame/Themes/MemoryGameXmasTheme.module.css';
 import getCardsData from '../../../components/basecomponents/MemoryGame/getCardsData';
+import styles from '../../../components/basecomponents/MemoryGame/MemoryGameThemeLoader.module.css';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 const MemoryGame = dynamic(() => import('components/basecomponents/MemoryGame/MemoryGame'), {
   ssr: false,
 });
 
-export const defaultTheme = {
+type Theme = {
+  id: string;
+  image: string;
   audio: {
-    cardFlipSound: '/kids/memory-game/card_flip.mp3',
-    cardsMatchSound: '/kids/memory-game/reward_sfx.mp3',
-    winMusic: '/kids/memory-game/win_music_sh.mp3',
-  },
-  styles: defaultThemeStyles,
-  cardBackImage: '/kids/memory-game/card_back_movapp.png',
+    cardFlipSound: string;
+    cardsMatchSound: string;
+    winMusic: string;
+  };
+  styles: Record<string, string>;
 };
 
-export const taleTheme = {
-  audio: {
-    cardFlipSound: '/kids/memory-game/card_flip.mp3',
-    cardsMatchSound: '/kids/memory-game/spell.mp3',
-    winMusic: '/kids/memory-game/win_music_sh.mp3',
+const themes: Theme[] = [
+  {
+    id: 'default',
+    image: '/kids/memory-game/card_back_movapp.png',
+    audio: {
+      cardFlipSound: '/kids/memory-game/card_flip.mp3',
+      cardsMatchSound: '/kids/memory-game/reward_sfx.mp3',
+      winMusic: '/kids/memory-game/win_music_sh.mp3',
+    },
+    styles: defaultThemeStyles,
   },
-  styles: taleThemeStyles,
-  cardBackImage: '/kids/memory-game/talecard.png',
-};
-
-export const xmasTheme = {
-  audio: {
-    cardFlipSound: '/kids/memory-game/card_flip.mp3',
-    cardsMatchSound: '/kids/memory-game/xmasbell.mp3',
-    winMusic: '/kids/memory-game/jingle_bells.mp3',
+  {
+    id: 'tale',
+    image: '/kids/memory-game/talecard.png',
+    audio: {
+      cardFlipSound: '/kids/memory-game/card_flip.mp3',
+      cardsMatchSound: '/kids/memory-game/spell.mp3',
+      winMusic: '/kids/memory-game/win_music_sh.mp3',
+    },
+    styles: taleThemeStyles,
   },
-  styles: xmasThemeStyles,
-  cardBackImage: '/kids/memory-game/xmascard.png',
-};
+  {
+    id: 'xmas',
+    image: '/kids/memory-game/xmascard.png',
+    audio: {
+      cardFlipSound: '/kids/memory-game/card_flip.mp3',
+      cardsMatchSound: '/kids/memory-game/xmasbell.mp3',
+      winMusic: '/kids/memory-game/jingle_bells.mp3',
+    },
+    styles: xmasThemeStyles,
+  },
+];
 
 const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
   const phrases = useMemo(() => getKidsCategory(dictionary)?.translations || [], [dictionary]);
+  const [currentTheme, setCurrentTheme] = useState(themes[2]);
 
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
@@ -57,7 +74,18 @@ const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getSta
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap flex-col items-center min-h-screen m-auto sm:py-10 py-2 px-2 sm:px-4 overflow-hidden">
-        <MemoryGame {...xmasTheme} cardsData={getCardsData(phrases)} />
+        <div className={styles.app}>
+          {/* Theme selection */}
+          <div className={styles.themeNav}>
+            {themes.map((theme) => (
+              <div key={theme.id} className={styles.themeButton} onClick={() => setCurrentTheme(theme)}>
+                <Image src={theme.image} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
+              </div>
+            ))}
+          </div>
+          {/* Main game component */}
+          <MemoryGame {...currentTheme} cardsData={getCardsData(phrases)} />
+        </div>
       </div>
     </div>
   );
