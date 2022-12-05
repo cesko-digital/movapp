@@ -56,22 +56,27 @@ export type Card = CardData & {
   useMainLang: boolean;
 };
 
-interface MemoryGameProps {
+export type Theme = {
+  id: string;
+  image: string;
   audio: {
     cardFlipSound: string;
     cardsMatchSound: string;
     winMusic: string;
   };
   styles: Record<string, string>;
+};
+
+interface MemoryGameProps {
+  theme: Theme;
   cardsData: CardData[];
-  image: string;
 }
 
-const MemoryGame = ({ cardsData, audio, styles, image }: MemoryGameProps) => {
+const MemoryGame = ({ cardsData, theme }: MemoryGameProps) => {
   const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase();
   const { t } = useTranslation();
-
   const [cards, setCards] = useState<Card[]>([]);
+  const { audio, image, styles } = theme;
 
   interface SelectedCards {
     first: Card | null;

@@ -12,21 +12,11 @@ import getCardsData from '../../../components/basecomponents/MemoryGame/getCards
 import styles from '../../../components/basecomponents/MemoryGame/MemoryGameThemeLoader.module.css';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { Theme } from 'components/basecomponents/MemoryGame/MemoryGame';
 
 const MemoryGame = dynamic(() => import('components/basecomponents/MemoryGame/MemoryGame'), {
   ssr: false,
 });
-
-type Theme = {
-  id: string;
-  image: string;
-  audio: {
-    cardFlipSound: string;
-    cardsMatchSound: string;
-    winMusic: string;
-  };
-  styles: Record<string, string>;
-};
 
 const themes: Theme[] = [
   {
@@ -84,7 +74,7 @@ const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getSta
             ))}
           </div>
           {/* Main game component */}
-          <MemoryGame {...currentTheme} cardsData={getCardsData(phrases)} />
+          <MemoryGame theme={currentTheme} cardsData={getCardsData(phrases)} />
         </div>
       </div>
     </div>
