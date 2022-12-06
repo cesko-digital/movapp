@@ -257,21 +257,27 @@
     "uk": {
       "christmas_dictionary_title": "Різдвяний словник",
       "christmas_dictionary_description": "Свято наближається, свято наближається, а разом з ним приходить і наш словник на різдвяну тематику.",
-      "christmas_dictionary_link": "/",
+      "christmas_dictionary_link": "/dictionary#rizdvo",
       "witer_dictionary_title": "Зимовий словник",
       "winter_dictionary_description": "Падав сніг на поріг, кіт злепів собі пиріг... Словник, який стане в нагоді взимку.",
-      "witer_dictionary_link": "/",
+      "witer_dictionary_link": {
+        "cs": "/kids#kapr",
+        "sk": "/kids#kapor"
+      },
       "christmas_images_title": "Різдвяні картинки",
       "christmas_images_description": "Наберіться різдвяної атмосфери через веселі картинки.",
-      "christmas_images_link": "/",
+      "christmas_images_link": {
+        "cs": "/uk/dictionary#zima",
+        "sk": "/uk/dictionary#zyma"
+      },
       "christmas_pexeso_title": "Різдвяне Меморі",
       "christmas_pexeso_description": "Практикуйте словниковий запас у своїй улюбленій грі з різдвяними мотивами.",
-      "christmas_pexeso_link":  "/",
+      "christmas_pexeso_link":  "/kids/memory-game",
       "christmas_tale_title": "Різдвяна казка",
       "christmas_tale_description": "Жили собі якось... А хто і як? Це можете прочитати в нашій різдвяній казці.",
-      "christmas_tale_link": "/",
+      "christmas_tale_link": "",
       "team": "Наша команда",
-      "team_link": "/",
+      "team_link": "/about",
       "wishing": "вам бажає веселого Різдва та щасливого Нового року 2023."
     }
   }

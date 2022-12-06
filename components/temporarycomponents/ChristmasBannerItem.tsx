@@ -1,4 +1,3 @@
-import { link } from 'fs';
 import React, { forwardRef } from 'react';
 
 export interface ChristmasBannerItemProps {

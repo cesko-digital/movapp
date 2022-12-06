@@ -3,36 +3,39 @@ import Image from 'next/image';
 import { getCountryVariant } from 'utils/locales';
 import { ChristmasBannerItem, ChristmasBannerItemProps } from './ChristmasBannerItem';
 import Christmas_Tree from 'public/christmas/christmas-tree.png';
+import { useLanguage } from '../../utils/useLanguageHook';
 
 const ChristmasBanner = () => {
     const { t } = useTranslation();
+    const { currentLanguage } = useLanguage();
+    const isUk = currentLanguage === 'uk';
 
     const CHRISTMAS_ITEMS: ChristmasBannerItemProps[] = [
       {
-        header: t(`christmas_banner.${getCountryVariant()}.christmas_dictionary_title`), 
-        description: t(`christmas_banner.${getCountryVariant()}.christmas_dictionary_description`),
-        link: t(`christmas_banner.${getCountryVariant()}.christmas_dictionary_link`), 
+        header: t(`christmas_banner.${currentLanguage}.christmas_dictionary_title`), 
+        description: t(`christmas_banner.${currentLanguage}.christmas_dictionary_description`),
+        link: t(`christmas_banner.${currentLanguage}.christmas_dictionary_link`), 
       },
       {
-        header: t(`christmas_banner.${getCountryVariant()}.witer_dictionary_title`), 
-        description: t(`christmas_banner.${getCountryVariant()}.winter_dictionary_description`),
-        link: t(`christmas_banner.${getCountryVariant()}.witer_dictionary_link`), 
+        header: t(`christmas_banner.${currentLanguage}.witer_dictionary_title`), 
+        description: t(`christmas_banner.${currentLanguage}.winter_dictionary_description`),
+        link: isUk ? t(`christmas_banner.${currentLanguage}.witer_dictionary_link.${getCountryVariant()}`) : t(`christmas_banner.${currentLanguage}.witer_dictionary_link`)
       },
       {
-        header: t(`christmas_banner.${getCountryVariant()}.christmas_images_title`), 
-        description: t(`christmas_banner.${getCountryVariant()}.christmas_images_description`),
-        link: t(`christmas_banner.${getCountryVariant()}.christmas_images_link`), 
+        header: t(`christmas_banner.${currentLanguage}.christmas_images_title`), 
+        description: t(`christmas_banner.${currentLanguage}.christmas_images_description`),
+        link: isUk ? t(`christmas_banner.${currentLanguage}.christmas_images_link.${getCountryVariant()}`) : t(`christmas_banner.${currentLanguage}.christmas_images_link`)
       },
       {
-        header: t(`christmas_banner.${getCountryVariant()}.christmas_pexeso_title`), 
-        description: t(`christmas_banner.${getCountryVariant()}.christmas_pexeso_description`),
-        link: t(`christmas_banner.${getCountryVariant()}.christmas_pexeso_link`), 
+        header: t(`christmas_banner.${currentLanguage}.christmas_pexeso_title`), 
+        description: t(`christmas_banner.${currentLanguage}.christmas_pexeso_description`),
+        link: t(`christmas_banner.${currentLanguage}.christmas_pexeso_link`), 
       },
-      {
-        header: t(`christmas_banner.${getCountryVariant()}.christmas_tale_title`), 
-        description: t(`christmas_banner.${getCountryVariant()}.christmas_tale_description`),
-        link: t(`christmas_banner.${getCountryVariant()}.christmas_tale_link`), 
-      },
+      // {
+      //   header: t(`christmas_banner.${currentLanguage}.christmas_tale_title`), 
+      //   description: t(`christmas_banner.${currentLanguage}.christmas_tale_description`),
+      //   link: t(`christmas_banner.${currentLanguage}.christmas_tale_link`), 
+      // },
     ]
 
     const OUR_TEAM_LINK = t(`christmas_banner.${getCountryVariant()}.team_link`);
