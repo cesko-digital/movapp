@@ -190,5 +190,27 @@
     "android_soon": "Verzia pre Android už čoskoro!",
     "play": "prehrať",
     "new_game": "Nová hra"
+  },
+  "christmas_banner": {
+    "sk": {
+      "christmas_dictionary_title": "Vianočný slovníček",
+      "christmas_dictionary_description": "Vianoce, Vianoce prichádzajú a s nimi i náš slovníček s vianočnou tematikou.",
+      "christmas_dictionary_link": "/",
+      "witer_dictionary_title": "Zimný slovníček",
+      "winter_dictionary_description": "Bude zima, bude mráz. Slovníček, ktorý sa ti v zime zíde.",
+      "witer_dictionary_link": "/",
+      "christmas_images_title": "Vianočné obrázky",
+      "christmas_images_description": "Načerpajte vianočnú atmosféru prostredníctvom zábavných obrázkov.",
+      "christmas_images_link": "/",
+      "christmas_pexeso_title": "Vianočné pexeso",
+      "christmas_pexeso_description": "Precvičujte si slovíčka v obľúbenej hre s vianočnými obrázkami.",
+      "christmas_pexeso_link":  "/",
+      "christmas_tale_title": "Vianočná rozprávka",
+      "christmas_tale_description": "Bolo nebolo? Ako to vlastne bolo? To si môžete prečítať v našej vianočnej rozprávke.",
+      "christmas_tale_link": "/",
+      "team": "Náš tým",
+      "team_link": "/",
+      "wishing": "vám přeje krásné Vánoce a šťastný Nový rok 2023."
+    }
   }
 }
