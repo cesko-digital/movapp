@@ -44,7 +44,7 @@ const Home: NextPage = () => {
       {DISPLAY_YOUTUBE_BANNER ? (
         <YoutubeLinkBanner />
       ) : (
-          <div className={'bg-homepage-hero bg-center pt-20 pl-4 pr-4 bg-cover' + (DISPLAY_CHRISTMAS_BANNER ? '' : 'pb-[10rem]')}>
+          <div className="bg-homepage-hero bg-center pt-20 pl-4 pr-4 bg-cover pb-[10rem]">
           <h1 className="text-center max-w-3xl m-auto pt-12 pb-12 text-primary-blue text-3xl sm:text-4xl leading-snug">
             {t(`homepage.title.${getCountryVariant()}`)}
           </h1>
