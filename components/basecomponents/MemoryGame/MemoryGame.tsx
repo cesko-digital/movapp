@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { useTranslation } from 'next-i18next';
@@ -57,22 +56,27 @@ export type Card = CardData & {
   useMainLang: boolean;
 };
 
-interface MemoryGameProps {
+export type Theme = {
+  id: string;
+  image: string;
   audio: {
     cardFlipSound: string;
     cardsMatchSound: string;
     winMusic: string;
   };
   styles: Record<string, string>;
+};
+
+interface MemoryGameProps {
+  theme: Theme;
   cardsData: CardData[];
-  cardBackImage: string;
 }
 
-const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps) => {
+const MemoryGame = ({ cardsData, theme }: MemoryGameProps) => {
   const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase();
   const { t } = useTranslation();
-
   const [cards, setCards] = useState<Card[]>([]);
+  const { audio, image, styles } = theme;
 
   interface SelectedCards {
     first: Card | null;
@@ -292,7 +296,7 @@ const MemoryGame = ({ cardsData, audio, styles, cardBackImage }: MemoryGameProps
               scene={scene}
               styles={styles}
               selected={isSelected(card)}
-              cardBackImage={cardBackImage}
+              cardBackImage={image}
             />
           ))}
       </div>
