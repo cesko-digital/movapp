@@ -84,13 +84,13 @@ const ImageQuizSection = ({ dictionary }: InferGetStaticPropsType<typeof getStat
   }
 
   return (
-    <div className="flex-1 bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
+    <div className="h-screen bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
       <SEO
         title={t(`seo.kids_page_imagequiz_title.${getCountryVariant()}`)}
         description={t(`seo.kids_page_imagequiz_description.${getCountryVariant()}`)}
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
-      <article className="flex flex-col m-auto items-center py-2 sm:py-4">
+      <article className="flex flex-col h-screen items-center space-y-4 py-4">
         <header>
           <KidsTranslation
             language={otherLanguage}
@@ -99,7 +99,7 @@ const ImageQuizSection = ({ dictionary }: InferGetStaticPropsType<typeof getStat
             soundUrl={randomPhrases[correctIndex].getSoundUrl(otherLanguage)}
           />
         </header>
-        <div className="flex flex-wrap justify-center px-2 sm:px-4">
+        <div className="grid grid-cols-3 gap-2 sm:gap-6 w-3/4">
           {randomPhrases.map((phrase, index) => {
             return (
               <ImageContainer key={phrase.getTranslation('uk')} phrase={phrase} onClick={handleClick} correct={index === correctIndex} />
@@ -117,14 +117,14 @@ const ImageContainer = ({ phrase, onClick, correct }: ImageContainerProps): JSX.
 
   return (
     <div
-      className={`max-w-sm rounded-2xl overflow-hidden shadow-xl w-72 m-5 md:m-8 bg-white max-h-[34rem] ${className}`}
+      className={`aspect-square w-full rounded-2xl overflow-hidden shadow-xl bg-white ${className}`}
       onClick={(e) => {
         setClassName(correct ? styles.match : styles.dontMatch);
         onClick(e, phrase, correct);
       }}
       onAnimationEnd={() => setClassName('')}
     >
-      <button className={'w-72 h-72 relative'}>
+      <button className={'w-full h-full relative'}>
         <Image src={phrase.getImageUrl() ?? ''} layout="fill" sizes="100%" objectFit="cover" alt={phrase.getTranslation(otherLanguage)} />
       </button>
     </div>

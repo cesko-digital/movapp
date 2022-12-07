@@ -152,6 +152,12 @@
     },
     "kids_page_memorygame_description": {
       "pl": "Ukraińsko-czeskie mówiące memory dla dzieci z ilustracjami."
+    },
+    "kids_page_imagequiz_title": {
+      "pl": "Zagraj w obrazkowy quiz z ukraińskimi słówkami"
+    },
+    "kids_page_imagequiz_description": {
+      "pl": "Zagraj w obrazkowy quiz z ukraińskimi słówkami"
     }
   },
   "export_translations": {
