@@ -89,6 +89,8 @@
     "why_movapp_origin": "Pôvodnou autorkou <0>základného súboru slov a fráz</0> je Tereza Javornická a Yevheniia Valova (EDUA Group). Tento súbor udržuje a ďalej rozširuje tím Movapp.",
     "media_mentions_title": "Napísali o nás",
     "our_team_title": "Náš tím",
+    "our_team_current_title": "Aktuálna zostava",
+    "our_team_spring_title": "Jarná zostava",
     "our_team_description": "Kmeňovými členmi tímu Movapp.cz sú: Martin Hassman, Oleg Antonyak, Tatiana Chytilová, Petr Illek, Valeriia Kuna, Monika Fabryová, Juraj Uhlár, Bára Skálová, Tereza Javornická, Alena Burneleit, Anna Lamberová, Roman Žydyk a Martina Krejčí. A pomáha im veľa ďalších dobrovoľníkov.",
     "our_team_illustrators": "Autorkami ilustrácií pre deti sú: Alena Burneleit, Anna Lamberová, Lucie Lomová, Kateřina Vacková Mňuková a Marie Kraus.",
     "our_team_contact": "Chcete nám pomôcť s obsahom, alebo sa inak zapojiť? <br/>Hľadáte na nás <0>kontakt</0>?",
@@ -157,6 +159,12 @@
     },
     "kids_page_memorygame_description": {
       "sk": "Ukrajinsky-slovenské hovoriace pexeso pre deti s ilustrovanými obrázkami."
+    },
+    "kids_page_imagequiz_title": {
+      "sk": "Zahrajte si obrázkový kvíz s ukrajinskými slovíčkami"
+    },
+    "kids_page_imagequiz_description": {
+      "sk": "Zahrajte si obrázkový kvíz s ukrajinskými slovíčkami"
     }
   },
   "export_translations": {

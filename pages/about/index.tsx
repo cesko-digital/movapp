@@ -132,11 +132,23 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         />
 
         <H2>{t('about_page.our_team_title')}</H2>
+
+        <h3 className="mb-1 sm:my-4">{t('about_page.our_team_current_title')}</h3>
+        <Image
+          src="https://data.movapp.eu/images/team/small-team-photo-autumn.jpg"
+          width="320"
+          height="180"
+          alt={t('about_page.our_team_current_title')}
+          className="hover:cursor-pointer"
+          onClick={() => window.open('https://data.movapp.eu/images/team/large-team-photo-autumn.jpg', '_blank')}
+        />
+
+        <h3 className="mb-1 sm:my-4">{t('about_page.our_team_spring_title')}</h3>
         <Image
           src="https://data.movapp.eu/images/team/small-team-photo.jpg"
           width="320"
           height="180"
-          alt="team"
+          alt={t('about_page.our_team_spring_title')}
           className="hover:cursor-pointer"
           onClick={() => window.open('https://data.movapp.eu/images/team/large-team-photo.jpg', '_blank')}
         />
