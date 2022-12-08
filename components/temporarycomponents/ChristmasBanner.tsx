@@ -43,9 +43,9 @@ const ChristmasBanner = () => {
 
   return (
     <div className="max-w-7xl px-2 sm:px-4 md:mx-auto md:w-[100%] mt-[-8rem]">
-      <div className="bg-[url('../public/christmas/dots-bg-mobile.png')] bg-[length:640px_auto] sm:bg-[url('../public/christmas/dots-bg-desktop.png')] sm:bg-[length:1280px_auto] bg-center overflow-hidden pb-[28px] relative">
-        <div className="bg-[url('../public/christmas/christmas-top.png')] h-[102px] bg-center z-10 relative"></div>
-        <div className="mx-auto w-[80%] md:w-[90%] lg:w-[80%] md:flex md:items-center md:justify-between z-10 relative">
+      <div className="bg-[url('../public/christmas/dots-bg-mobile.png')] bg-[length:640px_auto] sm:bg-[url('../public/christmas/dots-bg-desktop.png')] sm:bg-[length:1280px_auto] bg-center overflow-hidden pb-[28px]">
+        <div className="bg-[url('../public/christmas/christmas-top.png')] h-[102px] bg-center z-10"></div>
+        <div className="mx-auto w-[80%] md:w-[90%] lg:w-[80%] md:flex md:items-center md:justify-between z-10">
           <div className="flex flex-col items-center md:order-2 sm:grid sm:grid-cols-2 sm:gap-x-[40px] sm:gap-y-4 md:gap-x-[60px] md:gap-y-4">
             {CHRISTMAS_ITEMS.map((item, index) => (
               <ChristmasBannerItem key={index} header={item.header} description={item.description} link={item.link} />
