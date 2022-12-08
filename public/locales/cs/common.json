@@ -202,5 +202,25 @@
     "android_soon": "Android verze už brzy!",
     "play": "přehrát",
     "new_game": "Nová hra"
+  },
+  "christmas_banner": {
+    "christmas_dictionary_title": "Vánoční slovníček",
+    "christmas_dictionary_description": "Vánoce, Vánoce přicházejí a s nimi i náš slovníček s vánoční tematikou.",
+    "christmas_dictionary_link": "/dictionary#vanoce",
+    "winter_dictionary_title": "Zimní slovníček",
+    "winter_dictionary_description": "Bude zima, bude mráz. Slovníček, který se ti bude v zimě hodit.",
+    "winter_dictionary_link": "/dictionary#zima",
+    "christmas_images_title": "Vánoční obrázky",
+    "christmas_images_description": "Nasaj vánoční atmosféru skrze zábavné obrázky.",
+    "christmas_images_link": "/kids#kapr",
+    "christmas_pexeso_title": "Vánoční pexeso",
+    "christmas_pexeso_description": "Procvičujte slovíčka v oblíbené hře s vánočními obrázky.",
+    "christmas_pexeso_link":  "/kids/memory-game",
+    "christmas_tale_title": "Vánoční pohádka",
+    "christmas_tale_description": "Bylo nebylo? Jak to vlastně bylo? To si můžete přečíst v naší Vánoční pohádce.",
+    "christmas_tale_link": "",
+    "team": "Náš tým",
+    "team_link": "https://data.movapp.eu/images/team/large-team-photo-autumn.jpg",
+    "wishing": "vám přeje krásné Vánoce a šťastný Nový rok 2023."
   }
 }
