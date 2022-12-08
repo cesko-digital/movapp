@@ -18,7 +18,7 @@ const ChristmasBanner = () => {
       link: t(`christmas_banner.christmas_dictionary_link`),
     },
     {
-      header: t(`christmas_banner.witer_dictionary_title`),
+      header: t(`christmas_banner.winter_dictionary_title`),
       description: t(`christmas_banner.winter_dictionary_description`),
       link: isUk ? t(`christmas_banner.winter_dictionary_link.${getCountryVariant()}`) : t(`christmas_banner.winter_dictionary_link`),
     },
