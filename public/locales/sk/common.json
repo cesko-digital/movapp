@@ -192,25 +192,23 @@
     "new_game": "Nová hra"
   },
   "christmas_banner": {
-    "sk": {
-      "christmas_dictionary_title": "Vianočný slovníček",
-      "christmas_dictionary_description": "Vianoce, Vianoce prichádzajú a s nimi i náš slovníček s vianočnou tematikou.",
-      "christmas_dictionary_link": "/dictionary#vianoce",
-      "witer_dictionary_title": "Zimný slovníček",
-      "winter_dictionary_description": "Bude zima, bude mráz. Slovníček, ktorý sa ti v zime zíde.",
-      "witer_dictionary_link": "/dictionary#zyma",
-      "christmas_images_title": "Vianočné obrázky",
-      "christmas_images_description": "Načerpajte vianočnú atmosféru prostredníctvom zábavných obrázkov.",
-      "christmas_images_link": "/kids#kapor",
-      "christmas_pexeso_title": "Vianočné pexeso",
-      "christmas_pexeso_description": "Precvičujte si slovíčka v obľúbenej hre s vianočnými obrázkami.",
-      "christmas_pexeso_link":  "/kids/memory-game",
-      "christmas_tale_title": "Vianočná rozprávka",
-      "christmas_tale_description": "Bolo nebolo? Ako to vlastne bolo? To si môžete prečítať v našej vianočnej rozprávke.",
-      "christmas_tale_link": "",
-      "team": "Náš tým",
-      "team_link": "/about",
-      "wishing": "vám přeje krásné Vánoce a šťastný Nový rok 2023."
-    }
+    "christmas_dictionary_title": "Vianočný slovníček",
+    "christmas_dictionary_description": "Vianoce, Vianoce prichádzajú a s nimi i náš slovníček s vianočnou tematikou.",
+    "christmas_dictionary_link": "/dictionary#vianoce",
+    "witer_dictionary_title": "Zimný slovníček",
+    "winter_dictionary_description": "Bude zima, bude mráz. Slovníček, ktorý sa ti v zime zíde.",
+    "winter_dictionary_link": "/dictionary#zima",
+    "christmas_images_title": "Vianočné obrázky",
+    "christmas_images_description": "Načerpajte vianočnú atmosféru prostredníctvom zábavných obrázkov.",
+    "christmas_images_link": "/kids#kapor",
+    "christmas_pexeso_title": "Vianočné pexeso",
+    "christmas_pexeso_description": "Precvičujte si slovíčka v obľúbenej hre s vianočnými obrázkami.",
+    "christmas_pexeso_link":  "/kids/memory-game",
+    "christmas_tale_title": "Vianočná rozprávka",
+    "christmas_tale_description": "Bolo nebolo? Ako to vlastne bolo? To si môžete prečítať v našej vianočnej rozprávke.",
+    "christmas_tale_link": "",
+    "team": "Náš tým",
+    "team_link": "https://data.movapp.eu/images/team/large-team-photo-autumn.jpg",
+    "wishing": "vám přeje krásné Vánoce a šťastný Nový rok 2023."
   }
 }
