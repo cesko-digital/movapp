@@ -258,18 +258,16 @@
   "christmas_banner": {
     "christmas_dictionary_title": "Різдвяний словник",
     "christmas_dictionary_description": "Свято наближається, свято наближається, а разом з ним приходить і наш словник на різдвяну тематику.",
-    "christmas_dictionary_link": "/dictionary#rizdvo",
+    "christmas_dictionary_link": "/uk/dictionary#rizdvo",
     "winter_dictionary_title": "Зимовий словник",
     "winter_dictionary_description": "Падав сніг на поріг, кіт злепів собі пиріг... Словник, який стане в нагоді взимку.",
-    "winter_dictionary_link": {
-      "cs": "/uk/dictionary#zyma",
-      "sk": "/uk/dictionary#zyma"
-    },
+    "winter_dictionary_link": "/uk/dictionary#zyma",
     "christmas_images_title": "Різдвяні картинки",
     "christmas_images_description": "Наберіться різдвяної атмосфери через веселі картинки.",
     "christmas_images_link": {
-      "cs": "/kids#kapr",
-      "sk": "/kids#kapor"
+      "cs": "/uk/kids#kapr",
+      "sk": "/uk/kids#kapor",
+      "pl": "/uk/kids#karp"
     },
     "christmas_pexeso_title": "Різдвяне Меморі",
     "christmas_pexeso_description": "Практикуйте словниковий запас у своїй улюбленій грі з різдвяними мотивами.",
