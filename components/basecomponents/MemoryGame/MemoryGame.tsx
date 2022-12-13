@@ -65,18 +65,18 @@ export type Theme = {
     winMusic: string;
   };
   styles: Record<string, string>;
+  cardsData: CardData[];
 };
 
 interface MemoryGameProps {
   theme: Theme;
-  cardsData: CardData[];
 }
 
-const MemoryGame = ({ cardsData, theme }: MemoryGameProps) => {
+const MemoryGame = ({ theme }: MemoryGameProps) => {
   const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase();
   const { t } = useTranslation();
   const [cards, setCards] = useState<Card[]>([]);
-  const { audio, image, styles } = theme;
+  const { audio, image, styles, cardsData } = theme;
 
   interface SelectedCards {
     first: Card | null;
@@ -263,6 +263,7 @@ const MemoryGame = ({ cardsData, theme }: MemoryGameProps) => {
         }, 500);
       },
     };
+
     // run scene actions
     sceneActions[scene]();
 
@@ -275,6 +276,15 @@ const MemoryGame = ({ cardsData, theme }: MemoryGameProps) => {
       clearTimers();
     };
   }, [clearTimers]);
+
+  // restart game when theme changes but not on initial game open
+  // clear timers on restart
+  useEffect(() => {
+    if (scene !== Scene.init) {
+      clearTimers();
+      setScene(Scene.begin);
+    }
+  }, [theme]);
 
   return (
     <div className={styles.app}>

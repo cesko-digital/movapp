@@ -3,7 +3,7 @@ import React, { useMemo, useState } from 'react';
 import SEO from 'components/basecomponents/SEO';
 import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { DictionaryDataObject, fetchDictionary, getKidsCategory } from '../../../utils/getDataUtils';
+import { DictionaryDataObject, fetchDictionary, getKidsCategory, getCategories, Phrase } from '../../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../../utils/localization';
 import defaultThemeStyles from '../../../components/basecomponents/MemoryGame/Themes/MemoryGameDefaultTheme.module.css';
 import taleThemeStyles from '../../../components/basecomponents/MemoryGame/Themes/MemoryGameTaleTheme.module.css';
@@ -12,48 +12,70 @@ import getCardsData from '../../../components/basecomponents/MemoryGame/getCards
 import styles from '../../../components/basecomponents/MemoryGame/MemoryGameThemeLoader.module.css';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { Theme } from 'components/basecomponents/MemoryGame/MemoryGame';
 
 const MemoryGame = dynamic(() => import('components/basecomponents/MemoryGame/MemoryGame'), {
   ssr: false,
 });
 
-const themes: Theme[] = [
-  {
-    id: 'default',
-    image: '/kids/memory-game/card_back_movapp.png',
-    audio: {
-      cardFlipSound: '/kids/memory-game/card_flip.mp3',
-      cardsMatchSound: '/kids/memory-game/reward_sfx.mp3',
-      winMusic: '/kids/memory-game/win_music_sh.mp3',
-    },
-    styles: defaultThemeStyles,
-  },
-  {
-    id: 'tale',
-    image: '/kids/memory-game/talecard.png',
-    audio: {
-      cardFlipSound: '/kids/memory-game/card_flip.mp3',
-      cardsMatchSound: '/kids/memory-game/spell.mp3',
-      winMusic: '/kids/memory-game/win_music_sh.mp3',
-    },
-    styles: taleThemeStyles,
-  },
-  {
-    id: 'xmas',
-    image: '/kids/memory-game/xmascard.png',
-    audio: {
-      cardFlipSound: '/kids/memory-game/card_flip.mp3',
-      cardsMatchSound: '/kids/memory-game/xmasbell.mp3',
-      winMusic: '/kids/memory-game/jingle_bells.mp3',
-    },
-    styles: xmasThemeStyles,
-  },
-];
+const useThemes = (dictionary: DictionaryDataObject) => {
+  const themes = useMemo(() => {
+    const kidsCategoryPhrases = getKidsCategory(dictionary)?.translations || [];
+    const kidsCategoryIds = kidsCategoryPhrases.map((phrase) => phrase.getId());
+
+    const filterByCategories = (categoryIds: string[]) =>
+      getCategories(dictionary)
+        .filter(({ id }) => categoryIds.includes(id))
+        .reduce((prev, { translations }) => [...translations, ...prev], [] as Phrase[])
+        .filter((phrase) => kidsCategoryIds.includes(phrase.getId())) || [];
+
+    const xmasCategoryIds = ['recWXyM3QhgRpcGDK', 'recFWQE9B5AhreCoh', 'recqnC9snZys7FgzS'];
+    const xmasPhrases = filterByCategories(xmasCategoryIds);
+    const taleCategoryIds = ['recWXyM3QhgRpcGDK'];
+    const talePhrases = filterByCategories(taleCategoryIds);
+
+    return [
+      {
+        id: 'default',
+        image: '/kids/memory-game/card_back_movapp.png',
+        audio: {
+          cardFlipSound: '/kids/memory-game/card_flip.mp3',
+          cardsMatchSound: '/kids/memory-game/reward_sfx.mp3',
+          winMusic: '/kids/memory-game/win_music_sh.mp3',
+        },
+        styles: defaultThemeStyles,
+        cardsData: getCardsData(kidsCategoryPhrases),
+      },
+      {
+        id: 'tale',
+        image: '/kids/memory-game/talecard.png',
+        audio: {
+          cardFlipSound: '/kids/memory-game/card_flip.mp3',
+          cardsMatchSound: '/kids/memory-game/spell.mp3',
+          winMusic: '/kids/memory-game/win_music_sh.mp3',
+        },
+        styles: taleThemeStyles,
+        cardsData: getCardsData(talePhrases),
+      },
+      {
+        id: 'xmas',
+        image: '/kids/memory-game/xmascard.png',
+        audio: {
+          cardFlipSound: '/kids/memory-game/card_flip.mp3',
+          cardsMatchSound: '/kids/memory-game/xmasbell.mp3',
+          winMusic: '/kids/memory-game/jingle_bells.mp3',
+        },
+        styles: xmasThemeStyles,
+        cardsData: getCardsData(xmasPhrases),
+      },
+    ];
+  }, [dictionary]);
+
+  return themes;
+};
 
 const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
-  const phrases = useMemo(() => getKidsCategory(dictionary)?.translations || [], [dictionary]);
+  const themes = useThemes(dictionary);
   const [currentTheme, setCurrentTheme] = useState(themes[2]);
 
   return (
@@ -74,7 +96,7 @@ const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getSta
             ))}
           </div>
           {/* Main game component */}
-          <MemoryGame theme={currentTheme} cardsData={getCardsData(phrases)} />
+          <MemoryGame theme={currentTheme} />
         </div>
       </div>
     </div>
