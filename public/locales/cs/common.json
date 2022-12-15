@@ -212,10 +212,12 @@
     "winter_dictionary_link": "/dictionary#zima",
     "christmas_images_title": "Vánoční obrázky",
     "christmas_images_description": "Nasaj vánoční atmosféru skrze zábavné obrázky.",
-    "christmas_images_link": "/kids#kapr",
+    "christmas_images_link": {
+      "cs": "/kids#kapr"
+    },
     "christmas_pexeso_title": "Vánoční pexeso",
     "christmas_pexeso_description": "Procvičujte slovíčka v oblíbené hře s vánočními obrázky.",
-    "christmas_pexeso_link":  "/kids/memory-game",
+    "christmas_pexeso_link": "/kids/memory-game",
     "christmas_tale_title": "Vánoční pohádka",
     "christmas_tale_description": "Bylo nebylo? Jak to vlastně bylo? To si můžete přečíst v naší Vánoční pohádce.",
     "christmas_tale_link": "",

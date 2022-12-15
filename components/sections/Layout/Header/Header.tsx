@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { HEADER_NAVIGATION } from 'data/headerNavigation';
-import { getCountryVariant, Language, LOCALE_NAMES } from 'utils/locales';
+import { getCountryVariant, includesCurrentVariant, Language, LOCALE_NAMES } from 'utils/locales';
 import AppLogo from 'public/icons/movapp-logo.png';
 import { useLanguage } from 'utils/useLanguageHook';
 import { useClickOutside } from '../../../hooks/useClickOutside';
@@ -26,9 +26,9 @@ export const Header = () => {
         </Link>
         <nav className="w-full">
           <ul className="flex justify-end items-center pr-10">
-            {HEADER_NAVIGATION.map(({ name, link, submenu, onlyForLanguageVariants }) => {
+            {HEADER_NAVIGATION.map(({ name, link, submenu, onlyForCountryVariants }) => {
               const activePage = router.asPath.includes(link);
-              if (!!onlyForLanguageVariants && !onlyForLanguageVariants.includes(getCountryVariant())) return;
+              if (onlyForCountryVariants && !includesCurrentVariant(onlyForCountryVariants)) return;
               return (
                 <li
                   key={name}
@@ -46,7 +46,7 @@ export const Header = () => {
                       >
                         <ul className="py-1 text-sm text-gray-700">
                           {submenu
-                            ?.filter((item) => item.countryVariant.includes(getCountryVariant()))
+                            ?.filter((item) => includesCurrentVariant(item.onlyForCountryVariants))
                             .map(({ name, link }) => (
                               <li key={name}>
                                 <Link href={link}>

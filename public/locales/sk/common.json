@@ -208,7 +208,9 @@
     "winter_dictionary_link": "/dictionary#zima",
     "christmas_images_title": "Vianočné obrázky",
     "christmas_images_description": "Načerpajte vianočnú atmosféru prostredníctvom zábavných obrázkov.",
-    "christmas_images_link": "/kids#kapor",
+    "christmas_images_link": {
+      "sk": "/kids#kapor"
+    },
     "christmas_pexeso_title": "Vianočné pexeso",
     "christmas_pexeso_description": "Precvičujte si slovíčka v obľúbenej hre s vianočnými obrázkami.",
     "christmas_pexeso_link":  "/kids/memory-game",

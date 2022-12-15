@@ -41,3 +41,5 @@ export const LOCALE_NAMES: Record<Language, string> = {
   pl: 'Polski',
   sk: 'Slovensky',
 };
+
+export const includesCurrentVariant = (variants: CountryVariant[] | readonly CountryVariant[]) => variants.includes(getCountryVariant());

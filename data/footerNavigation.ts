@@ -1,17 +1,17 @@
 import { CountryVariant } from 'utils/locales';
 
-interface Links {
+type Link = {
   title: string;
   description: string;
   link: string;
-}
+};
 
-interface FooterLinks {
-  cs?: Links[];
-  sk?: Links[];
-  pl?: Links[];
-  uk: Links[];
-}
+type FooterLinks = {
+  cs?: Link[];
+  sk?: Link[];
+  pl?: Link[];
+  uk: Link[];
+};
 
 export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
   cs: {
