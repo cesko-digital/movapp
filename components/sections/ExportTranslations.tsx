@@ -19,20 +19,22 @@ interface SeparatorOption {
   id: string;
   nameKey: string;
   value: string;
-  displayValue?: JSX.Element;
+  displayValue: JSX.Element | undefined;
 }
 
-const TRANSLATION_SEPARATORS: SeparatorOption[] = [
-  { id: 'transl_semicolon', nameKey: 'export_translations.semicolon', value: '; ' },
-  { id: 'transl_comma', nameKey: 'export_translations.comma', value: ', ' },
+const TRANSLATION_SEPARATORS = [
+  { id: 'transl_semicolon', nameKey: 'export_translations.semicolon', value: '; ', displayValue: undefined },
+  { id: 'transl_comma', nameKey: 'export_translations.comma', value: ', ', displayValue: undefined },
   { id: 'trans_tab', nameKey: 'export_translations.tab', value: '\t', displayValue: <span>(&nbsp;&nbsp;&nbsp;&nbsp;)</span> },
-];
+] as const satisfies readonly SeparatorOption[];
+
 const TRANS_SEP_CUSTOM = 'trans_custom';
 
-const PHRASE_SEPARATORS: SeparatorOption[] = [
+const PHRASE_SEPARATORS = [
   { id: 'phrase_newLine', nameKey: 'export_translations.new_line', value: '\n', displayValue: <span></span> },
-  { id: 'phrase_semicolor', nameKey: 'export_translations.semicolon', value: '; ' },
-];
+  { id: 'phrase_semicolor', nameKey: 'export_translations.semicolon', value: '; ', displayValue: undefined },
+] as const satisfies readonly SeparatorOption[];
+
 const PHRASE_SEP_CUSTOM = 'phrase_custom';
 
 const unescapeTabsAndNewlines = (str: string) => str.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
@@ -63,9 +65,9 @@ const Separator = () => (
 
 const ExportTranslations = ({ translations, categoryName, triggerLabel }: ExportTranslationsProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
-  const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
-  const [phraseSeparator, setPhraseSeparator] = useState(PHRASE_SEPARATORS[0].value);
+  const [translationSeparator, setTranslationSeparator] = useState<string>(TRANSLATION_SEPARATORS[0].value);
+  const [customTranslationSeparator, setCustomTranslationSeparator] = useState<string>(' - ');
+  const [phraseSeparator, setPhraseSeparator] = useState<string>(PHRASE_SEPARATORS[0].value);
   const [customPhraseSeparator, setCustomPhraseSeparator] = useState('\\n\\n');
   const [includeTranscriptions, setIncludeTranscriptions] = useState(false);
   const { currentLanguage, otherLanguage } = useLanguage();
