@@ -67,7 +67,7 @@ export type Theme = {
   };
   styles: Record<string, string>;
   cardsData: CardData[];
-  buttonImage: string | null;
+  buttonImage?: string;
 };
 
 interface MemoryGameProps {
@@ -303,7 +303,7 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   return (
     <div className={styles.app}>
       <div className={styles.buttonWrapper}>
-        {buttonImage !== null && (
+        {buttonImage !== undefined && (
           <Image src={buttonImage} layout="fill" sizes="50vw" objectFit="cover" alt="new-game button background" priority />
         )}
         <Button

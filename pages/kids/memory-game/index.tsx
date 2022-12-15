@@ -44,7 +44,6 @@ const useThemes = (dictionary: DictionaryDataObject) => {
         },
         styles: defaultThemeStyles,
         cardsData: getCardsData(kidsCategoryPhrases),
-        buttonImage: null,
       },
       {
         id: 'tale',
@@ -94,14 +93,7 @@ const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getSta
           <div className={styles.themeNav}>
             {themes.map((theme) => (
               <div key={theme.id} className={styles.themeButton} onClick={() => setCurrentTheme(theme)}>
-                <Image
-                  src={theme.image}
-                  layout="fill"
-                  sizes="(max-width: 640px) 20vw, 10vw"
-                  objectFit="cover"
-                  alt={`${theme.id} theme button`}
-                  priority
-                />
+                <Image src={theme.image} layout="fill" sizes="25vw" objectFit="cover" alt={`${theme.id} theme button`} priority />
               </div>
             ))}
           </div>
