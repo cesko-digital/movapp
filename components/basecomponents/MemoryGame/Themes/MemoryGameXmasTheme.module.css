@@ -1,28 +1,33 @@
-.newGameButton {
-  background-color: transparent;
-  background-image: url(/kids/memory-game/xmasbutton.gif);
-  background-size: 100% 100%;
-  color: #64562a;
-  font-size: 1.15rem;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: 800;
+.buttonWrapper {
+  position: relative;
   width: 38vw;
   min-width: 14rem;
   height: 13.5vw;
   min-height: 5rem;
-  margin-bottom: 1.25rem;
   animation: pop 0.3s 0.3s backwards;
-  -webkit-tap-highlight-color: transparent;
   transition: transform 0.2s;
+  margin-bottom: 1.25rem;
+}
+
+.newGameButton {
+  position: absolute;
+  background-color: transparent;
+  color: #64562a;
+  font-size: 1.15rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 800;
+  width: 100%;
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
   padding: 0;
   padding-top: 1.3rem;
 }
 
-.newGameButton:hover {
+.buttonWrapper:hover {
   transform: scale(1.02);
 }
 
-.newGameButton:active {
+.buttonWrapper:active {
   transform: scale(0.95);
 }
 
@@ -314,12 +319,14 @@
     width: calc(4 * 11rem + 3 * 0.5rem);
     grid-gap: 0.5rem;
   }
-  .newGameButton {
-    background-size: 320px 114px;
-    font-size: 1.5rem;
-    font-weight: 800;
+  .buttonWrapper {
     width: 320px;
     height: 114px;
+  }
+
+  .newGameButton {
+    font-size: 1.5rem;
+    font-weight: 800;
     padding-top: 28px;
   }
   .front,

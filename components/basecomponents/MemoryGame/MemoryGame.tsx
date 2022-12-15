@@ -10,6 +10,7 @@ import phrases_SK from './memory-game-sk.json';
 import createTimer from './createTimer';
 import usePlayPhrase from './usePlayPhrase';
 import { AudioPlayer } from 'utils/AudioPlayer';
+import Image from 'next/image';
 
 const playAudio = AudioPlayer.getInstance().playSrc;
 
@@ -66,6 +67,7 @@ export type Theme = {
   };
   styles: Record<string, string>;
   cardsData: CardData[];
+  buttonImage: string | null;
 };
 
 interface MemoryGameProps {
@@ -76,7 +78,7 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase();
   const { t } = useTranslation();
   const [cards, setCards] = useState<Card[]>([]);
-  const { audio, image, styles, cardsData } = theme;
+  const { audio, image, styles, cardsData, buttonImage } = theme;
 
   interface SelectedCards {
     first: Card | null;
@@ -94,6 +96,17 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   const [setTimer, clearTimers] = useMemo(createTimer, []);
 
   const newGame = () => {
+    // preload sounds
+    const flipSound = new Audio();
+    flipSound.src = audio.cardFlipSound;
+    flipSound.load();
+    const cardMatchSound = new Audio();
+    cardMatchSound.src = audio.cardsMatchSound;
+    cardMatchSound.load();
+    const winMusic = new Audio();
+    winMusic.src = audio.winMusic;
+    winMusic.load();
+
     // prepare and shuffle cards, pick 8 cards
     const pickedCards = cardsData.sort(() => Math.random() - 0.5).slice(0, 8);
     const coloredCards = addBackroundColor(pickedCards) as (CardData & { color: string })[];
@@ -284,18 +297,24 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
       clearTimers();
       setScene(Scene.begin);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
   return (
     <div className={styles.app}>
-      <Button
-        className={styles.newGameButton}
-        text={t('utils.new_game')}
-        onClick={() => {
-          playPhraseRandomLang(getRandomElement(phrases.newGame));
-          setScene(Scene.goNewGame);
-        }}
-      />
+      <div className={styles.buttonWrapper}>
+        {buttonImage !== null && (
+          <Image src={buttonImage} layout="fill" sizes="50vw" objectFit="cover" alt="new-game button background" priority />
+        )}
+        <Button
+          className={styles.newGameButton}
+          text={t('utils.new_game')}
+          onClick={() => {
+            playPhraseRandomLang(getRandomElement(phrases.newGame));
+            setScene(Scene.goNewGame);
+          }}
+        />
+      </div>
       <div className={styles.board}>
         {scene !== Scene.init &&
           cards.map((card) => (
