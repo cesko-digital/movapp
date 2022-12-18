@@ -196,7 +196,9 @@
     "winter_dictionary_link": "/dictionary#zima",
     "christmas_images_title": "Obrazki bożonarodzeniowe",
     "christmas_images_description": "Poczuj świąteczną atmosferę dzięki śmiesznym obrazkom.",
-    "christmas_images_link": "/kids#karp",
+    "christmas_images_link": {
+      "pl": "/kids#karp"
+    },
     "christmas_pexeso_title": "Bożonarodzeniowe memory",
     "christmas_pexeso_description": "Ćwicz słówka w ulubionej grze z świątecznymi obrazkami.",
     "christmas_pexeso_link":  "/kids/memory-game",

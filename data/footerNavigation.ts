@@ -59,7 +59,7 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
       },
       {
         title: 'Ukraine Slovakia',
-        description: 'Nezávislý informačný rázcestník"',
+        description: 'Nezávislý informačný rázcestník',
         link: 'https://www.ukraineslovakia.sk/sk/homepage/',
       },
       {
