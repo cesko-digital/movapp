@@ -66,9 +66,9 @@ const Separator = () => (
 
 const ExportTranslations = ({ translations, categoryName, triggerLabel }: ExportTranslationsProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [translationSeparator, setTranslationSeparator] = useState<string>(TRANSLATION_SEPARATORS[0].value);
-  const [customTranslationSeparator, setCustomTranslationSeparator] = useState<string>(' - ');
-  const [phraseSeparator, setPhraseSeparator] = useState<string>(PHRASE_SEPARATORS[0].value);
+  const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
+  const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
+  const [phraseSeparator, setPhraseSeparator] = useState(PHRASE_SEPARATORS[0].value);
   const [customPhraseSeparator, setCustomPhraseSeparator] = useState('\\n\\n');
   const [includeTranscriptions, setIncludeTranscriptions] = useState(false);
   const { currentLanguage, otherLanguage } = useLanguage();

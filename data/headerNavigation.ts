@@ -1,10 +1,11 @@
 import { CountryVariant, TranslationId } from 'utils/locales';
 
-interface SubmenuItem {
+type SubmenuItem = {
   name: TranslationId;
   link: string;
   onlyForCountryVariants: CountryVariant[];
-}
+};
+
 type HeaderNavItem = {
   name: TranslationId;
   link: string;

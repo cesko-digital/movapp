@@ -22,7 +22,7 @@ const ChristmasBanner = () => {
     {
       header: t(`christmas_banner.christmas_images_title`),
       description: t(`christmas_banner.christmas_images_description`),
-      link: t(`christmas_banner.christmas_images_link.${getCountryVariant() as 'cs' | 'sk'}`),
+      link: t(`christmas_banner.christmas_images_link.${getCountryVariant()}`),
     },
     {
       header: t(`christmas_banner.christmas_pexeso_title`),
