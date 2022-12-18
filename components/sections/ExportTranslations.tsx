@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useLanguage } from 'utils/useLanguageHook';
 import { TiExport } from 'react-icons/ti';
 import { Phrase } from '../../utils/getDataUtils';
+import { TranslationId } from '../../utils/locales';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
@@ -17,23 +18,23 @@ interface ExportTranslationsProps {
 
 interface SeparatorOption {
   id: string;
-  nameKey: string;
+  nameTranslation: TranslationId;
   value: string;
-  displayValue: JSX.Element | undefined;
+  displayValue?: JSX.Element;
 }
 
-const TRANSLATION_SEPARATORS = [
-  { id: 'transl_semicolon', nameKey: 'export_translations.semicolon', value: '; ', displayValue: undefined },
-  { id: 'transl_comma', nameKey: 'export_translations.comma', value: ', ', displayValue: undefined },
-  { id: 'trans_tab', nameKey: 'export_translations.tab', value: '\t', displayValue: <span>(&nbsp;&nbsp;&nbsp;&nbsp;)</span> },
-] as const satisfies readonly SeparatorOption[];
+const TRANSLATION_SEPARATORS: SeparatorOption[] = [
+  { id: 'transl_semicolon', nameTranslation: 'export_translations.semicolon', value: '; ' },
+  { id: 'transl_comma', nameTranslation: 'export_translations.comma', value: ', ' },
+  { id: 'trans_tab', nameTranslation: 'export_translations.tab', value: '\t', displayValue: <span>(&nbsp;&nbsp;&nbsp;&nbsp;)</span> },
+];
 
 const TRANS_SEP_CUSTOM = 'trans_custom';
 
-const PHRASE_SEPARATORS = [
-  { id: 'phrase_newLine', nameKey: 'export_translations.new_line', value: '\n', displayValue: <span></span> },
-  { id: 'phrase_semicolor', nameKey: 'export_translations.semicolon', value: '; ', displayValue: undefined },
-] as const satisfies readonly SeparatorOption[];
+const PHRASE_SEPARATORS: SeparatorOption[] = [
+  { id: 'phrase_newLine', nameTranslation: 'export_translations.new_line', value: '\n', displayValue: <span></span> },
+  { id: 'phrase_semicolon', nameTranslation: 'export_translations.semicolon', value: '; ' },
+];
 
 const PHRASE_SEP_CUSTOM = 'phrase_custom';
 
@@ -115,7 +116,7 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
                   onChange={() => setTranslationSeparator(option.value)}
                 />
                 <Label htmlFor={option.id}>
-                  {t(option.nameKey)} {option.displayValue ?? `(${option.value})`}
+                  {t(option.nameTranslation)} {option.displayValue ?? `(${option.value})`}
                 </Label>
                 <br />
               </Fragment>
@@ -149,7 +150,7 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
                   onChange={() => setPhraseSeparator(option.value)}
                 />
                 <Label htmlFor={option.id}>
-                  {t(option.nameKey)} {option.displayValue ?? `(${option.value})`}
+                  {t(option.nameTranslation)} {option.displayValue ?? `(${option.value})`}
                 </Label>
                 <br />
               </Fragment>

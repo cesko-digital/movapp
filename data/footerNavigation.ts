@@ -18,34 +18,34 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
     cs: [
       {
         title: 'Pomáhej Ukrajině',
-        description: 'footer.help_ukraine_description',
+        description: 'Portál pro zprostředkování nabídek pomoci',
         link: 'https://www.pomahejukrajine.cz',
       },
       {
         title: 'Stojíme za Ukrajinou',
-        description: 'footer.stand_with_ukraine_description',
+        description: 'Nezávislý informační rozcestník',
         link: 'https://www.stojimezaukrajinou.cz',
       },
       {
         title: 'Česko.Digital',
-        description: 'footer.czech_digital',
+        description: 'Skrz jedničky a nuly měníme Česko k lepšímu',
         link: 'https://cesko.digital',
       },
     ],
     uk: [
       {
         title: 'Pomáhej Ukrajině',
-        description: 'footer.help_ukraine_description',
+        description: 'Майданчик з пропозиціями допомоги',
         link: 'https://www.pomahejukrajine.cz/ua',
       },
       {
         title: 'Stojíme za Ukrajinou',
-        description: 'footer.stand_with_ukraine_description',
+        description: 'Незалежний інформаційний довідник',
         link: 'https://www.stojimezaukrajinou.cz/uk',
       },
       {
         title: 'Česko.Digital',
-        description: 'footer.czech_digital',
+        description: 'Через одиниці і нулі змінюємо Чехію на краще',
         link: 'https://cesko.digital/en',
       },
     ],
@@ -54,34 +54,34 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
     sk: [
       {
         title: 'Help Ukraine',
-        description: 'footer.help_ukraine_description',
+        description: 'Portál na sprostredkovanie ponúk pomoci',
         link: 'https://helpukraine.sk/sk/',
       },
       {
         title: 'Ukraine Slovakia',
-        description: 'footer.stand_with_ukraine_description',
+        description: 'Nezávislý informačný rázcestník"',
         link: 'https://www.ukraineslovakia.sk/sk/homepage/',
       },
       {
         title: 'Česko.Digital',
-        description: 'footer.czech_digital',
+        description: 'Cez jednotky a nuly meníme Česko k lepšiemu',
         link: 'https://cesko.digital',
       },
     ],
     uk: [
       {
         title: 'Help Ukraine',
-        description: 'footer.help_ukraine_description',
+        description: 'Майданчик з пропозиціями допомоги',
         link: 'https://helpukraine.sk/ua/',
       },
       {
         title: 'Ukraine Slovakia',
-        description: 'footer.stand_with_ukraine_description',
+        description: 'Незалежний інформаційний довідник',
         link: 'https://www.ukraineslovakia.sk/',
       },
       {
         title: 'Česko.Digital',
-        description: 'footer.czech_digital',
+        description: 'Через одиниці і нулі змінюємо Чехію на краще',
         link: 'https://cesko.digital/en',
       },
     ],
@@ -90,19 +90,19 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
     pl: [
       {
         title: 'Pomagam Ukrainie',
-        description: 'footer.help_ukraine_description',
+        description: 'Portal pośredniczący ofertom pomocy',
         link: 'https://pomagamukrainie.gov.pl',
       },
       {
         title: 'Česko.Digital',
-        description: 'footer.czech_digital',
+        description: 'Przez jedynki i zera zmieniamy Czechy na lepsze (link w języku angielskim)',
         link: 'https://cesko.digital/en',
       },
     ],
     uk: [
       {
         title: 'Pomagam Ukrainie',
-        description: 'footer.help_ukraine_description',
+        description: 'Майданчик з пропозиціями допомоги',
         link: 'https://pomagamukrainie.gov.pl/ua',
       },
       {
@@ -112,7 +112,7 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
       },
       {
         title: 'Česko.Digital',
-        description: 'footer.czech_digital',
+        description: 'Через одиниці і нулі змінюємо Чехію на краще',
         link: 'https://cesko.digital/en',
       },
     ],

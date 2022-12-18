@@ -9,6 +9,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps } from 'next';
 import Custom404 from '../../404';
+
 interface StoriesSectionProps {
   stories: Story[];
 }

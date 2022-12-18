@@ -27,7 +27,7 @@ export const Footer = () => {
               <a key={index} href={link} target={'_blank'} className="sm:w-2/6" rel="noopener">
                 <div className="py-1">
                   <p className="text-primary-black text-center text-sm sm:text-base font-bold my-2">{title}</p>
-                  <p className="text-primary-black text-center font-light text-xs sm:text-sm">{t(description)}</p>
+                  <p className="text-primary-black text-center font-light text-xs sm:text-sm">{description}</p>
                 </div>
               </a>
             );

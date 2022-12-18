@@ -1,31 +1,25 @@
-import { CountryVariant } from 'utils/locales';
+import { CountryVariant, TranslationId } from 'utils/locales';
 
 interface SubmenuItem {
-  name: string;
+  name: TranslationId;
   link: string;
-  onlyForCountryVariants: readonly CountryVariant[];
+  onlyForCountryVariants: CountryVariant[];
 }
 type HeaderNavItem = {
-  name: string;
+  name: TranslationId;
   link: string;
-  submenu: readonly SubmenuItem[] | undefined;
-  onlyForCountryVariants: readonly CountryVariant[] | undefined;
+  submenu?: SubmenuItem[];
+  onlyForCountryVariants?: CountryVariant[];
 };
 
-type HeaderNavigation = readonly HeaderNavItem[];
-
-export const HEADER_NAVIGATION = [
+export const HEADER_NAVIGATION: HeaderNavItem[] = [
   {
     name: 'header.alphabet_link_name',
     link: '/alphabet',
-    submenu: undefined,
-    onlyForCountryVariants: undefined,
   },
   {
     name: 'header.vocabulary_link_name',
     link: '/dictionary',
-    submenu: undefined,
-    onlyForCountryVariants: undefined,
   },
   {
     name: 'header.forkids_link_name',
@@ -52,12 +46,10 @@ export const HEADER_NAVIGATION = [
         onlyForCountryVariants: ['cs', 'pl', 'sk'],
       },
     ],
-    onlyForCountryVariants: undefined,
   },
   {
     name: 'header.wiki_link_name',
     link: '/wiki',
-    submenu: undefined,
     onlyForCountryVariants: ['cs'],
   },
   // {
@@ -67,13 +59,9 @@ export const HEADER_NAVIGATION = [
   {
     name: 'header.about_link_name',
     link: '/about',
-    submenu: undefined,
-    onlyForCountryVariants: undefined,
   },
   {
     name: 'header.contacts_link_name',
     link: '/contacts',
-    submenu: undefined,
-    onlyForCountryVariants: undefined,
   },
-] as const satisfies HeaderNavigation;
+];
