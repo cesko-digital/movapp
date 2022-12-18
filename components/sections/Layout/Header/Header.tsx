@@ -28,7 +28,7 @@ export const Header = () => {
           <ul className="flex justify-end items-center pr-10">
             {HEADER_NAVIGATION.map(({ name, link, submenu, onlyForCountryVariants }) => {
               const activePage = router.asPath.includes(link);
-              if (onlyForCountryVariants && onlyForCountryVariants.includes(getCountryVariant())) return;
+              if (onlyForCountryVariants?.includes(getCountryVariant()) === false) return;
               return (
                 <li
                   key={name}
