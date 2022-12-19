@@ -10,17 +10,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        # We’d like to test the latest version & the version used on Vercel
-        node-version: [14.x, 17.x]
-
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
           cache: 'npm'
       - run: npm ci
       - run: npm run test
