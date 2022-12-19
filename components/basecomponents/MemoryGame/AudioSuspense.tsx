@@ -1,18 +1,19 @@
-import React, { ImgHTMLAttributes } from 'react';
+import React from 'react';
 
 const storage: Record<string, Promise<string> | string> = {};
 
 const load = (src: string) => {
   console.log(`loading ${src}`);
   const promise = new Promise<string>((resolve, reject) => {
-    const image = new Image();
-    image.onload = () => {
+    const audio = new Audio();
+    audio.oncanplay = () => {
       resolve(src);
     };
-    image.onerror = () => {
-      reject({ message: `image ${src} loading error` });
+    audio.onerror = () => {
+      reject({ message: `audio ${src} loading error` });
     };
-    image.src = src;
+    audio.src = src;
+    audio.load();
   })
     .then((src) => (storage[src] = src))
     .catch((error) => (storage[src] = error.message));
@@ -21,15 +22,15 @@ const load = (src: string) => {
   return promise;
 };
 
-const getImage = (src: string) => {
+const getAudio = (src: string) => {
   if (!storage.hasOwnProperty(src)) throw load(src);
   if (storage[src] instanceof Promise) throw storage[src];
   return storage[src];
 };
 
-const ImageSuspense = ({ src, ...rest }: { src: string } & ImgHTMLAttributes<HTMLImageElement>) => {
-  getImage(src);
-  return <img src={src} {...rest} />;
+const AudioSuspense = ({ src }: { src: string }) => {
+  getAudio(src);
+  return <></>;
 };
 
-export default ImageSuspense;
+export default AudioSuspense;

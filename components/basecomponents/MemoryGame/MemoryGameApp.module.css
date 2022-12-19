@@ -36,6 +36,13 @@
   transform: scale(0.95);  
 }
 
+.spinnerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;  
+}
+
 @media (min-width: 640px) {
   .themeButton {
     width: 4rem;

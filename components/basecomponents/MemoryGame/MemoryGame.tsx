@@ -10,7 +10,8 @@ import phrases_SK from './memory-game-sk.json';
 import createTimer from './createTimer';
 import usePlayPhrase from './usePlayPhrase';
 import { AudioPlayer } from 'utils/AudioPlayer';
-import Image from 'next/image';
+import ImageSuspense from './ImageSuspense';
+import AudioSuspense from './AudioSuspense';
 
 const playAudio = AudioPlayer.getInstance().playSrc;
 
@@ -30,7 +31,6 @@ const GAME_NARRATION_PHRASES = {
 const phrases = GAME_NARRATION_PHRASES[getCountryVariant()];
 
 enum Scene {
-  themeChange = 'themeChange',
   init = 'init',
   begin = 'begin',
   game = 'game',
@@ -95,18 +95,15 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   const [scene, setScene] = useState<Scene>(Scene.init);
   const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
   const [setTimer, clearTimers] = useMemo(createTimer, []);
-  const [loadingList,setLoadingList] = useState([]);
-
-  const buttonImageComp = (buttonImage !== undefined) ? <Image src={buttonImage} onLoadingComplete={()=>console.log("image loaded")} layout="fill" sizes="50vw" objectFit="cover" alt="new-game button background" /> : null
 
   const newGame = () => {
     // preload sounds
-    const flipSound = new Audio();
-    flipSound.src = audio.cardFlipSound;
-    flipSound.load();
-    const cardMatchSound = new Audio();
-    cardMatchSound.src = audio.cardsMatchSound;
-    cardMatchSound.load();
+    // const flipSound = new Audio();
+    // flipSound.src = audio.cardFlipSound;
+    // flipSound.load();
+    // const cardMatchSound = new Audio();
+    // cardMatchSound.src = audio.cardsMatchSound;
+    // cardMatchSound.load();
     const winMusic = new Audio();
     winMusic.src = audio.winMusic;
     winMusic.load();
@@ -169,12 +166,7 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   // resolve game states
   useEffect(() => {
     const sceneActions: Record<Scene, () => void> = {
-      themeChange: () => {        
-        setTimer(() => {
-          setScene(Scene.init);
-        }, 1000);
-      },
-      init: () => {        
+      init: () => {
         // begin new game automaticaly
         //setScene(Scene.begin);
       },
@@ -302,24 +294,21 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
 
   // restart game when theme changes exept on first game open
   // clear timers on restart
-  useEffect(() => {    
+  useEffect(() => {
     if (scene !== Scene.init) {
       clearTimers();
-      
+      setScene(Scene.begin);
     }
-    setScene(Scene.themeChange);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
-  if (scene === Scene.themeChange) return <div className={styles.app}>...Loading...</div>;
-
   return (
-    <div className={styles.app}>      
+    <div className={styles.app}>
+      <AudioSuspense src={audio.cardFlipSound} />
+      <AudioSuspense src={audio.cardsMatchSound} />
+      {/* <AudioSuspense src={audio.winMusic} />     */}
       <div className={styles.buttonWrapper}>
-        {/* {buttonImage !== undefined && (
-          <Image src={buttonImage} layout="fill" sizes="50vw" objectFit="cover" alt="new-game button background" />
-        )}         */}
-        {buttonImageComp}
+        {buttonImage !== undefined && <ImageSuspense src={buttonImage} alt="new game button" />}
         <Button
           className={styles.newGameButton}
           text={t('utils.new_game')}
@@ -330,7 +319,7 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
         />
       </div>
       <div className={styles.board}>
-        {(scene !== Scene.init) &&
+        {scene !== Scene.init &&
           cards.map((card) => (
             <Card
               key={card.id}
@@ -342,7 +331,7 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
               cardBackImage={image}
             />
           ))}
-      </div>      
+      </div>
     </div>
   );
 };
