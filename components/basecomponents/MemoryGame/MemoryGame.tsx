@@ -30,6 +30,7 @@ const GAME_NARRATION_PHRASES = {
 const phrases = GAME_NARRATION_PHRASES[getCountryVariant()];
 
 enum Scene {
+  themeChange = 'themeChange',
   init = 'init',
   begin = 'begin',
   game = 'game',
@@ -94,6 +95,9 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   const [scene, setScene] = useState<Scene>(Scene.init);
   const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
   const [setTimer, clearTimers] = useMemo(createTimer, []);
+  const [loadingList,setLoadingList] = useState([]);
+
+  const buttonImageComp = (buttonImage !== undefined) ? <Image src={buttonImage} onLoadingComplete={()=>console.log("image loaded")} layout="fill" sizes="50vw" objectFit="cover" alt="new-game button background" /> : null
 
   const newGame = () => {
     // preload sounds
@@ -165,7 +169,12 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   // resolve game states
   useEffect(() => {
     const sceneActions: Record<Scene, () => void> = {
-      init: () => {
+      themeChange: () => {        
+        setTimer(() => {
+          setScene(Scene.init);
+        }, 1000);
+      },
+      init: () => {        
         // begin new game automaticaly
         //setScene(Scene.begin);
       },
@@ -277,6 +286,7 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
       },
     };
 
+    console.log(`scene set to ${scene}`);
     // run scene actions
     sceneActions[scene]();
 
@@ -290,22 +300,26 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
     };
   }, [clearTimers]);
 
-  // restart game when theme changes but not on initial game open
+  // restart game when theme changes exept on first game open
   // clear timers on restart
-  useEffect(() => {
+  useEffect(() => {    
     if (scene !== Scene.init) {
       clearTimers();
-      setScene(Scene.begin);
+      
     }
+    setScene(Scene.themeChange);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
+  if (scene === Scene.themeChange) return <div className={styles.app}>...Loading...</div>;
+
   return (
-    <div className={styles.app}>
+    <div className={styles.app}>      
       <div className={styles.buttonWrapper}>
-        {buttonImage !== undefined && (
-          <Image src={buttonImage} layout="fill" sizes="50vw" objectFit="cover" alt="new-game button background" priority />
-        )}
+        {/* {buttonImage !== undefined && (
+          <Image src={buttonImage} layout="fill" sizes="50vw" objectFit="cover" alt="new-game button background" />
+        )}         */}
+        {buttonImageComp}
         <Button
           className={styles.newGameButton}
           text={t('utils.new_game')}
@@ -316,7 +330,7 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
         />
       </div>
       <div className={styles.board}>
-        {scene !== Scene.init &&
+        {(scene !== Scene.init) &&
           cards.map((card) => (
             <Card
               key={card.id}
@@ -328,7 +342,7 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
               cardBackImage={image}
             />
           ))}
-      </div>
+      </div>      
     </div>
   );
 };
