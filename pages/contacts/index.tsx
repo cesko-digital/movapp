@@ -12,11 +12,7 @@ const Contacts = () => {
 
   return (
     <>
-      <SEO
-        title={t('seo.contacts_page_title')}
-        description={t('seo.contacts_page_description')}
-        image="https://www.movapp.cz/icons/movapp-cover.jpg"
-      />
+      <SEO title={t('seo.contacts_page_title')} description={t('seo.contacts_page_description')} />
       <div className="max-w-7xl m-auto">
         <h1 className="text-primary-blue">{t('contacts_page.title')}</h1>
         <h2 className={`${heading_style}`}>
