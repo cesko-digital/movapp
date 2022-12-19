@@ -55,7 +55,6 @@ const useThemes = (dictionary: DictionaryDataObject) => {
         },
         styles: taleThemeStyles,
         cardsData: getCardsData(talePhrases),
-        buttonImage: '/kids/memory-game/talebutton.png',
       },
       {
         id: 'xmas',
@@ -67,7 +66,6 @@ const useThemes = (dictionary: DictionaryDataObject) => {
         },
         styles: xmasThemeStyles,
         cardsData: getCardsData(xmasPhrases),
-        buttonImage: '/kids/memory-game/xmasbutton.gif',
       },
     ];
   }, [dictionary]);
@@ -93,7 +91,7 @@ const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getSta
           <div className={styles.themeNav}>
             {themes.map((theme) => (
               <div key={theme.id} className={styles.themeButton} onClick={() => setCurrentTheme(theme)}>
-                <Image src={theme.image} layout="fill" sizes="25vw" objectFit="cover" alt={`${theme.id} theme button`} priority />
+                <Image src={theme.image} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
               </div>
             ))}
           </div>
