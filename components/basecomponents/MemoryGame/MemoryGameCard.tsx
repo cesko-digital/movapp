@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from './MemoryGame';
 import Image from 'next/image';
+import ImageSuspense from './ImageSuspense';
 import { useLanguage } from 'utils/useLanguageHook';
 import { Phrase_deprecated } from 'utils/Phrase_deprecated';
 
@@ -36,11 +37,12 @@ const MemoryGameCard = ({ card, cardBackImage, onClick, scene, selected, styles 
               objectFit="cover"
               alt={new Phrase_deprecated(card.translation).getTranslation(currentLanguage)}
             />
+            {/* <ImageSuspense src={card.image} alt={new Phrase_deprecated(card.translation).getTranslation(currentLanguage)} /> */}
           </div>
         </div>
         <div className={styles.cardWrapper}>
           <div className={`${styles.back} ${card.flipped ? styles.flipped : ''} ${styles[scene] ? styles[scene] : ''}`}>
-            <Image src={cardBackImage} layout="fill" sizes="25vw" objectFit="cover" alt="card back" priority />
+            <ImageSuspense src={cardBackImage} alt="card back" />
           </div>
         </div>
       </div>

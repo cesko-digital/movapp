@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import loadingList from './loadingList';
 
-const storage: Record<string, Promise<string> | string> = {};
+const { registerItem, getItem } = loadingList;
 
 const load = (src: string) => {
   console.log(`loading ${src}`);
@@ -14,22 +15,22 @@ const load = (src: string) => {
     };
     audio.src = src;
     audio.load();
-  })
-    .then((src) => (storage[src] = src))
-    .catch((error) => (storage[src] = error.message));
+  });
 
-  storage[src] = promise;
+  registerItem(src, promise);
   return promise;
 };
 
-const getAudio = (src: string) => {
-  if (!storage.hasOwnProperty(src)) throw load(src);
-  if (storage[src] instanceof Promise) throw storage[src];
-  return storage[src];
+const loadAudio = (src: string) => {
+  const item = getItem(src);
+  // console.log(`item is ${item}`);
+  if (item === undefined) load(src);
 };
 
 const AudioSuspense = ({ src }: { src: string }) => {
-  getAudio(src);
+  useEffect(() => {
+    loadAudio(src);
+  }, [src]);
   return <></>;
 };
 

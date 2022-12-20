@@ -12,6 +12,7 @@ import usePlayPhrase from './usePlayPhrase';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import ImageSuspense from './ImageSuspense';
 import AudioSuspense from './AudioSuspense';
+import { useLoading } from './loadingList';
 
 const playAudio = AudioPlayer.getInstance().playSrc;
 
@@ -31,6 +32,7 @@ const GAME_NARRATION_PHRASES = {
 const phrases = GAME_NARRATION_PHRASES[getCountryVariant()];
 
 enum Scene {
+  loading = 'loading',
   init = 'init',
   begin = 'begin',
   game = 'game',
@@ -95,6 +97,8 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   const [scene, setScene] = useState<Scene>(Scene.init);
   const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
   const [setTimer, clearTimers] = useMemo(createTimer, []);
+
+  const [loading] = useLoading();
 
   const newGame = () => {
     // preload sounds
@@ -166,6 +170,10 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   // resolve game states
   useEffect(() => {
     const sceneActions: Record<Scene, () => void> = {
+      loading: () => {
+        // begin new game automaticaly
+        //setScene(Scene.begin);
+      },
       init: () => {
         // begin new game automaticaly
         //setScene(Scene.begin);
@@ -292,21 +300,32 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
     };
   }, [clearTimers]);
 
-  // restart game when theme changes exept on first game open
+  // reload game when theme changes exept on first game open
   // clear timers on restart
   useEffect(() => {
+    // console.log(`loading is ${loading}`);
     if (scene !== Scene.init) {
       clearTimers();
+      setScene(Scene.loading);
+    }
+    // setScene(Scene.loading);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [theme]);
+
+  // move to Scene.begin when loading done
+  useEffect(() => {
+    console.log(`loading is ${loading}`);
+    if (scene === Scene.loading && !loading) {
       setScene(Scene.begin);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [theme]);
+  }, [loading]);
 
   return (
     <div className={styles.app}>
       <AudioSuspense src={audio.cardFlipSound} />
       <AudioSuspense src={audio.cardsMatchSound} />
-      {/* <AudioSuspense src={audio.winMusic} />     */}
+
       <div className={styles.buttonWrapper}>
         {buttonImage !== undefined && <ImageSuspense src={buttonImage} alt="new game button" />}
         <Button

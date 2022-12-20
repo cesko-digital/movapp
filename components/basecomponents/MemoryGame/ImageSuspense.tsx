@@ -1,6 +1,7 @@
-import React, { ImgHTMLAttributes } from 'react';
+import React, { ImgHTMLAttributes, useEffect } from 'react';
+import loadingList from './loadingList';
 
-const storage: Record<string, Promise<string> | string> = {};
+const { registerItem, getItem } = loadingList;
 
 const load = (src: string) => {
   console.log(`loading ${src}`);
@@ -13,22 +14,31 @@ const load = (src: string) => {
       reject({ message: `image ${src} loading error` });
     };
     image.src = src;
-  })
-    .then((src) => (storage[src] = src))
-    .catch((error) => (storage[src] = error.message));
+  });
 
-  storage[src] = promise;
+  registerItem(src, promise);
   return promise;
 };
 
-const getImage = (src: string) => {
-  if (!storage.hasOwnProperty(src)) throw load(src);
-  if (storage[src] instanceof Promise) throw storage[src];
-  return storage[src];
+// const getImage = (src: string) => {
+//   const item = getItem(src);
+//   // console.log(`item is ${item}`);
+//   if (item === undefined) return load(src);
+//   if (item instanceof Promise) return item;
+//   return item;
+// };
+
+const loadImage = (src: string) => {
+  const item = getItem(src);
+  // console.log(`item is ${item}`);
+  if (item === undefined) load(src);
 };
 
 const ImageSuspense = ({ src, ...rest }: { src: string } & ImgHTMLAttributes<HTMLImageElement>) => {
-  getImage(src);
+  useEffect(() => {
+    loadImage(src);
+  }, [src]);
+
   return <img src={src} {...rest} />;
 };
 

@@ -8,6 +8,8 @@ import styles from './MemoryGameApp.module.css';
 import Image from './ImageSuspense';
 import MemoryGame from './MemoryGame';
 import Spinner from 'components/basecomponents/Spinner/Spinner';
+import SuspenseKicker from './SuspenseKicker';
+import DelayedRender from './DelayedRender';
 
 const useThemes = (dictionary: DictionaryDataObject) => {
   const themes = useMemo(() => {
@@ -80,16 +82,19 @@ const MemoryGameApp = ({ dictionary }: { dictionary: DictionaryDataObject }) => 
           </div>
         }
       >
-        {/* Theme selection */}
-        <div className={styles.themeNav}>
-          {themes.map((theme) => (
-            <div key={theme.id} className={styles.themeButton} onClick={() => setCurrentTheme(theme)}>
-              <Image src={theme.image} alt={`${theme.id} theme button`} />
-            </div>
-          ))}
-        </div>
-        {/* Main game component */}
-        <MemoryGame theme={currentTheme} />
+        <SuspenseKicker delay={200} />
+        <DelayedRender delay={100}>
+          {/* Theme selection */}
+          <div className={styles.themeNav}>
+            {themes.map((theme) => (
+              <div key={theme.id} className={styles.themeButton} onClick={() => setCurrentTheme(theme)}>
+                <Image src={theme.image} alt={`${theme.id} theme button`} />
+              </div>
+            ))}
+          </div>
+          {/* Main game component */}
+          <MemoryGame theme={currentTheme} />
+        </DelayedRender>
       </React.Suspense>
     </div>
   );
