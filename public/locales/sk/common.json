@@ -12,9 +12,6 @@
     "alphabet_link_name": "Abeceda"
   },
   "footer": {
-    "stand_with_ukraine_description": "Nezávislý informačný rázcestník",
-    "help_ukraine_description": "Portál na sprostredkovanie ponúk pomoci",
-    "czech_digital": "Cez jednotky a nuly meníme Česko k lepšiemu",
     "join_development": "Pridaj sa k vývoju na",
     "licence_intro": "Obsah tohoto webu je prístupný pod licenciou",
     "licence": "CC BY-NC 4.0 Medzinárodná",
@@ -208,7 +205,9 @@
     "winter_dictionary_link": "/dictionary#zima",
     "christmas_images_title": "Vianočné obrázky",
     "christmas_images_description": "Načerpajte vianočnú atmosféru prostredníctvom zábavných obrázkov.",
-    "christmas_images_link": "/kids#kapor",
+    "christmas_images_link": {
+      "sk": "/kids#kapor"
+    },
     "christmas_pexeso_title": "Vianočné pexeso",
     "christmas_pexeso_description": "Precvičujte si slovíčka v obľúbenej hre s vianočnými obrázkami.",
     "christmas_pexeso_link":  "/kids/memory-game",

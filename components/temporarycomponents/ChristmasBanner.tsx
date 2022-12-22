@@ -3,13 +3,10 @@ import Image from 'next/image';
 import { getCountryVariant } from 'utils/locales';
 import { ChristmasBannerItem, ChristmasBannerItemProps } from './ChristmasBannerItem';
 import Christmas_Tree from 'public/christmas/christmas-tree.png';
-import { useLanguage } from '../../utils/useLanguageHook';
 import Link from 'next/link';
 
 const ChristmasBanner = () => {
   const { t } = useTranslation();
-  const { currentLanguage } = useLanguage();
-  const isUk = currentLanguage === 'uk';
 
   const CHRISTMAS_ITEMS: ChristmasBannerItemProps[] = [
     {
@@ -25,7 +22,7 @@ const ChristmasBanner = () => {
     {
       header: t(`christmas_banner.christmas_images_title`),
       description: t(`christmas_banner.christmas_images_description`),
-      link: isUk ? t(`christmas_banner.christmas_images_link.${getCountryVariant()}`) : t(`christmas_banner.christmas_images_link`),
+      link: t(`christmas_banner.christmas_images_link.${getCountryVariant()}`),
     },
     {
       header: t(`christmas_banner.christmas_pexeso_title`),

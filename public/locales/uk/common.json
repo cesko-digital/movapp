@@ -13,9 +13,6 @@
     "alphabet_link_name": "Алфавіт"
   },
   "footer": {
-    "stand_with_ukraine_description": "Незалежний інформаційний довідник",
-    "help_ukraine_description": "Майданчик з пропозиціями допомоги",
-    "czech_digital": "Через одиниці і нулі змінюємо Чехію на краще",
     "join_development": "Приєднуйтесь до розробки на",
     "licence_intro": "Вміст цього веб-сайту доступний за ліцензією",
     "licence": "CC BY-NC 4.0 Міжнародний",
@@ -86,6 +83,8 @@
     "subtitle": "Виберіть категорію",
     "cs": "чеський",
     "uk": "український",
+    "sk": "словацький",
+    "pl": "польський",
     "results_subtitle": "Результати пошуку",
     "not_found_results": "Не знайдено",
     "download_pdf": "Завантажити у форматі .pdf"
