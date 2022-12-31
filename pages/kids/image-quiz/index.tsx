@@ -59,21 +59,19 @@ const ImageQuizSection = ({ dictionary }: InferGetStaticPropsType<typeof getStat
 
   const playSounds = async (phrase: Phrase, key: 'good' | 'wrong', sound: Sound.Match | Sound.DontMatch) => {
     const narrationPhrase = narrationPhrases[key][getRandomIndex(narrationPhrases[key].length)];
-    await AudioPlayer.getInstance().playSrc(sound);
+    const player: AudioPlayer = AudioPlayer.getInstance();
+    await player.playSrc(sound);
     await playPhrase(phrase);
-    await AudioPlayer.getInstance().playTextToSpeech(
-      new Phrase_deprecated(narrationPhrase).getTranslation(currentLanguage),
-      currentLanguage
-    );
+    return player.playTextToSpeech(new Phrase_deprecated(narrationPhrase).getTranslation(currentLanguage), currentLanguage);
   };
 
   const handleClick = (e: React.MouseEvent, phrase: Phrase, correct: boolean) => {
     if (correct) {
-      playSounds(phrase, 'good', Sound.Match);
-      setTimeout(() => {
+      const shufflePhrases = () => {
         setRandomPhrases(shuffle(kidsCategory?.translations, CHOICES_COUNT));
         setCorrectIndex(getRandomIndex());
-      }, 5_000);
+      };
+      playSounds(phrase, 'good', Sound.Match).then(shufflePhrases); // sets the onended property of the last audio
     } else {
       playSounds(phrase, 'wrong', Sound.DontMatch);
     }
