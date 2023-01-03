@@ -4,8 +4,7 @@ const DelayedRender = ({ delay, children }: { delay: number; children: JSX.Eleme
   const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShouldRender(true), delay);
-    console.log('delayed render set');
+    const timer = setTimeout(() => setShouldRender(true), delay);    
     return () => {
       clearTimeout(timer);
     };

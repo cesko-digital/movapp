@@ -78,11 +78,12 @@ const MemoryGameApp = ({ dictionary }: { dictionary: DictionaryDataObject }) => 
       <React.Suspense
         fallback={
           <div className={styles.spinnerWrapper}>
-            <Spinner />
+            <DelayedRender delay={1000}>
+              <Spinner />
+            </DelayedRender>
           </div>
         }
       >
-        <SuspenseKicker delay={200} />
         <DelayedRender delay={100}>
           {/* Theme selection */}
           <div className={styles.themeNav}>
@@ -95,6 +96,7 @@ const MemoryGameApp = ({ dictionary }: { dictionary: DictionaryDataObject }) => 
           {/* Main game component */}
           <MemoryGame theme={currentTheme} />
         </DelayedRender>
+        <SuspenseKicker />
       </React.Suspense>
     </div>
   );

@@ -1,37 +1,24 @@
-import React, { useEffect } from 'react';
-import loadingList from './loadingList';
+import React, { useCallback } from 'react';
+import { registerAudio } from './loadingList';
 
-const { registerItem, getItem } = loadingList;
+// const AudioSuspense = ({ src }: { src: string }) => {
+//   useEffect(() => {
+//     registerAudio(src);
+//   }, [src]);
+//   return <></>;
+// };
 
-const load = (src: string) => {
-  console.log(`loading ${src}`);
-  const promise = new Promise<string>((resolve, reject) => {
-    const audio = new Audio();
-    audio.oncanplay = () => {
-      resolve(src);
-    };
-    audio.onerror = () => {
-      reject({ message: `audio ${src} loading error` });
-    };
-    audio.src = src;
-    audio.load();
-  });
+const AudioSuspenseRef = ({ src }: { src: string }) => {
+  const loadAudio = useCallback(
+    (audio) => {
+      if (audio !== null) {
+        registerAudio(src, audio);
+      }
+    },
+    [src]
+  );
 
-  registerItem(src, promise);
-  return promise;
+  return <audio hidden ref={loadAudio} src={src} />;
 };
 
-const loadAudio = (src: string) => {
-  const item = getItem(src);
-  // console.log(`item is ${item}`);
-  if (item === undefined) load(src);
-};
-
-const AudioSuspense = ({ src }: { src: string }) => {
-  useEffect(() => {
-    loadAudio(src);
-  }, [src]);
-  return <></>;
-};
-
-export default AudioSuspense;
+export default AudioSuspenseRef;

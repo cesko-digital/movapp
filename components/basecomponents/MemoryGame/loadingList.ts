@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 
-let storage: Record<string, Promise<string> | string> = {};
+interface LoadingListItem {
+  src: string | Promise<string>;
+  payload?: HTMLImageElement | HTMLAudioElement;
+}
+
+type LoadingList = Record<string, LoadingListItem>;
+
+const storage: LoadingList = {};
 let listeners: (() => void)[] = [];
 
 let loadingPromise: null | Promise<void> = null;
@@ -9,7 +16,7 @@ const getLoadingPromise = () => loadingPromise;
 const createPromise = () =>
   new Promise<void>((resolve) => {
     const onUpdate = () => {
-      if (!isLoadingActive()) {
+      if (!hasAnyPromise(storage)) {
         resolve();
         loadingPromise = null;
       }
@@ -18,36 +25,87 @@ const createPromise = () =>
     registerListener(onUpdate);
   });
 
-const filterPromise = (item: Promise<string> | string) => item instanceof Promise;
-const hasAnyPromise = (storage: Record<string, Promise<string> | string>) =>
+const filterPromise = (item: LoadingListItem) => item.src instanceof Promise;
+const hasAnyPromise = (storage: LoadingList) =>
   Object.keys(storage)
     .map((prop) => storage[prop])
     .filter(filterPromise).length > 0;
 
-const onPromiseResolved = (src: string) => () => {
-  storage[src] = src;
-  // console.log(`promise resolved ${src} ,storage has pending promises ${hasAnyPromise(storage)}`);
-  // reset storage wjen loading is complete -> browser checks wheter resource changed after a while, and this request can cause glitches
-  if (!hasAnyPromise(storage)) storage = {};
+const resetStorage = () => {
+  //if (!hasAnyPromise(storage)) storage = {};
+};
+
+const notifyListeners = () => {
+  console.log(`listeners notified`);
   listeners.map((item) => item());
+};
+
+const onPromiseResolved = (src: string) => () => {
+  storage[src].src = src;
+  console.log(`promise resolved ${src} ,storage has pending promises ${hasAnyPromise(storage)}`);
+  // reset storage when loading is complete -> browser checks wheter resource changed after a while, and this request can cause glitches
+  resetStorage();
+  !hasAnyPromise(storage) && notifyListeners();
 };
 
 const onPromiseRejected = (src: string) => (error: { message: string }) => {
   // check list
-  storage[src] = src;
+  storage[src].src = src;
   console.warn(error.message);
   // !hasAnyPromise() && listeners.map(item => item())
-  if (!hasAnyPromise(storage)) storage = {};
-  listeners.map((item) => item());
+  resetStorage();
+  !hasAnyPromise(storage) && notifyListeners();
   // maybe call listeners
 };
 
-const registerItem = (src: string, promise: Promise<string>) => {
-  // console.log(`item ${src} registered`);
+const registerItem = (src: string, promise: Promise<string>, payload?: HTMLImageElement | HTMLAudioElement) => {
+  console.log(`new item ${src} registered`);
+
   promise.then(onPromiseResolved(src)).catch(onPromiseRejected(src));
-  storage[src] = promise;
-  if (loadingPromise === null) loadingPromise = createPromise();
-  listeners.map((item) => item());
+  storage[src] = { src: promise, payload };
+  if (loadingPromise === null) {
+    loadingPromise = createPromise();
+    notifyListeners();
+  }
+};
+
+export const registerImage = (src: string, img: HTMLImageElement) => {
+  /* OVERWRITE SAME SOURCE */
+  // const item = getItem(src);
+  // if (item !== undefined) {
+  //   console.log(`item ${src} already registered`);
+  //   return;
+  // }
+
+  const promise = new Promise<string>((resolve, reject) => {
+    img.onload = () => {
+      resolve(src);
+    };
+    img.onerror = () => {
+      reject({ message: `image ${src} loading error` });
+    };
+    // img.src = src;
+    setTimeout(() => resolve(src), 10000);
+  });
+
+  registerItem(src, promise, img);
+};
+
+export const registerAudio = (src: string, audio: HTMLAudioElement) => {
+  const promise = new Promise<string>((resolve, reject) => {
+    audio.oncanplay = () => {
+      resolve(src);
+    };
+    audio.onerror = () => {
+      reject({ message: `audio ${src} loading error` });
+    };
+    // audio.src = src;
+    audio.load();
+
+    setTimeout(() => resolve(src), 10000);
+  });
+
+  registerItem(src, promise, audio);
 };
 
 const getItem = (src: string) => storage[src];
@@ -68,8 +126,8 @@ export const useLoading = () => {
   // register to updates
   useEffect(() => {
     const removeListener = registerListener(() => {
-      setLoading(isLoadingActive());
-      setLoadingPromise(getLoadingPromise());
+      setLoading(isLoadingActive);
+      setLoadingPromise(getLoadingPromise);
     });
     return removeListener;
   }, []);
@@ -80,6 +138,8 @@ export const useLoading = () => {
 export default {
   registerListener,
   registerItem,
+  registerImage,
+  registerAudio,
   getItem,
   isLoadingActive,
   getLoadingPromise,

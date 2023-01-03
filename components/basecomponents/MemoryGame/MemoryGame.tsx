@@ -32,7 +32,8 @@ const GAME_NARRATION_PHRASES = {
 const phrases = GAME_NARRATION_PHRASES[getCountryVariant()];
 
 enum Scene {
-  loading = 'loading',
+  changeTheme = 'changeTheme',
+  changeThemeInGame = 'changeThemeInGame',
   init = 'init',
   begin = 'begin',
   game = 'game',
@@ -97,8 +98,8 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   const [scene, setScene] = useState<Scene>(Scene.init);
   const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
   const [setTimer, clearTimers] = useMemo(createTimer, []);
-
-  const [loading] = useLoading();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [loading, loadingPromise] = useLoading();
 
   const newGame = () => {
     // preload sounds
@@ -170,9 +171,13 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   // resolve game states
   useEffect(() => {
     const sceneActions: Record<Scene, () => void> = {
-      loading: () => {
-        // begin new game automaticaly
-        //setScene(Scene.begin);
+      changeTheme: async () => {
+        if (loadingPromise instanceof Promise) await loadingPromise;
+        setScene(Scene.init);
+      },
+      changeThemeInGame: async () => {
+        if (loadingPromise instanceof Promise) await loadingPromise;
+        setScene(Scene.begin);
       },
       init: () => {
         // begin new game automaticaly
@@ -300,27 +305,18 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
     };
   }, [clearTimers]);
 
-  // reload game when theme changes exept on first game open
-  // clear timers on restart
-  useEffect(() => {
-    // console.log(`loading is ${loading}`);
+  useEffect(() => {   
     if (scene !== Scene.init) {
       clearTimers();
-      setScene(Scene.loading);
-    }
-    // setScene(Scene.loading);
+      setScene(Scene.changeThemeInGame);
+    } else {
+      setScene(Scene.changeTheme);
+    }   
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
-  // move to Scene.begin when loading done
-  useEffect(() => {
-    console.log(`loading is ${loading}`);
-    if (scene === Scene.loading && !loading) {
-      setScene(Scene.begin);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading]);
-
+console.log(`rerender`);
+  
   return (
     <div className={styles.app}>
       <AudioSuspense src={audio.cardFlipSound} />
