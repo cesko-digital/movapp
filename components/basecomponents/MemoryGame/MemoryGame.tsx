@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { useTranslation } from 'next-i18next';
@@ -12,6 +13,7 @@ import usePlayPhrase from './usePlayPhrase';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import ImageSuspense from './ImageSuspense';
 import AudioSuspense from './AudioSuspense';
+import AudioPreload from './AudioPreload';
 import { useLoading } from './loadingList';
 
 const playAudio = AudioPlayer.getInstance().playSrc;
@@ -35,6 +37,7 @@ enum Scene {
   changeTheme = 'changeTheme',
   changeThemeInGame = 'changeThemeInGame',
   init = 'init',
+  ready = 'ready',
   begin = 'begin',
   game = 'game',
   firstCardSelected = 'firstCardSelected',
@@ -98,20 +101,14 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   const [scene, setScene] = useState<Scene>(Scene.init);
   const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
   const [setTimer, clearTimers] = useMemo(createTimer, []);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [loading, loadingPromise] = useLoading();
+
+  const { loadingPromise } = useLoading();
 
   const newGame = () => {
     // preload sounds
-    // const flipSound = new Audio();
-    // flipSound.src = audio.cardFlipSound;
-    // flipSound.load();
-    // const cardMatchSound = new Audio();
-    // cardMatchSound.src = audio.cardsMatchSound;
-    // cardMatchSound.load();
-    const winMusic = new Audio();
-    winMusic.src = audio.winMusic;
-    winMusic.load();
+    // const winMusic = new Audio();
+    // winMusic.src = audio.winMusic;
+    // winMusic.load();
 
     // prepare and shuffle cards, pick 8 cards
     const pickedCards = cardsData.sort(() => Math.random() - 0.5).slice(0, 8);
@@ -173,15 +170,18 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
     const sceneActions: Record<Scene, () => void> = {
       changeTheme: async () => {
         if (loadingPromise instanceof Promise) await loadingPromise;
-        setScene(Scene.init);
+        setScene(Scene.ready);
       },
       changeThemeInGame: async () => {
         if (loadingPromise instanceof Promise) await loadingPromise;
         setScene(Scene.begin);
       },
       init: () => {
-        // begin new game automaticaly
-        //setScene(Scene.begin);
+        // initial state on first run
+        setScene(Scene.ready);
+      },
+      ready: () => {
+        // ready to new game
       },
       begin: () => {
         // new game
@@ -305,23 +305,23 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
     };
   }, [clearTimers]);
 
-  useEffect(() => {   
-    if (scene !== Scene.init) {
+  // handle theme change
+  useEffect(() => {
+    if (scene === Scene.ready) {
+      setScene(Scene.changeTheme);
+      // when in-game
+    } else if (scene !== Scene.init) {
       clearTimers();
       setScene(Scene.changeThemeInGame);
-    } else {
-      setScene(Scene.changeTheme);
-    }   
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
-console.log(`rerender`);
-  
   return (
     <div className={styles.app}>
+      <AudioPreload src={audio.winMusic} />
       <AudioSuspense src={audio.cardFlipSound} />
       <AudioSuspense src={audio.cardsMatchSound} />
-
       <div className={styles.buttonWrapper}>
         {buttonImage !== undefined && <ImageSuspense src={buttonImage} alt="new game button" />}
         <Button

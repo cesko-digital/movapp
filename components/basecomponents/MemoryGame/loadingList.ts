@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useState, useEffect } from 'react';
 
 interface LoadingListItem {
@@ -77,6 +78,8 @@ export const registerImage = (src: string, img: HTMLImageElement) => {
   //   return;
   // }
 
+  if (img.complete) return;
+
   const promise = new Promise<string>((resolve, reject) => {
     img.onload = () => {
       resolve(src);
@@ -92,6 +95,8 @@ export const registerImage = (src: string, img: HTMLImageElement) => {
 };
 
 export const registerAudio = (src: string, audio: HTMLAudioElement) => {
+  if (audio.readyState >= 4) return;
+
   const promise = new Promise<string>((resolve, reject) => {
     audio.oncanplay = () => {
       resolve(src);
@@ -117,7 +122,7 @@ const registerListener = (listener: () => void) => {
   };
 };
 
-const isLoadingActive = () => hasAnyPromise(storage);
+const isLoadingActive = () => loadingPromise instanceof Promise;
 
 export const useLoading = () => {
   const [loading, setLoading] = useState(isLoadingActive());
@@ -132,10 +137,10 @@ export const useLoading = () => {
     return removeListener;
   }, []);
 
-  return [loading, loadingPromise];
+  return { loading, loadingPromise };
 };
 
-export default {
+const loadingList = {
   registerListener,
   registerItem,
   registerImage,
@@ -143,4 +148,7 @@ export default {
   getItem,
   isLoadingActive,
   getLoadingPromise,
+  useLoading,
 };
+
+export default loadingList;
