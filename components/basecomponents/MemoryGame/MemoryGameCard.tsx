@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from './MemoryGame';
 import Image from 'next/image';
-import ImageSuspense from './ImageSuspense';
+import { ImageSuspense } from './MemoryGameApp';
 import { useLanguage } from 'utils/useLanguageHook';
 import { Phrase_deprecated } from 'utils/Phrase_deprecated';
 

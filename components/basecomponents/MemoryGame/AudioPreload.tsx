@@ -15,6 +15,7 @@ const AudioPreload = ({ src }: { src: string }) => {
   const loadAudio = useCallback(
     (audio) => {
       if (audio !== null) {
+        /* eslint-disable-next-line no-console */
         console.log(`preloading ${src}`);
         audio.load();
       }

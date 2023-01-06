@@ -11,10 +11,8 @@ import phrases_SK from './memory-game-sk.json';
 import createTimer from './createTimer';
 import usePlayPhrase from './usePlayPhrase';
 import { AudioPlayer } from 'utils/AudioPlayer';
-import ImageSuspense from './ImageSuspense';
-import AudioSuspense from './AudioSuspense';
+import { ImageSuspense, AudioSuspense, useLoading } from './MemoryGameApp';
 import AudioPreload from './AudioPreload';
-import { useLoading } from './loadingList';
 
 const playAudio = AudioPlayer.getInstance().playSrc;
 

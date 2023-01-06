@@ -5,11 +5,12 @@ import taleThemeStyles from './Themes/MemoryGameTaleTheme.module.css';
 import xmasThemeStyles from './Themes/MemoryGameXmasTheme.module.css';
 import getCardsData from './getCardsData';
 import styles from './MemoryGameApp.module.css';
-import Image from './ImageSuspense';
+import createLoading from './createLoading';
 import MemoryGame from './MemoryGame';
 import Spinner from 'components/basecomponents/Spinner/Spinner';
-import SuspenseKicker from './SuspenseKicker';
 import DelayedRender from './DelayedRender';
+
+export const { useLoading, ImageSuspense, AudioSuspense, SuspenseKicker } = createLoading();
 
 const useThemes = (dictionary: DictionaryDataObject) => {
   const themes = useMemo(() => {
@@ -90,13 +91,13 @@ const MemoryGameApp = ({ dictionary }: { dictionary: DictionaryDataObject }) => 
           <div className={styles.themeNav}>
             {themes.map((theme) => (
               <div key={theme.id} className={styles.themeButton} onClick={() => setCurrentTheme(theme)}>
-                <Image src={theme.image} alt={`${theme.id} theme button`} />
+                <ImageSuspense src={theme.image} alt={`${theme.id} theme button`} />
               </div>
             ))}
           </div>
           {/* Main game component */}
           <MemoryGame theme={currentTheme} />
-        </DelayedRender>        
+        </DelayedRender>
       </React.Suspense>
     </div>
   );
