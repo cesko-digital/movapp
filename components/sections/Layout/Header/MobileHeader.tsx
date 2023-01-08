@@ -54,8 +54,8 @@ export const MobileHeader = () => {
       {showNavigation && (
         <div className="bg-primary-blue z-50 absolute py-5 top-14 w-full left-0">
           <ul className="z-50">
-            {HEADER_NAVIGATION.map(({ name, link, submenu, onlyForLanguageVariants }, index) => {
-              if (!!onlyForLanguageVariants && !onlyForLanguageVariants.includes(getCountryVariant())) return;
+            {HEADER_NAVIGATION.map(({ name, link, submenu, onlyForCountryVariants }, index) => {
+              if (onlyForCountryVariants?.includes(getCountryVariant()) === false) return;
               return (
                 <li key={index} className={`text-white text-center text-lg py-2 ${router.asPath.includes(link) && 'text-primary-yellow'}`}>
                   {submenu === undefined ? (
@@ -68,7 +68,7 @@ export const MobileHeader = () => {
                       <div className={`${showDropdown ? '' : 'hidden'} w-44 m-auto`}>
                         <ul className="py-1 text-sm text-white text-center">
                           {submenu
-                            ?.filter((item) => item.countryVariant.includes(getCountryVariant()))
+                            ?.filter((item) => item.onlyForCountryVariants.includes(getCountryVariant()))
                             .map(({ name, link }) => (
                               <li key={name}>
                                 <Link href={link}>

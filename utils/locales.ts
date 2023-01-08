@@ -1,3 +1,8 @@
+import { TFuncKey } from 'i18next';
+
+/** Use this type for strings passed to next-i18next translation functions like `t` */
+export type TranslationId = TFuncKey<'common'>;
+
 /**
  * Our site has multiple country variants, each containing two locales/languages:
  * Czech country variant: Czech, Ukrainian,

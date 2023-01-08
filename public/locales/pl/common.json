@@ -12,9 +12,6 @@
     "alphabet_link_name": "Alfabet"
   },
   "footer": {
-    "stand_with_ukraine_description": "Niezależny przewodnik informacyjny",
-    "help_ukraine_description": "Portal pośredniczący ofertom pomocy",
-    "czech_digital": "Przez jedynki i zera zmieniamy Czechy na lepsze (link w języku angielskim)",
     "join_development": "Dołącz do rozwoju na",
     "licence_intro": "Zawartość tej strony jest dostępna na podstawie licencji",
     "licence": "CC BY-NC 4.0 Międzynarodowa"
@@ -189,5 +186,27 @@
   "utils": {
     "play": "odtwarzanie",
     "new_game": "Nowa gra"
+  },
+  "christmas_banner": {
+    "christmas_dictionary_title": "Słowniczek bożonarodzeniowy",
+    "christmas_dictionary_description": "Święta, święta przychodzą, a z nimi i nasz słowniczek o tematyce bożonarodzeniowej",
+    "christmas_dictionary_link": "/dictionary#boze_narodzenie",
+    "winter_dictionary_title": "Słowniczek zimowy",
+    "winter_dictionary_description": "Będzie zimno, będzie mróz. Słowniczek, który Ci się w zimie przyda.",
+    "winter_dictionary_link": "/dictionary#zima",
+    "christmas_images_title": "Obrazki bożonarodzeniowe",
+    "christmas_images_description": "Poczuj świąteczną atmosferę dzięki śmiesznym obrazkom.",
+    "christmas_images_link": {
+      "pl": "/kids#karp"
+    },
+    "christmas_pexeso_title": "Bożonarodzeniowe memory",
+    "christmas_pexeso_description": "Ćwicz słówka w ulubionej grze z świątecznymi obrazkami.",
+    "christmas_pexeso_link":  "/kids/memory-game",
+    "christmas_tale_title": "",
+    "christmas_tale_description": "",
+    "christmas_tale_link": "",
+    "team": "Nasz zespół",
+    "team_link": "https://data.movapp.eu/images/team/large-team-photo-autumn.jpg",
+    "wishing": "życzy Wam wesołych Świąt i szczęśliwego Nowego Roku 2023."
   }
 }
