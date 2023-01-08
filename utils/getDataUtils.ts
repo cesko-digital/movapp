@@ -78,6 +78,7 @@ export class Phrase {
   };
 
   getImageUrl = () => this.phraseData.image_url;
+  getId = () => this.phraseData.id;
 }
 
 const KIDS_CATEGORY_ID = 'recSHyEn6N0hAqUBp';
