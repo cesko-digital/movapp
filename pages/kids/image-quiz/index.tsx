@@ -18,7 +18,7 @@ import { shuffle } from 'utils/collectionUtils';
 
 interface ImageContainerProps {
   phrase: Phrase;
-  onClick: (e: React.MouseEvent, phrase: Phrase, correct: boolean) => void;
+  onClick: (phrase: Phrase, correct: boolean) => Promise<void>;
   correct: boolean;
 }
 
@@ -65,13 +65,11 @@ const ImageQuizSection = ({ dictionary }: InferGetStaticPropsType<typeof getStat
     return player.playTextToSpeech(new Phrase_deprecated(narrationPhrase).getTranslation(currentLanguage), currentLanguage);
   };
 
-  const handleClick = (e: React.MouseEvent, phrase: Phrase, correct: boolean) => {
+  const handleClick = async (phrase: Phrase, correct: boolean) => {
     if (correct) {
-      const shufflePhrases = () => {
-        setRandomPhrases(shuffle(kidsCategory?.translations, CHOICES_COUNT));
-        setCorrectIndex(getRandomIndex());
-      };
-      playSounds(phrase, 'good', Sound.Match).then(shufflePhrases); // sets the onended property of the last audio
+      await playSounds(phrase, 'good', Sound.Match);
+      setRandomPhrases(shuffle(kidsCategory?.translations, CHOICES_COUNT));
+      setCorrectIndex(getRandomIndex());
     } else {
       playSounds(phrase, 'wrong', Sound.DontMatch);
     }
@@ -116,9 +114,9 @@ const ImageContainer = ({ phrase, onClick, correct }: ImageContainerProps): JSX.
   return (
     <div
       className={`aspect-square w-full rounded-2xl overflow-hidden shadow-xl bg-white ${className}`}
-      onClick={(e) => {
+      onClick={() => {
         setClassName(correct ? styles.match : styles.dontMatch);
-        onClick(e, phrase, correct);
+        onClick(phrase, correct);
       }}
       onAnimationEnd={() => setClassName('')}
     >
