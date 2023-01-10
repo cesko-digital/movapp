@@ -1,0 +1,460 @@
+.newGameButton {
+  background-color: transparent;
+  background-image: url(/kids/memory-game/talebutton.png);
+  background-size: 100% 100%;
+  color: black;
+  font-size: 1.15rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 800;
+  width: 26vw;
+  min-width: 9rem;
+  height: 13vw;
+  min-height: 4.5rem;
+  margin-bottom: 1.25rem;
+  animation: pop 0.3s 0.3s backwards;
+  -webkit-tap-highlight-color: transparent;  
+  transition: transform 0.2s;
+  padding:0;
+}
+
+.newGameButton:hover {
+  transform: scale(1.02);
+}
+
+.newGameButton:active {
+  transform: scale(0.95);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.3rem;
+  width: calc(4 * 20vw + 3 * 0.3rem);
+}
+
+.init {
+  opacity: 0;
+}
+
+.front,
+.back,
+.cell {
+  width: 20vw;
+  height: 20vw;
+  position: relative;
+}
+
+.cell {
+  perspective: 319px;
+  perspective-origin: 50% 50%;
+}
+
+.cardWrapper {
+  position: absolute;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.front,
+.back {
+  user-select: none;
+  transition: transform 300ms linear;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 6px;
+  background-color: white;
+  backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  overflow: hidden;
+}
+
+.back {
+  border-color: black;
+  background-color: black;
+  border-width: 2px;
+}
+
+.front {
+  transform: rotateY(90deg) scale(1);
+  transition-delay: 0ms;
+}
+
+.front.flipped {
+  transform: rotateY(0) scale(1.0001);
+  transition-delay: 300ms;
+}
+
+.back {
+  transform: rotateY(0) scale(1);
+  transition-delay: 300ms;
+}
+
+.back.flipped {
+  transform: rotateY(90deg) scale(1.0001);
+  transition-delay: 0ms;
+}
+
+.goNewGame {
+  animation: hide 0.3s both;
+}
+
+.begin {
+  opacity: 0;
+}
+
+.back.begin {
+  animation: unhide 0.1s both, pop 0.3s both;
+}
+
+.front.flipped.selected.cardsMatch {
+  animation: glow 0.7s, turn 0.7s;
+}
+
+.cell.flipped.selected {
+  z-index: 5;
+}
+
+.front.win {
+  animation: wave 0.7s;
+}
+
+.front.winReward {
+  animation: show 0.45s, glow 0.7s;
+  animation-iteration-count: 11;
+}
+
+.cell:nth-child(1) .front.win {
+  animation-delay: 0s;
+}
+
+.cell:nth-child(2) .front.win,
+.cell:nth-child(5) .front.win {
+  animation-delay: 0.1s;
+}
+
+.cell:nth-child(3) .front.win,
+.cell:nth-child(6) .front.win,
+.cell:nth-child(9) .front.win {
+  animation-delay: 0.2s;
+}
+
+.cell:nth-child(4) .front.win,
+.cell:nth-child(7) .front.win,
+.cell:nth-child(10) .front.win,
+.cell:nth-child(13) .front.win {
+  animation-delay: 0.3s;
+}
+
+.cell:nth-child(8) .front.win,
+.cell:nth-child(11) .front.win,
+.cell:nth-child(14) .front.win {
+  animation-delay: 0.4s;
+}
+
+.cell:nth-child(12) .front.win,
+.cell:nth-child(15) .front.win {
+  animation-delay: 0.4s;
+}
+
+.cell:nth-child(16) .front.win {
+  animation-delay: 0.5s;
+}
+
+.cell:nth-child(1) .front.winReward {
+  animation-delay: 0s;
+}
+
+.cell:nth-child(2) .front.winReward,
+.cell:nth-child(5) .front.winReward {
+  animation-delay: 0.5s;
+}
+
+.cell:nth-child(3) .front.winReward,
+.cell:nth-child(6) .front.winReward,
+.cell:nth-child(9) .front.winReward {
+  animation-delay: 0.6s;
+}
+
+.cell:nth-child(4) .front.winReward,
+.cell:nth-child(7) .front.winReward,
+.cell:nth-child(10) .front.winReward,
+.cell:nth-child(13) .front.winReward {
+  animation-delay: 0.7s;
+}
+
+.cell:nth-child(8) .front.winReward,
+.cell:nth-child(11) .front.winReward,
+.cell:nth-child(14) .front.winReward {
+  animation-delay: 0.8s;
+}
+
+.cell:nth-child(12) .front.winReward,
+.cell:nth-child(15) .front.winReward {
+  animation-delay: 0.9s;
+}
+
+.cell:nth-child(16) .front.winReward {
+  animation-delay: 1s;
+}
+
+.cell:nth-child(16) .back.begin {
+  animation-delay: 0.3s;
+}
+
+.cell:nth-child(5) .back.begin {
+  animation-delay: 0.25s;
+}
+
+.cell:nth-child(14) .back.begin {
+  animation-delay: 0.2s;
+}
+
+.cell:nth-child(13) .back.begin {
+  animation-delay: 0.15s;
+}
+
+.cell:nth-child(12) .back.begin {
+  animation-delay: 0.25s;
+}
+
+.cell:nth-child(11) .back.begin {
+  animation-delay: 0.2s;
+}
+
+.cell:nth-child(8) .back.begin {
+  animation-delay: 0.15s;
+}
+
+.cell:nth-child(9) .back.begin {
+  animation-delay: 0.1s;
+}
+
+.cell:nth-child(10) .back.begin {
+  animation-delay: 0.2s;
+}
+
+.cell:nth-child(2) .back.begin {
+  animation-delay: 0.15s;
+}
+
+.cell:nth-child(6) .back.begin {
+  animation-delay: 0.1s;
+}
+
+.cell:nth-child(15) .back.begin {
+  animation-delay: 0.05s;
+}
+
+.cell:nth-child(1) .back.begin {
+  animation-delay: 0.15s;
+}
+
+.cell:nth-child(3) .back.begin {
+  animation-delay: 0.1s;
+}
+
+.cell:nth-child(7) .back.begin {
+  animation-delay: 0.05s;
+}
+
+.cell:nth-child(4) .back.begin {
+  animation-delay: 0;
+}
+
+@media (min-width: 640px) {  
+  .newGameButton {    
+    font-size: 1.3rem;    
+  }  
+}
+
+@media (min-width: 768px) {
+  .front,
+  .back,
+  .cell {
+    width: 11rem;
+    height: 11rem;
+  }
+  .board {
+    width: calc(4 * 11rem + 3 * 0.5rem);
+    grid-gap: 0.5rem;
+  }
+  .newGameButton {
+    background-size: 200px 100px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    width: 200px;
+    height: 100px;
+    image-rendering: pixelated;
+  }
+  .front,
+  .back {
+    border-width: 4px;
+    border-radius: 8px;
+  }
+}
+
+@keyframes show {
+  0% {
+    transform: scale(1);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: scale(0.8);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    animation-timing-function: cubic-bezier(0.3, 2.5, 0.39, 0.51);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: scale(1.1) rotateZ(-15deg);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: scale(1) rotateZ(0deg);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(1);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: scale(0.9);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dance {
+  0% {
+    transform: rotate3d(0) scale(1);
+    animation-timing-function: ease-out;
+  }
+  25% {
+    transform: rotate3d(1, 1, 1, -12deg) scale(0.9);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: rotate3d(0) scale(0.9);
+    animation-timing-function: ease-out;
+  }
+  75% {
+    transform: rotate3d(1, 1, 1, 12deg) scale(0.9);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: rotate3d(0) scale(1);
+  }
+}
+
+@keyframes shine {
+  50% {
+    border-color: gold;
+    box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.5);
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes unhide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(0);
+  }
+}
+
+@keyframes glow {
+  10% {
+    border-color: gold;
+    box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.5);
+  }
+  25% {
+    border-color: red;
+    box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    border-color: greenyellow;
+    box-shadow: 0 0 20px 5px rgba(173, 255, 47, 0.5);
+  }
+  75% {
+    border-color: rgb(255, 0, 255);
+    box-shadow: 0 0 20px 5px rgba(255, 0, 255, 0.5);
+  }
+  90% {
+    border-color: rgb(0, 247, 255);
+    box-shadow: 0 0 20px 5px rgba(0, 247, 255, 0.5);
+  }
+}
+
+@keyframes turn {
+  0% {
+    transform: rotateZ(0) scale(1);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: rotateZ(180deg) scale(0.5);
+  }
+  100% {
+    transform: rotateZ(360deg) scale(1);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
