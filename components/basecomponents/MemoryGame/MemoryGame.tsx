@@ -20,6 +20,29 @@ const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.rando
 const addBackroundColor = (cardsData: CardData[]) =>
   cardsData.map((item, i) => ({ ...item, color: `hsl(${(360 / cardsData.length) * i},50%,50%)` }));
 
+const createCardDeck = (cardsData: CardData[]) => {
+  // prepare and shuffle cards, pick 8 cards
+  const pickedCards = cardsData.sort(() => Math.random() - 0.5).slice(0, 8);
+  const coloredCards = addBackroundColor(pickedCards) as (CardData & { color: string })[];
+
+  return [
+    ...coloredCards.map((card, index) => ({
+      ...card,
+      image: card.image,
+      id: `card-other-${index}`,
+      flipped: false,
+      useMainLang: false,
+    })),
+    ...coloredCards.map((card, index) => ({
+      ...card,
+      image: card.image,
+      id: `card-main-${index}`,
+      flipped: false,
+      useMainLang: true,
+    })),
+  ].sort(() => Math.random() - 0.5);
+};
+
 const GAME_NARRATION_PHRASES = {
   cs: phrases_CS,
   sk: phrases_SK,
@@ -34,14 +57,21 @@ enum Scene {
   game = 'game',
   firstCardSelected = 'firstCardSelected',
   secondCardSelected = 'secondCardSelected',
-  resolveCards = 'resolveCards',
   cardsMatch = 'cardsMatch',
   cardsMatchReward = 'cardsMatchReward',
   cardsDontMatch = 'cardsDontMatch',
-  cardsDontMatchFlipBack = 'cardsDontMatchFlipBack',
   win = 'win',
   winReward = 'winReward',
   goNewGame = 'goNewGame',
+}
+
+enum Transition {
+  begin = 'begin',
+  game = 'game',
+  firstCardSelected = 'firstCardSelected',
+  secondCardSelected = 'secondCardSelected',
+  win = 'win',
+  restart = 'restart',
 }
 
 export type CardData = {
@@ -55,11 +85,6 @@ export type Card = CardData & {
   color: string;
   useMainLang: boolean;
 };
-
-interface SelectedCards {
-  first: Card | null;
-  second: Card | null;
-}
 
 export type Theme = {
   id: string;
@@ -77,341 +102,147 @@ interface MemoryGameProps {
   theme: Theme;
 }
 
-const createUseGame = () => {
-  interface State {
-    theme: Theme;
-    cards: Card[];
-    selectedCards: SelectedCards;
-    scene: Scene;
-    controlsEnabled: boolean;
+const MemoryGame = ({ theme }: MemoryGameProps) => {
+  const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase();
+  const { t } = useTranslation();
+  const [cards, setCards] = useState<Card[]>([]);
+  const { audio, image, styles, cardsData } = theme;
+
+  interface SelectedCards {
+    first: Card | null;
+    second: Card | null;
   }
 
-  let state: State | null = null;
+  const [selectedCards, setSelectedCards] = useState<SelectedCards>({ first: null, second: null });
 
-  const initializeState = (initState: State) => {
-    console.log('initialize state');
-    state = initState;
-    console.log(state);
-  };
+  const isSelected = (card: Card) =>
+    (selectedCards.first !== null && card.id === selectedCards.first.id) ||
+    (selectedCards.second !== null && card.id === selectedCards.second.id);
 
-  const setState = (func: (state: State) => State) => {
-    console.log('update state');
-    if (state === null) throw new Error('state not initialized');
-    state = { ...state, ...func(state) };
-    console.log(state);
-  };
-
-  const getState = () => {
-    if (state === null) throw new Error('state not initialized');
-    return state;
-  };
-
-  const [setTimer, clearTimers] = createTimer();
-
-  const isSelected = (card: Card) => {
-    const { selectedCards } = getState();
-    return (
-      (selectedCards.first !== null && card.id === selectedCards.first.id) ||
-      (selectedCards.second !== null && card.id === selectedCards.second.id)
-    );
-  };
-
-  const setCards = (cards: Card[]) => {
-    setState((state) => ({ ...state, cards }));
-  };
-
-  const setSelectedCards = (selectedCards: SelectedCards) => {
-    setState((state) => ({ ...state, selectedCards }));
-  };
-
-  const setScene = (scene: Scene) => {
-    setState((state) => ({ ...state, scene }));
-    updateUI();
-    sceneActions[scene]();
-  };
-
-  const disableControls = () => {
-    setState((state) => ({ ...state, controlsEnabled: false }));
-  };
-
-  const enableControls = () => {
-    setState((state) => ({ ...state, controlsEnabled: true }));
-  };
+  const [scene, setScene] = useState<Scene>(Scene.init);
+  const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
+  const [setTimer, clearTimers] = useMemo(createTimer, []);
 
   const flipCard = (cardToFlip: Card) => {
-    console.log('flipp card');
-    setCards(getState().cards.map((card) => (card.id === cardToFlip.id ? { ...card, flipped: !card.flipped } : card)));
+    setCards((cards) => cards.map((card) => (card.id === cardToFlip.id ? { ...card, flipped: !card.flipped } : card)));
   };
 
   const selectCard = (card: Card) => {
-    const state = getState();
-    if (!state.controlsEnabled || isSelected(card) || card.flipped) return;
+    if (controlsDisabled || isSelected(card) || card.flipped) return;
 
-    const { first, second } = state.selectedCards;
+    const { first, second } = selectedCards;
+    // select first card
     if (first === null && !card.flipped) {
-      setSelectedCards({ ...state.selectedCards, first: card });
-    } else if (second === null && !card.flipped) {
-      setSelectedCards({ ...state.selectedCards, second: card });
+      transitions[Transition.firstCardSelected](card);
+      // select second card
+    } else if (first !== null && second === null && !card.flipped) {
+      transitions[Transition.secondCardSelected]({ first, second: card });
     }
   };
 
-  const playCardPhrase = (card: Card) => {
-    Promise.resolve(card);
-  };
-  const playPhraseRandomLang = (card: { main: string; uk: string }) => {
-    Promise.resolve(card);
-  };
-
-  const prepareCards = (theme: Theme) => {
-    const { cardsData } = theme;
-    const pickedCards = cardsData.sort(() => Math.random() - 0.5).slice(0, 8);
-    const coloredCards = addBackroundColor(pickedCards) as (CardData & { color: string })[];
-
-    const cards = [
-      ...coloredCards.map((card, index) => ({
-        ...card,
-        image: card.image,
-        id: `card-other-${index}`,
-        flipped: false,
-        useMainLang: false,
-      })),
-      ...coloredCards.map((card, index) => ({
-        ...card,
-        image: card.image,
-        id: `card-main-${index}`,
-        flipped: false,
-        useMainLang: true,
-      })),
-    ].sort(() => Math.random() - 0.5);
-    return cards;
-  };
-
-  const initGame = (theme: Theme) => {
-    console.log('init game');
-    // init/replace game state with new data
-
-    const cards = prepareCards(theme);
-
-    const initState = {
-      theme,
-      cards,
-      selectedCards: { first: null, second: null },
-      scene: Scene.init,
-      controlsEnabled: false,
-    };
-
-    initializeState(initState);
-    updateUI(); // ???????????????????
-  };
-
-  const newGame = () => {
-    console.log('new game');
-    if (state === null) throw new Error('state not initialized');
-    initGame(state.theme);
-  };
-
-  const handleNewGameClick = () => {
-    console.log('new game click');
-    setScene(Scene.goNewGame);
-  };
-
-  const sceneActions: Record<Scene, () => void> = {
-    init: () => {
-      // begin new game automaticaly
-      // maybe after loading is complete
-      setScene(Scene.begin);
-    },
+  const transitions = {
     begin: () => {
-      // disable controls
-      disableControls();
-      // play css animations
+      setScene(Scene.begin);
+      setControlsDisabled(true);
+      setCards(createCardDeck(cardsData));
+      setSelectedCards({ first: null, second: null });
       setTimer(() => {
-        setScene(Scene.game);
+        transitions[Transition.game]();
       }, 1000);
     },
     game: () => {
-      // enable controls
-      enableControls();
-      updateUI();
+      setScene(Scene.game);
+      setControlsDisabled(false);
     },
-    firstCardSelected: async () => {
-      // disable controls
-      disableControls();
+    firstCardSelected: async (card: Card) => {
+      setControlsDisabled(true);
+      setSelectedCards({ first: card, second: null });
+      setScene(Scene.firstCardSelected);
       // play css animations and sounds
-      const { first: card } = getState().selectedCards;
-      if (!card) return;
       flipCard(card); // 0.3s
-      await playAudio(getState().theme.audio.cardFlipSound);
+      await playAudio(audio.cardFlipSound);
       playCardPhrase(card);
 
       setTimer(() => {
-        setScene(Scene.game);
+        transitions[Transition.game]();
       }, 600); // reduced for fastrer UX
     },
-    secondCardSelected: async () => {
-      // disable controls
-      disableControls();
+    secondCardSelected: async ({ first, second }: { first: Card; second: Card }) => {
+      setControlsDisabled(true);
+      setSelectedCards({ first, second });
+      setScene(Scene.secondCardSelected);
       // play css animations and sounds
-      const { second: card } = getState().selectedCards;
-      if (!card) return;
-      flipCard(card); // 0.3s
-      await playAudio(getState().theme.audio.cardFlipSound);
-      await playCardPhrase(card);
-      setScene(Scene.resolveCards);
-    },
-    resolveCards: () => {
-      const { first, second } = getState().selectedCards;
-      const cardsMatch = first?.image === second?.image;
+      flipCard(second); // 0.3s
+      await playAudio(audio.cardFlipSound);
+      await playCardPhrase(second);
+
+      const cardsMatch = first.image === second.image;
 
       if (cardsMatch) {
         setScene(Scene.cardsMatch);
+        delay(100);
+        await playAudio(audio.cardsMatchSound);
+        setScene(Scene.cardsMatchReward);
+        Math.random() > 0.5 && (await playPhraseRandomLang(getRandomElement(phrases.good)));
+        // reset selected cards
+        // check win
+        if (cards.every((card) => card.flipped)) {
+          transitions[Transition.win]();
+        } else {
+          setSelectedCards({ first: null, second: null });
+          transitions[Transition.game]();
+        }
       } else {
         setScene(Scene.cardsDontMatch);
-      }
-    },
-    cardsMatch: async () => {
-      // disable controls
-      disableControls();
-      // play css animations and sounds
-      // cardsMatch animation 0.7s
-      delay(100);
-      await playAudio(getState().theme.audio.cardsMatchSound); // sync to animation
-      setScene(Scene.cardsMatchReward);
-    },
-    cardsMatchReward: async () => {
-      // play css animations and sounds
-      Math.random() > 0.5 && (await playPhraseRandomLang(getRandomElement(phrases.good)));
-      // reset selected cards
-      // check win
-      if (getState().cards.every((card) => card.flipped)) {
-        setScene(Scene.win);
-      } else {
+        await delay(1000);
+        Math.random() > 0.8 && (await playPhraseRandomLang(getRandomElement(phrases.wrong)));
+        flipCard(first);
+        flipCard(second);
+        await playAudio(audio.cardFlipSound);
         setSelectedCards({ first: null, second: null });
-        setScene(Scene.game);
+        transitions[Transition.game]();
       }
-    },
-    cardsDontMatch: async () => {
-      disableControls();
-      // play animations and sounds
-      await delay(1000);
-      Math.random() > 0.8 && (await playPhraseRandomLang(getRandomElement(phrases.wrong)));
-
-      // setTimer: show cards for some time to remember then flip back
-      const { first, second } = getState().selectedCards;
-      if (!first || !second) return;
-      flipCard(first);
-      flipCard(second);
-      await playAudio(getState().theme.audio.cardFlipSound);
-      setSelectedCards({ first: null, second: null });
-      setScene(Scene.cardsDontMatchFlipBack);
-    },
-    cardsDontMatchFlipBack: () => {
-      // wait for cards flip back
-      setScene(Scene.game);
     },
     win: async () => {
-      // play css animations and sounds
+      setScene(Scene.win);
       await playPhraseRandomLang(getRandomElement(phrases.win));
       await delay(200);
       setScene(Scene.winReward);
+      playAudio(audio.winMusic);
     },
-    winReward: () => {
-      // play css animations and sounds
-      playAudio(getState().theme.audio.winMusic);
-    },
-    goNewGame: () => {
+    restart: async () => {
+      setControlsDisabled(true);
+      playPhraseRandomLang(getRandomElement(phrases.newGame));
+      setScene(Scene.goNewGame);
       clearTimers();
       setTimer(() => {
-        newGame();
-        setScene(Scene.begin);
+        transitions[Transition.begin]();
       }, 500);
     },
   };
 
-  interface Controls {
-    selectCard: (card: Card) => void;
-    isSelected: (card: Card) => boolean;
-    handleNewGameClick: () => void;
-  }
-
-  const controls = { selectCard, isSelected, handleNewGameClick };
-
-  interface Game {
-    state: State;
-    controls: Controls;
-  }
-
-  const getGame = () => (state === null ? null : { state, controls });
-
-  let uiCallback: null | (() => void) = null;
-  const connectUI = (func: () => void) => {
-    console.log('connect ui');
-    uiCallback = func;
-  };
-  const disconnectUI = () => (uiCallback = null);
-  const updateUI = () => {
-    if (uiCallback !== null) {
-      console.log('update ui');
-      uiCallback();
-    }
-  };
-
-  const useGame = (theme: Theme) => {
-    const [game, setGame] = useState<Game | null>(null);
-
-    useEffect(() => {
-      // connect ui -> setGame()
-      connectUI(() => setGame(getGame()));
-      return () => {
-        // disconnect ui
-        disconnectUI();
-      };
-    }, []);
-
-    useEffect(() => {
-      // init with new data
-      initGame(theme);
-      // start new game maybe
-    }, [theme]);
-
-    return game;
-  };
-
-  return useGame;
-};
-
-const useGame = createUseGame(/*input data?? maybe not*/);
-
-const MemoryGame = ({ theme }: MemoryGameProps) => {
-  const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase();
-  const { t } = useTranslation();
-  const { audio, image, styles, cardsData } = theme;
-
-  const game = useGame(theme);
-
-  if (game === null) return null;
+  useEffect(() => {
+    console.log('useEffect theme fired');
+    transitions[Transition.begin]();
+    // clean up
+    return () => {
+      clearTimers();
+    };
+  }, [theme]);
 
   return (
     <div className={styles.app}>
-      <Button
-        className={styles.newGameButton}
-        text={t('utils.new_game')}
-        onClick={() => {
-          playPhraseRandomLang(getRandomElement(phrases.newGame));
-          game.controls.handleNewGameClick();
-        }}
-      />
+      <Button className={styles.newGameButton} text={t('utils.new_game')} onClick={transitions[Transition.restart]} />
       <div className={styles.board}>
-        {game.state.scene !== Scene.init &&
-          game.state.cards !== null &&
-          game.state.cards.map((card) => (
+        {scene !== Scene.init &&
+          cards.map((card) => (
             <Card
               key={card.id}
-              onClick={game.controls.selectCard}
+              onClick={selectCard}
               card={card}
-              scene={game.state.scene}
+              scene={scene}
               styles={styles}
-              selected={game.controls.isSelected(card)}
+              selected={isSelected(card)}
               cardBackImage={image}
             />
           ))}
