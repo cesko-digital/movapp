@@ -112,7 +112,6 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
 
   const [scene, setScene] = useState<Scene>(Scene.init);
   const [controlsDisabled, setControlsDisabled] = useState<boolean>(true);
-  const [resetDisabled, setResetDisabled] = useState<boolean>(false);
   const [setTimer, clearTimers] = useMemo(createTimer, []);
 
   const flipCard = (cardToFlip: Card) => {
@@ -164,7 +163,6 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   };
 
   const cardsDontMatch = async ({ first, second }: { first: Card; second: Card }) => {
-    setResetDisabled(true);
     setScene(Scene.cardsDontMatch);
     await delay(1000);
     Math.random() > 0.8 && (await playPhraseRandomLang(getRandomElement(phrases.wrong)));
@@ -172,7 +170,6 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
     flipCard(second);
     setSelectedCards({ first: null, second: null });
     await playAudio(audio.cardFlipSound);
-    setResetDisabled(false);
     game();
   };
 
@@ -218,7 +215,6 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   }, [setTimer, cardsData]);
 
   const restart = async () => {
-    if (resetDisabled) return; // maybe play oink sound
     setControlsDisabled(true);
     playPhraseRandomLang(getRandomElement(phrases.newGame));
     setScene(Scene.goNewGame);
