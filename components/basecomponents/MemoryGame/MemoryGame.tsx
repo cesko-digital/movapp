@@ -121,10 +121,10 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
 
   const game = () => {
     setScene(Scene.game);
-    setControlsDisabled(false);    
+    setControlsDisabled(false);
   };
 
-  const win = async () => {    
+  const win = async () => {
     setScene(Scene.win);
     await playPhraseRandomLang(getRandomElement(phrases.win));
     await delay(200);
@@ -140,24 +140,25 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
     flipCard(card); // 0.3s
     await playAudio(audio.cardFlipSound);
     playCardPhrase(card);
-
     setTimer(() => {
       game();
     }, 600); // reduced for fastrer UX
   };
 
-  const cardsMatch = async () => {
+  const cardsMatch = async ({ first, second }: { first: Card; second: Card }) => {
     setScene(Scene.cardsMatch);
     delay(100);
     await playAudio(audio.cardsMatchSound);
     setScene(Scene.cardsMatchReward);
     Math.random() > 0.5 && (await playPhraseRandomLang(getRandomElement(phrases.good)));
     // reset selected cards
+    setSelectedCards({ first: null, second: null });
     // check win
-    if (cards.every((card) => card.flipped)) {
+    // not actual state, cards are not flipped ------- solutions: state outside app, zustand, state-pool, ommit selected cards from condition
+    const otherCards = cards.filter((card) => !(card.id === first.id || card.id === second.id)); // ommit lastly selected cards, their state is not updatet yet!!!
+    if (otherCards.every((card) => card.flipped)) {
       win();
     } else {
-      setSelectedCards({ first: null, second: null });
       game();
     }
   };
@@ -169,13 +170,14 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
     Math.random() > 0.8 && (await playPhraseRandomLang(getRandomElement(phrases.wrong)));
     flipCard(first);
     flipCard(second);
-    await playAudio(audio.cardFlipSound);
     setSelectedCards({ first: null, second: null });
+    await playAudio(audio.cardFlipSound);
     setResetDisabled(false);
     game();
   };
+
   const secondCardSelected = async ({ first, second }: { first: Card; second: Card }) => {
-    setControlsDisabled(true);    
+    setControlsDisabled(true);
     setSelectedCards({ first, second });
     setScene(Scene.secondCardSelected);
     // play css animations and sounds
@@ -185,11 +187,12 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
 
     // check if cards match
     if (first.image === second.image) {
-      cardsMatch();
+      cardsMatch({ first, second });
     } else {
       cardsDontMatch({ first, second });
     }
   };
+
   const selectCard = (card: Card) => {
     if (controlsDisabled || isSelected(card) || card.flipped) return;
 
