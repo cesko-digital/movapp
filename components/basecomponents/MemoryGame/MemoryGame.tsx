@@ -10,6 +10,7 @@ import phrases_SK from './memory-game-sk.json';
 import createTimer from './createTimer';
 import usePlayPhrase from './usePlayPhrase';
 import { AudioPlayer } from 'utils/AudioPlayer';
+import { create } from 'zustand';
 
 const playAudio = AudioPlayer.getInstance().playSrc;
 
@@ -93,11 +94,28 @@ interface MemoryGameProps {
   theme: Theme;
 }
 
+interface GameState {
+  id: number;
+  increaseId: () => void;
+  checkId: (prevId: number) => boolean;
+  resetId: () => void;
+}
+
+const useGameStore = create<GameState>((set, get) => ({
+  id: 0,
+  increaseId: () => set((state) => ({ id: state.id + 1 })),
+  checkId: (id) => get().id === id,
+  resetId: () => set({ id: 0 }),
+}));
+
 const MemoryGame = ({ theme }: MemoryGameProps) => {
   const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase();
   const { t } = useTranslation();
   const [cards, setCards] = useState<Card[]>([]);
   const { audio, image, styles, cardsData } = theme;
+  const increaseId = useGameStore((state) => state.increaseId);
+  const checkId = useGameStore((state) => state.checkId);
+  const gameId = useGameStore((state) => state.id);
 
   interface SelectedCards {
     first: Card | null;
@@ -166,6 +184,8 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
     setScene(Scene.cardsDontMatch);
     await delay(1000);
     Math.random() > 0.8 && (await playPhraseRandomLang(getRandomElement(phrases.wrong)));
+    // check if still in same game then setState
+    if (!checkId(gameId)) return;
     flipCard(first);
     flipCard(second);
     setSelectedCards({ first: null, second: null });
@@ -215,6 +235,7 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   }, [setTimer, cardsData]);
 
   const restart = async () => {
+    increaseId();
     setControlsDisabled(true);
     playPhraseRandomLang(getRandomElement(phrases.newGame));
     setScene(Scene.goNewGame);
@@ -229,9 +250,10 @@ const MemoryGame = ({ theme }: MemoryGameProps) => {
   }, [clearTimers]);
 
   useEffect(() => {
+    increaseId();
     clearTimers();
     begin();
-  }, [theme, begin, clearTimers]);
+  }, [theme, begin, clearTimers, increaseId]);
 
   return (
     <div className={styles.app}>
