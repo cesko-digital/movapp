@@ -29,6 +29,7 @@ const YoutubeLinkBanner = dynamic(() => import('../components/temporarycomponent
 const ChristmasBanner = dynamic(() => import('../components/temporarycomponents/ChristmasBanner'), { ssr: false });
 
 const DISPLAY_YOUTUBE_BANNER = false;
+const DISPLAY_CHRISTMAS_BANNER = false;
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
@@ -48,10 +49,10 @@ const Home: NextPage = () => {
           </h1>
         </div>
       )}
-      <ChristmasBanner />
+      {DISPLAY_CHRISTMAS_BANNER ? <ChristmasBanner /> : null}
       <div className="max-w-7xl m-auto px-2 sm:px-4">
         {/* Standard section */}
-        <div className="max-w-7xl bg-white p-4 sm:p-8 md:p-12 shadow-xxl mb-8">
+        <div className={'max-w-7xl bg-white p-4 sm:p-8 md:p-12 shadow-xxl mb-8 ' + (DISPLAY_CHRISTMAS_BANNER ? '' : 'mt-[-6rem]')}>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="homepage-box w-full group hover:text-primary-blue    pr-4 md:border-r-1 md:border-r-solid md:border-r-primary-grey">
               <DictionaryIcon className="w-6 mb-2 group-hover:fill-primary-red" />
