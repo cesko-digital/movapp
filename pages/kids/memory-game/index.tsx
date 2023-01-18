@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import SEO from 'components/basecomponents/SEO';
 import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
@@ -9,13 +9,7 @@ import defaultThemeStyles from '../../../components/basecomponents/MemoryGame/Th
 import taleThemeStyles from '../../../components/basecomponents/MemoryGame/Themes/MemoryGameTaleTheme.module.css';
 import xmasThemeStyles from '../../../components/basecomponents/MemoryGame/Themes/MemoryGameXmasTheme.module.css';
 import getCardsData from '../../../components/basecomponents/MemoryGame/getCardsData';
-import styles from '../../../components/basecomponents/MemoryGame/MemoryGameThemeLoader.module.css';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
-
-const MemoryGame = dynamic(() => import('components/basecomponents/MemoryGame/MemoryGame'), {
-  ssr: false,
-});
 
 const useThemes = (dictionary: DictionaryDataObject) => {
   const themes = useMemo(() => {
@@ -73,10 +67,13 @@ const useThemes = (dictionary: DictionaryDataObject) => {
   return themes;
 };
 
+const MemoryGame = dynamic(() => import('components/basecomponents/MemoryGame/MemoryGame'), {
+  ssr: false,
+});
+
 const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
   const themes = useThemes(dictionary);
-  const [currentTheme, setCurrentTheme] = useState(themes[2]);
 
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
@@ -86,18 +83,7 @@ const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getSta
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap flex-col items-center min-h-screen m-auto sm:py-10 py-2 px-2 sm:px-4 overflow-hidden">
-        <div className={styles.app}>
-          {/* Theme selection */}
-          <div className={styles.themeNav}>
-            {themes.map((theme) => (
-              <div key={theme.id} className={styles.themeButton} onClick={() => setCurrentTheme(theme)}>
-                <Image src={theme.image} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
-              </div>
-            ))}
-          </div>
-          {/* Main game component */}
-          <MemoryGame theme={currentTheme} />
-        </div>
+        <MemoryGame themes={themes} />
       </div>
     </div>
   );
