@@ -83,7 +83,6 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
       <SEO
         title={t(`seo.dictionary_page_title.${getCountryVariant()}`)}
         description={t(`seo.dictionary_page_description.${getCountryVariant()}`)}
-        image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
       <div>
         <div className="max-w-7xl m-auto ">

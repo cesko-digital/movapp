@@ -38,7 +38,6 @@ const Home: NextPage = () => {
       <SEO
         title={t(`seo.homepage_page_title.${getCountryVariant()}`)}
         description={t(`seo.homepage_page_description.${getCountryVariant()}`)}
-        image="https://www.movapp.cz/icons/movapp-cover.jpg"
       />
       {DISPLAY_YOUTUBE_BANNER ? (
         <YoutubeLinkBanner />
