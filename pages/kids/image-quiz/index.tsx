@@ -18,8 +18,9 @@ import { shuffle } from 'utils/collectionUtils';
 
 interface ImageContainerProps {
   phrase: Phrase;
-  onClick: (e: React.MouseEvent, phrase: Phrase, correct: boolean) => void;
+  onClick: (phrase: Phrase, correct: boolean) => Promise<void>;
   correct: boolean;
+  disabled: boolean;
 }
 
 const CHOICES_COUNT = 3;
@@ -44,6 +45,7 @@ const ImageQuizSection = ({ dictionary }: InferGetStaticPropsType<typeof getStat
   const [correctIndex, setCorrectIndex] = useState(getRandomIndex);
   const { t } = useTranslation();
   const { currentLanguage, otherLanguage } = useLanguage();
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     // force the state to only be set on the client-side, so no mismatches will occur.
@@ -59,24 +61,22 @@ const ImageQuizSection = ({ dictionary }: InferGetStaticPropsType<typeof getStat
 
   const playSounds = async (phrase: Phrase, key: 'good' | 'wrong', sound: Sound.Match | Sound.DontMatch) => {
     const narrationPhrase = narrationPhrases[key][getRandomIndex(narrationPhrases[key].length)];
-    await AudioPlayer.getInstance().playSrc(sound);
+    const player: AudioPlayer = AudioPlayer.getInstance();
+    await player.playSrc(sound);
     await playPhrase(phrase);
-    await AudioPlayer.getInstance().playTextToSpeech(
-      new Phrase_deprecated(narrationPhrase).getTranslation(currentLanguage),
-      currentLanguage
-    );
+    return player.playTextToSpeech(new Phrase_deprecated(narrationPhrase).getTranslation(currentLanguage), currentLanguage);
   };
 
-  const handleClick = (e: React.MouseEvent, phrase: Phrase, correct: boolean) => {
+  const handleClick = async (phrase: Phrase, correct: boolean) => {
+    setDisabled(true);
     if (correct) {
-      playSounds(phrase, 'good', Sound.Match);
-      setTimeout(() => {
-        setRandomPhrases(shuffle(kidsCategory?.translations, CHOICES_COUNT));
-        setCorrectIndex(getRandomIndex());
-      }, 5_000);
+      await playSounds(phrase, 'good', Sound.Match);
+      setRandomPhrases(shuffle(kidsCategory?.translations, CHOICES_COUNT));
+      setCorrectIndex(getRandomIndex());
     } else {
-      playSounds(phrase, 'wrong', Sound.DontMatch);
+      await playSounds(phrase, 'wrong', Sound.DontMatch);
     }
+    setDisabled(false);
   };
 
   if (!randomPhrases?.[correctIndex]) {
@@ -102,7 +102,13 @@ const ImageQuizSection = ({ dictionary }: InferGetStaticPropsType<typeof getStat
         <div className="grid grid-cols-3 gap-2 sm:gap-6 w-3/4">
           {randomPhrases.map((phrase, index) => {
             return (
-              <ImageContainer key={phrase.getTranslation('uk')} phrase={phrase} onClick={handleClick} correct={index === correctIndex} />
+              <ImageContainer
+                key={phrase.getTranslation('uk')}
+                phrase={phrase}
+                onClick={handleClick}
+                correct={index === correctIndex}
+                disabled={disabled}
+              />
             );
           })}
         </div>
@@ -111,17 +117,21 @@ const ImageQuizSection = ({ dictionary }: InferGetStaticPropsType<typeof getStat
   );
 };
 
-const ImageContainer = ({ phrase, onClick, correct }: ImageContainerProps): JSX.Element => {
+const ImageContainer = ({ phrase, onClick, correct, disabled }: ImageContainerProps): JSX.Element => {
   const { otherLanguage } = useLanguage();
   const [className, setClassName] = useState('');
 
   return (
     <div
       className={`aspect-square w-full rounded-2xl overflow-hidden shadow-xl bg-white ${className}`}
-      onClick={(e) => {
-        setClassName(correct ? styles.match : styles.dontMatch);
-        onClick(e, phrase, correct);
-      }}
+      onClick={
+        !disabled
+          ? () => {
+              setClassName(correct ? styles.match : styles.dontMatch);
+              onClick(phrase, correct);
+            }
+          : undefined
+      }
       onAnimationEnd={() => setClassName('')}
     >
       <button className={'w-full h-full relative'}>
