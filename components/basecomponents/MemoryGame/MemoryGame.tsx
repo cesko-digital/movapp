@@ -112,7 +112,7 @@ interface GameStore {
   scene: Scene;
   controlsDisabled: boolean;
   init: (themes: Theme[]) => void;
-  restart: () => void;
+  restart: (playPhrase: PlayPhraseRandomLang) => () => void;
   changeTheme: (index: number) => void;
   selectCard: (playCardPhrase: PlayCardPhrase, playPhraseRandomLang: PlayPhraseRandomLang) => (card: Card) => void;
   isSelected: (card: Card) => boolean;
@@ -155,12 +155,15 @@ const useGameStore = create<GameStore>((set, get) => {
     setTimer(game, 1000);
   };
 
-  const restart = () => {
-    clearTimers();
-    increaseId();
-    disableControls();
-    setScene(Scene.goNewGame);
-    setTimer(begin, 500);
+  const restart = (PlayPhraseRandomLang: PlayPhraseRandomLang) => {
+    return () => {
+      clearTimers();
+      increaseId();
+      disableControls();
+      setScene(Scene.goNewGame);
+      PlayPhraseRandomLang(getRandomElement(phrases.newGame));
+      setTimer(begin, 500);
+    };
   };
 
   const changeTheme = (index: number) => {
@@ -251,7 +254,7 @@ const useGameStore = create<GameStore>((set, get) => {
     game();
   };
 
-  // try catch, 
+  // try catch,
 
   const win = async (playPhraseRandomLang: PlayPhraseRandomLang) => {
     setScene(Scene.win);
@@ -279,7 +282,7 @@ const useGameStore = create<GameStore>((set, get) => {
 });
 
 const MemoryGame = ({ themes }: MemoryGameProps) => {
-  const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase();
+  const { playCardPhrase, playPhraseRandomLang, playPhraseCurrentLang } = usePlayPhrase();
   const { t } = useTranslation();
   const init = useGameStore((state) => state.init);
   const cards = useGameStore((state) => state.cards);
@@ -287,7 +290,7 @@ const MemoryGame = ({ themes }: MemoryGameProps) => {
   const changeTheme = useGameStore((state) => state.changeTheme);
   const selectCard = useGameStore((state) => state.selectCard)(playCardPhrase, playPhraseRandomLang);
   const isSelected = useGameStore((state) => state.isSelected);
-  const restart = useGameStore((state) => state.restart);
+  const restart = useGameStore((state) => state.restart)(playPhraseCurrentLang);
   const scene = useGameStore((state) => state.scene);
 
   useEffect(() => {
