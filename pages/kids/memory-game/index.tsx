@@ -9,7 +9,7 @@ import defaultThemeStyles from '../../../components/basecomponents/MemoryGame/Th
 import taleThemeStyles from '../../../components/basecomponents/MemoryGame/Themes/MemoryGameTaleTheme.module.css';
 import xmasThemeStyles from '../../../components/basecomponents/MemoryGame/Themes/MemoryGameXmasTheme.module.css';
 import getCardsData from '../../../components/basecomponents/MemoryGame/getCardsData';
-import dynamic from 'next/dynamic';
+import MemoryGame from 'components/basecomponents/MemoryGame/MemoryGame';
 
 const useThemes = (dictionary: DictionaryDataObject) => {
   const themes = useMemo(() => {
@@ -67,10 +67,6 @@ const useThemes = (dictionary: DictionaryDataObject) => {
   return themes;
 };
 
-const MemoryGame = dynamic(() => import('components/basecomponents/MemoryGame/MemoryGame'), {
-  ssr: false,
-});
-
 const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation();
   const themes = useThemes(dictionary);
@@ -82,7 +78,7 @@ const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getSta
         description={t(`seo.kids_page_memorygame_description.${getCountryVariant()}`)}
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
-      <div className="flex flex-wrap flex-col items-center min-h-screen m-auto sm:py-10 py-2 px-2 sm:px-4 overflow-hidden">
+      <div className="flex flex-wrap flex-col items-center min-h-screen m-auto sm:py-10 py-2 px-2 sm:px-4 overflow-hidden">        
         <MemoryGame themes={themes} />
       </div>
     </div>
