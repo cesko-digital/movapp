@@ -13,7 +13,6 @@ import { AudioPlayer } from 'utils/AudioPlayer';
 import { create } from 'zustand';
 import loaderStyles from './MemoryGameThemeLoader.module.css';
 import Image from 'next/image';
-// import gsap from 'gsap';
 import anime from 'animejs';
 
 const playAudio = (str: string) => AudioPlayer.getInstance().playSrc(str);
@@ -201,9 +200,6 @@ const useGameStore = create<GameStore>((set, get) => {
     const { audio } = getCurrentTheme();
     set({ selectedCards: { first: card, second: null } });
     flipCard(card); // 0.3s
-    console.log(get().buttonRef);
-    console.log(getCurrentTheme().styles.newGameButton);
-    // gsap.to(`.${getCurrentTheme().styles.newGameButton}`, { opacity: 0.1, duration: 1 });
     anime({ targets: get().buttonRef, opacity: 0.1, duration: 1500 });
     await playAudio(audio.cardFlipSound);
     playCardPhrase(card);
@@ -307,7 +303,6 @@ const MemoryGame = ({ themes }: MemoryGameProps) => {
 
   const buttonRef = useCallback((buttonNode) => {
     if (buttonNode === null) return;
-    // console.log(buttonNode);
     setButtonRef(buttonNode);
   }, []);
 
