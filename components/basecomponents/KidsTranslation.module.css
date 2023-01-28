@@ -1,0 +1,22 @@
+.playIcon > path:nth-of-type(1) {
+  fill: #f4767a;
+  stroke: #454b53;
+}
+.playIcon > path:nth-of-type(2) {
+  fill: #f2c8ca;
+  stroke: #454b53;
+}
+
+.pulse > path:nth-of-type(1) {
+  animation: pulse 1s infinite;
+}
+
+.pulse > path:nth-of-type(2) {
+  fill: #454b53;
+}
+
+@keyframes pulse {
+  50% {
+    filter: drop-shadow(0px 0px 1px #454b53);
+  }
+}

@@ -1,9 +1,10 @@
 import { useTranslation, Trans } from 'next-i18next';
 import React, { useCallback, useState } from 'react';
-import PlayKidsIcon from '../../public/icons/play-kids.svg';
+import PlayKidsIcon from '../../public/icons/play.svg';
 import { Language } from '../../utils/locales';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { Flag } from './Flag';
+import styles from './KidsTranslation.module.css';
 interface KidsTranslationProps {
   translation: string;
   transcription: string;
@@ -15,10 +16,12 @@ export const KidsTranslation = ({ transcription, translation, language, soundUrl
   const { t } = useTranslation();
   const [isPlaying, setIsPlaying] = useState(false);
   const handleClick = useCallback(async () => {
-    setIsPlaying(true);
-    await AudioPlayer.getInstance().playSrc(soundUrl);
-    setIsPlaying(false);
-  }, [soundUrl]);
+    if (!isPlaying) {
+      setIsPlaying(true);
+      await AudioPlayer.getInstance().playSrc(soundUrl);
+      setIsPlaying(false);
+    }
+  }, [isPlaying, soundUrl]);
 
   return (
     <div className="flex justify-between items-center py-2 ">
@@ -33,7 +36,9 @@ export const KidsTranslation = ({ transcription, translation, language, soundUrl
         <p className="text-gray-500">{`[ ${transcription} ]`}</p>
       </div>
       <button onClick={handleClick} aria-label={t('utils.play') + ' ' + translation}>
-        <PlayKidsIcon className={`cursor-pointer active:scale-75 transition-all duration-300 ${isPlaying ? 'animate-pulse' : ''}`} />
+        <PlayKidsIcon
+          className={`cursor-pointer active:scale-75 transition-all duration-300 w-14 ${styles.playIcon} ${isPlaying ? styles.pulse : ''}`}
+        />
       </button>
     </div>
   );
