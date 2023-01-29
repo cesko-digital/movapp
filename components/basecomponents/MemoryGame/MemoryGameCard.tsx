@@ -8,18 +8,19 @@ import { useGameStore } from './MemoryGame';
 
 interface MemoryGameCardProps {
   card: Card;
-  scene: string;
+  // scene: string;
   styles: Record<string, string>;
   cardBackImage: string;
 }
 
-const MemoryGameCard = ({ card, cardBackImage, scene, styles }: MemoryGameCardProps) => {
+const MemoryGameCard = ({ card, cardBackImage, styles }: MemoryGameCardProps) => {
   const { currentLanguage } = useLanguage();
-  const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase();
+  const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase(); // calling hooks in every card ... does it hurt performance?
   const setCardFrontRef = useGameStore((state) => state.setCardFrontRef);
   const setCardBackRef = useGameStore((state) => state.setCardBackRef);
   const selectCard = useGameStore((state) => state.selectCard)(playCardPhrase, playPhraseRandomLang);
   const isSelected = useGameStore((state) => state.isSelected);
+  const scene = useGameStore((state) => state.scene);
 
   console.log('rerednder');
 

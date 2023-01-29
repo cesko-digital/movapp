@@ -302,9 +302,10 @@ const MemoryGame = ({ themes }: MemoryGameProps) => {
   const { t } = useTranslation();
   const init = useGameStore((state) => state.init);
   const cards = useGameStore((state) => state.cards);
-  const theme = useGameStore((state) => state.getCurrentTheme());
+  const theme = useGameStore((state) => state.getCurrentTheme)();
   const changeTheme = useGameStore((state) => state.changeTheme);
-  const restart = useGameStore((state) => state.restart)(playPhraseCurrentLang);
+  const restart = useGameStore((state) => state.restart)(playPhraseCurrentLang); // better causes less rerenders
+  // const restart = useGameStore((state) => state.restart(playPhraseCurrentLang)); // difference is probably WHEN is function executed
   const scene = useGameStore((state) => state.scene);
   const setButtonRef = useGameStore((state) => state.setButtonRef);
 
@@ -336,7 +337,7 @@ const MemoryGame = ({ themes }: MemoryGameProps) => {
         <Button ref={buttonRef} className={styles.newGameButton} text={t('utils.new_game')} onClick={restart} />
         <div className={styles.board}>
           {scene !== Scene.init &&
-            cards.map((card) => <Card key={card.id} card={card} scene={scene} styles={styles} cardBackImage={image} />)}
+            cards.map((card) => <Card key={card.id} card={card} styles={styles} cardBackImage={image} />)}
         </div>
       </div>
     </div>
