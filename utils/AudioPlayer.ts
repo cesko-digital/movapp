@@ -8,6 +8,7 @@ import { Language } from './locales';
 export class AudioPlayer {
   private static instance: AudioPlayer | null = null;
   currentAudio: HTMLAudioElement = new Audio();
+  resolveCurrentAudio: (() => void) | null = null;
 
   // Prohibits creating new instances outside the class using 'new AudioPlayer()'
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -31,10 +32,12 @@ export class AudioPlayer {
 
   playSrc = (src: string) => {
     this.currentAudio.pause();
+    if (this.resolveCurrentAudio !== null) this.resolveCurrentAudio();
     this.currentAudio.src = src;
     this.currentAudio.load();
 
     return new Promise<void>((resolve) => {
+      this.resolveCurrentAudio = resolve;
       this.currentAudio.oncanplay = () => {
         this.currentAudio.play().catch(() => {
           resolve();
