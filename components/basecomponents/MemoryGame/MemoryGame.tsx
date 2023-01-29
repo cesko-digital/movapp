@@ -24,25 +24,29 @@ const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.rando
 const addBackroundColor = (cardsData: CardData[]) =>
   cardsData.map((item, i) => ({ ...item, color: `hsl(${(360 / cardsData.length) * i},50%,50%)` }));
 
-export const createCardDeck = (cardsData: CardData[]) => {
+export const createCardDeck = (cardsData: CardData[], GameId: number) => {
   // prepare and shuffle cards, pick 8 cards
   const pickedCards = cardsData.sort(() => Math.random() - 0.5).slice(0, 8);
   const coloredCards = addBackroundColor(pickedCards) as (CardData & { color: string })[];
 
   return [
-    ...coloredCards.map((card, index) => ({
+    ...coloredCards.map((card) => ({
       ...card,
       image: card.image,
-      id: `card-other-${index}`,
+      id: `${GameId}-card-other-${card.image}`,
       flipped: false,
       useMainLang: false,
+      frontRef: null,
+      backRef: null,
     })),
-    ...coloredCards.map((card, index) => ({
+    ...coloredCards.map((card) => ({
       ...card,
       image: card.image,
-      id: `card-main-${index}`,
+      id: `${GameId}-card-main-${card.image}`,
       flipped: false,
       useMainLang: true,
+      frontRef: null,
+      backRef: null,
     })),
   ].sort(() => Math.random() - 0.5);
 };
@@ -80,6 +84,8 @@ export type Card = CardData & {
   flipped: boolean;
   color: string;
   useMainLang: boolean;
+  frontRef: React.LegacyRef<HTMLDivElement> | null;
+  backRef: React.LegacyRef<HTMLDivElement> | null;
 };
 
 export type Theme = {
@@ -107,7 +113,6 @@ interface GameStore {
   id: number;
   themes: Theme[];
   currentThemeIndex: number;
-  getCurrentTheme: () => Theme;
   cards: Card[];
   selectedCards: SelectedCards;
   scene: Scene;
@@ -115,23 +120,26 @@ interface GameStore {
   init: (themes: Theme[]) => void;
   restart: (playPhrase: PlayPhraseRandomLang) => () => void;
   changeTheme: (index: number) => void;
+  getCurrentTheme: () => Theme;
   selectCard: (playCardPhrase: PlayCardPhrase, playPhraseRandomLang: PlayPhraseRandomLang) => (card: Card) => void;
-  isSelected: (card: Card) => boolean;
+  isSelected: (cardId: Card['id']) => boolean;
+  setCardFrontRef: (cardId: Card['id'], ref: React.LegacyRef<HTMLDivElement>) => void;
+  setCardBackRef: (cardId: Card['id'], ref: React.LegacyRef<HTMLDivElement>) => void;
   setButtonRef: (ref: React.Ref<HTMLButtonElement>) => void;
   buttonRef: React.Ref<HTMLButtonElement> | null;
 }
 
-const useGameStore = create<GameStore>((set, get) => {
+export const useGameStore = create<GameStore>((set, get) => {
   const [setTimer, clearTimers] = createTimer();
   const setScene = (scene: Scene) => set({ scene });
   const disableControls = () => set({ controlsDisabled: true });
   const enableControls = () => set({ controlsDisabled: false });
-  const isSelected = (card: Card) => {
+  const isSelected = (cardId: Card['id']) => {
     const { first, second } = get().selectedCards;
-    return (first !== null && card.id === first.id) || (second !== null && card.id === second.id);
+    return (first !== null && cardId === first.id) || (second !== null && cardId === second.id);
   };
-  const flipCard = (cardToFlip: Card) =>
-    set((state) => ({ cards: state.cards.map((card) => (card.id === cardToFlip.id ? { ...card, flipped: !card.flipped } : card)) }));
+  const flipCard = (cardId: Card['id']) =>
+    set((state) => ({ cards: state.cards.map((card) => (card.id === cardId ? { ...card, flipped: !card.flipped } : card)) }));
 
   const increaseId = () => set((state) => ({ id: state.id + 1 }));
   const createIdCheck = (id: number) => () => get().id === id;
@@ -142,16 +150,13 @@ const useGameStore = create<GameStore>((set, get) => {
     clearTimers();
     increaseId();
     disableControls();
-    set(() => {
-      const currentThemeIndex = 2;
-      return { themes, currentThemeIndex };
-    });
+    set({ themes, currentThemeIndex: 2 });
     begin();
   };
 
   const begin = () => {
     set((state) => ({
-      cards: createCardDeck(state.themes[state.currentThemeIndex].cardsData),
+      cards: createCardDeck(state.themes[state.currentThemeIndex].cardsData, get().id),
       selectedCards: { first: null, second: null },
       scene: Scene.begin,
     }));
@@ -186,8 +191,9 @@ const useGameStore = create<GameStore>((set, get) => {
   };
 
   const selectCard = (playCardPhrase: PlayCardPhrase, playPhraseRandomLang: PlayPhraseRandomLang) => async (card: Card) => {
-    if (get().controlsDisabled || isSelected(card) || card.flipped) return;
+    if (get().controlsDisabled || isSelected(card.id) || card.flipped) return;
     disableControls();
+    anime({ targets: card.backRef, opacity: 0.5 });    
     const { first, second } = get().selectedCards;
     if (first === null && !card.flipped) {
       selectFirstCard(card, playCardPhrase);
@@ -199,7 +205,7 @@ const useGameStore = create<GameStore>((set, get) => {
   const selectFirstCard = async (card: Card, playCardPhrase: PlayCardPhrase) => {
     const { audio } = getCurrentTheme();
     set({ selectedCards: { first: card, second: null } });
-    flipCard(card); // 0.3s
+    flipCard(card.id); // 0.3s
     anime({ targets: get().buttonRef, opacity: 0.1, duration: 1500 });
     await playAudio(audio.cardFlipSound);
     playCardPhrase(card);
@@ -212,7 +218,7 @@ const useGameStore = create<GameStore>((set, get) => {
     const { audio } = getCurrentTheme();
     const first = get().selectedCards.first;
     set({ selectedCards: { first, second: card } });
-    flipCard(card); // 0.3s
+    flipCard(card.id); // 0.3s
     await playAudio(audio.cardFlipSound);
     await playCardPhrase(card);
     // check if cards match
@@ -250,8 +256,8 @@ const useGameStore = create<GameStore>((set, get) => {
     // check if still in same game then setState
     if (!checkId()) return;
     if (first === null || second === null) return;
-    flipCard(first);
-    flipCard(second);
+    flipCard(first.id);
+    flipCard(second.id);
     set({ selectedCards: { first: null, second: null } });
     await playAudio(audio.cardFlipSound);
     if (!checkId()) return;
@@ -283,28 +289,32 @@ const useGameStore = create<GameStore>((set, get) => {
     selectCard,
     controlsDisabled: true,
     setButtonRef: (buttonRef) => set({ buttonRef }),
+    setCardFrontRef: (cardId, frontRef) =>
+      set((state) => ({ cards: state.cards.map((card) => (card.id === cardId ? { ...card, frontRef } : card)) })),
+    setCardBackRef: (cardId, backRef) =>
+      set((state) => ({ cards: state.cards.map((card) => (card.id === cardId ? { ...card, backRef } : card)) })),
     buttonRef: null,
   };
 });
 
-const setButtonRef = useGameStore.getState().setButtonRef;
-
 const MemoryGame = ({ themes }: MemoryGameProps) => {
-  const { playCardPhrase, playPhraseRandomLang, playPhraseCurrentLang } = usePlayPhrase();
+  const { playPhraseCurrentLang } = usePlayPhrase();
   const { t } = useTranslation();
   const init = useGameStore((state) => state.init);
   const cards = useGameStore((state) => state.cards);
   const theme = useGameStore((state) => state.getCurrentTheme());
   const changeTheme = useGameStore((state) => state.changeTheme);
-  const selectCard = useGameStore((state) => state.selectCard)(playCardPhrase, playPhraseRandomLang);
-  const isSelected = useGameStore((state) => state.isSelected);
   const restart = useGameStore((state) => state.restart)(playPhraseCurrentLang);
   const scene = useGameStore((state) => state.scene);
+  const setButtonRef = useGameStore((state) => state.setButtonRef);
 
-  const buttonRef = useCallback((buttonNode) => {
-    if (buttonNode === null) return;
-    setButtonRef(buttonNode);
-  }, []);
+  const buttonRef = useCallback(
+    (buttonNode) => {
+      if (buttonNode === null) return;
+      setButtonRef(buttonNode);
+    },
+    [setButtonRef]
+  );
 
   useEffect(() => {
     init(themes);
@@ -318,7 +328,7 @@ const MemoryGame = ({ themes }: MemoryGameProps) => {
       <div className={loaderStyles.themeNav}>
         {themes.map((theme, index) => (
           <div key={theme.id} className={loaderStyles.themeButton} onClick={() => changeTheme(index)}>
-            <Image src={theme.image} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
+            <Image src={theme.image} layout="fill" sizes="25vw" objectFit="cover" alt="card back" priority />
           </div>
         ))}
       </div>
@@ -326,17 +336,7 @@ const MemoryGame = ({ themes }: MemoryGameProps) => {
         <Button ref={buttonRef} className={styles.newGameButton} text={t('utils.new_game')} onClick={restart} />
         <div className={styles.board}>
           {scene !== Scene.init &&
-            cards.map((card) => (
-              <Card
-                key={card.id}
-                onClick={selectCard}
-                card={card}
-                scene={scene}
-                styles={styles}
-                selected={isSelected(card)}
-                cardBackImage={image}
-              />
-            ))}
+            cards.map((card) => <Card key={card.id} card={card} scene={scene} styles={styles} cardBackImage={image} />)}
         </div>
       </div>
     </div>
