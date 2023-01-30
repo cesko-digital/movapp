@@ -69,7 +69,7 @@ const MemoryGameSection = ({ dictionary }: InferGetStaticPropsType<typeof getSta
           <div className={styles.themeNav}>
             {themes.map((theme) => (
               <div key={theme.id} className={styles.themeButton} onClick={() => setCurrentTheme(theme)}>
-                <Image src={theme.image} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
+                <Image src={theme.image} layout="fill" sizes="33vw" objectFit="cover" alt="card back" priority />
               </div>
             ))}
           </div>

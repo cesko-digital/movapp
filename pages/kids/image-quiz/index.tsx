@@ -125,7 +125,7 @@ const ImageContainer = ({ phrase, onClick, correct }: ImageContainerProps): JSX.
       onAnimationEnd={() => setClassName('')}
     >
       <button className={'w-full h-full relative'}>
-        <Image src={phrase.getImageUrl() ?? ''} layout="fill" sizes="100%" objectFit="cover" alt={phrase.getTranslation(otherLanguage)} />
+        <Image src={phrase.getImageUrl() ?? ''} layout="fill" sizes="33vw" objectFit="cover" alt={phrase.getTranslation(otherLanguage)} />
       </button>
     </div>
   );
