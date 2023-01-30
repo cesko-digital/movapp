@@ -3,10 +3,11 @@ import { Button } from 'components/basecomponents/Button';
 import { useTranslation } from 'next-i18next';
 import Card from './MemoryGameCard';
 import { TranslationJSON } from 'utils/Phrase_deprecated';
-import { getCountryVariant } from 'utils/locales';
-import { Phrase } from 'utils/getDataUtils';
+import { DictionaryDataObject, Phrase } from 'utils/getDataUtils';
 import createTimer from './createTimer';
 import usePlayPhrase from './usePlayPhrase';
+import getThemes from './getThemes';
+import getNarratorPhrases from './getNarratorPhrases';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { create } from 'zustand';
 import loaderStyles from './MemoryGameThemeLoader.module.css';
@@ -51,7 +52,7 @@ export const createCardDeck = (phrases: Phrase[], gameId: number) => {
   ].sort(() => Math.random() - 0.5);
 };
 
-type PlayPhraseRandomLang = (phrase: TranslationJSON) => Promise<void>;
+type PlayPhrase = (phrase: Phrase) => Promise<void>;
 
 export enum Scene {
   init = 'init',
@@ -100,28 +101,28 @@ export interface SelectedCards {
 }
 
 interface MemoryGameProps {
-  themes: Theme[];
-  narratorPhrases: Record<string, Phrase[]>;
+  dictionary: DictionaryDataObject;
 }
 
-interface GameStore {
+export interface GameStore {
   id: number;
   themes: Theme[];
+  narratorPhrases: Record<string, Phrase[]>;
   currentThemeIndex: number;
   cards: Card[];
   selectedCards: SelectedCards;
   scene: Scene;
   controlsDisabled: boolean;
-  init: (themes: Theme[]) => void;
-  restart: (playPhrase: PlayPhraseRandomLang) => () => void;
+  buttonRef: React.Ref<HTMLButtonElement> | null;
+  init: (dictionary: DictionaryDataObject) => void;
+  restart: (playPhrase: PlayPhrase) => () => void;
+  getTheme: () => Theme;
   changeTheme: (index: number) => void;
-  getCurrentTheme: () => Theme;
-  selectCard: (playPhraseRandomLang: PlayPhraseRandomLang) => (card: Card) => void;
+  selectCard: (playPhraseRandomLang: PlayPhrase) => (card: Card) => void;
   isSelected: (cardId: Card['id']) => boolean;
   setCardFrontRef: (cardId: Card['id'], ref: React.LegacyRef<HTMLDivElement>) => void;
   setCardBackRef: (cardId: Card['id'], ref: React.LegacyRef<HTMLDivElement>) => void;
   setButtonRef: (ref: React.Ref<HTMLButtonElement>) => void;
-  buttonRef: React.Ref<HTMLButtonElement> | null;
 }
 
 export const useGameStore = create<GameStore>((set, get) => {
@@ -141,14 +142,6 @@ export const useGameStore = create<GameStore>((set, get) => {
 
   const getCurrentTheme = () => get().themes[get().currentThemeIndex];
 
-  const init = (themes: Theme[]) => {
-    clearTimers();
-    increaseId();
-    disableControls();
-    set({ themes, currentThemeIndex: 2 });
-    begin();
-  };
-
   const begin = () => {
     set((state) => ({
       cards: createCardDeck(state.themes[state.currentThemeIndex].phrases, get().id),
@@ -158,43 +151,9 @@ export const useGameStore = create<GameStore>((set, get) => {
     setTimer(game, 1000);
   };
 
-  const restart = (PlayPhraseRandomLang: PlayPhraseRandomLang) => {
-    return () => {
-      clearTimers();
-      increaseId();
-      disableControls();
-      setScene(Scene.goNewGame);
-      PlayPhraseRandomLang(getRandomElement(phrases.newGame));
-      setTimer(begin, 500);
-    };
-  };
-
-  const changeTheme = (index: number) => {
-    clearTimers();
-    increaseId();
-    disableControls();
-    setScene(Scene.goNewGame);
-    setTimer(() => {
-      set({ currentThemeIndex: index });
-      begin();
-    }, 500);
-  };
-
   const game = () => {
     setScene(Scene.game);
     enableControls();
-  };
-
-  const selectCard = (playPhraseRandomLang: PlayPhraseRandomLang) => async (card: Card) => {
-    if (get().controlsDisabled || isSelected(card.id) || card.flipped) return;
-    disableControls();
-    anime({ targets: card.backRef, opacity: 0.5 });
-    const { first, second } = get().selectedCards;
-    if (first === null && !card.flipped) {
-      selectFirstCard(card);
-    } else if (first !== null && second === null && !card.flipped) {
-      selectSecondCard(card, playPhraseRandomLang);
-    }
   };
 
   const selectFirstCard = async (card: Card) => {
@@ -209,7 +168,7 @@ export const useGameStore = create<GameStore>((set, get) => {
     }, 600); // reduced for fastrer UI
   };
 
-  const selectSecondCard = async (card: Card, playPhraseRandomLang: PlayPhraseRandomLang) => {
+  const selectSecondCard = async (card: Card, playPhraseRandomLang: PlayPhrase) => {
     const { audio } = getCurrentTheme();
     const first = get().selectedCards.first;
     set({ selectedCards: { first, second: card } });
@@ -224,13 +183,13 @@ export const useGameStore = create<GameStore>((set, get) => {
     }
   };
 
-  const cardsMatch = async (playPhraseRandomLang: PlayPhraseRandomLang) => {
+  const cardsMatch = async (playPhraseRandomLang: PlayPhrase) => {
     const { audio } = getCurrentTheme();
     setScene(Scene.cardsMatch);
     delay(100);
     await playAudio(audio.cardsMatchSound);
     setScene(Scene.cardsMatchReward);
-    Math.random() > 0.5 && (await playPhraseRandomLang(getRandomElement(phrases.good)));
+    Math.random() > 0.5 && (await playPhraseRandomLang(getRandomElement(get().narratorPhrases.good)));
     // reset selected cards
     set({ selectedCards: { first: null, second: null } });
     // check win
@@ -241,13 +200,13 @@ export const useGameStore = create<GameStore>((set, get) => {
     }
   };
 
-  const cardsDontMatch = async (playPhraseRandomLang: PlayPhraseRandomLang) => {
+  const cardsDontMatch = async (playPhraseRandomLang: PlayPhrase) => {
     const { audio } = getCurrentTheme();
     const { first, second } = get().selectedCards;
     const checkId = createIdCheck(get().id);
     setScene(Scene.cardsDontMatch);
     await delay(1000);
-    Math.random() > 0.8 && (await playPhraseRandomLang(getRandomElement(phrases.wrong)));
+    Math.random() > 0.8 && (await playPhraseRandomLang(getRandomElement(get().narratorPhrases.wrong)));
     // check if still in same game then setState
     if (!checkId()) return;
     if (first === null || second === null) return;
@@ -261,12 +220,12 @@ export const useGameStore = create<GameStore>((set, get) => {
 
   // try catch,
 
-  const win = async (playPhraseRandomLang: PlayPhraseRandomLang) => {
+  const win = async (playPhraseRandomLang: PlayPhrase) => {
     setScene(Scene.win);
-    await playPhraseRandomLang(getRandomElement(phrases.win));
+    await playPhraseRandomLang(getRandomElement(get().narratorPhrases.win));
     await delay(200);
     setScene(Scene.winReward);
-    playAudio(get().getCurrentTheme().audio.winMusic);
+    playAudio(getCurrentTheme().audio.winMusic);
   };
 
   return {
@@ -276,35 +235,74 @@ export const useGameStore = create<GameStore>((set, get) => {
     cards: [],
     selectedCards: { first: null, second: null },
     scene: Scene.init,
-    init,
-    restart,
-    getCurrentTheme,
-    changeTheme,
-    isSelected,
-    selectCard,
     controlsDisabled: true,
+    narratorPhrases: {},
+    buttonRef: null,
+    getTheme: () => get().themes[get().currentThemeIndex],
+    init: (dictionary) => {
+      clearTimers();
+      increaseId();
+      disableControls();
+      set({ themes: getThemes(dictionary), narratorPhrases: getNarratorPhrases(dictionary), currentThemeIndex: 2 });
+      begin();
+    },
+    restart: (PlayPhraseRandomLang) => {
+      return () => {
+        clearTimers();
+        increaseId();
+        disableControls();
+        setScene(Scene.goNewGame);
+        PlayPhraseRandomLang(getRandomElement(get().narratorPhrases.newGame));
+        setTimer(begin, 500);
+      };
+    },
+    changeTheme: (index) => {
+      clearTimers();
+      increaseId();
+      disableControls();
+      setScene(Scene.goNewGame);
+      setTimer(() => {
+        set({ currentThemeIndex: index });
+        begin();
+      }, 500);
+    },
+    isSelected,
+    selectCard: (playPhraseRandomLang: PlayPhrase) => async (card: Card) => {
+      if (get().controlsDisabled || isSelected(card.id) || card.flipped) return;
+      disableControls();
+      anime({ targets: card.backRef, opacity: 0.5 });
+      const { first, second } = get().selectedCards;
+      if (first === null && !card.flipped) {
+        selectFirstCard(card);
+      } else if (first !== null && second === null && !card.flipped) {
+        selectSecondCard(card, playPhraseRandomLang);
+      }
+    },
     setButtonRef: (buttonRef) => set({ buttonRef }),
     setCardFrontRef: (cardId, frontRef) =>
       set((state) => ({ cards: state.cards.map((card) => (card.id === cardId ? { ...card, frontRef } : card)) })),
     setCardBackRef: (cardId, backRef) =>
       set((state) => ({ cards: state.cards.map((card) => (card.id === cardId ? { ...card, backRef } : card)) })),
-    buttonRef: null,
   };
 });
 
-const MemoryGame = ({ themes, narratorPhrases }: MemoryGameProps) => {
+const MemoryGame = ({ dictionary }: MemoryGameProps) => {
   const { playPhraseCurrentLang } = usePlayPhrase();
   const { t } = useTranslation();
   const init = useGameStore((state) => state.init);
   const cards = useGameStore((state) => state.cards);
-  const theme = useGameStore((state) => state.getCurrentTheme)();
+  const theme = useGameStore((state) => state.getTheme)();
+  const themes = useGameStore((state) => state.themes);
   const changeTheme = useGameStore((state) => state.changeTheme);
   const restart = useGameStore((state) => state.restart)(playPhraseCurrentLang); // better causes less rerenders
   // const restart = useGameStore((state) => state.restart(playPhraseCurrentLang)); // difference is probably WHEN is function executed
   const scene = useGameStore((state) => state.scene);
   const setButtonRef = useGameStore((state) => state.setButtonRef);
-
-  console.log(narratorPhrases);
+  const { playPhraseRandomLang } = usePlayPhrase(); // calling hooks in every card ... does it hurt performance?
+  const setCardFrontRef = useGameStore((state) => state.setCardFrontRef);
+  const setCardBackRef = useGameStore((state) => state.setCardBackRef);
+  const selectCard = useGameStore((state) => state.selectCard)(playPhraseRandomLang);
+  const isSelected = useGameStore((state) => state.isSelected);
 
   const buttonRef = useCallback(
     (buttonNode) => {
@@ -315,9 +313,10 @@ const MemoryGame = ({ themes, narratorPhrases }: MemoryGameProps) => {
   );
 
   useEffect(() => {
-    init(themes);
-  }, [init, themes]);
+    init(dictionary);
+  }, [init, dictionary]);
 
+  // const theme = themes[currentThemeIndex];
   if (theme === undefined) return null;
   const { image, styles } = theme;
 
@@ -333,7 +332,20 @@ const MemoryGame = ({ themes, narratorPhrases }: MemoryGameProps) => {
       <div className={styles.app}>
         <Button ref={buttonRef} className={styles.newGameButton} text={t('utils.new_game')} onClick={restart} />
         <div className={styles.board}>
-          {scene !== Scene.init && cards.map((card) => <Card key={card.id} card={card} styles={styles} cardBackImage={image} />)}
+          {scene !== Scene.init &&
+            cards.map((card) => (
+              <Card
+                key={card.id}
+                card={card}
+                scene={scene}
+                styles={styles}
+                cardBackImage={image}
+                setCardFrontRef={setCardFrontRef}
+                setCardBackRef={setCardBackRef}
+                isSelected={isSelected}
+                selectCard={selectCard}
+              />
+            ))}
         </div>
       </div>
     </div>

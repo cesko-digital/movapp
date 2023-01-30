@@ -1,24 +1,29 @@
 import React, { useCallback } from 'react';
 import { Card } from './MemoryGame';
 import Image from 'next/image';
-import usePlayPhrase from './usePlayPhrase';
-import { useGameStore } from './MemoryGame';
+import { GameStore, Scene } from './MemoryGame';
 
 interface MemoryGameCardProps {
   card: Card;
-  // scene: string;
   styles: Record<string, string>;
   cardBackImage: string;
+  scene: Scene;
+  setCardFrontRef: GameStore['setCardFrontRef'];
+  setCardBackRef: GameStore['setCardBackRef'];
+  isSelected: GameStore['isSelected'];
+  selectCard: (card: Card) => void;
 }
 
-const MemoryGameCard = ({ card, cardBackImage, styles }: MemoryGameCardProps) => {
-  const { playPhraseRandomLang } = usePlayPhrase(); // calling hooks in every card ... does it hurt performance?
-  const setCardFrontRef = useGameStore((state) => state.setCardFrontRef);
-  const setCardBackRef = useGameStore((state) => state.setCardBackRef);
-  const selectCard = useGameStore((state) => state.selectCard)(playPhraseRandomLang);
-  const isSelected = useGameStore((state) => state.isSelected);
-  const scene = useGameStore((state) => state.scene);
-
+const MemoryGameCard = ({
+  card,
+  cardBackImage,
+  styles,
+  scene,
+  setCardFrontRef,
+  setCardBackRef,
+  isSelected,
+  selectCard,
+}: MemoryGameCardProps) => {
   console.log('rerender');
 
   const frontRef = useCallback(
