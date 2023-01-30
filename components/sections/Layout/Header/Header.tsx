@@ -26,9 +26,9 @@ export const Header = () => {
         </Link>
         <nav className="w-full">
           <ul className="flex justify-end items-center pr-10">
-            {HEADER_NAVIGATION.map(({ name, link, submenu, onlyForLanguageVariants }) => {
+            {HEADER_NAVIGATION.map(({ name, link, submenu, onlyForCountryVariants }) => {
               const activePage = router.asPath.includes(link);
-              if (!!onlyForLanguageVariants && !onlyForLanguageVariants.includes(getCountryVariant())) return;
+              if (onlyForCountryVariants?.includes(getCountryVariant()) === false) return;
               return (
                 <li
                   key={name}
@@ -46,7 +46,7 @@ export const Header = () => {
                       >
                         <ul className="py-1 text-sm text-gray-700">
                           {submenu
-                            ?.filter((item) => item.countryVariant.includes(getCountryVariant()))
+                            ?.filter((item) => item.onlyForCountryVariants.includes(getCountryVariant()))
                             .map(({ name, link }) => (
                               <li key={name}>
                                 <Link href={link}>

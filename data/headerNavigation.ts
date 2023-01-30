@@ -1,18 +1,19 @@
-import { CountryVariant } from 'utils/locales';
+import { CountryVariant, TranslationId } from 'utils/locales';
 
-interface SubmenuItem {
-  name: string;
+type SubmenuItem = {
+  name: TranslationId;
   link: string;
-  countryVariant: CountryVariant[];
-}
-interface HeaderNavigation {
-  name: string;
+  onlyForCountryVariants: CountryVariant[];
+};
+
+type HeaderNavItem = {
+  name: TranslationId;
   link: string;
   submenu?: SubmenuItem[];
-  onlyForLanguageVariants?: CountryVariant[];
-}
+  onlyForCountryVariants?: CountryVariant[];
+};
 
-export const HEADER_NAVIGATION: HeaderNavigation[] = [
+export const HEADER_NAVIGATION: HeaderNavItem[] = [
   {
     name: 'header.alphabet_link_name',
     link: '/alphabet',
@@ -28,29 +29,29 @@ export const HEADER_NAVIGATION: HeaderNavigation[] = [
       {
         name: 'header.forkids_words',
         link: '/kids',
-        countryVariant: ['cs', 'pl', 'sk'],
+        onlyForCountryVariants: ['cs', 'pl', 'sk'],
       },
       {
         name: 'header.forkids_stories',
         link: '/kids/stories',
-        countryVariant: ['cs'],
+        onlyForCountryVariants: ['cs'],
       },
       {
         name: 'header.forkids_memorygame',
         link: '/kids/memory-game',
-        countryVariant: ['cs', 'pl', 'sk'],
+        onlyForCountryVariants: ['cs', 'pl', 'sk'],
       },
       {
         name: 'header.forkids_imagequiz',
         link: '/kids/image-quiz',
-        countryVariant: ['cs', 'pl', 'sk'],
+        onlyForCountryVariants: ['cs', 'pl', 'sk'],
       },
     ],
   },
   {
     name: 'header.wiki_link_name',
     link: '/wiki',
-    onlyForLanguageVariants: ['cs'],
+    onlyForCountryVariants: ['cs'],
   },
   // {
   //   name: 'header.exercises_link_name',

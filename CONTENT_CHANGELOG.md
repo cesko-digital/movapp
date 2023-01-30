@@ -5,3 +5,4 @@
 2022-12-01  Better Mental health audio with SSML tags
 2022-12-02	Add Slovak for Christmas + Winter categories
 2022-12-10	Add Polish for Christmas + Winter categories
+2022-12-12	Fix image of candle

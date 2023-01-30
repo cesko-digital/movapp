@@ -95,11 +95,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
 
   return (
     <>
-      <SEO
-        title={t('seo.about_page_title')}
-        description={t('seo.about_page_description')}
-        image="https://www.movapp.cz/icons/movapp-cover.jpg"
-      />
+      <SEO title={t('seo.about_page_title')} description={t('seo.about_page_description')} />
       <div className="max-w-7xl m-auto pb-6">
         <h1 className="text-primary-blue">
           <Trans className="block my-2">{t('about_page.title')}</Trans>
