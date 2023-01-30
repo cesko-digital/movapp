@@ -8,6 +8,7 @@ export const normalizeData = (phrase: Phrase) => ({
     main: phrase.getTranslation(getCountryVariant()),
   },
   image: phrase.getImageUrl() ?? '',
+  sound: phrase.getSoundUrl() ?? '',
 });
 
 export const getCardsData = (phrases: Phrase[] = []): CardData[] => {

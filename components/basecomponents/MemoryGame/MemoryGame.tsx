@@ -4,9 +4,7 @@ import { useTranslation } from 'next-i18next';
 import Card from './MemoryGameCard';
 import { TranslationJSON } from 'utils/Phrase_deprecated';
 import { getCountryVariant } from 'utils/locales';
-import phrases_CS from './memory-game-cs.json';
-import phrases_PL from './memory-game-pl.json';
-import phrases_SK from './memory-game-sk.json';
+import { Phrase } from 'utils/getDataUtils';
 import createTimer from './createTimer';
 import usePlayPhrase from './usePlayPhrase';
 import { AudioPlayer } from 'utils/AudioPlayer';
@@ -21,45 +19,38 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const getRandomElement = <Type,>(arr: Type[]): Type => arr[Math.floor(Math.random() * arr.length)];
 
-const addBackroundColor = (cardsData: CardData[]) =>
-  cardsData.map((item, i) => ({ ...item, color: `hsl(${(360 / cardsData.length) * i},50%,50%)` }));
+const addBackroundColor = (phrases: Phrase[]) =>
+  phrases.map((item, i) => ({ ...item, color: `hsl(${(360 / phrases.length) * i},50%,50%)` }));
 
-export const createCardDeck = (cardsData: CardData[], GameId: number) => {
+export const createCardDeck = (phrases: Phrase[], gameId: number) => {
   // prepare and shuffle cards, pick 8 cards
-  const pickedCards = cardsData.sort(() => Math.random() - 0.5).slice(0, 8);
-  const coloredCards = addBackroundColor(pickedCards) as (CardData & { color: string })[];
+  const pickedCards = phrases.sort(() => Math.random() - 0.5).slice(0, 8);
+  const coloredCards = addBackroundColor(pickedCards) as (Phrase & { color: string })[];
 
   return [
-    ...coloredCards.map((card) => ({
-      ...card,
-      image: card.image,
-      id: `${GameId}-card-other-${card.image}`,
+    ...coloredCards.map((phrase) => ({
+      ...phrase,
+      image: phrase.getImageUrl() ?? '',
+      sound: phrase.getSoundUrl('uk'),
+      text: phrase.getTranslation('uk'),
+      id: `${gameId}-card-uk-${phrase.getImageUrl()}`,
       flipped: false,
-      useMainLang: false,
       frontRef: null,
       backRef: null,
     })),
-    ...coloredCards.map((card) => ({
-      ...card,
-      image: card.image,
-      id: `${GameId}-card-main-${card.image}`,
+    ...coloredCards.map((phrase) => ({
+      ...phrase,
+      image: phrase.getImageUrl() ?? '',
+      sound: phrase.getSoundUrl(),
+      text: phrase.getTranslation(),
+      id: `${gameId}-card-main-${phrase.getImageUrl()}`,
       flipped: false,
-      useMainLang: true,
       frontRef: null,
       backRef: null,
     })),
   ].sort(() => Math.random() - 0.5);
 };
 
-const GAME_NARRATION_PHRASES = {
-  cs: phrases_CS,
-  sk: phrases_SK,
-  pl: phrases_PL,
-};
-
-const phrases = GAME_NARRATION_PHRASES[getCountryVariant()];
-
-type PlayCardPhrase = (card: Card) => Promise<void>;
 type PlayPhraseRandomLang = (phrase: TranslationJSON) => Promise<void>;
 
 export enum Scene {
@@ -76,14 +67,17 @@ export enum Scene {
 
 export type CardData = {
   image: string;
+  sound: string;
   translation: TranslationJSON;
 };
 
-export type Card = CardData & {
+export type Card = {
   id: string;
   flipped: boolean;
   color: string;
-  useMainLang: boolean;
+  sound: string;
+  image: string;
+  text: string;
   frontRef: React.LegacyRef<HTMLDivElement> | null;
   backRef: React.LegacyRef<HTMLDivElement> | null;
 };
@@ -97,7 +91,7 @@ export type Theme = {
     winMusic: string;
   };
   styles: Record<string, string>;
-  cardsData: CardData[];
+  phrases: Phrase[];
 };
 
 export interface SelectedCards {
@@ -107,6 +101,7 @@ export interface SelectedCards {
 
 interface MemoryGameProps {
   themes: Theme[];
+  narratorPhrases: Record<string, Phrase[]>;
 }
 
 interface GameStore {
@@ -121,7 +116,7 @@ interface GameStore {
   restart: (playPhrase: PlayPhraseRandomLang) => () => void;
   changeTheme: (index: number) => void;
   getCurrentTheme: () => Theme;
-  selectCard: (playCardPhrase: PlayCardPhrase, playPhraseRandomLang: PlayPhraseRandomLang) => (card: Card) => void;
+  selectCard: (playPhraseRandomLang: PlayPhraseRandomLang) => (card: Card) => void;
   isSelected: (cardId: Card['id']) => boolean;
   setCardFrontRef: (cardId: Card['id'], ref: React.LegacyRef<HTMLDivElement>) => void;
   setCardBackRef: (cardId: Card['id'], ref: React.LegacyRef<HTMLDivElement>) => void;
@@ -156,7 +151,7 @@ export const useGameStore = create<GameStore>((set, get) => {
 
   const begin = () => {
     set((state) => ({
-      cards: createCardDeck(state.themes[state.currentThemeIndex].cardsData, get().id),
+      cards: createCardDeck(state.themes[state.currentThemeIndex].phrases, get().id),
       selectedCards: { first: null, second: null },
       scene: Scene.begin,
     }));
@@ -190,37 +185,37 @@ export const useGameStore = create<GameStore>((set, get) => {
     enableControls();
   };
 
-  const selectCard = (playCardPhrase: PlayCardPhrase, playPhraseRandomLang: PlayPhraseRandomLang) => async (card: Card) => {
+  const selectCard = (playPhraseRandomLang: PlayPhraseRandomLang) => async (card: Card) => {
     if (get().controlsDisabled || isSelected(card.id) || card.flipped) return;
     disableControls();
-    anime({ targets: card.backRef, opacity: 0.5 });    
+    anime({ targets: card.backRef, opacity: 0.5 });
     const { first, second } = get().selectedCards;
     if (first === null && !card.flipped) {
-      selectFirstCard(card, playCardPhrase);
+      selectFirstCard(card);
     } else if (first !== null && second === null && !card.flipped) {
-      selectSecondCard(card, playCardPhrase, playPhraseRandomLang);
+      selectSecondCard(card, playPhraseRandomLang);
     }
   };
 
-  const selectFirstCard = async (card: Card, playCardPhrase: PlayCardPhrase) => {
+  const selectFirstCard = async (card: Card) => {
     const { audio } = getCurrentTheme();
     set({ selectedCards: { first: card, second: null } });
     flipCard(card.id); // 0.3s
     anime({ targets: get().buttonRef, opacity: 0.1, duration: 1500 });
     await playAudio(audio.cardFlipSound);
-    playCardPhrase(card);
+    playAudio(card.sound);
     setTimer(() => {
       game();
     }, 600); // reduced for fastrer UI
   };
 
-  const selectSecondCard = async (card: Card, playCardPhrase: PlayCardPhrase, playPhraseRandomLang: PlayPhraseRandomLang) => {
+  const selectSecondCard = async (card: Card, playPhraseRandomLang: PlayPhraseRandomLang) => {
     const { audio } = getCurrentTheme();
     const first = get().selectedCards.first;
     set({ selectedCards: { first, second: card } });
     flipCard(card.id); // 0.3s
     await playAudio(audio.cardFlipSound);
-    await playCardPhrase(card);
+    await playAudio(card.sound);
     // check if cards match
     if (first !== null && first.image === card.image) {
       cardsMatch(playPhraseRandomLang);
@@ -297,7 +292,7 @@ export const useGameStore = create<GameStore>((set, get) => {
   };
 });
 
-const MemoryGame = ({ themes }: MemoryGameProps) => {
+const MemoryGame = ({ themes, narratorPhrases }: MemoryGameProps) => {
   const { playPhraseCurrentLang } = usePlayPhrase();
   const { t } = useTranslation();
   const init = useGameStore((state) => state.init);
@@ -308,6 +303,8 @@ const MemoryGame = ({ themes }: MemoryGameProps) => {
   // const restart = useGameStore((state) => state.restart(playPhraseCurrentLang)); // difference is probably WHEN is function executed
   const scene = useGameStore((state) => state.scene);
   const setButtonRef = useGameStore((state) => state.setButtonRef);
+
+  console.log(narratorPhrases);
 
   const buttonRef = useCallback(
     (buttonNode) => {
@@ -336,8 +333,7 @@ const MemoryGame = ({ themes }: MemoryGameProps) => {
       <div className={styles.app}>
         <Button ref={buttonRef} className={styles.newGameButton} text={t('utils.new_game')} onClick={restart} />
         <div className={styles.board}>
-          {scene !== Scene.init &&
-            cards.map((card) => <Card key={card.id} card={card} styles={styles} cardBackImage={image} />)}
+          {scene !== Scene.init && cards.map((card) => <Card key={card.id} card={card} styles={styles} cardBackImage={image} />)}
         </div>
       </div>
     </div>

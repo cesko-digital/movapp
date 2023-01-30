@@ -1,8 +1,6 @@
 import React, { useCallback } from 'react';
 import { Card } from './MemoryGame';
 import Image from 'next/image';
-import { useLanguage } from 'utils/useLanguageHook';
-import { Phrase_deprecated } from 'utils/Phrase_deprecated';
 import usePlayPhrase from './usePlayPhrase';
 import { useGameStore } from './MemoryGame';
 
@@ -14,15 +12,14 @@ interface MemoryGameCardProps {
 }
 
 const MemoryGameCard = ({ card, cardBackImage, styles }: MemoryGameCardProps) => {
-  const { currentLanguage } = useLanguage();
-  const { playCardPhrase, playPhraseRandomLang } = usePlayPhrase(); // calling hooks in every card ... does it hurt performance?
+  const { playPhraseRandomLang } = usePlayPhrase(); // calling hooks in every card ... does it hurt performance?
   const setCardFrontRef = useGameStore((state) => state.setCardFrontRef);
   const setCardBackRef = useGameStore((state) => state.setCardBackRef);
-  const selectCard = useGameStore((state) => state.selectCard)(playCardPhrase, playPhraseRandomLang);
+  const selectCard = useGameStore((state) => state.selectCard)(playPhraseRandomLang);
   const isSelected = useGameStore((state) => state.isSelected);
   const scene = useGameStore((state) => state.scene);
 
-  console.log('rerednder');
+  console.log('rerender');
 
   const frontRef = useCallback(
     (node) => {
@@ -56,13 +53,7 @@ const MemoryGameCard = ({ card, cardBackImage, styles }: MemoryGameCardProps) =>
             } `}
             style={{ borderColor: card.color }}
           >
-            <Image
-              src={card.image}
-              layout="fill"
-              sizes="100%"
-              objectFit="cover"
-              alt={new Phrase_deprecated(card.translation).getTranslation(currentLanguage)}
-            />
+            <Image src={card.image} layout="fill" sizes="100%" objectFit="cover" alt={card.text} />
           </div>
         </div>
         <div className={styles.cardWrapper}>

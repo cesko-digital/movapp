@@ -125,6 +125,14 @@ export const fetchDictionary = async (country?: CountryVariant): Promise<Diction
   return result;
 };
 
+export const fetchDictionaryForGame = async (country?: CountryVariant): Promise<DictionaryDataObject> => {
+  const response = await fetch(`https://data.movapp.eu/uk-${country ?? getCountryVariant()}-dictionary.json`);
+  const json = (await response.json()) as DictionaryDataObject;
+  // filter out hidden categories
+  const result = { ...json };
+  return result;
+};
+
 /**
  * Alphabet
  * */
