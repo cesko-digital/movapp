@@ -32,7 +32,7 @@ const MemoryGameCard = ({ card, cardBackImage, onClick, scene, selected, styles 
             <Image
               src={card.image}
               layout="fill"
-              sizes="100%"
+              sizes="25vw"
               objectFit="cover"
               alt={new Phrase_deprecated(card.translation).getTranslation(currentLanguage)}
             />
@@ -40,7 +40,7 @@ const MemoryGameCard = ({ card, cardBackImage, onClick, scene, selected, styles 
         </div>
         <div className={styles.cardWrapper}>
           <div className={`${styles.back} ${card.flipped ? styles.flipped : ''} ${styles[scene] ? styles[scene] : ''}`}>
-            <Image src={cardBackImage} layout="fill" sizes="100%" objectFit="cover" alt="card back" priority />
+            <Image src={cardBackImage} layout="fill" sizes="25vw" objectFit="cover" alt="card back" priority />
           </div>
         </div>
       </div>
