@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
-import { Card } from './MemoryGame';
+import { Card } from './gameStore';
 import Image from 'next/image';
-import { GameStore, Scene } from './MemoryGame';
+import { GameStore, Scene } from './gameStore';
 
 interface MemoryGameCardProps {
   card: Card;

@@ -6,12 +6,9 @@ import getThemes from './getThemes';
 import { Language, getCountryVariant } from 'utils/locales';
 import { createNarrator, Category, Narrator } from './narrator';
 import { AudioPlayer } from 'utils/AudioPlayer';
+import createCancelablePromiseStore from './cancelablePromiseStore';
 import { create } from 'zustand';
 import anime from 'animejs';
-
-const playAudio = (str: string) => AudioPlayer.getInstance().playSrc(str);
-
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const addBackroundColor = (phrases: Phrase[]) =>
   phrases.map((item, i) => ({ ...item, color: `hsl(${(360 / phrases.length) * i},50%,50%)` }));
@@ -87,6 +84,7 @@ export interface SelectedCards {
 
 export interface GameStore {
   id: number;
+  initialized: boolean;
   lang: { currentLanguage: Language; otherLanguage: Language };
   _narrator: Narrator;
   themes: Theme[];
@@ -101,7 +99,6 @@ export interface GameStore {
   getTheme: () => Theme;
   changeTheme: (index: number) => void;
   setLang: (lang: { currentLanguage: Language; otherLanguage: Language }) => void;
-  // setNarrator: (narrator: Narrator) => void;
   selectCard: (card: Card) => void;
   isSelected: (cardId: Card['id']) => boolean;
   setCardFrontRef: (cardId: Card['id'], ref: React.LegacyRef<HTMLDivElement>) => void;
@@ -111,14 +108,32 @@ export interface GameStore {
 
 export const useGameStore = create<GameStore>((set, get) => {
   const [setTimer, clearTimers] = createTimer();
+  const [makeCancelable, cancelAllPromises] = createCancelablePromiseStore();
 
-  // const narrator = createNarratorInterface(
-  //   () => get()._narrator,
-  //   () => get().lang.currentLanguage,
-  //   () => get().lang.otherLanguage
-  // );
+  const pauseAnimations = () => {
+    anime.running.map((anim) => {
+      anim.restart();
+      anim.pause();
+    });
+  };
 
-  const narrator = 
+  // const animTestCallback = (anim: anime.AnimeInstance) => console.log(`anim began: ${anim.began}, completed: ${anim.completed}`);
+
+  const playAudio = (str: string) => makeCancelable(AudioPlayer.getInstance().playSrc(str));
+  const pauseAudio = () => AudioPlayer.getInstance().pause();
+  const delay = (ms: number) => makeCancelable(new Promise((resolve) => setTimeout(resolve, ms)));
+
+  const narrator = (() => {
+    const currentLanguage = (category: Category) => makeCancelable(get()._narrator(category, get().lang.currentLanguage));
+    const otherLanguage = (category: Category) => makeCancelable(get()._narrator(category, get().lang.otherLanguage));
+    const randomLanguage = (category: Category) => (Math.random() < 0.5 ? otherLanguage(category) : currentLanguage(category));
+
+    return {
+      currentLanguage,
+      otherLanguage,
+      randomLanguage,
+    };
+  })();
 
   const setScene = (scene: Scene) => set({ scene });
   const disableControls = () => set({ controlsDisabled: true });
@@ -127,11 +142,11 @@ export const useGameStore = create<GameStore>((set, get) => {
     const { first, second } = get().selectedCards;
     return (first !== null && cardId === first.id) || (second !== null && cardId === second.id);
   };
+  const clearSelectedCards = () => set({ selectedCards: { first: null, second: null } });
   const flipCard = (cardId: Card['id']) =>
     set((state) => ({ cards: state.cards.map((card) => (card.id === cardId ? { ...card, flipped: !card.flipped } : card)) }));
 
   const increaseId = () => set((state) => ({ id: state.id + 1 }));
-  const createIdCheck = (id: number) => () => get().id === id;
 
   const getCurrentTheme = () => get().themes[get().currentThemeIndex];
 
@@ -149,84 +164,22 @@ export const useGameStore = create<GameStore>((set, get) => {
     enableControls();
   };
 
-  const selectFirstCard = async (card: Card) => {
-    const { audio } = getCurrentTheme();
-    set({ selectedCards: { first: card, second: null } });
-    flipCard(card.id); // 0.3s
-    anime({ targets: get().buttonRef, opacity: 0.1, duration: 1500 });
-    await playAudio(audio.cardFlipSound);
-    playAudio(card.sound);
-    setTimer(() => {
-      game();
-    }, 600); // reduced for fastrer UI
-  };
-
-  const selectSecondCard = async (card: Card) => {
-    const { audio } = getCurrentTheme();
-    const first = get().selectedCards.first;
-    set({ selectedCards: { first, second: card } });
-    flipCard(card.id); // 0.3s
-    await playAudio(audio.cardFlipSound);
-    await playAudio(card.sound);
-    // check if cards match
-    if (first !== null && first.image === card.image) {
-      cardsMatch();
-    } else {
-      cardsDontMatch();
-    }
-  };
-
-  const cardsMatch = async () => {
-    const { audio } = getCurrentTheme();
-    setScene(Scene.cardsMatch);
-    delay(100);
-    await playAudio(audio.cardsMatchSound);
-    setScene(Scene.cardsMatchReward);
-    Math.random() > 0.5 && (await narrator.randomLanguage(Category.good));
-    // reset selected cards
-    set({ selectedCards: { first: null, second: null } });
-    // check win
-    if (get().cards.every((card) => card.flipped)) {
-      win();
-    } else {
-      game();
-    }
-  };
-
-  const cardsDontMatch = async () => {
-    const { audio } = getCurrentTheme();
-    const { first, second } = get().selectedCards;
-    const checkId = createIdCheck(get().id);
-    setScene(Scene.cardsDontMatch);
-    await delay(1000);
-    Math.random() > 0.8 && (await narrator.randomLanguage(Category.wrong));
-    // check if still in same game then setState
-    if (!checkId()) return;
-    if (first === null || second === null) return;
-    flipCard(first.id);
-    flipCard(second.id);
-    set({ selectedCards: { first: null, second: null } });
-    await playAudio(audio.cardFlipSound);
-    if (!checkId()) return;
-    game();
-  };
-
-  // try catch,
-
-  const win = async () => {
-    setScene(Scene.win);
-    await narrator.randomLanguage(Category.win);
-    await delay(200);
-    setScene(Scene.winReward);
-    playAudio(getCurrentTheme().audio.winMusic);
+  const reset = () => {
+    pauseAudio();
+    pauseAnimations();
+    cancelAllPromises();
+    clearTimers();
+    increaseId();
+    disableControls();
   };
 
   return {
     id: 0,
+    initialized: false,
     lang: { currentLanguage: getCountryVariant(), otherLanguage: 'uk' },
-    _narrator: null,
+    _narrator: () => Promise.resolve(),
     themes: [],
-    currentThemeIndex: 0,
+    currentThemeIndex: 2,
     cards: [],
     selectedCards: { first: null, second: null },
     scene: Scene.init,
@@ -235,53 +188,98 @@ export const useGameStore = create<GameStore>((set, get) => {
     getTheme: () => get().themes[get().currentThemeIndex],
     init: async () => {
       const dictionary = await fetchDictionaryForGame();
-      console.log(`init game id:${get().id}`);
-      clearTimers();
-      increaseId();
-      disableControls();
       set({
-        _narrator: createNarrator(
-          dictionary,
-          () => get().lang.currentLanguage,
-          () => get().lang.otherLanguage
-        ),
+        _narrator: createNarrator(dictionary),
         themes: getThemes(dictionary),
-        currentThemeIndex: 2,
+        initialized: true,
       });
       begin();
     },
     restart: () => {
-      clearTimers();
-      increaseId();
-      disableControls();
+      reset();
       setScene(Scene.goNewGame);
       narrator.randomLanguage(Category.newGame);
       setTimer(begin, 500);
     },
     changeTheme: (index) => {
-      clearTimers();
-      increaseId();
-      disableControls();
+      reset();
       setScene(Scene.goNewGame);
       setTimer(() => {
         set({ currentThemeIndex: index });
         begin();
       }, 500);
     },
-    setLang: (lang) => set({ lang }),
-    // setNarrator: (narrator) => set({ narrator }),
-    isSelected,
     selectCard: async (card: Card) => {
-      if (get().controlsDisabled || isSelected(card.id) || card.flipped) return;
-      disableControls();
-      anime({ targets: card.backRef, opacity: 0.5 });
-      const { first, second } = get().selectedCards;
-      if (first === null && !card.flipped) {
-        selectFirstCard(card);
-      } else if (first !== null && second === null && !card.flipped) {
-        selectSecondCard(card);
-      }
+      try {
+        if (get().controlsDisabled || isSelected(card.id) || card.flipped) return;
+        disableControls();
+        // pauseAnimations();
+        // anime({
+        //   targets: card.backRef,
+        //   easing: 'linear',
+        //   opacity: 0.5,
+        //   duration: 3000,
+        //   loop: true,
+        //   begin: animTestCallback,
+        //   complete: animTestCallback,
+        // });
+        const { first, second } = get().selectedCards;
+        const { audio } = getCurrentTheme();
+
+        if (first === null && !card.flipped) {
+          /* Select first card */
+          set({ selectedCards: { first: card, second: null } });
+          flipCard(card.id); // 0.3s
+          await playAudio(audio.cardFlipSound);
+          playAudio(card.sound);
+          setTimer(() => {
+            game();
+          }, 600); // reduced for fastrer UI
+        } else if (first !== null && second === null && !card.flipped) {
+          /* Select second card */
+          set((state) => ({ selectedCards: { ...state.selectedCards, second: card } }));
+          flipCard(card.id); // 0.3s
+          await playAudio(audio.cardFlipSound);
+          await playAudio(card.sound);
+          // check if cards match
+          if (first !== null && first.image === card.image) {
+            /* Cards match */
+            setScene(Scene.cardsMatch);
+            delay(100);
+            await playAudio(audio.cardsMatchSound);
+            setScene(Scene.cardsMatchReward);
+            Math.random() > 0.5 && (await narrator.randomLanguage(Category.good));
+            // reset selected cards
+            clearSelectedCards();
+            // check win
+            if (get().cards.every((card) => card.flipped)) {
+              /* Game win */
+              setScene(Scene.win);
+              await narrator.randomLanguage(Category.win);
+              await delay(200);
+              setScene(Scene.winReward);
+              playAudio(getCurrentTheme().audio.winMusic);
+            } else {
+              game();
+            }
+          } else {
+            /* Cards don't match */
+            const { first, second } = get().selectedCards;
+            setScene(Scene.cardsDontMatch);
+            await delay(1000);
+            Math.random() > 0.0 && (await narrator.randomLanguage(Category.wrong));
+            if (first === null || second === null) return;
+            flipCard(first.id);
+            flipCard(second.id);
+            clearSelectedCards();
+            await playAudio(audio.cardFlipSound);
+            game();
+          }
+        }
+      } catch (e) {}
     },
+    setLang: (lang) => set({ lang }),
+    isSelected,
     setButtonRef: (buttonRef) => set({ buttonRef }),
     setCardFrontRef: (cardId, frontRef) =>
       set((state) => ({ cards: state.cards.map((card) => (card.id === cardId ? { ...card, frontRef } : card)) })),

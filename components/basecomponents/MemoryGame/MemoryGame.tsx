@@ -5,21 +5,19 @@ import Card from './MemoryGameCard';
 import { useLanguage } from 'utils/useLanguageHook';
 import loaderStyles from './MemoryGameThemeLoader.module.css';
 import Image from 'next/image';
-import { useGameStore, Scene } from './gameStore';
+import { useGameStore } from './gameStore';
 
 const MemoryGame = () => {
-  // const narrator = useNarrator(dictionary);
   const { t } = useTranslation();
   const lang = useLanguage();
-  // const setNarrator = useGameStore((state) => state.setNarrator);
   const setLang = useGameStore((state) => state.setLang);
   const init = useGameStore((state) => state.init);
+  const initialized = useGameStore((state) => state.initialized);
   const cards = useGameStore((state) => state.cards);
-  const theme = useGameStore((state) => state.getTheme)();
+  const getTheme = useGameStore((state) => state.getTheme);
   const themes = useGameStore((state) => state.themes);
   const changeTheme = useGameStore((state) => state.changeTheme);
-  const restart = useGameStore((state) => state.restart); // better causes less rerenders
-  // const restart = useGameStore((state) => state.restart(playPhraseCurrentLang)); // difference is probably WHEN is function executed
+  const restart = useGameStore((state) => state.restart);
   const scene = useGameStore((state) => state.scene);
   const setButtonRef = useGameStore((state) => state.setButtonRef);
   const setCardFrontRef = useGameStore((state) => state.setCardFrontRef);
@@ -43,9 +41,8 @@ const MemoryGame = () => {
     init();
   }, [init]);
 
-  // const theme = themes[currentThemeIndex];
-  if (theme === undefined) return null;
-  const { image, styles } = theme;
+  if (!initialized) return null;
+  const { image, styles } = getTheme();
 
   return (
     <div className={loaderStyles.app}>
@@ -59,20 +56,19 @@ const MemoryGame = () => {
       <div className={styles.app}>
         <Button ref={buttonRef} className={styles.newGameButton} text={t('utils.new_game')} onClick={restart} />
         <div className={styles.board}>
-          {scene !== Scene.init &&
-            cards.map((card) => (
-              <Card
-                key={card.id}
-                card={card}
-                scene={scene}
-                styles={styles}
-                cardBackImage={image}
-                setCardFrontRef={setCardFrontRef}
-                setCardBackRef={setCardBackRef}
-                isSelected={isSelected}
-                selectCard={selectCard}
-              />
-            ))}
+          {cards.map((card) => (
+            <Card
+              key={card.id}
+              card={card}
+              scene={scene}
+              styles={styles}
+              cardBackImage={image}
+              setCardFrontRef={setCardFrontRef}
+              setCardBackRef={setCardBackRef}
+              isSelected={isSelected}
+              selectCard={selectCard}
+            />
+          ))}
         </div>
       </div>
     </div>
