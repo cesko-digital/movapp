@@ -10,9 +10,9 @@ import { getServerSideTranslations } from '../../../utils/localization';
 import { useLanguage } from 'utils/useLanguageHook';
 import { KidsTranslation } from 'components/basecomponents/KidsTranslation';
 import { AudioPlayer } from 'utils/AudioPlayer';
-import phrases_CS from 'components/basecomponents/MemoryGame/memory-game-cs.json';
-import phrases_PL from 'components/basecomponents/MemoryGame/memory-game-pl.json';
-import phrases_SK from 'components/basecomponents/MemoryGame/memory-game-sk.json';
+import phrases_CS from './game-cs.json';
+import phrases_PL from './game-pl.json';
+import phrases_SK from './game-sk.json';
 import styles from './imageStyle.module.css';
 import { shuffle } from 'utils/collectionUtils';
 

@@ -1,0 +1,42 @@
+{  
+  "good": [    
+    {
+      "main": "Kontynuuj!",
+      "uk": "Продовжуй!"
+    },
+    {
+      "main": "Świetnie!",
+      "uk": "Відмінно!"
+    },
+    {
+      "main": "Bardzo dobrze!",
+      "uk": "Дуже добре!"
+    }
+  ],
+  "wrong": [
+    {
+      "main": "Spróbuj jeszcze raz.",
+      "uk": "Спробуй ще раз."
+    },
+    {
+      "main": "Nic się nie stało",
+      "uk": "Не важливо."
+    }
+  ],
+  "newGame": [
+    {
+      "main": "Zagrajmy!",
+      "uk": "Будемо гратися."
+    }
+  ],
+  "win": [
+    {
+      "main": "Dzięki za grę.",
+      "uk": "Дякую за гру."
+    },
+    {
+      "main": "Gratulacje.",
+      "uk": "Вітаю."
+    }
+  ]
+}
