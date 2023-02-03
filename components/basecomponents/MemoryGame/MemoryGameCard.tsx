@@ -58,7 +58,7 @@ const MemoryGameCard = ({
             } `}
             style={{ borderColor: card.color }}
           >
-            <Image src={card.image} layout="fill" sizes="100%" objectFit="cover" alt={card.text} />
+            <Image src={card.image} layout="fill" sizes="25vw" objectFit="cover" alt={card.text} />
           </div>
         </div>
         <div className={styles.cardWrapper}>

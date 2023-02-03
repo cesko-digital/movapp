@@ -1,7 +1,7 @@
 const createCancelablePromiseStore = (): [(promise: Promise<unknown>) => Promise<unknown>, () => void] => {
   let store: (() => void)[] = [];
 
-  const makeCancelable = (promise: Promise<unknown>) => {
+  const makeCancelable = <T>(promise: Promise<T>): Promise<T> => {
     let hasCanceled_ = false;
 
     const cancel = () => {
@@ -14,7 +14,7 @@ const createCancelablePromiseStore = (): [(promise: Promise<unknown>) => Promise
       store = store.filter((func) => func !== cancel);
     };
 
-    const wrappedPromise = new Promise((resolve, reject) => {
+    const wrappedPromise = new Promise<T>((resolve, reject) => {
       promise.then(
         (val) => {
           remove();

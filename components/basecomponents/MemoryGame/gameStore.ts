@@ -4,7 +4,7 @@ import { Phrase, fetchDictionaryForGame } from 'utils/getDataUtils';
 import createTimer from './createTimer';
 import getThemes from './getThemes';
 import { Language, getCountryVariant } from 'utils/locales';
-import { createNarrator, Category, Narrator } from './narrator';
+import { createInterface, extractNarratorPhrases, NarratorDecorator, NarratorInterface } from './narrator';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import createCancelablePromiseStore from './cancelablePromiseStore';
 import { create } from 'zustand';
@@ -86,7 +86,7 @@ export interface GameStore {
   id: number;
   initialized: boolean;
   lang: { currentLanguage: Language; otherLanguage: Language };
-  _narrator: Narrator;
+  _narrator: NarratorInterface | null;
   themes: Theme[];
   currentThemeIndex: number;
   cards: Card[];
@@ -123,17 +123,11 @@ export const useGameStore = create<GameStore>((set, get) => {
   const pauseAudio = () => AudioPlayer.getInstance().pause();
   const delay = (ms: number) => makeCancelable(new Promise((resolve) => setTimeout(resolve, ms)));
 
-  const narrator = (() => {
-    const currentLanguage = (category: Category) => makeCancelable(get()._narrator(category, get().lang.currentLanguage));
-    const otherLanguage = (category: Category) => makeCancelable(get()._narrator(category, get().lang.otherLanguage));
-    const randomLanguage = (category: Category) => (Math.random() < 0.5 ? otherLanguage(category) : currentLanguage(category));
-
-    return {
-      currentLanguage,
-      otherLanguage,
-      randomLanguage,
-    };
-  })();
+  const narrator = () => {
+    const _narrator = get()._narrator;
+    if (_narrator === null) throw Error('narrator is not initialized');
+    return _narrator;
+  };
 
   const setScene = (scene: Scene) => set({ scene });
   const disableControls = () => set({ controlsDisabled: true });
@@ -177,7 +171,7 @@ export const useGameStore = create<GameStore>((set, get) => {
     id: 0,
     initialized: false,
     lang: { currentLanguage: getCountryVariant(), otherLanguage: 'uk' },
-    _narrator: () => Promise.resolve(),
+    _narrator: null,
     themes: [],
     currentThemeIndex: 2,
     cards: [],
@@ -189,7 +183,12 @@ export const useGameStore = create<GameStore>((set, get) => {
     init: async () => {
       const dictionary = await fetchDictionaryForGame();
       set({
-        _narrator: createNarrator(dictionary),
+        _narrator: createInterface(
+          extractNarratorPhrases(dictionary),
+          () => get().lang.currentLanguage,
+          () => get().lang.otherLanguage,
+          <NarratorDecorator>makeCancelable
+        ),
         themes: getThemes(dictionary),
         initialized: true,
       });
@@ -198,7 +197,7 @@ export const useGameStore = create<GameStore>((set, get) => {
     restart: () => {
       reset();
       setScene(Scene.goNewGame);
-      narrator.randomLanguage(Category.newGame);
+      narrator().randomLanguage.newGame();
       setTimer(begin, 500);
     },
     changeTheme: (index) => {
@@ -248,17 +247,17 @@ export const useGameStore = create<GameStore>((set, get) => {
             delay(100);
             await playAudio(audio.cardsMatchSound);
             setScene(Scene.cardsMatchReward);
-            Math.random() > 0.5 && (await narrator.randomLanguage(Category.good));
+            Math.random() > 0.5 && (await narrator().randomLanguage.good());
             // reset selected cards
             clearSelectedCards();
             // check win
             if (get().cards.every((card) => card.flipped)) {
               /* Game win */
               setScene(Scene.win);
-              await narrator.randomLanguage(Category.win);
+              await narrator().randomLanguage.win();
               await delay(200);
               setScene(Scene.winReward);
-              playAudio(getCurrentTheme().audio.winMusic);
+              playAudio(audio.winMusic);
             } else {
               game();
             }
@@ -267,7 +266,7 @@ export const useGameStore = create<GameStore>((set, get) => {
             const { first, second } = get().selectedCards;
             setScene(Scene.cardsDontMatch);
             await delay(1000);
-            Math.random() > 0.0 && (await narrator.randomLanguage(Category.wrong));
+            Math.random() > 0.0 && (await narrator().randomLanguage.wrong());
             if (first === null || second === null) return;
             flipCard(first.id);
             flipCard(second.id);

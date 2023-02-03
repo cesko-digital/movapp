@@ -28,47 +28,40 @@ const findSoundUrl = (phrases: Phrase[] | undefined, category: Category, lang: L
 
   return result.getSoundUrl(lang);
 };
-
+type Play = () => Promise<void>;
+type PlayCategory = (category: Category) => Promise<void>;
 export type Narrator = (category: Category, lang: Language) => Promise<void>;
+export type NarratorDecorator = (promise: Promise<void>) => Promise<void>;
+export interface NarratorInterface {
+  currentLanguage: Record<Category, Play>;
+  otherLanguage: Record<Category, Play>;
+  randomLanguage: Record<Category, Play>;
+}
 
-// export interface Narrator {
-//   currentLanguage: (category: Category) => Promise<void>;
-//   otherLanguage: (category: Category) => Promise<void>;
-//   randomLanguage: (category: Category) => Promise<void>;
-// }
-
-export const createNarrator = (dictionary: DictionaryDataObject) => {
-  const narratorPhrases = getCategories(dictionary).find(({ id }) => id === NARRATOR_PHRASES_CATEGORY)?.translations;
-
-  const play = (category: Category, lang: Language) => AudioPlayer.getInstance().playSrc(findSoundUrl(narratorPhrases, category, lang));
-
-  return play;
+export const extractNarratorPhrases = (dictionary: DictionaryDataObject): Phrase[] => {
+  const category = getCategories(dictionary).find(({ id }) => id === NARRATOR_PHRASES_CATEGORY);
+  if (category === undefined) return [];
+  return category.translations;
 };
 
-// export const createNarratorInterface = (getNarrator: () => Narrator, getCurrentLang: () => Language, getOtherLang: () => Language) => {
-//   const currentLanguage = (category: Category) => getNarrator()(category, getCurrentLang());
-//   const otherLanguage = (category: Category) => getNarrator()(category, getOtherLang());
-//   const randomLanguage = (category: Category) => (Math.random() < 0.5 ? otherLanguage(category) : currentLanguage(category));
+export const createInterface = (
+  narratorPhrases: Phrase[],
+  getCurrentLang: () => Language,
+  getOtherLang: () => Language,
+  decorator: NarratorDecorator = (promise) => promise
+): NarratorInterface => {
+  const narrator = (category: Category, lang: Language) => AudioPlayer.getInstance().playSrc(findSoundUrl(narratorPhrases, category, lang));
 
-//   return {
-//     currentLanguage,
-//     otherLanguage,
-//     randomLanguage,
-//   };
-// };
+  const currentLanguage = (category: Category) => decorator(narrator(category, getCurrentLang()));
+  const otherLanguage = (category: Category) => decorator(narrator(category, getOtherLang()));
+  const randomLanguage = (category: Category) => (Math.random() < 0.5 ? otherLanguage(category) : currentLanguage(category));
 
-// export const createNarrator = (dictionary: DictionaryDataObject, getCurrentLang: () => Language, getOtherLang: () => Language) => {
-//   const narratorPhrases = getCategories(dictionary).find(({ id }) => id === NARRATOR_PHRASES_CATEGORY)?.translations;
+  const createLangInterface = (playFunc: PlayCategory): Record<Category, Play> =>
+    Object.entries(Category).reduce((prev, [, val]) => ({ ...prev, [val]: playFunc(val) }), {} as Record<Category, Play>);
 
-//   const play = (category: Category, lang: Language) => AudioPlayer.getInstance().playSrc(findSoundUrl(narratorPhrases, category, lang));
-
-//   const currentLanguage = (category: Category) => play(category, getCurrentLang());
-//   const otherLanguage = (category: Category) => play(category, getOtherLang());
-//   const randomLanguage = (category: Category) => (Math.random() < 0.5 ? otherLanguage(category) : currentLanguage(category));
-
-//   return {
-//     currentLanguage,
-//     otherLanguage,
-//     randomLanguage,
-//   };
-// };
+  return {
+    currentLanguage: createLangInterface(currentLanguage),
+    otherLanguage: createLangInterface(otherLanguage),
+    randomLanguage: createLangInterface(randomLanguage),
+  };
+};
