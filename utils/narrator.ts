@@ -1,6 +1,55 @@
-import { DictionaryDataObject, getCategories, Phrase } from 'utils/getDataUtils';
+/**
+ * Narrator
+ * concerns:
+ * 1. Extracts narrator phrases from dictionary
+ * 2. Creates collection of NarratorPhrases
+ * 3. Offers method to get phrase of certain category
+ *
+ * Usage:
+ * const narrator = createNarrator(dictionary, playAudio)
+ * narrator.getPhrase(Category.good).playCurrentLanguage()
+ *
+ * NarratorPhrase
+ * extends Phrase
+ * concerns:
+ * 1. Extension offers methods to play Phrase soundUrl in current and other language
+ * 2. Consumer must provide playAudio function to play sound from url
+ *
+ * Notes:
+ * function to play random language was removed, solve it on upper level
+ * eg. create function that takes two functions and executes randomly one of them
+ * random(narrator.getPhrase(Category.good).playCurrentLanguage, narrator.getPhrase(Category.good).playOtherLanguage)
+ *
+ */
+
+import { DictionaryDataObject, Phrase, PhraseDataObject } from 'utils/getDataUtils';
 import getRandomItem from './getRandomItem';
 import { Language } from 'utils/locales';
+
+export class NarratorPhrase<T> extends Phrase {
+  private playAudio: PlayAudio<T>;
+  private getCurrentLanguage: () => Language;
+  private getOtherLanguage: () => Language;
+
+  constructor(
+    phraseObject: PhraseDataObject,
+    playAudioFn: PlayAudio<T>,
+    getCurrentLanguageFn: () => Language,
+    getOtherLanguageFn: () => Language
+  ) {
+    super(phraseObject);
+    this.playAudio = playAudioFn;
+    this.getCurrentLanguage = getCurrentLanguageFn;
+    this.getOtherLanguage = getOtherLanguageFn;
+  }
+
+  playCurrentLanguage = () => this.playAudio(this.getSoundUrl(this.getCurrentLanguage()));
+  playOtherLanguage = () => this.playAudio(this.getSoundUrl(this.getOtherLanguage()));
+  getTranslationCurrentLanguage = () => this.getTranslation(this.getCurrentLanguage());
+  getTranslationOtherLanguage = () => this.getTranslation(this.getOtherLanguage());
+  getTranscriptionCurrentLanguage = () => this.getTranscription(this.getCurrentLanguage());
+  getTranscriptionOtherLanguage = () => this.getTranscription(this.getOtherLanguage());
+}
 
 export enum Category {
   good = 'good',
@@ -16,60 +65,21 @@ const NARRATOR_PHRASES_IDS: Record<Category, string[]> = {
   win: ['recnQaCaCF8Bsob0g', 'recwFVrr9aDARuxOk', 'rec3Xdb5QAjNFr7ob', 'recmYthRZ57qOfBVU'],
 };
 
-const NARRATOR_PHRASES_CATEGORY = 'rec4bnE1FDvucna8y';
-
-const findSoundUrl = (phrases: Phrase[] | undefined, category: Category, lang: Language) => {
-  if (phrases === undefined) return '';
-
-  const randomId = getRandomItem<string>(NARRATOR_PHRASES_IDS[category]);
-  const result = phrases.find((phrase) => phrase.getId() === randomId);
-  if (result === undefined) return '';
-
-  return result.getSoundUrl(lang);
-};
-
-type GetSoundUrlInCategory = (category: Category) => string;
-export type Narrator = (category: Category, lang: Language) => string;
-
 export interface PlayAudio<Type> {
   (soundUrl: string): Type;
 }
-type NarratorInterfaceItem<Type> = Record<Category, { play: () => Type }>;
-export interface NarratorInterface<Type> {
-  currentLanguage: NarratorInterfaceItem<Type>;
-  otherLanguage: NarratorInterfaceItem<Type>;
-  randomLanguage: NarratorInterfaceItem<Type>;
-}
 
-export const extractNarratorPhrases = (dictionary: DictionaryDataObject): Phrase[] => {
-  const category = getCategories(dictionary).find(({ id }) => id === NARRATOR_PHRASES_CATEGORY);
-  if (category === undefined) return [];
-  return category.translations;
-};
-
-const defaultPlayAudio: PlayAudio<string> = (url: string) => url;
-
-export const createInterface = <T = string>(
-  narratorPhrases: Phrase[],
+export const createNarrator = <T>(
+  dictionary: DictionaryDataObject,
   getCurrentLang: () => Language,
   getOtherLang: () => Language,
-  playAudio: PlayAudio<T | string> = defaultPlayAudio
-): NarratorInterface<T> => {
-  const narrator = (category: Category, lang: Language) => findSoundUrl(narratorPhrases, category, lang);
+  playAudio: PlayAudio<T>
+): ((category: Category) => NarratorPhrase<T>) => {
+  const getPhrase = (category: Category) => {
+    const phraseId = getRandomItem(NARRATOR_PHRASES_IDS[category]);
 
-  const currentLanguage = (category: Category) => narrator(category, getCurrentLang());
-  const otherLanguage = (category: Category) => narrator(category, getOtherLang());
-  const randomLanguage = (category: Category) => (Math.random() < 0.5 ? otherLanguage(category) : currentLanguage(category));
-
-  const createLangInterface = (getSoundUrl: GetSoundUrlInCategory): NarratorInterfaceItem<T> =>
-    Object.entries(Category).reduce(
-      (prev, [, val]) => ({ ...prev, [val]: { play: () => playAudio(getSoundUrl(val)) } }),
-      {} as NarratorInterfaceItem<T>
-    );
-
-  return {
-    currentLanguage: createLangInterface(currentLanguage),
-    otherLanguage: createLangInterface(otherLanguage),
-    randomLanguage: createLangInterface(randomLanguage),
+    return new NarratorPhrase(dictionary.phrases[phraseId], playAudio, getCurrentLang, getOtherLang);
   };
+
+  return getPhrase;
 };

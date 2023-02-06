@@ -2,11 +2,10 @@
  * usage:
  *
  *  It plays random audio phrase of choosen category.
- *  narrator.<language>.<category>.play()
- *  eg. narrator.currentLanguage.good.play();
+ *  eg. narrator.getPhrase(Category.good).playCurrentLanguage()
  *
  *  in React Component
- *  const narrator = useNarrator<Promise<void>>(dictionary, playAudio);
+ *  const narrator = useNarrator(dictionary, playAudio);
  *
  * @param {DictionaryDataObject} dictionary
  *  dictionary: full dictionary with hidden categories, use fetchFullDictionary()
@@ -27,23 +26,23 @@
 import { useMemo } from 'react';
 import { DictionaryDataObject } from 'utils/getDataUtils';
 import { useLanguage } from 'utils/useLanguageHook';
-import { extractNarratorPhrases, createInterface } from './narrator';
+import { createNarrator } from './narrator';
 
 // include default playAudio function ???
 
+// fetch dictionary inside hook ???
+
 const useNarrator = <T>(dictionary: DictionaryDataObject, playAudio: (soudUrl: string) => T) => {
   const { currentLanguage, otherLanguage } = useLanguage();
-  const narratorPhrases = useMemo(() => extractNarratorPhrases(dictionary), [dictionary]);
-
   const narrator = useMemo(
     () =>
-      createInterface(
-        narratorPhrases,
+      createNarrator(
+        dictionary,
         () => currentLanguage,
         () => otherLanguage,
         playAudio
       ),
-    [narratorPhrases, currentLanguage, otherLanguage, playAudio]
+    [dictionary, currentLanguage, otherLanguage, playAudio]
   );
 
   return narrator;
