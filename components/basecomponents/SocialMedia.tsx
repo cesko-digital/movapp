@@ -35,4 +35,9 @@ const socialMedia: { name: string; link: string; img: string }[] = [
     link: 'https://www.linkedin.com/company/movapp-cz/',
     img: '/icons/socials/linkedin.svg',
   },
+  {
+    name: 'Telegram',
+    link: 'https://t.me/movappcz',
+    img: '/icons/socials/telegram.svg',
+  },
 ];
