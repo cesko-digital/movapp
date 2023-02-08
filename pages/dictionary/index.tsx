@@ -112,7 +112,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
             />
           </div>
           <ExportTranslations
-            translations={allTranslations}
+            translations={dictionary}
             categoryName={t('export_translations.all_phrases')}
             triggerLabel={`${t('export_translations.export')} ${t('export_translations.all_phrases')}`}
           />
@@ -132,7 +132,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                   ariaId={category.nameMain}
                 >
                   <div className="mb-4 mx-4">
-                    <ExportTranslations translations={category.translations} categoryName={categoryName} />
+                    <ExportTranslations translations={dictionary} categoryName={categoryName} />
                     <TextLink
                       href={`/pdf/${categoryPdfName}.pdf`}
                       target="_blank"

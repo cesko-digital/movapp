@@ -4,14 +4,14 @@ import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
 import { useLanguage } from 'utils/useLanguageHook';
 import { TiExport } from 'react-icons/ti';
-import { Phrase } from '../../utils/getDataUtils';
+import { DictionaryDataObject, getPhraseById, Phrase } from '../../utils/getDataUtils';
 import { TranslationId } from '../../utils/locales';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
 interface ExportTranslationsProps {
-  translations: Phrase[];
+  translations: DictionaryDataObject;
   categoryName: string;
   triggerLabel?: string;
 }
@@ -75,17 +75,30 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
-  const phrases = translations
-    .map(
-      (translation) =>
+  console.log(translations);
+
+  const phrases = translations.categories.map(
+    (translation) =>
+      '[' +
+      translation.name.main +
+      ']' +
+      translSep +
+      '[' +
+      translation.name.source +
+      ']' +
+      '\n' +
+      translation.phrases.map((phraseId) => {
+        let translation = getPhraseById(translations, phraseId);
         translation.getTranslation(currentLanguage) +
-        (includeTranscriptions ? ` [${translation.getTranscription(currentLanguage)}]` : '') +
-        translSep +
-        translation.getTranslation(otherLanguage) +
-        (includeTranscriptions ? ` [${translation.getTranscription(otherLanguage)}]` : '') +
-        phraseSep
-    )
-    .map((translation) => unescapeTabsAndNewlines(translation));
+          (includeTranscriptions ? ` [${translation.getTranscription(currentLanguage)}]` : '') +
+          translSep +
+          translation.getTranslation(otherLanguage) +
+          (includeTranscriptions ? ` [${translation.getTranscription(otherLanguage)}]` : '') +
+          phraseSep;
+      })
+    // .map((translation) => unescapeTabsAndNewlines(translation))
+  );
+  console.log(phrases);
 
   // Byte order mark to force some browsers to read the file as UTF-8
   const BOM = new Uint8Array([0xef, 0xbb, 0xbf]);
