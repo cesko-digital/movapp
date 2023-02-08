@@ -196,7 +196,7 @@ export const useGameStore = create<GameStore>((set, get) => {
     restart: () => {
       reset();
       setScene(Scene.goNewGame);
-      narrator(Category.newGame).playOtherLanguage();
+      narrator(Category.newGame).playCurrentLanguage();
       setTimer(begin, 500);
     },
     changeTheme: (index) => {
