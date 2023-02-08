@@ -117,9 +117,14 @@ export const getKidsCategory = (dictionaryObject: DictionaryDataObject): Categor
   }
 };
 
-export const fetchDictionary = async (country?: CountryVariant): Promise<DictionaryDataObject> => {
+export const fetchFullDictionary = async (country?: CountryVariant): Promise<DictionaryDataObject> => {
   const response = await fetch(`https://data.movapp.eu/uk-${country ?? getCountryVariant()}-dictionary.json`);
   const json = (await response.json()) as DictionaryDataObject;
+  return json;
+};
+
+export const fetchDictionary = async (country?: CountryVariant): Promise<DictionaryDataObject> => {
+  const json = await fetchFullDictionary(country);
   // filter out hidden categories
   const result = { ...json, categories: json.categories.filter((category) => !category.hidden) };
   return result;

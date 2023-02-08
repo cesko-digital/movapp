@@ -30,6 +30,12 @@ export class AudioPlayer {
     this.playSrc(newAudio.src);
   };
 
+  pause = () => {
+    if (!this.currentAudio.paused) {
+      this.currentAudio.pause();
+    }
+  };
+
   playSrc = (src: string) => {
     this.currentAudio.pause();
     if (this.resolveCurrentAudio !== null) this.resolveCurrentAudio();
