@@ -1,13 +1,12 @@
 /**
  * Narrator
  * concerns:
- * 1. Extracts narrator phrases from dictionary
- * 2. Creates collection of NarratorPhrases
- * 3. Offers method to get phrase of certain category
+ * 1. Map narrator phrases from dictionary
+ * 2. Offers method to get phrase of certain category
  *
  * Usage:
- * const narrator = createNarrator(dictionary, playAudio)
- * narrator.getPhrase(Category.good).playCurrentLanguage()
+ * const narrator = createNarrator(dictionary, () => currentLanguage, () => otherLanguage, playAudio)
+ * getPhrase(Category.good).playCurrentLanguage()
  *
  * NarratorPhrase
  * extends Phrase

@@ -1,8 +1,8 @@
 /**
  * usage:
  *
- *  It plays random audio phrase of choosen category.
- *  eg. narrator.getPhrase(Category.good).playCurrentLanguage()
+ *  GetPhrase function returns NarratorPhrase that has methods to play random audio phrase of choosen category in current or other language.
+ *  eg. getPhrase(Category.good).playCurrentLanguage()
  *
  *  in React Component
  *  const narrator = useNarrator(dictionary, playAudio);
@@ -28,13 +28,9 @@ import { DictionaryDataObject } from 'utils/getDataUtils';
 import { useLanguage } from 'utils/useLanguageHook';
 import { createNarrator } from './narrator';
 
-// include default playAudio function ???
-
-// fetch dictionary inside hook ???
-
 const useNarrator = <T>(dictionary: DictionaryDataObject, playAudio: (soudUrl: string) => T) => {
   const { currentLanguage, otherLanguage } = useLanguage();
-  const narrator = useMemo(
+  const getPhrase = useMemo(
     () =>
       createNarrator(
         dictionary,
@@ -45,7 +41,7 @@ const useNarrator = <T>(dictionary: DictionaryDataObject, playAudio: (soudUrl: s
     [dictionary, currentLanguage, otherLanguage, playAudio]
   );
 
-  return narrator;
+  return getPhrase;
 };
 
 export default useNarrator;
