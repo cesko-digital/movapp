@@ -118,8 +118,6 @@ export const getKidsCategory = (dictionaryObject: DictionaryDataObject): Categor
 };
 
 export const getPhraseById = (dictionaryObject: DictionaryDataObject, phraseId: string): Phrase => {
-  console.log(new Phrase(dictionaryObject.phrases[phraseId]));
-
   return new Phrase(dictionaryObject.phrases[phraseId]);
 };
 
