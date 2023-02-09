@@ -20,107 +20,101 @@ enum ExerciseType {
 
 interface Choice {
   id: number;
-  selectChoice: (/*maybe some opt payload*/) => void; // predefined function provided to store, () => /*resolve definition in Exercise*/ handleChoiceSelection(exId,choiceId)
-  data: Record<string, unknown>;
+  selectChoice: (/*maybe some opt payload*/) => void; // predefined function provided to store, () => /*resolve definition in Exercise*/
   // ref: React.ElementRef<>
 }
-
-// interface Choice {
-//   id: number;
-//   selectChoice: () => void;
-// }
-
-// interface ExerciseIdentification {
-
-//   choiceList: (Choice & {text:string})[];
-
-// }
 
 interface Exercise {
   id: number; // key for Exercise component
   type: ExerciseType;
   status: ExerciseStatus;
-  data: Record<string, unknown>;
-  correctChoiceId: number;
-  choiceList: Choice[];
-  resolveChoice: (choiceId: number) => boolean; // how to resolve choice is concern of Exercise
+  //tryCounter: number
+  //choiceList: Choice[];
+  //correctChoiceId: number;
+  resolve: () => boolean; // how to resolve exercise is concern of Exercise, resolving might be called after every choise selection or later when user decides
+}
+
+interface ExerciseIdentification extends Omit<Exercise, 'choiceList'> {
+  // ??? how to construct interfaces for a few types of exercises
+  playAudio: () => void;
+  playAudioSlow: () => void;
+  choiceList: (Choice & { text: string; selected: boolean; correct: boolean })[];
 }
 
 interface ExerciseState {
   id: number;
   initialized: boolean;
   // language: {current:getCountryVariant(),other:'uk'};
-  exerciseList: Exercise[];
+  //exerciseList: Exercise[];
+  exercise: Exercise | null;
 }
 
 interface ExerciseActions {
   init: () => void;
-  playAudio: (url: string) => void;
-  selectChoice: (exId: number, choiceId: number, resolveChoice: Exercise['resolveChoice']) => void;
-  renderExercise: () => JSX.Element;
 }
 
-const useExerciseStore = create<ExerciseState & ExerciseActions>((set, get) => ({
-  id: 0,
-  initialized: false,
-  exerciseList: [],
-  init: (/*category*/) => {
-    // fetch dictionary
-    // get category phrasesData
-    // build exercise list, list will include more types of exercises in future
-    set({
-      initialized: true,
-      exerciseList: [
-        {
-          id: 1,
-          type: ExerciseType.identification,
-          status: ExerciseStatus.queued,
-          data: {
-            soundUrl: 'sound.mp3',
-          },
-          correctChoiceId: 2,
-          choiceList: [
-            { id: 1, selectChoice: () => console.log(`selected hello`), data: { text: 'hello' } },
-            { id: 2, selectChoice: () => console.log(`selected world`), data: { text: 'world' } },
-          ],
-          resolveChoice: (id) => {
-            console.log(`resolving choise id ${id}`);
-            return true;
-          },
-        },
-      ],
-    });
-  },
-  playAudio: (url) => {
+const useExerciseStore = create<ExerciseState & ExerciseActions>((set, get) => {
+  const playAudio = (url: string) => {
     // plays audio
     // store handles audio play = better control
-  },
-  selectChoice: (resolveChoice) => {
+    console.log(`playing ${url}`);
+  };
+
+  const selectChoice = (exercieId: number, choiceId: number) => {
     // resolves selected choice and take next action
-  },
-  renderExercise: () => {
-    if (!get().initialized) return <p>waiting for init...</p>;
-    return <p>exercise</p>;
-  },
-}));
+    console.log(`selected choice ${choiceId} in exercise ${exercieId}`);
+  };
+
+  const resolveExercise = (exercieId: number) => {
+    // resolves exercise and take next action
+    console.log(`resolving exercise ${exercieId}`);
+  };
+
+  const generateExercise = () => ({
+    id: 1,
+    type: ExerciseType.identification,
+    status: ExerciseStatus.queued,
+    playAudio: () => playAudio('sound.mp3'),
+    playAudioSlow: () => playAudio('sound.mp3'),
+    choiceList: [
+      { id: 1, selectChoice: () => selectChoice(1, 1), text: 'hello', selected: false, correct: true },
+      { id: 2, selectChoice: () => selectChoice(1, 2), text: 'world', selected: false, correct: false },
+    ],
+    resolve: () => resolveExercise(1), // what triggers resolve???
+  });
+
+  return {
+    id: 0,
+    initialized: false,
+    //exerciseList: [], maybe later now generate one exercise at time
+    exercise: null,
+    init: (/*category*/) => {
+      // fetch dictionary
+      // get category phrasesData
+      // build exercise list, list will include more types of exercises in future
+      set({
+        initialized: true,
+        exercise: generateExercise() as ExerciseIdentification,
+      });
+    },
+  };
+});
 
 const ExerciseSection = () => {
   const { t } = useTranslation();
   const init = useExerciseStore((state) => state.init);
   const initialized = useExerciseStore((state) => state.initialized);
-  const renderExercise = useExerciseStore((state) => state.renderExercise);
-  const exerciseList = useExerciseStore((state) => state.exerciseList);
+  const exercise = useExerciseStore((state) => state.exercise);
 
   useEffect(() => {
     init();
   }, [init]);
 
-  if (!initialized) return <p>waiting for init...</p>;
+  if (!initialized) return <p>waitting for init...</p>;
 
-  const {
-    choiceList,
-    data: { soundUrl },
-  } = exerciseList[0];
+  const { choiceList, playAudio, playAudioSlow } = exercise as ExerciseIdentification;
+  // ######## prepare component in store????
+  // pair Exercise type with component
 
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
@@ -130,36 +124,38 @@ const ExerciseSection = () => {
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
-        <ExerciseIdentification choiceList={choiceList} playAudio={() => console.log(`playing audio ${soundUrl}`)} />
+        <ExerciseIdentification choiceList={choiceList} playAudio={playAudio} playAudioSlow={playAudioSlow} />
       </div>
     </div>
   );
 };
 
 interface ExerciseProps {
-  choiceList: Choice[];
+  choiceList: ExerciseIdentification['choiceList'];
   playAudio: () => void;
+  playAudioSlow: () => void;
 }
 
-const ExerciseIdentification = ({ choiceList, playAudio }: ExerciseProps) => {
+const ExerciseIdentification = ({ choiceList, playAudio, playAudioSlow }: ExerciseProps) => {
   // exercise: match audio to translated text
   // displays exercise data
   // offers controls
   return (
     <div className="flex flex-wrap">
       <Button text="PlayAudio" onClick={playAudio} />
+      <Button text="PlayAudioSlow" onClick={playAudioSlow} />
       <div className="flex flex-wrap">
         {choiceList.map((choice) => (
-          <Button key={choice.id} text={choice.data.text as string} onClick={choice.selectChoice} />
+          <Button key={choice.id} text={choice.text} onClick={choice.selectChoice} />
         ))}
       </div>
     </div>
   );
 };
 
-const Report = () => {
-  // displays final report about exercise set
-};
+// const Report = () => {
+//   // displays final report about exercise set
+// };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const localeTranslations = await getServerSideTranslations(locale);
