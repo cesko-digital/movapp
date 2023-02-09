@@ -126,7 +126,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
               return (
                 <Collapse
                   index={index}
-                  id={getCategoryId(category, currentLanguage)}
+                  id={getCategoryId(category)}
                   key={category.nameMain}
                   title={<Marker mark={search}>{categoryName}</Marker>}
                   ariaId={category.nameMain}
