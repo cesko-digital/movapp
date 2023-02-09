@@ -4,7 +4,7 @@ import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
 import { useLanguage } from 'utils/useLanguageHook';
 import { TiExport } from 'react-icons/ti';
-import { DictionaryDataObject, getPhraseById, Phrase } from '../../utils/getDataUtils';
+import { DictionaryDataObject, getPhraseById } from '../../utils/getDataUtils';
 import { TranslationId } from '../../utils/locales';
 
 const PREVIEW_PHRASES_COUNT = 3;
@@ -88,7 +88,7 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
         ']' +
         '\n' +
         translation.phrases.map((phraseId) => {
-          let phrase = getPhraseById(translations, phraseId);
+          const phrase = getPhraseById(translations, phraseId);
           return (
             phrase.getTranslation(currentLanguage) +
             (includeTranscriptions ? ` [${phrase.getTranscription(currentLanguage)}]` : '') +
