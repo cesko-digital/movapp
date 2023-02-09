@@ -75,11 +75,11 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
-  const categories =
+  const source =
     categoryName != 'všechny fráze'
       ? translations.categories.filter((c) => `${c.name.main} - ${c.name.source}` === categoryName)
       : translations.categories;
-  const phrases = categories
+  const phrases = source
     .map(
       (translation) =>
         '[' +
