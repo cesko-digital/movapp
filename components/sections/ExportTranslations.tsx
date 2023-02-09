@@ -7,7 +7,6 @@ import { TiExport } from 'react-icons/ti';
 import { DictionaryDataObject, getPhraseById } from '../../utils/getDataUtils';
 import { TranslationId } from '../../utils/locales';
 
-const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
 interface ExportTranslationsProps {
@@ -37,8 +36,6 @@ const PHRASE_SEPARATORS: SeparatorOption[] = [
 ];
 
 const PHRASE_SEP_CUSTOM = 'phrase_custom';
-
-const unescapeTabsAndNewlines = (str: string) => str.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
 
 const H3 = ({ ...props }: DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => (
   <h3 className="my-4" {...props} />
@@ -79,18 +76,11 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
     categoryName != 'všechny fráze'
       ? translations.categories.filter((c) => `${c.name.main} - ${c.name.source}` === categoryName)
       : translations.categories;
-  const phrases = source
-    .map(
-      (translation) =>
-        '[' +
-        translation.name.main +
-        ']' +
-        translSep +
-        '[' +
-        translation.name.source +
-        ']' +
-        '\n' +
-        translation.phrases.map((phraseId) => {
+  const phrases = source.map((translation) => {
+    const text = '[' + translation.name.main + ']' + translSep + '[' + translation.name.source + ']' + '\n';
+    return text.concat(
+      translation.phrases
+        .map((phraseId) => {
           const phrase = getPhraseById(translations, phraseId);
           return (
             phrase.getTranslation(currentLanguage) +
@@ -101,10 +91,9 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
             phraseSep
           );
         })
-    )
-    .map((final) => {
-      return unescapeTabsAndNewlines(final);
-    });
+        .join('')
+    );
+  });
 
   // Byte order mark to force some browsers to read the file as UTF-8
   const BOM = new Uint8Array([0xef, 0xbb, 0xbf]);
@@ -206,7 +195,7 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
 
         <h3 className="my-4">{t('export_translations.preview')}:</h3>
         <div className="bg-gray-100 border-1 border-gray-400 p-2">
-          <code className="whitespace-pre-wrap">{phrases.slice(0, PREVIEW_PHRASES_COUNT)}</code>
+          <code className="whitespace-pre-wrap">{phrases.slice(0, 1)}</code>
         </div>
 
         <div className="flex justify-evenly flex-wrap py-8">
