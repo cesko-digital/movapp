@@ -75,30 +75,33 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
-  console.log(translations);
 
-  const phrases = translations.categories.map(
-    (translation) =>
-      '[' +
-      translation.name.main +
-      ']' +
-      translSep +
-      '[' +
-      translation.name.source +
-      ']' +
-      '\n' +
-      translation.phrases.map((phraseId) => {
-        let translation = getPhraseById(translations, phraseId);
-        translation.getTranslation(currentLanguage) +
-          (includeTranscriptions ? ` [${translation.getTranscription(currentLanguage)}]` : '') +
-          translSep +
-          translation.getTranslation(otherLanguage) +
-          (includeTranscriptions ? ` [${translation.getTranscription(otherLanguage)}]` : '') +
-          phraseSep;
-      })
-    // .map((translation) => unescapeTabsAndNewlines(translation))
-  );
-  console.log(phrases);
+  const phrases = translations.categories
+    .map(
+      (translation) =>
+        '[' +
+        translation.name.main +
+        ']' +
+        translSep +
+        '[' +
+        translation.name.source +
+        ']' +
+        '\n' +
+        translation.phrases.map((phraseId) => {
+          let phrase = getPhraseById(translations, phraseId);
+          return (
+            phrase.getTranslation(currentLanguage) +
+            (includeTranscriptions ? ` [${phrase.getTranscription(currentLanguage)}]` : '') +
+            translSep +
+            phrase.getTranslation(otherLanguage) +
+            (includeTranscriptions ? ` [${phrase.getTranscription(otherLanguage)}]` : '') +
+            phraseSep
+          );
+        })
+    )
+    .map((final) => {
+      return unescapeTabsAndNewlines(final);
+    });
 
   // Byte order mark to force some browsers to read the file as UTF-8
   const BOM = new Uint8Array([0xef, 0xbb, 0xbf]);
