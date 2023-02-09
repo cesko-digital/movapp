@@ -196,7 +196,9 @@ export const useGameStore = create<GameStore>((set, get) => {
     restart: () => {
       reset();
       setScene(Scene.goNewGame);
-      narrator(Category.newGame).playCurrentLanguage();
+      narrator(Category.newGame)
+        .playCurrentLanguage()
+        .catch(() => undefined);
       setTimer(begin, 500);
     },
     changeTheme: (index) => {
@@ -220,7 +222,7 @@ export const useGameStore = create<GameStore>((set, get) => {
           set({ selectedCards: { first: card, second: null } });
           flipCard(card.id); // 0.3s
           await playAudio(audio.cardFlipSound);
-          playAudio(card.sound);
+          _playAudio(card.sound);
           setTimer(() => {
             game();
           }, 600); // reduced for fastrer UI
@@ -247,7 +249,7 @@ export const useGameStore = create<GameStore>((set, get) => {
               await narrator(Category.win).playCurrentLanguage();
               await delay(200);
               setScene(Scene.winReward);
-              playAudio(audio.winMusic);
+              _playAudio(audio.winMusic);
             } else {
               game();
             }
