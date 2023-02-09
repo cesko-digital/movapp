@@ -8,6 +8,51 @@ import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
+import CicLogo from '../../public/icons/about/cic_logo_bez_pozadí.png';
+import MkpLogo from '../../public/icons/about/MKP3r.jpg';
+import PbLogo from '../../public/icons/about/PB-logo-black-vertical-01.png';
+
+const partners = [
+  {
+    title: 'Centrum pro integraci cizinců',
+    url: 'https://www.cicops.cz/',
+    image: CicLogo,
+  },
+  {
+    title: 'Městská knihovna v Praze',
+    url: 'https://www.mlp.cz/',
+    image: MkpLogo,
+  },
+  {
+    title: 'Post Bellum',
+    url: 'https://www.postbellum.cz/',
+    image: PbLogo,
+  },
+];
+
+type Partner = {
+  title: string;
+  url: string;
+  image: StaticImageData;
+};
+
+type PartnerListProps = {
+  partners: Partner[];
+};
+
+const PartnerList = ({ partners }: PartnerListProps) => {
+  return (
+    <ul className="flex flex-wrap space-x-5">
+      {partners.map((partner) => (
+        <li key={partner.title} className={'w-36 md:w-40 h-20 relative'}>
+          <a href={partner.url} target="_blank" rel="noreferrer">
+            <Image src={partner.image} layout="fill" objectFit="contain" alt={partner.title} title={partner.title} />
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 interface TeamStucture {
   sections: [
@@ -180,6 +225,9 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           i18nKey={'about_page.czech_digital_description'}
           components={[<TextLink href="https://cesko.digital/" target="_blank" key="cesko.digital" />]}
         />
+
+        <H2>{t('about_page.our_partners_title')}</H2>
+        <PartnerList partners={partners} />
       </div>
     </>
   );
