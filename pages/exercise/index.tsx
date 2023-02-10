@@ -6,11 +6,15 @@ import { GetStaticProps } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
 import { Button } from 'components/basecomponents/Button';
 import { create } from 'zustand';
+import * as R from 'ramda';
+import anime from 'animejs';
+
+/* eslint-disable no-console */
 
 enum ExerciseStatus {
   queued = 'queued',
   active = 'active',
-  succeeded = 'succeeded',
+  completed = 'completed',
   failed = 'failed',
 }
 
@@ -19,29 +23,34 @@ enum ExerciseType {
 }
 
 interface Choice {
-  id: number;
-  selectChoice: (/*maybe some opt payload*/) => void; // predefined function provided to store, () => /*resolve definition in Exercise*/
+  select: (/*maybe some opt payload*/) => void; // predefined function provided to store, () => /*resolve definition in Exercise*/
+  selected: boolean;
+  correct: boolean;
   // ref: React.ElementRef<>
 }
 
 interface Exercise {
-  id: number; // key for Exercise component
   type: ExerciseType;
   status: ExerciseStatus;
   //tryCounter: number
-  //choiceList: Choice[];
+  choiceList: Choice[];
   //correctChoiceId: number;
-  resolve: () => boolean; // how to resolve exercise is concern of Exercise, resolving might be called after every choise selection or later when user decides
+  resolve: () => boolean; // how to resolve exercise is concern of Exercise, resolving might be called after every choice selection or later when user decides
 }
 
-interface ExerciseIdentification extends Omit<Exercise, 'choiceList'> {
+// interface ExerciseIdentification extends Omit<Exercise, 'choiceList'> {
+interface ExerciseIdentification extends Exercise {
   // ??? how to construct interfaces for a few types of exercises
   playAudio: () => void;
   playAudioSlow: () => void;
-  choiceList: (Choice & { text: string; selected: boolean; correct: boolean })[];
+  choiceList: (Choice & {
+    text: string;
+    ref: React.Ref<HTMLButtonElement> | null;
+    setRef: (node: HTMLElement | null) => void;
+  })[];
 }
 
-interface ExerciseState {
+interface ExerciseStoreState {
   id: number;
   initialized: boolean;
   // language: {current:getCountryVariant(),other:'uk'};
@@ -49,38 +58,103 @@ interface ExerciseState {
   exercise: Exercise | null;
 }
 
-interface ExerciseActions {
+interface ExerciseStoreActions {
   init: () => void;
 }
 
-const useExerciseStore = create<ExerciseState & ExerciseActions>((set, get) => {
+/** Describes state of app at current moment, enables to save/restore app state */
+
+const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions>((set, get) => {
   const playAudio = (url: string) => {
     // plays audio
     // store handles audio play = better control
     console.log(`playing ${url}`);
   };
 
-  const selectChoice = (exercieId: number, choiceId: number) => {
+  // ensures that store knows about state changes //
+  const selectChoice = async (exerciseIndex: number, choiceIndex: number) => {
+    // maybe pass reference to exercise and choice
     // resolves selected choice and take next action
-    console.log(`selected choice ${choiceId} in exercise ${exercieId}`);
+    const choice = get().exercise?.choiceList[choiceIndex];
+    await anime({
+      targets: choice.ref,
+      duration: 200,
+      opacity: 0.5,
+      easing: 'linear',
+      direction: 'alternate',
+    }).finished;
+
+    if (choice.selected) {
+      console.log(`choice ${choiceIndex} already selected`);
+      return;
+    }
+
+    set(R.over(R.lensPath(['exercise', 'choiceList', choiceIndex, 'selected']), () => true));
+    console.log(`selected choice ${choiceIndex} in exercise ${exerciseIndex}`);
   };
 
-  const resolveExercise = (exercieId: number) => {
+  const selectChoiceAndResolve = async (exerciseIndex: number, choiceIndex: number) => {
+    // maybe pass reference to exercise and choice // or pass selectChoice + resolve
+    // resolves selected choice and take next action
+    // if (get().exercise?.choiceList[choiceIndex].selected) {
+    //   console.log(`choice ${choiceIndex} already selected`);
+    //   return;
+    // }
+    await selectChoice(exerciseIndex, choiceIndex);
+    resolveExercise(exerciseIndex);
+  };
+
+  const resolveExercise = (exerciseIndex: number) => {
+    // (resolve: () => boolean)
     // resolves exercise and take next action
-    console.log(`resolving exercise ${exercieId}`);
+    console.log(`resolving exercise ${exerciseIndex}`);
+    if (get().exercise?.resolve()) {
+      /* set exercise status completed */
+      console.log(`exercise ${exerciseIndex} completed hooray...`);
+      /* generate new exercise */
+      console.log(`generating new exercise for you...`);
+      set({ exercise: generateExercise() });
+    } else {
+      /** do nothing */
+      console.log(`exercise ${exerciseIndex} not completed yet`);
+    }
   };
 
-  const generateExercise = () => ({
-    id: 1,
+  const setChoiceRef = (exerciseIndex: number, choiceIndex: number, node: HTMLElement | null) => {
+    if (node === null) return;
+    set(R.over(R.lensPath(['exercise', 'choiceList', choiceIndex, 'ref']), () => node));
+    console.log(`ref updated for choice ${choiceIndex}`);
+  };
+
+  const generateExercise = (): ExerciseIdentification => ({
     type: ExerciseType.identification,
     status: ExerciseStatus.queued,
     playAudio: () => playAudio('sound.mp3'),
     playAudioSlow: () => playAudio('sound.mp3'),
     choiceList: [
-      { id: 1, selectChoice: () => selectChoice(1, 1), text: 'hello', selected: false, correct: true },
-      { id: 2, selectChoice: () => selectChoice(1, 2), text: 'world', selected: false, correct: false },
+      {
+        select: () => selectChoiceAndResolve(0, 0) /* set choice selected maybe call resolve */,
+        text: 'hello',
+        selected: false,
+        correct: true,
+        ref: null,
+        setRef: (node) => setChoiceRef(0, 0, node),
+      }, // maybe put animations and sounds to exercise obj.
+      {
+        select: () => selectChoiceAndResolve(0, 1),
+        text: 'world',
+        selected: false,
+        correct: false,
+        ref: null,
+        setRef: (node) => setChoiceRef(0, 1, node),
+      },
     ],
-    resolve: () => resolveExercise(1), // what triggers resolve???
+    resolve: () => {
+      /*all correct choices selected*/
+      const exercise = get().exercise as ExerciseIdentification; // provide refence to exercise instead of calling get(), is it save => its not??
+      // return exercise.choiceList.every((choice) => choice.selected && choice.correct); // for multiple correct answers , cant use selectAndResolve
+      return (exercise.choiceList.find((choice) => choice.correct) as Choice).selected;
+    }, // what triggers resolve??? a) user with button to apply choices b) system after each choice selection
   });
 
   return {
@@ -94,7 +168,7 @@ const useExerciseStore = create<ExerciseState & ExerciseActions>((set, get) => {
       // build exercise list, list will include more types of exercises in future
       set({
         initialized: true,
-        exercise: generateExercise() as ExerciseIdentification,
+        exercise: generateExercise(),
       });
     },
   };
@@ -140,13 +214,20 @@ const ExerciseIdentification = ({ choiceList, playAudio, playAudioSlow }: Exerci
   // exercise: match audio to translated text
   // displays exercise data
   // offers controls
+
   return (
     <div className="flex flex-wrap">
       <Button text="PlayAudio" onClick={playAudio} />
       <Button text="PlayAudioSlow" onClick={playAudioSlow} />
       <div className="flex flex-wrap">
-        {choiceList.map((choice) => (
-          <Button key={choice.id} text={choice.text} onClick={choice.selectChoice} />
+        {choiceList.map((choice, index) => (
+          <Button
+            ref={choice.setRef}
+            key={index}
+            text={choice.text}
+            onClick={choice.select}
+            // style={{ color: choice.selected && !choice.correct ? 'gray' : 'black' }}
+          />
         ))}
       </div>
     </div>
