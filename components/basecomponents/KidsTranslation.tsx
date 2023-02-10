@@ -23,9 +23,10 @@ export const KidsTranslation = ({ transcription, translation, language, soundUrl
     }
   }, [isPlaying, soundUrl]);
 
-  // add non-breaking space
-  const translationFormatted = `[ ${translation} ]`.replace(/ /g, '\u00A0');
-  const transcriptionFormatted = `[ ${transcription} ]`.replace(/ /g, '\u00A0');
+  // add non-breaking space after and before square brackets
+  const transformText = (text: string) => {
+    return text.replace(/\[ /g, '\u005B\u00A0').replace(/\ ]/g, '\u00A0\u005D');
+  };
 
   return (
     <div className="flex justify-between items-center py-2 ">
@@ -36,8 +37,8 @@ export const KidsTranslation = ({ transcription, translation, language, soundUrl
             <Trans className="block my-2">{t(`dictionary_page.${language}`)}</Trans>
           </p>
         </div>
-        <p className="self-start w-full font-semibold">{translationFormatted}</p>
-        <p className="text-gray-500">{transcriptionFormatted}</p>
+        <p className="self-start w-full font-semibold">{translation}</p>
+        <p className="text-gray-500">{transformText(`[ ${transcription} ]`)}</p>
       </div>
       <button onClick={handleClick} aria-label={t('utils.play') + ' ' + translation}>
         <PlayKidsIcon
