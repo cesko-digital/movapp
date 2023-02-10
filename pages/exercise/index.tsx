@@ -26,7 +26,8 @@ interface Choice {
   select: (/*maybe some opt payload*/) => void; // predefined function provided to store, () => /*resolve definition in Exercise*/
   selected: boolean;
   correct: boolean;
-  // ref: React.ElementRef<>
+  ref: HTMLElement | null;
+  setRef: (node: HTMLElement | null) => void;
 }
 
 interface Exercise {
@@ -45,8 +46,6 @@ interface ExerciseIdentification extends Exercise {
   playAudioSlow: () => void;
   choiceList: (Choice & {
     text: string;
-    ref: React.Ref<HTMLButtonElement> | null;
-    setRef: (node: HTMLElement | null) => void;
   })[];
 }
 
@@ -75,14 +74,7 @@ const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions>((set,
   const selectChoice = async (exerciseIndex: number, choiceIndex: number) => {
     // maybe pass reference to exercise and choice
     // resolves selected choice and take next action
-    const choice = get().exercise?.choiceList[choiceIndex];
-    await anime({
-      targets: choice.ref,
-      duration: 200,
-      opacity: 0.5,
-      easing: 'linear',
-      direction: 'alternate',
-    }).finished;
+    const choice = get().exercise?.choiceList[choiceIndex] as Choice;
 
     if (choice.selected) {
       console.log(`choice ${choiceIndex} already selected`);
@@ -133,7 +125,11 @@ const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions>((set,
     playAudioSlow: () => playAudio('sound.mp3'),
     choiceList: [
       {
-        select: () => selectChoiceAndResolve(0, 0) /* set choice selected maybe call resolve */,
+        select: async () => {
+          const choice = get().exercise?.choiceList[0] as Choice;
+          await playSelectAnimation(choice.ref as HTMLElement).finished;
+          selectChoiceAndResolve(0, 0);
+        } /* set choice selected maybe call resolve */,
         text: 'hello',
         selected: false,
         correct: true,
@@ -141,7 +137,11 @@ const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions>((set,
         setRef: (node) => setChoiceRef(0, 0, node),
       }, // maybe put animations and sounds to exercise obj.
       {
-        select: () => selectChoiceAndResolve(0, 1),
+        select: async () => {
+          const choice = get().exercise?.choiceList[1] as Choice;
+          await playSelectAnimation(choice.ref as HTMLElement).finished;
+          selectChoiceAndResolve(0, 1);
+        },
         text: 'world',
         selected: false,
         correct: false,
@@ -216,20 +216,19 @@ const ExerciseIdentification = ({ choiceList, playAudio, playAudioSlow }: Exerci
   // offers controls
 
   return (
-    <div className="flex flex-wrap">
-      <Button text="PlayAudio" onClick={playAudio} />
-      <Button text="PlayAudioSlow" onClick={playAudioSlow} />
-      <div className="flex flex-wrap">
-        {choiceList.map((choice, index) => (
-          <Button
-            ref={choice.setRef}
-            key={index}
-            text={choice.text}
-            onClick={choice.select}
-            // style={{ color: choice.selected && !choice.correct ? 'gray' : 'black' }}
-          />
-        ))}
-      </div>
+    <div className="flex flex-wrap content-start">
+      <Button className="bg-primary-blue" text="PlayAudio" onClick={playAudio} />
+      <Button className="bg-primary-blue" text="PlayAudioSlow" onClick={playAudioSlow} />
+      {choiceList.map((choice, index) => (
+        <Button
+          className="bg-primary-blue"
+          ref={choice.setRef}
+          key={index}
+          text={choice.text}
+          onClick={choice.select}
+          // style={{ color: choice.selected && !choice.correct ? 'gray' : 'black' }}
+        />
+      ))}
     </div>
   );
 };
@@ -237,6 +236,15 @@ const ExerciseIdentification = ({ choiceList, playAudio, playAudioSlow }: Exerci
 // const Report = () => {
 //   // displays final report about exercise set
 // };
+
+const playSelectAnimation = (ref: HTMLElement) =>
+  anime({
+    targets: ref,
+    duration: 200,
+    opacity: 0.5,
+    easing: 'easeInOutCubic',
+    direction: 'alternate',
+  });
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const localeTranslations = await getServerSideTranslations(locale);
