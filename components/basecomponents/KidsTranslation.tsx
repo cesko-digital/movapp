@@ -33,7 +33,7 @@ export const KidsTranslation = ({ transcription, translation, language, soundUrl
           </p>
         </div>
         <p className="self-start w-full font-semibold">{translation}</p>
-        <p className="text-gray-500">{`[ ${transcription} ]`}</p>
+        <p className="text-gray-500">{`[\u00A0${transcription}\u00A0]`}</p>
       </div>
       <button onClick={handleClick} aria-label={t('utils.play') + ' ' + translation}>
         <PlayKidsIcon

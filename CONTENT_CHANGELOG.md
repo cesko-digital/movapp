@@ -6,3 +6,4 @@
 2022-12-02	Add Slovak for Christmas + Winter categories
 2022-12-10	Add Polish for Christmas + Winter categories
 2022-12-12	Fix image of candle
+2023-01-08	Add Playground and Park category
