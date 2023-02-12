@@ -9,7 +9,7 @@ import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
 import CicLogo from '../../public/icons/about/cic_logo_bez_pozadí.png';
-import MkpLogo from '../../public/icons/about/MKP3r.jpg';
+import MkpLogo from '../../public/icons/about/MKP.png';
 import PbLogo from '../../public/icons/about/PB-logo-black-vertical-01.png';
 
 const partners = [
@@ -45,7 +45,7 @@ const PartnerList = ({ partners }: PartnerListProps) => {
     <ul className="flex flex-wrap space-x-5">
       {partners.map((partner) => (
         <li key={partner.title} className={'w-36 md:w-40 h-20 relative'}>
-          <a href={partner.url} target="_blank" rel="noreferrer">
+          <a href={partner.url} target="_blank" rel="noopener">
             <Image src={partner.image} layout="fill" objectFit="contain" alt={partner.title} title={partner.title} />
           </a>
         </li>
