@@ -8,32 +8,29 @@ import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
-import CicLogo from '../../public/icons/about/cic_logo_bez_pozadí.png';
-import MkpLogo from '../../public/icons/about/MKP.png';
-import PbLogo from '../../public/icons/about/PB-logo-black-vertical-01.png';
 
 const partners = [
   {
     title: 'Centrum pro integraci cizinců',
     url: 'https://www.cicops.cz/',
-    image: CicLogo,
+    logo: '/icons/about/cic_logo_bez_pozadí.png',
   },
   {
     title: 'Městská knihovna v Praze',
     url: 'https://www.mlp.cz/',
-    image: MkpLogo,
+    logo: '/icons/about/mestska_knihovna_Praha_v2.svg',
   },
   {
     title: 'Post Bellum',
     url: 'https://www.postbellum.cz/',
-    image: PbLogo,
+    logo: '/icons/about/PB-logo-black-vertical-01.png',
   },
 ];
 
 type Partner = {
   title: string;
   url: string;
-  image: StaticImageData;
+  logo: string;
 };
 
 type PartnerListProps = {
@@ -46,7 +43,7 @@ const PartnerList = ({ partners }: PartnerListProps) => {
       {partners.map((partner) => (
         <li key={partner.title} className={'w-36 md:w-40 h-20 relative'}>
           <a href={partner.url} target="_blank" rel="noopener">
-            <Image src={partner.image} layout="fill" objectFit="contain" alt={partner.title} title={partner.title} />
+            <Image src={partner.logo} layout="fill" objectFit="contain" alt={partner.title} title={partner.title} />
           </a>
         </li>
       ))}
