@@ -4,15 +4,15 @@ import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
 import { useLanguage } from 'utils/useLanguageHook';
 import { TiExport } from 'react-icons/ti';
-import { DictionaryDataObject, getPhraseById } from '../../utils/getDataUtils';
+import { Category, DictionaryDataObject, getPhraseById } from '../../utils/getDataUtils';
 import { TranslationId } from '../../utils/locales';
 
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
 interface ExportTranslationsProps {
-  translations: DictionaryDataObject;
-  categoryName: string;
+  dictionary: DictionaryDataObject;
   triggerLabel?: string;
+  category?: Category;
 }
 
 interface SeparatorOption {
@@ -61,7 +61,7 @@ const Separator = () => (
   </div>
 );
 
-const ExportTranslations = ({ translations, categoryName, triggerLabel }: ExportTranslationsProps) => {
+const ExportTranslations = ({ dictionary, triggerLabel, category }: ExportTranslationsProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
   const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
@@ -72,16 +72,16 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
-  const source =
-    categoryName != 'všechny fráze'
-      ? translations.categories.filter((c) => `${c.name.main} - ${c.name.source}` === categoryName)
-      : translations.categories;
+  const source = category != null ? dictionary.categories.filter((c) => c.id === category.id) : dictionary.categories;
   const phrases = source.map((translation) => {
-    const text = '[' + translation.name.main + ']' + translSep + '[' + translation.name.source + ']' + '\n';
+    const text =
+      currentLanguage === 'cs'
+        ? '[' + translation.name.main + ']' + translSep + '[' + translation.name.source + ']' + '\n'
+        : '[' + translation.name.source + ']' + translSep + '[' + translation.name.main + ']' + '\n';
     return text.concat(
       translation.phrases
         .map((phraseId) => {
-          const phrase = getPhraseById(translations, phraseId);
+          const phrase = getPhraseById(dictionary, phraseId);
           return (
             phrase.getTranslation(currentLanguage) +
             (includeTranscriptions ? ` [${phrase.getTranscription(currentLanguage)}]` : '') +
@@ -99,7 +99,16 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
   const BOM = new Uint8Array([0xef, 0xbb, 0xbf]);
   const data = new Blob([BOM, ...phrases], { type: 'text/plain;charset=utf8' });
   const downloadLink = window.URL.createObjectURL(data);
-  const fileName = `${categoryName}.txt`;
+  const fileName =
+    category !== undefined ? (currentLanguage === 'cs' ? `${category?.nameMain}.txt` : `${category?.nameUk}`) : 'allphrases.txt';
+  const modalTitle =
+    category !== undefined
+      ? currentLanguage === 'cs'
+        ? category.nameMain
+        : category.nameUk
+      : currentLanguage === 'cs'
+      ? 'všechny fráze'
+      : 'всі фрази';
 
   const { t } = useTranslation();
 
@@ -109,7 +118,7 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
         <TiExport className="w-5 h-5" />
         <span>{triggerLabel ?? t('export_translations.export_phrases')}</span>
       </button>
-      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.export')} ${categoryName}`}>
+      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.export')} ${modalTitle}`}>
         <p>{t('export_translations.subtitle_note')}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div>
