@@ -36,7 +36,7 @@ interface Exercise {
   //tryCounter: number
   choiceList: Choice[];
   //correctChoiceId: number;
-  resolve: () => boolean; // how to resolve exercise is concern of Exercise, resolving might be called after every choice selection or later when user decides
+  resolve: (exercise: Exercise) => boolean; // how to resolve exercise is concern of Exercise, resolving might be called after every choice selection or later when user decides
 }
 
 // interface ExerciseIdentification extends Omit<Exercise, 'choiceList'> {
@@ -70,10 +70,16 @@ const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions>((set,
     console.log(`playing ${url}`);
   };
 
+  const playAudioSlow = (url: string) => {
+    // plays audio
+    // store handles audio play = better control
+    console.log(`playing ${url}`);
+  };
+
   // ensures that store knows about state changes //
-  const selectChoice = async (exerciseIndex: number, choiceIndex: number) => {
-    // maybe pass reference to exercise and choice
-    // resolves selected choice and take next action
+  const selectChoice = async (exercise: Exercise, choiceIndex: number) => {
+    // place to react on user input
+    // place to handle user choice, disable buttons, animate exercise stuff
     const choice = get().exercise?.choiceList[choiceIndex] as Choice;
 
     if (choice.selected) {
@@ -82,80 +88,82 @@ const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions>((set,
     }
 
     set(R.over(R.lensPath(['exercise', 'choiceList', choiceIndex, 'selected']), () => true));
-    console.log(`selected choice ${choiceIndex} in exercise ${exerciseIndex}`);
+    console.log(`selected choice ${choiceIndex} in exercise`);
   };
 
-  const selectChoiceAndResolve = async (exerciseIndex: number, choiceIndex: number) => {
-    // maybe pass reference to exercise and choice // or pass selectChoice + resolve
-    // resolves selected choice and take next action
-    // if (get().exercise?.choiceList[choiceIndex].selected) {
-    //   console.log(`choice ${choiceIndex} already selected`);
-    //   return;
-    // }
-    await selectChoice(exerciseIndex, choiceIndex);
-    resolveExercise(exerciseIndex);
-  };
+  /** expecting methods will point only to active excersice only --- that removes exercise index bloat */
 
-  const resolveExercise = (exerciseIndex: number) => {
+  const resolveExercise = (exercise: Exercise) => {
+    // place to react on exercise resolve
     // (resolve: () => boolean)
     // resolves exercise and take next action
-    console.log(`resolving exercise ${exerciseIndex}`);
-    if (get().exercise?.resolve()) {
+    console.log(`resolving exercise`);
+    if (get().exercise?.resolve(exercise)) {
       /* set exercise status completed */
-      console.log(`exercise ${exerciseIndex} completed hooray...`);
+      console.log(`exercise completed hooray...`);
       /* generate new exercise */
       console.log(`generating new exercise for you...`);
-      set({ exercise: generateExercise() });
+      set({ exercise: generateExerciseIdentification() });
     } else {
-      /** do nothing */
-      console.log(`exercise ${exerciseIndex} not completed yet`);
+      /* notify user that it's not completed */
+      console.log(`try again...`);
     }
   };
 
-  const setChoiceRef = (exerciseIndex: number, choiceIndex: number, node: HTMLElement | null) => {
+  const setChoiceRef = (choiceIndex: number, node: HTMLElement | null) => {
     if (node === null) return;
     set(R.over(R.lensPath(['exercise', 'choiceList', choiceIndex, 'ref']), () => node));
     console.log(`ref updated for choice ${choiceIndex}`);
   };
 
-  const generateExercise = (): ExerciseIdentification => ({
-    type: ExerciseType.identification,
-    status: ExerciseStatus.queued,
-    playAudio: () => playAudio('sound.mp3'),
-    playAudioSlow: () => playAudio('sound.mp3'),
-    choiceList: [
-      {
-        select: async () => {
-          const choice = get().exercise?.choiceList[0] as Choice;
-          await playSelectAnimation(choice.ref as HTMLElement).finished;
-          selectChoiceAndResolve(0, 0);
-        } /* set choice selected maybe call resolve */,
-        text: 'hello',
-        selected: false,
-        correct: true,
-        ref: null,
-        setRef: (node) => setChoiceRef(0, 0, node),
-      }, // maybe put animations and sounds to exercise obj.
-      {
-        select: async () => {
-          const choice = get().exercise?.choiceList[1] as Choice;
-          await playSelectAnimation(choice.ref as HTMLElement).finished;
-          selectChoiceAndResolve(0, 1);
-        },
-        text: 'world',
-        selected: false,
-        correct: false,
-        ref: null,
-        setRef: (node) => setChoiceRef(0, 1, node),
-      },
-    ],
-    resolve: () => {
+  // TODO: generate exercise from phrases of selected category
+
+  const generateExerciseIdentification = (): ExerciseIdentification => {
+    /** input parameters */
+    const soundUrl = 'sound.mp3';
+    const phrases = [
+      { text: 'choice1', correct: false },
+      { text: 'choice1', correct: true },
+    ];
+
+    const resolve = (exercise: Exercise) => {
       /*all correct choices selected*/
-      const exercise = get().exercise as ExerciseIdentification; // provide refence to exercise instead of calling get(), is it save => its not??
       // return exercise.choiceList.every((choice) => choice.selected && choice.correct); // for multiple correct answers , cant use selectAndResolve
-      return (exercise.choiceList.find((choice) => choice.correct) as Choice).selected;
-    }, // what triggers resolve??? a) user with button to apply choices b) system after each choice selection
-  });
+      return (exercise.choiceList.find((choice) => choice.correct) as Choice).selected; // finds first occurence !!!
+    }; // what triggers resolve??? a) user with button to apply choices b) system after each choice selection
+
+    // service methods
+    const getThisExercise = () => get().exercise; // points to active exercise or use exercise index for match in future
+    const generateChoiceList = () =>
+      phrases.map(({ text, correct }, index) => ({
+        select: async () => {
+          const choice = getThisExercise()?.choiceList[index] as Choice;
+          // place to run animations depending on exercise type
+          animation.playSelect(choice.ref as HTMLElement);
+          // await playSelectAnimation(choice.ref as HTMLElement).finished; // wait for animation ends
+          // use store method to select choice
+          selectChoice(getThisExercise() as Exercise, index);
+          // use store method to resolve exercise
+          resolveExercise(getThisExercise() as Exercise);
+          // All the logic could be here but...
+        } /* set choice selected maybe call resolve */,
+        text,
+        selected: false,
+        correct,
+        ref: null,
+        setRef: (node: HTMLElement | null) => setChoiceRef(index, node), // maybe assign directly without external functtion
+      })); // maybe put animations and sounds to exercise obj.
+
+    /** Exercise output object */
+    return {
+      type: ExerciseType.identification,
+      status: ExerciseStatus.queued,
+      playAudio: () => playAudio(soundUrl),
+      playAudioSlow: () => playAudioSlow(soundUrl),
+      choiceList: generateChoiceList(),
+      resolve,
+    };
+  };
 
   return {
     id: 0,
@@ -168,7 +176,7 @@ const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions>((set,
       // build exercise list, list will include more types of exercises in future
       set({
         initialized: true,
-        exercise: generateExercise(),
+        exercise: generateExerciseIdentification(),
       });
     },
   };
@@ -237,14 +245,16 @@ const ExerciseIdentification = ({ choiceList, playAudio, playAudioSlow }: Exerci
 //   // displays final report about exercise set
 // };
 
-const playSelectAnimation = (ref: HTMLElement) =>
-  anime({
-    targets: ref,
-    duration: 200,
-    opacity: 0.5,
-    easing: 'easeInOutCubic',
-    direction: 'alternate',
-  });
+const animation = {
+  playSelect: (ref: HTMLElement) =>
+    anime({
+      targets: ref,
+      duration: 200,
+      opacity: 0.5,
+      easing: 'easeInOutCubic',
+      direction: 'alternate',
+    }),
+};
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const localeTranslations = await getServerSideTranslations(locale);
