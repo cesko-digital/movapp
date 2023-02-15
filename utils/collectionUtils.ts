@@ -8,3 +8,5 @@ export const shuffle = <T>(array: T[] = [], size: number): T[] => {
   }
   return arrayCopy.slice(min + 1);
 };
+
+export const getRandomItem = <Type>(arr: Type[]): Type => arr[Math.floor(Math.random() * arr.length)];

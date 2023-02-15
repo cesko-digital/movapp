@@ -7,6 +7,7 @@ import { TiExport } from 'react-icons/ti';
 import { Category, DictionaryDataObject, getPhraseById } from '../../utils/getDataUtils';
 import { TranslationId } from '../../utils/locales';
 import { getCategoryName } from './Dictionary/dictionaryUtils';
+import { firstLetterToUpperCase } from 'utils/textNormalizationUtils';
 
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
@@ -104,7 +105,9 @@ const ExportTranslations = ({ dictionary, triggerLabel, category }: ExportTransl
   const data = new Blob([BOM, ...phrases], { type: 'text/plain;charset=utf8' });
   const downloadLink = window.URL.createObjectURL(data);
   const fileName =
-    category !== undefined ? `${getCategoryName(category, currentLanguage)}.txt` : `${t('export_translations.all_phrases')}.txt`;
+    category !== undefined
+      ? `${getCategoryName(category, currentLanguage)}.txt`
+      : `${firstLetterToUpperCase(t('export_translations.all_phrases'))}.txt`;
   const modalTitle = category !== undefined ? getCategoryName(category, currentLanguage) : t('export_translations.all_phrases');
 
   return (
