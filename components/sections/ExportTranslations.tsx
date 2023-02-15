@@ -6,6 +6,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 import { TiExport } from 'react-icons/ti';
 import { Category, DictionaryDataObject, getPhraseById } from '../../utils/getDataUtils';
 import { TranslationId } from '../../utils/locales';
+import { getCategoryName } from './Dictionary/dictionaryUtils';
 
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
@@ -36,6 +37,7 @@ const PHRASE_SEPARATORS: SeparatorOption[] = [
 ];
 
 const PHRASE_SEP_CUSTOM = 'phrase_custom';
+const CATEGORY_SEPARATOR = '\n';
 
 const H3 = ({ ...props }: DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => (
   <h3 className="my-4" {...props} />
@@ -69,15 +71,16 @@ const ExportTranslations = ({ dictionary, triggerLabel, category }: ExportTransl
   const [customPhraseSeparator, setCustomPhraseSeparator] = useState('\\n\\n');
   const [includeTranscriptions, setIncludeTranscriptions] = useState(false);
   const { currentLanguage, otherLanguage } = useLanguage();
+  const { t } = useTranslation();
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
-  const source = category != null ? dictionary.categories.filter((c) => c.id === category.id) : dictionary.categories;
-  const phrases = source.map((translation) => {
+  const source = category !== undefined ? dictionary.categories.filter((c) => c.id === category.id) : dictionary.categories;
+  const phrases = source.map((translation, index, arr) => {
     const text =
-      currentLanguage === 'cs'
-        ? '[' + translation.name.main + ']' + translSep + '[' + translation.name.source + ']' + '\n'
-        : '[' + translation.name.source + ']' + translSep + '[' + translation.name.main + ']' + '\n';
+      currentLanguage === 'uk'
+        ? '[' + translation.name.source + ']' + translSep + '[' + translation.name.main + ']' + '\n'
+        : '[' + translation.name.main + ']' + translSep + '[' + translation.name.source + ']' + '\n';
     return text.concat(
       translation.phrases
         .map((phraseId) => {
@@ -91,7 +94,8 @@ const ExportTranslations = ({ dictionary, triggerLabel, category }: ExportTransl
             phraseSep
           );
         })
-        .join('')
+        // omit category separator after last category
+        .join('') + `${index + 1 < arr.length ? CATEGORY_SEPARATOR : ''}`
     );
   });
 
@@ -100,17 +104,8 @@ const ExportTranslations = ({ dictionary, triggerLabel, category }: ExportTransl
   const data = new Blob([BOM, ...phrases], { type: 'text/plain;charset=utf8' });
   const downloadLink = window.URL.createObjectURL(data);
   const fileName =
-    category !== undefined ? (currentLanguage === 'cs' ? `${category?.nameMain}.txt` : `${category?.nameUk}`) : 'allphrases.txt';
-  const modalTitle =
-    category !== undefined
-      ? currentLanguage === 'cs'
-        ? category.nameMain
-        : category.nameUk
-      : currentLanguage === 'cs'
-      ? 'všechny fráze'
-      : 'всі фрази';
-
-  const { t } = useTranslation();
+    category !== undefined ? `${getCategoryName(category, currentLanguage)}.txt` : `${t('export_translations.all_phrases')}.txt`;
+  const modalTitle = category !== undefined ? getCategoryName(category, currentLanguage) : t('export_translations.all_phrases');
 
   return (
     <>
