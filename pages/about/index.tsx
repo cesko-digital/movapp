@@ -9,6 +9,48 @@ import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
 
+const partners = [
+  {
+    title: 'Centrum pro integraci cizinců',
+    url: 'https://www.cicops.cz/',
+    logo: '/icons/about/cic_logo_bez_pozadí.png',
+  },
+  {
+    title: 'Městská knihovna v Praze',
+    url: 'https://www.mlp.cz/',
+    logo: '/icons/about/mestska_knihovna_Praha_v2.svg',
+  },
+  {
+    title: 'Post Bellum',
+    url: 'https://www.postbellum.cz/',
+    logo: '/icons/about/PB-logo-black-vertical-01.png',
+  },
+];
+
+type Partner = {
+  title: string;
+  url: string;
+  logo: string;
+};
+
+type PartnerListProps = {
+  partners: Partner[];
+};
+
+const PartnerList = ({ partners }: PartnerListProps) => {
+  return (
+    <ul className="flex flex-wrap space-x-5">
+      {partners.map((partner) => (
+        <li key={partner.title} className={'w-36 md:w-40 h-20 relative'}>
+          <a href={partner.url} target="_blank" rel="noopener">
+            <Image src={partner.logo} layout="fill" objectFit="contain" alt={partner.title} title={partner.title} />
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
 interface TeamStucture {
   sections: [
     {
@@ -180,6 +222,9 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           i18nKey={'about_page.czech_digital_description'}
           components={[<TextLink href="https://cesko.digital/" target="_blank" key="cesko.digital" />]}
         />
+
+        <H2>{t('about_page.our_partners_title')}</H2>
+        <PartnerList partners={partners} />
       </div>
     </>
   );
