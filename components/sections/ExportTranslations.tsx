@@ -92,9 +92,11 @@ const ExportTranslations = ({ dictionary, triggerLabel, category }: ExportTransl
   };
 
   const constructCategoryHeader = (category: CategoryDataObject) =>
-    currentLanguage === 'uk'
-      ? '[' + category.name.source + ']' + translSep + '[' + category.name.main + ']' + '\n'
-      : '[' + category.name.main + ']' + translSep + '[' + category.name.source + ']' + '\n';
+    unescapeTabsAndNewlines(
+      currentLanguage === 'uk'
+        ? '[' + category.name.source + ']' + translSep + '[' + category.name.main + ']' + '\n'
+        : '[' + category.name.main + ']' + translSep + '[' + category.name.source + ']' + '\n'
+    );
 
   const source = category !== undefined ? dictionary.categories.filter((c) => c.id === category.id) : dictionary.categories;
 
