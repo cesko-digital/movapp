@@ -117,6 +117,10 @@ export const getKidsCategory = (dictionaryObject: DictionaryDataObject): Categor
   }
 };
 
+export const getPhraseById = (dictionaryObject: DictionaryDataObject, phraseId: string): Phrase => {
+  return new Phrase(dictionaryObject.phrases[phraseId]);
+};
+
 export const fetchFullDictionary = async (country?: CountryVariant): Promise<DictionaryDataObject> => {
   const response = await fetch(`https://data.movapp.eu/uk-${country ?? getCountryVariant()}-dictionary.json`);
   const json = (await response.json()) as DictionaryDataObject;

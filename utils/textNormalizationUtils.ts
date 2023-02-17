@@ -18,3 +18,5 @@ export const normalizeForId = (text: string) => {
       .replace(/[()]/g, '')
   );
 };
+
+export const firstLetterToUpperCase = (str: string) => str.slice(0, 1).toUpperCase() + str.slice(1);

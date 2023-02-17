@@ -22,7 +22,7 @@
  */
 
 import { DictionaryDataObject, Phrase, PhraseDataObject } from 'utils/getDataUtils';
-import getRandomItem from './getRandomItem';
+import { getRandomItem } from './collectionUtils';
 import { Language } from 'utils/locales';
 
 export class NarratorPhrase<T> extends Phrase {
