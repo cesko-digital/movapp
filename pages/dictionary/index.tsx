@@ -16,7 +16,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
 import { TextLink } from '../../components/Typography';
 import { AiOutlineFilePdf } from 'react-icons/ai';
-import { getCategoryName, getCategoryId } from '../../components/sections/Dictionary/dictionaryUtils';
+import { getCategoryName, getCategoryId, getCategoryUkId } from '../../components/sections/Dictionary/dictionaryUtils';
 
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
@@ -125,27 +125,29 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
               const categoryName = getCategoryName(category, currentLanguage);
               const categoryPdfName = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
               return (
-                <Collapse
-                  index={index}
-                  id={getCategoryId(category, currentLanguage)}
-                  key={category.nameMain}
-                  title={<Marker mark={search}>{categoryName}</Marker>}
-                  ariaId={category.nameMain}
-                >
-                  <div className="mb-4 mx-4">
-                    <ExportTranslations category={category} />
-                    <TextLink
-                      href={`/pdf/${categoryPdfName}.pdf`}
-                      target="_blank"
-                      className="ml-3 inline-flex gap-x-1 items-center"
-                      locale={getCountryVariant()}
-                    >
-                      <AiOutlineFilePdf className="w-5 h-5" />
-                      {t('dictionary_page.download_pdf')}
-                    </TextLink>
-                  </div>
-                  <CategoryDictionary searchText={search} translations={category.translations} />
-                </Collapse>
+                <div key={category.nameMain} id={getCategoryId(category, currentLanguage)}>
+                  <Collapse
+                    index={index}
+                    id={getCategoryUkId(category)}
+                    title={<Marker mark={search}>{categoryName}</Marker>}
+                    ariaId={category.nameMain}
+                    category={category}
+                  >
+                    <div className="mb-4 mx-4">
+                      <ExportTranslations category={category} />
+                      <TextLink
+                        href={`/pdf/${categoryPdfName}.pdf`}
+                        target="_blank"
+                        className="ml-3 inline-flex gap-x-1 items-center"
+                        locale={getCountryVariant()}
+                      >
+                        <AiOutlineFilePdf className="w-5 h-5" />
+                        {t('dictionary_page.download_pdf')}
+                      </TextLink>
+                    </div>
+                    <CategoryDictionary searchText={search} translations={category.translations} />
+                  </Collapse>
+                </div>
               );
             })
           )}
