@@ -11,7 +11,7 @@ import { DictionarySearchResults } from 'components/sections/DictionarySearchRes
 import { getCountryVariant } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
 import { SearchInput } from 'components/basecomponents/SearchInput';
-import { Category, DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories, getKidsCategory } from '../../utils/getDataUtils';
+import { DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDataUtils';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
 import { TextLink } from '../../components/Typography';
@@ -25,7 +25,6 @@ const ExportTranslations = dynamic(() => import('../../components/sections/Expor
 
 const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const categories = useMemo(() => getCategories(dictionary), [dictionary]);
-  const kidsCategory = useMemo(() => getKidsCategory(dictionary), [dictionary]);
   const allTranslations = useMemo(() => getAllPhrases(dictionary), [dictionary]);
 
   const [search, setSearch] = useState('');
@@ -113,7 +112,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
             />
           </div>
           <ExportTranslations
-            category={[...categories, kidsCategory as Category]}
+            category={categories}
             customName={t('export_translations.all_phrases')}
             triggerLabel={`${t('export_translations.export')} ${t('export_translations.all_phrases')}`}
           />
