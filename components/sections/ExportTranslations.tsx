@@ -4,16 +4,17 @@ import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
 import { useLanguage } from 'utils/useLanguageHook';
 import { TiExport } from 'react-icons/ti';
-import { Phrase } from '../../utils/getDataUtils';
+import { Category, Phrase } from '../../utils/getDataUtils';
 import { TranslationId } from '../../utils/locales';
+import { firstLetterToUpperCase } from 'utils/textNormalizationUtils';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
 interface ExportTranslationsProps {
-  translations: Phrase[];
-  categoryName: string;
   triggerLabel?: string;
+  category: Category | Category[];
+  customName?: string;
 }
 
 interface SeparatorOption {
@@ -35,10 +36,10 @@ const PHRASE_SEPARATORS: SeparatorOption[] = [
   { id: 'phrase_newLine', nameTranslation: 'export_translations.new_line', value: '\n', displayValue: <span></span> },
   { id: 'phrase_semicolon', nameTranslation: 'export_translations.semicolon', value: '; ' },
 ];
+const unescapeTabsAndNewlines = (str: string) => str.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
 
 const PHRASE_SEP_CUSTOM = 'phrase_custom';
-
-const unescapeTabsAndNewlines = (str: string) => str.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
+const CATEGORY_SEPARATOR = '\n';
 
 const H3 = ({ ...props }: DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => (
   <h3 className="my-4" {...props} />
@@ -64,7 +65,9 @@ const Separator = () => (
   </div>
 );
 
-const ExportTranslations = ({ translations, categoryName, triggerLabel }: ExportTranslationsProps) => {
+const ExportTranslations = ({ triggerLabel, category, customName }: ExportTranslationsProps) => {
+  const selectedCategories = Array.isArray(category) ? category : [category];
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
   const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
@@ -72,28 +75,51 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
   const [customPhraseSeparator, setCustomPhraseSeparator] = useState('\\n\\n');
   const [includeTranscriptions, setIncludeTranscriptions] = useState(false);
   const { currentLanguage, otherLanguage } = useLanguage();
+  const { t } = useTranslation();
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
-  const phrases = translations
-    .map(
-      (translation) =>
-        translation.getTranslation(currentLanguage) +
-        (includeTranscriptions ? ` [${translation.getTranscription(currentLanguage)}]` : '') +
-        translSep +
-        translation.getTranslation(otherLanguage) +
-        (includeTranscriptions ? ` [${translation.getTranscription(otherLanguage)}]` : '') +
-        phraseSep
-    )
-    .map((translation) => unescapeTabsAndNewlines(translation));
+
+  const createPhraseString = (phrase: Phrase) => {
+    const output =
+      phrase.getTranslation(currentLanguage) +
+      (includeTranscriptions ? ` [${phrase.getTranscription(currentLanguage)}]` : '') +
+      translSep +
+      phrase.getTranslation(otherLanguage) +
+      (includeTranscriptions ? ` [${phrase.getTranscription(otherLanguage)}]` : '') +
+      phraseSep;
+
+    return unescapeTabsAndNewlines(output);
+  };
+
+  const createCategoryHeader = (category: Category) =>
+    unescapeTabsAndNewlines(
+      currentLanguage === 'uk'
+        ? '[' + category.nameUk + ']' + translSep + '[' + category.nameMain + ']' + phraseSep
+        : '[' + category.nameMain + ']' + translSep + '[' + category.nameUk + ']' + phraseSep
+    );
+
+  const categories = selectedCategories.map((category, index, arr) => [
+    createCategoryHeader(category),
+    ...category.translations.map(createPhraseString),
+    `${index + 1 < arr.length ? CATEGORY_SEPARATOR : ''}`,
+  ]);
 
   // Byte order mark to force some browsers to read the file as UTF-8
   const BOM = new Uint8Array([0xef, 0xbb, 0xbf]);
-  const data = new Blob([BOM, ...phrases], { type: 'text/plain;charset=utf8' });
+  const data = new Blob([BOM, ...categories.flat()], { type: 'text/plain;charset=utf8' });
   const downloadLink = window.URL.createObjectURL(data);
-  const fileName = `${categoryName}.txt`;
 
-  const { t } = useTranslation();
+  // name for single category, all categories, selection of categories
+  const createExportName = () => {
+    if (customName !== undefined) return customName;
+    if (selectedCategories.length === 1)
+      return currentLanguage === 'uk' ? `${selectedCategories[0].nameUk}` : `${selectedCategories[0].nameMain}`;
+    return `${t('export_translations.custom')}`;
+  };
+
+  const modalTitle = createExportName();
+  const fileName = `${firstLetterToUpperCase(modalTitle)}.txt`;
 
   return (
     <>
@@ -101,7 +127,7 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
         <TiExport className="w-5 h-5" />
         <span>{triggerLabel ?? t('export_translations.export_phrases')}</span>
       </button>
-      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.export')} ${categoryName}`}>
+      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.export')} ${modalTitle}`}>
         <p>{t('export_translations.subtitle_note')}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div>
@@ -187,7 +213,7 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
 
         <h3 className="my-4">{t('export_translations.preview')}:</h3>
         <div className="bg-gray-100 border-1 border-gray-400 p-2">
-          <code className="whitespace-pre-wrap">{phrases.slice(0, PREVIEW_PHRASES_COUNT)}</code>
+          <code className="whitespace-pre-wrap">{categories[0].slice(0, PREVIEW_PHRASES_COUNT)}</code>
         </div>
 
         <div className="flex justify-evenly flex-wrap py-8">
@@ -196,7 +222,7 @@ const ExportTranslations = ({ translations, categoryName, triggerLabel }: Export
           </a>
           <Button
             text={t('export_translations.copy_to_clipboard')}
-            onClick={() => navigator.clipboard.writeText(phrases.join(''))}
+            onClick={() => navigator.clipboard.writeText(categories.flat().join(''))}
             className="my-2 bg-primary-blue"
           ></Button>
         </div>

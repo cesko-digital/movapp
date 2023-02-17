@@ -11,9 +11,12 @@ export const normalize = (text: string) => {
 export const normalizeForId = (text: string) => {
   return (
     normalize(text)
+      .toLowerCase()
       // Replace whitespace characters with underscore
       .replace(/\s+/g, '_')
       // Remove parantheses
       .replace(/[()]/g, '')
   );
 };
+
+export const firstLetterToUpperCase = (str: string) => str.slice(0, 1).toUpperCase() + str.slice(1);

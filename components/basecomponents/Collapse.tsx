@@ -3,6 +3,8 @@ import ChevronDown from 'public/icons/chevron-down.svg';
 import ChevronRight from 'public/icons/chevron-right.svg';
 import LinkIcon from 'public/icons/link.svg';
 import { useRouter } from 'next/router';
+import { Category } from 'utils/getDataUtils';
+import { normalizeForId } from 'utils/textNormalizationUtils';
 
 interface CollapseProps {
   title: string | ReactElement;
@@ -10,13 +12,14 @@ interface CollapseProps {
   index: number;
   ariaId?: string;
   id?: string;
+  category?: Category;
 }
 
 const copyToClipboard = (str: string) => {
   navigator.clipboard.writeText(str);
 };
 
-export const Collapse = ({ title, children, ariaId, id }: CollapseProps): JSX.Element => {
+export const Collapse = ({ title, children, ariaId, id, category }: CollapseProps): JSX.Element => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
 
@@ -50,6 +53,8 @@ export const Collapse = ({ title, children, ariaId, id }: CollapseProps): JSX.El
     const bookmark = path.substring(path.indexOf('#') + 1);
 
     if (id === bookmark) {
+      setExpanded(true);
+    } else if (category && bookmark === normalizeForId(category?.nameMain)) {
       setExpanded(true);
     }
     /* eslint-disable react-hooks/exhaustive-deps */

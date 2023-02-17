@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './MemoryGameCard';
-import { Phrase, fetchFullDictionary } from 'utils/getDataUtils';
+import { Phrase, fetchRawDictionary } from 'utils/getDataUtils';
 import createTimer from 'utils/timer';
 import getThemes from './getThemes';
 import { Language, getCountryVariant } from 'utils/locales';
@@ -180,7 +180,7 @@ export const useGameStore = create<GameStore>((set, get) => {
     buttonRef: null,
     getTheme: () => get().themes[get().currentThemeIndex],
     init: async () => {
-      const dictionary = await fetchFullDictionary();
+      const dictionary = await fetchRawDictionary();
       set({
         _narrator: createNarrator(
           dictionary,

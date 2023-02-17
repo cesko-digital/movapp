@@ -96,13 +96,8 @@ export const parseCategory = (categoryObject: CategoryDataObject, dictionaryObje
   };
 };
 
-export const getCategories = (dictionaryObject: DictionaryDataObject): Category[] => {
-  const categoriesToExclude = [KIDS_CATEGORY_ID];
-
-  return dictionaryObject.categories
-    .filter((category) => categoriesToExclude.includes(category.id) === false)
-    .map((category) => parseCategory(category, dictionaryObject));
-};
+export const getCategories = (dictionaryObject: DictionaryDataObject): Category[] =>
+  dictionaryObject.categories.map((category) => parseCategory(category, dictionaryObject));
 
 export const getAllPhrases = (dictionaryObject: DictionaryDataObject): Phrase[] => {
   return [...Object.values(dictionaryObject.phrases)].map((phraseObject) => new Phrase(phraseObject));
@@ -117,14 +112,18 @@ export const getKidsCategory = (dictionaryObject: DictionaryDataObject): Categor
   }
 };
 
-export const fetchFullDictionary = async (country?: CountryVariant): Promise<DictionaryDataObject> => {
+export const getPhraseById = (dictionaryObject: DictionaryDataObject, phraseId: string): Phrase => {
+  return new Phrase(dictionaryObject.phrases[phraseId]);
+};
+
+export const fetchRawDictionary = async (country?: CountryVariant): Promise<DictionaryDataObject> => {
   const response = await fetch(`https://data.movapp.eu/uk-${country ?? getCountryVariant()}-dictionary.json`);
   const json = (await response.json()) as DictionaryDataObject;
   return json;
 };
 
 export const fetchDictionary = async (country?: CountryVariant): Promise<DictionaryDataObject> => {
-  const json = await fetchFullDictionary(country);
+  const json = await fetchRawDictionary(country);
   // filter out hidden categories
   const result = { ...json, categories: json.categories.filter((category) => !category.hidden) };
   return result;
