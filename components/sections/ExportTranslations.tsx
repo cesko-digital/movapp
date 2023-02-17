@@ -4,18 +4,17 @@ import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'next-i18next';
 import { useLanguage } from 'utils/useLanguageHook';
 import { TiExport } from 'react-icons/ti';
-import { Category, CategoryDataObject, DictionaryDataObject, getPhraseById, PhraseDataObject } from '../../utils/getDataUtils';
+import { Category, Phrase } from '../../utils/getDataUtils';
 import { TranslationId } from '../../utils/locales';
-import { getCategoryName } from './Dictionary/dictionaryUtils';
 import { firstLetterToUpperCase } from 'utils/textNormalizationUtils';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
 
 interface ExportTranslationsProps {
-  dictionary: DictionaryDataObject;
   triggerLabel?: string;
-  category?: Category;
+  category: Category | Category[];
+  customName?: string;
 }
 
 interface SeparatorOption {
@@ -66,7 +65,9 @@ const Separator = () => (
   </div>
 );
 
-const ExportTranslations = ({ dictionary, triggerLabel, category }: ExportTranslationsProps) => {
+const ExportTranslations = ({ triggerLabel, category, customName }: ExportTranslationsProps) => {
+  const selectedCategories = Array.isArray(category) ? category : [category];
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [translationSeparator, setTranslationSeparator] = useState(TRANSLATION_SEPARATORS[0].value);
   const [customTranslationSeparator, setCustomTranslationSeparator] = useState(' - ');
@@ -78,8 +79,8 @@ const ExportTranslations = ({ dictionary, triggerLabel, category }: ExportTransl
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
-  const constructPhrase = (phraseId: PhraseDataObject['id']) => {
-    const phrase = getPhraseById(dictionary, phraseId);
+
+  const createPhraseString = (phrase: Phrase) => {
     const output =
       phrase.getTranslation(currentLanguage) +
       (includeTranscriptions ? ` [${phrase.getTranscription(currentLanguage)}]` : '') +
@@ -91,18 +92,16 @@ const ExportTranslations = ({ dictionary, triggerLabel, category }: ExportTransl
     return unescapeTabsAndNewlines(output);
   };
 
-  const constructCategoryHeader = (category: CategoryDataObject) =>
+  const createCategoryHeader = (category: Category) =>
     unescapeTabsAndNewlines(
       currentLanguage === 'uk'
-        ? '[' + category.name.source + ']' + translSep + '[' + category.name.main + ']' + '\n'
-        : '[' + category.name.main + ']' + translSep + '[' + category.name.source + ']' + '\n'
+        ? '[' + category.nameUk + ']' + translSep + '[' + category.nameMain + ']' + '\n'
+        : '[' + category.nameMain + ']' + translSep + '[' + category.nameUk + ']' + '\n'
     );
 
-  const source = category !== undefined ? dictionary.categories.filter((c) => c.id === category.id) : dictionary.categories;
-
-  const categories = source.map((category, index, arr) => [
-    constructCategoryHeader(category),
-    ...category.phrases.map(constructPhrase),
+  const categories = selectedCategories.map((category, index, arr) => [
+    createCategoryHeader(category),
+    ...category.translations.map(createPhraseString),
     `${index + 1 < arr.length ? CATEGORY_SEPARATOR : ''}`,
   ]);
 
@@ -110,11 +109,17 @@ const ExportTranslations = ({ dictionary, triggerLabel, category }: ExportTransl
   const BOM = new Uint8Array([0xef, 0xbb, 0xbf]);
   const data = new Blob([BOM, ...categories.flat()], { type: 'text/plain;charset=utf8' });
   const downloadLink = window.URL.createObjectURL(data);
-  const fileName =
-    category !== undefined
-      ? `${getCategoryName(category, currentLanguage)}.txt`
-      : `${firstLetterToUpperCase(t('export_translations.all_phrases'))}.txt`;
-  const modalTitle = category !== undefined ? getCategoryName(category, currentLanguage) : t('export_translations.all_phrases');
+
+  // name for single category, all categories, selection of categories
+  const createExportName = () => {
+    if (customName !== undefined) return customName;
+    if (selectedCategories.length === 1)
+      return currentLanguage === 'uk' ? `${selectedCategories[0].nameUk}` : `${selectedCategories[0].nameMain}`;
+    return `${t('export_translations.custom')}`;
+  };
+
+  const modalTitle = createExportName();
+  const fileName = `${firstLetterToUpperCase(modalTitle)}.txt`;
 
   return (
     <>
