@@ -95,8 +95,8 @@ const ExportTranslations = ({ triggerLabel, category, customName }: ExportTransl
   const createCategoryHeader = (category: Category) =>
     unescapeTabsAndNewlines(
       currentLanguage === 'uk'
-        ? '[' + category.nameUk + ']' + translSep + '[' + category.nameMain + ']' + '\n'
-        : '[' + category.nameMain + ']' + translSep + '[' + category.nameUk + ']' + '\n'
+        ? '[' + category.nameUk + ']' + translSep + '[' + category.nameMain + ']' + phraseSep
+        : '[' + category.nameMain + ']' + translSep + '[' + category.nameUk + ']' + phraseSep
     );
 
   const categories = selectedCategories.map((category, index, arr) => [
