@@ -6,7 +6,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 import { GetStaticProps } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
 import { Button } from 'components/basecomponents/Button';
-import { fetchFullDictionary, DictionaryDataObject, Phrase } from 'utils/getDataUtils';
+import { fetchRawDictionary, DictionaryDataObject, Phrase } from 'utils/getDataUtils';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { create } from 'zustand';
 import * as R from 'ramda';
@@ -212,7 +212,7 @@ const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions>((set,
     exercise: null,
     init: async (/*category*/) => {
       // fetch dictionary
-      const dictionary = await fetchFullDictionary();
+      const dictionary = await fetchRawDictionary();
       // get category phrasesData
       const phrases = getPhrases(dictionary);
       // build exercise /// exercise list, list will include more types of exercises in future
