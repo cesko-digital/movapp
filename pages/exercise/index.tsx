@@ -3,8 +3,8 @@ import React from 'react';
 import SEO from 'components/basecomponents/SEO';
 import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps } from 'next';
-import { getServerSideTranslations } from '../../utils/localization';
-import { ExerciseOrchestrator } from './Exercise/ExerciseOrchestrator';
+import { getServerSideTranslations } from 'utils/localization';
+import { ExerciseOrchestrator } from 'components/basecomponents/Exercise/ExerciseOrchestrator';
 
 const ExerciseSection = () => {
   const { t } = useTranslation();

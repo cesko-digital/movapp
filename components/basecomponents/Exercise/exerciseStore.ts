@@ -42,6 +42,10 @@ export interface ExerciseIdentification extends Exercise {
   // ??? how to construct interfaces for a few types of exercises
   playAudio: () => void;
   playAudioSlow: () => void;
+  playAudioButtonRef: HTMLElement | null;
+  playAudioSlowButtonRef: HTMLElement | null;
+  setPlayAudioButtonRef: (ref: HTMLElement | null) => void;
+  setPlayAudioSlowButtonRef: (ref: HTMLElement | null) => void;
   choices: (Choice & {
     getText: () => string;
     getSoundUrl: () => string;
@@ -120,6 +124,18 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     console.log(`ref updated for choice ${choiceIndex}`);
   };
 
+  const setPlayAudioButtonRef = (node: HTMLElement | null) => {
+    if (node === null) return;
+    set(R.over(R.lensPath(['exercise', 'playAudioButtonRef']), () => node));
+    console.log(`playAudioButtonRef updated`);
+  };
+
+  const setPlayAudioSlowButtonRef = (node: HTMLElement | null) => {
+    if (node === null) return;
+    set(R.over(R.lensPath(['exercise', 'playAudioSlowButtonRef']), () => node));
+    console.log(`playAudioSlowButtonRef updated`);
+  };
+
   const getPhrases = (dictionary: DictionaryDataObject) =>
     dictionary.categories[0].phrases.map((phraseId) => new Phrase(dictionary.phrases[phraseId])); // maybe store computed value
 
@@ -162,41 +178,63 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     }; // what triggers resolve??? a) user with button to apply choices b) system after each choice selection
 
     // service methods
-    const getThisExercise = () => get().exercise; // points to active exercise or use exercise index for match in future
+    const getThisExercise = () => get().exercise as ExerciseIdentification; // points to active exercise or use exercise index for match in future
     const generateChoices = () =>
-      choicesData.map(({ getText, getSoundUrl, correct }, index) => ({
-        select: async () => {
-          const choice = (getThisExercise() as ExerciseIdentification)?.choices[index];
-          // place to run animations depending on exercise type
-          playAudio(choice.getSoundUrl());
-          await animation.select(choice.ref as HTMLElement).finished;
-          correct
-            ? await animation.selectCorrect(choice.ref as HTMLElement).finished
-            : await animation.selectWrong(choice.ref as HTMLElement).finished;
-          // await playSelectAnimation(choice.ref as HTMLElement).finished; // wait for animation ends
-          // use store method to select choice
-          selectChoice(getThisExercise() as Exercise, index);
-          // use store method to resolve exercise
-          resolveExercise(getThisExercise() as Exercise);
-          // All the logic could be here but...
-          // CLEAN UP ANIMATIONS
-        } /* set choice selected maybe call resolve */,
-        getText,
-        getSoundUrl,
-        selected: false,
-        correct,
-        ref: null,
-        setRef: (node: HTMLElement | null) => setChoiceRef(index, node), // maybe assign directly without external functtion
-      })); // maybe put animations and sounds to exercise obj.
+      choicesData.map(({ getText, getSoundUrl, correct }, index) => {
+        // let choiceRef: null | HTMLElement = null;
+        // const setRef = (ref: HTMLElement | null) => (choiceRef = ref);
+        return {
+          select: async () => {
+            // TODO: ref could be passed as parameter, but store looses control of other refs then
+            const choice = getThisExercise()?.choices[index];
+            // place to run animations depending on exercise type
+            playAudio(choice.getSoundUrl());
+            await animation.select(choice.ref as HTMLElement).finished;
+            correct
+              ? await animation.selectCorrect(choice.ref as HTMLElement).finished
+              : await animation.selectWrong(choice.ref as HTMLElement).finished;
+            // await playSelectAnimation(choice.ref as HTMLElement).finished; // wait for animation ends
+            // use store method to select choice
+            selectChoice(getThisExercise() as Exercise, index);
+            // use store method to resolve exercise
+            resolveExercise(getThisExercise() as Exercise);
+            // All the logic could be here but...
+            // CLEAN UP ANIMATIONS
+          } /* set choice selected maybe call resolve */,
+          getText,
+          getSoundUrl,
+          selected: false,
+          correct,
+          ref: null,
+          // setRef, // store is not notified about ref change, problem arise when store changes ref directly
+          setRef: (node: HTMLElement | null) => setChoiceRef(index, node), // store is notified about ref change
+        };
+      }); // maybe put animations and sounds to exercise obj.
+
+    // let playAudioButtonRef: null | HTMLElement = null;
+    // let playAudioSlowButtonRef: null | HTMLElement = null; // ref variable kept in closure, store doesnt know about change, but does it even care?
+
+    // const setPlayAudioButtonRef = (ref: HTMLElement | null) => (playAudioButtonRef = ref);
+    // const setPlayAudioSlowButtonRef = (ref: HTMLElement | null) => (playAudioSlowButtonRef = ref);
+
+    const choices = generateChoices();
 
     /** Exercise output object */
     return {
       id: 0,
       type: ExerciseType.identification,
       status: ExerciseStatus.queued,
-      playAudio: () => playAudio(getSoundUrl()),
-      playAudioSlow: () => playAudioSlow(getSoundUrl()),
-      choices: generateChoices(),
+      playAudio: () => playAudio(getSoundUrl()), // TODO: animate button when sound is played, handle click when playing
+      playAudioSlow: () => {
+        const playAudioSlowButtonRef = getThisExercise()?.playAudioSlowButtonRef;
+        animation.select(playAudioSlowButtonRef as HTMLElement);
+        playAudioSlow(getSoundUrl());
+      },
+      playAudioButtonRef: null,
+      playAudioSlowButtonRef: null,
+      setPlayAudioButtonRef,
+      setPlayAudioSlowButtonRef,
+      choices,
       resolve,
     };
   };
@@ -220,7 +258,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         exercise: setId(generateExerciseIdentification(phrases), 0), // setup id for each exercise
       });
     },
-    setLang: (lang) => set({ lang }), // FIXME: reinit game when lang change
+    setLang: (lang) => set({ lang }), // FIXME: reinit game when lang change; update: now allow lang change on the fly
   };
 });
 
