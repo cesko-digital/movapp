@@ -4,12 +4,10 @@ import SEO from 'components/basecomponents/SEO';
 import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
-import { useExerciseStore } from './Exercise/exerciseStore';
 import { ExerciseOrchestrator } from './Exercise/ExerciseOrchestrator';
 
 const ExerciseSection = () => {
   const { t } = useTranslation();
-  const id = useExerciseStore((state) => state.id); // FIXME: should be used as id for entire game not only for exercise
 
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
@@ -19,7 +17,7 @@ const ExerciseSection = () => {
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
-        <ExerciseOrchestrator key={id} />
+        <ExerciseOrchestrator />
       </div>
     </div>
   );
