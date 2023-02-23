@@ -39,7 +39,6 @@ const PHRASE_SEPARATORS: SeparatorOption[] = [
 const unescapeTabsAndNewlines = (str: string) => str.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
 
 const PHRASE_SEP_CUSTOM = 'phrase_custom';
-const CATEGORY_SEPARATOR = '\n';
 
 const H3 = ({ ...props }: DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => (
   <h3 className="my-4" {...props} />
@@ -99,10 +98,9 @@ const ExportTranslations = ({ triggerLabel, category, customName }: ExportTransl
         : '[' + category.nameMain + ']' + translSep + '[' + category.nameUk + ']' + phraseSep
     );
 
-  const categories = selectedCategories.map((category, index, arr) => [
+  const categories = selectedCategories.map((category) => [
     createCategoryHeader(category),
     ...category.translations.map(createPhraseString),
-    `${index + 1 < arr.length ? CATEGORY_SEPARATOR : ''}`,
   ]);
 
   // Byte order mark to force some browsers to read the file as UTF-8
