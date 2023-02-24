@@ -10,9 +10,6 @@ interface ExerciseIdentificationComponentProps {
 }
 
 export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentificationComponentProps) => {
-  // exercise: match audio to translated text
-  // displays exercise data
-  // offers controls
   const btnRef = useRef(null);
   console.log('rerender');
 
@@ -36,15 +33,8 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
         />
       </div>
       <div className="flex">
-        {exercise.choices.map((choice, index) => (
-          <Button
-            className="bg-primary-blue mr-3"
-            ref={choice.setRef}
-            key={index}
-            text={choice.getText()}
-            onClick={choice.select}
-            // style={{ color: choice.selected && !choice.correct ? 'gray' : 'black' }}
-          />
+        {exercise.choices.map((choice) => (
+          <Button className="bg-primary-blue mr-3" ref={choice.setRef} key={choice.id} text={choice.getText()} onClick={choice.select} />
         ))}
       </div>
     </div>

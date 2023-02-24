@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
-import { ExerciseType, Exercise, useExerciseStore, ExerciseIdentification } from './exerciseStore';
+import { ExerciseType, useExerciseStore, ExerciseIdentification } from './exerciseStore';
 import { ExerciseIdentificationComponent } from './ExerciseIdentification';
 
-const pairExercise = (type: ExerciseType) => {
+const getExerciseComponent = (type: ExerciseType) => {
   switch (type) {
     case ExerciseType.identification:
       return ExerciseIdentificationComponent;
@@ -15,7 +15,8 @@ export const ExerciseOrchestrator = () => {
   const init = useExerciseStore((state) => state.init);
   const setLang = useExerciseStore((state) => state.setLang);
   const initialized = useExerciseStore((state) => state.initialized);
-  const exercise = useExerciseStore((state) => state.exercise) as Exercise;
+  const exerciseList = useExerciseStore((state) => state.exerciseList);
+  const exerciseIndex = useExerciseStore((state) => state.exerciseIndex);
 
   useEffect(() => {
     setLang(lang);
@@ -27,7 +28,8 @@ export const ExerciseOrchestrator = () => {
 
   if (!initialized) return <p>waitting for init...</p>;
 
-  const ExerciseComponent = pairExercise(exercise.type as ExerciseType);
+  const exercise = exerciseList[exerciseIndex];
+  const ExerciseComponent = getExerciseComponent(exercise.type as ExerciseType);
 
   // ID must be unique for every exercise in all games gameId+exerciseId
   return <ExerciseComponent key={exercise.id} exercise={exercise as ExerciseIdentification} />;
