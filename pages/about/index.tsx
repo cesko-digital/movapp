@@ -22,16 +22,16 @@ type key = string;
 
 const NAVIGATION: Record<key, Links> = {
   stojimezaukrajinou: {
-    cs: 'https://www.stojimezaukrajinou.cz',
-    sk: 'https://www.stojimezaukrajinou.cz',
+    cs: 'https://www.stojimezaukrajinou.cz/',
+    sk: 'https://www.stojimezaukrajinou.cz/',
     pl: 'https://www.stojimezaukrajinou.cz/en',
     uk: 'https://www.stojimezaukrajinou.cz/uk',
   },
   'cesko.digital': {
-    cs: 'https://cesko.digital',
-    sk: 'https://cesko.digital',
-    pl: 'https://en.cesko.digital',
-    uk: 'https://en.cesko.digital',
+    cs: 'https://cesko.digital/',
+    sk: 'https://cesko.digital/',
+    pl: 'https://en.cesko.digital/',
+    uk: 'https://en.cesko.digital/',
   },
 };
 
