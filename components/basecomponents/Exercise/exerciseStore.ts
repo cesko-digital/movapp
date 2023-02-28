@@ -3,10 +3,11 @@ import { getCountryVariant, Language } from 'utils/locales';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { create } from 'zustand';
 import * as R from 'ramda';
+import { createFactoryOfExerciseIdentification } from './ExerciseIdentification';
 
 /* eslint-disable no-console */
 
-enum ExerciseStatus {
+export enum ExerciseStatus {
   queued = 'queued',
   active = 'active',
   completed = 'completed',
@@ -21,7 +22,7 @@ interface WithId {
   id: number;
 }
 
-interface Choice extends WithId {
+export interface Choice extends WithId {
   select: () => void;
   selected: boolean;
   correct: boolean;
@@ -32,22 +33,17 @@ export interface Exercise extends WithId {
   type: ExerciseType;
   status: ExerciseStatus;
   choices: Choice[];
-  resolve: (exercise: Exercise) => boolean; // how to resolve exercise is concern of Exercise, resolving might be called after every choice selection or later when user decides
+  resolve: (exercise: Exercise) => boolean; // how to resolve exercise is concern of Exercise
 }
 
-// interface ExerciseIdentification extends Omit<Exercise, 'choices'> { // prop choices override
-export interface ExerciseIdentification extends Exercise {
-  playAudio: () => Promise<void>;
-  playAudioSlow: () => Promise<void>;
-  choices: (Choice & {
-    getText: () => string;
-    getSoundUrl: () => string;
-    playAudio: () => Promise<void>;
-  })[];
+export enum ExerciseStoreStatus {
+  uninitialized = 'uninitialized',
+  ready = 'ready',
+  completed = 'completed',
 }
 
 interface ExerciseStoreState {
-  initialized: boolean;
+  status: ExerciseStoreStatus;
   lang: { currentLanguage: Language; otherLanguage: Language };
   dictionary: DictionaryDataObject | null;
   exerciseList: Exercise[];
@@ -57,13 +53,22 @@ interface ExerciseStoreState {
 interface ExerciseStoreActions {
   init: () => void;
   setLang: (lang: { currentLanguage: Language; otherLanguage: Language }) => void;
-  playAudio: (str: string) => Promise<void>;
+}
+
+export interface ExerciseStoreUtils {
+  uniqId: () => WithId['id'];
+  selectChoice: (choiceId: Choice['id'], enableDeselect?: boolean) => void;
+  getCurrentLanguage: () => Language;
+  getOtherLanguage: () => Language;
+  resolveExercise: (exerciseId: Exercise['id']) => Promise<void>;
+  playAudio: (url: string) => Promise<void>;
+  playAudioSlow: (url: string) => Promise<void>;
+  delay: (ms: number) => Promise<void>;
 }
 
 /** Describes complete state of the app, enables to save/restore app state */
-
 export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions>((set, get) => {
-  const uniqId = (() => {
+  const uniqId = ((): ExerciseStoreUtils['uniqId'] => {
     let id = 0;
     return () => {
       const out = id;
@@ -72,9 +77,8 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     };
   })();
 
+  const delay = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
   const playAudio = (str: string) => AudioPlayer.getInstance().playSrc(str);
-  const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
   const playAudioSlow = (url: string) => {
     // plays audio
     // store handles audio play = better control
@@ -82,36 +86,43 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     return playAudio(url);
   };
 
-  /** @assume methods will operate on active excersice only --- that removes exercise index bloat @but might cause changing other's props */
-
   // ensures that store knows about state changes //
-  const selectChoice = (choiceId: Choice['id']) => {
+  const selectChoice: ExerciseStoreUtils['selectChoice'] = (choiceId, enableDeselect = false) => {
     // place to react on user input
     // place to handle user choice, disable buttons, animate exercise stuff
     const choicePath = getChoicePath(choiceId);
     const choice = R.view(R.lensPath(choicePath), get());
-    if (choice.selected) {
+    if (!enableDeselect && choice.selected) {
       console.log(`choice ${choiceId} already selected`);
       return;
     }
     // set choice selected
-    set(R.over(R.lensPath([...choicePath, 'selected']), () => true));
+    set(R.over(R.lensPath([...choicePath, 'selected']), (val) => !val));
     console.log(`selected choice ${choiceId} in exercise`);
     console.log(get().exerciseList);
   };
 
-  const resolveExercise = async (exerciseId: Exercise['id']) => {
+  const resolveExercise: ExerciseStoreUtils['resolveExercise'] = async (exerciseId) => {
     // place to react on exercise resolve
     // resolves exercise and take next action
     console.log(`resolving active exercise ${exerciseId}`);
     const exercise = getActiveExercise();
-    // perform check if active exercise id match exerciseId
+    // TODO: perform check if active exercise id match exerciseId
+    // TODO: check if it is not completed
     if (exercise.resolve(exercise)) {
       /* set exercise status completed */
       set(R.over(R.lensPath(['exerciseList', get().exerciseIndex, 'status']), () => ExerciseStatus.completed));
       console.log(`exercise completed hooray...`);
       await delay(1000);
-      // increment id so it is a new game and components get nicely reset , fixes styles altered by animation
+
+      /* check if all exercise are completed or failed maybe ...*/
+      if (get().exerciseList.every(({ status }) => status === ExerciseStatus.completed)) {
+        console.log(`congrats all exercises completed...`);
+        set({ status: ExerciseStoreStatus.completed });
+        return;
+        // show summary screen
+      }
+
       /* generate/pick new exercise */
       console.log(`generating new exercise for you...`);
 
@@ -153,78 +164,26 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   const getPhrases = (dictionary: DictionaryDataObject) =>
     dictionary.categories[0].phrases.map((phraseId) => new Phrase(dictionary.phrases[phraseId])); // maybe store computed value
 
-  const getCurrentLanguage = () => get().lang.currentLanguage;
-  const getOtherLanguage = () => get().lang.otherLanguage;
+  const getCurrentLanguage: ExerciseStoreUtils['getCurrentLanguage'] = () => get().lang.currentLanguage;
+  const getOtherLanguage: ExerciseStoreUtils['getOtherLanguage'] = () => get().lang.otherLanguage;
 
-  const filterOneWordPhrase = (phrase: Phrase) =>
-    phrase.getTranslation(getCurrentLanguage()).split(' ').length + phrase.getTranslation(getOtherLanguage()).split(' ').length === 2;
+  const utils: ExerciseStoreUtils = {
+    uniqId,
+    getCurrentLanguage,
+    getOtherLanguage,
+    selectChoice,
+    resolveExercise,
+    playAudio,
+    playAudioSlow,
+    delay,
+  };
 
-  // TODO: EXTRACT each exercise to separate module
-
-  const generateExerciseIdentification = (sourcePhrases: Phrase[]): ExerciseIdentification => {
-    const exerciseId = uniqId();
-    // filter feasible phrases for exercise, one word phrases
-
-    const pickedPhrases = sourcePhrases
-      // filter
-      .filter(filterOneWordPhrase)
-      // shuffle
-      .sort(() => Math.random() - 0.5)
-      // pick 4
-      .slice(0, 4);
-
-    console.log(pickedPhrases);
-
-    /** input parameters */
-    const getSoundUrl = () => pickedPhrases[0].getSoundUrl(getOtherLanguage());
-    const extractChoiceData = (phrase: Phrase) => ({
-      getText: () => phrase.getTranslation(getCurrentLanguage()),
-      getSoundUrl: () => phrase.getSoundUrl(getOtherLanguage()),
-    });
-    const choicesData = pickedPhrases
-      .map((phrase, index) => ({ ...extractChoiceData(phrase), correct: index === 0 }))
-      // shuffle choices
-      .sort(() => Math.random() - 0.5);
-
-    const resolve = (exercise: Exercise) => {
-      /*all correct choices selected*/
-      // return exercise.choices.every((choice) => choice.selected && choice.correct); // for multiple correct answers , cant use selectAndResolve
-      return !!exercise.choices.find((choice) => choice.correct)?.selected; // finds first occurence !!!
-    }; // what triggers resolve??? a) user with button to apply choices b) system after each choice selection
-
-    const generateChoices = () =>
-      choicesData.map(({ getText, getSoundUrl, correct }) => {
-        const choiceId = uniqId();
-        return {
-          id: choiceId,
-          getText,
-          getSoundUrl,
-          playAudio: () => playAudio(getSoundUrl()),
-          selected: false,
-          correct,
-          select: () => {
-            selectChoice(choiceId);
-            resolveExercise(exerciseId);
-          },
-        };
-      }); // maybe put animations and sounds to exercise obj.
-
-    const choices = generateChoices();
-
-    /** Exercise output object */
-    return {
-      id: exerciseId,
-      type: ExerciseType.identification,
-      status: ExerciseStatus.queued,
-      playAudio: () => playAudio(getSoundUrl()),
-      playAudioSlow: () => playAudioSlow(getSoundUrl()),
-      choices,
-      resolve,
-    };
+  const createExercise: Record<ExerciseType, (phrases: Phrase[]) => Exercise> = {
+    identification: createFactoryOfExerciseIdentification(utils),
   };
 
   return {
-    initialized: false,
+    status: ExerciseStoreStatus.uninitialized,
     lang: { currentLanguage: getCountryVariant(), otherLanguage: 'uk' },
     dictionary: null,
     exerciseList: [], //maybe later, now generate one exercise at time
@@ -235,20 +194,17 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       // get category phrasesData
       const phrases = getPhrases(dictionary);
       // build exercise /// exercise list, list will include more types of exercises in future
-      const exerciseList = Array(10)
+      const exerciseList = Array(3)
         .fill(0)
-        .map(() => generateExerciseIdentification(phrases));
+        .map(() => createExercise[ExerciseType.identification](phrases));
       exerciseList[0].status = ExerciseStatus.active;
       set({
-        initialized: true,
+        status: ExerciseStoreStatus.ready,
         dictionary,
         exerciseIndex: 0,
         exerciseList,
       });
     },
     setLang: (lang) => set({ lang }),
-    playAudio,
   };
 });
-
-// const setId = <T extends WithId>(obj: T, id: T['id']): T => ({ ...obj, id });

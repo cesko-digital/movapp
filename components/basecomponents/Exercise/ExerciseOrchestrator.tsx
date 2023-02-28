@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
-import { ExerciseType, useExerciseStore, ExerciseIdentification } from './exerciseStore';
-import { ExerciseIdentificationComponent } from './ExerciseIdentification';
+import { ExerciseType, useExerciseStore, ExerciseStoreStatus } from './exerciseStore';
+import { ExerciseIdentificationComponent, ExerciseIdentification } from './ExerciseIdentification';
 
 const getExerciseComponent = (type: ExerciseType) => {
   switch (type) {
@@ -14,7 +14,7 @@ export const ExerciseOrchestrator = () => {
   const lang = useLanguage();
   const init = useExerciseStore((state) => state.init);
   const setLang = useExerciseStore((state) => state.setLang);
-  const initialized = useExerciseStore((state) => state.initialized);
+  const status = useExerciseStore((state) => state.status);
   const exerciseList = useExerciseStore((state) => state.exerciseList);
   const exerciseIndex = useExerciseStore((state) => state.exerciseIndex);
 
@@ -26,7 +26,9 @@ export const ExerciseOrchestrator = () => {
     init();
   }, [init]);
 
-  if (!initialized) return <p>waitting for init...</p>;
+  if (status === ExerciseStoreStatus.uninitialized) return <p>waitting for init...</p>;
+
+  if (status === ExerciseStoreStatus.completed) return <p>exercise completed...</p>;
 
   const exercise = exerciseList[exerciseIndex];
   const ExerciseComponent = getExerciseComponent(exercise.type as ExerciseType);
