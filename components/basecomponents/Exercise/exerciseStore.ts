@@ -1,7 +1,6 @@
 import { fetchRawDictionary, DictionaryDataObject, Phrase } from 'utils/getDataUtils';
 import { getCountryVariant, Language } from 'utils/locales';
 import { AudioPlayer } from 'utils/AudioPlayer';
-import { animation } from './animation';
 import { create } from 'zustand';
 import * as R from 'ramda';
 
@@ -26,8 +25,6 @@ interface Choice extends WithId {
   select: () => void;
   selected: boolean;
   correct: boolean;
-  ref: HTMLElement | null;
-  setRef: (node: HTMLElement | null) => void;
   //[propName: string]: any; // optional properties
 }
 
@@ -40,15 +37,12 @@ export interface Exercise extends WithId {
 
 // interface ExerciseIdentification extends Omit<Exercise, 'choices'> { // prop choices override
 export interface ExerciseIdentification extends Exercise {
-  playAudio: () => void;
-  playAudioSlow: () => void;
-  playAudioButtonRef: HTMLElement | null;
-  playAudioSlowButtonRef: HTMLElement | null;
-  setPlayAudioButtonRef: (ref: HTMLElement | null) => void;
-  setPlayAudioSlowButtonRef: (ref: HTMLElement | null) => void;
+  playAudio: () => Promise<void>;
+  playAudioSlow: () => Promise<void>;
   choices: (Choice & {
     getText: () => string;
     getSoundUrl: () => string;
+    playAudio: () => Promise<void>;
   })[];
 }
 
@@ -63,6 +57,7 @@ interface ExerciseStoreState {
 interface ExerciseStoreActions {
   init: () => void;
   setLang: (lang: { currentLanguage: Language; otherLanguage: Language }) => void;
+  playAudio: (str: string) => Promise<void>;
 }
 
 /** Describes complete state of the app, enables to save/restore app state */
@@ -84,13 +79,13 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     // plays audio
     // store handles audio play = better control
     console.log(`playing ${url}`);
-    playAudio(url);
+    return playAudio(url);
   };
 
   /** @assume methods will operate on active excersice only --- that removes exercise index bloat @but might cause changing other's props */
 
   // ensures that store knows about state changes //
-  const selectChoice = async (choiceId: Choice['id']) => {
+  const selectChoice = (choiceId: Choice['id']) => {
     // place to react on user input
     // place to handle user choice, disable buttons, animate exercise stuff
     const choicePath = getChoicePath(choiceId);
@@ -105,11 +100,12 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     console.log(get().exerciseList);
   };
 
-  const resolveExercise = async () => {
+  const resolveExercise = async (exerciseId: Exercise['id']) => {
     // place to react on exercise resolve
     // resolves exercise and take next action
-    console.log(`resolving active exercise`);
+    console.log(`resolving active exercise ${exerciseId}`);
     const exercise = getActiveExercise();
+    // perform check if active exercise id match exerciseId
     if (exercise.resolve(exercise)) {
       /* set exercise status completed */
       set(R.over(R.lensPath(['exerciseList', get().exerciseIndex, 'status']), () => ExerciseStatus.completed));
@@ -134,17 +130,17 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   };
 
   const getActiveExercise = () => get().exerciseList[get().exerciseIndex];
-  const hasSameId = R.curry((id: WithId['id'], obj: WithId) => id === obj['id']);
+  // const hasSameId = R.curry((id: WithId['id'], obj: WithId) => id === obj['id']);
 
   // choice id look up tested with 100 exercices and x6 CPU slowdown, it was OK, lightning fast
   // const findExercise = (exerciseId: number) => get().exercises.findIndex(({id}) => id === exerciseId);
-  const findChoice = (choiceId: Choice['id']) => {
-    const exercise = getActiveExercise();
-    if (exercise === null) throw Error('exercise is null');
-    const result = exercise.choices.find(hasSameId(choiceId));
-    if (result === undefined) throw Error(`choice ${choiceId} not found`);
-    return result;
-  };
+  // const findChoice = (choiceId: Choice['id']) => {
+  //   const exercise = getActiveExercise();
+  //   if (exercise === null) throw Error('exercise is null');
+  //   const result = exercise.choices.find(hasSameId(choiceId));
+  //   if (result === undefined) throw Error(`choice ${choiceId} not found`);
+  //   return result;
+  // };
 
   const getChoicePath = (choiceId: number) => {
     const exercise = getActiveExercise();
@@ -152,24 +148,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     // const exerciseIndex = 0;
     const choiceIndex = exercise.choices.findIndex(({ id }) => id === choiceId);
     return ['exerciseList', get().exerciseIndex, 'choices', choiceIndex];
-  };
-
-  const setChoiceRef = (choiceId: number, node: HTMLElement | null) => {
-    if (node === null) return; // important, disables overwrite of active exercise ref by disposed exercise
-    set(R.over(R.lensPath([...getChoicePath(choiceId), 'ref']), () => node));
-    console.log(`ref updated for choice ${choiceId}`);
-  };
-
-  const setPlayAudioButtonRef = (node: HTMLElement | null) => {
-    if (node === null) return;
-    set(R.over(R.lensPath(['exerciseList', get().exerciseIndex, 'playAudioButtonRef']), () => node));
-    console.log(`playAudioButtonRef updated`);
-  };
-
-  const setPlayAudioSlowButtonRef = (node: HTMLElement | null) => {
-    if (node === null) return;
-    set(R.over(R.lensPath(['exerciseList', get().exerciseIndex, 'playAudioSlowButtonRef']), () => node));
-    console.log(`playAudioSlowButtonRef updated`);
   };
 
   const getPhrases = (dictionary: DictionaryDataObject) =>
@@ -182,7 +160,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     phrase.getTranslation(getCurrentLanguage()).split(' ').length + phrase.getTranslation(getOtherLanguage()).split(' ').length === 2;
 
   // TODO: EXTRACT each exercise to separate module
-  
+
   const generateExerciseIdentification = (sourcePhrases: Phrase[]): ExerciseIdentification => {
     const exerciseId = uniqId();
     // filter feasible phrases for exercise, one word phrases
@@ -219,27 +197,15 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         const choiceId = uniqId();
         return {
           id: choiceId,
-          select: async () => {
-            // ref could be passed as parameter, but store looses control of other refs then
-            const choice = findChoice(choiceId) as ExerciseIdentification['choices'][0];
-            const choiceRef = choice.ref as HTMLElement;
-            // place to run animations depending on exercise type
-            playAudio(choice.getSoundUrl());
-            await animation.select(choiceRef).finished;
-            correct ? await animation.selectCorrect(choiceRef).finished : await animation.selectWrong(choiceRef).finished;
-            // use store method to select choice
-            selectChoice(choiceId);
-            // use store method to resolve exercise
-            resolveExercise();
-            // All the logic could be here but...
-            // CLEAN UP ANIMATIONS
-          },
           getText,
           getSoundUrl,
+          playAudio: () => playAudio(getSoundUrl()),
           selected: false,
           correct,
-          ref: null,
-          setRef: (node: HTMLElement | null) => setChoiceRef(choiceId, node), // store is notified about ref change
+          select: () => {
+            selectChoice(choiceId);
+            resolveExercise(exerciseId);
+          },
         };
       }); // maybe put animations and sounds to exercise obj.
 
@@ -250,16 +216,8 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       id: exerciseId,
       type: ExerciseType.identification,
       status: ExerciseStatus.queued,
-      playAudio: () => playAudio(getSoundUrl()), // TODO: animate button when sound is played, handle click when playing
-      playAudioSlow: () => {
-        const playAudioSlowButtonRef = (getActiveExercise() as ExerciseIdentification).playAudioSlowButtonRef;
-        animation.select(playAudioSlowButtonRef as HTMLElement);
-        playAudioSlow(getSoundUrl());
-      },
-      playAudioButtonRef: null,
-      playAudioSlowButtonRef: null,
-      setPlayAudioButtonRef,
-      setPlayAudioSlowButtonRef,
+      playAudio: () => playAudio(getSoundUrl()),
+      playAudioSlow: () => playAudioSlow(getSoundUrl()),
       choices,
       resolve,
     };
@@ -289,6 +247,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       });
     },
     setLang: (lang) => set({ lang }),
+    playAudio,
   };
 });
 

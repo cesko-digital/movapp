@@ -24,4 +24,13 @@ export const animation = {
       background: 'hsl(0, 0%, 40%)',
       easing: 'easeInOutCubic',
     }),
+  play: (ref: HTMLElement) =>
+    anime({
+      targets: ref,
+      duration: 200,
+      opacity: 0.5,
+      easing: 'easeInOutCubic',
+      direction: 'alternate',
+      loop: true,
+    }),
 };
