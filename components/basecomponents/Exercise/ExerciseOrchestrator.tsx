@@ -1,38 +1,47 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
 import { ExerciseType, useExerciseStore, ExerciseStoreStatus } from './exerciseStore';
-import { ExerciseIdentificationComponent, ExerciseIdentification } from './ExerciseIdentification';
+import { ExerciseIdentification, ExerciseIdentificationComponent } from './ExerciseIdentification';
+import { CategoryDataObject } from 'utils/getDataUtils';
 
-const getExerciseComponent = (type: ExerciseType) => {
-  switch (type) {
-    case ExerciseType.identification:
-      return ExerciseIdentificationComponent;
-  }
-};
+// TODO: integrate to dictionary
+interface ExerciseOrchestratorProps {
+  categories: CategoryDataObject['id'][];
+}
 
-export const ExerciseOrchestrator = () => {
+export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) => {
   const lang = useLanguage();
   const init = useExerciseStore((state) => state.init);
   const setLang = useExerciseStore((state) => state.setLang);
   const status = useExerciseStore((state) => state.status);
   const exerciseList = useExerciseStore((state) => state.exerciseList);
-  const exerciseIndex = useExerciseStore((state) => state.exerciseIndex);
+  const getActiveExerciseIndex = useExerciseStore((state) => state.getActiveExerciseIndex);
+  const controlsDisabled = useExerciseStore((state) => state.controlsDisabled);
 
   useEffect(() => {
     setLang(lang);
   }, [setLang, lang]);
 
   useEffect(() => {
-    init();
-  }, [init]);
+    init(categories);
+  }, [init, categories]);
 
   if (status === ExerciseStoreStatus.uninitialized) return <p>waitting for init...</p>;
 
   if (status === ExerciseStoreStatus.completed) return <p>exercise completed...</p>;
 
-  const exercise = exerciseList[exerciseIndex];
-  const ExerciseComponent = getExerciseComponent(exercise.type as ExerciseType);
+  const exercise = exerciseList[getActiveExerciseIndex()];
 
-  // ID must be unique for every exercise in all games gameId+exerciseId
-  return <ExerciseComponent key={exercise.id} exercise={exercise as ExerciseIdentification} />;
+  switch (exercise.type as ExerciseType) {
+    case ExerciseType.identification:
+      return (
+        <ExerciseIdentificationComponent
+          key={exercise.id}
+          exercise={exercise as ExerciseIdentification}
+          controlsDisabled={controlsDisabled}
+        />
+      );
+    default:
+      return <p>something went wrong...</p>;
+  }
 };

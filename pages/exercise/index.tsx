@@ -6,6 +6,8 @@ import { GetStaticProps } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import { ExerciseOrchestrator } from 'components/basecomponents/Exercise/ExerciseOrchestrator';
 
+// TODO: integrate to dictionary
+
 const ExerciseSection = () => {
   const { t } = useTranslation();
 
@@ -17,7 +19,7 @@ const ExerciseSection = () => {
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
-        <ExerciseOrchestrator />
+        <ExerciseOrchestrator categories={['recdabyHkJhGf7U5D']} />
       </div>
     </div>
   );
