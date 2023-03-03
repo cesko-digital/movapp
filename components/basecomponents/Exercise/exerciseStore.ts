@@ -22,7 +22,7 @@ interface WithId {
 }
 
 export interface Choice extends WithId {
-  select: (effects: () => Promise<void>) => Promise<void>;
+  select: () => void;
   selected: boolean;
   correct: boolean;
   //[propName: string]: any; // optional properties
@@ -34,7 +34,8 @@ export interface Exercise extends WithId {
   choices: Choice[];
   result: string;
   level: number;
-  resolve: () => Promise<void>;
+  resolve: () => boolean;
+  completed: () => void;
 }
 
 export enum ExerciseStoreStatus {
@@ -43,19 +44,19 @@ export enum ExerciseStoreStatus {
   completed = 'completed',
 }
 
-interface ExerciseStoreState {
+export interface ExerciseStoreState {
   status: ExerciseStoreStatus;
   lang: { currentLanguage: Language; otherLanguage: Language };
   dictionary: DictionaryDataObject | null;
   exerciseList: Exercise[];
   activeExerciseId: Exercise['id'] | null;
-  controlsDisabled: boolean;
 }
 
-interface ExerciseStoreActions {
+export interface ExerciseStoreActions {
   init: (categories: CategoryDataObject['id'][]) => void;
   setLang: (lang: { currentLanguage: Language; otherLanguage: Language }) => void;
   getActiveExerciseIndex: () => number;
+  nextExercise: () => void;
 }
 
 export interface ExerciseStoreUtils {
@@ -63,14 +64,10 @@ export interface ExerciseStoreUtils {
   selectChoice: (choiceId: Choice['id'], enableDeselect?: boolean) => void;
   getCurrentLanguage: () => Language;
   getOtherLanguage: () => Language;
-  exerciseCompleted: (exerciseId: Exercise['id'], result: Exercise['result']) => Promise<void>;
-  playAudio: (url: string) => Promise<void>;
-  playAudioSlow: (url: string) => Promise<void>;
-  delay: (ms: number) => Promise<void>;
-  enableControls: () => void;
-  disableControls: () => void;
-  getControlsDisabled: () => boolean;
   getActiveExercise: () => Exercise;
+  getActiveExerciseAndIndex: () => [Exercise, number];
+  saveExerciseResult: (exerciseId: Exercise['id'], result: Exercise['result']) => void;
+  exerciseCompleted: (exerciseId: Exercise['id']) => void;
 }
 
 /** Describes complete state of the app, enables to save/restore app state */
@@ -84,21 +81,11 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     };
   })();
 
-  const delay = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
-  const playAudio = (str: string) => AudioPlayer.getInstance().playSrc(str);
-  const playAudioSlow = (url: string) => {
-    console.log(`playing slowly ${url}`);
-    return playAudio(url);
-  };
-
-  const enableControls: ExerciseStoreUtils['enableControls'] = () => set({ controlsDisabled: true });
-  const disableControls: ExerciseStoreUtils['disableControls'] = () => set({ controlsDisabled: false });
-  const getControlsDisabled: ExerciseStoreUtils['getControlsDisabled'] = () => get().controlsDisabled;
-
   // ensures that store knows about state changes //
   const selectChoice: ExerciseStoreUtils['selectChoice'] = (choiceId, enableDeselect = false) => {
     // place to react on user input
     // place to handle user choice, disable buttons
+    // TODO: prevent select on completed exercise
     const choicePath = getChoicePath(choiceId);
     const choice = R.view(R.lensPath(choicePath), get());
     if (!enableDeselect && choice.selected) {
@@ -111,20 +98,14 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     console.log(get().exerciseList);
   };
 
-  const exerciseCompleted: ExerciseStoreUtils['exerciseCompleted'] = async (exerciseId, result) => {
+  const exerciseCompleted: ExerciseStoreUtils['exerciseCompleted'] = (exerciseId) => {
     // place to react on exercise completed
     console.log(`exercise ${exerciseId} completed`);
-    //const exercise = getActiveExercise();
-    // TODO: perform check if active exercise id match exerciseId
-    if (getActiveExercise().id !== exerciseId) throw Error('exercise is does not match active exercise');
-    // TODO: check if it is not completed
+    const [exercise, exerciseIndex] = getActiveExerciseAndIndex();
+    if (exercise.id !== exerciseId) throw Error('exercise does not match active exercise');
 
     /* set exercise status completed */
-    set(R.over(R.lensPath(['exerciseList', getActiveExerciseIndex(), 'status']), () => ExerciseStatus.completed));
-    /* set exercise result */
-    set(R.over(R.lensPath(['exerciseList', getActiveExerciseIndex(), 'result']), () => result));
-    console.log(result);
-    await delay(1000);
+    set(R.over(R.lensPath(['exerciseList', exerciseIndex, 'status']), () => ExerciseStatus.completed));
 
     /* check all exercise are completed */
     if (get().exerciseList.every(({ status }) => status === ExerciseStatus.completed)) {
@@ -133,10 +114,12 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       return;
       // show summary screen
     }
+  };
 
+  const nextExercise = () => {
     /* generate/pick new exercise */
     console.log(`generating new exercise for you...`);
-
+    // TODO: add guards
     set((state) => {
       const newExerciseIndex = state.exerciseList.findIndex(({ status }) => status === ExerciseStatus.queued);
       const updatedExerciseList = R.over(R.lensPath([newExerciseIndex, 'status']), () => ExerciseStatus.active, state.exerciseList);
@@ -147,31 +130,39 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     });
   };
 
+  const saveExerciseResult: ExerciseStoreUtils['saveExerciseResult'] = (exerciseId, result) => {
+    set(R.over(R.lensPath(['exerciseList', findExerciseIndex(exerciseId), 'result']), () => result));
+  };
+
   const getActiveExerciseIndex = () => {
     const activeExerciseId = get().activeExerciseId;
-    const index = get().exerciseList.findIndex(({ id }) => id === activeExerciseId);
-    if (index === -1) throw Error(`id ${activeExerciseId} not found`);
+    if (activeExerciseId === null) throw Error('active exercise id is null');
+    return findExerciseIndex(activeExerciseId);
+  };
+
+  const getActiveExerciseAndIndex: ExerciseStoreUtils['getActiveExerciseAndIndex'] = () => {
+    const exerciseIndex = getActiveExerciseIndex();
+    const exercise = get().exerciseList[exerciseIndex];
+    if (exercise === null) throw Error('active exercise is null');
+    return [exercise, exerciseIndex];
+  };
+
+  const getActiveExercise: ExerciseStoreUtils['getActiveExercise'] = () => getActiveExerciseAndIndex()[0];
+
+  const hasSameId = R.curry((id: WithId['id'], obj: WithId) => id === obj['id']);
+
+  // choice id look up tested with 100 exercices and x6 CPU slowdown, it was OK, lightning fast
+  const findExerciseIndex = (exerciseId: number) => {
+    const index = get().exerciseList.findIndex(hasSameId(exerciseId));
+    if (index === -1) throw Error(`exercise id ${exerciseId} not found`);
     return index;
   };
 
-  const getActiveExercise = () => get().exerciseList[getActiveExerciseIndex()];
-  // const hasSameId = R.curry((id: WithId['id'], obj: WithId) => id === obj['id']);
-
-  // choice id look up tested with 100 exercices and x6 CPU slowdown, it was OK, lightning fast
-  //const findExercise = (exerciseId: number) => get().exerciseList.findIndex(({ id }) => id === exerciseId);
-  // const findChoice = (choiceId: Choice['id']) => {
-  //   const exercise = getActiveExercise();
-  //   if (exercise === null) throw Error('exercise is null');
-  //   const result = exercise.choices.find(hasSameId(choiceId));
-  //   if (result === undefined) throw Error(`choice ${choiceId} not found`);
-  //   return result;
-  // };
-
   const getChoicePath = (choiceId: number) => {
-    const exercise = getActiveExercise();
-    if (exercise === null) throw Error('exercise is null');
-    const choiceIndex = exercise.choices.findIndex(({ id }) => id === choiceId);
-    return ['exerciseList', getActiveExerciseIndex(), 'choices', choiceIndex];
+    const [exercise, exerciseIndex] = getActiveExerciseAndIndex();
+    const choiceIndex = exercise.choices.findIndex(hasSameId(choiceId));
+    if (choiceIndex === -1) throw Error(`choice id ${choiceId} not found in active exercise`);
+    return ['exerciseList', exerciseIndex, 'choices', choiceIndex];
   };
 
   const getPhrases = (dictionary: DictionaryDataObject, categories: CategoryDataObject['id'][]) =>
@@ -189,14 +180,10 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     getCurrentLanguage,
     getOtherLanguage,
     selectChoice,
-    exerciseCompleted,
-    playAudio,
-    playAudioSlow,
-    delay,
-    enableControls,
-    disableControls,
-    getControlsDisabled,
     getActiveExercise,
+    getActiveExerciseAndIndex,
+    saveExerciseResult,
+    exerciseCompleted,
   };
 
   const createExercise: Record<ExerciseType, (phrases: Phrase[]) => Exercise> = {
@@ -209,7 +196,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     dictionary: null,
     exerciseList: [],
     activeExerciseId: null,
-    controlsDisabled: true,
     init: async (categories) => {
       // fetch dictionary
       const dictionary = await fetchRawDictionary();
@@ -225,10 +211,17 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         dictionary,
         activeExerciseId: exerciseList[0].id,
         exerciseList,
-        controlsDisabled: false,
       });
     },
     setLang: (lang) => set({ lang }),
     getActiveExerciseIndex,
+    nextExercise,
   };
 });
+
+export const delay = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
+export const playAudio = (str: string) => AudioPlayer.getInstance().playSrc(str);
+export const playAudioSlow = (url: string) => {
+  console.log(`playing slowly ${url}`);
+  return playAudio(url);
+};
