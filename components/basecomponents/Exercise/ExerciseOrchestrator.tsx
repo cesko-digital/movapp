@@ -13,18 +13,22 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   const lang = useLanguage();
   const init = useExerciseStore((state) => state.init);
   const setLang = useExerciseStore((state) => state.setLang);
+  const setCategories = useExerciseStore((state) => state.setCategories);
   const status = useExerciseStore((state) => state.status);
   const exerciseList = useExerciseStore((state) => state.exerciseList);
   const getActiveExerciseIndex = useExerciseStore((state) => state.getActiveExerciseIndex);
-  const nextExercise = useExerciseStore((state) => state.nextExercise);
 
   useEffect(() => {
     setLang(lang);
   }, [setLang, lang]);
 
   useEffect(() => {
-    init(categories);
-  }, [init, categories]);
+    setCategories(categories);
+  }, [setCategories, categories]);
+
+  useEffect(() => {
+    init();
+  }, [init]);
 
   if (status === ExerciseStoreStatus.uninitialized) return <p>waitting for init...</p>;
 
@@ -34,9 +38,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
 
   switch (exercise.type as ExerciseType) {
     case ExerciseType.identification:
-      return (
-        <ExerciseIdentificationComponent key={exercise.id} exercise={exercise as ExerciseIdentification} nextExercise={nextExercise} />
-      );
+      return <ExerciseIdentificationComponent key={exercise.id} exercise={exercise as ExerciseIdentification} />;
     default:
       return <p>something went wrong...</p>;
   }

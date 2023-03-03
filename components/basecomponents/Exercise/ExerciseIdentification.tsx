@@ -1,16 +1,7 @@
 import { Button } from 'components/basecomponents/Button';
-import {
-  ExerciseType,
-  Exercise,
-  Choice,
-  ExerciseStatus,
-  ExerciseStoreUtils,
-  ExerciseStoreActions,
-  playAudio,
-  playAudioSlow,
-} from './exerciseStore';
+import { ExerciseType, Exercise, Choice, ExerciseStatus, ExerciseStoreUtils, playAudio, playAudioSlow } from './exerciseStore';
 import { Phrase } from 'utils/getDataUtils';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { animation } from './animation';
 
 /* eslint-disable no-console */
@@ -29,17 +20,18 @@ export const createFactoryOfExerciseIdentification =
     uniqId,
     getCurrentLanguage,
     getOtherLanguage,
-    getActiveExercise,
+    getExercise,
     selectChoice,
     exerciseCompleted,
     saveExerciseResult,
+    setExerciseProp,
+    nextExercise,
   }: ExerciseStoreUtils) =>
   (sourcePhrases: Phrase[]): ExerciseIdentification => {
     const filterOneWordPhrase = (phrase: Phrase) =>
       phrase.getTranslation(getCurrentLanguage()).split(' ').length + phrase.getTranslation(getOtherLanguage()).split(' ').length === 2;
 
     const exerciseId = uniqId();
-    // filter feasible phrases for exercise, one word phrases
 
     const pickedPhrases = sourcePhrases
       // filter
@@ -63,8 +55,7 @@ export const createFactoryOfExerciseIdentification =
       .sort(() => Math.random() - 0.5);
 
     const resolve = () => {
-      const exercise = getActiveExercise() as ExerciseIdentification;
-      if (exercise.id !== exerciseId) throw Error('trying to resolve another exercise');
+      const exercise = getExercise(exerciseId) as ExerciseIdentification;
       // resolve for difficulty level
       const resolveLevel: ((exercise: Exercise) => boolean)[] = [
         (exercise) => !!exercise.choices.find((choice) => choice.correct)?.selected,
@@ -76,6 +67,10 @@ export const createFactoryOfExerciseIdentification =
       }
       const createResult: ((exercise: Exercise) => Exercise['result'])[] = [(exercise) => `exercise at level ${exercise.level} completed`];
       saveExerciseResult(exerciseId, createResult[exercise.level](exercise));
+      setExerciseProp(exerciseId, 'choices', (result) => {
+        console.log(`old result is ${result}`);
+        return result;
+      });
       return true;
     };
 
@@ -102,22 +97,22 @@ export const createFactoryOfExerciseIdentification =
       choices: generateChoices(),
       resolve,
       completed: () => exerciseCompleted(exerciseId),
+      next: nextExercise,
       result: '',
       level: 0,
     };
   };
 
 interface ChoiceProps {
-  select: Choice['select'];
   text: string;
   correct: boolean;
   playAudio: () => Promise<void>;
   disabled?: boolean;
-  setButtonsDisabled: (val: boolean) => void;
-  buttonsDisabled: boolean;
+  onClickStarted: () => void;
+  onClickFinished: () => void;
 }
 
-const Choice = ({ select, text, correct, playAudio, disabled = false, setButtonsDisabled, buttonsDisabled }: ChoiceProps) => {
+const Choice = ({ text, correct, playAudio, disabled = false, onClickStarted, onClickFinished }: ChoiceProps) => {
   const choiceRef = useRef(null);
   return (
     <Button
@@ -126,64 +121,84 @@ const Choice = ({ select, text, correct, playAudio, disabled = false, setButtons
       text={text}
       onClick={async () => {
         if (disabled) return;
-        if (buttonsDisabled) return;
         if (choiceRef.current === null) return;
-        setButtonsDisabled(true);
-        animation.select(choiceRef.current);
-        correct ? animation.selectCorrect(choiceRef.current) : animation.selectWrong(choiceRef.current);
-        await playAudio();
-        setButtonsDisabled(false);
-        select();
-      }} // callback, should be last call in this method
+        onClickStarted();
+        playAudio();
+        await animation.select(choiceRef.current).finished;
+        correct ? await animation.selectCorrect(choiceRef.current).finished : await animation.selectWrong(choiceRef.current).finished;
+        onClickFinished();
+      }}
     />
   );
 };
 
 interface ExerciseIdentificationComponentProps {
   exercise: ExerciseIdentification;
-  nextExercise: ExerciseStoreActions['nextExercise']; // FIXME: move to utils, exercise knows when to enable "next"
-  // TODO: add exercise restart, code to factory
+  // TODO: add exercise restart
 }
 
-// FIXME: enable disable controls is reponsibility of component
 export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentificationComponentProps) => {
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
+  const exRef = useRef(null);
+
+  useEffect(() => {
+    if (exRef.current !== null) animation.show(exRef.current);
+  }, []);
+
   console.log('rerender');
 
   return (
-    <div className="flex flex-col items-center">
+    <div ref={exRef} className="flex flex-col items-center opacity-0">
       <div className="flex mb-3">
-        <PlayButton play={exercise.playAudio} text="PlayAudio" />
-        <PlayButton play={exercise.playAudioSlow} text="PlayAudioSlow" />
+        <PlayButton play={exercise.playAudio} text="PlayAudio" disabled={buttonsDisabled} />
+        <PlayButton play={exercise.playAudioSlow} text="PlayAudioSlow" disabled={buttonsDisabled} />
       </div>
-      <div className="flex">
+      <div className="flex mb-3">
         {exercise.choices.map((choice) => (
           <Choice
             key={choice.id}
             text={choice.getText()}
-            select={() => {
+            correct={choice.correct}
+            playAudio={choice.playAudio}
+            disabled={buttonsDisabled}
+            onClickStarted={() => setButtonsDisabled(true)}
+            onClickFinished={() => {
               choice.select();
               const resolved = exercise.resolve();
               if (resolved) {
-                setButtonsDisabled(true);
                 // run effects on completion
                 // maybe give option to restart exercise
                 exercise.completed();
               } else {
+                setButtonsDisabled(false);
                 // run effects
               }
             }}
-            correct={choice.correct}
-            playAudio={choice.playAudio}
-            buttonsDisabled={buttonsDisabled}
-            setButtonsDisabled={setButtonsDisabled}
           />
         ))}
       </div>
-      {/* if exercise completed show result and button to continue */}
+      {exercise.status === ExerciseStatus.completed && (
+        <ExerciseControls
+          next={async () => {
+            if (exRef.current === null) return;
+            await animation.fade(exRef.current, 300).finished;
+            exercise.next();
+          }}
+        />
+      )}
     </div>
   );
 };
+
+interface ExerciseControlsProps {
+  next: Exercise['next'];
+}
+
+const ExerciseControls = ({ next }: ExerciseControlsProps) => (
+  <div className="flex mb-3">
+    <Button className="bg-primary-blue mr-3" text="next" onClick={next} />
+  </div>
+);
 
 interface PlayButtonProps {
   play: () => Promise<void>;

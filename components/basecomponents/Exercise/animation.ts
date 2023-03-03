@@ -33,4 +33,18 @@ export const animation = {
       direction: 'alternate',
       loop: true,
     }),
+  fade: (ref: HTMLElement, duration = 600) =>
+    anime({
+      targets: ref,
+      duration,
+      opacity: 0,
+      easing: 'easeInOutSine',
+    }),
+  show: (ref: HTMLElement, duration = 600) =>
+    anime({
+      targets: ref,
+      duration,
+      opacity: 1,
+      easing: 'easeInOutSine',
+    }),
 };

@@ -36,6 +36,7 @@ export interface Exercise extends WithId {
   level: number;
   resolve: () => boolean;
   completed: () => void;
+  next: () => void;
 }
 
 export enum ExerciseStoreStatus {
@@ -48,13 +49,15 @@ export interface ExerciseStoreState {
   status: ExerciseStoreStatus;
   lang: { currentLanguage: Language; otherLanguage: Language };
   dictionary: DictionaryDataObject | null;
+  categories: CategoryDataObject['id'][];
   exerciseList: Exercise[];
   activeExerciseId: Exercise['id'] | null;
 }
 
 export interface ExerciseStoreActions {
-  init: (categories: CategoryDataObject['id'][]) => void;
-  setLang: (lang: { currentLanguage: Language; otherLanguage: Language }) => void;
+  init: () => void;
+  setCategories: (categories: ExerciseStoreState['categories']) => void;
+  setLang: (lang: ExerciseStoreState['lang']) => void;
   getActiveExerciseIndex: () => number;
   nextExercise: () => void;
 }
@@ -66,8 +69,15 @@ export interface ExerciseStoreUtils {
   getOtherLanguage: () => Language;
   getActiveExercise: () => Exercise;
   getActiveExerciseAndIndex: () => [Exercise, number];
+  getExercise: (exerciseId: Exercise['id']) => Exercise;
   saveExerciseResult: (exerciseId: Exercise['id'], result: Exercise['result']) => void;
   exerciseCompleted: (exerciseId: Exercise['id']) => void;
+  nextExercise: ExerciseStoreActions['nextExercise'];
+  setExerciseProp: <T extends keyof Exercise>(
+    exerciseId: Exercise['id'],
+    prop: T,
+    func: (exerciseProp: Exercise[T]) => Exercise[T]
+  ) => void;
 }
 
 /** Describes complete state of the app, enables to save/restore app state */
@@ -83,9 +93,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 
   // ensures that store knows about state changes //
   const selectChoice: ExerciseStoreUtils['selectChoice'] = (choiceId, enableDeselect = false) => {
-    // place to react on user input
-    // place to handle user choice, disable buttons
-    // TODO: prevent select on completed exercise
+    // TODO: guard - select on active exercise only
     const choicePath = getChoicePath(choiceId);
     const choice = R.view(R.lensPath(choicePath), get());
     if (!enableDeselect && choice.selected) {
@@ -100,8 +108,8 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 
   const exerciseCompleted: ExerciseStoreUtils['exerciseCompleted'] = (exerciseId) => {
     // place to react on exercise completed
-    console.log(`exercise ${exerciseId} completed`);
     const [exercise, exerciseIndex] = getActiveExerciseAndIndex();
+    console.log(`exercise ${exerciseId} completed with result ${exercise.result}`);
     if (exercise.id !== exerciseId) throw Error('exercise does not match active exercise');
 
     /* set exercise status completed */
@@ -122,16 +130,22 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     // TODO: add guards
     set((state) => {
       const newExerciseIndex = state.exerciseList.findIndex(({ status }) => status === ExerciseStatus.queued);
+      const newExerciseId = state.exerciseList[newExerciseIndex].id;
       const updatedExerciseList = R.over(R.lensPath([newExerciseIndex, 'status']), () => ExerciseStatus.active, state.exerciseList);
+
       return {
         exerciseList: updatedExerciseList,
-        exerciseIndex: newExerciseIndex,
+        activeExerciseId: newExerciseId,
       };
     });
   };
 
   const saveExerciseResult: ExerciseStoreUtils['saveExerciseResult'] = (exerciseId, result) => {
     set(R.over(R.lensPath(['exerciseList', findExerciseIndex(exerciseId), 'result']), () => result));
+  };
+
+  const setExerciseProp: ExerciseStoreUtils['setExerciseProp'] = (exerciseId, prop, func) => {
+    set(R.over(R.lensPath(['exerciseList', findExerciseIndex(exerciseId), prop]), func));
   };
 
   const getActiveExerciseIndex = () => {
@@ -158,6 +172,8 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     return index;
   };
 
+  const getExercise: ExerciseStoreUtils['getExercise'] = (exerciseId: number) => get().exerciseList[findExerciseIndex(exerciseId)];
+
   const getChoicePath = (choiceId: number) => {
     const [exercise, exerciseIndex] = getActiveExerciseAndIndex();
     const choiceIndex = exercise.choices.findIndex(hasSameId(choiceId));
@@ -182,8 +198,11 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     selectChoice,
     getActiveExercise,
     getActiveExerciseAndIndex,
+    getExercise,
     saveExerciseResult,
+    setExerciseProp,
     exerciseCompleted,
+    nextExercise,
   };
 
   const createExercise: Record<ExerciseType, (phrases: Phrase[]) => Exercise> = {
@@ -194,13 +213,14 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     status: ExerciseStoreStatus.uninitialized,
     lang: { currentLanguage: getCountryVariant(), otherLanguage: 'uk' },
     dictionary: null,
+    categories: ['recdabyHkJhGf7U5D'],
     exerciseList: [],
     activeExerciseId: null,
-    init: async (categories) => {
+    init: async () => {
       // fetch dictionary
       const dictionary = await fetchRawDictionary();
       // get category phrasesData
-      const phrases = getPhrases(dictionary, categories);
+      const phrases = getPhrases(dictionary, get().categories);
       // build exercise /// exercise list, list will include more types of exercises in future
       const exerciseList = Array(3)
         .fill(0)
@@ -214,6 +234,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       });
     },
     setLang: (lang) => set({ lang }),
+    setCategories: (categories) => set({ categories }),
     getActiveExerciseIndex,
     nextExercise,
   };
