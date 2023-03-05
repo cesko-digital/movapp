@@ -24,15 +24,16 @@ export const createFactoryOfExerciseIdentification =
     selectChoice,
     exerciseCompleted,
     saveExerciseResult,
-    setExerciseProp,
     nextExercise,
   }: ExerciseStoreUtils) =>
   (sourcePhrases: Phrase[]): ExerciseIdentification => {
+    // TODO: generalize and extract to store
     const filterOneWordPhrase = (phrase: Phrase) =>
       phrase.getTranslation(getCurrentLanguage()).split(' ').length + phrase.getTranslation(getOtherLanguage()).split(' ').length === 2;
 
     const exerciseId = uniqId();
 
+    // TODO: generalize and extract to store
     const pickedPhrases = sourcePhrases
       // filter
       .filter(filterOneWordPhrase)
@@ -57,6 +58,7 @@ export const createFactoryOfExerciseIdentification =
     const resolve = () => {
       const exercise = getExercise(exerciseId) as ExerciseIdentification;
       // resolve for difficulty level
+      // TODO: generalize and extract to store
       const resolveLevel: ((exercise: Exercise) => boolean)[] = [
         (exercise) => !!exercise.choices.find((choice) => choice.correct)?.selected,
       ];
@@ -65,12 +67,9 @@ export const createFactoryOfExerciseIdentification =
       if (!resolveLevel[exercise.level](exercise)) {
         return false;
       }
+      // TODO: generalize and extract to store
       const createResult: ((exercise: Exercise) => Exercise['result'])[] = [(exercise) => `exercise at level ${exercise.level} completed`];
       saveExerciseResult(exerciseId, createResult[exercise.level](exercise));
-      setExerciseProp(exerciseId, 'choices', (result) => {
-        console.log(`old result is ${result}`);
-        return result;
-      });
       return true;
     };
 
@@ -134,7 +133,6 @@ const Choice = ({ text, correct, playAudio, disabled = false, onClickStarted, on
 
 interface ExerciseIdentificationComponentProps {
   exercise: ExerciseIdentification;
-  // TODO: add exercise restart
 }
 
 export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentificationComponentProps) => {
@@ -166,12 +164,11 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
               choice.select();
               const resolved = exercise.resolve();
               if (resolved) {
-                // run effects on completion
-                // maybe give option to restart exercise
+                // run effects
                 exercise.completed();
               } else {
-                setButtonsDisabled(false);
                 // run effects
+                setButtonsDisabled(false);
               }
             }}
           />
@@ -217,7 +214,7 @@ const PlayButton = ({ play, text, disabled = false }: PlayButtonProps) => {
       onClick={async () => {
         if (btnRef.current === null) return;
         if (playing || disabled) return;
-        const anim = animation.play(btnRef.current); // infinite loop animation
+        const anim = animation.breathe(btnRef.current); // infinite loop animation
         setPlaying(true);
         await play();
         setPlaying(false);

@@ -91,7 +91,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     };
   })();
 
-  // ensures that store knows about state changes //
   const selectChoice: ExerciseStoreUtils['selectChoice'] = (choiceId, enableDeselect = false) => {
     // TODO: guard - select on active exercise only
     const choicePath = getChoicePath(choiceId);
@@ -107,29 +106,25 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   };
 
   const exerciseCompleted: ExerciseStoreUtils['exerciseCompleted'] = (exerciseId) => {
-    // place to react on exercise completed
-    const [exercise, exerciseIndex] = getActiveExerciseAndIndex();
-    console.log(`exercise ${exerciseId} completed with result ${exercise.result}`);
-    if (exercise.id !== exerciseId) throw Error('exercise does not match active exercise');
+    // TODO: guard - select on active exercise only
+    console.log(`exercise ${exerciseId} completed`);
 
     /* set exercise status completed */
-    set(R.over(R.lensPath(['exerciseList', exerciseIndex, 'status']), () => ExerciseStatus.completed));
+    set(R.over(R.lensPath(['exerciseList', findExerciseIndex(exerciseId), 'status']), () => ExerciseStatus.completed));
 
-    /* check all exercise are completed */
+    /* check if all exercises are completed */
     if (get().exerciseList.every(({ status }) => status === ExerciseStatus.completed)) {
       console.log(`congrats all exercises completed...`);
       set({ status: ExerciseStoreStatus.completed });
-      return;
-      // show summary screen
     }
   };
 
   const nextExercise = () => {
     /* generate/pick new exercise */
     console.log(`generating new exercise for you...`);
-    // TODO: add guards
     set((state) => {
       const newExerciseIndex = state.exerciseList.findIndex(({ status }) => status === ExerciseStatus.queued);
+      if (newExerciseIndex === -1) throw Error('no queued exercise found');
       const newExerciseId = state.exerciseList[newExerciseIndex].id;
       const updatedExerciseList = R.over(R.lensPath([newExerciseIndex, 'status']), () => ExerciseStatus.active, state.exerciseList);
 
@@ -213,7 +208,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     status: ExerciseStoreStatus.uninitialized,
     lang: { currentLanguage: getCountryVariant(), otherLanguage: 'uk' },
     dictionary: null,
-    categories: ['recdabyHkJhGf7U5D'],
+    categories: ['recdabyHkJhGf7U5D'], // category: basic
     exerciseList: [],
     activeExerciseId: null,
     init: async () => {
@@ -225,7 +220,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       const exerciseList = Array(3)
         .fill(0)
         .map(() => createExercise[ExerciseType.identification](phrases));
-      exerciseList[0].status = ExerciseStatus.active;
+      exerciseList[0].status = ExerciseStatus.active; // set first exercise active
       set({
         status: ExerciseStoreStatus.ready,
         dictionary,

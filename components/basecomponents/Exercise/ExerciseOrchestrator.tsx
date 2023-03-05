@@ -9,6 +9,7 @@ interface ExerciseOrchestratorProps {
   categories: CategoryDataObject['id'][];
 }
 
+// warning: language switching triggers change for all props
 export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) => {
   const lang = useLanguage();
   const init = useExerciseStore((state) => state.init);

@@ -24,7 +24,7 @@ export const animation = {
       background: 'hsl(0, 0%, 40%)',
       easing: 'easeInOutCubic',
     }),
-  play: (ref: HTMLElement) =>
+  breathe: (ref: HTMLElement) =>
     anime({
       targets: ref,
       duration: 200,
