@@ -46,7 +46,7 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
       {
         title: 'Česko.Digital',
         description: 'Через одиниці і нулі змінюємо Чехію на краще',
-        link: 'https://cesko.digital/en',
+        link: 'https://en.cesko.digital/',
       },
     ],
   },
@@ -60,7 +60,7 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
       {
         title: 'Ukraine Slovakia',
         description: 'Nezávislý informačný rázcestník',
-        link: 'https://www.ukraineslovakia.sk/sk/homepage/',
+        link: 'https://www.ukraineslovakia.sk/sk/',
       },
       {
         title: 'Česko.Digital',
@@ -77,12 +77,12 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
       {
         title: 'Ukraine Slovakia',
         description: 'Незалежний інформаційний довідник',
-        link: 'https://www.ukraineslovakia.sk/',
+        link: 'https://www.ukraineslovakia.sk/uk/',
       },
       {
         title: 'Česko.Digital',
         description: 'Через одиниці і нулі змінюємо Чехію на краще',
-        link: 'https://cesko.digital/en',
+        link: 'https://en.cesko.digital/',
       },
     ],
   },
@@ -96,7 +96,7 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
       {
         title: 'Česko.Digital',
         description: 'Przez jedynki i zera zmieniamy Czechy na lepsze (link w języku angielskim)',
-        link: 'https://cesko.digital/en',
+        link: 'https://en.cesko.digital/',
       },
     ],
     uk: [
@@ -113,7 +113,7 @@ export const FOOTER_NAVIGATION: Record<CountryVariant, FooterLinks> = {
       {
         title: 'Česko.Digital',
         description: 'Через одиниці і нулі змінюємо Чехію на краще',
-        link: 'https://cesko.digital/en',
+        link: 'https://en.cesko.digital/',
       },
     ],
   },
