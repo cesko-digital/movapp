@@ -51,6 +51,11 @@ const partners = [
     url: 'https://www.postbellum.cz/',
     logo: '/icons/about/PB-logo-black-vertical-01.png',
   },
+  {
+    title: 'Katedra informačních studií a knihovnictví (KISK), Masarykova univerzita',
+    url: 'https://kisk.phil.muni.cz/',
+    logo: '/icons/about/logo-kisk.png',
+  },
 ];
 
 type Partner = {
