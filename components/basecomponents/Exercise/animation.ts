@@ -27,9 +27,9 @@ export const animation = {
   breathe: (ref: HTMLElement) =>
     anime({
       targets: ref,
-      duration: 200,
-      opacity: 0.5,
-      easing: 'easeInOutCubic',
+      duration: 600,
+      opacity: 0.7,
+      easing: 'easeInOutSine',
       direction: 'alternate',
       loop: true,
     }),

@@ -8,8 +8,8 @@ import { createFactoryOfExerciseIdentification } from './ExerciseIdentification'
 /* eslint-disable no-console */
 
 export enum ExerciseStatus {
-  queued = 'queued',
   active = 'active',
+  resolved = 'resolved',
   completed = 'completed',
 }
 
@@ -37,6 +37,7 @@ export interface Exercise extends WithId {
   resolve: () => boolean;
   completed: () => void;
   next: () => void;
+  export: () => string; // TODO: implement export interface
 }
 
 export enum ExerciseStoreStatus {
@@ -46,19 +47,19 @@ export enum ExerciseStoreStatus {
 }
 
 export interface ExerciseStoreState {
+  size: number;
   status: ExerciseStoreStatus;
   lang: { currentLanguage: Language; otherLanguage: Language };
   dictionary: DictionaryDataObject | null;
   categories: CategoryDataObject['id'][];
-  exerciseList: Exercise[];
-  activeExerciseId: Exercise['id'] | null;
+  history: string[]; // TODO: implement how to store exercises
+  exercise: Exercise | null;
 }
 
 export interface ExerciseStoreActions {
   init: () => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
   setLang: (lang: ExerciseStoreState['lang']) => void;
-  getActiveExerciseIndex: () => number;
   nextExercise: () => void;
 }
 
@@ -67,17 +68,12 @@ export interface ExerciseStoreUtils {
   selectChoice: (choiceId: Choice['id'], enableDeselect?: boolean) => void;
   getCurrentLanguage: () => Language;
   getOtherLanguage: () => Language;
-  getActiveExercise: () => Exercise;
-  getActiveExerciseAndIndex: () => [Exercise, number];
-  getExercise: (exerciseId: Exercise['id']) => Exercise;
-  saveExerciseResult: (exerciseId: Exercise['id'], result: Exercise['result']) => void;
-  exerciseCompleted: (exerciseId: Exercise['id']) => void;
+  getExercise: () => Exercise;
+  setExercise: (setFunc: (prevExercise: Exercise | null) => Exercise) => void;
+  setExerciseResult: (result: Exercise['result']) => void;
+  exerciseCompleted: () => void;
   nextExercise: ExerciseStoreActions['nextExercise'];
-  setExerciseProp: <T extends keyof Exercise>(
-    exerciseId: Exercise['id'],
-    prop: T,
-    func: (exerciseProp: Exercise[T]) => Exercise[T]
-  ) => void;
+  //setExerciseProp: <T extends keyof Exercise>(prop: T, func: (exerciseProp: Exercise[T]) => Exercise[T]) => void;
 }
 
 /** Describes complete state of the app, enables to save/restore app state */
@@ -92,91 +88,64 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   })();
 
   const selectChoice: ExerciseStoreUtils['selectChoice'] = (choiceId, enableDeselect = false) => {
-    // TODO: guard - select on active exercise only
-    const choicePath = getChoicePath(choiceId);
-    const choice = R.view(R.lensPath(choicePath), get());
-    if (!enableDeselect && choice.selected) {
+    const exercise = getExercise();
+    const choiceIndex = exercise.choices.findIndex(hasSameId(choiceId));
+    if (choiceIndex === -1) throw Error(`choice id ${choiceId} not found in  exercise`);
+    if (!enableDeselect && exercise.choices[choiceIndex].selected) {
       console.log(`choice ${choiceId} already selected`);
       return;
     }
     // set choice selected
-    set(R.over(R.lensPath([...choicePath, 'selected']), (val) => !val));
+    set(R.over(R.lensPath(['exercise', 'choices', choiceIndex, 'selected']), (val) => !val));
     console.log(`selected choice ${choiceId} in exercise`);
-    console.log(get().exerciseList);
   };
 
-  const exerciseCompleted: ExerciseStoreUtils['exerciseCompleted'] = (exerciseId) => {
-    // TODO: guard - select on active exercise only
-    console.log(`exercise ${exerciseId} completed`);
+  const exerciseCompleted: ExerciseStoreUtils['exerciseCompleted'] = () => {
+    // TODO: guards: exercise isn't completed but it's resolved
+    console.log(`exercise completed`);
 
-    /* set exercise status completed */
-    set(R.over(R.lensPath(['exerciseList', findExerciseIndex(exerciseId), 'status']), () => ExerciseStatus.completed));
+    /* set exercise status completed and save exercise*/
+    set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.completed));
+    set((state) => ({
+      history: [...state.history, getExercise().export()],
+    }));
 
-    /* check if all exercises are completed */
-    if (get().exerciseList.every(({ status }) => status === ExerciseStatus.completed)) {
+    /* check if session is completed */
+    if (get().history.length === get().size) {
       console.log(`congrats all exercises completed...`);
       set({ status: ExerciseStoreStatus.completed });
     }
   };
 
   const nextExercise = () => {
-    /* generate/pick new exercise */
+    // TODO: guards: exercise is completed, session isn't over
+    /* generate new exercise */
     console.log(`generating new exercise for you...`);
-    set((state) => {
-      const newExerciseIndex = state.exerciseList.findIndex(({ status }) => status === ExerciseStatus.queued);
-      if (newExerciseIndex === -1) throw Error('no queued exercise found');
-      const newExerciseId = state.exerciseList[newExerciseIndex].id;
-      const updatedExerciseList = R.over(R.lensPath([newExerciseIndex, 'status']), () => ExerciseStatus.active, state.exerciseList);
-
-      return {
-        exerciseList: updatedExerciseList,
-        activeExerciseId: newExerciseId,
-      };
-    });
+    const phrases = getPhrases(get().dictionary as DictionaryDataObject, get().categories);
+    const exercise = createExercise[ExerciseType.identification](phrases);
+    set({ exercise });
   };
 
-  const saveExerciseResult: ExerciseStoreUtils['saveExerciseResult'] = (exerciseId, result) => {
-    set(R.over(R.lensPath(['exerciseList', findExerciseIndex(exerciseId), 'result']), () => result));
+  const setExerciseResult: ExerciseStoreUtils['setExerciseResult'] = (result) => {
+    // TODO: guards: exercise is active and not resolved
+    set(R.over(R.lensPath(['exercise', 'result']), () => result));
+    set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.resolved));
   };
 
-  const setExerciseProp: ExerciseStoreUtils['setExerciseProp'] = (exerciseId, prop, func) => {
-    set(R.over(R.lensPath(['exerciseList', findExerciseIndex(exerciseId), prop]), func));
+  const setExercise: ExerciseStoreUtils['setExercise'] = (func) => {
+    set(R.over(R.lensPath(['exercise']), func));
   };
-
-  const getActiveExerciseIndex = () => {
-    const activeExerciseId = get().activeExerciseId;
-    if (activeExerciseId === null) throw Error('active exercise id is null');
-    return findExerciseIndex(activeExerciseId);
-  };
-
-  const getActiveExerciseAndIndex: ExerciseStoreUtils['getActiveExerciseAndIndex'] = () => {
-    const exerciseIndex = getActiveExerciseIndex();
-    const exercise = get().exerciseList[exerciseIndex];
-    if (exercise === null) throw Error('active exercise is null');
-    return [exercise, exerciseIndex];
-  };
-
-  const getActiveExercise: ExerciseStoreUtils['getActiveExercise'] = () => getActiveExerciseAndIndex()[0];
 
   const hasSameId = R.curry((id: WithId['id'], obj: WithId) => id === obj['id']);
 
-  // choice id look up tested with 100 exercices and x6 CPU slowdown, it was OK, lightning fast
-  const findExerciseIndex = (exerciseId: number) => {
-    const index = get().exerciseList.findIndex(hasSameId(exerciseId));
-    if (index === -1) throw Error(`exercise id ${exerciseId} not found`);
-    return index;
-  };
-
-  const getExercise: ExerciseStoreUtils['getExercise'] = (exerciseId: number) => get().exerciseList[findExerciseIndex(exerciseId)];
-
-  const getChoicePath = (choiceId: number) => {
-    const [exercise, exerciseIndex] = getActiveExerciseAndIndex();
-    const choiceIndex = exercise.choices.findIndex(hasSameId(choiceId));
-    if (choiceIndex === -1) throw Error(`choice id ${choiceId} not found in active exercise`);
-    return ['exerciseList', exerciseIndex, 'choices', choiceIndex];
+  const getExercise: ExerciseStoreUtils['getExercise'] = () => {
+    const exercise = get().exercise;
+    if (exercise === null) throw Error('active exercise is null');
+    return exercise;
   };
 
   const getPhrases = (dictionary: DictionaryDataObject, categories: CategoryDataObject['id'][]) =>
+    // TODO: maybe cache results
     dictionary.categories
       .filter(({ id }) => categories.includes(id))
       .map(({ phrases }) => phrases)
@@ -191,11 +160,9 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     getCurrentLanguage,
     getOtherLanguage,
     selectChoice,
-    getActiveExercise,
-    getActiveExerciseAndIndex,
     getExercise,
-    saveExerciseResult,
-    setExerciseProp,
+    setExerciseResult: setExerciseResult,
+    setExercise,
     exerciseCompleted,
     nextExercise,
   };
@@ -205,32 +172,28 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   };
 
   return {
+    size: 3,
     status: ExerciseStoreStatus.uninitialized,
     lang: { currentLanguage: getCountryVariant(), otherLanguage: 'uk' },
     dictionary: null,
     categories: ['recdabyHkJhGf7U5D'], // category: basic
-    exerciseList: [],
-    activeExerciseId: null,
+    history: [],
+    exercise: null,
     init: async () => {
       // fetch dictionary
       const dictionary = await fetchRawDictionary();
       // get category phrasesData
       const phrases = getPhrases(dictionary, get().categories);
-      // build exercise /// exercise list, list will include more types of exercises in future
-      const exerciseList = Array(3)
-        .fill(0)
-        .map(() => createExercise[ExerciseType.identification](phrases));
-      exerciseList[0].status = ExerciseStatus.active; // set first exercise active
+      // build exercise
+      const exercise = createExercise[ExerciseType.identification](phrases);
       set({
         status: ExerciseStoreStatus.ready,
         dictionary,
-        activeExerciseId: exerciseList[0].id,
-        exerciseList,
+        exercise,
       });
     },
     setLang: (lang) => set({ lang }),
     setCategories: (categories) => set({ categories }),
-    getActiveExerciseIndex,
     nextExercise,
   };
 });
@@ -239,5 +202,6 @@ export const delay = (ms: number) => new Promise<void>((resolve) => setTimeout(r
 export const playAudio = (str: string) => AudioPlayer.getInstance().playSrc(str);
 export const playAudioSlow = (url: string) => {
   console.log(`playing slowly ${url}`);
+  // TODO: implement play slow: maybe create a new method or add optional parameter to playSrc() in AudioPlayer.ts
   return playAudio(url);
 };

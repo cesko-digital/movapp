@@ -16,8 +16,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   const setLang = useExerciseStore((state) => state.setLang);
   const setCategories = useExerciseStore((state) => state.setCategories);
   const status = useExerciseStore((state) => state.status);
-  const exerciseList = useExerciseStore((state) => state.exerciseList);
-  const getActiveExerciseIndex = useExerciseStore((state) => state.getActiveExerciseIndex);
+  const exercise = useExerciseStore((state) => state.exercise);
 
   useEffect(() => {
     setLang(lang);
@@ -33,10 +32,9 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
 
   if (status === ExerciseStoreStatus.uninitialized) return <p>waitting for init...</p>;
 
-  if (status === ExerciseStoreStatus.completed) return <p>exercise completed...</p>;
+  if (status === ExerciseStoreStatus.completed) return <p>session completed...</p>;
 
-  const exercise = exerciseList[getActiveExerciseIndex()];
-
+  if (exercise === null) return <p>waitting for exercise...</p>;
   switch (exercise.type as ExerciseType) {
     case ExerciseType.identification:
       return <ExerciseIdentificationComponent key={exercise.id} exercise={exercise as ExerciseIdentification} />;

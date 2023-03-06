@@ -23,17 +23,17 @@ export const createFactoryOfExerciseIdentification =
     getExercise,
     selectChoice,
     exerciseCompleted,
-    saveExerciseResult,
+    setExerciseResult,
     nextExercise,
   }: ExerciseStoreUtils) =>
   (sourcePhrases: Phrase[]): ExerciseIdentification => {
-    // TODO: generalize and extract to store
+    // TODO: generalize and extract to utils
     const filterOneWordPhrase = (phrase: Phrase) =>
       phrase.getTranslation(getCurrentLanguage()).split(' ').length + phrase.getTranslation(getOtherLanguage()).split(' ').length === 2;
 
     const exerciseId = uniqId();
 
-    // TODO: generalize and extract to store
+    // TODO: generalize and extract to utils
     const pickedPhrases = sourcePhrases
       // filter
       .filter(filterOneWordPhrase)
@@ -56,9 +56,9 @@ export const createFactoryOfExerciseIdentification =
       .sort(() => Math.random() - 0.5);
 
     const resolve = () => {
-      const exercise = getExercise(exerciseId) as ExerciseIdentification;
+      const exercise = getExercise() as ExerciseIdentification;
       // resolve for difficulty level
-      // TODO: generalize and extract to store
+      // TODO: generalize and extract to utils
       const resolveLevel: ((exercise: Exercise) => boolean)[] = [
         (exercise) => !!exercise.choices.find((choice) => choice.correct)?.selected,
       ];
@@ -67,9 +67,9 @@ export const createFactoryOfExerciseIdentification =
       if (!resolveLevel[exercise.level](exercise)) {
         return false;
       }
-      // TODO: generalize and extract to store
+      // TODO: generalize and extract to utils
       const createResult: ((exercise: Exercise) => Exercise['result'])[] = [(exercise) => `exercise at level ${exercise.level} completed`];
-      saveExerciseResult(exerciseId, createResult[exercise.level](exercise));
+      setExerciseResult(createResult[exercise.level](exercise));
       return true;
     };
 
@@ -86,50 +86,29 @@ export const createFactoryOfExerciseIdentification =
         };
       });
 
-    /** Exercise output object */
+    /** Exercise output object has tailored actions to lighten up UI logic */
     return {
       id: exerciseId,
       type: ExerciseType.identification,
-      status: ExerciseStatus.queued,
+      status: ExerciseStatus.active,
       playAudio: () => playAudio(getSoundUrl()),
       playAudioSlow: () => playAudioSlow(getSoundUrl()),
       choices: generateChoices(),
       resolve,
-      completed: () => exerciseCompleted(exerciseId),
+      completed: () => exerciseCompleted(),
+      export: () => `exported exercise object`, // TODO: implement export function
       next: nextExercise,
       result: '',
       level: 0,
     };
   };
 
-interface ChoiceProps {
-  text: string;
-  correct: boolean;
-  playAudio: () => Promise<void>;
-  disabled?: boolean;
-  onClickStarted: () => void;
-  onClickFinished: () => void;
-}
-
-const Choice = ({ text, correct, playAudio, disabled = false, onClickStarted, onClickFinished }: ChoiceProps) => {
-  const choiceRef = useRef(null);
-  return (
-    <Button
-      ref={choiceRef}
-      className="bg-primary-blue mr-3"
-      text={text}
-      onClick={async () => {
-        if (disabled) return;
-        if (choiceRef.current === null) return;
-        onClickStarted();
-        playAudio();
-        await animation.select(choiceRef.current).finished;
-        correct ? await animation.selectCorrect(choiceRef.current).finished : await animation.selectWrong(choiceRef.current).finished;
-        onClickFinished();
-      }}
-    />
-  );
-};
+/**
+ * Exercise component is UI for exercise object
+ * It handles user intereactions. It disables/enables certain controls at certain situations.
+ * It has set of prepared actions.
+ * It is responsible for taking valid actions only.
+ */
 
 interface ExerciseIdentificationComponentProps {
   exercise: ExerciseIdentification;
@@ -184,6 +163,35 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
         />
       )}
     </div>
+  );
+};
+
+interface ChoiceProps {
+  text: string;
+  correct: boolean;
+  playAudio: () => Promise<void>;
+  disabled?: boolean;
+  onClickStarted: () => void;
+  onClickFinished: () => void;
+}
+
+const Choice = ({ text, correct, playAudio, disabled = false, onClickStarted, onClickFinished }: ChoiceProps) => {
+  const choiceRef = useRef(null);
+  return (
+    <Button
+      ref={choiceRef}
+      className="bg-primary-blue mr-3"
+      text={text}
+      onClick={async () => {
+        if (disabled) return;
+        if (choiceRef.current === null) return;
+        onClickStarted();
+        playAudio(); // await ommited cause resolving of playAudio has significant delay
+        await animation.select(choiceRef.current).finished;
+        correct ? await animation.selectCorrect(choiceRef.current).finished : await animation.selectWrong(choiceRef.current).finished;
+        onClickFinished();
+      }}
+    />
   );
 };
 
