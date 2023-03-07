@@ -38,6 +38,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   switch (exercise.type as ExerciseType) {
     case ExerciseType.identification:
       return <ExerciseIdentificationComponent key={exercise.id} exercise={exercise as ExerciseIdentification} />;
+    // TODO: add other types of exercises
     default:
       return <p>something went wrong...</p>;
   }

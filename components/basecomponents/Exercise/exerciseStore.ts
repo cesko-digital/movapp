@@ -15,29 +15,30 @@ export enum ExerciseStatus {
 
 export enum ExerciseType {
   identification = 'identification',
+  // TODO: add other types of exercises
 }
 
 interface WithId {
   id: number;
 }
 
+const hasSameId = R.curry((id: WithId['id'], obj: WithId) => id === obj['id']);
+
 export interface Choice extends WithId {
   select: () => void;
   selected: boolean;
   correct: boolean;
-  //[propName: string]: any; // optional properties
 }
 
 export interface Exercise extends WithId {
   type: ExerciseType;
   status: ExerciseStatus;
   choices: Choice[];
-  result: string;
+  result: string; // TODO: design result structure, minimum structure could be percentage score
   level: number;
   resolve: () => boolean;
   completed: () => void;
   next: () => void;
-  export: () => string; // TODO: implement export interface
 }
 
 export enum ExerciseStoreStatus {
@@ -52,7 +53,7 @@ export interface ExerciseStoreState {
   lang: { currentLanguage: Language; otherLanguage: Language };
   dictionary: DictionaryDataObject | null;
   categories: CategoryDataObject['id'][];
-  history: string[]; // TODO: implement how to store exercises
+  history: Exercise[];
   exercise: Exercise | null;
 }
 
@@ -71,9 +72,9 @@ export interface ExerciseStoreUtils {
   getExercise: () => Exercise;
   setExercise: (setFunc: (prevExercise: Exercise | null) => Exercise) => void;
   setExerciseResult: (result: Exercise['result']) => void;
+  exerciseResolved: () => void;
   exerciseCompleted: () => void;
   nextExercise: ExerciseStoreActions['nextExercise'];
-  //setExerciseProp: <T extends keyof Exercise>(prop: T, func: (exerciseProp: Exercise[T]) => Exercise[T]) => void;
 }
 
 /** Describes complete state of the app, enables to save/restore app state */
@@ -95,31 +96,38 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       console.log(`choice ${choiceId} already selected`);
       return;
     }
-    // set choice selected
     set(R.over(R.lensPath(['exercise', 'choices', choiceIndex, 'selected']), (val) => !val));
     console.log(`selected choice ${choiceId} in exercise`);
   };
 
+  const exerciseResolved: ExerciseStoreUtils['exerciseResolved'] = () => {
+    if (getExercise().status !== ExerciseStatus.active) throw Error('invalid exercise status');
+    set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.resolved));
+  };
+
   const exerciseCompleted: ExerciseStoreUtils['exerciseCompleted'] = () => {
-    // TODO: guards: exercise isn't completed but it's resolved
+    if (getExercise().status !== ExerciseStatus.resolved) throw Error('invalid exercise status');
     console.log(`exercise completed`);
 
-    /* set exercise status completed and save exercise*/
+    /* set exercise status completed and save exercise */
     set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.completed));
     set((state) => ({
-      history: [...state.history, getExercise().export()],
+      history: [...state.history, getExercise()],
     }));
+  };
+
+  const nextExercise = () => {
+    if (getExercise().status !== ExerciseStatus.completed) throw Error('invalid exercise status');
+    if (get().status === ExerciseStoreStatus.completed) throw Error('invalid store status');
 
     /* check if session is completed */
     if (get().history.length === get().size) {
       console.log(`congrats all exercises completed...`);
+      console.log(get().history);
       set({ status: ExerciseStoreStatus.completed });
+      return;
     }
-  };
 
-  const nextExercise = () => {
-    // TODO: guards: exercise is completed, session isn't over
-    /* generate new exercise */
     console.log(`generating new exercise for you...`);
     const phrases = getPhrases(get().dictionary as DictionaryDataObject, get().categories);
     const exercise = createExercise[ExerciseType.identification](phrases);
@@ -127,16 +135,12 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   };
 
   const setExerciseResult: ExerciseStoreUtils['setExerciseResult'] = (result) => {
-    // TODO: guards: exercise is active and not resolved
     set(R.over(R.lensPath(['exercise', 'result']), () => result));
-    set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.resolved));
   };
 
   const setExercise: ExerciseStoreUtils['setExercise'] = (func) => {
     set(R.over(R.lensPath(['exercise']), func));
   };
-
-  const hasSameId = R.curry((id: WithId['id'], obj: WithId) => id === obj['id']);
 
   const getExercise: ExerciseStoreUtils['getExercise'] = () => {
     const exercise = get().exercise;
@@ -161,14 +165,16 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     getOtherLanguage,
     selectChoice,
     getExercise,
-    setExerciseResult: setExerciseResult,
+    setExerciseResult,
     setExercise,
+    exerciseResolved,
     exerciseCompleted,
     nextExercise,
   };
 
   const createExercise: Record<ExerciseType, (phrases: Phrase[]) => Exercise> = {
     identification: createFactoryOfExerciseIdentification(utils),
+    // TODO: add other types of exercises
   };
 
   return {

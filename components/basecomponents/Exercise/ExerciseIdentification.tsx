@@ -22,18 +22,18 @@ export const createFactoryOfExerciseIdentification =
     getOtherLanguage,
     getExercise,
     selectChoice,
+    exerciseResolved,
     exerciseCompleted,
     setExerciseResult,
     nextExercise,
   }: ExerciseStoreUtils) =>
   (sourcePhrases: Phrase[]): ExerciseIdentification => {
-    // TODO: generalize and extract to utils
+    // TODO: generalize and extract
     const filterOneWordPhrase = (phrase: Phrase) =>
       phrase.getTranslation(getCurrentLanguage()).split(' ').length + phrase.getTranslation(getOtherLanguage()).split(' ').length === 2;
 
     const exerciseId = uniqId();
 
-    // TODO: generalize and extract to utils
     const pickedPhrases = sourcePhrases
       // filter
       .filter(filterOneWordPhrase)
@@ -58,7 +58,7 @@ export const createFactoryOfExerciseIdentification =
     const resolve = () => {
       const exercise = getExercise() as ExerciseIdentification;
       // resolve for difficulty level
-      // TODO: generalize and extract to utils
+      // TODO: generalize and extract
       const resolveLevel: ((exercise: Exercise) => boolean)[] = [
         (exercise) => !!exercise.choices.find((choice) => choice.correct)?.selected,
       ];
@@ -67,9 +67,10 @@ export const createFactoryOfExerciseIdentification =
       if (!resolveLevel[exercise.level](exercise)) {
         return false;
       }
-      // TODO: generalize and extract to utils
+      // TODO: generalize and extract
       const createResult: ((exercise: Exercise) => Exercise['result'])[] = [(exercise) => `exercise at level ${exercise.level} completed`];
       setExerciseResult(createResult[exercise.level](exercise));
+      exerciseResolved();
       return true;
     };
 
@@ -95,8 +96,7 @@ export const createFactoryOfExerciseIdentification =
       playAudioSlow: () => playAudioSlow(getSoundUrl()),
       choices: generateChoices(),
       resolve,
-      completed: () => exerciseCompleted(),
-      export: () => `exported exercise object`, // TODO: implement export function
+      completed: exerciseCompleted,
       next: nextExercise,
       result: '',
       level: 0,
@@ -105,9 +105,20 @@ export const createFactoryOfExerciseIdentification =
 
 /**
  * Exercise component is UI for exercise object
- * It handles user intereactions. It disables/enables certain controls at certain situations.
+ * It handles user intereactions. It inactivates certain controls at certain situations.
  * It has set of prepared actions.
  * It is responsible for taking valid actions only.
+ *
+ * Inactive controls ensures correct operation.
+ * Disabled controls inform user.
+ *
+ * Operation of this Exercise:
+ * 1. Exercise appears and sound is played !!! IOS autoplay problem
+ * 2. User clicks on choice. It is set as selected. Then it try to resolve exercise.
+ * 2a. If resolved: Result prop is set and exercise status is changed to resolved.
+ * 2b. If not resolved: It is waiting for user to select another choice.
+ * 3. Then it's status is changed to complete.
+ * 4. Button NEXT appears.
  */
 
 interface ExerciseIdentificationComponentProps {
@@ -115,8 +126,9 @@ interface ExerciseIdentificationComponentProps {
 }
 
 export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentificationComponentProps) => {
-  const [buttonsDisabled, setButtonsDisabled] = useState(false);
+  const [buttonsInactive, setButtonsInactive] = useState(false);
   const exRef = useRef(null);
+  const resultRef = useRef(null);
 
   useEffect(() => {
     if (exRef.current !== null) animation.show(exRef.current);
@@ -127,8 +139,8 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
   return (
     <div ref={exRef} className="flex flex-col items-center opacity-0">
       <div className="flex mb-3">
-        <PlayButton play={exercise.playAudio} text="PlayAudio" disabled={buttonsDisabled} />
-        <PlayButton play={exercise.playAudioSlow} text="PlayAudioSlow" disabled={buttonsDisabled} />
+        <PlayButton play={exercise.playAudio} text="PlayAudio" inactive={buttonsInactive} />
+        <PlayButton play={exercise.playAudioSlow} text="PlayAudioSlow" inactive={buttonsInactive} />
       </div>
       <div className="flex mb-3">
         {exercise.choices.map((choice) => (
@@ -136,28 +148,36 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
             key={choice.id}
             text={choice.getText()}
             correct={choice.correct}
-            playAudio={choice.playAudio}
-            disabled={buttonsDisabled}
-            onClickStarted={() => setButtonsDisabled(true)}
-            onClickFinished={() => {
+            inactive={buttonsInactive}
+            onClickStarted={() => {
+              setButtonsInactive(true);
+              choice.playAudio(); // await ommited cause resolving of playAudio has significant delay
+            }}
+            onClickFinished={async () => {
               choice.select();
               const resolved = exercise.resolve();
               if (resolved) {
                 // run effects
                 exercise.completed();
+                resultRef.current !== null && (await animation.show(resultRef.current, 500).finished);
               } else {
                 // run effects
-                setButtonsDisabled(false);
+                setButtonsInactive(false);
               }
             }}
           />
         ))}
       </div>
       {exercise.status === ExerciseStatus.completed && (
+        <p className="opacity-0" ref={resultRef}>
+          {exercise.result}
+        </p>
+      )}
+      {exercise.status === ExerciseStatus.completed && (
         <ExerciseControls
           next={async () => {
             if (exRef.current === null) return;
-            await animation.fade(exRef.current, 300).finished;
+            await animation.fade(exRef.current, 300, 500).finished;
             exercise.next();
           }}
         />
@@ -166,27 +186,27 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
   );
 };
 
+// TODO: Export to common components
 interface ChoiceProps {
   text: string;
   correct: boolean;
-  playAudio: () => Promise<void>;
-  disabled?: boolean;
+  inactive?: boolean;
   onClickStarted: () => void;
   onClickFinished: () => void;
 }
 
-const Choice = ({ text, correct, playAudio, disabled = false, onClickStarted, onClickFinished }: ChoiceProps) => {
+const Choice = ({ text, correct, inactive = false, onClickStarted, onClickFinished }: ChoiceProps) => {
   const choiceRef = useRef(null);
+
   return (
     <Button
       ref={choiceRef}
       className="bg-primary-blue mr-3"
       text={text}
       onClick={async () => {
-        if (disabled) return;
+        if (inactive) return;
         if (choiceRef.current === null) return;
         onClickStarted();
-        playAudio(); // await ommited cause resolving of playAudio has significant delay
         await animation.select(choiceRef.current).finished;
         correct ? await animation.selectCorrect(choiceRef.current).finished : await animation.selectWrong(choiceRef.current).finished;
         onClickFinished();
@@ -195,6 +215,7 @@ const Choice = ({ text, correct, playAudio, disabled = false, onClickStarted, on
   );
 };
 
+// TODO: Export to common components
 interface ExerciseControlsProps {
   next: Exercise['next'];
 }
@@ -205,13 +226,14 @@ const ExerciseControls = ({ next }: ExerciseControlsProps) => (
   </div>
 );
 
+// TODO: Export to common components
 interface PlayButtonProps {
   play: () => Promise<void>;
   text: string;
-  disabled?: boolean;
+  inactive?: boolean;
 }
 
-const PlayButton = ({ play, text, disabled = false }: PlayButtonProps) => {
+const PlayButton = ({ play, text, inactive = false }: PlayButtonProps) => {
   const [playing, setPlaying] = useState(false);
   const btnRef = useRef(null);
   return (
@@ -221,7 +243,7 @@ const PlayButton = ({ play, text, disabled = false }: PlayButtonProps) => {
       ref={btnRef}
       onClick={async () => {
         if (btnRef.current === null) return;
-        if (playing || disabled) return;
+        if (playing || inactive) return;
         const anim = animation.breathe(btnRef.current); // infinite loop animation
         setPlaying(true);
         await play();
