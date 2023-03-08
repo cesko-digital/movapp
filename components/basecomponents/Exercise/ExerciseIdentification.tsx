@@ -132,8 +132,6 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
     };
   }, []);
 
-  console.log('rerender');
-
   return (
     <div ref={exRef} className="flex flex-col items-center opacity-0">
       <div className="flex mb-3">
@@ -213,11 +211,23 @@ interface ExerciseControlsProps {
   next: Exercise['next'];
 }
 
-const ExerciseControls = ({ next }: ExerciseControlsProps) => (
-  <div className="flex mb-3">
-    <Button className="bg-primary-blue mr-3" text="next" onClick={next} />
-  </div>
-);
+const ExerciseControls = ({ next }: ExerciseControlsProps) => {
+  const btnRef = useRef(null);
+  return (
+    <div className="flex mb-3">
+      <Button
+        ref={btnRef}
+        className="bg-primary-blue mr-3"
+        text="next"
+        onClick={async () => {
+          if (btnRef.current === null) return;
+          await animation.select(btnRef.current).finished;
+          next();
+        }}
+      />
+    </div>
+  );
+};
 
 // TODO: Export to common components
 interface PlayButtonProps {

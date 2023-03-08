@@ -6,9 +6,10 @@ export const animation = {
   select: (ref: HTMLElement) =>
     anime({
       targets: ref,
-      duration: 200,
-      opacity: 0.5,
-      easing: 'easeInOutCubic',
+      duration: 150,
+      opacity: 0.7,
+      scale: 0.9,
+      easing: 'easeInOutSine',
       direction: 'alternate',
     }),
   selectCorrect: (ref: HTMLElement) =>
