@@ -1,5 +1,7 @@
 import anime from 'animejs';
 
+// TODO: move to /utils later
+
 export const animation = {
   select: (ref: HTMLElement) =>
     anime({

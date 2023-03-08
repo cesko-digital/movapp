@@ -75,6 +75,8 @@ export interface ExerciseStoreUtils {
   exerciseResolved: () => void;
   exerciseCompleted: () => void;
   nextExercise: ExerciseStoreActions['nextExercise'];
+  filterOneWordPhrase: (phrase: Phrase) => boolean;
+  resolveMethods: Record<string, (exercise: Exercise) => boolean>;
 }
 
 /** Describes complete state of the app, enables to save/restore app state */
@@ -100,8 +102,13 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     console.log(`selected choice ${choiceId} in exercise`);
   };
 
+  const setExerciseResult: ExerciseStoreUtils['setExerciseResult'] = (result) => {
+    set(R.over(R.lensPath(['exercise', 'result']), () => result));
+  };
+
   const exerciseResolved: ExerciseStoreUtils['exerciseResolved'] = () => {
     if (getExercise().status !== ExerciseStatus.active) throw Error('invalid exercise status');
+    if (getExercise().result === '') throw Error('exercise result is empty');
     set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.resolved));
   };
 
@@ -134,10 +141,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     set({ exercise });
   };
 
-  const setExerciseResult: ExerciseStoreUtils['setExerciseResult'] = (result) => {
-    set(R.over(R.lensPath(['exercise', 'result']), () => result));
-  };
-
   const setExercise: ExerciseStoreUtils['setExercise'] = (func) => {
     set(R.over(R.lensPath(['exercise']), func));
   };
@@ -159,6 +162,14 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   const getCurrentLanguage: ExerciseStoreUtils['getCurrentLanguage'] = () => get().lang.currentLanguage;
   const getOtherLanguage: ExerciseStoreUtils['getOtherLanguage'] = () => get().lang.otherLanguage;
 
+  const filterOneWordPhrase: ExerciseStoreUtils['filterOneWordPhrase'] = (phrase: Phrase) =>
+    phrase.getTranslation(getCurrentLanguage()).split(' ').length + phrase.getTranslation(getOtherLanguage()).split(' ').length === 2;
+
+  const resolveMethods = {
+    oneCorrect: (exercise: Exercise) => !!exercise.choices.find((choice) => choice.correct)?.selected,
+    allCorrect: (exercise: Exercise) => exercise.choices.every((choice) => choice.selected && choice.correct),
+  };
+
   const utils: ExerciseStoreUtils = {
     uniqId,
     getCurrentLanguage,
@@ -170,6 +181,8 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     exerciseResolved,
     exerciseCompleted,
     nextExercise,
+    filterOneWordPhrase,
+    resolveMethods,
   };
 
   const createExercise: Record<ExerciseType, (phrases: Phrase[]) => Exercise> = {

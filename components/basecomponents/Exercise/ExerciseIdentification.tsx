@@ -1,7 +1,7 @@
 import { Button } from 'components/basecomponents/Button';
 import { ExerciseType, Exercise, Choice, ExerciseStatus, ExerciseStoreUtils, playAudio, playAudioSlow } from './exerciseStore';
 import { Phrase } from 'utils/getDataUtils';
-import { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { animation } from './animation';
 
 /* eslint-disable no-console */
@@ -26,12 +26,10 @@ export const createFactoryOfExerciseIdentification =
     exerciseCompleted,
     setExerciseResult,
     nextExercise,
+    filterOneWordPhrase,
+    resolveMethods,
   }: ExerciseStoreUtils) =>
   (sourcePhrases: Phrase[]): ExerciseIdentification => {
-    // TODO: generalize and extract
-    const filterOneWordPhrase = (phrase: Phrase) =>
-      phrase.getTranslation(getCurrentLanguage()).split(' ').length + phrase.getTranslation(getOtherLanguage()).split(' ').length === 2;
-
     const exerciseId = uniqId();
 
     const pickedPhrases = sourcePhrases
@@ -57,18 +55,14 @@ export const createFactoryOfExerciseIdentification =
 
     const resolve = () => {
       const exercise = getExercise() as ExerciseIdentification;
-      // resolve for difficulty level
-      // TODO: generalize and extract
-      const resolveLevel: ((exercise: Exercise) => boolean)[] = [
-        (exercise) => !!exercise.choices.find((choice) => choice.correct)?.selected,
-      ];
-      /*all correct choices selected when more choices are corect*/
-      // return exercise.choices.every((choice) => choice.selected && choice.correct);
+      // resolve for difficulty level: [level0, level1, ...]
+      const resolveLevel = [resolveMethods.oneCorrect];
+
       if (!resolveLevel[exercise.level](exercise)) {
         return false;
       }
       // TODO: generalize and extract
-      const createResult: ((exercise: Exercise) => Exercise['result'])[] = [(exercise) => `exercise at level ${exercise.level} completed`];
+      const createResult = [(exercise: Exercise) => `exercise at level ${exercise.level} completed`];
       setExerciseResult(createResult[exercise.level](exercise));
       exerciseResolved();
       return true;
@@ -128,10 +122,14 @@ interface ExerciseIdentificationComponentProps {
 export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentificationComponentProps) => {
   const [buttonsInactive, setButtonsInactive] = useState(false);
   const exRef = useRef(null);
-  const resultRef = useRef(null);
 
+  // Animation on component mount and unmount
   useEffect(() => {
-    if (exRef.current !== null) animation.show(exRef.current);
+    const ref = exRef.current;
+    if (ref !== null) animation.show(ref);
+    return () => {
+      if (ref !== null) animation.fade(ref);
+    };
   }, []);
 
   console.log('rerender');
@@ -159,7 +157,6 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
               if (resolved) {
                 // run effects
                 exercise.completed();
-                resultRef.current !== null && (await animation.show(resultRef.current, 500).finished);
               } else {
                 // run effects
                 setButtonsInactive(false);
@@ -169,14 +166,10 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
         ))}
       </div>
       {exercise.status === ExerciseStatus.completed && (
-        <p className="opacity-0" ref={resultRef}>
-          {exercise.result}
-        </p>
-      )}
-      {exercise.status === ExerciseStatus.completed && (
         <ExerciseControls
           next={async () => {
             if (exRef.current === null) return;
+            // run effects
             await animation.fade(exRef.current, 300, 500).finished;
             exercise.next();
           }}
