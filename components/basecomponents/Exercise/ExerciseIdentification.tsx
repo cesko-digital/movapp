@@ -2,7 +2,7 @@ import { Button } from 'components/basecomponents/Button';
 import { ExerciseType, Exercise, Choice, ExerciseStatus, ExerciseStoreUtils, playAudio, playAudioSlow } from './exerciseStore';
 import { Phrase } from 'utils/getDataUtils';
 import React, { useRef, useState, useEffect } from 'react';
-import { animation } from './animation';
+import { animation } from './utils/animation';
 
 /* eslint-disable no-console */
 

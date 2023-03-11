@@ -30,7 +30,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
     init();
   }, [init]);
 
-  if (status === ExerciseStoreStatus.uninitialized) return <p>waitting for init...</p>;
+  if (status === ExerciseStoreStatus.uninitialized) return <p>waiting for init...</p>;
 
   if (status === ExerciseStoreStatus.completed) return <p>session completed...</p>;
 
