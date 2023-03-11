@@ -3,6 +3,9 @@ import { ExerciseType, Exercise, Choice, ExerciseStatus, ExerciseStoreUtils, pla
 import { Phrase } from 'utils/getDataUtils';
 import React, { useRef, useState, useEffect } from 'react';
 import { animation } from './utils/animation';
+import { PlayButton } from './components/PlayButton';
+import { ChoiceComponent } from './components/ChoiceComponent';
+import { ExerciseControls } from './components/ExerciseControls';
 
 /* eslint-disable no-console */
 
@@ -140,7 +143,7 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
       </div>
       <div className="flex mb-3">
         {exercise.choices.map((choice) => (
-          <Choice
+          <ChoiceComponent
             key={choice.id}
             text={choice.getText()}
             correct={choice.correct}
@@ -177,83 +180,3 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
   );
 };
 
-// TODO: Export to common components
-interface ChoiceProps {
-  text: string;
-  correct: boolean;
-  inactive?: boolean;
-  onClickStarted: () => void;
-  onClickFinished: () => void;
-}
-
-const Choice = ({ text, correct, inactive = false, onClickStarted, onClickFinished }: ChoiceProps) => {
-  const choiceRef = useRef(null);
-
-  return (
-    <Button
-      ref={choiceRef}
-      className="bg-primary-blue mr-3"
-      text={text}
-      onClick={async () => {
-        if (inactive) return;
-        if (choiceRef.current === null) return;
-        onClickStarted();
-        await animation.select(choiceRef.current).finished;
-        correct ? await animation.selectCorrect(choiceRef.current).finished : await animation.selectWrong(choiceRef.current).finished;
-        onClickFinished();
-      }}
-    />
-  );
-};
-
-// TODO: Export to common components
-interface ExerciseControlsProps {
-  next: Exercise['next'];
-}
-
-const ExerciseControls = ({ next }: ExerciseControlsProps) => {
-  const btnRef = useRef(null);
-  return (
-    <div className="flex mb-3">
-      <Button
-        ref={btnRef}
-        className="bg-primary-blue mr-3"
-        text="next"
-        onClick={async () => {
-          if (btnRef.current === null) return;
-          await animation.select(btnRef.current).finished;
-          next();
-        }}
-      />
-    </div>
-  );
-};
-
-// TODO: Export to common components
-interface PlayButtonProps {
-  play: () => Promise<void>;
-  text: string;
-  inactive?: boolean;
-}
-
-const PlayButton = ({ play, text, inactive = false }: PlayButtonProps) => {
-  const [playing, setPlaying] = useState(false);
-  const btnRef = useRef(null);
-  return (
-    <Button
-      className="bg-primary-blue mr-3"
-      text={text}
-      ref={btnRef}
-      onClick={async () => {
-        if (btnRef.current === null) return;
-        if (playing || inactive) return;
-        const anim = animation.breathe(btnRef.current); // infinite loop animation
-        setPlaying(true);
-        await play();
-        setPlaying(false);
-        anim.restart();
-        anim.pause();
-      }}
-    />
-  );
-};
