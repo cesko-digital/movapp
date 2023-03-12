@@ -1,4 +1,3 @@
-import { Button } from 'components/basecomponents/Button';
 import { ExerciseType, Exercise, Choice, ExerciseStatus, ExerciseStoreUtils, playAudio, playAudioSlow } from './exerciseStore';
 import { Phrase } from 'utils/getDataUtils';
 import React, { useRef, useState, useEffect } from 'react';
@@ -179,4 +178,3 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
     </div>
   );
 };
-
