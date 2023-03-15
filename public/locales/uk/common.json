@@ -87,7 +87,8 @@
     "pl": "польський",
     "results_subtitle": "Результати пошуку",
     "not_found_results": "Не знайдено",
-    "download_pdf": "Завантажити у форматі .pdf"
+    "download_pdf": "Завантажити у форматі .pdf",
+    "first_exercise":"Вправи типу 1"
   },
   "kids_page": {
     "downloadPDF": "Завантажити у форматі .pdf",

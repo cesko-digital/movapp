@@ -143,6 +143,15 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                         <AiOutlineFilePdf className="w-5 h-5" />
                         {t('dictionary_page.download_pdf')}
                       </TextLink>
+                      <TextLink
+                        href={`/exercise/${category.id}`}
+                        target="_blank"
+                        className="ml-3 inline-flex gap-x-1 items-center"
+                        locale={getCountryVariant()}
+                      >
+                        <AiOutlineFilePdf className="w-5 h-5" />
+                        {t('dictionary_page.first_exercise')}
+                      </TextLink>
                     </div>
                     <CategoryDictionary searchText={search} translations={category.translations} />
                   </Collapse>
