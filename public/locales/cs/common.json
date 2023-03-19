@@ -75,7 +75,8 @@
     "czechStories": "České lidové pohádky",
     "ukrainianStories": "Ukrajinské lidové pohádky",
     "stories": "Pohádky",
-    "homepage": "Hlavní stránka"
+    "homepage": "Hlavní stránka",
+    "downloadStory": "Pohádku si můžete <0>stáhnout jako PDF</0>."
   },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> je projekt, který vznikl v rámci iniciativy <strong>Stojíme za Ukrajinou</strong> v komunitě expertních dobrovolníků <strong>Česko.Digital.</strong>",
@@ -152,6 +153,9 @@
     },
     "kids_page_storiesTitle": {
       "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"
+    },
+    "kids_page_storiesTitlePdf": {
+      "cs": "Přečtěte si české a ukrajinské lidové pohádky"
     },
     "kids_page_storiesDescription": {
       "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"

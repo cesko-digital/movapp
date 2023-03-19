@@ -7,6 +7,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 import { Flag } from './Flag';
 import StoryText from './StoryText';
 import { useStoryReader } from 'components/hooks/useStoryReader';
+import { Trans } from 'next-i18next';
 
 interface StoryReaderProps {
   titleCurrent: string;
@@ -82,6 +83,20 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
           <p className="text-xl text-right">{time}</p>
         </div>
       </div>
+      <p className="text-base md:text-md mt-4">
+        <Trans
+          i18nKey={'kids_page.downloadStory'}
+          components={[
+            <a
+              key="download PDF"
+              className="underline text-primary-blue"
+              href={`/pdf/${id}-${currentLanguage}.pdf`}
+              rel="noreferrer"
+              target="_blank"
+            />,
+          ]}
+        />
+      </p>
       <div className={`flex ${currentLanguage !== 'uk' ? 'flex-col-reverse md:flex-row-reverse' : 'flex-col md:flex-row'}`}>
         {locales.map((local) => (
           <StoryText
