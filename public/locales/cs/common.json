@@ -67,7 +67,8 @@
     "uk": "ukrajinsky",
     "results_subtitle": "Výsledky vyhledávání",
     "not_found_results": "Nic nenalezeno",
-    "download_pdf": "Stáhnout v PDF"
+    "download_pdf": "Stáhnout v PDF",
+    "first_exercise":"Cvičení typu 1"
   },
   "kids_page": {
     "downloadPDF": "Stáhnout v PDF",

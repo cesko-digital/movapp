@@ -219,8 +219,4 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 
 export const delay = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
 export const playAudio = (str: string) => AudioPlayer.getInstance().playSrc(str);
-export const playAudioSlow = (url: string) => {
-  console.log(`playing slowly ${url}`);
-  // TODO: implement play slow: maybe create a new method or add optional parameter to playSrc() in AudioPlayer.ts
-  return playAudio(url);
-};
+export const playAudioSlow = (str: string) => AudioPlayer.getInstance().playSrc(str, 0.5);
