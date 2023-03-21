@@ -1,7 +1,5 @@
-/* eslint-disable no-console */
-import React, { ReactNode } from 'react';
-//import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import React from 'react';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { fetchDictionary } from 'utils/getDataUtils';
 import { Language, getCountryVariant } from 'utils/locales';
@@ -10,15 +8,11 @@ import SEO from 'components/basecomponents/SEO';
 import { useTranslation } from 'next-i18next';
 import { getServerSideTranslations } from 'utils/localization';
 
-interface StoriesProps {
-  story: string | undefined;
-}
-
 interface UrlParams extends ParsedUrlQuery {
   categoryId: string;
 }
 
-const ExerciseComponent = ({ story }: { story: string }): ReactNode => {
+const ExerciseComponent = ({ categoryId }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   const { t } = useTranslation();
 
   return (
@@ -29,7 +23,7 @@ const ExerciseComponent = ({ story }: { story: string }): ReactNode => {
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
-        <ExerciseOrchestrator categories={[story]} />
+        <ExerciseOrchestrator categories={[categoryId]} />
       </div>
     </div>
   );
@@ -57,13 +51,12 @@ export const getStaticPaths: GetStaticPaths<UrlParams> = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<StoriesProps, UrlParams> = async ({ params, locale }) => {
-  const story = params?.categoryId.toString();
+export const getStaticProps: GetStaticProps<{ categoryId: string }, UrlParams> = async ({ params, locale }) => {
+  const categoryId = params?.categoryId.toString() ?? (await fetchDictionary()).categories[0].id;
   const localeTranslations = await getServerSideTranslations(locale);
-  //example id rec0Web8t9flE9V4Y, "recNz2QdaDsWOMBmO"
 
   return {
-    props: { story, ...localeTranslations },
+    props: { categoryId, ...localeTranslations },
   };
 };
 

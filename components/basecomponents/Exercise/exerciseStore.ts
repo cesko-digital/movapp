@@ -34,7 +34,7 @@ export interface Exercise extends WithId {
   type: ExerciseType;
   status: ExerciseStatus;
   choices: Choice[];
-  result: string; // TODO: design result structure, minimum structure could be percentage score
+  result: { score: number; text: string } | null;
   level: number;
   resolve: () => boolean;
   completed: () => void;
@@ -52,7 +52,7 @@ export interface ExerciseStoreState {
   status: ExerciseStoreStatus;
   lang: { currentLanguage: Language; otherLanguage: Language };
   dictionary: DictionaryDataObject | null;
-  categories: CategoryDataObject['id'][];
+  categories: CategoryDataObject['id'][] | null;
   history: Exercise[];
   exercise: Exercise | null;
 }
@@ -108,7 +108,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 
   const exerciseResolved: ExerciseStoreUtils['exerciseResolved'] = () => {
     if (getExercise().status !== ExerciseStatus.active) throw Error('invalid exercise status');
-    if (getExercise().result === '') throw Error('exercise result is empty');
+    if (getExercise().result === null) throw Error('exercise result is empty');
     set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.resolved));
   };
 
@@ -136,7 +136,9 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     }
 
     console.log(`generating new exercise for you...`);
-    const phrases = getPhrases(get().dictionary as DictionaryDataObject, get().categories);
+    const categories = get().categories;
+    if (categories === null) throw Error('categories property is null');
+    const phrases = getPhrases(get().dictionary as DictionaryDataObject, categories);
     const exercise = createExercise[ExerciseType.identification](phrases);
     set({ exercise });
   };
@@ -195,14 +197,16 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     status: ExerciseStoreStatus.uninitialized,
     lang: { currentLanguage: getCountryVariant(), otherLanguage: 'uk' },
     dictionary: null,
-    categories: ['recdabyHkJhGf7U5D'], // category: basic
+    categories: null,
     history: [],
     exercise: null,
     init: async () => {
       // fetch dictionary
       const dictionary = await fetchRawDictionary();
       // get category phrasesData
-      const phrases = getPhrases(dictionary, get().categories);
+      const categories = get().categories;
+      if (categories === null) throw Error(`categories property isn't initialized`);
+      const phrases = getPhrases(dictionary, categories);
       // build exercise
       const exercise = createExercise[ExerciseType.identification](phrases);
       set({
@@ -218,5 +222,5 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 });
 
 export const delay = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
-export const playAudio = (str: string) => AudioPlayer.getInstance().playSrc(str);
-export const playAudioSlow = (str: string) => AudioPlayer.getInstance().playSrc(str, 0.5);
+export const playAudio = (url: string) => AudioPlayer.getInstance().playSrc(url);
+export const playAudioSlow = (url: string) => AudioPlayer.getInstance().playSrc(url, 0.5);

@@ -64,7 +64,12 @@ export const createFactoryOfExerciseIdentification =
         return false;
       }
       // TODO: generalize and extract
-      const createResult = [(exercise: Exercise) => `exercise at level ${exercise.level} completed`];
+      const createResult = [
+        (exercise: Exercise) => ({
+          score: 100,
+          text: `exercise completed at level ${exercise.level}`,
+        }),
+      ];
       setExerciseResult(createResult[exercise.level](exercise));
       exerciseResolved();
       return true;
@@ -94,7 +99,7 @@ export const createFactoryOfExerciseIdentification =
       resolve,
       completed: exerciseCompleted,
       next: nextExercise,
-      result: '',
+      result: null,
       level: 0,
     };
   };
