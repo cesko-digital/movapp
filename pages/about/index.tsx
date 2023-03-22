@@ -239,9 +239,6 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         <H2>{t('about_page.media_mentions_title')}</H2>
         <ArticlesList articles={articles} />
 
-        <H2>{t('about_page.how_to_find_us_title')}</H2>
-        <Trans i18nKey={'about_page.how_to_find_us_description'} />
-
         <H2>{t('about_page.support_us_title')}</H2>
         <Trans
           i18nKey={'about_page.support_us_description'}
@@ -253,6 +250,9 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             <TextLink href={'https://cesko.digital/join/form'} target="_blank" key="ceskodigital" />,
           ]}
         />
+
+        <H2>{t('about_page.how_to_find_us_title')}</H2>
+        <Trans i18nKey={'about_page.how_to_find_us_description'} />
 
         <H2>{t('about_page.stand_with_ukraine_title')}</H2>
         <Trans
