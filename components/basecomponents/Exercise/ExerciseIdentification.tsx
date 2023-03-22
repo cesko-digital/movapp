@@ -28,15 +28,16 @@ export const createFactoryOfExerciseIdentification =
     exerciseCompleted,
     setExerciseResult,
     nextExercise,
-    filterOneWordPhrase,
+    phraseFilters,
     resolveMethods,
+    resultMethods,
   }: ExerciseStoreUtils) =>
   (sourcePhrases: Phrase[]): ExerciseIdentification => {
     const exerciseId = uniqId();
 
     const pickedPhrases = sourcePhrases
       // filter
-      .filter(filterOneWordPhrase)
+      .filter(phraseFilters.filterOneWordPhrase)
       // shuffle
       .sort(() => Math.random() - 0.5)
       // pick 4
@@ -50,6 +51,7 @@ export const createFactoryOfExerciseIdentification =
       getText: () => phrase.getTranslation(getCurrentLanguage()),
       getSoundUrl: () => phrase.getSoundUrl(getOtherLanguage()),
     });
+
     const choicesData = pickedPhrases
       .map((phrase, index) => ({ ...extractChoiceData(phrase), correct: index === 0 }))
       // shuffle choices
@@ -63,13 +65,8 @@ export const createFactoryOfExerciseIdentification =
       if (!resolveLevel[exercise.level](exercise)) {
         return false;
       }
-      // TODO: generalize and extract
-      const createResult = [
-        (exercise: Exercise) => ({
-          score: 100,
-          text: `exercise completed at level ${exercise.level}`,
-        }),
-      ];
+      // create result for difficulty level: [level0, level1, ...]
+      const createResult = [resultMethods.selectedCorrect];
       setExerciseResult(createResult[exercise.level](exercise));
       exerciseResolved();
       return true;
@@ -134,9 +131,13 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
   useEffect(() => {
     const ref = exRef.current;
     if (ref !== null) animation.show(ref);
+    exercise.playAudio();
     return () => {
       if (ref !== null) animation.fade(ref);
     };
+    /* adding exercise to deps causes to run useEffect on every change of exercise,
+     one workaround would be import exercise from store directly and remove it from props */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

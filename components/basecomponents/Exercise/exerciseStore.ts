@@ -34,7 +34,7 @@ export interface Exercise extends WithId {
   type: ExerciseType;
   status: ExerciseStatus;
   choices: Choice[];
-  result: { score: number; text: string } | null;
+  result: { score: number } | null;
   level: number;
   resolve: () => boolean;
   completed: () => void;
@@ -61,7 +61,6 @@ export interface ExerciseStoreActions {
   init: () => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
   setLang: (lang: ExerciseStoreState['lang']) => void;
-  nextExercise: () => void;
 }
 
 export interface ExerciseStoreUtils {
@@ -70,13 +69,14 @@ export interface ExerciseStoreUtils {
   getCurrentLanguage: () => Language;
   getOtherLanguage: () => Language;
   getExercise: () => Exercise;
-  setExercise: (setFunc: (prevExercise: Exercise | null) => Exercise) => void;
+  //setExercise: (setFunc: (prevExercise: Exercise | null) => Exercise) => void;
   setExerciseResult: (result: Exercise['result']) => void;
   exerciseResolved: () => void;
   exerciseCompleted: () => void;
-  nextExercise: ExerciseStoreActions['nextExercise'];
-  filterOneWordPhrase: (phrase: Phrase) => boolean;
+  nextExercise: () => void;
+  phraseFilters: Record<string, (phrase: Phrase) => boolean>;
   resolveMethods: Record<string, (exercise: Exercise) => boolean>;
+  resultMethods: Record<string, (exercise: Exercise) => Exercise['result']>;
 }
 
 /** Describes complete state of the app, enables to save/restore app state */
@@ -143,9 +143,9 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     set({ exercise });
   };
 
-  const setExercise: ExerciseStoreUtils['setExercise'] = (func) => {
-    set(R.over(R.lensPath(['exercise']), func));
-  };
+  // const setExercise: ExerciseStoreUtils['setExercise'] = (func) => {
+  //   set(R.over(R.lensPath(['exercise']), func));
+  // };
 
   const getExercise: ExerciseStoreUtils['getExercise'] = () => {
     const exercise = get().exercise;
@@ -164,12 +164,32 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   const getCurrentLanguage: ExerciseStoreUtils['getCurrentLanguage'] = () => get().lang.currentLanguage;
   const getOtherLanguage: ExerciseStoreUtils['getOtherLanguage'] = () => get().lang.otherLanguage;
 
-  const filterOneWordPhrase: ExerciseStoreUtils['filterOneWordPhrase'] = (phrase: Phrase) =>
-    phrase.getTranslation(getCurrentLanguage()).split(' ').length + phrase.getTranslation(getOtherLanguage()).split(' ').length === 2;
+  const phraseFilters: ExerciseStoreUtils['phraseFilters'] = {
+    filterOneWordPhrase: (phrase: Phrase) =>
+      phrase.getTranslation(getCurrentLanguage()).split(' ').length + phrase.getTranslation(getOtherLanguage()).split(' ').length === 2,
+  };
 
-  const resolveMethods = {
+  const resolveMethods: ExerciseStoreUtils['resolveMethods'] = {
+    anySelected: (exercise: Exercise) => !!exercise.choices.find((choice) => choice.selected),
     oneCorrect: (exercise: Exercise) => !!exercise.choices.find((choice) => choice.correct)?.selected,
     allCorrect: (exercise: Exercise) => exercise.choices.every((choice) => choice.selected && choice.correct),
+  };
+
+  const isCorrect = (obj: { correct: boolean }) => obj.correct;
+  const isSelected = (obj: { selected: boolean }) => obj.selected;
+
+  const resultMethods: ExerciseStoreUtils['resultMethods'] = {
+    selectedCorrect: (exercise: Exercise) => ({
+      // (Math.max(0,selected correct - selected wrong) / all correct) * 100
+      score:
+        (100 *
+          Math.max(
+            0,
+            exercise.choices.filter(R.allPass([isCorrect, isSelected])).length -
+              exercise.choices.filter(R.allPass([R.complement(isCorrect), isSelected])).length
+          )) /
+        exercise.choices.filter(isCorrect).length,
+    }),
   };
 
   const utils: ExerciseStoreUtils = {
@@ -179,12 +199,13 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     selectChoice,
     getExercise,
     setExerciseResult,
-    setExercise,
+    //setExercise,
     exerciseResolved,
     exerciseCompleted,
     nextExercise,
-    filterOneWordPhrase,
+    phraseFilters,
     resolveMethods,
+    resultMethods,
   };
 
   const createExercise: Record<ExerciseType, (phrases: Phrase[]) => Exercise> = {
@@ -217,7 +238,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     },
     setLang: (lang) => set({ lang }),
     setCategories: (categories) => set({ categories }),
-    nextExercise,
   };
 });
 
