@@ -246,7 +246,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             <TextLink href={'https://drive.google.com/drive/folders/1milRfoG2fPsod7moVKeCPM9ikm00kXup'} target="_blank" key="plakatky" />,
             <TextLink href={'/contacts'} target="_blank" key="kontakt" />,
             <TextLink href={'https://cesko.digital/projects/movapp'} target="_blank" key="ceskodigital" />,
-            <TextLink href={'contacts'} target="_blank" key="ceskodigital" />,
+            <TextLink href={'/contacts'} target="_blank" key="ceskodigital" />,
             <TextLink href={'https://cesko.digital/join/form'} target="_blank" key="ceskodigital" />,
           ]}
         />
