@@ -19,6 +19,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   const status = useExerciseStore((state) => state.status);
   const exercise = useExerciseStore((state) => state.exercise);
   const start = useExerciseStore((state) => state.start);
+  const home = useExerciseStore((state) => state.home);
   //const setSize = useExerciseStore((state) => state.setSize);
   //const setLevel = useExerciseStore((state) => state.setLevel);
 
@@ -45,14 +46,23 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
       </div>
     );
 
-  if (status === ExerciseStoreStatus.completed) return <p>session completed...</p>;
+  if (status === ExerciseStoreStatus.completed)
+    return (
+      // replace with start/setup screen component
+      <div className="flex flex-col items-center">
+        <p>session completted...</p>
+        <Button className="bg-primary-blue mr-3" text="HOME" onClick={home} />
+      </div>
+    );
 
-  if (exercise === null) return <p>waitting for exercise...</p>;
-  switch (exercise.type as ExerciseType) {
-    case ExerciseType.identification:
-      return <ExerciseIdentificationComponent key={exercise.id} exercise={exercise as ExerciseIdentification} />;
-    // TODO: add other types of exercises
-    default:
-      return <p>something went wrong...</p>;
+  if (status === ExerciseStoreStatus.active) {
+    if (exercise === null) return <p>waiting for exercise...</p>;
+    switch (exercise.type as ExerciseType) {
+      case ExerciseType.identification:
+        return <ExerciseIdentificationComponent key={exercise.id} exercise={exercise as ExerciseIdentification} />;
+      // TODO: add other types of exercises
+      default:
+        return <p>something went wrong...</p>;
+    }
   }
 };

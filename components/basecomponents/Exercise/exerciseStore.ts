@@ -62,6 +62,7 @@ export interface ExerciseStoreState {
 export interface ExerciseStoreActions {
   init: () => void;
   start: () => void;
+  home: () => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
   setLang: (lang: ExerciseStoreState['lang']) => void;
   setSize: (size: ExerciseStoreState['size']) => void;
@@ -253,10 +254,17 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         exercise,
       });
     },
+    home: () => {
+      set({
+        exercise: null,
+        history: [],
+        status: ExerciseStoreStatus.initialized,
+      });
+    },
     setLang: (lang) => set({ lang }),
     setCategories: (categories) => set({ categories }),
     setSize: (size) => set({ size }),
-    setLevel: (level) => set({ level }),
+    setLevel: (/*level*/) => set({ level: 0 }), // TODO: implement level setting, it stays 0 for now
   };
 });
 
