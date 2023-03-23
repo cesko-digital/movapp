@@ -46,15 +46,6 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
       </div>
     );
 
-  if (status === ExerciseStoreStatus.completed)
-    return (
-      // replace with start/setup screen component
-      <div className="flex flex-col items-center">
-        <p>session completted...</p>
-        <Button className="bg-primary-blue mr-3" text="HOME" onClick={home} />
-      </div>
-    );
-
   if (status === ExerciseStoreStatus.active) {
     if (exercise === null) return <p>waiting for exercise...</p>;
     switch (exercise.type as ExerciseType) {
@@ -65,4 +56,15 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
         return <p>something went wrong...</p>;
     }
   }
+
+  if (status === ExerciseStoreStatus.completed)
+    return (
+      // replace with start/setup screen component
+      <div className="flex flex-col items-center">
+        <p>session completted...</p>
+        <Button className="bg-primary-blue mr-3" text="HOME" onClick={home} />
+      </div>
+    );
+
+  return <p>something went wrong...</p>;
 };
