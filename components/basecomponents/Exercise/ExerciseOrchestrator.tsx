@@ -3,6 +3,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 import { ExerciseType, useExerciseStore, ExerciseStoreStatus } from './exerciseStore';
 import { ExerciseIdentification, ExerciseIdentificationComponent } from './ExerciseIdentification';
 import { CategoryDataObject } from 'utils/getDataUtils';
+import { Button } from 'components/basecomponents/Button';
 
 // TODO: integrate to dictionary
 interface ExerciseOrchestratorProps {
@@ -17,6 +18,9 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   const setCategories = useExerciseStore((state) => state.setCategories);
   const status = useExerciseStore((state) => state.status);
   const exercise = useExerciseStore((state) => state.exercise);
+  const start = useExerciseStore((state) => state.start);
+  //const setSize = useExerciseStore((state) => state.setSize);
+  //const setLevel = useExerciseStore((state) => state.setLevel);
 
   useEffect(() => {
     setLang(lang);
@@ -31,6 +35,15 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   }, [init]);
 
   if (status === ExerciseStoreStatus.uninitialized) return <p>waiting for init...</p>;
+
+  if (status === ExerciseStoreStatus.initialized)
+    return (
+      // replace with start/setup screen component
+      <div className="flex flex-col items-center">
+        <p>settings+options...</p>
+        <Button className="bg-primary-blue mr-3" text="START" onClick={start} />
+      </div>
+    );
 
   if (status === ExerciseStoreStatus.completed) return <p>session completed...</p>;
 

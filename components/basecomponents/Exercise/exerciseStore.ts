@@ -43,12 +43,14 @@ export interface Exercise extends WithId {
 
 export enum ExerciseStoreStatus {
   uninitialized = 'uninitialized',
-  ready = 'ready',
+  initialized = 'initialized',
+  active = 'active',
   completed = 'completed',
 }
 
 export interface ExerciseStoreState {
   size: number;
+  level: number;
   status: ExerciseStoreStatus;
   lang: { currentLanguage: Language; otherLanguage: Language };
   dictionary: DictionaryDataObject | null;
@@ -59,8 +61,11 @@ export interface ExerciseStoreState {
 
 export interface ExerciseStoreActions {
   init: () => void;
+  start: () => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
   setLang: (lang: ExerciseStoreState['lang']) => void;
+  setSize: (size: ExerciseStoreState['size']) => void;
+  setLevel: (size: ExerciseStoreState['level']) => void;
 }
 
 export interface ExerciseStoreUtils {
@@ -215,6 +220,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 
   return {
     size: 3,
+    level: 0,
     status: ExerciseStoreStatus.uninitialized,
     lang: { currentLanguage: getCountryVariant(), otherLanguage: 'uk' },
     dictionary: null,
@@ -224,20 +230,33 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     init: async () => {
       // fetch dictionary
       const dictionary = await fetchRawDictionary();
+      set({
+        status: ExerciseStoreStatus.initialized,
+        dictionary,
+      });
+    },
+    start: () => {
+      if (get().status === ExerciseStoreStatus.uninitialized) return;
+      const dictionary = get().dictionary;
+      if (dictionary === null) throw Error(`Dictionary isn't loaded.`);
       // get category phrasesData
-      const categories = get().categories;
-      if (categories === null) throw Error(`categories property isn't initialized`);
+      let categories = get().categories;
+      if (categories === null) {
+        // categories fallback
+        categories = [dictionary.categories[0].id];
+      }
       const phrases = getPhrases(dictionary, categories);
       // build exercise
       const exercise = createExercise[ExerciseType.identification](phrases);
       set({
-        status: ExerciseStoreStatus.ready,
-        dictionary,
+        status: ExerciseStoreStatus.active,
         exercise,
       });
     },
     setLang: (lang) => set({ lang }),
     setCategories: (categories) => set({ categories }),
+    setSize: (size) => set({ size }),
+    setLevel: (level) => set({ level }),
   };
 });
 
