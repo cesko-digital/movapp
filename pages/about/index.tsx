@@ -239,6 +239,18 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         <H2>{t('about_page.media_mentions_title')}</H2>
         <ArticlesList articles={articles} />
 
+        <H2>{t('about_page.support_us_title')}</H2>
+        <Trans
+          i18nKey={'about_page.support_us_description'}
+          components={[
+            <TextLink href={'https://drive.google.com/drive/folders/1milRfoG2fPsod7moVKeCPM9ikm00kXup'} target="_blank" key="plakatky" />,
+            <TextLink href={'/contacts'} key="kontakt" />,
+            <TextLink href={'https://cesko.digital/projects/movapp'} target="_blank" key="ceskodigital" />,
+            <TextLink href={'/contacts'} key="ceskodigital" />,
+            <TextLink href={'https://cesko.digital/join/form'} target="_blank" key="ceskodigital" />,
+          ]}
+        />
+
         <H2>{t('about_page.how_to_find_us_title')}</H2>
         <Trans i18nKey={'about_page.how_to_find_us_description'} />
 
