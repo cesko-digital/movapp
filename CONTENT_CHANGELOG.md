@@ -9,3 +9,4 @@
 2023-01-08	Add Playground and Park category
 2023-03-13	Slovak alphabet update - new words for É
 2023-03-19	Add Slovak for Work category
+2023-03-26	Fix sound for kôň
