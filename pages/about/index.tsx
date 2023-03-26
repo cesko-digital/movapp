@@ -9,6 +9,32 @@ import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
 
+type Link = string;
+
+type Links = {
+  cs: Link;
+  sk: Link;
+  pl: Link;
+  uk: Link;
+};
+
+type key = string;
+
+const NAVIGATION: Record<key, Links> = {
+  stojimezaukrajinou: {
+    cs: 'https://www.stojimezaukrajinou.cz/',
+    sk: 'https://www.stojimezaukrajinou.cz/',
+    pl: 'https://www.stojimezaukrajinou.cz/en',
+    uk: 'https://www.stojimezaukrajinou.cz/uk',
+  },
+  'cesko.digital': {
+    cs: 'https://cesko.digital/',
+    sk: 'https://cesko.digital/',
+    pl: 'https://en.cesko.digital/',
+    uk: 'https://en.cesko.digital/',
+  },
+};
+
 const partners = [
   {
     title: 'Centrum pro integraci cizinců',
@@ -24,6 +50,11 @@ const partners = [
     title: 'Post Bellum',
     url: 'https://www.postbellum.cz/',
     logo: '/icons/about/PB-logo-black-vertical-01.png',
+  },
+  {
+    title: 'Katedra informačních studií a knihovnictví (KISK), Masarykova univerzita',
+    url: 'https://kisk.phil.muni.cz/',
+    logo: '/icons/about/logo-kisk.png',
   },
 ];
 
@@ -208,19 +239,31 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         <H2>{t('about_page.media_mentions_title')}</H2>
         <ArticlesList articles={articles} />
 
+        <H2>{t('about_page.support_us_title')}</H2>
+        <Trans
+          i18nKey={'about_page.support_us_description'}
+          components={[
+            <TextLink href={'https://drive.google.com/drive/folders/1milRfoG2fPsod7moVKeCPM9ikm00kXup'} target="_blank" key="plakatky" />,
+            <TextLink href={'/contacts'} key="kontakt" />,
+            <TextLink href={'https://cesko.digital/projects/movapp'} target="_blank" key="ceskodigital" />,
+            <TextLink href={'/contacts'} key="ceskodigital" />,
+            <TextLink href={'https://cesko.digital/join/form'} target="_blank" key="ceskodigital" />,
+          ]}
+        />
+
         <H2>{t('about_page.how_to_find_us_title')}</H2>
         <Trans i18nKey={'about_page.how_to_find_us_description'} />
 
         <H2>{t('about_page.stand_with_ukraine_title')}</H2>
         <Trans
           i18nKey={'about_page.stand_with_ukraine_description'}
-          components={[<TextLink href="https://stojimezaukrajinou.cz/" target="_blank" key="stojimezaukrajinou" />]}
+          components={[<TextLink href={NAVIGATION['stojimezaukrajinou'][currentLanguage]} target="_blank" key="stojimezaukrajinou" />]}
         />
 
         <H2>{t('about_page.czech_digital_title')}</H2>
         <Trans
           i18nKey={'about_page.czech_digital_description'}
-          components={[<TextLink href="https://cesko.digital/" target="_blank" key="cesko.digital" />]}
+          components={[<TextLink href={NAVIGATION['cesko.digital'][currentLanguage]} target="_blank" key="cesko.digital" />]}
         />
 
         <H2>{t('about_page.our_partners_title')}</H2>

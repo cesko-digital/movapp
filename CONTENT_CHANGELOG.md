@@ -7,3 +7,5 @@
 2022-12-10	Add Polish for Christmas + Winter categories
 2022-12-12	Fix image of candle
 2023-01-08	Add Playground and Park category
+2023-03-13	Slovak alphabet update - new words for É
+2023-03-19	Add Slovak for Work category
