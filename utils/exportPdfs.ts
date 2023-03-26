@@ -25,10 +25,10 @@ const WEB_LINK: Record<CountryVariant, string> = {
 };
 
 const MOVAPP_TAGLINE: Record<Language, string> = {
-  cs: `Více naučných materiálů naleznete na ${WEB_LINK['cs']}.`,
-  sk: `Viac náučných materiálov nájdete na ${WEB_LINK['sk']}.`,
-  pl: `Więcej materiałów edukacyjnych można znaleźć na stronie ${WEB_LINK['pl']}.`,
-  uk: `Ви можете знайти більше навчальних матеріалів на ${WEB_LINK[COUNTRY]}.`,
+  cs: `Více naučných materiálů naleznete na ${WEB_LINK['cs']}. Vygenerováno dne`,
+  sk: `Viac náučných materiálov nájdete na ${WEB_LINK['sk']}. Vygenerované dňa`,
+  pl: `Więcej materiałów edukacyjnych można znaleźć na stronie ${WEB_LINK['pl']}. Wygenerowany w dniu`,
+  uk: `Ви можете знайти більше навчальних матеріалів на ${WEB_LINK[COUNTRY]}. Згенеровано на`,
 };
 
 /**
@@ -59,6 +59,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--font-render-hinting=none'],
   });
   const page = await browser.newPage();
+  const todayDate = new Date();
   await page.setContent(HTMLcontent, {
     waitUntil: ['networkidle0'],
   });
@@ -89,7 +90,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
           justify-content: space-between;
           align-items: flex-end;"
       >
-        <div>${MOVAPP_TAGLINE[footerLanguage]}</div>
+      <div>${MOVAPP_TAGLINE[footerLanguage]} ${todayDate.getDate()}.${todayDate.getMonth() + 1}.${todayDate.getFullYear()}</div>
         <div>  
           <b>${footerTitle ?? ''}</b>           
           <span class="pageNumber"></span>

@@ -56,6 +56,11 @@ const partners = [
     url: 'https://kisk.phil.muni.cz/',
     logo: '/icons/about/logo-kisk.png',
   },
+  {
+    title: 'Prague Maidan - Ukrajinské Centrum Nusle',
+    url: 'https://www.maidan.cz/',
+    logo: '/icons/about/logo-maidan.png',
+  },
 ];
 
 type Partner = {
