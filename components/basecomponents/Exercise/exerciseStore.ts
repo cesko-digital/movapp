@@ -3,7 +3,7 @@ import { getCountryVariant, Language } from 'utils/locales';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { create } from 'zustand';
 import * as R from 'ramda';
-import { createFactoryOfExerciseIdentification } from './ExerciseIdentification';
+import { createFactoryOfExerciseIdentification, ExerciseIdentificationOptions } from './ExerciseIdentification';
 
 /* eslint-disable no-console */
 
@@ -30,13 +30,17 @@ export interface Choice extends WithId {
   correct: boolean;
 }
 
+export interface ExerciseResult {
+  score: number;
+}
+
 export interface Exercise extends WithId {
   type: ExerciseType;
   status: ExerciseStatus;
   choices: Choice[];
-  result: { score: number } | null;
   level: number;
   resolve: () => boolean;
+  getResult: () => ExerciseResult;
   completed: () => void;
   next: () => void;
 }
@@ -76,13 +80,13 @@ export interface ExerciseStoreUtils {
   getOtherLanguage: () => Language;
   getExercise: () => Exercise;
   //setExercise: (setFunc: (prevExercise: Exercise | null) => Exercise) => void;
-  setExerciseResult: (result: Exercise['result']) => void;
+  //setExerciseResult: (result: Exercise['result']) => void;
   exerciseResolved: () => void;
   exerciseCompleted: () => void;
   nextExercise: () => void;
   phraseFilters: Record<string, (phrase: Phrase) => boolean>;
   resolveMethods: Record<string, (exercise: Exercise) => boolean>;
-  resultMethods: Record<string, (exercise: Exercise) => Exercise['result']>;
+  resultMethods: Record<string, (exercise: Exercise) => ExerciseResult>;
 }
 
 /** Describes complete state of the app, enables to save/restore app state */
@@ -108,13 +112,13 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     console.log(`selected choice ${choiceId} in exercise`);
   };
 
-  const setExerciseResult: ExerciseStoreUtils['setExerciseResult'] = (result) => {
-    set(R.over(R.lensPath(['exercise', 'result']), () => result));
-  };
+  // const setExerciseResult: ExerciseStoreUtils['setExerciseResult'] = (result) => {
+  //   set(R.over(R.lensPath(['exercise', 'result']), () => result));
+  // };
 
   const exerciseResolved: ExerciseStoreUtils['exerciseResolved'] = () => {
     if (getExercise().status !== ExerciseStatus.active) throw Error('invalid exercise status');
-    if (getExercise().result === null) throw Error('exercise result is empty');
+    // if (getExercise().result === null) throw Error('exercise result is empty');
     set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.resolved));
   };
 
@@ -145,7 +149,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     const categories = get().categories;
     if (categories === null) throw Error('categories property is null');
     const phrases = getPhrases(get().dictionary as DictionaryDataObject, categories);
-    const exercise = createExercise[ExerciseType.identification](phrases);
+    const exercise = createNextExercise(phrases);
     set({ exercise });
   };
 
@@ -204,7 +208,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     getOtherLanguage,
     selectChoice,
     getExercise,
-    setExerciseResult,
+    // setExerciseResult,
     //setExercise,
     exerciseResolved,
     exerciseCompleted,
@@ -214,9 +218,23 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     resultMethods,
   };
 
-  const createExercise: Record<ExerciseType, (phrases: Phrase[]) => Exercise> = {
-    identification: createFactoryOfExerciseIdentification(utils),
-    // TODO: add other types of exercises
+  const createExercise = (
+    type: 'audioIdentification' | 'textIdentification',
+    options: ExerciseIdentificationOptions
+  ): ((phrases: Phrase[]) => Exercise) => {
+    const list = {
+      audioIdentification: createFactoryOfExerciseIdentification(utils, { ...options, mode: 'audio' }),
+      textIdentification: createFactoryOfExerciseIdentification(utils, { ...options, mode: 'text' }),
+      // TODO: add other types of exercises
+    };
+    return list[type];
+  };
+
+  const createNextExercise = (phrases: Phrase[]) => {
+    // TODO: implement logic to set exercise type and level
+    //Parameters<typeof createExercise>[0]
+    const exerciseType: Parameters<typeof createExercise>[0] = Math.random() > 0.5 ? 'textIdentification' : 'audioIdentification';
+    return createExercise(exerciseType, { level: 0 })(phrases);
   };
 
   return {
@@ -248,7 +266,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       }
       const phrases = getPhrases(dictionary, categories);
       // build exercise
-      const exercise = createExercise[ExerciseType.identification](phrases);
+      const exercise = createNextExercise(phrases);
       set({
         status: ExerciseStoreStatus.active,
         exercise,

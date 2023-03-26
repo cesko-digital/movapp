@@ -4,37 +4,47 @@ import React, { useRef, useState, useEffect } from 'react';
 import { animation } from './utils/animation';
 import { PlayButton } from './components/PlayButton';
 import { ChoiceComponent } from './components/ChoiceComponent';
-import { ExerciseControls } from './components/ExerciseControls';
+import { NextButton } from './components/NextButton';
 
 /* eslint-disable no-console */
 
 export interface ExerciseIdentification extends Exercise {
   playAudio: () => Promise<void>;
   playAudioSlow: () => Promise<void>;
+  getText: () => string;
+  mode: 'audio' | 'text';
   choices: (Choice & {
     getText: () => string;
     playAudio: () => Promise<void>;
   })[];
 }
 
+export interface ExerciseIdentificationOptions {
+  level?: Exercise['level'];
+  mode?: ExerciseIdentification['mode'];
+}
+
 export const createFactoryOfExerciseIdentification =
-  ({
-    uniqId,
-    getCurrentLanguage,
-    getOtherLanguage,
-    getExercise,
-    selectChoice,
-    exerciseResolved,
-    exerciseCompleted,
-    setExerciseResult,
-    nextExercise,
-    phraseFilters,
-    resolveMethods,
-    resultMethods,
-  }: ExerciseStoreUtils) =>
+  (
+    {
+      uniqId,
+      getCurrentLanguage,
+      getOtherLanguage,
+      getExercise,
+      selectChoice,
+      exerciseResolved,
+      exerciseCompleted,
+      nextExercise,
+      phraseFilters,
+      resolveMethods,
+      resultMethods,
+    }: ExerciseStoreUtils,
+    { level = 0, mode = 'audio' }: ExerciseIdentificationOptions
+  ) =>
   (sourcePhrases: Phrase[]): ExerciseIdentification => {
     const exerciseId = uniqId();
 
+    // TODO: add guard, filtered phrases count >= needed count
     const pickedPhrases = sourcePhrases
       // filter
       .filter(phraseFilters.filterOneWordPhrase)
@@ -47,6 +57,7 @@ export const createFactoryOfExerciseIdentification =
 
     /** input parameters */
     const getSoundUrl = () => pickedPhrases[0].getSoundUrl(getOtherLanguage());
+    const getText = () => pickedPhrases[0].getTranslation(getOtherLanguage());
     const extractChoiceData = (phrase: Phrase) => ({
       getText: () => phrase.getTranslation(getCurrentLanguage()),
       getSoundUrl: () => phrase.getSoundUrl(getOtherLanguage()),
@@ -65,11 +76,18 @@ export const createFactoryOfExerciseIdentification =
       if (!resolveLevel[exercise.level](exercise)) {
         return false;
       }
-      // create result for difficulty level: [level0, level1, ...]
-      const createResult = [resultMethods.selectedCorrect];
-      setExerciseResult(createResult[exercise.level](exercise));
+
       exerciseResolved();
       return true;
+    };
+
+    const getResult = () => {
+      const exercise = getExercise() as ExerciseIdentification;
+      if (exercise.status !== ExerciseStatus.resolved && exercise.status !== ExerciseStatus.completed)
+        throw Error(`Can't make result on unresolved exercise`);
+      // create result for difficulty level: [level0, level1, ...]
+      const createResult = [resultMethods.selectedCorrect];
+      return createResult[exercise.level](exercise);
     };
 
     const generateChoices = () =>
@@ -89,15 +107,17 @@ export const createFactoryOfExerciseIdentification =
     return {
       id: exerciseId,
       type: ExerciseType.identification,
+      mode,
       status: ExerciseStatus.active,
       playAudio: () => playAudio(getSoundUrl()),
       playAudioSlow: () => playAudioSlow(getSoundUrl()),
+      getText,
       choices: generateChoices(),
       resolve,
+      getResult,
       completed: exerciseCompleted,
       next: nextExercise,
-      result: null,
-      level: 0,
+      level,
     };
   };
 
@@ -143,8 +163,13 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
   return (
     <div ref={exRef} className="flex flex-col items-center opacity-0">
       <div className="flex mb-3">
-        <PlayButton play={exercise.playAudio} text="PlayAudio" inactive={buttonsInactive} />
-        <PlayButton play={exercise.playAudioSlow} text="PlayAudioSlow" inactive={buttonsInactive} />
+        {(exercise.mode === 'audio' || exercise.status === ExerciseStatus.completed) && (
+          <>
+            <PlayButton play={exercise.playAudio} text="PlayAudio" />
+            <PlayButton play={exercise.playAudioSlow} text="PlayAudioSlow" />
+          </>
+        )}
+        {(exercise.mode === 'text' || exercise.status === ExerciseStatus.completed) && <p>{exercise.getText()}</p>}
       </div>
       <div className="flex mb-3">
         {exercise.choices.map((choice) => (
@@ -172,8 +197,8 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
         ))}
       </div>
       {exercise.status === ExerciseStatus.completed && (
-        <ExerciseControls
-          next={async () => {
+        <NextButton
+          onClick={async () => {
             if (exRef.current === null) return;
             // run effects
             await animation.fade(exRef.current, 300, 500).finished;
