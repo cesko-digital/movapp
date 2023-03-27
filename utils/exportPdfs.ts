@@ -74,7 +74,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
       top: '10mm',
       left: '10mm',
       right: '10mm',
-      bottom: '10mm',
+      bottom: '20mm',
     },
     displayHeaderFooter: true,
     headerTemplate: '<div></div>',
