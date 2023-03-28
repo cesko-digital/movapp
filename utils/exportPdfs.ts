@@ -94,7 +94,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
           padding-right:35px;
           width: 100%;"
       >
-      <p>${MOVAPP_DATELINE[footerLanguage]} ${todayDate.getDate()}.${todayDate.getMonth() + 1}.${todayDate.getFullYear()}</p>
+      <p>${MOVAPP_DATELINE[footerLanguage]} ${todayDate.getDate()}.${todayDate.getMonth() + 1}.${todayDate.getFullYear()}.</p>
         <div style="width:100%; display: flex; justify-content: space-between; align-items: flex-end;">
           <div>${MOVAPP_TAGLINE[footerLanguage]}</div>
           <div>  
