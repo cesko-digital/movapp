@@ -28,11 +28,11 @@ const MOVAPP_TAGLINE: Record<Language, string> = {
   cs: `Více naučných materiálů naleznete na ${WEB_LINK['cs']}.`,
   sk: `Viac náučných materiálov nájdete na ${WEB_LINK['sk']}.`,
   pl: `Więcej materiałów edukacyjnych można znaleźć na stronie ${WEB_LINK['pl']}.`,
-  uk: `Ви можете знайти більше навчальних матеріалів на ${WEB_LINK[COUNTRY]}. Згенеровано на`,
+  uk: `Ви можете знайти більше навчальних матеріалів на ${WEB_LINK[COUNTRY]}.`,
 };
 
 const MOVAPP_DATELINE: Record<Language, string> = {
-  cs: 'Vygenerováno dne', 
+  cs: 'Vygenerováno dne',
   sk: 'Vygenerované dňa',
   pl: 'Wygenerowany w dniu',
   uk: 'Згенеровано на',
