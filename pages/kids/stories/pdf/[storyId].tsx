@@ -1,5 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import React from 'react';
+import { FunctionComponent } from 'react';
 import { getCountryVariant, Language } from 'utils/locales';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -32,12 +33,32 @@ const StoryPage = ({ story }: StoriesProps): JSX.Element => {
     uk: `Озвучення цієї та інших казок можна знайти на сайті ${WEB_LINK['uk']}.`,
   };
 
+  const StoryImage: FunctionComponent = () => {
+    // NextImage does not work properly in PDFs, we use a regular <img> element instead
+    return story ? (
+      /* eslint-disable-next-line @next/next/no-img-element */
+      <img
+        src={`https://www.movapp.cz/_next/image?url=%2Fkids%2F${story.slug}.jpg&w=640&q=75`}
+        width="500"
+        className="my-10 mx-auto"
+        height="500"
+        alt={story.title[currentLanguage]}
+      />
+    ) : null;
+  };
+
   return (
     <div>
       <div className="max-w-4xl m-auto">
         <PdfHeader title={t(`seo.kids_page_storiesTitlePdf.${getCountryVariant()}`)} />
-        <div className="text-xl font-light" dangerouslySetInnerHTML={{ __html: MOVAPP_TAGLINE[currentLanguage] }}></div>
         <table className="mt-8 text-xl font-medium">
+          {story ? (
+            <tr className="break-inside-avoid">
+              <td className="align-top p-2 min-w-[100px]"></td>
+              <td className="align-top p-2 text-2xl font-bold">{currentLanguage === 'cs' ? story.title['cs'] : story.title['uk']}</td>
+              <td className="align-top p-2 text-2xl font-bold">{currentLanguage === 'cs' ? story.title['uk'] : story.title['cs']}</td>
+            </tr>
+          ) : null}
           {story
             ? STORIES[story.slug].map((phrase: StoryPhrase, index: number) => (
                 <tr key={index} className="break-inside-avoid">
@@ -50,6 +71,11 @@ const StoryPage = ({ story }: StoriesProps): JSX.Element => {
               ))
             : null}
         </table>
+        {story ? <StoryImage /> : null}
+        <div
+          className="text-sm font-light mt-4 flex justify-center"
+          dangerouslySetInnerHTML={{ __html: MOVAPP_TAGLINE[currentLanguage] }}
+        ></div>
       </div>
     </div>
   );
