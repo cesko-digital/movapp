@@ -24,13 +24,13 @@ const StoryPage = ({ story }: StoriesProps): JSX.Element => {
   const { currentLanguage } = useLanguage();
 
   const WEB_LINK: Record<string, string> = {
-    cs: '<a style="color: blue;" href="https://movapp.cz/kids/stories">www.movapp.cz</a>',
-    uk: '<a style="color: blue;" href="https://movapp.cz/uk/kids/stories">www.movapp.cz</a>',
+    cs: '<a style="color: blue;margin-left: 4px;" href="https://movapp.cz/kids/stories">www.movapp.cz</a>',
+    uk: '<a style="color: blue;margin-left: 4px;" href="https://movapp.cz/uk/kids/stories">www.movapp.cz</a>',
   };
 
   const MOVAPP_TAGLINE: Record<string, string> = {
-    cs: `Zvuk k téhle pohádce a také další pohádky můžete najdete na webu ${WEB_LINK['cs']}.`,
-    uk: `Озвучення цієї та інших казок можна знайти на сайті ${WEB_LINK['uk']}.`,
+    cs: `Zvuk k téhle pohádce a také další pohádky můžete najdete na ${WEB_LINK['cs']}.`,
+    uk: `Озвучення цієї та інших казок можна знайти на ${WEB_LINK['uk']}.`,
   };
 
   const StoryImage: FunctionComponent = () => {
@@ -62,7 +62,7 @@ const StoryPage = ({ story }: StoriesProps): JSX.Element => {
           {story
             ? STORIES[story.slug].map((phrase: StoryPhrase, index: number) => (
                 <tr key={index} className="break-inside-avoid">
-                  <td className="align-top p-2 max-w-[100px]">{index}</td>
+                  <td className="align-top p-2 max-w-[100px] text-gray-300">{index}</td>
                   <td className="align-top p-2"> {currentLanguage === 'cs' ? phrase.main : phrase.uk}</td>
                   <td className="align-top p-2" key={index}>
                     {currentLanguage === 'cs' ? phrase.uk : phrase.main}
