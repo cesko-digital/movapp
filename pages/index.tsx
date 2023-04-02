@@ -27,9 +27,11 @@ const HEARTS_IMAGE: Record<CountryVariant, ReactNode> = {
 
 const YoutubeLinkBanner = dynamic(() => import('../components/temporarycomponents/YoutubeLinkBanner'), { ssr: false });
 const ChristmasBanner = dynamic(() => import('../components/temporarycomponents/ChristmasBanner'), { ssr: false });
+const EasterBanner = dynamic(() => import('../components/temporarycomponents/EasterBanner'), { ssr: false });
 
 const DISPLAY_YOUTUBE_BANNER = false;
 const DISPLAY_CHRISTMAS_BANNER = false;
+const DISPLAY_EASTER_BANNER = true;
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
@@ -50,6 +52,7 @@ const Home: NextPage = () => {
       )}
       {DISPLAY_CHRISTMAS_BANNER ? <ChristmasBanner /> : null}
       <div className="max-w-7xl m-auto px-2 sm:px-4">
+        {DISPLAY_EASTER_BANNER ? <EasterBanner /> : null}
         {/* Standard section */}
         <div className={'max-w-7xl bg-white p-4 sm:p-8 md:p-12 shadow-xxl mb-8 ' + (DISPLAY_CHRISTMAS_BANNER ? '' : 'mt-[-6rem]')}>
           <div className="grid md:grid-cols-3 gap-8">
