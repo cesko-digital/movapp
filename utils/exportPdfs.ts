@@ -123,10 +123,20 @@ const generateDictionaryPDFs = async (country: CountryVariant) => {
   }
 };
 
+const generateTalesPDFs = async (country: CountryVariant) => {
+  const stories: string[] = ['pernikova-chaloupka', 'dvanact-mesicku', 'cervena-karkulka', 'kolobok', 'husy-lebedi', 'ivasik-telesik'];
+
+  for (const storyId of stories) {
+    exportPdf(`${country}/kids/stories/pdf/${storyId}`, `${storyId}-${country}.pdf`, country);
+    exportPdf(`uk/kids/stories/pdf/${storyId}`, `${storyId}-uk.pdf`, 'uk');
+  }
+};
+
 const main = async () => {
   try {
     generateAlphabetPDFs(COUNTRY);
     generateDictionaryPDFs(COUNTRY);
+    generateTalesPDFs(COUNTRY);
   } catch (error) {
     console.log(error);
   }

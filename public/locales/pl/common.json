@@ -64,7 +64,8 @@
     "download_pdf": "Pobierz w PDF"
   },
   "kids_page": {
-    "downloadPDF": "Pobierz w PDF"
+    "downloadPDF": "Pobierz w PDF",
+    "downloadStory": ""
   },
   "about_page": {
     "title": "<strong>Movapp.eu</strong> to projekt, który powstał w ramach inicjatywy <strong>Stojíme za Ukrajinou</strong> w społeczności ekspertów wolontariuszy <strong>Česko.Digital.</strong>",
@@ -143,6 +144,9 @@
     },
     "kids_page_storiesTitle": {
       "pl": "Czytaj i słuchaj polskich i ukraińskich opowieści ludowych"
+    },
+    "kids_page_storiesTitlePdf": {
+      "pl": "Czytaj polskich i ukraińskich opowieści ludowych"
     },
     "kids_page_storiesDescription": {
       "pl": "Czytaj i słuchaj polskich i ukraińskich opowieści ludowych"
