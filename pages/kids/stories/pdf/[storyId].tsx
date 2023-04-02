@@ -29,8 +29,8 @@ const StoryPage = ({ story }: StoriesProps): JSX.Element => {
   };
 
   const MOVAPP_TAGLINE: Record<string, string> = {
-    cs: `Zvuk k téhle pohádce a také další pohádky můžete najdete na ${WEB_LINK['cs']}.`,
-    uk: `Озвучення цієї та інших казок можна знайти на ${WEB_LINK['uk']}.`,
+    cs: `Nahrávku k téhle pohádce a mnohé další pohádky najdete na ${WEB_LINK['cs']}.`,
+    uk: `Запис цієї та багатьох інших казок ви можете знайти на ${WEB_LINK['uk']}.`,
   };
 
   const StoryImage: FunctionComponent = () => {
