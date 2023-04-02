@@ -224,7 +224,7 @@
   "easter_banner": {
     "box_easter_dictionary_title": "Veľkonočný slovníček",
     "box_easter_dictionary_description": "Šibi-ryby mastné ryby, kus koláča od korbáča, ešte k tomu groš, už je toho dosť. Naučte sa veľkonočné frázy.",
-    "box_easter_dictionary_anchor": "velka_noc",
+    "box_easter_dictionary_anchor": {"sk":"velka_noc"},
     "box_easter_kids_title": "Veľká noc pre deti",
     "box_easter_kids_description": "Zábavné obrázky a maľovanky s veľkonočnou tematikou.",
     "box_easter_kids_anchor": {

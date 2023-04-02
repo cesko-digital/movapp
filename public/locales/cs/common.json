@@ -228,7 +228,7 @@
   "easter_banner": {
     "box_easter_dictionary_title": "Velikonoční slovníček",
     "box_easter_dictionary_description": "Hody, hody, doprovody, dejte vejce malovaný a naučte se velikonoční fráze.",
-    "box_easter_dictionary_anchor": "velikonoce",
+    "box_easter_dictionary_anchor": {"cs":"velikonoce"},
     "box_easter_kids_title": "Velikonoce pro děti",
     "box_easter_kids_description": "Zábavné obrázky a omalovánky s velikonoční tématikou.",
     "box_easter_kids_anchor": {

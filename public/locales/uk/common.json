@@ -284,7 +284,11 @@
   "easter_banner":{
     "box_easter_dictionary_title": "Великодній словник",
     "box_easter_dictionary_description": "Христос Воскрес! та вивчіть фрази до Великодня.",
-    "box_easter_dictionary_anchor": "velykden",
+    "box_easter_dictionary_anchor": {
+      "cs": "velikonoce",
+      "sk": "velka_noc",
+      "pl": "swieta_wielkanocne"
+    },
     "box_easter_kids_title": "Великдень для дітей",
     "box_easter_kids_description": "Веселі малюнки та книжки-розмальовки на пасхальну тематику.",
     "box_easter_kids_anchor": {
