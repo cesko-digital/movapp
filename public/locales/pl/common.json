@@ -214,9 +214,12 @@
   },
   "easter_banner": {
     "box_easter_dictionary_title": "Wielkanocny słowniczek",
-    "box_easter_dictionary_description": "Mówi zając do baranka, jaka piękna ta pisanka, wtem z jajeczka wyszła kurka i zaczęła uczyć się wielkanocnych zwrotów",
+    "box_easter_dictionary_description": "Mówi zając do baranka, jaka piękna ta pisanka, wtem z jajeczka wyszła kurka i zaczęła uczyć się wielkanocnych zwrotów.",
+    "box_easter_dictionary_anchor": "swieta_wielkanocne",
     "box_easter_kids_title": "Wielkanoc dla dzieci",
     "box_easter_kids_description": "Zabawne obrazki i kolorowanki o tematyce wielkanocnej.",
-    "box_easter_anchor": "Wielkanoc"
+    "box_easter_kids_anchor": {
+      "pl": "pisanka"
+    }
   }
 }
