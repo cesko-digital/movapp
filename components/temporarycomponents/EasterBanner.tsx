@@ -5,7 +5,7 @@ import EggsIcon from '../../public/icons/eggs-icon.svg';
 import DictionaryIcon from '../../public/icons/book.svg';
 import Link from 'next/link';
 
-const ChristmasBanner = () => {
+const EasterBanner = () => {
   const { t } = useTranslation();
 
   return (
@@ -41,4 +41,4 @@ const ChristmasBanner = () => {
   );
 };
 
-export default ChristmasBanner;
+export default EasterBanner;
