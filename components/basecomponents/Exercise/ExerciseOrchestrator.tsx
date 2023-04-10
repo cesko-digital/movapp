@@ -5,7 +5,9 @@ import { ExerciseIdentification, ExerciseIdentificationComponent } from './Exerc
 import { CategoryDataObject } from 'utils/getDataUtils';
 import { Button } from 'components/basecomponents/Button';
 
-// TODO: integrate to dictionary
+const computeNewCategories = (categories: CategoryDataObject['id'][], id: CategoryDataObject['id']) =>
+  categories.includes(id) ? categories.filter((category) => category !== id) : [...categories, id];
+
 interface ExerciseOrchestratorProps {
   categories: CategoryDataObject['id'][];
 }
@@ -16,6 +18,8 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   const init = useExerciseStore((state) => state.init);
   const setLang = useExerciseStore((state) => state.setLang);
   const setCategories = useExerciseStore((state) => state.setCategories);
+  const getAllCategories = useExerciseStore((state) => state.getAllCategories);
+  const selectedCategories = useExerciseStore((state) => state.categories);
   const status = useExerciseStore((state) => state.status);
   const exercise = useExerciseStore((state) => state.exercise);
   const start = useExerciseStore((state) => state.start);
@@ -37,14 +41,26 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
 
   if (status === ExerciseStoreStatus.uninitialized) return <p>waiting for init...</p>;
 
-  if (status === ExerciseStoreStatus.initialized)
+  if (status === ExerciseStoreStatus.initialized) {
+    if (selectedCategories === null) return <p>waiting for init...</p>;
     return (
       // replace with start/setup screen component
       <div className="flex flex-col items-center">
         <p>settings+options...</p>
+        <div>
+          {getAllCategories().map(({ id, name }) => (
+            <Button
+              key={id}
+              className={`${selectedCategories.includes(id) ? 'bg-primary-blue' : 'bg-gray-500'}  mr-3`}
+              text={name}
+              onClick={() => setCategories(computeNewCategories(selectedCategories, id))}
+            />
+          ))}
+        </div>
         <Button className="bg-primary-blue mr-3" text="START" onClick={start} />
       </div>
     );
+  }
 
   if (status === ExerciseStoreStatus.active) {
     if (exercise === null) return <p>waiting for exercise...</p>;
@@ -61,7 +77,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
     return (
       // replace with start/setup screen component
       <div className="flex flex-col items-center">
-        <p>session completted...</p>
+        <p>congrats, session completted...</p>
         <Button className="bg-primary-blue mr-3" text="HOME" onClick={home} />
       </div>
     );

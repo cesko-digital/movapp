@@ -4,6 +4,7 @@ import { AudioPlayer } from 'utils/AudioPlayer';
 import { create } from 'zustand';
 import * as R from 'ramda';
 import { createFactoryOfExerciseIdentification, ExerciseIdentificationOptions } from './ExerciseIdentification';
+import { Curry } from 'Function/_api';
 
 /* eslint-disable no-console */
 
@@ -68,6 +69,7 @@ export interface ExerciseStoreActions {
   start: () => void;
   home: () => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
+  getAllCategories: () => { id: CategoryDataObject['id']; name: CategoryDataObject['name']['main'] }[];
   setLang: (lang: ExerciseStoreState['lang']) => void;
   setSize: (size: ExerciseStoreState['size']) => void;
   setLevel: (size: ExerciseStoreState['level']) => void;
@@ -84,9 +86,14 @@ export interface ExerciseStoreUtils {
   exerciseResolved: () => void;
   exerciseCompleted: () => void;
   nextExercise: () => void;
-  phraseFilters: Record<string, (phrase: Phrase) => boolean>;
+  phraseFilters: {
+    wordLimit: (min: number, max: number) => (phrase: Phrase) => boolean;
+    wordLimitForLevel: ((phrase: Phrase) => boolean)[];
+    equalPhrase: Curry<(phraseA: Phrase, phraseB: Phrase) => boolean>; //(phraseA: Phrase, phraseB: Phrase) => boolean;
+  };
   resolveMethods: Record<string, (exercise: Exercise) => boolean>;
   resultMethods: Record<string, (exercise: Exercise) => ExerciseResult>;
+  getFallbackPhrases: () => Phrase[];
 }
 
 /** Describes complete state of the app, enables to save/restore app state */
@@ -163,6 +170,12 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     return exercise;
   };
 
+  const getDictionary = () => {
+    const dictionary = get().dictionary;
+    if (dictionary === null) throw Error(`Dictionary isn't loaded.`);
+    return dictionary;
+  };
+
   const getPhrases = (dictionary: DictionaryDataObject, categories: CategoryDataObject['id'][]) =>
     // TODO: maybe cache results
     dictionary.categories
@@ -171,12 +184,33 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       .flat()
       .map((phraseId) => new Phrase(dictionary.phrases[phraseId]));
 
+  const getFallbackPhrases = () => {
+    const dictionary = getDictionary();
+    // categories fallback
+    const categories = [dictionary.categories[0].id];
+    const phrases = getPhrases(dictionary, categories);
+    return phrases;
+  };
+
+  const getAllCategories = () => {
+    const dictionary = getDictionary();
+    return dictionary.categories
+      .filter((category) => !category.hidden)
+      .map((category) => ({ id: category.id, name: getCurrentLanguage() === 'uk' ? category.name.source : category.name.main }));
+  };
+
   const getCurrentLanguage: ExerciseStoreUtils['getCurrentLanguage'] = () => get().lang.currentLanguage;
   const getOtherLanguage: ExerciseStoreUtils['getOtherLanguage'] = () => get().lang.otherLanguage;
 
+  const wordLimit = (min: number, max: number) => (phrase: Phrase) =>
+    passWordLimit(min, max, phrase.getTranslation(getCurrentLanguage())) &&
+    passWordLimit(min, max, phrase.getTranslation(getOtherLanguage()));
+  const passWordLimit = (min: number, max: number, phrase: string) => R.allPass([R.lte(min), R.gte(max)])(phrase.split(' ').length);
+
   const phraseFilters: ExerciseStoreUtils['phraseFilters'] = {
-    filterOneWordPhrase: (phrase: Phrase) =>
-      phrase.getTranslation(getCurrentLanguage()).split(' ').length + phrase.getTranslation(getOtherLanguage()).split(' ').length === 2,
+    wordLimit,
+    wordLimitForLevel: [wordLimit(1, 2), wordLimit(1, 3)],
+    equalPhrase: R.curry((a, b) => a.getTranslation().toLocaleLowerCase() === b.getTranslation().toLocaleLowerCase()),
   };
 
   const resolveMethods: ExerciseStoreUtils['resolveMethods'] = {
@@ -216,6 +250,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     phraseFilters,
     resolveMethods,
     resultMethods,
+    getFallbackPhrases,
   };
 
   const createExercise = (
@@ -234,7 +269,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     // TODO: implement logic to set exercise type and level
     //Parameters<typeof createExercise>[0]
     const exerciseType: Parameters<typeof createExercise>[0] = Math.random() > 0.5 ? 'textIdentification' : 'audioIdentification';
-    return createExercise(exerciseType, { level: 0 })(phrases);
+    return createExercise(exerciseType, { level: 1 })(phrases);
   };
 
   return {
@@ -256,11 +291,10 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     },
     start: () => {
       if (get().status === ExerciseStoreStatus.uninitialized) return;
-      const dictionary = get().dictionary;
-      if (dictionary === null) throw Error(`Dictionary isn't loaded.`);
+      const dictionary = getDictionary();
       // get category phrasesData
       let categories = get().categories;
-      if (categories === null) {
+      if (categories === null || categories.length === 0) {
         // categories fallback
         categories = [dictionary.categories[0].id];
       }
@@ -281,6 +315,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     },
     setLang: (lang) => set({ lang }),
     setCategories: (categories) => set({ categories }),
+    getAllCategories,
     setSize: (size) => set({ size }),
     setLevel: (/*level*/) => set({ level: 0 }), // TODO: implement level setting, it stays 0 for now
   };

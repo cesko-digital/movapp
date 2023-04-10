@@ -38,22 +38,34 @@ export const createFactoryOfExerciseIdentification =
       phraseFilters,
       resolveMethods,
       resultMethods,
+      getFallbackPhrases,
     }: ExerciseStoreUtils,
     { level = 0, mode = 'audio' }: ExerciseIdentificationOptions
   ) =>
   (sourcePhrases: Phrase[]): ExerciseIdentification => {
     const exerciseId = uniqId();
 
-    // TODO: add guard, filtered phrases count >= needed count
-    const pickedPhrases = sourcePhrases
-      // filter
-      .filter(phraseFilters.filterOneWordPhrase)
-      // shuffle
-      .sort(() => Math.random() - 0.5)
-      // pick 4
-      .slice(0, 4);
+    const phrasesCountForLevel = [4, 6, 8];
 
-    console.log(pickedPhrases);
+    const pickPhrases = (phrases: Phrase[], level: number) =>
+      phrases
+        .filter(phraseFilters.wordLimitForLevel[level])
+        // remove duplicates
+        .filter((phrase, index, array) => array.findIndex(phraseFilters.equalPhrase(phrase)) === index)
+        // shuffle
+        .sort(() => Math.random() - 0.5)
+        // pick specified count
+        .slice(0, phrasesCountForLevel[level]);
+
+    let pickedPhrases = pickPhrases(sourcePhrases, level);
+
+    if (pickedPhrases.length < phrasesCountForLevel[level]) {
+      // add fallback phrases for same level
+      pickedPhrases = pickedPhrases
+        .concat(pickPhrases(getFallbackPhrases(), level))
+        .slice(0, phrasesCountForLevel[level])
+        .sort(() => Math.random() - 0.5);
+    }
 
     /** input parameters */
     const getSoundUrl = () => pickedPhrases[0].getSoundUrl(getOtherLanguage());
@@ -71,9 +83,12 @@ export const createFactoryOfExerciseIdentification =
     const resolve = () => {
       const exercise = getExercise() as ExerciseIdentification;
       // resolve for difficulty level: [level0, level1, ...]
-      const resolveLevel = [resolveMethods.oneCorrect];
+      // const resolveLevel = [resolveMethods.oneCorrect];
 
-      if (!resolveLevel[exercise.level](exercise)) {
+      // if (!resolveLevel[exercise.level](exercise)) {
+      //   return false;
+      // }
+      if (!resolveMethods.oneCorrect(exercise)) {
         return false;
       }
 
@@ -86,8 +101,9 @@ export const createFactoryOfExerciseIdentification =
       if (exercise.status !== ExerciseStatus.resolved && exercise.status !== ExerciseStatus.completed)
         throw Error(`Can't make result on unresolved exercise`);
       // create result for difficulty level: [level0, level1, ...]
-      const createResult = [resultMethods.selectedCorrect];
-      return createResult[exercise.level](exercise);
+      // const createResult = [resultMethods.selectedCorrect];
+      // return createResult[exercise.level](exercise);
+      return resultMethods.selectedCorrect(exercise);
     };
 
     const generateChoices = () =>
