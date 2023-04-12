@@ -3,10 +3,50 @@ import { getCountryVariant, Language } from 'utils/locales';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { create } from 'zustand';
 import * as R from 'ramda';
-import { createFactoryOfExerciseIdentification, ExerciseIdentificationOptions } from './ExerciseIdentification';
+import {
+  createFactoryOfExerciseIdentification,
+  ExerciseIdentificationOptions,
+  isExerciseAudioIdentification,
+  isExerciseTextIdentification,
+} from './ExerciseIdentification';
 import { Curry } from 'Function/_api';
 
 /* eslint-disable no-console */
+
+const CONFIG_BASE = Object.freeze({
+  sizeDefault: 5,
+  sizeMin: 3,
+  sizeMax: 10,
+  levelDefault: 1,
+  levelMin: 0,
+  levelMax: 2,
+  levelDownTresholdScore: 50,
+  levelUpTresholdScore: 100,
+});
+
+const CONFIG_LEVEL0 = Object.freeze({
+  wordLimitMin: 1,
+  wordLimitMax: 1,
+  choiceLimit: 4,
+});
+
+const CONFIG_LEVEL1 = Object.freeze({
+  wordLimitMin: 1,
+  wordLimitMax: 2,
+  choiceLimit: 6,
+});
+
+const CONFIG_LEVEL2 = Object.freeze({
+  wordLimitMin: 2,
+  wordLimitMax: 3,
+  choiceLimit: 8,
+});
+
+export const CONFIG = Object.freeze([
+  { ...CONFIG_BASE, ...CONFIG_LEVEL0 },
+  { ...CONFIG_BASE, ...CONFIG_LEVEL0, ...CONFIG_LEVEL1 },
+  { ...CONFIG_BASE, ...CONFIG_LEVEL0, ...CONFIG_LEVEL1, ...CONFIG_LEVEL2 },
+]);
 
 export enum ExerciseStatus {
   active = 'active',
@@ -209,7 +249,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 
   const phraseFilters: ExerciseStoreUtils['phraseFilters'] = {
     wordLimit,
-    wordLimitForLevel: [wordLimit(1, 2), wordLimit(1, 3)],
+    wordLimitForLevel: CONFIG.map((conf) => wordLimit(conf.wordLimitMin, conf.wordLimitMax)),
     equalPhrase: R.curry((a, b) => a.getTranslation().toLocaleLowerCase() === b.getTranslation().toLocaleLowerCase()),
   };
 
@@ -269,12 +309,27 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     // TODO: implement logic to set exercise type and level
     //Parameters<typeof createExercise>[0]
     const exerciseType: Parameters<typeof createExercise>[0] = Math.random() > 0.5 ? 'textIdentification' : 'audioIdentification';
-    return createExercise(exerciseType, { level: 1 })(phrases);
+    return createExercise(exerciseType, { level: computeLevelForNextExercise(exerciseType, get().history) })(phrases);
+  };
+
+  const exerciseFilter: Record<string, (ex: Exercise) => boolean> = {
+    audioIdentification: isExerciseAudioIdentification,
+    textIdentification: isExerciseTextIdentification,
+  };
+
+  const computeLevelForNextExercise = (exerciseType: Parameters<typeof createExercise>[0], history: Exercise[]) => {
+    const exerciseList = history.filter(exerciseFilter[exerciseType]);
+    if (exerciseList.length === 0) return get().level; // if has no exercise of same type return global level
+    const exercise = exerciseList.slice(-1)[0];
+    const score = exercise.getResult().score;
+    if (score < CONFIG_BASE.levelDownTresholdScore) return Math.max(CONFIG_BASE.levelMin, exercise.level - 1);
+    if (score > CONFIG_BASE.levelDownTresholdScore && score < CONFIG_BASE.levelUpTresholdScore) return exercise.level;
+    return Math.min(CONFIG_BASE.levelMax, exercise.level + 1);
   };
 
   return {
-    size: 3,
-    level: 0,
+    size: CONFIG_BASE.sizeDefault,
+    level: CONFIG_BASE.levelDefault,
     status: ExerciseStoreStatus.uninitialized,
     lang: { currentLanguage: getCountryVariant(), otherLanguage: 'uk' },
     dictionary: null,
@@ -317,7 +372,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     setCategories: (categories) => set({ categories }),
     getAllCategories,
     setSize: (size) => set({ size }),
-    setLevel: (/*level*/) => set({ level: 0 }), // TODO: implement level setting, it stays 0 for now
+    setLevel: (val) => set({ level: val }),
   };
 });
 

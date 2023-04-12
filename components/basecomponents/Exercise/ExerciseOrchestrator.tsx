@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
 import { ExerciseType, useExerciseStore, ExerciseStoreStatus } from './exerciseStore';
-import { ExerciseIdentification, ExerciseIdentificationComponent } from './ExerciseIdentification';
+import { ExerciseIdentification } from './ExerciseIdentification';
 import { CategoryDataObject } from 'utils/getDataUtils';
 import { Button } from 'components/basecomponents/Button';
+import { ExerciseIdentificationComponent } from './components/ExerciseIdentificationComponent';
 
 const computeNewCategories = (categories: CategoryDataObject['id'][], id: CategoryDataObject['id']) =>
   categories.includes(id) ? categories.filter((category) => category !== id) : [...categories, id];
