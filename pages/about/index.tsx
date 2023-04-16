@@ -145,7 +145,7 @@ const flagEmojis: Record<string, string> = {
 const Article = ({ article }: ArticleProps): JSX.Element => {
   return (
     <div className="w-full md:max-w-full md:flex p-2 md:p-4 bg-white border-b-1 border-b-primary-grey">
-      <a className="hover:text-primary-blue" href={article.url}>
+      <a className="hover:text-primary-blue mr-2" href={article.url}>
         {article.title}
       </a>
       <div className="font-light">
