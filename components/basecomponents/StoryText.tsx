@@ -1,11 +1,6 @@
 import React, { MutableRefObject, useEffect, useRef } from 'react';
-import oPernikoveChaloupce from '../../data/translations/cs/pohadka_pernikovachaloupka.json';
-import oDvanactiMesickach from '../../data/translations/cs/pohadka_mesicky.json';
-import oCerveneKarkulce from '../../data/translations/cs/pohadka_karkulka.json';
-import oKoblizkovi from '../../data/translations/cs/pohadka_koblizek.json';
-import oIvasikovi from '../../data/translations/cs/pohadka_ivasik.json';
-import oHusach from '../../data/translations/cs/pohadka_husy.json';
 import { Language } from 'utils/locales';
+import { StoryPhrase, STORIES } from './Story/storyStore';
 
 export type PhraseInfo = { language: Language; time: number };
 
@@ -17,15 +12,6 @@ interface StoryTextProps {
   onClick: ({ language, time }: PhraseInfo) => void;
 }
 
-interface StoryPhrase {
-  main: string;
-  uk: string;
-  start_cs: number;
-  end_cs: number;
-  start_uk: number;
-  end_uk: number;
-}
-
 const scrollToRef = (ref: MutableRefObject<HTMLParagraphElement | null>, div: MutableRefObject<HTMLDivElement | null>) => {
   if (ref.current !== null && div.current !== null) {
     div.current.scrollTo(0, ref.current.offsetTop - div.current.offsetTop - 100);
@@ -35,18 +21,6 @@ const scrollToRef = (ref: MutableRefObject<HTMLParagraphElement | null>, div: Mu
 const StoryText = ({ textLanguage, audioLanguage, id, audio, onClick }: StoryTextProps): JSX.Element => {
   const phraseRef = useRef<HTMLParagraphElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const selectedStory = () => {
-    const stories: Record<string, StoryPhrase[]> = {
-      'pernikova-chaloupka': oPernikoveChaloupce,
-      'dvanact-mesicku': oDvanactiMesickach,
-      'cervena-karkulka': oCerveneKarkulce,
-      kolobok: oKoblizkovi,
-      'husy-lebedi': oHusach,
-      'ivasik-telesik': oIvasikovi,
-    };
-    return stories[id];
-  };
 
   useEffect(() => {
     return scrollToRef(phraseRef, containerRef);
@@ -80,11 +54,10 @@ const StoryText = ({ textLanguage, audioLanguage, id, audio, onClick }: StoryTex
 
     onClick(phraseInfo);
   };
-
   return (
     <div className="mt-4 md:flex bg-slate-100 divide-y-8 divide-white md:divide-y-0 md:w-1/2">
       <div className="max-h-[30vh] md:max-h-full overflow-y-scroll md:overflow-auto" ref={containerRef}>
-        {selectedStory().map((phrase: StoryPhrase, index: number) => (
+        {STORIES[id].map((phrase: StoryPhrase, index: number) => (
           <p
             key={index}
             onClick={handleClick}

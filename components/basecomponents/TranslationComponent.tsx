@@ -19,7 +19,7 @@ export const TranslationComponent = ({ transcription, translation, searchText, s
           {/* Marker is used to highlight searched text */}
           <Marker mark={searchText}>{translation}</Marker>
         </div>
-        <p className="text-gray-500">{`[ ${transcription} ]`}</p>
+        <p className="text-gray-500">{`[\u00A0${transcription}\u00A0]`}</p>
       </div>
       <button onClick={() => AudioPlayer.getInstance().playSrc(soundUrl)} aria-label={t('utils.play') + ' ' + translation}>
         <PlayIcon className="cursor-pointer active:scale-75  stroke-red-500 w-8" />

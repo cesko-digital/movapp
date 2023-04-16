@@ -76,7 +76,8 @@
     "czechStories": "České lidové pohádky",
     "ukrainianStories": "Ukrajinské lidové pohádky",
     "stories": "Pohádky",
-    "homepage": "Hlavní stránka"
+    "homepage": "Hlavní stránka",
+    "downloadStory": "Pohádku si můžete <0>stáhnout jako PDF</0>."
   },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> je projekt, který vznikl v rámci iniciativy <strong>Stojíme za Ukrajinou</strong> v komunitě expertních dobrovolníků <strong>Česko.Digital.</strong>",
@@ -104,7 +105,7 @@
     "how_to_find_us_title": "Jak nás najdete",
     "how_to_find_us_description": "Můžete nás hledat pomocí výrazů: <i>\"movapp\"</i>, <i>\"movaap\"</i> nebo <i>\"mova app\"</i>. Pokud o nás budete psát, používejte název Movapp.",
     "support_us_title":"Podpořte nás",
-    "support_us_description":"- Řekněte o nás Ukrajincům ve vašem okolí (v práci, ve škole, nebo rodinám bydlícím ve vašem domě) - můžete vytisknout a dát jim tyhle <0>plakátky.</0> <br/> - Sledujte nás na sociálních sítích, viz. stránka <1>kontakt</1>, a pomozte nám je šířit. <br/> - Pokud máte více času (2 a více hodin týdně), můžete se k nám přidat. Podívejte se, jaké <2>dobrovolnické pozice</2> hledáme. Kontaktovat nás můžete <3>emailem</3> nebo na <4>Slacku Česko.Digital.</4>"
+    "support_us_description":"- Řekněte o nás Ukrajincům ve vašem okolí (v práci, ve škole, nebo rodinám bydlícím ve vašem domě) - můžete vytisknout a dát jim tyhle <0>plakátky.</0> <br/> - Sledujte nás na sociálních sítích, viz. stránka <1>kontakty</1>, a pomozte nám je šířit. <br/> - Pokud máte více času (2 a více hodin týdně), můžete se k nám přidat. Podívejte se, jaké <2>dobrovolnické pozice</2> hledáme. Kontaktovat nás můžete <3>emailem</3> nebo na <4>Slacku Česko.Digital.</4>"
   },
   "contacts_page": {
     "title": "Kontakty",
@@ -154,10 +155,13 @@
       "cs": "Obrázky pro děti s ukrajinskými a českými popisky. Namluvené v češtině a ukrajinštině. Tisk omalovánek pro děti."
     },
     "kids_page_storiesTitle": {
-      "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"
+      "cs": "Dvojjazyčné pohádky v češtině a ukrajinštině online."
+    },
+    "kids_page_storiesTitlePdf": {
+      "cs": "Přečtěte si české a ukrajinské lidové pohádky"
     },
     "kids_page_storiesDescription": {
-      "cs": "Přečtěte si a poslechněte si české a ukrajinské lidové pohádky"
+      "cs": "Poslechněte si a přečtěte si ukrajinské pohádky pro děti. Adaptované dvojjazyčné pohádky mluvené pro snadné naučení."
     },
     "kids_page_memorygame_title": {
       "cs": "Zahrajte si mluvící pexeso s ukrajinskými a českými slovíčky"
@@ -225,5 +229,15 @@
     "team": "Náš tým",
     "team_link": "https://data.movapp.eu/images/team/large-team-photo-autumn.jpg",
     "wishing": "vám přeje krásné Vánoce a šťastný Nový rok 2023."
+  },
+  "easter_banner": {
+    "box_easter_dictionary_title": "Velikonoční slovníček",
+    "box_easter_dictionary_description": "Hody, hody, doprovody, dejte vejce malovaný a naučte se velikonoční fráze.",
+    "box_easter_dictionary_anchor": {"cs":"velikonoce"},
+    "box_easter_kids_title": "Velikonoce pro děti",
+    "box_easter_kids_description": "Zábavné obrázky a omalovánky s velikonoční tématikou.",
+    "box_easter_kids_anchor": {
+      "cs": "kraslice"
+    }
   }
 }

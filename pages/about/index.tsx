@@ -56,6 +56,11 @@ const partners = [
     url: 'https://kisk.phil.muni.cz/',
     logo: '/icons/about/logo-kisk.png',
   },
+  {
+    title: 'Prague Maidan - Ukrajinské Centrum Nusle',
+    url: 'https://www.maidan.cz/',
+    logo: '/icons/about/logo-maidan.png',
+  },
 ];
 
 type Partner = {
@@ -70,11 +75,13 @@ type PartnerListProps = {
 
 const PartnerList = ({ partners }: PartnerListProps) => {
   return (
-    <ul className="flex flex-wrap space-x-5">
+    <ul className="flex flex-wrap xl:space-x-5">
       {partners.map((partner) => (
-        <li key={partner.title} className={'w-36 md:w-40 h-20 relative'}>
+        <li key={partner.title} className={'w-36 my-5 xl:my-0 md:w-40 h-20 relative'}>
           <a href={partner.url} target="_blank" rel="noopener">
-            <Image src={partner.logo} layout="fill" objectFit="contain" alt={partner.title} title={partner.title} />
+            <div className="relative w-full h-full">
+              <Image src={partner.logo} layout="fill" objectFit="contain" alt={partner.title} title={partner.title} />
+            </div>
           </a>
         </li>
       ))}

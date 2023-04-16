@@ -65,7 +65,8 @@
     "first_exercise":"Ćwiczenia typu 1"
   },
   "kids_page": {
-    "downloadPDF": "Pobierz w PDF"
+    "downloadPDF": "Pobierz w PDF",
+    "downloadStory": ""
   },
   "about_page": {
     "title": "<strong>Movapp.eu</strong> to projekt, który powstał w ramach inicjatywy <strong>Stojíme za Ukrajinou</strong> w społeczności ekspertów wolontariuszy <strong>Česko.Digital.</strong>",
@@ -93,7 +94,7 @@
     "how_to_find_us_title": "Jak nas znaleźć",
     "how_to_find_us_description": "Możesz nas wyszukać używając terminów <i>\"movapp\"</i>, <i>\"movaap\"</i> lub <i>\"mova app\"</i>. Jeśli piszesz o nas, użyj nazwy Movapp.",
     "support_us_title":"Wspierać nas",
-    "support_us_description":"- Daj o nas znać Ukraińcom w Twojej okolicy (w pracy, szkole, rodzinom mieszkającym w Twoim domu) - możesz wykorzystać te <0>plakaty.</0><br/> - Śledź nas na mediach społecznościowych i pomóż nam rozpowszechniać informacje (listę mediów znajdziesz na stronie <1>\"Kontakty\"</1>, i pomóż nam rozpowszechniać informacje. <br/> - Jeśli masz więcej czasu (2 lub więcej godzin tygodniowo), możesz do nas dołączyć. Listę stanowisk, na które aktualnie szukamy wolontariuszy, znajdziesz <2>tutaj</2>. Skontaktować się z nami możesz <3>mailowo</3> bądź przez <4>Slacka Česko.Digital.</4>"
+    "support_us_description":"- Daj o nas znać Ukraińcom w Twojej okolicy (w pracy, szkole, rodzinom mieszkającym w Twoim domu) - możesz wykorzystać te <0>plakaty.</0><br/> - Śledź nas na mediach społecznościowych i pomóż nam rozpowszechniać informacje (listę mediów znajdziesz na stronie <1>kontakty</1>, i pomóż nam rozpowszechniać informacje. <br/> - Jeśli masz więcej czasu (2 lub więcej godzin tygodniowo), możesz do nas dołączyć. Listę stanowisk, na które aktualnie szukamy wolontariuszy, znajdziesz <2>tutaj</2>. Skontaktować się z nami możesz <3>mailowo</3> bądź przez <4>Slacka Česko.Digital.</4>"
   },
   "contacts_page": {
     "title": "Kontakty",
@@ -143,10 +144,13 @@
       "pl": "Zdjęcia dla dzieci z opisem ukraińskim i polskim. Używany po słowacku i ukraińsku. Wydrukuj kolorowanki dla dzieci."
     },
     "kids_page_storiesTitle": {
-      "pl": "Czytaj i słuchaj polskich i ukraińskich opowieści ludowych"
+      "pl": "Dwujęzyczne opowiadania po polsku i ukraińsku online."
+    },
+    "kids_page_storiesTitlePdf": {
+      "pl": "Czytaj polskich i ukraińskich opowieści ludowych"
     },
     "kids_page_storiesDescription": {
-      "pl": "Czytaj i słuchaj polskich i ukraińskich opowieści ludowych"
+      "pl": "Posłuchaj i przeczytaj ukraińskie opowiadania dla dzieci. Adaptowane dwujęzyczne opowiadania z lektorem dla łatwego nauczenia się."
     },
     "kids_page_memorygame_title": {
       "pl": "Zagraj w mówiące memory z ukraińskimi i czeskimi słówkami"
@@ -212,5 +216,15 @@
     "team": "Nasz zespół",
     "team_link": "https://data.movapp.eu/images/team/large-team-photo-autumn.jpg",
     "wishing": "życzy Wam wesołych Świąt i szczęśliwego Nowego Roku 2023."
+  },
+  "easter_banner": {
+    "box_easter_dictionary_title": "Wielkanocny słowniczek",
+    "box_easter_dictionary_description": "Mówi zając do baranka, jaka piękna ta pisanka, wtem z jajeczka wyszła kurka i zaczęła uczyć się wielkanocnych zwrotów.",
+    "box_easter_dictionary_anchor": {"pl":"swieta_wielkanocne"},
+    "box_easter_kids_title": "Wielkanoc dla dzieci",
+    "box_easter_kids_description": "Zabawne obrazki i kolorowanki o tematyce wielkanocnej.",
+    "box_easter_kids_anchor": {
+      "pl": "pisanka"
+    }
   }
 }

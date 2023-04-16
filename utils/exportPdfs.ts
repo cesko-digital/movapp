@@ -31,6 +31,13 @@ const MOVAPP_TAGLINE: Record<Language, string> = {
   uk: `Ви можете знайти більше навчальних матеріалів на ${WEB_LINK[COUNTRY]}.`,
 };
 
+const MOVAPP_DATELINE: Record<Language, string> = {
+  cs: 'Vygenerováno dne',
+  sk: 'Vygenerované dňa',
+  pl: 'Wygenerowany w dniu',
+  uk: 'Згенеровано на',
+};
+
 /**
  * Turns a page into a PDF file and saves it inside the `public/pdf` folder. Must run AFTER the site is built.
  * @param path Route of the Next.js page you want to save as PDF. Must include the locale at the beginning (even if it is the default one)
@@ -59,6 +66,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--font-render-hinting=none'],
   });
   const page = await browser.newPage();
+  const todayDate = new Date();
   await page.setContent(HTMLcontent, {
     waitUntil: ['networkidle0'],
   });
@@ -73,7 +81,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
       top: '10mm',
       left: '10mm',
       right: '10mm',
-      bottom: '10mm',
+      bottom: '20mm',
     },
     displayHeaderFooter: true,
     headerTemplate: '<div></div>',
@@ -84,17 +92,18 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
           color:#808080;
           padding-left:35px;
           padding-right:35px;
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;"
+          width: 100%;"
       >
-        <div>${MOVAPP_TAGLINE[footerLanguage]}</div>
-        <div>  
-          <b>${footerTitle ?? ''}</b>           
-          <span class="pageNumber"></span>
-          /
-          <span class="totalPages"></span>
+      <p>${MOVAPP_DATELINE[footerLanguage]} ${todayDate.getDate()}.${todayDate.getMonth() + 1}.${todayDate.getFullYear()}.</p>
+        <div style="width:100%; display: flex; justify-content: space-between; align-items: flex-end;">
+          <div>${MOVAPP_TAGLINE[footerLanguage]}</div>
+          <div>  
+            <b>${footerTitle ?? ''}</b>           
+            <span class="pageNumber"></span>
+            /
+            <span class="totalPages"></span>
+          </div>
+        </div>
       </div>`,
   });
   await browser.close();
@@ -114,10 +123,20 @@ const generateDictionaryPDFs = async (country: CountryVariant) => {
   }
 };
 
+const generateTalesPDFs = async (country: CountryVariant) => {
+  const stories: string[] = ['pernikova-chaloupka', 'dvanact-mesicku', 'cervena-karkulka', 'kolobok', 'husy-lebedi', 'ivasik-telesik'];
+
+  for (const storyId of stories) {
+    exportPdf(`${country}/kids/stories/pdf/${storyId}`, `${storyId}-${country}.pdf`, country);
+    exportPdf(`uk/kids/stories/pdf/${storyId}`, `${storyId}-uk.pdf`, 'uk');
+  }
+};
+
 const main = async () => {
   try {
     generateAlphabetPDFs(COUNTRY);
     generateDictionaryPDFs(COUNTRY);
+    generateTalesPDFs(COUNTRY);
   } catch (error) {
     console.log(error);
   }

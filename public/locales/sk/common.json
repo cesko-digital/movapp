@@ -72,7 +72,8 @@
     "first_exercise":"Cvičenia typu 1"
   },
   "kids_page": {
-    "downloadPDF": "Stiahnuť v PDF"
+    "downloadPDF": "Stiahnuť v PDF",
+    "downloadStory": ""
   },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> je projekt, ktorý vznikol v rámci iniciatívy <strong>Stojíme za Ukrajinou</strong> v komunite expertných dobrovoľníkov <strong>Česko.Digital.</strong>",
@@ -100,7 +101,7 @@
     "how_to_find_us_title": "Ako nás nájdete",
     "how_to_find_us_description": "Môžete nás vyhľadať pomocou výrazov: <i>\"movapp\"</i>, <i>\"movaap\"</i> alebo <i>\"mova app\"</i>. Keď o nás budete písať, používajte názov Movapp.",
     "support_us_title":"Podporte nás",
-    "support_us_description":"- Povedzte o nás Ukrajincom vo svojom okolí (v práci, v škole alebo rodinám, ktoré žijú vo vašom dome) - môžete im vytlačiť a dať tieto <0>plagáty.</0> <br/> - Sledujte nás na sociálnych sieťach, pozrite si našu <1>stránku s kontaktmi</1>, a pomozte nám šířiť informácie. <br/> - Ak máte viac času (2 alebo viac hodín týždenne), môžete sa k nám pridať. Pozrite sa, aké <2>dobrovoľnícke pozície</2> hľadáme. Môžete nás kontaktovať <3>emailom</3> alebo cez <4>Slack Česko.Digital.</4>"
+    "support_us_description":"- Povedzte o nás Ukrajincom vo svojom okolí (v práci, v škole alebo rodinám, ktoré žijú vo vašom dome) - môžete im vytlačiť a dať tieto <0>plagáty.</0> <br/> - Sledujte nás na sociálnych sieťach, pozrite si našu stránku <1>kontakty</1>, a pomozte nám šířiť informácie. <br/> - Ak máte viac času (2 alebo viac hodín týždenne), môžete sa k nám pridať. Pozrite sa, aké <2>dobrovoľnícke pozície</2> hľadáme. Môžete nás kontaktovať <3>emailom</3> alebo cez <4>Slack Česko.Digital.</4>"
   },
   "contacts_page": {
     "title": "Kontakty",
@@ -150,10 +151,13 @@
       "sk": "Obrázky pre deti s ukrajinskými a slovesnkými popismi. Nahovorené v slovenčine a ukrajinštině. Vytlačiť omalovánky pro děti."
     },
     "kids_page_storiesTitle": {
-      "sk": "Prečítajte a vypočujte si slovenské a ukrajinské ľudové rozprávky"
+      "sk": "Dvojjazyčné rozprávky v slovenčine a ukrajinčine online."
+    },
+    "kids_page_storiesTitlePdf": {
+      "sk": "Prečítajte si slovenské a ukrajinské ľudové rozprávky"
     },
     "kids_page_storiesDescription": {
-      "sk": "Prečítajte a vypočujte si slovenské a ukrajinské ľudové rozprávky"
+      "sk": "Vypočujte a prečítajte si ukrajinské ľudové rozprávky pre deti. Adaptované dvojjazyčné hovorené rozprávky na ľahké naučenie."
     },
     "kids_page_memorygame_title": {
       "sk": "Zahrajte si hovoriace pexeso s ukrajinskými a slovenskými slovíčkami"
@@ -221,5 +225,15 @@
     "team": "Náš tím",
     "team_link": "https://data.movapp.eu/images/team/large-team-photo-autumn.jpg",
     "wishing": "vám praje krásne Vianoce a štastný Nový rok 2023."
+  },
+  "easter_banner": {
+    "box_easter_dictionary_title": "Veľkonočný slovníček",
+    "box_easter_dictionary_description": "Šibi-ryby mastné ryby, kus koláča od korbáča, ešte k tomu groš, už je toho dosť. Naučte sa veľkonočné frázy.",
+    "box_easter_dictionary_anchor": {"sk":"velka_noc"},
+    "box_easter_kids_title": "Veľká noc pre deti",
+    "box_easter_kids_description": "Zábavné obrázky a maľovanky s veľkonočnou tematikou.",
+    "box_easter_kids_anchor": {
+      "sk":"kraslica"
+    }
   }
 }
