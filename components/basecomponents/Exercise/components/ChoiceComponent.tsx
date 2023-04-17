@@ -1,23 +1,24 @@
 import { useRef } from 'react';
-import { Button } from 'components/basecomponents/Button';
+import { Button } from './Button';
 import { animation } from '../utils/animation';
 
 interface ChoiceProps {
   text: string;
+  className?: string;
   correct: boolean;
   inactive?: boolean;
   onClickStarted: () => void;
   onClickFinished: () => void;
 }
 
-export const ChoiceComponent = ({ text, correct, inactive = false, onClickStarted, onClickFinished }: ChoiceProps) => {
+export const ChoiceComponent = ({ text, correct, className = '', inactive = false, onClickStarted, onClickFinished }: ChoiceProps) => {
   const choiceRef = useRef(null);
 
   return (
     <Button
       ref={choiceRef}
-      className="bg-primary-blue mr-3"
       text={text}
+      className={`${className}`}
       onClick={async () => {
         if (inactive) return;
         if (choiceRef.current === null) return;

@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
-import { Button } from 'components/basecomponents/Button';
+import { Button } from './Button';
 import { animation } from '../utils/animation';
 
 interface PlayButtonProps {
   play: () => Promise<void>;
-  text: string;
+  text: string | Element | any;
   inactive?: boolean;
 }
 
@@ -22,7 +22,7 @@ export const PlayButton = ({ play, text, inactive = false }: PlayButtonProps) =>
 
   return (
     <Button
-      className="bg-primary-blue mr-3"
+      px="px-2.5 mr-3"
       text={text}
       ref={btnRef}
       onClick={async () => {

@@ -5,6 +5,8 @@ import { PlayButton } from './PlayButton';
 import { ChoiceComponent } from './ChoiceComponent';
 import { NextButton } from './NextButton';
 import { ExerciseIdentification } from '../ExerciseIdentification';
+import PlayIcon from 'public/icons/playicon.svg';
+import SlowPlayIcon from 'public/icons/slowplay.svg';
 
 /**
  * Exercise component is UI for exercise object
@@ -48,39 +50,44 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
   return (
     <div ref={exRef} className="flex flex-col items-center opacity-0">
       <p>Level: {exercise.level}</p>
-      <div className="flex mb-3">
-        {(exercise.mode === 'audio' || exercise.status === ExerciseStatus.completed) && (
-          <>
-            <PlayButton play={exercise.playAudio} text="PlayAudio" />
-            <PlayButton play={exercise.playAudioSlow} text="PlayAudioSlow" />
-          </>
+      <div className="px-1.5 py-12 mb-10 border border-slate-300 shadow-lg shadow-slate-100 flex flex-col items-center w-full">
+        {(exercise.mode === 'text' || exercise.status === ExerciseStatus.completed) && (
+          <h5 className="text-3xl p-0">{exercise.getText()}</h5>
         )}
-        {(exercise.mode === 'text' || exercise.status === ExerciseStatus.completed) && <p>{exercise.getText()}</p>}
-      </div>
-      <div className="flex mb-3">
-        {exercise.choices.map((choice) => (
-          <ChoiceComponent
-            key={choice.id}
-            text={choice.getText()}
-            correct={choice.correct}
-            inactive={buttonsInactive}
-            onClickStarted={() => {
-              setButtonsInactive(true);
-              choice.playAudio(); // await ommited cause resolving of playAudio has significant delay
-            }}
-            onClickFinished={async () => {
-              choice.select();
-              const resolved = exercise.resolve();
-              if (resolved) {
-                // run effects
-                exercise.completed();
-              } else {
-                // run effects
-                setButtonsInactive(false);
-              }
-            }}
-          />
-        ))}
+        <div className="flex mb-9 mt-9">
+          {(exercise.mode === 'audio' || exercise.status === ExerciseStatus.completed) && (
+            <>
+              <PlayButton play={exercise.playAudio} text={<PlayIcon />} />
+              <PlayButton play={exercise.playAudioSlow} text={<SlowPlayIcon />} />
+            </>
+          )}
+        </div>
+        <div className="flex flex-col items-stretch">
+          {exercise.choices.map((choice) => (
+            <ChoiceComponent
+              key={choice.id}
+              className="mb-5"
+              text={choice.getText()}
+              correct={choice.correct}
+              inactive={buttonsInactive}
+              onClickStarted={() => {
+                setButtonsInactive(true);
+                choice.playAudio(); // await ommited cause resolving of playAudio has significant delay
+              }}
+              onClickFinished={async () => {
+                choice.select();
+                const resolved = exercise.resolve();
+                if (resolved) {
+                  // run effects
+                  exercise.completed();
+                } else {
+                  // run effects
+                  setButtonsInactive(false);
+                }
+              }}
+            />
+          ))}
+        </div>
       </div>
       {exercise.status === ExerciseStatus.completed && (
         <NextButton

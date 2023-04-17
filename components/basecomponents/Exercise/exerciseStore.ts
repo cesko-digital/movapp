@@ -17,9 +17,9 @@ const CONFIG_BASE = Object.freeze({
   sizeDefault: 5,
   sizeMin: 3,
   sizeMax: 10,
-  levelDefault: 1,
+  levelDefault: 0,
   levelMin: 0,
-  levelMax: 2,
+  levelMax: 1,
   levelDownTresholdScore: 50,
   levelUpTresholdScore: 100,
 });
@@ -107,6 +107,7 @@ export interface ExerciseStoreState {
 export interface ExerciseStoreActions {
   init: () => void;
   start: () => void;
+  restart: () => void;
   home: () => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
   getAllCategories: () => { id: CategoryDataObject['id']; name: CategoryDataObject['name']['main'] }[];
@@ -195,9 +196,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     console.log(`generating new exercise for you...`);
     const categories = get().categories;
     if (categories === null) throw Error('categories property is null');
-    const phrases = getPhrases(get().dictionary as DictionaryDataObject, categories);
-    const exercise = createNextExercise(phrases);
-    set({ exercise });
+    set({ exercise: createNextExercise() });
   };
 
   // const setExercise: ExerciseStoreUtils['setExercise'] = (func) => {
@@ -305,7 +304,17 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     return list[type];
   };
 
-  const createNextExercise = (phrases: Phrase[]) => {
+  const createNextExercise = () => {
+    const dictionary = getDictionary();
+    // get category phrasesData
+    let categories = get().categories;
+    if (categories === null || categories.length === 0) {
+      // categories fallback
+      categories = [dictionary.categories[0].id];
+    }
+    const phrases = getPhrases(dictionary, categories);
+    // build exercise
+
     // TODO: implement logic to set exercise type and level
     //Parameters<typeof createExercise>[0]
     const exerciseType: Parameters<typeof createExercise>[0] = Math.random() > 0.5 ? 'textIdentification' : 'audioIdentification';
@@ -346,28 +355,23 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     },
     start: () => {
       if (get().status === ExerciseStoreStatus.uninitialized) return;
-      const dictionary = getDictionary();
-      // get category phrasesData
-      let categories = get().categories;
-      if (categories === null || categories.length === 0) {
-        // categories fallback
-        categories = [dictionary.categories[0].id];
-      }
-      const phrases = getPhrases(dictionary, categories);
-      // build exercise
-      const exercise = createNextExercise(phrases);
       set({
         status: ExerciseStoreStatus.active,
-        exercise,
+        exercise: createNextExercise(),
       });
     },
-    home: () => {
+    home: () =>
       set({
         exercise: null,
         history: [],
         status: ExerciseStoreStatus.initialized,
-      });
-    },
+      }),
+    restart: () =>
+      set({
+        history: [],
+        status: ExerciseStoreStatus.active,
+        exercise: createNextExercise(),
+      }),
     setLang: (lang) => set({ lang }),
     setCategories: (categories) => set({ categories }),
     getAllCategories,
