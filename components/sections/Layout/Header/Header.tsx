@@ -19,10 +19,10 @@ export const Header = () => {
   return (
     <header className="bg-primary-blue w-full sticky top-0 z-10 h-14 hidden md:block">
       <div className="max-w-7xl m-auto flex h-full justify-between items-center ">
-        <Link href={'/'}>
-          <a className="logo">
-            <Image src={AppLogo} width={150} height={44} alt="Movapp logo" />
-          </a>
+        <Link href={'/'} className="logo">
+
+          <Image src={AppLogo} width={150} height={44} alt="Movapp logo" />
+
         </Link>
         <nav className="w-full">
           <ul className="flex justify-end items-center pr-10">
@@ -36,7 +36,7 @@ export const Header = () => {
                 >
                   {submenu === undefined ? (
                     <Link href={link}>
-                      <a>{t(name)}</a>
+                      {t(name)}
                     </Link>
                   ) : (
                     <div ref={ref}>
@@ -49,10 +49,13 @@ export const Header = () => {
                             ?.filter((item) => item.onlyForCountryVariants.includes(getCountryVariant()))
                             .map(({ name, link }) => (
                               <li key={name}>
-                                <Link href={link}>
-                                  <a onClick={() => setShowDropdown(false)} className="block px-4 py-2 hover:bg-gray-100">
-                                    {t(name)}
-                                  </a>
+                                <Link
+                                  href={link}
+                                  onClick={() => setShowDropdown(false)}
+                                  className="block px-4 py-2 hover:bg-gray-100">
+
+                                  {t(name)}
+
                                 </Link>
                               </li>
                             ))}
@@ -67,13 +70,13 @@ export const Header = () => {
         </nav>
         {['uk' as Language, getCountryVariant()].map((locale) => {
           return (
-            <Link key={locale} href={router.asPath} locale={locale}>
-              <a>
-                <span className={`text-white cursor-pointer mx-2 ${currentLanguage === locale && 'text-primary-yellow'}`}>
-                  {LOCALE_NAMES[locale]}
-                </span>
-              </a>
-            </Link>
+            (<Link key={locale} href={router.asPath} locale={locale}>
+
+              <span className={`text-white cursor-pointer mx-2 ${currentLanguage === locale && 'text-primary-yellow'}`}>
+                {LOCALE_NAMES[locale]}
+              </span>
+
+            </Link>)
           );
         })}
       </div>

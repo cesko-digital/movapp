@@ -53,10 +53,10 @@ const ChristmasBanner = () => {
               <Image src={Christmas_Tree} alt="Vánoční stromek" />
             </div>
             <div className="text-[16px] leading-[19px] sm:text-[14px] sm:leading-[16px] text-center md:text-left md:w-[220px]">
-              <Link href={OUR_TEAM_LINK}>
-                <a target="_blank" className="text-[#FAD741]">
-                  {t(`christmas_banner.team`)}
-                </a>
+              <Link href={OUR_TEAM_LINK} target="_blank" className="text-[#FAD741]">
+
+                {t(`christmas_banner.team`)}
+
               </Link>
               <span className="text-white ml-1">{t(`christmas_banner.wishing`)}</span>
             </div>

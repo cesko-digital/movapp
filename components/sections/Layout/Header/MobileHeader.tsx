@@ -31,17 +31,17 @@ export const MobileHeader = () => {
 
   return (
     <header className="md:hidden sticky top-0 h-14 bg-primary-blue z-10 w-full flex justify-between items-center px-2">
-      <Link href={'/'}>
-        <a className="logo">
-          <Image src={AppLogo} width={150} height={45} alt="Movapp logo" />
-        </a>
+      <Link href={'/'} className="logo">
+
+        <Image src={AppLogo} width={150} height={45} alt="Movapp logo" />
+
       </Link>
       <ul className="flex w-full justify-end pr-5 items-center">
         {['uk' as Language, getCountryVariant()].map((locale) => {
           return (
             <li key={locale} className={`${currentLanguage === locale && 'text-primary-yellow'} text-white mx-2`}>
               <Link href={router.asPath} locale={locale}>
-                <a>{LOCALE_NAMES[locale]}</a>
+                {LOCALE_NAMES[locale]}
               </Link>
             </li>
           );
@@ -60,7 +60,7 @@ export const MobileHeader = () => {
                 <li key={index} className={`text-white text-center text-lg py-2 ${router.asPath.includes(link) && 'text-primary-yellow'}`}>
                   {submenu === undefined ? (
                     <Link href={link}>
-                      <a>{t(name)}</a>
+                      {t(name)}
                     </Link>
                   ) : (
                     <>
@@ -71,8 +71,8 @@ export const MobileHeader = () => {
                             ?.filter((item) => item.onlyForCountryVariants.includes(getCountryVariant()))
                             .map(({ name, link }) => (
                               <li key={name}>
-                                <Link href={link}>
-                                  <a className="block px-4 py-2">{t(name)}</a>
+                                <Link href={link} className="block px-4 py-2">
+                                  {t(name)}
                                 </Link>
                               </li>
                             ))}
