@@ -16,8 +16,7 @@ export const animation = {
     anime({
       targets: ref,
       duration: 600,
-      background: 'hsl(50, 100%, 50%)',
-      color: 'hsl(50, 100%, 25%)',
+      background: 'hsl(86, 100%, 43%)',
       easing: 'easeInOutCubic',
     }),
   selectWrong: (ref: HTMLElement) =>

@@ -102,6 +102,7 @@ export interface ExerciseStoreState {
   categories: CategoryDataObject['id'][] | null;
   history: Exercise[];
   exercise: Exercise | null;
+  counter: number;
 }
 
 export interface ExerciseStoreActions {
@@ -196,7 +197,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     console.log(`generating new exercise for you...`);
     const categories = get().categories;
     if (categories === null) throw Error('categories property is null');
-    set({ exercise: createNextExercise() });
+    set((state) => ({ exercise: createNextExercise(), counter: state.counter + 1 }));
   };
 
   // const setExercise: ExerciseStoreUtils['setExercise'] = (func) => {
@@ -345,6 +346,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     categories: null,
     history: [],
     exercise: null,
+    counter: 0,
     init: async () => {
       // fetch dictionary
       const dictionary = await fetchRawDictionary();
@@ -358,17 +360,20 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       set({
         status: ExerciseStoreStatus.active,
         exercise: createNextExercise(),
+        counter: 1,
       });
     },
     home: () =>
       set({
         exercise: null,
         history: [],
+        counter: 0,
         status: ExerciseStoreStatus.initialized,
       }),
     restart: () =>
       set({
         history: [],
+        counter: 1,
         status: ExerciseStoreStatus.active,
         exercise: createNextExercise(),
       }),
