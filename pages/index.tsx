@@ -31,7 +31,7 @@ const EasterBanner = dynamic(() => import('../components/temporarycomponents/Eas
 
 const DISPLAY_YOUTUBE_BANNER = false;
 const DISPLAY_CHRISTMAS_BANNER = false;
-const DISPLAY_EASTER_BANNER = true;
+const DISPLAY_EASTER_BANNER = false;
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
