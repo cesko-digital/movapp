@@ -7,6 +7,7 @@ import { Button } from './components/Button';
 import { ExerciseIdentificationComponent } from './components/ExerciseIdentificationComponent';
 import BetaIcon from 'public/icons/beta.svg';
 import dynamic from 'next/dynamic';
+import { useTranslation } from 'react-i18next';
 
 const Feedback = dynamic(() => import('../../basecomponents/Feedback'), {
   ssr: false,
@@ -53,6 +54,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   const size = useExerciseStore((state) => state.size);
   //const setSize = useExerciseStore((state) => state.setSize);
   //const setLevel = useExerciseStore((state) => state.setLevel);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setLang(lang);
@@ -73,9 +75,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
     return (
       // replace with start/setup screen component
       <AppContainer>
-        <p className="text-justify mb-5">
-          Procvičte si slovíčka a fráze na nejrůznější témata. Nejprve si vyberte tematické okruhy, a můžete začít!
-        </p>
+        <p className="text-justify mb-5">{t('utils.game_description')}</p>
         <div className="flex flex-wrap mb-10 justify-stretch">
           {getAllCategories().map(({ id, name }) => (
             <Button
@@ -88,7 +88,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
           ))}
         </div>
         <div className="flex flex-col items-center mb-12">
-          <Button text="Spustit cvičení" onClick={start} />
+          <Button text={t('utils.play_the_game') || ''} onClick={start} />
         </div>
       </AppContainer>
     );
@@ -113,13 +113,11 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
     return (
       <AppContainer>
         <div className="flex flex-col items-center px-1.5 pt-5 mb-6 bg-slate-50">
-          <h4 className="mb-8 font-bold p-0">Gratulujeme!</h4>
-          <p className="text-justify">
-            Cvičení jste úspěšně zvládli. Nyní můžete pokračovat v procvičování, nebo se vrátit zpět na hlavní stránku.
-          </p>
+          <h4 className="mb-8 font-bold p-0">{t('utils.congratulations')}</h4>
+          <p className="text-justify">{t('utils.you_have_finished')}</p>
           <div className="flex flex-col items-stretch py-10">
-            <Button className="mb-5" text="Pokračovat" onClick={restart} />
-            <Button text="Domů" onClick={home} />
+            <Button className="mb-5" text={t('utils.next') || ''} onClick={restart} />
+            <Button text={t('utils.home') || ''} onClick={home} />
           </div>
         </div>
         <Feedback />
