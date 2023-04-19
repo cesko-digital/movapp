@@ -18,6 +18,12 @@ const stories = [
     country: 'CZ',
   },
   {
+    title: { cs: 'O veliké řepě', uk: 'Про велику ріпку' },
+    slug: 'velika-repa',
+    duration: '3 min',
+    country: 'CZ',
+  },
+  {
     title: { cs: 'Ivasik-Telesik', uk: 'Івасик-Телесик' },
     slug: 'ivasik-telesik',
     duration: '4 min',
