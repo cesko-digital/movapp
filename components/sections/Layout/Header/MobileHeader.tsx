@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';

@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { getCountryVariant } from 'utils/locales';
 import { ChristmasBannerItem, ChristmasBannerItemProps } from './ChristmasBannerItem';
 import Christmas_Tree from 'public/christmas/christmas-tree.png';

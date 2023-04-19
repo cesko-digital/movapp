@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import ColouredEggs from '../../public/icons/coloured-eggs.png';
 import EggsIcon from '../../public/icons/eggs-icon.svg';
 import DictionaryIcon from '../../public/icons/book.svg';

@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import type { NextPage } from 'next';
 export { getStaticProps } from 'utils/localization';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import HeartsUkraine_CZ from '../public/icons/hearts/hearts-for-ukraine_CZ-UA.png';
 import HeartsUkraine_SK from '../public/icons/hearts/hearts-for-ukraine_SK-UA.png';
 import HeartsUkraine_PL from '../public/icons/hearts/hearts-for-ukraine_PL-UA.png';

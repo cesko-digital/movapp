@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import React from 'react';
 import SEO from 'components/basecomponents/SEO';
 import stories from '../../../data/stories';
