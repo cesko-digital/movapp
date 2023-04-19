@@ -196,7 +196,13 @@
   },
   "utils": {
     "play": "prehrať",
-    "new_game": "Nová hra"
+    "new_game": "Nová hra",
+    "game_description": "Precvičte si slovíčka a frázy na najrôznejšie témy. Najskôr si vyberte tematické okruhy a môžete začať!",
+    "play_the_game": "Spustiť cvičenie",
+    "next": "Pokračovať",
+    "congratulations": "Gratulujeme!",
+    "you_have_finished": "Cvičenie ste úspešne zvládli. Teraz môžete pokračovať v precvičovaní alebo sa vrátiť späť na hlavnú stránku.",
+    "home": "Domov"
   },
   "apps": {
     "download_app": "Stiahnúť Movapp mobilnú aplikáciu",
