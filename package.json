@@ -38,7 +38,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^12.1.1",
     "react-icons": "^4.3.1",
-    "react-mark.js": "^3.1.16",
+    "react-mark.js": "^9.0.7",
     "rehype-external-links": "^1.0.1",
     "rehype-stringify": "^9.0.3",
     "remark-gfm": "^3.0.1",
