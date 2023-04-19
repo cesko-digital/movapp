@@ -1,4 +1,4 @@
-import { getCountryVariant, Language, CountryVariant } from 'utils/locales';
+import { getCountryVariant, Language, CountryVariant } from './locales';
 import fetch from 'node-fetch';
 
 const BASE_API_URL = process.env.BASE_API_URL || 'https://data.movapp.eu';
