@@ -193,7 +193,13 @@
   },
   "utils": {
     "play": "odtwarzanie",
-    "new_game": "Nowa gra"
+    "new_game": "Nowa gra",
+    "game_description": "Przećwicz słówka i zwroty na najróżniejsze tematy. Wybierz kategorie tematyczne i możesz zacząć!",
+    "play_the_game": "Zacznij ćwiczenie",
+    "next": "Kontynuuj",
+    "congratulations": "Gratulacje!",
+    "you_have_finished": "Ćwiczenie zostało ukończone pomyślnie. Teraz możesz ćwiczyć dalej, albo wrócić z powrotem na stronę główną.",
+    "home": "Z powrotem"
   },
   "christmas_banner": {
     "christmas_dictionary_title": "Słowniczek bożonarodzeniowy",

@@ -206,7 +206,13 @@
     "download_app": "Stáhnout Movapp mobilní aplikaci",
     "android_soon": "Android verze už brzy!",
     "play": "přehrát",
-    "new_game": "Nová hra"
+    "new_game": "Nová hra",
+    "game_description": "Procvičte si slovíčka a fráze na nejrůznější témata. Nejprve si vyberte tematické okruhy, a můžete začít!",
+    "play_the_game": "Spustit cvičení",
+    "next": "Pokračovat",
+    "congratulations": "Gratulujeme!",
+    "you_have_finished": "Cvičení jste úspěšně zvládli. Nyní můžete pokračovat v procvičování, nebo se vrátit zpět na hlavní stránku.",
+    "home": "Domů"
   },
   "christmas_banner": {
     "christmas_dictionary_title": "Vánoční slovníček",
