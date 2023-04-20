@@ -16,7 +16,6 @@ export const NextButton = ({ onClick }: NextButtonProps) => {
     <div className="flex mb-3">
       <Button
         ref={btnRef}
-        className=""
         text={t('utils.next') || ''}
         onClick={async () => {
           if (btnRef.current === null) return;
