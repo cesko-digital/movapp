@@ -40,10 +40,18 @@ interface ExerciseOrchestratorProps {
 // warning: language switching triggers change for all props
 export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) => {
   const lang = useLanguage();
-  const { init, setLang, setCategories, getAllCategories, status, exercise, start, restart, home, counter, size } = useExerciseStore(
-    (state) => state
-  );
+  const init = useExerciseStore((state) => state.init);
+  const setLang = useExerciseStore((state) => state.setLang);
+  const setCategories = useExerciseStore((state) => state.setCategories);
+  const getAllCategories = useExerciseStore((state) => state.getAllCategories);
   const selectedCategories = useExerciseStore((state) => state.categories);
+  const status = useExerciseStore((state) => state.status);
+  const exercise = useExerciseStore((state) => state.exercise);
+  const start = useExerciseStore((state) => state.start);
+  const restart = useExerciseStore((state) => state.restart);
+  const home = useExerciseStore((state) => state.home);
+  const counter = useExerciseStore((state) => state.counter);
+  const size = useExerciseStore((state) => state.size);
   //const setSize = useExerciseStore((state) => state.setSize);
   //const setLevel = useExerciseStore((state) => state.setLevel);
   const { t } = useTranslation();
