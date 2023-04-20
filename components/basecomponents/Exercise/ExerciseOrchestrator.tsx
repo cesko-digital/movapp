@@ -44,6 +44,8 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
     (state) => state
   );
   const selectedCategories = useExerciseStore((state) => state.categories);
+  //const setSize = useExerciseStore((state) => state.setSize);
+  //const setLevel = useExerciseStore((state) => state.setLevel);
   const { t } = useTranslation();
 
   useEffect(() => {
