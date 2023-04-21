@@ -11,7 +11,10 @@ export const useStoryReader = (id: string) => {
 
   // using useRef to prevent keeping playing audio when changing route, see: https://stackoverflow.com/questions/37949895/stop-audio-on-route-change-in-react
   const audio = React.useRef<HTMLAudioElement | null>(null);
-  const source = `https://data.movapp.eu/bilingual-reading/${id}-${languagePlay}.mp3`;
+  let source = `https://data.movapp.eu/bilingual-reading/${id}-${languagePlay}.mp3`;
+  if (source == 'https://data.movapp.eu/bilingual-reading/dvanact-mesicku-cs.mp3') { // nasty hack for SK fairy tale testing
+    source = 'https://data.movapp.eu/bilingual-reading/dvanact-mesicku-sk.mp3'
+  }
 
   const playStory = () => {
     if (audio.current !== null) {
