@@ -1,6 +1,6 @@
 import { Exercise } from '../exerciseStore';
 import { useRef } from 'react';
-import { Button } from './Button';
+import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
 import { useTranslation } from 'react-i18next';
 
@@ -15,14 +15,16 @@ export const NextButton = ({ onClick }: NextButtonProps) => {
   return (
     <div className="flex mb-3">
       <Button
+        className="bg-primary-blue"
         ref={btnRef}
-        text={t('utils.next') || ''}
         onClick={async () => {
           if (btnRef.current === null) return;
           await animation.select(btnRef.current).finished;
           onClick();
         }}
-      />
+      >
+        {t('utils.next') || ''}
+      </Button>
     </div>
   );
 };

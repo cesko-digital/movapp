@@ -66,7 +66,7 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
           {exercise.choices.map((choice) => (
             <ChoiceComponent
               key={choice.id}
-              className="mb-5"
+              className="mb-5 bg-primary-blue"
               text={choice.getText()}
               correct={choice.correct}
               inactive={buttonsInactive}

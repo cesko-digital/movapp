@@ -3,11 +3,11 @@ import { useLanguage } from 'utils/useLanguageHook';
 import { ExerciseType, useExerciseStore, ExerciseStoreStatus } from './exerciseStore';
 import { ExerciseIdentification } from './ExerciseIdentification';
 import { CategoryDataObject } from 'utils/getDataUtils';
-import { Button } from './components/Button';
 import { ExerciseIdentificationComponent } from './components/ExerciseIdentificationComponent';
 import BetaIcon from 'public/icons/beta.svg';
 import dynamic from 'next/dynamic';
 import { useTranslation } from 'react-i18next';
+import { Button } from '../Button';
 
 const Feedback = dynamic(() => import('../../basecomponents/Feedback'), {
   ssr: false,
@@ -82,13 +82,16 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
               key={id}
               px="px-2"
               className={`${selectedCategories.includes(id) ? 'bg-primary-blue' : 'bg-gray-500'}  mr-1 mb-1`}
-              text={name}
               onClick={() => setCategories(computeNewCategories(selectedCategories, id))}
-            />
+            >
+              {name}
+            </Button>
           ))}
         </div>
         <div className="flex flex-col items-center mb-12">
-          <Button text={t('utils.play_the_game') || ''} onClick={start} />
+          <Button className="bg-primary-blue" onClick={start}>
+            {t('utils.play_the_game') || ''}
+          </Button>
         </div>
       </AppContainer>
     );
@@ -116,8 +119,12 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
           <h4 className="mb-8 font-bold p-0">{t('utils.congratulations')}</h4>
           <p className="text-justify">{t('utils.you_have_finished')}</p>
           <div className="flex flex-col items-stretch py-10">
-            <Button className="mb-5" text={t('utils.next') || ''} onClick={restart} />
-            <Button text={t('utils.home') || ''} onClick={home} />
+            <Button className="mb-5 bg-primary-blue" onClick={restart}>
+              {t('utils.next') || ''}
+            </Button>
+            <Button className="bg-primary-blue" onClick={home}>
+              {t('utils.home') || ''}
+            </Button>
           </div>
         </div>
         <Feedback />

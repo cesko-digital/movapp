@@ -108,8 +108,9 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
               className={`${
                 isSticky ? 'text-black bg-primary-yellow' : 'bg-primary-blue'
               } ml-5 justify-self-center border-1 hidden self-center md:block `}
-              text={t('dictionary_page.search_button')}
-            />
+            >
+              {t('dictionary_page.search_button')}
+            </Button>
           </div>
           <ExportTranslations
             category={categories}
