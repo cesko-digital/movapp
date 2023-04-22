@@ -54,7 +54,9 @@ const MemoryGame = () => {
         ))}
       </div>
       <div className={styles.app}>
-        <Button ref={buttonRef} className={styles.newGameButton} text={t('utils.new_game')} onClick={restart} />
+        <Button ref={buttonRef} className={styles.newGameButton} onClick={restart}>
+          {t('utils.new_game')}
+        </Button>
         <div className={styles.board}>
           {cards.map((card) => (
             <Card

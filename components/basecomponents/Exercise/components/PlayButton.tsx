@@ -22,8 +22,7 @@ export const PlayButton = ({ play, text, inactive = false }: PlayButtonProps) =>
 
   return (
     <Button
-      px="px-2.5 mr-3"
-      className="bg-primary-blue"
+      className="bg-primary-blue mr-3"
       ref={btnRef}
       onClick={async () => {
         if (btnRef.current === null) return;

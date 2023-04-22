@@ -80,7 +80,6 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
           {getAllCategories().map(({ id, name }) => (
             <Button
               key={id}
-              px="px-2"
               className={`${selectedCategories.includes(id) ? 'bg-primary-blue' : 'bg-gray-500'}  mr-1 mb-1`}
               onClick={() => setCategories(computeNewCategories(selectedCategories, id))}
             >
