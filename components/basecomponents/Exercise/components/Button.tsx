@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string | Element;
+  text: string | React.ReactNode;
   px?: string;
 }
 

@@ -4,7 +4,7 @@ import { animation } from '../utils/animation';
 
 interface PlayButtonProps {
   play: () => Promise<void>;
-  text: string | Element | any;
+  text: React.ReactNode;
   inactive?: boolean;
 }
 
