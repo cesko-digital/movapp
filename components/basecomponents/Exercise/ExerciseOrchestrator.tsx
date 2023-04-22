@@ -34,7 +34,7 @@ const AppContainer: React.FunctionComponent<AppContainerProps> = ({ children, he
 };
 
 interface ExerciseOrchestratorProps {
-  categories: CategoryDataObject['id'][];
+  categories: string[];
 }
 
 // warning: language switching triggers change for all props
@@ -76,6 +76,30 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
       // replace with start/setup screen component
       <AppContainer>
         <p className="text-justify mb-5">{t('utils.game_description')}</p>
+        {/* To-do make all these buttons outlined/secondary */}
+        <div>
+          <Button
+            className="mb-3 bg-white"
+            text={t('utils.select_all')}
+            onClick={() => setCategories(getAllCategories().map((cat) => cat.id))}
+          />
+        </div>
+        <div>
+          <Button className="mb-3 bg-white" text={t('utils.clear_all')} onClick={() => setCategories([])} />
+        </div>
+        <div>
+          <Button
+            className="mb-3 bg-white"
+            text={t('utils.pick_random')}
+            onClick={() =>
+              setCategories(
+                getAllCategories()
+                  .map((cat) => cat.id)
+                  .filter(() => Math.random() > 0.5)
+              )
+            }
+          />
+        </div>
         <div className="flex flex-wrap mb-10 justify-stretch">
           {getAllCategories().map(({ id, name }) => (
             <Button
@@ -101,6 +125,8 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
         return (
           <AppContainer headerContent={`${counter}/${size}`}>
             <ExerciseIdentificationComponent key={exercise.id} exercise={exercise as ExerciseIdentification} />
+            {/* Todo: style this appropriately, but you always need a back button here */}
+            <Button text={t('utils.home') || ''} onClick={home} />
           </AppContainer>
         );
       // TODO: add other types of exercises
