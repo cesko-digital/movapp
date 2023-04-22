@@ -2,7 +2,7 @@ import { getCountryVariant, Language, CountryVariant } from './locales';
 import fetch from 'node-fetch';
 
 const BASE_API_URL = process.env.BASE_API_URL || 'https://data.movapp.eu';
-const KIDS_CATEGORY_ID = 'recSHyEn6N0hAqUBp';
+export const KIDS_CATEGORY_ID = 'recSHyEn6N0hAqUBp';
 
 /**
  * Dictionary

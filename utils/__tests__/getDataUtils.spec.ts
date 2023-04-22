@@ -10,6 +10,7 @@ import {
   DictionaryDataObject,
   PhraseDataObject,
   Phrase,
+  KIDS_CATEGORY_ID,
 } from '../getDataUtils';
 import { CountryVariant } from '../locales';
 import fetch, { Response } from 'node-fetch';
@@ -18,7 +19,7 @@ jest.mock('node-fetch');
 
 // Create mock data for testing
 
-const mockCountryVariantCZ = 'cz' as CountryVariant;
+const mockCountryVariantCZ: CountryVariant = 'cs';
 
 const mockPhraseData: PhraseDataObject = {
   id: 'testPhrase',
@@ -72,7 +73,7 @@ describe('Get Data Utils', () => {
   describe('getCategories', () => {
     it('should return an array of Category objects', () => {
       const categories = getCategories(mockDictionaryData);
-      expect(categories.length).toEqual(1);
+      expect(categories.length).toEqual(mockDictionaryData.categories.length);
       expect(categories[0].id).toEqual(mockCategoryData.id);
     });
   });
@@ -80,14 +81,14 @@ describe('Get Data Utils', () => {
   describe('getAllPhrases', () => {
     it('should return an array of Phrase objects', () => {
       const phrases = getAllPhrases(mockDictionaryData);
-      expect(phrases.length).toEqual(1);
+      expect(phrases.length).toEqual(mockDictionaryData.categories.length);
       expect(phrases[0].getId()).toEqual(mockPhraseData.id);
     });
   });
 
   describe('getKidsCategory', () => {
     it('should return the kids category if present', () => {
-      const kidsCategoryData = { ...mockCategoryData, id: 'recSHyEn6N0hAqUBp' };
+      const kidsCategoryData = { ...mockCategoryData, id: KIDS_CATEGORY_ID };
       const kidsDictionaryData = { ...mockDictionaryData, categories: [kidsCategoryData] };
       const kidsCategory = getKidsCategory(kidsDictionaryData);
       expect(kidsCategory).toBeDefined();
