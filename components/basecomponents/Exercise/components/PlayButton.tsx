@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { Button } from './Button';
+import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
 
 interface PlayButtonProps {
@@ -23,7 +23,7 @@ export const PlayButton = ({ play, text, inactive = false }: PlayButtonProps) =>
   return (
     <Button
       px="px-2.5 mr-3"
-      text={text}
+      className="bg-primary-blue"
       ref={btnRef}
       onClick={async () => {
         if (btnRef.current === null) return;
@@ -37,6 +37,8 @@ export const PlayButton = ({ play, text, inactive = false }: PlayButtonProps) =>
         anim.restart();
         anim.pause();
       }}
-    />
+    >
+      {text}
+    </Button>
   );
 };

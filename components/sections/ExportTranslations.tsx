@@ -216,13 +216,11 @@ const ExportTranslations = ({ triggerLabel, category, customName }: ExportTransl
 
         <div className="flex justify-evenly flex-wrap py-8">
           <a download={fileName} href={downloadLink}>
-            <Button text={t('export_translations.download_phrases')} className="my-2 bg-primary-blue" />
+            <Button className="my-2 bg-primary-blue">{t('export_translations.download_phrases')}</Button>
           </a>
-          <Button
-            text={t('export_translations.copy_to_clipboard')}
-            onClick={() => navigator.clipboard.writeText(categories.flat().join(''))}
-            className="my-2 bg-primary-blue"
-          ></Button>
+          <Button onClick={() => navigator.clipboard.writeText(categories.flat().join(''))} className="my-2 bg-primary-blue">
+            {t('export_translations.copy_to_clipboard')}
+          </Button>
         </div>
         <Separator />
         <div className="text-sm font-light">

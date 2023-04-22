@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Button } from './Button';
+import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
 
 interface ChoiceProps {
@@ -17,7 +17,6 @@ export const ChoiceComponent = ({ text, correct, className = '', inactive = fals
   return (
     <Button
       ref={choiceRef}
-      text={text}
       className={`${className}`}
       onClick={async () => {
         if (inactive) return;
@@ -27,6 +26,8 @@ export const ChoiceComponent = ({ text, correct, className = '', inactive = fals
         correct ? await animation.selectCorrect(choiceRef.current).finished : await animation.selectWrong(choiceRef.current).finished;
         onClickFinished();
       }}
-    />
+    >
+      {text}
+    </Button>
   );
 };
