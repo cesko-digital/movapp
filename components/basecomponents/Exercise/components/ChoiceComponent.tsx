@@ -17,6 +17,7 @@ export const ChoiceComponent = ({ text, correct, className = '', inactive = fals
   return (
     <Button
       ref={choiceRef}
+      buttonStyle="choice"
       className={`${className}`}
       onClick={async () => {
         if (inactive) return;

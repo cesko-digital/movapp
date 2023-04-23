@@ -1,14 +1,16 @@
 import { useRef, useState, useEffect } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
+import PlayIcon from 'public/icons/playicon.svg';
+import SlowPlayIcon from 'public/icons/slowplay.svg';
 
-interface PlayButtonProps {
+interface PlayButtonProps extends React.ComponentProps<typeof Button> {
   play: () => Promise<void>;
-  text: React.ReactNode;
   inactive?: boolean;
+  mode?: 'play' | 'playSlow';
 }
 
-export const PlayButton = ({ play, text, inactive = false }: PlayButtonProps) => {
+export const PlayButton = ({ children, play, mode = 'play', inactive = false, ...rest }: PlayButtonProps) => {
   const [playing, setPlaying] = useState(false);
   const btnRef = useRef(null);
   const mounted = useRef(false);
@@ -22,8 +24,10 @@ export const PlayButton = ({ play, text, inactive = false }: PlayButtonProps) =>
 
   return (
     <Button
-      className="bg-primary-blue mr-3"
+      buttonStyle="primary"
+      icon
       ref={btnRef}
+      {...rest}
       onClick={async () => {
         if (btnRef.current === null) return;
         if (playing || inactive) return;
@@ -37,7 +41,9 @@ export const PlayButton = ({ play, text, inactive = false }: PlayButtonProps) =>
         anim.pause();
       }}
     >
-      {text}
+      {children}
+      {mode === 'play' && <PlayIcon className="inline" />}
+      {mode === 'playSlow' && <SlowPlayIcon className="inline" />}
     </Button>
   );
 };

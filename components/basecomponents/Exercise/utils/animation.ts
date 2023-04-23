@@ -7,7 +7,6 @@ export const animation = {
     anime({
       targets: ref,
       duration: 150,
-      opacity: 0.7,
       scale: 0.9,
       easing: 'easeInOutSine',
       direction: 'alternate',
@@ -16,15 +15,15 @@ export const animation = {
     anime({
       targets: ref,
       duration: 600,
-      background: 'hsl(86, 100%, 43%)',
-      easing: 'easeInOutCubic',
+      background: 'hsl(86, 100%, 50%)',
+      easing: 'easeInOutSine',
     }),
   selectWrong: (ref: HTMLElement) =>
     anime({
       targets: ref,
       duration: 600,
-      background: 'hsl(0, 0%, 40%)',
-      easing: 'easeInOutCubic',
+      background: 'hsl(0, 0%, 80%)',
+      easing: 'easeInOutSine',
     }),
   breathe: (ref: HTMLElement) =>
     anime({

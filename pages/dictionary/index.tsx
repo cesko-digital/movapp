@@ -105,9 +105,8 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
             />
             <Button
               ref={searchButton}
-              className={`${
-                isSticky ? 'text-black bg-primary-yellow' : 'bg-primary-blue'
-              } ml-5 justify-self-center border-1 hidden self-center md:block `}
+              className={`ml-5 justify-self-center border-1 hidden self-center md:block `}
+              buttonStyle={isSticky ? 'primaryLight' : 'primary'}
             >
               {t('dictionary_page.search_button')}
             </Button>

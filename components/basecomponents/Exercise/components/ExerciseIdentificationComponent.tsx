@@ -5,8 +5,6 @@ import { PlayButton } from './PlayButton';
 import { ChoiceComponent } from './ChoiceComponent';
 import { NextButton } from './NextButton';
 import { ExerciseIdentification } from '../ExerciseIdentification';
-import PlayIcon from 'public/icons/playicon.svg';
-import SlowPlayIcon from 'public/icons/slowplay.svg';
 
 /**
  * Exercise component is UI for exercise object
@@ -54,11 +52,11 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
         {(exercise.mode === 'text' || exercise.status === ExerciseStatus.completed) && (
           <h5 className="text-3xl p-0">{exercise.getText()}</h5>
         )}
-        <div className="flex mb-9 mt-9">
+        <div className="grid grid-cols-2 gap-x-3 mb-9 mt-9">
           {(exercise.mode === 'audio' || exercise.status === ExerciseStatus.completed) && (
             <>
-              <PlayButton play={exercise.playAudio} text={<PlayIcon />} />
-              <PlayButton play={exercise.playAudioSlow} text={<SlowPlayIcon />} />
+              <PlayButton play={exercise.playAudio} mode="play" />
+              <PlayButton play={exercise.playAudioSlow} mode="playSlow" />
             </>
           )}
         </div>
@@ -66,7 +64,7 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
           {exercise.choices.map((choice) => (
             <ChoiceComponent
               key={choice.id}
-              className="mb-5 bg-primary-blue"
+              className="mb-5"
               text={choice.getText()}
               correct={choice.correct}
               inactive={buttonsInactive}
