@@ -78,19 +78,18 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
         <p className="text-justify mb-5">{t('utils.game_description')}</p>
         {/* To-do make all these buttons outlined/secondary */}
         <div>
-          <Button
-            className="mb-3 bg-white"
-            text={t('utils.select_all')}
-            onClick={() => setCategories(getAllCategories().map((cat) => cat.id))}
-          />
+          <Button className="mb-3 bg-white" onClick={() => setCategories(getAllCategories().map((cat) => cat.id))}>
+            {t('utils.select_all')}
+          </Button>
         </div>
         <div>
-          <Button className="mb-3 bg-white" text={t('utils.clear_all')} onClick={() => setCategories([])} />
+          <Button className="mb-3 bg-white" onClick={() => setCategories([])}>
+            {t('utils.clear_all')}
+          </Button>
         </div>
         <div>
           <Button
             className="mb-3 bg-white"
-            text={t('utils.pick_random')}
             onClick={() =>
               setCategories(
                 getAllCategories()
@@ -98,7 +97,9 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
                   .filter(() => Math.random() > 0.5)
               )
             }
-          />
+          >
+            {t('utils.pick_random')}
+          </Button>
         </div>
         <div className="flex flex-wrap mb-10 justify-stretch">
           {getAllCategories().map(({ id, name }) => (
@@ -128,7 +129,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
           <AppContainer headerContent={`${counter}/${size}`}>
             <ExerciseIdentificationComponent key={exercise.id} exercise={exercise as ExerciseIdentification} />
             {/* Todo: style this appropriately, but you always need a back button here */}
-            <Button text={t('utils.home') || ''} onClick={home} />
+            <Button onClick={home}>{t('utils.home') || ''}</Button>
           </AppContainer>
         );
       // TODO: add other types of exercises
