@@ -53,10 +53,10 @@ export const HEADER_NAVIGATION: HeaderNavItem[] = [
     link: '/wiki',
     onlyForCountryVariants: ['cs'],
   },
-  // {
-  //   name: 'header.exercises_link_name',
-  //   link: '/exercises',
-  // },
+  {
+    name: 'header.exercises_link_name',
+    link: '/exercise',
+  },
   {
     name: 'header.about_link_name',
     link: '/about',
