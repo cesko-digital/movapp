@@ -1,4 +1,6 @@
 import { forwardRef } from 'react';
+import PlayIcon from 'public/icons/playicon.svg';
+import PlaySlowIcon from 'public/icons/slowplay.svg';
 
 const BASE_STYLE = 'h-auto rounded-lg';
 const TEXT_PADDING = 'px-5 py-2';
@@ -13,13 +15,15 @@ const BUTTON_STYLE = {
 
 interface ButtonProps extends React.ComponentProps<'button'> {
   buttonStyle?: keyof typeof BUTTON_STYLE;
-  icon?: boolean;
+  icon?: boolean | 'play' | 'playSlow';
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, className, buttonStyle = 'default', icon = false, ...rest }, ref) => {
     return (
-      <button {...rest} ref={ref} className={`${className} ${BUTTON_STYLE[buttonStyle]} ${icon ? ICON_PADDING : TEXT_PADDING}`}>
+      <button ref={ref} className={`${className} ${BUTTON_STYLE[buttonStyle]} ${icon !== false ? ICON_PADDING : TEXT_PADDING}`} {...rest}>
+        {icon === 'play' && <PlayIcon className="inline" />}
+        {icon === 'playSlow' && <PlaySlowIcon className="inline" />}
         {children}
       </button>
     );

@@ -55,8 +55,8 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
         <div className="grid grid-cols-2 gap-x-3 mb-9 mt-9">
           {(exercise.mode === 'audio' || exercise.status === ExerciseStatus.completed) && (
             <>
-              <PlayButton play={exercise.playAudio} mode="play" />
-              <PlayButton play={exercise.playAudioSlow} mode="playSlow" />
+              <PlayButton play={exercise.playAudio} icon="play" />
+              <PlayButton play={exercise.playAudioSlow} icon="playSlow" />
             </>
           )}
         </div>
