@@ -23,7 +23,7 @@ export const ChoiceComponent = ({ text, correct, className = '', inactive = fals
         if (inactive) return;
         if (choiceRef.current === null) return;
         onClickStarted();
-        await animation.select(choiceRef.current).finished;
+        await animation.click(choiceRef.current).finished;
         correct ? await animation.selectCorrect(choiceRef.current).finished : await animation.selectWrong(choiceRef.current).finished;
         onClickFinished();
       }}

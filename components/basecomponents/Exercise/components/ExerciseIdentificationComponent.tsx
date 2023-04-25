@@ -3,8 +3,9 @@ import React, { useRef, useState, useEffect } from 'react';
 import { animation } from '../utils/animation';
 import { PlayButton } from './PlayButton';
 import { ChoiceComponent } from './ChoiceComponent';
-import { NextButton } from './NextButton';
+import { ActionButton } from './ActionButton';
 import { ExerciseIdentification } from '../ExerciseIdentification';
+import SpeakerIcon from 'public/icons/speaker.svg';
 
 /**
  * Exercise component is UI for exercise object
@@ -45,26 +46,33 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const showAudio = exercise.mode === 'audio' || exercise.status === ExerciseStatus.completed;
+  const showText = exercise.mode === 'text' || exercise.status === ExerciseStatus.completed;
+
   return (
-    <div ref={exRef} className="flex flex-col items-center opacity-0">
-      <p>Level: {exercise.level}</p>
-      <div className="px-1.5 py-12 mb-10 border border-slate-300 shadow-lg shadow-slate-100 flex flex-col items-center w-full">
-        {(exercise.mode === 'text' || exercise.status === ExerciseStatus.completed) && (
-          <h5 className="text-3xl p-0">{exercise.getText()}</h5>
-        )}
-        <div className="grid grid-cols-2 gap-x-3 mb-9 mt-9">
-          {(exercise.mode === 'audio' || exercise.status === ExerciseStatus.completed) && (
-            <>
-              <PlayButton play={exercise.playAudio} icon="play" />
-              <PlayButton play={exercise.playAudioSlow} icon="playSlow" />
-            </>
-          )}
+    <div ref={exRef} className="flex flex-col items-center opacity-0 relative">
+      <div className="flex flex-col p-2 items-end absolute text-fuchsia-500 text-xs right-0 -top-10 opacity-50">
+        <span className="font-mono">Test data</span>
+        <span className="font-mono">Level: {exercise.level}</span>
+      </div>
+      <div className="px-1.5 pt-10 pb-12 mb-6 border border-slate-300 shadow-lg shadow-slate-100 flex flex-col items-center w-full">
+        <h5 className={`text-xl text-center p-0 ${showText ? '' : 'blur-sm'}`}>{exercise.getText()}</h5>
+
+        <div
+          className={`grid grid-cols-3 items-stretch justify-items-stretch  gap-x-3 mb-5 mt-5 ${
+            showAudio ? 'opacity-100' : 'grayscale opacity-50'
+          }`}
+        >
+          <div className="flex items-center justify-center p-2 w-12">
+            <SpeakerIcon className="inline" />
+          </div>
+          <PlayButton play={exercise.playAudio} icon="play" shadow disabled={!showAudio} />
+          <PlayButton play={exercise.playAudioSlow} icon="playSlow" shadow disabled={!showAudio} />
         </div>
-        <div className="flex flex-col items-stretch">
+        <div className="grid grid-cols-1 items-stretch justify-items-stretch gap-y-3">
           {exercise.choices.map((choice) => (
             <ChoiceComponent
               key={choice.id}
-              className="mb-5"
               text={choice.getText()}
               correct={choice.correct}
               inactive={buttonsInactive}
@@ -87,16 +95,17 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
           ))}
         </div>
       </div>
-      {exercise.status === ExerciseStatus.completed && (
-        <NextButton
-          onClick={async () => {
+      <div className="flex justify-between w-full">
+        <ActionButton action="home" />
+        <ActionButton
+          action="nextExercise"
+          className={exercise.status === ExerciseStatus.completed ? 'visible' : 'invisible'}
+          onClickAsync={async () => {
             if (exRef.current === null) return;
-            // run effects
             await animation.fade(exRef.current, 300, 500).finished;
-            exercise.next();
           }}
         />
-      )}
+      </div>
     </div>
   );
 };

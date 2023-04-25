@@ -26,14 +26,14 @@ const CONFIG_BASE = Object.freeze({
 
 const CONFIG_LEVEL0 = Object.freeze({
   wordLimitMin: 1,
-  wordLimitMax: 1,
+  wordLimitMax: 2,
   choiceLimit: 4,
 });
 
 const CONFIG_LEVEL1 = Object.freeze({
-  wordLimitMin: 1,
+  wordLimitMin: 2,
   wordLimitMax: 2,
-  choiceLimit: 6,
+  choiceLimit: 4,
 });
 
 const CONFIG_LEVEL2 = Object.freeze({
@@ -110,6 +110,7 @@ export interface ExerciseStoreActions {
   start: () => void;
   restart: () => void;
   home: () => void;
+  nextExercise: () => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
   getAllCategories: () => { id: CategoryDataObject['id']; name: CategoryDataObject['name']['main'] }[];
   setLang: (lang: ExerciseStoreState['lang']) => void;
@@ -127,7 +128,7 @@ export interface ExerciseStoreUtils {
   //setExerciseResult: (result: Exercise['result']) => void;
   exerciseResolved: () => void;
   exerciseCompleted: () => void;
-  nextExercise: () => void;
+  nextExercise: ExerciseStoreActions['nextExercise'];
   phraseFilters: {
     wordLimit: (min: number, max: number) => (phrase: Phrase) => boolean;
     wordLimitForLevel: ((phrase: Phrase) => boolean)[];
@@ -377,6 +378,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         status: ExerciseStoreStatus.active,
         exercise: createNextExercise(),
       }),
+    nextExercise,
     setLang: (lang) => set({ lang }),
     setCategories: (categories) => set({ categories }),
     getAllCategories,

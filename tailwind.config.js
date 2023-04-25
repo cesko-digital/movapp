@@ -18,6 +18,7 @@ module.exports = {
         'primary-red': '#E42D00',
         'primary-grey': '#F5F5F5',
         'primary-black': '#2D2D2D',
+        'primary-green': '#91FF00',
       },
       borderWidth: {
         1: '1px',

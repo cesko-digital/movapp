@@ -11,19 +11,27 @@ const BUTTON_STYLE = {
   primary: `${BASE_STYLE} text-white bg-primary-blue`,
   primaryLight: `${BASE_STYLE} text-black bg-primary-yellow`,
   choice: `${BASE_STYLE} text-black border border-slate-300 bg-white`,
+  choiceCorrect: `${BASE_STYLE} text-black border border-slate-300 bg-primary-green`,
 };
 
 interface ButtonProps extends React.ComponentProps<'button'> {
   buttonStyle?: keyof typeof BUTTON_STYLE;
   icon?: boolean | 'play' | 'playSlow';
+  shadow?: boolean;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, className, buttonStyle = 'default', icon = false, ...rest }, ref) => {
+  ({ children, className, buttonStyle = 'default', icon = false, shadow = false, ...rest }, ref) => {
     return (
-      <button ref={ref} className={`${className} ${BUTTON_STYLE[buttonStyle]} ${icon !== false ? ICON_PADDING : TEXT_PADDING}`} {...rest}>
-        {icon === 'play' && <PlayIcon className="inline" />}
-        {icon === 'playSlow' && <PlaySlowIcon className="inline" />}
+      <button
+        ref={ref}
+        className={`tap-transparent ${className} ${BUTTON_STYLE[buttonStyle]} ${icon !== false ? ICON_PADDING : TEXT_PADDING} ${
+          shadow ? 'button-shadow' : ''
+        }`}
+        {...rest}
+      >
+        {icon === 'play' && <PlayIcon className="inline h-auto" />}
+        {icon === 'playSlow' && <PlaySlowIcon className="inline h-auto" />}
         {children}
       </button>
     );

@@ -12,13 +12,13 @@ const ExerciseSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
+    <div className="bg-primary-grey -mb-8 -m-2">
       <SEO
-        title={t(`seo.kids_page_title.${getCountryVariant()}`)}
+        title={t(`seo.kids_page_title.${getCountryVariant()}`)} //TO DO: someone write these SEO textations
         description={t(`seo.kids_page_description.${getCountryVariant()}`)}
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
-      <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
+      <div className="flex flex-wrap justify-center min-h-screen m-auto">
         <ExerciseOrchestrator categories={['recdabyHkJhGf7U5D']} />
       </div>
     </div>

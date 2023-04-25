@@ -50,3 +50,11 @@ h2 {
 .logo span {
   display: block !important;
 }
+
+.tap-transparent {
+-webkit-tap-highlight-color: transparent;
+}
+
+.button-shadow {
+  box-shadow: 3px 3px 6px 0px #0000003d;
+}

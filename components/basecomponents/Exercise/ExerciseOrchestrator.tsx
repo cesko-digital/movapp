@@ -8,6 +8,7 @@ import BetaIcon from 'public/icons/beta.svg';
 import dynamic from 'next/dynamic';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../Button';
+import { ActionButton } from './components/ActionButton';
 
 const Feedback = dynamic(() => import('../../basecomponents/Feedback'), {
   ssr: false,
@@ -47,9 +48,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   const selectedCategories = useExerciseStore((state) => state.categories);
   const status = useExerciseStore((state) => state.status);
   const exercise = useExerciseStore((state) => state.exercise);
-  const start = useExerciseStore((state) => state.start);
   const restart = useExerciseStore((state) => state.restart);
-  const home = useExerciseStore((state) => state.home);
   const counter = useExerciseStore((state) => state.counter);
   const size = useExerciseStore((state) => state.size);
   //const setSize = useExerciseStore((state) => state.setSize);
@@ -78,18 +77,19 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
         <p className="text-justify mb-5">{t('utils.game_description')}</p>
         {/* To-do make all these buttons outlined/secondary */}
         <div>
-          <Button className="mb-3 bg-white" onClick={() => setCategories(getAllCategories().map((cat) => cat.id))}>
+          <ActionButton buttonStyle="primaryLight" className="mb-3" onClick={() => setCategories(getAllCategories().map((cat) => cat.id))}>
             {t('utils.select_all')}
-          </Button>
+          </ActionButton>
         </div>
         <div>
-          <Button className="mb-3 bg-white" onClick={() => setCategories([])}>
+          <ActionButton buttonStyle="primaryLight" className="mb-3" onClick={() => setCategories([])}>
             {t('utils.clear_all')}
-          </Button>
+          </ActionButton>
         </div>
         <div>
-          <Button
-            className="mb-3 bg-white"
+          <ActionButton
+            buttonStyle="primaryLight"
+            className="mb-3"
             onClick={() =>
               setCategories(
                 getAllCategories()
@@ -99,13 +99,14 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
             }
           >
             {t('utils.pick_random')}
-          </Button>
+          </ActionButton>
         </div>
         <div className="flex flex-wrap mb-10 justify-stretch">
           {getAllCategories().map(({ id, name }) => (
             <Button
               key={id}
-              className={`${selectedCategories.includes(id) ? 'bg-primary-blue' : 'bg-gray-500'}  mr-1 mb-1`}
+              buttonStyle={selectedCategories.includes(id) ? 'choiceCorrect' : 'choice'}
+              className="mr-1 mb-1"
               onClick={() => setCategories(computeNewCategories(selectedCategories, id))}
             >
               {name}
@@ -113,9 +114,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
           ))}
         </div>
         <div className="flex flex-col items-center mb-12">
-          <Button className="bg-primary-blue" onClick={start}>
-            {t('utils.play_the_game') || ''}
-          </Button>
+          <ActionButton action="start" />
         </div>
       </AppContainer>
     );
@@ -129,7 +128,6 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
           <AppContainer headerContent={`${counter}/${size}`}>
             <ExerciseIdentificationComponent key={exercise.id} exercise={exercise as ExerciseIdentification} />
             {/* Todo: style this appropriately, but you always need a back button here */}
-            <Button onClick={home}>{t('utils.home') || ''}</Button>
           </AppContainer>
         );
       // TODO: add other types of exercises
@@ -145,12 +143,10 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
           <h4 className="mb-8 font-bold p-0">{t('utils.congratulations')}</h4>
           <p className="text-justify">{t('utils.you_have_finished')}</p>
           <div className="flex flex-col items-stretch py-10">
-            <Button className="mb-5 bg-primary-blue" onClick={restart}>
+            <ActionButton className="mb-5" onClick={restart}>
               {t('utils.next') || ''}
-            </Button>
-            <Button className="bg-primary-blue" onClick={home}>
-              {t('utils.home') || ''}
-            </Button>
+            </ActionButton>
+            <ActionButton action="home" />
           </div>
         </div>
         <Feedback />
