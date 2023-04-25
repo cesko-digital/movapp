@@ -3,8 +3,10 @@ name: Movapp run all tests
 on: [pull_request]
 
 jobs:
-  install:
+  install_dependencies:
     runs-on: ubuntu-latest
+    outputs:
+      cache-hit: ${{ steps.cache.outputs.cache-hit }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -14,11 +16,24 @@ jobs:
         with:
           node-version: 14
 
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+
       - name: Install dependencies
-        run: npm install --frozen-lockfile
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      
+      - name: Show package versions and Node.js version
+        run: |
+          npm list @types/jest
+          node -v
 
   lint:
-    needs: install
+    needs: install_dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,8 +44,11 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install dependencies
-        run: npm install --frozen-lockfile
+      - name: Use cached node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Run Lint
         run: npm run lint
@@ -47,8 +65,11 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install dependencies
-        run: npm install --frozen-lockfile
+      - name: Use cached node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Run unit tests
         run: npm run test
@@ -65,8 +86,11 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install dependencies
-        run: npm install --frozen-lockfile
+      - name: Use cached node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Build
         run: npm run build
