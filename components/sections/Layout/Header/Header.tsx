@@ -72,7 +72,7 @@ export const Header = () => {
           return (
             (<Link key={locale} href={router.asPath} locale={locale}>
 
-              <span className={`text-white cursor-pointer mx-2 ${currentLanguage === locale && 'text-primary-yellow'}`}>
+              <span className={`cursor-pointer mx-2 ${currentLanguage === locale ? 'text-primary-yellow' : 'text-white'}`}>
                 {LOCALE_NAMES[locale]}
               </span>
 
