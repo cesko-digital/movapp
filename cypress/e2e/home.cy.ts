@@ -1,10 +1,13 @@
-describe('Movapp - Home page', () => {
+/// <reference types="Cypress" />
+
+describe('Test Movapp - Home page', () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit("https://www.movapp.cz/");
   });
 
   it('it renders', () => {
     cy.get('h1').should('contain.text', 'Naučte se základy češtiny a ukrajinštiny pro běžné životní situace');
+    cy.title().should("be.eq", "Movapp.cz – aby se Češi a Ukrajinci snadno domluvili");
 
     // Hlavna karta s odkazmi
     cy.contains('Slovníček').should('be.visible');
@@ -15,6 +18,8 @@ describe('Movapp - Home page', () => {
     // Lokalizacie
     cy.contains('Movapp mluví dalšími jazyky').should('be.visible');
     cy.contains('Slovensky').should('be.visible');
+    cy.contains('Polski').should('be.visible')
+    
 
     // TODO: Otestovat vsetko co treba na hlavnej stranke
   });
