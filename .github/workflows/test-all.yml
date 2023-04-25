@@ -1,6 +1,6 @@
 name: Test Movapp
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   install:
@@ -12,7 +12,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v3
         with:
-          project: ./site
           browser: chrome
           build: yarn build
           start: yarn start
