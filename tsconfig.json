@@ -15,8 +15,9 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "types": ["jest", "node"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next-sitemap.config.js", "next-i18next.config.js"],
-  "exclude": ["node_modules", "cypress"]
+  "exclude": ["node_modules", "cypress", "./cypress.config.ts"]
 }
