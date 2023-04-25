@@ -27,11 +27,6 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       
-      - name: Show package versions and Node.js version
-        run: |
-          npm list @types/jest
-          node -v
-
   lint:
     needs: install_dependencies
     runs-on: ubuntu-latest
