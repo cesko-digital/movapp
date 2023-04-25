@@ -11,6 +11,8 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "test": "jest",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
     "postbuild": "next-sitemap && yarn generate-pdfs",
     "ts-watch": "npx tsc --noEmit --incremental --watch --preserveWatchOutput",
     "generate-pdfs": "ts-node --skip-project utils/exportPdfs.ts"
@@ -57,6 +59,7 @@
     "@types/react": "17.0.39",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "autoprefixer": "^10.4.2",
+    "cypress": "^12.10.0",
     "eslint": "^8.29.0",
     "eslint-config-next": "^13.0.7",
     "eslint-plugin-prettier": "^4.2.1",
