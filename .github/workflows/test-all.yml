@@ -15,18 +15,15 @@ jobs:
           node-version: 14
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm install --frozen-lockfile
 
       - name: Lint
-        run: yarn lint
-
-      - name: Unit test
-        run: yarn lint
+        run: npm run lint
 
       - name: Cypress run
         uses: cypress-io/github-action@v3
         with:
           browser: chrome
-          build: yarn build
-          start: yarn start
+          build: npm run build
+          start: npm run start
           wait-on: "http://localhost:3000"
