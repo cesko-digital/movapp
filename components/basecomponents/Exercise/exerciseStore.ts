@@ -389,4 +389,4 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 
 export const delay = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
 export const playAudio = (url: string) => AudioPlayer.getInstance().playSrc(url);
-export const playAudioSlow = (url: string) => AudioPlayer.getInstance().playSrc(url, 0.5);
+export const playAudioSlow = (url: string) => AudioPlayer.getInstance().playSrc(url, 0.75);

@@ -26,6 +26,7 @@ export const PlayButton = ({ play, inactive = false, ...rest }: PlayButtonProps)
       onClick={async () => {
         if (btnRef.current === null) return;
         if (playing || inactive) return;
+        animation.click(btnRef.current);
         const anim = animation.breathe(btnRef.current); // infinite loop animation
         setPlaying(true);
         await play();

@@ -150,7 +150,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                         locale={getCountryVariant()}
                       >
                         <AiOutlineFilePdf className="w-5 h-5" />
-                        {t('dictionary_page.first_exercise')}
+                        {t('header.exercises_link_name')}
                       </TextLink>
                     </div>
                     <CategoryDictionary searchText={search} translations={category.translations} />
