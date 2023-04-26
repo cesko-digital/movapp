@@ -4,6 +4,7 @@ on: [pull_request]
 
 jobs:
   install_dependencies:
+    name: Install Dependencies
     runs-on: ubuntu-latest
     outputs:
       cache-hit: ${{ steps.cache.outputs.cache-hit }}
@@ -28,6 +29,7 @@ jobs:
         run: npm ci
       
   lint:
+    name: Run Lint
     needs: install_dependencies
     runs-on: ubuntu-latest
     steps:
@@ -49,7 +51,8 @@ jobs:
         run: npm run lint
 
   unit_test:
-    needs: lint
+    name: Run Unit Tests
+    needs: install_dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -70,6 +73,7 @@ jobs:
         run: npm run test
 
   cypress:
+    name: Run Cypress Tests
     needs: unit_test
     runs-on: ubuntu-latest
     steps:
@@ -91,7 +95,7 @@ jobs:
         run: npm run build
 
       - name: Start
-        run: npm run start & npx wait-on http://localhost:3000
+        run: npm run start & npx wait-on --timeout 30000 http://localhost:3000
 
       - name: Cypress run
         uses: cypress-io/github-action@v3

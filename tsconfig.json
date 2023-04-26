@@ -18,6 +18,6 @@
     "downlevelIteration": true,
     "types": ["jest", "node"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next-sitemap.config.js", "next-i18next.config.js"],
-  "exclude": ["node_modules", "cypress", "./cypress.config.ts"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next-sitemap.config.js", "next-i18next.config.js", "cypress.config.js"],
+  "exclude": ["node_modules", "cypress", "cypress.config.ts"]
 }

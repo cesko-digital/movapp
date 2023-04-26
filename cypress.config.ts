@@ -4,6 +4,7 @@ import { defineConfig } from 'cypress';
 const { combinedEnv } = loadEnvConfig(process.cwd());
 export default defineConfig({
   env: combinedEnv,
+  projectId: 'f2ps33',
   e2e: {
     baseUrl: 'http://localhost:3000',
     retries: {
