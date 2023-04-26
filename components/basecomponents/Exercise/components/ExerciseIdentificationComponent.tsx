@@ -6,6 +6,7 @@ import { ChoiceComponent } from './ChoiceComponent';
 import { ActionButton } from './ActionButton';
 import { ExerciseIdentification } from '../ExerciseIdentification';
 import SpeakerIcon from 'public/icons/speaker.svg';
+import SoundWaveIcon from 'public/icons/sound-wave.svg';
 
 /**
  * Exercise component is UI for exercise object
@@ -31,6 +32,7 @@ interface ExerciseIdentificationComponentProps {
 
 export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentificationComponentProps) => {
   const [buttonsInactive, setButtonsInactive] = useState(false);
+  const [pending, setPending] = useState(false);
   const exRef = useRef(null);
 
   // Animation on component mount and unmount
@@ -55,25 +57,33 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
         <span className="font-mono">Test data</span>
         <span className="font-mono">Level: {exercise.level}</span>
       </div>
-      <div className="px-1.5 pt-10 pb-12 mb-6 border border-slate-300 shadow-lg shadow-slate-100 flex flex-col items-center w-full">
-        <h5 className={`text-xl text-center p-0 ${showText ? '' : 'blur-sm'}`}>{exercise.getText()}</h5>
-
+      <div className="relative px-1.5 pt-6 pb-12 mb-6 border border-slate-300 shadow-lg shadow-slate-100 flex flex-col items-center w-full">
+        <p className="mb-5 text-sm opacity-60">
+          {exercise.mode === 'audio' ? 'Přehrajte zvuk a označte, co slyšíte:' : 'Vyberte jednu správnou odpověď:'}
+        </p>
+        <div className="flex w-full items-center justify-center">
+          <h5 className={`text-xl text-center p-0 ${showText ? 'visible' : 'invisible'}`}>{exercise.getText()}</h5>
+          <div className={`absolute w-40 inline ${!showText ? 'visible' : 'invisible'}`}>
+            <SoundWaveIcon className="inline h-auto" />
+          </div>
+        </div>
         <div
           className={`grid grid-cols-3 items-stretch justify-items-stretch  gap-x-3 mb-5 mt-5 ${
             showAudio ? 'opacity-100' : 'grayscale opacity-50'
           }`}
         >
-          <div className="flex items-center justify-center p-2 w-12">
-            <SpeakerIcon className="inline" />
+          <div className="flex items-center justify-center w-12 p-1.5">
+            <SpeakerIcon className="inline h-auto" />
           </div>
           <PlayButton play={exercise.playAudio} icon="play" shadow disabled={!showAudio} />
           <PlayButton play={exercise.playAudioSlow} icon="playSlow" shadow disabled={!showAudio} />
         </div>
-        <div className="grid grid-cols-1 items-stretch justify-items-stretch gap-y-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 items-stretch justify-items-stretch gap-3">
           {exercise.choices.map((choice) => (
             <ChoiceComponent
               key={choice.id}
               text={choice.getText()}
+              className="text-sm"
               correct={choice.correct}
               inactive={buttonsInactive}
               onClickStarted={() => {
@@ -96,10 +106,12 @@ export const ExerciseIdentificationComponent = ({ exercise }: ExerciseIdentifica
         </div>
       </div>
       <div className="flex justify-between w-full">
-        <ActionButton action="home" />
+        <ActionButton action="home" inactive={pending} onClick={() => setPending(true)} />
         <ActionButton
           action="nextExercise"
+          inactive={pending}
           className={exercise.status === ExerciseStatus.completed ? 'visible' : 'invisible'}
+          onClick={() => setPending(true)}
           onClickAsync={async () => {
             if (exRef.current === null) return;
             await animation.fade(exRef.current, 300, 500).finished;

@@ -3,7 +3,7 @@ import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
 
 interface PlayButtonProps extends React.ComponentProps<typeof Button> {
-  play: () => Promise<void>;
+  play: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => Promise<void>;
   inactive?: boolean;
 }
 
@@ -23,18 +23,17 @@ export const PlayButton = ({ play, inactive = false, ...rest }: PlayButtonProps)
     <Button
       buttonStyle="primary"
       ref={btnRef}
-      onClick={async () => {
+      onClick={async (e) => {
         if (btnRef.current === null) return;
         if (playing || inactive) return;
         animation.click(btnRef.current);
         const anim = animation.breathe(btnRef.current); // infinite loop animation
         setPlaying(true);
-        await play();
-        // if got unmounted meanwhile return
-        if (mounted.current === false) return;
-        setPlaying(false);
+        await play(e);
         anim.restart();
         anim.pause();
+        if (mounted.current === false) return;
+        setPlaying(false);
       }}
       {...rest}
     />

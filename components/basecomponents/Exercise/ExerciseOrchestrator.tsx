@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
 import { ExerciseType, useExerciseStore, ExerciseStoreStatus } from './exerciseStore';
 import { ExerciseIdentification } from './ExerciseIdentification';
@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../Button';
 import { ActionButton } from './components/ActionButton';
+import Spinner from '../Spinner/Spinner';
 
 const Feedback = dynamic(() => import('../../basecomponents/Feedback'), {
   ssr: false,
@@ -24,7 +25,7 @@ interface AppContainerProps {
 
 const AppContainer: React.FunctionComponent<AppContainerProps> = ({ children, headerContent }) => {
   return (
-    <div className="w-80 bg-white">
+    <div className="w-full sm:w-10/12 max-w-2xl bg-white">
       <div className="flex items-center justify-between mt-3 mb-5 pr-5">
         <BetaIcon />
         <div>{headerContent}</div>
@@ -33,6 +34,14 @@ const AppContainer: React.FunctionComponent<AppContainerProps> = ({ children, he
     </div>
   );
 };
+
+const Loading = () => (
+  <AppContainer>
+    <div className="flex items-center justify-center">
+      <Spinner />
+    </div>
+  </AppContainer>
+);
 
 interface ExerciseOrchestratorProps {
   categories: string[];
@@ -54,6 +63,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   //const setSize = useExerciseStore((state) => state.setSize);
   //const setLevel = useExerciseStore((state) => state.setLevel);
   const { t } = useTranslation();
+  const [pending, setPending] = useState(false);
 
   useEffect(() => {
     setLang(lang);
@@ -67,16 +77,16 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
     init();
   }, [init]);
 
-  if (status === ExerciseStoreStatus.uninitialized) return <p>waiting for init...</p>;
+  if (status === ExerciseStoreStatus.uninitialized) return <Loading />;
 
   if (status === ExerciseStoreStatus.initialized) {
-    if (selectedCategories === null) return <p>waiting for init...</p>;
+    if (selectedCategories === null) return <Loading />;
     return (
       // replace with start/setup screen component
       <AppContainer>
         <p className="text-justify mb-5">{t('utils.game_description')}</p>
         {/* To-do make all these buttons outlined/secondary */}
-        <div>
+        {/* <div>
           <ActionButton buttonStyle="primaryLight" className="mb-3" onClick={() => setCategories(getAllCategories().map((cat) => cat.id))}>
             {t('utils.select_all')}
           </ActionButton>
@@ -100,18 +110,19 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
           >
             {t('utils.pick_random')}
           </ActionButton>
-        </div>
-        <div className="flex flex-wrap mb-10 justify-stretch">
-          {getAllCategories().map(({ id, name }) => (
-            <Button
-              key={id}
-              buttonStyle={selectedCategories.includes(id) ? 'choiceCorrect' : 'choice'}
-              className="mr-1 mb-1"
-              onClick={() => setCategories(computeNewCategories(selectedCategories, id))}
-            >
-              {name}
-            </Button>
-          ))}
+        </div> */}
+        <div className="text-sm grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10 px-6 justify-stretch justify-items-stretch">
+          {getAllCategories()
+            .slice(0, 10)
+            .map(({ id, name }) => (
+              <Button
+                key={id}
+                buttonStyle={selectedCategories.includes(id) ? 'choiceCorrect' : 'choice'}
+                onClick={() => setCategories(computeNewCategories(selectedCategories, id))}
+              >
+                {name}
+              </Button>
+            ))}
         </div>
         <div className="flex flex-col items-center mb-12">
           <ActionButton action="start" />
@@ -121,7 +132,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   }
 
   if (status === ExerciseStoreStatus.active) {
-    if (exercise === null) return <p>waiting for exercise...</p>;
+    if (exercise === null) return <Loading />;
     switch (exercise.type as ExerciseType) {
       case ExerciseType.identification:
         return (
@@ -139,14 +150,14 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   if (status === ExerciseStoreStatus.completed)
     return (
       <AppContainer>
-        <div className="flex flex-col items-center px-1.5 pt-5 mb-6 bg-slate-50">
+        <div className="flex flex-col items-center px-1.5 sm:px-3 pt-5 mb-6 bg-slate-50">
           <h4 className="mb-8 font-bold p-0">{t('utils.congratulations')}</h4>
           <p className="text-justify">{t('utils.you_have_finished')}</p>
-          <div className="flex flex-col items-stretch py-10">
-            <ActionButton className="mb-5" onClick={restart}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-stretch justify-items-stretch py-10">
+            <ActionButton inactive={pending} onClick={() => setPending(true)} onClickAsync={restart}>
               {t('utils.next') || ''}
             </ActionButton>
-            <ActionButton action="home" />
+            <ActionButton inactive={pending} onClick={() => setPending(true)} action="home" />
           </div>
         </div>
         <Feedback />

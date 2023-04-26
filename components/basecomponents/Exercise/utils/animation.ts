@@ -1,7 +1,5 @@
 import anime from 'animejs';
 
-// TODO: move to /utils later
-
 export const animation = {
   click: (ref: HTMLElement) =>
     anime({

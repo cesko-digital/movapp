@@ -46,25 +46,7 @@ export const createFactoryOfExerciseIdentification =
   (sourcePhrases: Phrase[]): ExerciseIdentification => {
     const exerciseId = uniqId();
 
-    const pickPhrases = (phrases: Phrase[], level: number) =>
-      phrases
-        .filter(phraseFilters.wordLimitForLevel[level])
-        // remove duplicates
-        .filter((phrase, index, array) => array.findIndex(phraseFilters.equalPhrase(phrase)) === index)
-        // shuffle
-        .sort(() => Math.random() - 0.5)
-        // pick specified count
-        .slice(0, CONFIG[level].choiceLimit);
-
-    let pickedPhrases = pickPhrases(sourcePhrases, level);
-
-    if (pickedPhrases.length < CONFIG[level].choiceLimit) {
-      // add fallback phrases for same level
-      pickedPhrases = pickedPhrases
-        .concat(pickPhrases(getFallbackPhrases(), level))
-        .slice(0, CONFIG[level].choiceLimit)
-        .sort(() => Math.random() - 0.5);
-    }
+    const pickedPhrases = phraseFilters.greatPhraseFilter(level, sourcePhrases, getFallbackPhrases(), CONFIG[level]);
 
     /** input parameters */
     const getSoundUrl = () => pickedPhrases[0].getSoundUrl(getOtherLanguage());

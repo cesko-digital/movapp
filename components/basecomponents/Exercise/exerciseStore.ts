@@ -10,11 +10,12 @@ import {
   isExerciseTextIdentification,
 } from './ExerciseIdentification';
 import { Curry } from 'Function/_api';
+import { sortRandom, getRandomItem } from 'utils/collectionUtils';
 
 /* eslint-disable no-console */
 
 const CONFIG_BASE = Object.freeze({
-  sizeDefault: 5,
+  sizeDefault: 3,
   sizeMin: 3,
   sizeMax: 10,
   levelDefault: 0,
@@ -32,8 +33,8 @@ const CONFIG_LEVEL0 = Object.freeze({
 
 const CONFIG_LEVEL1 = Object.freeze({
   wordLimitMin: 2,
-  wordLimitMax: 2,
-  choiceLimit: 4,
+  wordLimitMax: 3,
+  choiceLimit: 5,
 });
 
 const CONFIG_LEVEL2 = Object.freeze({
@@ -133,6 +134,12 @@ export interface ExerciseStoreUtils {
     wordLimit: (min: number, max: number) => (phrase: Phrase) => boolean;
     wordLimitForLevel: ((phrase: Phrase) => boolean)[];
     equalPhrase: Curry<(phraseA: Phrase, phraseB: Phrase) => boolean>; //(phraseA: Phrase, phraseB: Phrase) => boolean;
+    greatPhraseFilter: (
+      level: Exercise['level'],
+      phrases: Phrase[],
+      fallbackPhrases: Phrase[],
+      config: { wordLimitMin: number; wordLimitMax: number; choiceLimit: number; levelMin: number }
+    ) => Phrase[];
   };
   resolveMethods: Record<string, (exercise: Exercise) => boolean>;
   resultMethods: Record<string, (exercise: Exercise) => ExerciseResult>;
@@ -225,6 +232,13 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       .flat()
       .map((phraseId) => new Phrase(dictionary.phrases[phraseId]));
 
+  // const getCategoryPhrases = (dictionary: DictionaryDataObject, categoryId: CategoryDataObject['id']) =>
+  //   dictionary.categories
+  //     .filter(({ id }) => categoryId === id)
+  //     .map(({ phrases }) => phrases)
+  //     .flat()
+  //     .map((phraseId) => new Phrase(dictionary.phrases[phraseId]));
+
   const getFallbackPhrases = () => {
     const dictionary = getDictionary();
     // categories fallback
@@ -243,15 +257,72 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   const getCurrentLanguage: ExerciseStoreUtils['getCurrentLanguage'] = () => get().lang.currentLanguage;
   const getOtherLanguage: ExerciseStoreUtils['getOtherLanguage'] = () => get().lang.otherLanguage;
 
+  // TODO: clean up unused filter methods in future
   const wordLimit = (min: number, max: number) => (phrase: Phrase) =>
     passWordLimit(min, max, phrase.getTranslation(getCurrentLanguage())) &&
     passWordLimit(min, max, phrase.getTranslation(getOtherLanguage()));
+
   const passWordLimit = (min: number, max: number, phrase: string) => R.allPass([R.lte(min), R.gte(max)])(phrase.split(' ').length);
+
+  // new better phrase filter :-)
+  const greatPhraseFilter: ExerciseStoreUtils['phraseFilters']['greatPhraseFilter'] = (level, phrases, fallbackPhrases, config) => {
+    // first it gets random number from range and then accept phrases that have this number of words (in current language)
+    const range = config.wordLimitMax - config.wordLimitMin;
+    // create Array of filters for all numbers in range
+    const filters: ((phrase: Phrase) => boolean)[] = Array(range + 1)
+      .fill(0)
+      .map((e, i) => i + config.wordLimitMin)
+      .map((e) => (phrase: Phrase) => phrase.getTranslation(getCurrentLanguage()).split(' ').length === e)
+      // shuffle filters
+      .sort(sortRandom);
+
+    const filterPhrases = (filters: ((phrase: Phrase) => boolean)[], phrases: Phrase[]) =>
+      filters
+        .map((filter) =>
+          phrases
+            .filter(filter)
+            .sort(sortRandom)
+            // remove duplicates
+            .filter((phrase, index, array) => array.findIndex(phraseFilters.equalPhrase(phrase)) === index)
+        )
+        .flat();
+
+    let filteredPhrases = filterPhrases(filters, phrases);
+
+    // if it fails then lower level
+    if (filteredPhrases.length < config.choiceLimit) {
+      // can't lower the level anymore
+      if (level === CONFIG_BASE.levelMin) {
+        // add fallback phrases
+        console.warn('using fallback Phrases');
+        const filteredFallbackPhrases = filterPhrases(filters, fallbackPhrases);
+        filteredPhrases = [...filteredPhrases, ...filteredFallbackPhrases];
+        if (filteredPhrases.length < config.choiceLimit) throw Error('Insuficient phrases to construct the Exercise');
+      } else {
+        // add phrases from lower level
+        filteredPhrases = [
+          ...filteredPhrases,
+          ...greatPhraseFilter(Math.max(config.levelMin, level - 1), phrases, fallbackPhrases, {
+            ...CONFIG[level - 1],
+            choiceLimit: config.choiceLimit,
+          }),
+        ];
+      }
+    }
+
+    // if it fails than tear your hair
+    if (filteredPhrases.length < config.choiceLimit) throw Error('Insuficient phrases to construct the Exercise');
+
+    console.log('filtered phrases:', filteredPhrases.length, 'using level:', level);
+
+    return filteredPhrases.slice(0, config.choiceLimit).sort(sortRandom);
+  };
 
   const phraseFilters: ExerciseStoreUtils['phraseFilters'] = {
     wordLimit,
     wordLimitForLevel: CONFIG.map((conf) => wordLimit(conf.wordLimitMin, conf.wordLimitMax)),
     equalPhrase: R.curry((a, b) => a.getTranslation().toLocaleLowerCase() === b.getTranslation().toLocaleLowerCase()),
+    greatPhraseFilter,
   };
 
   const resolveMethods: ExerciseStoreUtils['resolveMethods'] = {
@@ -314,7 +385,10 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       // categories fallback
       categories = [dictionary.categories[0].id];
     }
-    const phrases = getPhrases(dictionary, categories);
+    // considering to not mix up categories, so pick only one from the list
+    const phrases = getPhrases(dictionary, [getRandomItem(categories)]);
+    // mix categories together
+    //const phrases = getPhrases(dictionary, categories);
     // build exercise
 
     // TODO: implement logic to set exercise type and level

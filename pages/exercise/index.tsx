@@ -6,8 +6,6 @@ import { GetStaticProps } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import { ExerciseOrchestrator } from 'components/basecomponents/Exercise/ExerciseOrchestrator';
 
-// TODO: integrate to dictionary
-
 const ExerciseSection = () => {
   const { t } = useTranslation();
 
