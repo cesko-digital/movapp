@@ -13,6 +13,7 @@ describe('Test Movapp - Home page', () => {
     cy.contains('Slovníček').should('be.visible');
     cy.contains('Pro děti').should('be.visible');
     cy.contains('Wiki').should('be.visible');
+    cy.contains('Movapp je...');
     cy.contains('Ukrajinská abeceda').should('be.visible');
 
     // Lokalizacie
