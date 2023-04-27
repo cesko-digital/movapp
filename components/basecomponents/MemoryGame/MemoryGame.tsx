@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import Card from './MemoryGameCard';
 import { useLanguage } from 'utils/useLanguageHook';
 import loaderStyles from './MemoryGameThemeLoader.module.css';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { useGameStore } from './gameStore';
 
 const MemoryGame = () => {
