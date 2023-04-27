@@ -426,6 +426,9 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       // fetch dictionary
       const dictionary = await fetchRawDictionary();
       set({
+        history: [],
+        exercise: null,
+        counter: 0,
         status: ExerciseStoreStatus.initialized,
         dictionary,
       });

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
 
@@ -7,10 +7,12 @@ interface PlayButtonProps extends React.ComponentProps<typeof Button> {
   inactive?: boolean;
 }
 
-export const PlayButton = ({ play, inactive = false, ...rest }: PlayButtonProps) => {
+export const PlayButton = forwardRef(({ play, inactive = false, ...rest }: PlayButtonProps, ref) => {
   const [playing, setPlaying] = useState(false);
   const btnRef = useRef(null);
   const mounted = useRef(false);
+
+  useImperativeHandle(ref, () => btnRef.current);
 
   useEffect(() => {
     mounted.current = true;
@@ -38,4 +40,4 @@ export const PlayButton = ({ play, inactive = false, ...rest }: PlayButtonProps)
       {...rest}
     />
   );
-};
+});

@@ -3,6 +3,7 @@ import { useRef, forwardRef, useImperativeHandle, useState, useEffect } from 're
 import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
 import { useTranslation } from 'react-i18next';
+import { usePendingStore } from '../ExerciseOrchestrator';
 
 interface ActionButtonProps extends React.ComponentProps<typeof Button> {
   inactive?: boolean;
@@ -19,7 +20,7 @@ export const ActionButton = forwardRef(
     const nextExercise = useExerciseStore((state) => state.nextExercise);
     const [pending, setPending] = useState(false);
     const mounted = useRef(false);
-
+    const globalPending = usePendingStore((state) => state.pending);
     const actions = { nextExercise, home, start };
     const labels = { nextExercise: t('utils.next'), home: t('utils.home'), start: t('utils.play_the_game') };
 
@@ -37,8 +38,9 @@ export const ActionButton = forwardRef(
         ref={btnRef}
         buttonStyle="primary"
         onClick={async (e) => {
-          if (pending || inactive) return;
+          if (pending || inactive || globalPending) return;
           if (btnRef.current === null) return;
+          //TODO: better naming for click methods
           if (onClick !== undefined) onClick(e);
           setPending(true);
           await animation.click(btnRef.current).finished;

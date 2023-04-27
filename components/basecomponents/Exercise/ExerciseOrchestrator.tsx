@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
-import { ExerciseType, useExerciseStore, ExerciseStoreStatus } from './exerciseStore';
+import { ExerciseType, useExerciseStore, ExerciseStoreStatus, ExerciseStatus } from './exerciseStore';
 import { ExerciseIdentification } from './ExerciseIdentification';
 import { CategoryDataObject } from 'utils/getDataUtils';
 import { ExerciseIdentificationComponent } from './components/ExerciseIdentificationComponent';
@@ -10,6 +10,18 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '../Button';
 import { ActionButton } from './components/ActionButton';
 import Spinner from '../Spinner/Spinner';
+import { create } from 'zustand';
+import { animation } from './utils/animation';
+
+interface PendingStore {
+  pending: boolean;
+  setPending: (val: boolean) => void;
+}
+
+export const usePendingStore = create<PendingStore>((set) => ({
+  pending: false,
+  setPending: (val) => set({ pending: val }),
+}));
 
 const Feedback = dynamic(() => import('../../basecomponents/Feedback'), {
   ssr: false,
@@ -62,8 +74,9 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   const size = useExerciseStore((state) => state.size);
   //const setSize = useExerciseStore((state) => state.setSize);
   //const setLevel = useExerciseStore((state) => state.setLevel);
+  const setPending = usePendingStore((state) => state.setPending);
   const { t } = useTranslation();
-  const [pending, setPending] = useState(false);
+  const exerciseRef = useRef(null);
 
   useEffect(() => {
     setLang(lang);
@@ -76,6 +89,11 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   useEffect(() => {
     init();
   }, [init]);
+
+  // clear pending
+  useEffect(() => {
+    setPending(false);
+  }, [setPending, status]);
 
   if (status === ExerciseStoreStatus.uninitialized) return <Loading />;
 
@@ -137,8 +155,21 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
       case ExerciseType.identification:
         return (
           <AppContainer headerContent={`${counter}/${size}`}>
-            <ExerciseIdentificationComponent key={exercise.id} exercise={exercise as ExerciseIdentification} />
+            <ExerciseIdentificationComponent ref={exerciseRef} key={exercise.id} exercise={exercise as ExerciseIdentification} />
             {/* Todo: style this appropriately, but you always need a back button here */}
+            <div className="flex justify-between w-full">
+              <ActionButton buttonStyle="primaryLight" action="home" onClick={() => setPending(true)} />
+              <ActionButton
+                action="nextExercise"
+                // className={exercise.status === ExerciseStatus.completed ? 'visible' : 'grayscale'}
+                disabled={!(exercise.status === ExerciseStatus.completed)}
+                onClick={() => setPending(true)}
+                onClickAsync={async () => {
+                  if (exerciseRef.current === null) return;
+                  await animation.fade(exerciseRef.current, 300).finished;
+                }}
+              />
+            </div>
           </AppContainer>
         );
       // TODO: add other types of exercises
@@ -154,10 +185,10 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
           <h4 className="mb-8 font-bold p-0">{t('utils.congratulations')}</h4>
           <p className="text-justify">{t('utils.you_have_finished')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-stretch justify-items-stretch py-10">
-            <ActionButton inactive={pending} onClick={() => setPending(true)} onClickAsync={restart}>
+            <ActionButton onClick={() => setPending(true)} onClickAsync={restart}>
               {t('utils.next') || ''}
             </ActionButton>
-            <ActionButton inactive={pending} onClick={() => setPending(true)} action="home" />
+            <ActionButton onClick={() => setPending(true)} action="home" />
           </div>
         </div>
         <Feedback />
