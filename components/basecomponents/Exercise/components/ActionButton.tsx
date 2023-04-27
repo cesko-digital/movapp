@@ -21,6 +21,7 @@ export const ActionButton = forwardRef(
     const [pending, setPending] = useState(false);
     const mounted = useRef(false);
     const globalPending = usePendingStore((state) => state.pending);
+    const setGlobalPending = usePendingStore((state) => state.setPending);
     const actions = { nextExercise, home, start };
     const labels = { nextExercise: t('utils.next'), home: t('utils.home'), start: t('utils.play_the_game') };
 
@@ -33,6 +34,12 @@ export const ActionButton = forwardRef(
       };
     }, [mounted]);
 
+    useEffect(() => {
+      return () => {
+        setGlobalPending(false);
+      };
+    }, [setGlobalPending]);
+
     return (
       <Button
         ref={btnRef}
@@ -40,15 +47,17 @@ export const ActionButton = forwardRef(
         onClick={async (e) => {
           if (pending || inactive || globalPending) return;
           if (btnRef.current === null) return;
+          setGlobalPending(true);
+          setPending(true);
           //TODO: better naming for click methods
           if (onClick !== undefined) onClick(e);
-          setPending(true);
           await animation.click(btnRef.current).finished;
           if (onClickAsync !== undefined) await onClickAsync(e);
           if (action !== undefined) actions[action]();
           // prevent changing unmounted component
           if (mounted.current === false) return;
           setPending(false);
+          setGlobalPending(false);
         }}
         {...rest}
       >

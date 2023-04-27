@@ -7,7 +7,7 @@ import { ExerciseIdentification } from '../ExerciseIdentification';
 import SpeakerIcon from 'public/icons/speaker.svg';
 import SoundWaveIcon from 'public/icons/sound-wave.svg';
 import OpenBookIcon from 'public/icons/open-book.svg';
-import { usePendingStore } from '../ExerciseOrchestrator';
+// import { usePendingStore } from '../ExerciseOrchestrator';
 
 /**
  * Exercise component is UI for exercise object
@@ -33,7 +33,7 @@ interface ExerciseIdentificationComponentProps {
 
 export const ExerciseIdentificationComponent = forwardRef(({ exercise }: ExerciseIdentificationComponentProps, ref) => {
   const [buttonsInactive, setButtonsInactive] = useState(false);
-  const setPending = usePendingStore((state) => state.setPending);
+  // const setPending = usePendingStore((state) => state.setPending);
   const exRef = useRef(null);
   const mainTextRef = useRef(null);
   const soundwaveRef = useRef(null);
@@ -43,6 +43,7 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
   const bookRef = useRef(null);
   const status = exercise.status;
   const mode = exercise.mode;
+  const playAudio = exercise.playAudio;
 
   useImperativeHandle(ref, () => exRef.current);
 
@@ -50,19 +51,16 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
   useEffect(() => {
     const ref = exRef.current;
     if (ref !== null) animation.show(ref);
-    if (exercise.mode === 'audio') exercise.playAudio();
+    if (mode === 'audio') playAudio();
     return () => {
       if (ref !== null) animation.fade(ref);
     };
-    /* adding exercise to deps causes to run useEffect on every change of exercise,
-     one workaround would be import exercise from store directly and remove it from props */
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [mode, playAudio]);
 
   // clear pending
-  useEffect(() => {
-    if (status === ExerciseStatus.active) setPending(false);
-  }, [setPending, status]);
+  // useEffect(() => {
+  //   if (status === ExerciseStatus.active) setPending(false);
+  // }, [setPending, status]);
 
   // animate elements on Exercise.complete
   useEffect(() => {
@@ -91,6 +89,8 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
           animation.show(playSlowRef.current, 300, 400));
     }
   }, [status, mode]);
+
+  const audioButtonsEnabled = (mode === 'text' && status === ExerciseStatus.completed) || mode === 'audio';
 
   return (
     <div ref={exRef} className="flex flex-col items-center opacity-0 relative">
@@ -127,7 +127,7 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
               play={exercise.playAudio}
               icon="play"
               shadow
-              className={`absolute w-full h-full ${mode === 'text' ? 'opacity-0' : ''}`}
+              className={`absolute w-full h-full ${mode === 'text' ? 'opacity-0' : ''} ${audioButtonsEnabled ? 'visible' : 'invisible'}`}
             />
           </div>
           <div className={`w-12 h-12 relative`}>
@@ -136,7 +136,7 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
               play={exercise.playAudioSlow}
               icon="playSlow"
               shadow
-              className={`w-full h-full ${mode === 'text' ? 'opacity-0' : ''}`}
+              className={`w-full h-full ${mode === 'text' ? 'opacity-0' : ''} ${audioButtonsEnabled ? 'visible' : 'invisible'}`}
             />
           </div>
         </div>

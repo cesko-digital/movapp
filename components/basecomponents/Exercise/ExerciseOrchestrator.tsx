@@ -75,9 +75,11 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   const size = useExerciseStore((state) => state.size);
   //const setSize = useExerciseStore((state) => state.setSize);
   //const setLevel = useExerciseStore((state) => state.setLevel);
-  const setPending = usePendingStore((state) => state.setPending);
+  // const setPending = usePendingStore((state) => state.setPending);
   const { t } = useTranslation();
   const exerciseRef = useRef(null);
+  const nextButtonRef = useRef(null);
+  const exerciseStatus = exercise?.status;
 
   useEffect(() => {
     setLang(lang);
@@ -94,10 +96,18 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
     };
   }, [init, cleanUp]);
 
-  // clear pending
+  // animate elements on Exercise.complete
   useEffect(() => {
-    setPending(false);
-  }, [setPending, status]);
+    if (exerciseStatus === ExerciseStatus.completed) {
+      if (nextButtonRef.current === null) return;
+      animation.grow(nextButtonRef.current);
+    }
+  }, [exerciseStatus]);
+
+  // clear pending
+  // useEffect(() => {
+  //   setPending(false);
+  // }, [setPending, status]);
 
   if (status === ExerciseStoreStatus.uninitialized) return <Loading />;
 
@@ -162,14 +172,16 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
             <ExerciseIdentificationComponent ref={exerciseRef} key={exercise.id} exercise={exercise as ExerciseIdentification} />
             {/* Todo: style this appropriately, but you always need a back button here */}
             <div className="flex justify-between w-full">
-              <ActionButton buttonStyle="primaryLight" action="home" onClick={() => setPending(true)} />
+              <ActionButton buttonStyle="primaryLight" action="home" />
               <ActionButton
+                key={exercise.id}
+                ref={nextButtonRef}
                 action="nextExercise"
-                // className={exercise.status === ExerciseStatus.completed ? 'visible' : 'grayscale'}
-                disabled={!(exercise.status === ExerciseStatus.completed)}
-                onClick={() => setPending(true)}
+                className={exercise.status === ExerciseStatus.completed ? 'visible' : 'invisible'}
+                // disabled={!(exercise.status === ExerciseStatus.completed)}
                 onClickAsync={async () => {
-                  if (exerciseRef.current === null) return;
+                  if (exerciseRef.current === null || nextButtonRef.current === null) return;
+                  animation.diminish(nextButtonRef.current, 300);
                   await animation.fade(exerciseRef.current, 300).finished;
                 }}
               />
@@ -189,10 +201,8 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
           <h4 className="mb-8 font-bold p-0">{t('utils.congratulations')}</h4>
           <p className="text-justify">{t('utils.you_have_finished')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-stretch justify-items-stretch py-10">
-            <ActionButton onClick={() => setPending(true)} onClickAsync={restart}>
-              {t('utils.next') || ''}
-            </ActionButton>
-            <ActionButton onClick={() => setPending(true)} action="home" />
+            <ActionButton onClickAsync={restart}>{t('utils.next') || ''}</ActionButton>
+            <ActionButton action="home" />
           </div>
         </div>
         <Feedback />

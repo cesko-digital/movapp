@@ -48,4 +48,20 @@ export const animation = {
       opacity: 1,
       easing: 'easeInOutSine',
     }),
+  diminish: (ref: HTMLElement, duration = 600, delay = 0) =>
+    anime({
+      targets: ref,
+      duration,
+      delay,
+      scale: 0,
+      easing: 'easeInOutSine',
+    }),
+  grow: (ref: HTMLElement, duration = 600, delay = 0) =>
+    anime({
+      targets: ref,
+      duration,
+      delay,
+      scale: [0, 1],
+      easing: 'easeInOutSine',
+    }),
 };
