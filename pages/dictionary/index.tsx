@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
-import Marker from 'react-mark.js/Marker';
+import { Marker } from 'react-mark.js';
 import { useLanguage } from 'utils/useLanguageHook';
 import { normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';

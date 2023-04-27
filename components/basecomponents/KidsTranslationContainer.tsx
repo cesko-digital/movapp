@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { KidsTranslation } from './KidsTranslation';
 import { useLanguage } from 'utils/useLanguageHook';
 import { AudioPlayer } from 'utils/AudioPlayer';
