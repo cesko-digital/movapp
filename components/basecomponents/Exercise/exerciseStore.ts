@@ -108,6 +108,7 @@ export interface ExerciseStoreState {
 
 export interface ExerciseStoreActions {
   init: () => void;
+  cleanUp: () => void;
   start: () => void;
   restart: () => void;
   home: () => void;
@@ -431,6 +432,14 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         counter: 0,
         status: ExerciseStoreStatus.initialized,
         dictionary,
+      });
+    },
+    cleanUp: () => {
+      set({
+        history: [],
+        exercise: null,
+        counter: 0,
+        status: ExerciseStoreStatus.initialized,
       });
     },
     start: () => {

@@ -63,6 +63,7 @@ interface ExerciseOrchestratorProps {
 export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) => {
   const lang = useLanguage();
   const init = useExerciseStore((state) => state.init);
+  const cleanUp = useExerciseStore((state) => state.cleanUp);
   const setLang = useExerciseStore((state) => state.setLang);
   const setCategories = useExerciseStore((state) => state.setCategories);
   const getAllCategories = useExerciseStore((state) => state.getAllCategories);
@@ -88,7 +89,10 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
 
   useEffect(() => {
     init();
-  }, [init]);
+    return () => {
+      cleanUp();
+    };
+  }, [init, cleanUp]);
 
   // clear pending
   useEffect(() => {
