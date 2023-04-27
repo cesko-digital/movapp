@@ -84,8 +84,7 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
         return;
       mode === 'audio'
         ? (animation.fade(soundwaveRef.current, 300), animation.show(mainTextRef.current, 300, 300))
-        : (animation.fade(mainTextRef.current, 300),
-          animation.show(soundwaveRef.current, 300, 300),
+        : (animation.fade(soundwaveRef.current, 300),
           animation.fade(bookRef.current, 300),
           animation.show(speakerRef.current, 300, 300),
           animation.show(playRef.current, 300, 350),
