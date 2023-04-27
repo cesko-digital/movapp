@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import React from 'react';
 import SEO from 'components/basecomponents/SEO';
 import stories from '../../../data/stories';
@@ -55,10 +55,12 @@ const StoriesSection = ({ stories }: StoriesSectionProps) => {
           </div>
         </div>
 
-        <Link href={`/kids/stories/${story.slug}`}>
-          <a className="w-2/5 bg-primary-blue rounded-2xl text-white text-[10px] sm:text-[12px] lg:text-base p-2 w-3/5 text-center mr-4">
-            {t('kids_page.playStory')}
-          </a>
+        <Link
+          href={`/kids/stories/${story.slug}`}
+          className="w-2/5 bg-primary-blue rounded-2xl text-white text-[10px] sm:text-[12px] lg:text-base p-2 w-3/5 text-center mr-4">
+
+          {t('kids_page.playStory')}
+
         </Link>
       </div>
     </div>
