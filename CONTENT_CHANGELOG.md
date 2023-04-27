@@ -10,3 +10,5 @@
 2023-03-13	Slovak alphabet update - new words for É
 2023-03-19	Add Slovak for Work category
 2023-03-26	Fix sound for kôň
+2023-04-21	Fix sk sound for puzzle
+

@@ -41,8 +41,8 @@ const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
       {getCountryVariant() === 'cs' ? (
         <>
           <p className="px-6 py-4 flex items-center overflow-hidden  md:w-4/5 m-auto">
-            <Link href={`/`}>
-              <a className="mr-2 hover:text-primary-blue">{t('kids_page.homepage')}</a>
+            <Link href={`/`} className="mr-2 hover:text-primary-blue">
+              {t('kids_page.homepage')}
             </Link>{' '}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -54,8 +54,8 @@ const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
             </svg>{' '}
-            <Link href={`/kids/stories`}>
-              <a className="ml-2 hover:text-primary-blue">{t('kids_page.stories')}</a>
+            <Link href={`/kids/stories`} className="ml-2 hover:text-primary-blue">
+              {t('kids_page.stories')}
             </Link>
           </p>
           <div className="px-6 py-4 flex rounded-2xl overflow-hidden shadow-xl bg-white md:w-4/5 m-auto">

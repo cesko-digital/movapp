@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 type Props = {
   className?: string;
@@ -8,7 +8,7 @@ export const SocialMedia = ({ className }: Props): JSX.Element => (
   <>
     {socialMedia.map(({ name, link, img }) => (
       <a key={name} href={link} target="_blank" rel="noreferrer" className={`ml-2 first:ml-0 ${className}`}>
-        <Image src={img} width="34px" height="34px" alt={name} />
+        <Image src={img} width={34} height={34} alt={name} />
       </a>
     ))}
   </>
