@@ -1,6 +1,7 @@
 import oDvanactiMesickach from '../../../data/translations/cs/pohadka_mesicky.json';
 import oPernikoveChaloupce from '../../../data/translations/cs/pohadka_pernikovachaloupka.json';
 import oCerveneKarkulce from '../../../data/translations/cs/pohadka_karkulka.json';
+import oVelikeRepe from '../../../data/translations/cs/pohadka_velikarepa.json';
 import oKoblizkovi from '../../../data/translations/cs/pohadka_koblizek.json';
 import oIvasikovi from '../../../data/translations/cs/pohadka_ivasik.json';
 import oHusach from '../../../data/translations/cs/pohadka_husy.json';
@@ -21,6 +22,7 @@ export const STORIES: Record<string, StoryPhrase[]> = {
   'pernikova-chaloupka': oPernikoveChaloupce,
   'dvanact-mesicku': oDvanactiMesickach,
   'cervena-karkulka': oCerveneKarkulce,
+  'velika-repa': oVelikeRepe,
   kolobok: oKoblizkovi,
   'husy-lebedi': oHusach,
   'ivasik-telesik': oIvasikovi,
