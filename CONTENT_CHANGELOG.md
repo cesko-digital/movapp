@@ -11,3 +11,4 @@
 2023-03-19	Add Slovak for Work category
 2023-03-26	Fix sound for kôň
 2023-04-21	Fix sk sound for puzzle
+2023-04-27  Unification of capital letters and points.
