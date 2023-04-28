@@ -7,6 +7,7 @@ import { ExerciseOrchestrator } from 'components/basecomponents/Exercise/Exercis
 import SEO from 'components/basecomponents/SEO';
 import { useTranslation } from 'next-i18next';
 import { getServerSideTranslations } from 'utils/localization';
+import { useRouter } from 'next/router';
 
 interface UrlParams extends ParsedUrlQuery {
   categoryId: string;
@@ -14,6 +15,8 @@ interface UrlParams extends ParsedUrlQuery {
 
 const ExerciseComponent = ({ categoryId }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   const { t } = useTranslation();
+  const router = useRouter();
+  const { quickStart } = router.query;
 
   return (
     <div className="bg-primary-grey -mb-8 -m-2">
@@ -23,7 +26,7 @@ const ExerciseComponent = ({ categoryId }: InferGetStaticPropsType<typeof getSta
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap justify-center min-h-screen m-auto">
-        <ExerciseOrchestrator categories={[categoryId]} />
+        <ExerciseOrchestrator categories={[categoryId]} quickStart={quickStart === 'true'} />
       </div>
     </div>
   );

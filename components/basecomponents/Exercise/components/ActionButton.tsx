@@ -9,10 +9,14 @@ interface ActionButtonProps extends React.ComponentProps<typeof Button> {
   inactive?: boolean;
   action?: 'nextExercise' | 'home' | 'start';
   onClickAsync?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => Promise<void> | void;
+  onClickFinished?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => Promise<void> | void;
 }
 
 export const ActionButton = forwardRef(
-  ({ children, inactive = false, onClick, onClickAsync, action, ...rest }: ActionButtonProps, ref: React.Ref<HTMLButtonElement | null>) => {
+  (
+    { children, inactive = false, onClick, onClickAsync, onClickFinished, action, ...rest }: ActionButtonProps,
+    ref: React.Ref<HTMLButtonElement | null>
+  ) => {
     const btnRef = useRef(null);
     const { t } = useTranslation();
     const home = useExerciseStore((state) => state.home);
@@ -58,6 +62,7 @@ export const ActionButton = forwardRef(
           if (mounted.current === false) return;
           setPending(false);
           setGlobalPending(false);
+          if (onClickFinished !== undefined) onClickFinished(e);
         }}
         {...rest}
       >

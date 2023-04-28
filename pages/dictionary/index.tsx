@@ -144,7 +144,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                         {t('dictionary_page.download_pdf')}
                       </TextLink>
                       <TextLink
-                        href={`/exercise/${category.id}`}
+                        href={`/exercise/${category.id}?quickStart=true`}
                         target="_blank"
                         className="ml-3 inline-flex gap-x-1 items-center"
                         locale={getCountryVariant()}

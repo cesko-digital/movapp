@@ -57,10 +57,11 @@ const Loading = () => (
 
 interface ExerciseOrchestratorProps {
   categories: string[];
+  quickStart?: boolean;
 }
 
 // warning: language switching triggers change for all props
-export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) => {
+export const ExerciseOrchestrator = ({ categories, quickStart = false }: ExerciseOrchestratorProps) => {
   const lang = useLanguage();
   const init = useExerciseStore((state) => state.init);
   const cleanUp = useExerciseStore((state) => state.cleanUp);
@@ -71,15 +72,22 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
   const status = useExerciseStore((state) => state.status);
   const exercise = useExerciseStore((state) => state.exercise);
   const restart = useExerciseStore((state) => state.restart);
+  const start = useExerciseStore((state) => state.start);
   const counter = useExerciseStore((state) => state.counter);
   const size = useExerciseStore((state) => state.size);
-  //const setSize = useExerciseStore((state) => state.setSize);
-  //const setLevel = useExerciseStore((state) => state.setLevel);
-  // const setPending = usePendingStore((state) => state.setPending);
   const { t } = useTranslation();
   const exerciseRef = useRef(null);
   const nextButtonRef = useRef(null);
   const exerciseStatus = exercise?.status;
+  const quickStartRunOnce = useRef(false);
+
+  useEffect(() => {
+    if (status === ExerciseStoreStatus.initialized && quickStartRunOnce.current === false && quickStart === true) {
+      // probably audio on IOS won't work
+      quickStartRunOnce.current = true;
+      start();
+    }
+  }, [quickStart, status, start]);
 
   useEffect(() => {
     setLang(lang);
@@ -89,6 +97,7 @@ export const ExerciseOrchestrator = ({ categories }: ExerciseOrchestratorProps) 
     setCategories(categories);
   }, [setCategories, categories]);
 
+  // Do not put any props in deps here
   useEffect(() => {
     init();
     return () => {

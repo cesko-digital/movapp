@@ -205,7 +205,9 @@
     "next": "Pokračovať",
     "congratulations": "Gratulujeme!",
     "you_have_finished": "Cvičenie ste úspešne zvládli. Teraz môžete pokračovať v precvičovaní alebo sa vrátiť späť na hlavnú stránku.",
-    "home": "Domov"
+    "home": "Domov",
+    "exercise_audio_idenfification_hint":"Prehrajte zvuk a označte, čo počujete",
+    "exercise_text_idenfification_hint":"Vyberte jednu správnu odpoveď"
   },
   "apps": {
     "download_app": "Stiahnúť Movapp mobilnú aplikáciu",

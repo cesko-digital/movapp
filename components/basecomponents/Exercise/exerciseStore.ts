@@ -424,9 +424,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     exercise: null,
     counter: 0,
     init: async () => {
-      // fetch dictionary
       const dictionary = await fetchRawDictionary();
-      console.log('init', dictionary);
       set({
         history: [],
         exercise: null,
@@ -436,7 +434,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       });
     },
     cleanUp: () => {
-      console.log('cleanup');
       set({
         status: ExerciseStoreStatus.uninitialized,
       });

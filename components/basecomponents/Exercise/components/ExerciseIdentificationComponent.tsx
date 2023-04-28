@@ -7,6 +7,7 @@ import { ExerciseIdentification } from '../ExerciseIdentification';
 import SpeakerIcon from 'public/icons/speaker.svg';
 import SoundWaveIcon from 'public/icons/sound-wave.svg';
 import OpenBookIcon from 'public/icons/open-book.svg';
+import { useTranslation } from 'react-i18next';
 // import { usePendingStore } from '../ExerciseOrchestrator';
 
 /**
@@ -44,6 +45,7 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
   const status = exercise.status;
   const mode = exercise.mode;
   const playAudio = exercise.playAudio;
+  const { t } = useTranslation();
 
   useImperativeHandle(ref, () => exRef.current);
 
@@ -101,7 +103,7 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
       </div>
       <div className="relative px-1.5 pt-6 pb-12 mb-6 border border-slate-300 shadow-lg shadow-slate-100 flex flex-col items-center w-full">
         <p className="mb-5 text-sm opacity-60">
-          {exercise.mode === 'audio' ? 'Přehrajte zvuk a označte, co slyšíte:' : 'Vyberte jednu správnou odpověď:'}
+          {exercise.mode === 'audio' ? t('utils.exercise_audio_idenfification_hint') : t('utils.exercise_text_idenfification_hint')}
         </p>
         <div className="flex w-full items-center justify-center">
           <h5 ref={mainTextRef} className={`text-xl text-center p-0 ${mode === 'audio' ? 'opacity-0' : ''}`}>

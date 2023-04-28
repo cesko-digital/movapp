@@ -202,7 +202,9 @@
     "next": "Kontynuuj",
     "congratulations": "Gratulacje!",
     "you_have_finished": "Ćwiczenie zostało ukończone pomyślnie. Teraz możesz ćwiczyć dalej, albo wrócić z powrotem na stronę główną.",
-    "home": "Z powrotem"
+    "home": "Z powrotem",
+    "exercise_audio_idenfification_hint":"Posłuchaj nagrania i zaznacz to, co słyszysz",
+    "exercise_text_idenfification_hint":"Wybierz jedną prawidłową odpowiedź"
   },
   "christmas_banner": {
     "christmas_dictionary_title": "Słowniczek bożonarodzeniowy",
