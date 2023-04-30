@@ -11,11 +11,14 @@ const SITE_URLS = {
   pl: 'https://pl.movapp.eu',
 };
 
+/** @type {Array<string>} */
+const PDF_LINKS = ['*/dictionary/pdf/*', '*/kids/stories/pdf/*', '*/alphabet/pdf/*'];
+
 /** @type {Object<string,Array<string>>}} */
 const EXCLUSIONS = {
-  cs: ['*/dictionary/pdf/*'],
-  sk: ['/wiki*', '/uk/wiki*', '*/dictionary/pdf/*'],
-  pl: ['/wiki*', '/uk/wiki*', '*/dictionary/pdf/*'],
+  cs: [...PDF_LINKS],
+  sk: ['/wiki*', '/uk/wiki*', ...PDF_LINKS],
+  pl: ['/wiki*', '/uk/wiki*', ...PDF_LINKS],
 };
 
 module.exports = {
