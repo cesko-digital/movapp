@@ -13,15 +13,15 @@ const SITE_URLS = {
 
 /** @type {Object<string,Array<string>>}} */
 const EXCLUSIONS = {
-  cs: [],
-  sk: ['/wiki*', '/uk/wiki*'],
-  pl: ['/wiki*', '/uk/wiki*'],
+  cs: ['*/dictionary/pdf/*'],
+  sk: ['/wiki*', '/uk/wiki*', '*/dictionary/pdf/*'],
+  pl: ['/wiki*', '/uk/wiki*', '*/dictionary/pdf/*'],
 };
 
 module.exports = {
   siteUrl: SITE_URLS[countryVariant],
   generateRobotsTxt: true,
-  exclude: ['/404', '/uk/404', ...EXCLUSIONS[countryVariant]],
+  exclude: ['/404', '/uk/404', '', ...EXCLUSIONS[countryVariant]],
   priority: null,
   changefreq: null,
   generateIndexSitemap: false,
