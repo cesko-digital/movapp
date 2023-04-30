@@ -13,7 +13,7 @@ import { UrlSet, UrlRecord } from '../lib/@types';
  */
 export const appendUrlToSitemap = async (filePath: string, newUrl: string): Promise<void> => {
   try {
-    const xmlData = fs.readFileSync(filePath, 'utf-8');
+    const xmlData = await fs.promises.readFile(filePath, 'utf-8');
     const parser: Parser = new xml2js.Parser();
     const builder: Builder = new xml2js.Builder();
 
@@ -28,7 +28,7 @@ export const appendUrlToSitemap = async (filePath: string, newUrl: string): Prom
     urlSet.url.push(newUrlRecord);
     const updatedXml = builder.buildObject(parsedData);
 
-    fs.writeFileSync(filePath, updatedXml, 'utf-8');
+    await fs.promises.writeFile(filePath, updatedXml, 'utf-8');
 
     console.log('URL appended successfully:', newUrl);
   } catch (error) {
