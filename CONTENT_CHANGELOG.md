@@ -12,3 +12,4 @@
 2023-03-26	Fix sound for kôň
 2023-04-21	Fix sk sound for puzzle
 2023-04-27  Unification of capital letters and points.
+2023-05-01	Fix sk dkg
