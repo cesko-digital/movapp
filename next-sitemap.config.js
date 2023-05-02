@@ -40,7 +40,7 @@ module.exports = {
 
     // get list of files from folder public/pdf
     const pdfPath = path.join(process.cwd(), 'public', 'pdf');
-    const pdfFiles = fs.promises.readdir(pdfPath);
+    const pdfFiles = await fs.promises.readdir(pdfPath);
 
     // add pdf files to sitemap
     pdfFiles.forEach(async (file) => {
