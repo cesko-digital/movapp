@@ -124,7 +124,15 @@ const generateDictionaryPDFs = async (country: CountryVariant) => {
 };
 
 const generateTalesPDFs = async (country: CountryVariant) => {
-  const stories: string[] = ['pernikova-chaloupka', 'dvanact-mesicku', 'cervena-karkulka', 'velika-repa', 'kolobok', 'husy-lebedi', 'ivasik-telesik'];
+  const stories: string[] = [
+    'pernikova-chaloupka',
+    'dvanact-mesicku',
+    'cervena-karkulka',
+    'velika-repa',
+    'kolobok',
+    'husy-lebedi',
+    'ivasik-telesik',
+  ];
 
   for (const storyId of stories) {
     exportPdf(`${country}/kids/stories/pdf/${storyId}`, `${storyId}-${country}.pdf`, country);
