@@ -3,11 +3,8 @@ import { CountryVariant } from './locales';
 import { fetchDictionary } from './getDataUtils';
 import { Language, getCountryVariant } from '../utils/locales';
 import fs from 'fs';
-import { default as fs_path } from 'path';
 import puppeteer from 'puppeteer';
 
-import { appendUrlToSitemap } from './sitemapUtils';
-import { SITE_URLS, SITEMAP_XML_PATH } from '../lib/constants';
 /** This script is meant to run after build (as specified in package.json.scripts.postbuild) to generate PDFs from specific pages.
  * This approach was adopted from https://harrisonpim.com/blog/creating-a-downloadable-pdf-copy-of-a-page-using-next-js-and-puppeteer
  * Thanks a lot, Harrison!
@@ -19,7 +16,7 @@ import { SITE_URLS, SITEMAP_XML_PATH } from '../lib/constants';
  * const COUNTRY: CountryVariant = "sk"
  * To-do: Figure out how to properly load env variables here, `dotenv` does not seem to work.
  */
-const COUNTRY = getCountryVariant();
+const COUNTRY = 'cs'; //getCountryVariant();
 
 const WEB_LINK: Record<CountryVariant, string> = {
   cs: '<a style="color: blue;" href="https://movapp.cz">www.movapp.cz</a>',
@@ -111,13 +108,6 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
   });
   await browser.close();
   console.log('PDF generated', filename);
-
-  try {
-    const pathToPDF = fs_path.join(SITE_URLS[COUNTRY], 'pdf', encodeURIComponent(filename));
-    appendUrlToSitemap(SITEMAP_XML_PATH, pathToPDF);
-  } catch (e) {
-    console.error('Append to XML sitemap failed: ', e);
-  }
 };
 
 const generateAlphabetPDFs = async (country: CountryVariant) => {
