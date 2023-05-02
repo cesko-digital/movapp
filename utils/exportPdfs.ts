@@ -16,7 +16,7 @@ import puppeteer from 'puppeteer';
  * const COUNTRY: CountryVariant = "sk"
  * To-do: Figure out how to properly load env variables here, `dotenv` does not seem to work.
  */
-const COUNTRY = 'cs'; //getCountryVariant();
+const COUNTRY = getCountryVariant();
 
 const WEB_LINK: Record<CountryVariant, string> = {
   cs: '<a style="color: blue;" href="https://movapp.cz">www.movapp.cz</a>',
