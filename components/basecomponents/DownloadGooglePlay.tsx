@@ -1,4 +1,5 @@
 import { useLanguage } from '../../utils/useLanguageHook';
+import Image from 'next/image';
 
 export const DOWNLOAD_ANDROID_URL = 'https://play.google.com/store/apps/details?id=cz.movapp.app';
 
@@ -8,11 +9,7 @@ export const DownloadGooglePlay = () => {
   const badgeLanguage = currentLanguage === 'uk' ? 'ua' : currentLanguage;
   return (
     <a href={DOWNLOAD_ANDROID_URL} target="_blank" rel="noreferrer">
-      <img
-        className="h-24 min-w-[240px]"
-        alt="Get it on Google Play"
-        src={`https://play.google.com/intl/en_us/badges/static/images/badges/${badgeLanguage}_badge_web_generic.png`}
-      />
+      <Image src={`/images/google-play-badge/google-play-badge_${badgeLanguage}.png`} alt="Get it on Google Play" width={248} height={96} />
     </a>
   );
 };
