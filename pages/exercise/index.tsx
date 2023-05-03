@@ -4,7 +4,12 @@ import SEO from 'components/basecomponents/SEO';
 import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
-import { ExerciseOrchestrator } from 'components/basecomponents/Exercise/ExerciseOrchestrator';
+import dynamic from 'next/dynamic';
+
+const ExerciseOrchestrator = dynamic(
+  () => import('components/basecomponents/Exercise/ExerciseOrchestrator').then((mod) => mod.ExerciseOrchestrator),
+  { ssr: false }
+);
 
 const ExerciseSection = () => {
   const { t } = useTranslation();
@@ -17,7 +22,7 @@ const ExerciseSection = () => {
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap justify-center min-h-screen m-auto">
-        <ExerciseOrchestrator categories={['recdabyHkJhGf7U5D']} />
+        <ExerciseOrchestrator />
       </div>
     </div>
   );

@@ -51,17 +51,16 @@ export const ActionButton = forwardRef(
         onClick={async (e) => {
           if (pending || inactive || globalPending) return;
           if (btnRef.current === null) return;
-          setGlobalPending(true);
           setPending(true);
-          //TODO: better naming for click methods
+          setGlobalPending(true);
           if (onClick !== undefined) onClick(e);
           await animation.click(btnRef.current).finished;
           if (onClickAsync !== undefined) await onClickAsync(e);
           if (action !== undefined) actions[action]();
           // prevent changing unmounted component
           if (mounted.current === false) return;
-          setPending(false);
           setGlobalPending(false);
+          setPending(false);
           if (onClickFinished !== undefined) onClickFinished(e);
         }}
         {...rest}

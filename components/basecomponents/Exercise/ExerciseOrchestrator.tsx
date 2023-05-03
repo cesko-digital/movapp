@@ -56,7 +56,7 @@ const Loading = () => (
 );
 
 interface ExerciseOrchestratorProps {
-  categories: string[];
+  categories?: string[];
   quickStart?: boolean;
 }
 
@@ -80,10 +80,10 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
   const nextButtonRef = useRef(null);
   const exerciseStatus = exercise?.status;
   const quickStartRunOnce = useRef(false);
+  // TODO: add categoryLevel - meta, custom
 
   useEffect(() => {
     if (status === ExerciseStoreStatus.initialized && quickStartRunOnce.current === false && quickStart === true) {
-      // probably audio on IOS won't work
       quickStartRunOnce.current = true;
       start();
     }
@@ -94,6 +94,8 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
   }, [setLang, lang]);
 
   useEffect(() => {
+    console.log('tried to rerender');
+    if (categories === undefined || categories.length === 0) return;
     setCategories(categories);
   }, [setCategories, categories]);
 
@@ -154,7 +156,7 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
         </div> */}
         <div className="text-sm grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10 px-6 justify-stretch justify-items-stretch">
           {getAllCategories()
-            .slice(0, 10)
+            .slice(0, 10) // TODO: display metacategories + switch to categories
             .map(({ id, name }) => (
               <Button
                 key={id}
@@ -166,7 +168,8 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
             ))}
         </div>
         <div className="flex flex-col items-center mb-12">
-          <ActionButton action="start" />
+          <Button onClick={() => setCategories([])}>setCategories[]</Button>
+          <ActionButton action="start" disabled={selectedCategories === null || selectedCategories.length === 0} />
         </div>
       </AppContainer>
     );
