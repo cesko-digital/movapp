@@ -100,21 +100,22 @@ export interface ExerciseStoreState {
   status: ExerciseStoreStatus;
   lang: { currentLanguage: Language; otherLanguage: Language };
   dictionary: DictionaryDataObject | null;
-  categories: CategoryDataObject['id'][] | null;
+  categories: CategoryDataObject['id'][];
   history: Exercise[];
   exercise: Exercise | null;
   counter: number;
 }
 
 export interface ExerciseStoreActions {
-  init: () => void;
+  init: (quickStart?: boolean) => void;
   cleanUp: () => void;
   start: () => void;
   restart: () => void;
   home: () => void;
   nextExercise: () => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
-  getAllCategories: () => { id: CategoryDataObject['id']; name: CategoryDataObject['name']['main'] }[];
+  getCategoryNames: () => { id: CategoryDataObject['id']; name: CategoryDataObject['name']['main'] }[];
+  getMetacategoryNames: () => { id: CategoryDataObject['id']; name: CategoryDataObject['name']['main'] }[];
   setLang: (lang: ExerciseStoreState['lang']) => void;
   setSize: (size: ExerciseStoreState['size']) => void;
   setLevel: (size: ExerciseStoreState['level']) => void;
@@ -204,8 +205,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     }
 
     console.log(`generating new exercise for you...`);
-    const categories = get().categories;
-    if (categories === null) throw Error('categories property is null');
     set((state) => ({ exercise: createNextExercise(), counter: state.counter + 1 }));
   };
 
@@ -229,6 +228,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     // TODO: maybe cache results
     dictionary.categories
       .filter(({ id }) => categories.includes(id))
+      .filter(({ phrases }) => phrases.length > 0)
       .map(({ phrases }) => phrases)
       .flat()
       .map((phraseId) => new Phrase(dictionary.phrases[phraseId]));
@@ -248,12 +248,18 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     return phrases;
   };
 
-  const getAllCategories = () => {
+  const getCategoryNames = () => {
     const dictionary = getDictionary();
     return dictionary.categories
       .filter((category) => !category.hidden)
       .map((category) => ({ id: category.id, name: getCurrentLanguage() === 'uk' ? category.name.source : category.name.main }));
   };
+
+  const getMetacategoryNames = () =>
+    getDictionary()
+      .categories.filter((category) => !category.hidden)
+      .filter(({ metacategories }) => metacategories.length > 0)
+      .map((category) => ({ id: category.id, name: getCurrentLanguage() === 'uk' ? category.name.source : category.name.main }));
 
   const getCurrentLanguage: ExerciseStoreUtils['getCurrentLanguage'] = () => get().lang.currentLanguage;
   const getOtherLanguage: ExerciseStoreUtils['getOtherLanguage'] = () => get().lang.otherLanguage;
@@ -382,12 +388,52 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     const dictionary = getDictionary();
     // get category phrasesData
     let categories = get().categories;
-    if (categories === null || categories.length === 0) {
+    if (categories.length === 0) {
       // categories fallback
       categories = [dictionary.categories[0].id];
     }
+    // FIXME: categories are primarly processed as metacategories
+    // check if it is metacategory
+    // const processedCategories = categories
+    //   .map((categoryId) => {
+    //     const category = dictionary.categories.find(({ id }) => id === categoryId);
+    //     if (category === undefined) throw Error(`Category ${categoryId} doesn't exist.`);
+    //     // not a metacategory
+    //     if (!category.metacategories.includes(category.id)) return [categoryId];
+
+    //     return (
+    //       dictionary.categories
+    //         .filter(({ metacategories }) => metacategories.includes(categoryId))
+    //         // omit metacategories without phrases
+    //         .filter(({ phrases }) => phrases.length > 0)
+    //         // need only ids
+    //         .map(({ id }) => id)
+    //     );
+    //   })
+    //   .flat();
+
+    const processedCategories = categories
+      .map((categoryId) => {
+        const category = dictionary.categories.find(({ id }) => categoryId === id);
+        if (category === undefined) throw Error(`Can't find category with id ${categoryId}`);
+        // not a metacategory
+        if (category.metacategories.length === 0) return [categoryId];
+
+        return (
+          dictionary.categories
+            .filter(({ id }) => category.metacategories.includes(id))
+            // omit categories without phrases
+            .filter(({ phrases }) => phrases.length > 0)
+            // need only ids
+            .map(({ id }) => id)
+        );
+      })
+      .flat();
+
+    console.log('processed categories:', processedCategories);
+    console.log('all categories', dictionary.categories);
     // considering to not mix up categories, so pick only one from the list
-    const phrases = getPhrases(dictionary, [getRandomItem(categories)]);
+    const phrases = getPhrases(dictionary, [getRandomItem(processedCategories)]);
     // mix categories together
     //const phrases = getPhrases(dictionary, categories);
     // build exercise
@@ -419,17 +465,17 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     status: ExerciseStoreStatus.uninitialized,
     lang: { currentLanguage: getCountryVariant(), otherLanguage: 'uk' },
     dictionary: null,
-    categories: null,
+    categories: [],
     history: [],
     exercise: null,
     counter: 0,
-    init: async () => {
+    init: async (quickStart = false) => {
       const dictionary = await fetchRawDictionary();
       set({
         history: [],
-        exercise: null,
-        counter: 0,
-        status: ExerciseStoreStatus.initialized,
+        exercise: quickStart ? createNextExercise() : null,
+        counter: quickStart ? 1 : 0,
+        status: quickStart ? ExerciseStoreStatus.active : ExerciseStoreStatus.initialized,
         dictionary,
       });
     },
@@ -463,7 +509,8 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     nextExercise,
     setLang: (lang) => set({ lang }),
     setCategories: (categories) => set({ categories }),
-    getAllCategories,
+    getCategoryNames,
+    getMetacategoryNames,
     setSize: (size) => set({ size }),
     setLevel: (val) => set({ level: val }),
   };

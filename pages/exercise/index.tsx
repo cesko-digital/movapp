@@ -11,6 +11,8 @@ const ExerciseOrchestrator = dynamic(
   { ssr: false }
 );
 
+const DEFAULT_CATEGORY = ['recdabyHkJhGf7U5D'];
+
 const ExerciseSection = () => {
   const { t } = useTranslation();
 
@@ -22,7 +24,7 @@ const ExerciseSection = () => {
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap justify-center min-h-screen m-auto">
-        <ExerciseOrchestrator />
+        <ExerciseOrchestrator categories={DEFAULT_CATEGORY} />
       </div>
     </div>
   );

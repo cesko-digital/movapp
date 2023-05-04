@@ -13,6 +13,8 @@ import Spinner from '../Spinner/Spinner';
 import { create } from 'zustand';
 import { animation } from './utils/animation';
 
+const USE_METACATEGORIES = true;
+
 interface PendingStore {
   pending: boolean;
   setPending: (val: boolean) => void;
@@ -60,52 +62,43 @@ interface ExerciseOrchestratorProps {
   quickStart?: boolean;
 }
 
-// warning: language switching triggers change for all props
+// warning: language switching triggers categories props change, probably because staticpaths/props, quickstart isn't change triggered
 export const ExerciseOrchestrator = ({ categories, quickStart = false }: ExerciseOrchestratorProps) => {
   const lang = useLanguage();
   const init = useExerciseStore((state) => state.init);
   const cleanUp = useExerciseStore((state) => state.cleanUp);
   const setLang = useExerciseStore((state) => state.setLang);
   const setCategories = useExerciseStore((state) => state.setCategories);
-  const getAllCategories = useExerciseStore((state) => state.getAllCategories);
+  const getCategoryNames = useExerciseStore((state) => state.getCategoryNames);
+  const getMetacategoryNames = useExerciseStore((state) => state.getMetacategoryNames);
   const selectedCategories = useExerciseStore((state) => state.categories);
   const status = useExerciseStore((state) => state.status);
   const exercise = useExerciseStore((state) => state.exercise);
   const restart = useExerciseStore((state) => state.restart);
-  const start = useExerciseStore((state) => state.start);
   const counter = useExerciseStore((state) => state.counter);
   const size = useExerciseStore((state) => state.size);
+  const setSize = useExerciseStore((state) => state.setSize);
   const { t } = useTranslation();
   const exerciseRef = useRef(null);
   const nextButtonRef = useRef(null);
   const exerciseStatus = exercise?.status;
-  const quickStartRunOnce = useRef(false);
-  // TODO: add categoryLevel - meta, custom
-
-  useEffect(() => {
-    if (status === ExerciseStoreStatus.initialized && quickStartRunOnce.current === false && quickStart === true) {
-      quickStartRunOnce.current = true;
-      start();
-    }
-  }, [quickStart, status, start]);
+  console.log('categories',categories,'quickStart',quickStart);
 
   useEffect(() => {
     setLang(lang);
   }, [setLang, lang]);
 
   useEffect(() => {
-    console.log('tried to rerender');
     if (categories === undefined || categories.length === 0) return;
     setCategories(categories);
   }, [setCategories, categories]);
 
-  // Do not put any props in deps here
   useEffect(() => {
-    init();
+    init(quickStart === true);
     return () => {
       cleanUp();
     };
-  }, [init, cleanUp]);
+  }, [init, cleanUp, quickStart]);
 
   // animate elements on Exercise.complete
   useEffect(() => {
@@ -123,7 +116,6 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
   if (status === ExerciseStoreStatus.uninitialized) return <Loading />;
 
   if (status === ExerciseStoreStatus.initialized) {
-    if (selectedCategories === null) return <Loading />;
     return (
       // replace with start/setup screen component
       <AppContainer>
@@ -154,21 +146,36 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
             {t('utils.pick_random')}
           </ActionButton>
         </div> */}
-        <div className="text-sm grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10 px-6 justify-stretch justify-items-stretch">
-          {getAllCategories()
-            .slice(0, 10) // TODO: display metacategories + switch to categories
-            .map(({ id, name }) => (
-              <Button
-                key={id}
-                buttonStyle={selectedCategories.includes(id) ? 'choiceCorrect' : 'choice'}
-                onClick={() => setCategories(computeNewCategories(selectedCategories, id))}
-              >
-                {name}
-              </Button>
+        <div className="text-sm grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 px-6 justify-stretch justify-items-stretch">
+          {(USE_METACATEGORIES ? getMetacategoryNames() : getCategoryNames()).map(({ id, name }) => (
+            <Button
+              key={id}
+              buttonStyle={selectedCategories.includes(id) ? 'choiceCorrect' : 'choice'}
+              onClick={() => setCategories(computeNewCategories(selectedCategories, id))}
+            >
+              {name}
+            </Button>
+          ))}
+        </div>
+        <p className="text-sm text-center mb-3">Nastavte si délku cvičení:</p>
+        <div className="flex items-center justify-center">
+          <div className="grid grid-cols-3 gap-4 mb-10 justify-stretch justify-items-stretch">
+            {[3, 5, 10].map((val) => (
+              <div key={val}>
+                <input
+                  type="radio"
+                  name="size"
+                  value={val}
+                  id={`size-option-${val}`}
+                  onChange={() => setSize(val)}
+                  checked={size === val}
+                />{' '}
+                <label htmlFor={`size-option-${val}`}>{val}</label>
+              </div>
             ))}
+          </div>
         </div>
         <div className="flex flex-col items-center mb-12">
-          <Button onClick={() => setCategories([])}>setCategories[]</Button>
           <ActionButton action="start" disabled={selectedCategories === null || selectedCategories.length === 0} />
         </div>
       </AppContainer>
