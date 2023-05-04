@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { Card } from './gameStore';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { GameStore, Scene } from './gameStore';
 
 interface MemoryGameCardProps {

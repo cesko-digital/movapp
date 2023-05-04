@@ -3,11 +3,17 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { fetchDictionary } from 'utils/getDataUtils';
 import { Language, getCountryVariant } from 'utils/locales';
-import { ExerciseOrchestrator } from 'components/basecomponents/Exercise/ExerciseOrchestrator';
 import SEO from 'components/basecomponents/SEO';
 import { useTranslation } from 'next-i18next';
 import { getServerSideTranslations } from 'utils/localization';
 import { useRouter } from 'next/router';
+
+import dynamic from 'next/dynamic';
+
+const ExerciseOrchestrator = dynamic(
+  () => import('components/basecomponents/Exercise/ExerciseOrchestrator').then((mod) => mod.ExerciseOrchestrator),
+  { ssr: false }
+);
 
 interface UrlParams extends ParsedUrlQuery {
   categoryId: string;

@@ -102,11 +102,11 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
         <span className="font-mono">status: {exercise.status}</span>
       </div>
       <div className="relative px-1.5 pt-6 pb-12 mb-6 border border-slate-300 shadow-lg shadow-slate-100 flex flex-col items-center w-full">
-        <p className="mb-5 text-sm opacity-60">
+        <p className="mb-5 text-sm sm:text-base opacity-60">
           {exercise.mode === 'audio' ? t('utils.exercise_audio_idenfification_hint') : t('utils.exercise_text_idenfification_hint')}
         </p>
         <div className="flex w-full items-center justify-center">
-          <h5 ref={mainTextRef} className={`text-xl text-center p-0 ${mode === 'audio' ? 'opacity-0' : ''}`}>
+          <h5 ref={mainTextRef} className={`text-xl sm:text-2xl text-center p-0 ${mode === 'audio' ? 'opacity-0' : ''}`}>
             {exercise.getText()}
           </h5>
           <div ref={soundwaveRef} className={`absolute w-40 inline ${mode === 'text' ? 'opacity-0' : ''}`}>
@@ -147,7 +147,7 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
             <ChoiceComponent
               key={choice.id}
               text={choice.getText()}
-              className="text-sm"
+              className="text-sm sm:text-base"
               correct={choice.correct}
               inactive={buttonsInactive}
               onClickStarted={() => {

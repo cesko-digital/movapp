@@ -127,8 +127,6 @@ export interface ExerciseStoreUtils {
   getCurrentLanguage: () => Language;
   getOtherLanguage: () => Language;
   getExercise: () => Exercise;
-  //setExercise: (setFunc: (prevExercise: Exercise | null) => Exercise) => void;
-  //setExerciseResult: (result: Exercise['result']) => void;
   exerciseResolved: () => void;
   exerciseCompleted: () => void;
   nextExercise: ExerciseStoreActions['nextExercise'];
@@ -171,10 +169,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     console.log(`selected choice ${choiceId} in exercise`);
   };
 
-  // const setExerciseResult: ExerciseStoreUtils['setExerciseResult'] = (result) => {
-  //   set(R.over(R.lensPath(['exercise', 'result']), () => result));
-  // };
-
   const exerciseResolved: ExerciseStoreUtils['exerciseResolved'] = () => {
     if (getExercise().status !== ExerciseStatus.active) throw Error('invalid exercise status');
     // if (getExercise().result === null) throw Error('exercise result is empty');
@@ -207,10 +201,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     console.log(`generating new exercise for you...`);
     set((state) => ({ exercise: createNextExercise(), counter: state.counter + 1 }));
   };
-
-  // const setExercise: ExerciseStoreUtils['setExercise'] = (func) => {
-  //   set(R.over(R.lensPath(['exercise']), func));
-  // };
 
   const getExercise: ExerciseStoreUtils['getExercise'] = () => {
     const exercise = get().exercise;
@@ -320,8 +310,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     // if it fails than tear your hair
     if (filteredPhrases.length < config.choiceLimit) throw Error('Insuficient phrases to construct the Exercise');
 
-    console.log('filtered phrases:', filteredPhrases.length, 'using level:', level);
-
     return filteredPhrases.slice(0, config.choiceLimit).sort(sortRandom);
   };
 
@@ -387,30 +375,12 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   const createNextExercise = () => {
     const dictionary = getDictionary();
     // get category phrasesData
-    let categories = get().categories;
+    const categories = get().categories;
     if (categories.length === 0) {
+      throw Error('None categories selected.');
       // categories fallback
-      categories = [dictionary.categories[0].id];
+      // categories = [dictionary.categories[0].id];
     }
-    // FIXME: categories are primarly processed as metacategories
-    // check if it is metacategory
-    // const processedCategories = categories
-    //   .map((categoryId) => {
-    //     const category = dictionary.categories.find(({ id }) => id === categoryId);
-    //     if (category === undefined) throw Error(`Category ${categoryId} doesn't exist.`);
-    //     // not a metacategory
-    //     if (!category.metacategories.includes(category.id)) return [categoryId];
-
-    //     return (
-    //       dictionary.categories
-    //         .filter(({ metacategories }) => metacategories.includes(categoryId))
-    //         // omit metacategories without phrases
-    //         .filter(({ phrases }) => phrases.length > 0)
-    //         // need only ids
-    //         .map(({ id }) => id)
-    //     );
-    //   })
-    //   .flat();
 
     const processedCategories = categories
       .map((categoryId) => {
@@ -430,9 +400,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       })
       .flat();
 
-    console.log('processed categories:', processedCategories);
-    console.log('all categories', dictionary.categories);
-    // considering to not mix up categories, so pick only one from the list
+    // considering to not mix up categories for current exercise, so pick only one from the list
     const phrases = getPhrases(dictionary, [getRandomItem(processedCategories)]);
     // mix categories together
     //const phrases = getPhrases(dictionary, categories);
@@ -482,6 +450,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     cleanUp: () => {
       set({
         status: ExerciseStoreStatus.uninitialized,
+        categories: [],
       });
     },
     start: () => {
@@ -498,6 +467,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         history: [],
         counter: 0,
         status: ExerciseStoreStatus.initialized,
+        categories: [],
       }),
     restart: () =>
       set({

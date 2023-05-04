@@ -82,7 +82,6 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
   const exerciseRef = useRef(null);
   const nextButtonRef = useRef(null);
   const exerciseStatus = exercise?.status;
-  console.log('categories',categories,'quickStart',quickStart);
 
   useEffect(() => {
     setLang(lang);
@@ -146,7 +145,7 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
             {t('utils.pick_random')}
           </ActionButton>
         </div> */}
-        <div className="text-sm grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 px-6 justify-stretch justify-items-stretch">
+        <div className="text-sm sm:text-base grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 px-6 justify-stretch justify-items-stretch">
           {(USE_METACATEGORIES ? getMetacategoryNames() : getCategoryNames()).map(({ id, name }) => (
             <Button
               key={id}
@@ -157,7 +156,7 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
             </Button>
           ))}
         </div>
-        <p className="text-sm text-center mb-3">Nastavte si délku cvičení:</p>
+        <p className="text-sm sm:text-base text-center mb-3">Nastavte si délku cvičení:</p>
         <div className="flex items-center justify-center">
           <div className="grid grid-cols-3 gap-4 mb-10 justify-stretch justify-items-stretch">
             {[3, 5, 10].map((val) => (

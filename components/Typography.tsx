@@ -14,15 +14,9 @@ type LinkTextProps = React.PropsWithChildren<LinkProps> & {
 
 const TextLink = ({ href, children, target, locale, className }: LinkTextProps) => {
   return (
-    (<Link
-      locale={locale}
-      href={href}
-      target={target}
-      className={`underline text-primary-blue ${className}`}>
-
+    <Link locale={locale} href={href} target={target} className={`underline text-primary-blue ${className}`}>
       {children}
-
-    </Link>)
+    </Link>
   );
 };
 

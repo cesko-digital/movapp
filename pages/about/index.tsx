@@ -3,7 +3,7 @@ import { getCountryVariant } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
 import { H2, TextLink, P } from 'components/Typography';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
