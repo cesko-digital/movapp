@@ -438,8 +438,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     exercise: null,
     counter: 0,
     init: async (quickStart = false) => {
-      const dictionary = await fetchRawDictionary();
-      set({ dictionary });
+      if (get().dictionary === null) set({ dictionary: await fetchRawDictionary() });
       set({
         history: [],
         exercise: quickStart ? createNextExercise() : null,
@@ -451,6 +450,9 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       set({
         status: ExerciseStoreStatus.uninitialized,
         categories: [],
+        exercise: null,
+        history: [],
+        counter: 0,
       });
     },
     start: () => {
