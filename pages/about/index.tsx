@@ -3,7 +3,7 @@ import { getCountryVariant } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
 import { H2, TextLink, P } from 'components/Typography';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
@@ -206,6 +206,20 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             />,
           ]}
         />
+
+        <H2>{t('about_page.movapp_origin_title')}</H2>
+        <Trans
+          components={[
+            <TextLink
+              href={currentLanguage.toString() === 'cs' ? 'https://www.movapp.cz/wiki/pribeh' : 'https://www.movapp.cz/wiki/istorija'}
+              target="_blank"
+              key="plakatky"
+            />,
+            <TextLink href={'/contacts'} key="kontakt" />,
+          ]}
+        >
+          {t('about_page.movapp_origin_description')}
+        </Trans>
 
         <H2>{t('about_page.our_team_title')}</H2>
 
