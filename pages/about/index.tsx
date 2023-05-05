@@ -3,7 +3,7 @@ import { getCountryVariant } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
 import { H2, TextLink, P } from 'components/Typography';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import React, { useEffect } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
@@ -80,7 +80,7 @@ const PartnerList = ({ partners }: PartnerListProps) => {
         <li key={partner.title} className={'w-36 my-5 xl:my-0 md:w-40 h-20 relative'}>
           <a href={partner.url} target="_blank" rel="noopener">
             <div className="relative w-full h-full">
-              <Image src={partner.logo} layout="fill" objectFit="contain" alt={partner.title} title={partner.title} />
+              <Image src={partner.logo} fill alt={partner.title} title={partner.title} className="object-contain" />
             </div>
           </a>
         </li>
