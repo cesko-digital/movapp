@@ -213,19 +213,23 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           ]}
         />
 
-        <H2>{t('about_page.movapp_origin_title')}</H2>
-        <Trans
-          components={[
-            <TextLink
-              href={currentLanguage.toString() === 'cs' ? 'https://www.movapp.cz/wiki/pribeh' : 'https://www.movapp.cz/wiki/istorija'}
-              target="_blank"
-              key="plakatky"
-            />,
-            <TextLink href={'/contacts'} key="kontakt" />,
-          ]}
-        >
-          {t('about_page.movapp_origin_description')}
-        </Trans>
+        {currentLanguage.toString() === 'cs' || currentLanguage.toString() === 'uk' ? (
+          <>
+            <H2>{t('about_page.movapp_origin_title')}</H2>
+            <Trans
+              components={[
+                <TextLink
+                  href={currentLanguage.toString() === 'cs' ? 'https://www.movapp.cz/wiki/pribeh' : 'https://www.movapp.cz/wiki/istorija'}
+                  target="_blank"
+                  key="plakatky"
+                />,
+                <TextLink href={'/contacts'} key="kontakt" />,
+              ]}
+            >
+              {t('about_page.movapp_origin_description')}
+            </Trans>
+          </>
+        ) : null}
 
         <H2>{t('about_page.our_team_title')}</H2>
 
