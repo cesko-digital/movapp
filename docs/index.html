@@ -1,17 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movapp</title>
-</head>
-<body>
-    <h1>Movapp speaks in 3 languages</h1>
-    <ul>
-        <li><a href="https://movapp.cz">movapp.cz</a></li>
-        <li><a href="https://sk.movapp.eu">sk.movapp.eu</a></li>
-        <li><a href="https://pl.movapp.eu">pl.movapp.eu</a></li>
-    </ul>
-</body>
+    <style>
+      body {
+        font-family: Roboto, Arial, Helvetica, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .countries {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        max-width: 700px;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      @media screen and (max-width: 600px) {
+        .countries {
+          flex-direction: column;
+        }
+      }
+
+      .movappLogo {
+        width: 20rem;
+        max-width: 100%;
+        margin-bottom: 3rem;
+      }
+        
+      .countryLink {
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        text-align: center;
+        color: #013abd;
+        margin-bottom: 2rem;
+        padding: 0.5rem;
+      }
+
+      .countryLink:hover {
+        scale: 1.1;
+      }
+
+      .countryLink:visited {
+        color: default;
+      }
+
+      .countryLink h2 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1><img src="img/movapp-logo.png" alt="Movapp logo" class="movappLogo"></h1>
+      <div class="countries">
+        <a class="countryLink" href="https://movapp.cz">
+          <img src="img/cz-flag.svg" alt="Czech flag"  />
+          <h2>movapp.cz</h2>
+          <div>Nauč se Ukrajinsky!</div>
+          <div>Вчи чеську!</div>
+        </a>
+
+        <a class="countryLink" href="https://sk.movapp.eu">
+          <img src="img/sk-flag.svg" alt="Slovak flag" />
+          <h2>sk.movapp.eu</h2>
+          <div>Nauč sa Ukrajinsky</div>
+          <div>Вивчати словацьку!</div>
+        </a>
+
+        <a class="countryLink" href="https://pl.movapp.eu">
+          <img src="img/pl-flag.svg" alt="Polish flag" />
+
+          <h2>pl.movapp.eu</h2>
+          <div>Ucz się ukraińskiego!</div>
+          <div>Вивчай польську!</div>
+          </a>
+      </div>
+    </div>
+  </body>
 </html>
