@@ -3,8 +3,8 @@ import { getCountryVariant } from 'utils/locales';
 import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
 import { H2, TextLink, P } from 'components/Typography';
-import Image from "next/legacy/image";
-import React from 'react';
+import Image from 'next/image';
+import React, { useEffect } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
@@ -80,7 +80,7 @@ const PartnerList = ({ partners }: PartnerListProps) => {
         <li key={partner.title} className={'w-36 my-5 xl:my-0 md:w-40 h-20 relative'}>
           <a href={partner.url} target="_blank" rel="noopener">
             <div className="relative w-full h-full">
-              <Image src={partner.logo} layout="fill" objectFit="contain" alt={partner.title} title={partner.title} />
+              <Image src={partner.logo} fill alt={partner.title} title={partner.title} className="object-contain" />
             </div>
           </a>
         </li>
@@ -143,6 +143,12 @@ const flagEmojis: Record<string, string> = {
 };
 
 const Article = ({ article }: ArticleProps): JSX.Element => {
+  const [formatedDate, setFormatedDate] = React.useState<string>('');
+
+  useEffect(() => {
+    setFormatedDate(new Date(article.publishDate).toLocaleDateString());
+  }, [article.publishDate]);
+
   return (
     <div className="w-full md:max-w-full md:flex p-2 md:p-4 bg-white border-b-1 border-b-primary-grey">
       <a className="hover:text-primary-blue mr-2" href={article.url}>
@@ -150,7 +156,7 @@ const Article = ({ article }: ArticleProps): JSX.Element => {
       </a>
       <div className="font-light">
         <span className="inline-block lg:pl-2 pr-2">{article.sourceName}</span>
-        <span className="inline-block pr-2">{new Date(article.publishDate).toLocaleDateString()}</span>
+        <span className="inline-block pr-2">{formatedDate}</span>
         <span role="img">{flagEmojis[article.lang]}</span>
       </div>
     </div>
@@ -210,24 +216,27 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         <H2>{t('about_page.our_team_title')}</H2>
 
         <h3 className="mb-1 sm:my-4">{t('about_page.our_team_current_title')}</h3>
-        <Image
-          src="https://data.movapp.eu/images/team/small-team-photo-autumn.jpg"
-          width="320"
-          height="180"
-          alt={t('about_page.our_team_current_title')}
-          className="hover:cursor-pointer"
-          onClick={() => window.open('https://data.movapp.eu/images/team/large-team-photo-autumn.jpg', '_blank')}
-        />
+        <a href="https://data.movapp.eu/images/team/large-team-photo-autumn.jpg" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="https://data.movapp.eu/images/team/small-team-photo-autumn.jpg"
+            width="320"
+            height="180"
+            alt={t('about_page.our_team_current_title')}
+            className="hover:cursor-pointer"
+          />
+        </a>
 
         <h3 className="mb-1 sm:my-4">{t('about_page.our_team_spring_title')}</h3>
-        <Image
-          src="https://data.movapp.eu/images/team/small-team-photo.jpg"
-          width="320"
-          height="180"
-          alt={t('about_page.our_team_spring_title')}
-          className="hover:cursor-pointer"
-          onClick={() => window.open('https://data.movapp.eu/images/team/large-team-photo.jpg', '_blank')}
-        />
+
+        <a href="https://data.movapp.eu/images/team/large-team-photo.jpg" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="https://data.movapp.eu/images/team/small-team-photo.jpg"
+            width="320"
+            height="180"
+            alt={t('about_page.our_team_spring_title')}
+            className="hover:cursor-pointer"
+          />
+        </a>
 
         {teams.map(({ team, members }) => (
           <React.Fragment key={team[currentLanguage]}>
