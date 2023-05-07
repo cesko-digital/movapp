@@ -97,7 +97,7 @@ export const parseCategory = (categoryObject: CategoryDataObject, dictionaryObje
 };
 
 export const getCategories = (dictionaryObject: DictionaryDataObject): Category[] =>
-  dictionaryObject.categories.map((category) => parseCategory(category, dictionaryObject));
+  dictionaryObject.categories.filter(({ phrases }) => phrases.length > 0).map((category) => parseCategory(category, dictionaryObject));
 
 export const getAllPhrases = (dictionaryObject: DictionaryDataObject): Phrase[] => {
   return [...Object.values(dictionaryObject.phrases)].map((phraseObject) => new Phrase(phraseObject));
