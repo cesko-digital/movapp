@@ -220,12 +220,10 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
               components={[
                 <TextLink
                   href={currentLanguage.toString() === 'cs' ? 'https://www.movapp.cz/wiki/pribeh' : 'https://www.movapp.cz/wiki/istorija'}
-                  target="_blank"
                   key="movapp_story"
                 />,
                 <TextLink
                   href={currentLanguage.toString() === 'cs' ? '/wiki/vyvoj-titulni-stranky' : '/wiki/zminy-na-holovnii-storintsi'}
-                  target="_blank"
                   key="movapp_page_changes"
                 />,
               ]}
