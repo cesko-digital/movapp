@@ -86,8 +86,6 @@
     "why_movapp_license": "Texty, obrázky a audiosúbory Movapp sú pod <0>licenciou CC BY-NC 4.0</0>. (Uveďte pôvod-Nepoužívajte na komerčné účely 4.0), čo znamená, že ich môžete pre vlastné potreby používať úplne bez obmedzení. Ak by ste ich chceli ďalej šíriť (v pôvodnej alebo v upravenej podobe), môžete tak robiť len nekomerčným spôsobom a s uvedením pôvodných autorov.",
     "why_movapp_origin": "Pôvodnou autorkou <0>základného súboru slov a fráz</0> je Tereza Javornická a Yevheniia Valova (EDUA Group). Tento súbor udržuje a ďalej rozširuje tím Movapp.",
     "media_mentions_title": "Napísali o nás",
-    "movapp_origin_title": "",
-    "movapp_origin_description": "",
     "our_team_title": "Náš tím",
     "our_team_current_title": "Aktuálna zostava",
     "our_team_spring_title": "Jarná zostava",
@@ -101,8 +99,8 @@
     "our_partners_title": "Naši partneri",
     "how_to_find_us_title": "Ako nás nájdete",
     "how_to_find_us_description": "Môžete nás vyhľadať pomocou výrazov: <i>\"movapp\"</i>, <i>\"movaap\"</i> alebo <i>\"mova app\"</i>. Keď o nás budete písať, používajte názov Movapp.",
-    "support_us_title":"Podporte nás",
-    "support_us_description":"- Povedzte o nás Ukrajincom vo svojom okolí (v práci, v škole alebo rodinám, ktoré žijú vo vašom dome) - môžete im vytlačiť a dať tieto <0>plagáty.</0> <br/> - Sledujte nás na sociálnych sieťach, pozrite si našu stránku <1>kontakty</1>, a pomozte nám šířiť informácie. <br/> - Ak máte viac času (2 alebo viac hodín týždenne), môžete sa k nám pridať. Pozrite sa, aké <2>dobrovoľnícke pozície</2> hľadáme. Môžete nás kontaktovať <3>emailom</3> alebo cez <4>Slack Česko.Digital.</4>"
+    "support_us_title": "Podporte nás",
+    "support_us_description": "- Povedzte o nás Ukrajincom vo svojom okolí (v práci, v škole alebo rodinám, ktoré žijú vo vašom dome) - môžete im vytlačiť a dať tieto <0>plagáty.</0> <br/> - Sledujte nás na sociálnych sieťach, pozrite si našu stránku <1>kontakty</1>, a pomozte nám šířiť informácie. <br/> - Ak máte viac času (2 alebo viac hodín týždenne), môžete sa k nám pridať. Pozrite sa, aké <2>dobrovoľnícke pozície</2> hľadáme. Môžete nás kontaktovať <3>emailom</3> alebo cez <4>Slack Česko.Digital.</4>"
   },
   "contacts_page": {
     "title": "Kontakty",
@@ -219,7 +217,7 @@
     },
     "christmas_pexeso_title": "Vianočné pexeso",
     "christmas_pexeso_description": "Precvičujte si slovíčka v obľúbenej hre s vianočnými obrázkami.",
-    "christmas_pexeso_link":  "/kids/memory-game",
+    "christmas_pexeso_link": "/kids/memory-game",
     "christmas_tale_title": "Vianočná rozprávka",
     "christmas_tale_description": "Bolo nebolo? Ako to vlastne bolo? To si môžete prečítať v našej vianočnej rozprávke.",
     "christmas_tale_link": "",
@@ -230,11 +228,11 @@
   "easter_banner": {
     "box_easter_dictionary_title": "Veľkonočný slovníček",
     "box_easter_dictionary_description": "Šibi-ryby mastné ryby, kus koláča od korbáča, ešte k tomu groš, už je toho dosť. Naučte sa veľkonočné frázy.",
-    "box_easter_dictionary_anchor": {"sk":"velka_noc"},
+    "box_easter_dictionary_anchor": { "sk": "velka_noc" },
     "box_easter_kids_title": "Veľká noc pre deti",
     "box_easter_kids_description": "Zábavné obrázky a maľovanky s veľkonočnou tematikou.",
     "box_easter_kids_anchor": {
-      "sk":"kraslica"
+      "sk": "kraslica"
     }
   }
 }
