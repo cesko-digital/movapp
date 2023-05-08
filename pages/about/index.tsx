@@ -218,10 +218,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             <H2>{t('about_page.movapp_origin_title')}</H2>
             <Trans
               components={[
-                <TextLink
-                  href={currentLanguage.toString() === 'cs' ? 'https://www.movapp.cz/wiki/pribeh' : 'https://www.movapp.cz/wiki/istorija'}
-                  key="movapp_story"
-                />,
+                <TextLink href={currentLanguage.toString() === 'cs' ? '/wiki/pribeh' : '/wiki/istorija'} key="movapp_story" />,
                 <TextLink
                   href={currentLanguage.toString() === 'cs' ? '/wiki/vyvoj-titulni-stranky' : '/wiki/zminy-na-holovnii-storintsi'}
                   key="movapp_page_changes"
