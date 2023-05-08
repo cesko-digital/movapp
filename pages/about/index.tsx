@@ -223,7 +223,11 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
                   target="_blank"
                   key="plakatky"
                 />,
-                <TextLink href={'/contacts'} key="kontakt" />,
+                <TextLink
+                  href={currentLanguage.toString() === 'cs' ? '/wiki/vyvoj-titulni-stranky' : '/wiki/zminy-na-holovnii-storintsi'}
+                  target="_blank"
+                  key="kontakt"
+                />,
               ]}
             >
               {t('about_page.movapp_origin_description')}
