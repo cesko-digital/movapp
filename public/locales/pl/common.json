@@ -163,7 +163,28 @@
     },
     "kids_page_imagequiz_description": {
       "pl": "Zagraj w obrazkowy quiz z ukraińskimi słówkami"
+    },
+    "exercise_page_title": {
+      "pl":"Procvičte si ukrajinštinu."
+    },
+    "exercise_page_description": {
+      "pl":"Zlepšete vaši jazykovou úroveň. Nabízíme zdarma sadu cvičení pro učení jazyka. Opakujte každý den."
     }
+  },
+  "exercise_page": {
+    "game_description": "Przećwicz słówka i zwroty na najróżniejsze tematy. Wybierz kategorie tematyczne i możesz zacząć!",
+    "play_the_game": "Zacznij ćwiczenie",
+    "select_all": "Zaznacz wszystkie",
+    "clear_all": "Wyczyść wszystkie",
+    "pick_random": "Wybierz losowo",
+    "next": "Kontynuuj",
+    "congratulations": "Gratulacje!",
+    "you_have_finished": "Ćwiczenie zostało ukończone pomyślnie. Teraz możesz ćwiczyć dalej, albo wrócić z powrotem na stronę główną.",
+    "home": "Z powrotem",
+    "exercise_audio_idenfification_hint":"Posłuchaj nagrania i zaznacz to, co słyszysz",
+    "exercise_text_idenfification_hint":"Wybierz jedną prawidłową odpowiedź",
+    "write_us":"Napište nám",
+    "feedback":"Cvičení postupně rozšiřujeme, dejte nám vědět, pokud jste nalezli chybu, anebo máte nápad na zlepšení."   
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",
@@ -193,18 +214,7 @@
   },
   "utils": {
     "play": "odtwarzanie",
-    "new_game": "Nowa gra",
-    "game_description": "Przećwicz słówka i zwroty na najróżniejsze tematy. Wybierz kategorie tematyczne i możesz zacząć!",
-    "play_the_game": "Zacznij ćwiczenie",
-    "select_all": "Zaznacz wszystkie",
-    "clear_all": "Wyczyść wszystkie",
-    "pick_random": "Wybierz losowo",
-    "next": "Kontynuuj",
-    "congratulations": "Gratulacje!",
-    "you_have_finished": "Ćwiczenie zostało ukończone pomyślnie. Teraz możesz ćwiczyć dalej, albo wrócić z powrotem na stronę główną.",
-    "home": "Z powrotem",
-    "exercise_audio_idenfification_hint":"Posłuchaj nagrania i zaznacz to, co słyszysz",
-    "exercise_text_idenfification_hint":"Wybierz jedną prawidłową odpowiedź"
+    "new_game": "Nowa gra"    
   },
   "christmas_banner": {
     "christmas_dictionary_title": "Słowniczek bożonarodzeniowy",

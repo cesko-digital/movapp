@@ -27,7 +27,7 @@ export const ActionButton = forwardRef(
     const globalPending = usePendingStore((state) => state.pending);
     const setGlobalPending = usePendingStore((state) => state.setPending);
     const actions = { nextExercise, home, start };
-    const labels = { nextExercise: t('utils.next'), home: t('utils.home'), start: t('utils.play_the_game') };
+    const labels = { nextExercise: t('exercise_page.next'), home: t('exercise_page.home'), start: t('exercise_page.play_the_game') };
 
     useImperativeHandle(ref, () => btnRef.current);
 

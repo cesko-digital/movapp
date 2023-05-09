@@ -25,7 +25,7 @@ export const usePendingStore = create<PendingStore>((set) => ({
   setPending: (val) => set({ pending: val }),
 }));
 
-const Feedback = dynamic(() => import('../../basecomponents/Feedback'), {
+const Feedback = dynamic(() => import('./components/Feedback'), {
   ssr: false,
 });
 
@@ -118,16 +118,16 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
     return (
       // replace with start/setup screen component
       <AppContainer>
-        <p className="text-justify mb-5">{t('utils.game_description')}</p>
+        <p className="text-justify mb-5">{t('exercise_page.game_description')}</p>
         {/* To-do make all these buttons outlined/secondary */}
         {/* <div>
           <ActionButton buttonStyle="primaryLight" className="mb-3" onClick={() => setCategories(getAllCategories().map((cat) => cat.id))}>
-            {t('utils.select_all')}
+            {t('exercise_page.select_all')}
           </ActionButton>
         </div>
         <div>
           <ActionButton buttonStyle="primaryLight" className="mb-3" onClick={() => setCategories([])}>
-            {t('utils.clear_all')}
+            {t('exercise_page.clear_all')}
           </ActionButton>
         </div>
         <div>
@@ -142,7 +142,7 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
               )
             }
           >
-            {t('utils.pick_random')}
+            {t('exercise_page.pick_random')}
           </ActionButton>
         </div> */}
         <div className="text-sm sm:text-base grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 px-6 justify-stretch justify-items-stretch">
@@ -216,10 +216,10 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
     return (
       <AppContainer>
         <div className="flex flex-col items-center px-1.5 sm:px-3 pt-5 mb-6 bg-slate-50">
-          <h4 className="mb-8 font-bold p-0">{t('utils.congratulations')}</h4>
-          <p className="text-justify">{t('utils.you_have_finished')}</p>
+          <h4 className="mb-8 font-bold p-0">{t('exercise_page.congratulations')}</h4>
+          <p className="text-justify">{t('exercise_page.you_have_finished')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-stretch justify-items-stretch py-10">
-            <ActionButton onClickAsync={restart}>{t('utils.next') || ''}</ActionButton>
+            <ActionButton onClickAsync={restart}>{t('exercise_page.next') || ''}</ActionButton>
             <ActionButton action="home" />
           </div>
         </div>

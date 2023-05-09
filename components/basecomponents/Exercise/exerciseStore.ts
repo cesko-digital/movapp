@@ -131,8 +131,6 @@ export interface ExerciseStoreUtils {
   exerciseCompleted: () => void;
   nextExercise: ExerciseStoreActions['nextExercise'];
   phraseFilters: {
-    wordLimit: (min: number, max: number) => (phrase: Phrase) => boolean;
-    wordLimitForLevel: ((phrase: Phrase) => boolean)[];
     equalPhrase: Curry<(phraseA: Phrase, phraseB: Phrase) => boolean>; //(phraseA: Phrase, phraseB: Phrase) => boolean;
     greatPhraseFilter: (
       level: Exercise['level'],
@@ -214,21 +212,25 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     return dictionary;
   };
 
-  const getPhrases = (dictionary: DictionaryDataObject, categories: CategoryDataObject['id'][]) =>
+  const getPhrases = (dictionary: DictionaryDataObject, categories: CategoryDataObject['id'][]) => {
+    const regex = /[\(,\/]/; // filter phrases containing ( or /
     // TODO: maybe cache results
-    dictionary.categories
-      .filter(({ id }) => categories.includes(id))
-      .filter(({ phrases }) => phrases.length > 0)
-      .map(({ phrases }) => phrases)
-      .flat()
-      .map((phraseId) => new Phrase(dictionary.phrases[phraseId]));
-
-  // const getCategoryPhrases = (dictionary: DictionaryDataObject, categoryId: CategoryDataObject['id']) =>
-  //   dictionary.categories
-  //     .filter(({ id }) => categoryId === id)
-  //     .map(({ phrases }) => phrases)
-  //     .flat()
-  //     .map((phraseId) => new Phrase(dictionary.phrases[phraseId]));
+    return (
+      dictionary.categories
+        .filter(({ id }) => categories.includes(id))
+        .filter(({ phrases }) => phrases.length > 0)
+        .map(({ phrases }) => phrases)
+        .flat()
+        // create phrases
+        .map((phraseId) => new Phrase(dictionary.phrases[phraseId]))
+        // filter phrases
+        .filter(
+          (phrase) =>
+            phrase.getTranslation(getCurrentLanguage()).match(regex) === null &&
+            phrase.getTranslation(getOtherLanguage()).match(regex) === null
+        )
+    );
+  };
 
   const getFallbackPhrases = () => {
     const dictionary = getDictionary();
@@ -253,13 +255,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 
   const getCurrentLanguage: ExerciseStoreUtils['getCurrentLanguage'] = () => get().lang.currentLanguage;
   const getOtherLanguage: ExerciseStoreUtils['getOtherLanguage'] = () => get().lang.otherLanguage;
-
-  // TODO: clean up unused filter methods in future
-  const wordLimit = (min: number, max: number) => (phrase: Phrase) =>
-    passWordLimit(min, max, phrase.getTranslation(getCurrentLanguage())) &&
-    passWordLimit(min, max, phrase.getTranslation(getOtherLanguage()));
-
-  const passWordLimit = (min: number, max: number, phrase: string) => R.allPass([R.lte(min), R.gte(max)])(phrase.split(' ').length);
 
   // new better phrase filter :-)
   const greatPhraseFilter: ExerciseStoreUtils['phraseFilters']['greatPhraseFilter'] = (level, phrases, fallbackPhrases, config) => {
@@ -314,8 +309,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   };
 
   const phraseFilters: ExerciseStoreUtils['phraseFilters'] = {
-    wordLimit,
-    wordLimitForLevel: CONFIG.map((conf) => wordLimit(conf.wordLimitMin, conf.wordLimitMax)),
     equalPhrase: R.curry((a, b) => a.getTranslation().toLocaleLowerCase() === b.getTranslation().toLocaleLowerCase()),
     greatPhraseFilter,
   };
@@ -349,8 +342,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     getOtherLanguage,
     selectChoice,
     getExercise,
-    // setExerciseResult,
-    //setExercise,
     exerciseResolved,
     exerciseCompleted,
     nextExercise,
@@ -387,7 +378,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         const category = dictionary.categories.find(({ id }) => categoryId === id);
         if (category === undefined) throw Error(`Can't find category with id ${categoryId}`);
         // not a metacategory
-        if (category.metacategories.length === 0) return [categoryId];
+        if (category.metaOnly === undefined || category.metaOnly === false) return [categoryId];
 
         return (
           dictionary.categories
@@ -404,10 +395,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     const phrases = getPhrases(dictionary, [getRandomItem(processedCategories)]);
     // mix categories together
     //const phrases = getPhrases(dictionary, categories);
-    // build exercise
 
-    // TODO: implement logic to set exercise type and level
-    //Parameters<typeof createExercise>[0]
     const exerciseType: Parameters<typeof createExercise>[0] = Math.random() > 0.5 ? 'textIdentification' : 'audioIdentification';
     return createExercise(exerciseType, { level: computeLevelForNextExercise(exerciseType, get().history) })(phrases);
   };
@@ -441,10 +429,11 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       if (get().dictionary === null) set({ dictionary: await fetchRawDictionary() });
       set({
         history: [],
-        exercise: quickStart ? createNextExercise() : null,
-        counter: quickStart ? 1 : 0,
-        status: quickStart ? ExerciseStoreStatus.active : ExerciseStoreStatus.initialized,
+        exercise: null,
+        counter: 0,
+        status: ExerciseStoreStatus.initialized,
       });
+      if (quickStart === true) get().start();
     },
     cleanUp: () => {
       set({

@@ -103,7 +103,9 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
       </div>
       <div className="relative px-1.5 pt-6 pb-12 mb-6 border border-slate-300 shadow-lg shadow-slate-100 flex flex-col items-center w-full">
         <p className="mb-5 text-sm sm:text-base opacity-60">
-          {exercise.mode === 'audio' ? t('utils.exercise_audio_idenfification_hint') : t('utils.exercise_text_idenfification_hint')}
+          {exercise.mode === 'audio'
+            ? t('exercise_page.exercise_audio_idenfification_hint')
+            : t('exercise_page.exercise_text_idenfification_hint')}
         </p>
         <div className="flex w-full items-center justify-center">
           <h5 ref={mainTextRef} className={`text-xl sm:text-2xl text-center p-0 ${mode === 'audio' ? 'opacity-0' : ''}`}>
