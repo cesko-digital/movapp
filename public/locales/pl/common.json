@@ -165,10 +165,10 @@
       "pl": "Zagraj w obrazkowy quiz z ukraińskimi słówkami"
     },
     "exercise_page_title": {
-      "pl":"Procvičte si ukrajinštinu."
+      "pl":"Przećwicz swój ukraiński."
     },
     "exercise_page_description": {
-      "pl":"Zlepšete vaši jazykovou úroveň. Nabízíme zdarma sadu cvičení pro učení jazyka. Opakujte každý den."
+      "pl":"Polepsz swoje umiejętności językowe. Oferujemy darmowy zestaw ćwiczeń do nauki języka. Powtarzaj codziennie."
     }
   },
   "exercise_page": {
@@ -183,8 +183,8 @@
     "home": "Z powrotem",
     "exercise_audio_idenfification_hint":"Posłuchaj nagrania i zaznacz to, co słyszysz",
     "exercise_text_idenfification_hint":"Wybierz jedną prawidłową odpowiedź",
-    "write_us":"Napište nám",
-    "feedback":"Cvičení postupně rozšiřujeme, dejte nám vědět, pokud jste nalezli chybu, anebo máte nápad na zlepšení."   
+    "write_us":"Napisz do nas",
+    "feedback":"Zestaw ćwiczeń stopniowo poszerzamy. Daj nam wiedzieć, jeśli znajdziesz gdzieś błąd lub wpadniesz na pomysł, co możemy polepszyć."   
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",
