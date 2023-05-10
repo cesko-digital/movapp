@@ -22,15 +22,15 @@ const getThemes = (dictionary: DictionaryDataObject) => {
 
   return [
     {
-      id: 'default',
-      image: '/kids/memory-game/card_back_movapp.png',
+      id: 'xmas',
+      image: '/kids/memory-game/xmascard.png',
       audio: {
         cardFlipSound: '/kids/memory-game/card_flip.mp3',
-        cardsMatchSound: '/kids/memory-game/reward_sfx.mp3',
-        winMusic: '/kids/memory-game/win_music_sh.mp3',
+        cardsMatchSound: '/kids/memory-game/xmasbell.mp3',
+        winMusic: '/kids/memory-game/jingle_bells.mp3',
       },
-      styles: defaultThemeStyles,
-      phrases: filterNoImagePhrases(kidsCategoryPhrases),
+      styles: xmasThemeStyles,
+      phrases: filterNoImagePhrases(xmasPhrases),
     },
     {
       id: 'tale',
@@ -44,15 +44,15 @@ const getThemes = (dictionary: DictionaryDataObject) => {
       phrases: filterNoImagePhrases(talePhrases),
     },
     {
-      id: 'xmas',
-      image: '/kids/memory-game/xmascard.png',
+      id: 'default',
+      image: '/kids/memory-game/card_back_movapp.png',
       audio: {
         cardFlipSound: '/kids/memory-game/card_flip.mp3',
-        cardsMatchSound: '/kids/memory-game/xmasbell.mp3',
-        winMusic: '/kids/memory-game/jingle_bells.mp3',
+        cardsMatchSound: '/kids/memory-game/reward_sfx.mp3',
+        winMusic: '/kids/memory-game/win_music_sh.mp3',
       },
-      styles: xmasThemeStyles,
-      phrases: filterNoImagePhrases(xmasPhrases),
+      styles: defaultThemeStyles,
+      phrases: filterNoImagePhrases(kidsCategoryPhrases),
     },
   ];
 };
