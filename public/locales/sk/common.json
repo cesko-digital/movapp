@@ -191,7 +191,8 @@
     "exercise_audio_idenfification_hint":"Prehrajte zvuk a označte, čo počujete",
     "exercise_text_idenfification_hint":"Vyberte jednu správnu odpoveď",
     "write_us":"Napíšte nám",
-    "feedback":"Cvičenia postupne rozširujeme, dajte nám vedieť, ak ste objavili chybu, alebo máte nápad na zlepšenie."
+    "feedback":"Cvičenia postupne rozširujeme, dajte nám vedieť, ak ste objavili chybu, alebo máte nápad na zlepšenie.",
+    "size_setup":"Nastavte si dĺžku cvičenia"
   },
   "export_translations": {
     "download_phrases": "Stiahnuť frázy",

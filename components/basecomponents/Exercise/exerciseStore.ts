@@ -2,14 +2,12 @@ import { fetchRawDictionary, DictionaryDataObject, Phrase, CategoryDataObject } 
 import { getCountryVariant, Language } from 'utils/locales';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { create } from 'zustand';
-import * as R from 'ramda';
 import {
   createFactoryOfExerciseIdentification,
   ExerciseIdentificationOptions,
   isExerciseAudioIdentification,
   isExerciseTextIdentification,
 } from './ExerciseIdentification';
-import { Curry } from 'Function/_api';
 import { sortRandom, getRandomItem } from 'utils/collectionUtils';
 
 /* eslint-disable no-console */
@@ -56,7 +54,8 @@ export enum ExerciseStatus {
 }
 
 export enum ExerciseType {
-  identification = 'identification',
+  textIdentification = 'taxtIdentification',
+  audioIdentification = 'audioIdentification',
   // TODO: add other types of exercises
 }
 
@@ -64,7 +63,7 @@ interface WithId {
   id: number;
 }
 
-const hasSameId = R.curry((id: WithId['id'], obj: WithId) => id === obj['id']);
+const hasSameId = (id: WithId['id']) => (obj: WithId) => id === obj['id'];
 
 export interface Choice extends WithId {
   select: () => void;
@@ -84,7 +83,6 @@ export interface Exercise extends WithId {
   resolve: () => boolean;
   getResult: () => ExerciseResult;
   completed: () => void;
-  next: () => void;
 }
 
 export enum ExerciseStoreStatus {
@@ -131,7 +129,7 @@ export interface ExerciseStoreUtils {
   exerciseCompleted: () => void;
   nextExercise: ExerciseStoreActions['nextExercise'];
   phraseFilters: {
-    equalPhrase: Curry<(phraseA: Phrase, phraseB: Phrase) => boolean>; //(phraseA: Phrase, phraseB: Phrase) => boolean;
+    equalPhrase: (phraseA: Phrase) => (phraseB: Phrase) => boolean;
     greatPhraseFilter: (
       level: Exercise['level'],
       phrases: Phrase[],
@@ -163,24 +161,29 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       console.log(`choice ${choiceId} already selected`);
       return;
     }
-    set(R.over(R.lensPath(['exercise', 'choices', choiceIndex, 'selected']), (val) => !val));
+    exercise.choices[choiceIndex].selected = !exercise.choices[choiceIndex].selected;
+    set((state) => ({ exercise: { ...state.exercise, ...exercise } }));
     console.log(`selected choice ${choiceId} in exercise`);
   };
 
   const exerciseResolved: ExerciseStoreUtils['exerciseResolved'] = () => {
-    if (getExercise().status !== ExerciseStatus.active) throw Error('invalid exercise status');
+    const exercise = getExercise();
+    if (exercise.status !== ExerciseStatus.active) throw Error('invalid exercise status');
     // if (getExercise().result === null) throw Error('exercise result is empty');
-    set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.resolved));
+    exercise.status = ExerciseStatus.resolved;
+    set((state) => ({ exercise: { ...state.exercise, ...exercise } }));
   };
 
   const exerciseCompleted: ExerciseStoreUtils['exerciseCompleted'] = () => {
-    if (getExercise().status !== ExerciseStatus.resolved) throw Error('invalid exercise status');
+    const exercise = getExercise();
+    if (exercise.status !== ExerciseStatus.resolved) throw Error('invalid exercise status');
     console.log(`exercise completed`);
 
     /* set exercise status completed and save exercise */
-    set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.completed));
+    exercise.status = ExerciseStatus.completed;
     set((state) => ({
-      history: [...state.history, getExercise()],
+      exercise: { ...state.exercise, ...exercise },
+      history: [...state.history, exercise],
     }));
   };
 
@@ -294,9 +297,9 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         // add phrases from lower level
         filteredPhrases = [
           ...filteredPhrases,
-          ...greatPhraseFilter(Math.max(config.levelMin, level - 1), phrases, fallbackPhrases, {
+          ...greatPhraseFilter(level - 1, phrases, fallbackPhrases, {
             ...CONFIG[level - 1],
-            choiceLimit: config.choiceLimit,
+            choiceLimit: config.choiceLimit, // keep current choice limit
           }),
         ];
       }
@@ -309,7 +312,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   };
 
   const phraseFilters: ExerciseStoreUtils['phraseFilters'] = {
-    equalPhrase: R.curry((a, b) => a.getTranslation().toLocaleLowerCase() === b.getTranslation().toLocaleLowerCase()),
+    equalPhrase: (a) => (b) => a.getTranslation().toLocaleLowerCase() === b.getTranslation().toLocaleLowerCase(),
     greatPhraseFilter,
   };
 
@@ -329,8 +332,8 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         (100 *
           Math.max(
             0,
-            exercise.choices.filter(R.allPass([isCorrect, isSelected])).length -
-              exercise.choices.filter(R.allPass([R.complement(isCorrect), isSelected])).length
+            exercise.choices.filter((choice) => isCorrect(choice) && isSelected(choice)).length -
+              exercise.choices.filter((choice) => !isCorrect(choice) && isSelected(choice)).length
           )) /
         exercise.choices.filter(isCorrect).length,
     }),
@@ -351,13 +354,10 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     getFallbackPhrases,
   };
 
-  const createExercise = (
-    type: 'audioIdentification' | 'textIdentification',
-    options: ExerciseIdentificationOptions
-  ): ((phrases: Phrase[]) => Exercise) => {
+  const createExercise = (type: ExerciseType, options: ExerciseIdentificationOptions): ((phrases: Phrase[]) => Exercise) => {
     const list = {
-      audioIdentification: createFactoryOfExerciseIdentification(utils, { ...options, mode: 'audio' }),
-      textIdentification: createFactoryOfExerciseIdentification(utils, { ...options, mode: 'text' }),
+      [ExerciseType.audioIdentification]: createFactoryOfExerciseIdentification(utils, { ...options, mode: 'audio' }),
+      [ExerciseType.textIdentification]: createFactoryOfExerciseIdentification(utils, { ...options, mode: 'text' }),
       // TODO: add other types of exercises
     };
     return list[type];
@@ -369,8 +369,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     const categories = get().categories;
     if (categories.length === 0) {
       throw Error('None categories selected.');
-      // categories fallback
-      // categories = [dictionary.categories[0].id];
     }
 
     const processedCategories = categories
@@ -396,7 +394,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     // mix categories together
     //const phrases = getPhrases(dictionary, categories);
 
-    const exerciseType: Parameters<typeof createExercise>[0] = Math.random() > 0.5 ? 'textIdentification' : 'audioIdentification';
+    const exerciseType = Math.random() > 0.5 ? ExerciseType.textIdentification : ExerciseType.audioIdentification;
     return createExercise(exerciseType, { level: computeLevelForNextExercise(exerciseType, get().history) })(phrases);
   };
 
@@ -405,7 +403,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     textIdentification: isExerciseTextIdentification,
   };
 
-  const computeLevelForNextExercise = (exerciseType: Parameters<typeof createExercise>[0], history: Exercise[]) => {
+  const computeLevelForNextExercise = (exerciseType: ExerciseType, history: Exercise[]) => {
     const exerciseList = history.filter(exerciseFilter[exerciseType]);
     if (exerciseList.length === 0) return get().level; // if has no exercise of same type return global level
     const exercise = exerciseList.slice(-1)[0];

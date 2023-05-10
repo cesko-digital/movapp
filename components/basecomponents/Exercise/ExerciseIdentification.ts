@@ -2,12 +2,9 @@ import { ExerciseType, Exercise, Choice, ExerciseStatus, ExerciseStoreUtils, pla
 import { Phrase } from 'utils/getDataUtils';
 
 /* eslint-disable no-console */
+export const isExerciseAudioIdentification = (ex: Exercise) => ex.type === ExerciseType.audioIdentification;
 
-export const isExerciseAudioIdentification = (ex: Exercise) =>
-  ex.type === ExerciseType.identification && (ex as ExerciseIdentification).mode === 'audio';
-
-export const isExerciseTextIdentification = (ex: Exercise) =>
-  ex.type === ExerciseType.identification && (ex as ExerciseIdentification).mode === 'text';
+export const isExerciseTextIdentification = (ex: Exercise) => ex.type === ExerciseType.textIdentification;
 
 export interface ExerciseIdentification extends Exercise {
   playAudio: () => Promise<void>;
@@ -35,7 +32,6 @@ export const createFactoryOfExerciseIdentification =
       selectChoice,
       exerciseResolved,
       exerciseCompleted,
-      nextExercise,
       phraseFilters,
       resolveMethods,
       resultMethods,
@@ -103,7 +99,7 @@ export const createFactoryOfExerciseIdentification =
     /** Exercise output object has tailored actions to lighten up UI logic */
     return {
       id: exerciseId,
-      type: ExerciseType.identification,
+      type: mode === 'audio' ? ExerciseType.audioIdentification : ExerciseType.textIdentification,
       mode,
       status: ExerciseStatus.active,
       playAudio: () => playAudio(getSoundUrl()),
@@ -113,7 +109,6 @@ export const createFactoryOfExerciseIdentification =
       resolve,
       getResult,
       completed: exerciseCompleted,
-      next: nextExercise,
       level,
     };
   };

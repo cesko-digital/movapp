@@ -184,7 +184,8 @@
     "exercise_audio_idenfification_hint":"Posłuchaj nagrania i zaznacz to, co słyszysz",
     "exercise_text_idenfification_hint":"Wybierz jedną prawidłową odpowiedź",
     "write_us":"Napisz do nas",
-    "feedback":"Zestaw ćwiczeń stopniowo poszerzamy. Daj nam wiedzieć, jeśli znajdziesz gdzieś błąd lub wpadniesz na pomysł, co możemy polepszyć."   
+    "feedback":"Zestaw ćwiczeń stopniowo poszerzamy. Daj nam wiedzieć, jeśli znajdziesz gdzieś błąd lub wpadniesz na pomysł, co możemy polepszyć.",
+    "size_setup":"Ustaw długość ćwiczenia"
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",

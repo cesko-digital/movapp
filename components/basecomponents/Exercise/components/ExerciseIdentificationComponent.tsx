@@ -68,17 +68,11 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
   useEffect(() => {
     if (status === ExerciseStatus.completed) {
       if (
-        mainTextRef === null ||
         mainTextRef.current === null ||
-        soundwaveRef === null ||
         soundwaveRef.current === null ||
-        bookRef === null ||
         bookRef.current === null ||
-        speakerRef === null ||
         speakerRef.current === null ||
-        playRef === null ||
         playRef.current === null ||
-        playSlowRef === null ||
         playSlowRef.current === null
       )
         return;

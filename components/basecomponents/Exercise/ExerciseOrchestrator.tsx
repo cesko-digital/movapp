@@ -20,6 +20,7 @@ interface PendingStore {
   setPending: (val: boolean) => void;
 }
 
+// global state of pending action, ActionButtons are disabled when pending is true
 export const usePendingStore = create<PendingStore>((set) => ({
   pending: false,
   setPending: (val) => set({ pending: val }),
@@ -156,7 +157,7 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
             </Button>
           ))}
         </div>
-        <p className="text-sm sm:text-base text-center mb-3">Nastavte si délku cvičení:</p>
+        <p className="text-sm sm:text-base text-center mb-3">{t('exercise_page.size_setup')}:</p>
         <div className="flex items-center justify-center">
           <div className="grid grid-cols-3 gap-4 mb-10 justify-stretch justify-items-stretch">
             {[3, 5, 10].map((val) => (
@@ -183,8 +184,8 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
 
   if (status === ExerciseStoreStatus.active) {
     if (exercise === null) return <Loading />;
-    switch (exercise.type as ExerciseType) {
-      case ExerciseType.identification:
+    switch (exercise.type) {
+      case ExerciseType.audioIdentification || ExerciseType.textIdentification:
         return (
           <AppContainer headerContent={`${counter}/${size}`}>
             <ExerciseIdentificationComponent ref={exerciseRef} key={exercise.id} exercise={exercise as ExerciseIdentification} />
