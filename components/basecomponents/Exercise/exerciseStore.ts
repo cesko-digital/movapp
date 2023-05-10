@@ -54,7 +54,7 @@ export enum ExerciseStatus {
 }
 
 export enum ExerciseType {
-  textIdentification = 'taxtIdentification',
+  textIdentification = 'textIdentification',
   audioIdentification = 'audioIdentification',
   // TODO: add other types of exercises
 }
@@ -398,7 +398,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     return createExercise(exerciseType, { level: computeLevelForNextExercise(exerciseType, get().history) })(phrases);
   };
 
-  const exerciseFilter: Record<string, (ex: Exercise) => boolean> = {
+  const exerciseFilter: Record<ExerciseType, (ex: Exercise) => boolean> = {
     audioIdentification: isExerciseAudioIdentification,
     textIdentification: isExerciseTextIdentification,
   };

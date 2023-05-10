@@ -185,7 +185,8 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
   if (status === ExerciseStoreStatus.active) {
     if (exercise === null) return <Loading />;
     switch (exercise.type) {
-      case ExerciseType.audioIdentification || ExerciseType.textIdentification:
+      case ExerciseType.audioIdentification:
+      case ExerciseType.textIdentification:
         return (
           <AppContainer headerContent={`${counter}/${size}`}>
             <ExerciseIdentificationComponent ref={exerciseRef} key={exercise.id} exercise={exercise as ExerciseIdentification} />
