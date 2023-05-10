@@ -26,7 +26,7 @@ const Feedback = () => {
         </button>
       </div>
       <Modal closeModal={() => setModalOpen(false)} isOpen={modalOpen} unmount>
-        <div className={`absolute flex justify-center items-center w-full h-96 -z-10`}>
+        <div className={`absolute flex justify-center items-center w-full h-full -z-10 top-0 left-0`}>
           <Spinner />
         </div>
         <iframe className="airtable-embed" src={iframeSrc} frameBorder="0" width="100%" height="533" />

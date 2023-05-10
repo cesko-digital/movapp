@@ -49,13 +49,13 @@ export const HEADER_NAVIGATION: HeaderNavItem[] = [
     ],
   },
   {
+    name: 'header.exercises_link_name',
+    link: '/exercise',
+  },
+  {
     name: 'header.wiki_link_name',
     link: '/wiki',
     onlyForCountryVariants: ['cs'],
-  },
-  {
-    name: 'header.exercises_link_name',
-    link: '/exercise',
   },
   {
     name: 'header.about_link_name',

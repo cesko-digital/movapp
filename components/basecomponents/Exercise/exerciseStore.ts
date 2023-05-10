@@ -9,6 +9,7 @@ import {
   isExerciseTextIdentification,
 } from './ExerciseIdentification';
 import { sortRandom, getRandomItem } from 'utils/collectionUtils';
+import * as R from 'ramda';
 
 /* eslint-disable no-console */
 
@@ -161,29 +162,23 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       console.log(`choice ${choiceId} already selected`);
       return;
     }
-    exercise.choices[choiceIndex].selected = !exercise.choices[choiceIndex].selected;
-    set((state) => ({ exercise: { ...state.exercise, ...exercise } }));
+    set(R.over(R.lensPath(['exercise', 'choices', choiceIndex, 'selected']), (val) => !val));
     console.log(`selected choice ${choiceId} in exercise`);
   };
 
   const exerciseResolved: ExerciseStoreUtils['exerciseResolved'] = () => {
-    const exercise = getExercise();
-    if (exercise.status !== ExerciseStatus.active) throw Error('invalid exercise status');
+    if (getExercise().status !== ExerciseStatus.active) throw Error('invalid exercise status');
     // if (getExercise().result === null) throw Error('exercise result is empty');
-    exercise.status = ExerciseStatus.resolved;
-    set((state) => ({ exercise: { ...state.exercise, ...exercise } }));
+    set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.resolved));
   };
 
   const exerciseCompleted: ExerciseStoreUtils['exerciseCompleted'] = () => {
-    const exercise = getExercise();
-    if (exercise.status !== ExerciseStatus.resolved) throw Error('invalid exercise status');
+    if (getExercise().status !== ExerciseStatus.resolved) throw Error('invalid exercise status');
     console.log(`exercise completed`);
-
     /* set exercise status completed and save exercise */
-    exercise.status = ExerciseStatus.completed;
+    set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.completed));
     set((state) => ({
-      exercise: { ...state.exercise, ...exercise },
-      history: [...state.history, exercise],
+      history: [...state.history, getExercise()],
     }));
   };
 
