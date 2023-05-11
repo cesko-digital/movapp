@@ -10,7 +10,7 @@ import createCancelablePromiseStore from 'utils/cancelablePromiseStore';
 import { create } from 'zustand';
 //import anime from 'animejs';
 
-//choose which game theme should be default - 0 for Movapp, 1 for fairytale and 2 for christmas
+//choose which game theme should be default - 0 for Movapp, 1 for fairytale and 2 for Christmas
 const currentVersion: 0 | 1 | 2 = 0;
 
 const addBackroundColor = (phrases: Phrase[]) =>
