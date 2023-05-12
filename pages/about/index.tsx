@@ -277,9 +277,8 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           i18nKey={'about_page.conferences_description'}
           t={t}
           components={[
-            <TextLink href="https://www.movapp.cz/" key="movapp_page" />,
-            <TextLink href="https://www.youtube.com/watch?v=ThY0ZiWmBV8&t=2580s" target="_blank" key="first_conference" />,
-            <TextLink href="https://www.youtube.com/watch?v=3UC16MhE19k&t=1847s" target="_blank" key="second_conference" />,
+            <TextLink href="https://www.youtube.com/watch?v=ThY0ZiWmBV8&t=2353s" target="_blank" key="first_conference" />,
+            <TextLink href="https://www.youtube.com/watch?v=3UC16MhE19k&t=1660s" target="_blank" key="second_conference" />,
           ]}
         />
 
