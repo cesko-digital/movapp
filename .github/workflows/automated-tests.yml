@@ -98,7 +98,9 @@ jobs:
         run: npm run start & npx wait-on --timeout 30000 http://localhost:3000
 
       - name: Cypress run
-        uses: cypress-io/github-action@v3
+        uses: cypress-io/github-action@v5
         with:
           browser: chrome
+          record: true
+          parallel: true
           wait-on: "http://localhost:3000"
