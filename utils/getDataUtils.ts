@@ -26,6 +26,7 @@ export interface CategoryDataObject {
   description: string;
   phrases: string[];
   hidden?: boolean;
+  metaOnly?: boolean;
 }
 
 export interface PhraseDataObject {
@@ -107,7 +108,14 @@ export const fetchRawDictionary = async (country?: CountryVariant): Promise<Dict
 
 export const fetchDictionary = async (country?: CountryVariant): Promise<DictionaryDataObject> => {
   const json = await fetchRawDictionary(country);
-  return { ...json, categories: json.categories.filter((category) => !category.hidden) };
+  // filter out categories with hidden set to true, or if there's no hidden attribute, filter out categories with metaOnly set to true
+  const result = {
+    ...json,
+    categories: json.categories.filter(
+      (category) => !(category.hidden === true || (category.hidden === undefined && category.metaOnly === true))
+    ),
+  };
+  return result;
 };
 
 /**

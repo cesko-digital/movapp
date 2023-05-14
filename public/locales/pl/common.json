@@ -79,6 +79,8 @@
     "why_movapp_license": "Teksty, obrazy oraz pliki audio Movapp są pod <0>licencją CC BY-NC 4.0</0>. (Uznanie autorstwa - Użycie niekomercyjne 4.0), co znaczy, że możesz je wykorzystywać na własne potrzeby bez żadnych ograniczeń. Gdybyś chciał/a je dalej dystrybuować (w oryginalnej lub edytowanej wersji), możesz to robić tylko w celach niekomercyjnych, i z uznaniem oryginalnych autorów.",
     "why_movapp_origin": "Oryginalnymi autorkami <0>podstawowego zestawu słów i zwrotów</0> są Tereza Javornická i Yevheniia Valova (EDUA Group). Zestaw ten jest utrzymywany oraz dalej rozszerzany przez zespół Movapp.",
     "media_mentions_title": "Pisali o nas",
+    "conferences_title": "Konferencje i wykłady",
+    "conferences_description": "Prezentacja Movapp.cz na LUkrainian Conference na Lancaster University (Wielka Brytania). <br/>- <0>1st LUkrainian Conference (22. 07. 2022)</0><br/>- <1>4th LUkrainian Conference (13. 01. 2023)</1>",
     "our_team_title": "Nasz zespół",
     "our_team_current_title": "Aktualny skład",
     "our_team_spring_title": "Wiosenny skład",
@@ -92,8 +94,8 @@
     "our_partners_title": "Nasi partnerzy",
     "how_to_find_us_title": "Jak nas znaleźć",
     "how_to_find_us_description": "Możesz nas wyszukać używając terminów <i>\"movapp\"</i>, <i>\"movaap\"</i> lub <i>\"mova app\"</i>. Jeśli piszesz o nas, użyj nazwy Movapp.",
-    "support_us_title":"Wspierać nas",
-    "support_us_description":"- Daj o nas znać Ukraińcom w Twojej okolicy (w pracy, szkole, rodzinom mieszkającym w Twoim domu) - możesz wykorzystać te <0>plakaty.</0><br/> - Śledź nas na mediach społecznościowych i pomóż nam rozpowszechniać informacje (listę mediów znajdziesz na stronie <1>kontakty</1>, i pomóż nam rozpowszechniać informacje. <br/> - Jeśli masz więcej czasu (2 lub więcej godzin tygodniowo), możesz do nas dołączyć. Listę stanowisk, na które aktualnie szukamy wolontariuszy, znajdziesz <2>tutaj</2>. Skontaktować się z nami możesz <3>mailowo</3> bądź przez <4>Slacka Česko.Digital.</4>"
+    "support_us_title": "Wspierać nas",
+    "support_us_description": "- Daj o nas znać Ukraińcom w Twojej okolicy (w pracy, szkole, rodzinom mieszkającym w Twoim domu) - możesz wykorzystać te <0>plakaty.</0><br/> - Śledź nas na mediach społecznościowych i pomóż nam rozpowszechniać informacje (listę mediów znajdziesz na stronie <1>kontakty</1>, i pomóż nam rozpowszechniać informacje. <br/> - Jeśli masz więcej czasu (2 lub więcej godzin tygodniowo), możesz do nas dołączyć. Listę stanowisk, na które aktualnie szukamy wolontariuszy, znajdziesz <2>tutaj</2>. Skontaktować się z nami możesz <3>mailowo</3> bądź przez <4>Slacka Česko.Digital.</4>"
   },
   "contacts_page": {
     "title": "Kontakty",
@@ -208,7 +210,7 @@
     },
     "christmas_pexeso_title": "Bożonarodzeniowe memory",
     "christmas_pexeso_description": "Ćwicz słówka w ulubionej grze z świątecznymi obrazkami.",
-    "christmas_pexeso_link":  "/kids/memory-game",
+    "christmas_pexeso_link": "/kids/memory-game",
     "christmas_tale_title": "",
     "christmas_tale_description": "",
     "christmas_tale_link": "",
@@ -219,7 +221,7 @@
   "easter_banner": {
     "box_easter_dictionary_title": "Wielkanocny słowniczek",
     "box_easter_dictionary_description": "Mówi zając do baranka, jaka piękna ta pisanka, wtem z jajeczka wyszła kurka i zaczęła uczyć się wielkanocnych zwrotów.",
-    "box_easter_dictionary_anchor": {"pl":"swieta_wielkanocne"},
+    "box_easter_dictionary_anchor": { "pl": "swieta_wielkanocne" },
     "box_easter_kids_title": "Wielkanoc dla dzieci",
     "box_easter_kids_description": "Zabawne obrazki i kolorowanki o tematyce wielkanocnej.",
     "box_easter_kids_anchor": {
