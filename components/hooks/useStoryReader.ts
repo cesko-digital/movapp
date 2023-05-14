@@ -5,6 +5,9 @@ import { useLanguage } from 'utils/useLanguageHook';
 
 import { Language } from 'utils/locales';
 
+// Keep setTimeout value below 951. It is the lowest value, that the browser on Apple devices know and that it can enable autoplay.
+const TIMOUT_DELAY = 500;
+
 export const useStoryReader = (id: string) => {
   const { currentLanguage } = useLanguage();
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -49,7 +52,7 @@ export const useStoryReader = (id: string) => {
           audio.current.currentTime = time;
           playStory();
         }
-      }, 500);
+      }, TIMOUT_DELAY);
 
       return () => clearTimeout(timer);
     },
