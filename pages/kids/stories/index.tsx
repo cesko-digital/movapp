@@ -1,15 +1,15 @@
+import React from 'react';
+import { GetStaticProps } from 'next';
 import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
 import Image from 'next/legacy/image';
-import React from 'react';
+
 import SEO from 'components/basecomponents/SEO';
-import stories from '../../../data/stories';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import stories from 'data/stories';
 import { useLanguage } from 'utils/useLanguageHook';
 import { getCountryVariant } from 'utils/locales';
-import { GetStaticProps } from 'next';
-import Custom404 from '../../404';
-
+import Custom404 from 'pages/404';
 interface StoriesSectionProps {
   stories: Story[];
 }
@@ -17,8 +17,8 @@ interface StoriesSectionProps {
 export interface Language {
   cs: string;
   uk: string;
-  sk: string;
-  [index: string]: string;
+  sk?: string;
+  [index: string]: string | undefined;
 }
 
 export interface Story {
@@ -28,13 +28,8 @@ export interface Story {
   country: string;
 }
 
-const StoriesSection = ({ stories }: StoriesSectionProps) => {
-  const { t } = useTranslation();
-  const { currentLanguage } = useLanguage();
-
-  const countryVariant = getCountryVariant();
-  stories = stories.filter((story) => story.title[countryVariant]);
-  const storiesByCountry = stories.reduce((acc, story) => {
+const getStoriesByCountry = (stories: Story[]) => {
+  return stories.reduce((acc, story) => {
     const { country } = story;
 
     if (!acc[country]) {
@@ -44,22 +39,16 @@ const StoriesSection = ({ stories }: StoriesSectionProps) => {
     acc[country].push(story);
     return acc;
   }, {} as { [key: string]: Story[] });
+};
+const StoriesSection = ({ stories }: StoriesSectionProps) => {
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
 
-  console.log(storiesByCountry['CZ']);
+  const countryVariant = getCountryVariant();
+  stories = stories.filter((story) => story.title[countryVariant]);
+  const storiesByCountry = getStoriesByCountry(stories);
 
-  const renderStoriesSection = (language: string, stories: Story[], titleKey: string) => {
-    // Filter stories that have a title in the current language
-    const localizedStories = stories.filter((story) => story.title[language]);
-
-    return (
-      <>
-        <h2 className="text-primary-blue text-center">{t(titleKey)}</h2>
-        {localizedStories.map((story) => storyPanel(story))}
-      </>
-    );
-  };
-
-  const storyPanel = (story: Story) => (
+  const renderStoryPanel = (story: Story) => (
     <div className="h-42 m-auto my-8 flex bg-slate-50 rounded-2xl sm:w-3/5 xl:w-2/5 xxl:w-1/3" key={story.slug}>
       <Image src={`/kids/${story.slug}.jpg`} width="300" className="rounded-l-2xl" height="200" alt={story.title[currentLanguage]} />
       <div className="flex items-center xl:ml-6 w-full">
@@ -89,6 +78,18 @@ const StoriesSection = ({ stories }: StoriesSectionProps) => {
       </div>
     </div>
   );
+
+  const renderStoriesSection = (language: string, stories: Story[], titleKey: string) => {
+    // Filter stories that have a title in the current language
+    const localizedStories = stories.filter((story) => story.title[language]);
+
+    return (
+      <>
+        <h2 className="text-primary-blue text-center">{t('titleKey', { titleKey, defaultValue: 'stories' })}</h2>
+        {localizedStories.map((story) => renderStoryPanel(story))}
+      </>
+    );
+  };
 
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">

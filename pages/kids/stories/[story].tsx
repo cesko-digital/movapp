@@ -28,8 +28,12 @@ const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
     return 'Story not found';
   }
 
-  const title_current = story.title[currentLanguage];
-  const title_other = story.title[otherLanguage];
+  if (!story.title[currentLanguage] || !story.title[otherLanguage]) {
+    return null;
+  }
+
+  const title_current = story.title[currentLanguage] || '';
+  const title_other = story.title[otherLanguage] || '';
 
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -mt-2 md:p-12 w-full">
