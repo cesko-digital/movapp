@@ -10,7 +10,7 @@ import { normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
 import { getCountryVariant } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';
-import { SearchInput } from 'components/basecomponents/SearchInput';
+import SearchInput from 'components/basecomponents/SearchInput';
 import { DictionaryDataObject, fetchDictionary, getAllPhrases, getCategories } from '../../utils/getDataUtils';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
