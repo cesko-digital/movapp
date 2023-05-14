@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movapp</title>
+    <meta
+      name="description"
+      content="Movapp is a Ukrainian-focused free open-source language-learning application developed by volunteers at Česko.Digital. Movapp je bezplatná open-source aplikace na učení jazyků zameřená na Ukrajinštinu vyvíjená dobrovolníky v Česko.Digital. Movapp - безкоштовний open-source додаток для вивчення української мови, розроблений волонтерами в Česko.Digital."
+    />
+    <title>We are Movapp, My sme Movapp, Ми Movapp ❤️🇺🇦</title>
+    <link rel="icon" href="./favicon.ico" sizes="any" />
     <style>
       body {
         font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -15,20 +20,19 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        min-height: 90vh;
       }
 
       .countries {
         display: flex;
         flex-direction: row;
-        justify-content: center;
         align-items: center;
-        max-width: 700px;
+        max-width: 800px;
         width: 100%;
         justify-content: space-between;
       }
 
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 768px) {
         .countries {
           flex-direction: column;
         }
@@ -38,8 +42,9 @@
         width: 20rem;
         max-width: 100%;
         margin-bottom: 3rem;
+        margin-top: 4rem;
       }
-        
+
       .countryLink {
         margin: 1rem;
         display: flex;
@@ -49,6 +54,10 @@
         color: #013abd;
         margin-bottom: 2rem;
         padding: 0.5rem;
+      }
+
+      .countryLink div {
+        white-space: nowrap;
       }
 
       .countryLink:hover {
@@ -63,14 +72,43 @@
         margin-top: 0;
         margin-bottom: 0.5rem;
       }
+
+      .addCountry {
+        color: gray;
+      }
+
+      h1 {
+        margin-top: auto;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+
+      .description {
+        max-width: 900px;
+        width: 100%;
+        text-align: center;
+      }
     </style>
+    <script defer="true" data-domain="movapp.eu, all.movapp.eu" src="https://plausible.io/js/script.js"></script>
+    <script>
+      function add(e) {
+        alert(`
+          If you would like to start a new Movapp language variant, please write us at pryvit@movapp.cz
+
+          Якщо ви хочете запустити новий мовний варіант Movapp, напишіть нам на pryvit@movapp.cz
+
+          Pokud chcete založit další jazykovou verzi, napište nám na pryvit@movapp.cz
+        `);
+      }
+    </script>
   </head>
   <body>
     <div class="container">
-      <h1><img src="img/movapp-logo.png" alt="Movapp logo" class="movappLogo"></h1>
+      <img src="img/movapp-logo.png" alt="Movapp logo" class="movappLogo" />
       <div class="countries">
         <a class="countryLink" href="https://movapp.cz">
-          <img src="img/cz-flag.svg" alt="Czech flag"  />
+          <img src="img/cz-flag.svg" alt="Czech flag" />
           <h2>movapp.cz</h2>
           <div>Nauč se Ukrajinsky!</div>
           <div>Вчи чеську!</div>
@@ -89,7 +127,30 @@
           <h2>pl.movapp.eu</h2>
           <div>Ucz się ukraińskiego!</div>
           <div>Вивчай польську!</div>
-          </a>
+        </a>
+        <a class="countryLink addCountry" onclick="add()" href="#">
+          <div>
+            <img src="img/add.svg" width="50" style="opacity: 50%; margin: 1.7rem 1rem" alt="Add country" />
+          </div>
+          <h2>Create</h2>
+          <div>Start a new</div>
+          <div>Movapp variant</div>
+        </a>
+      </div>
+      <h1>We are Movapp, My sme Movapp, Ми Movapp ❤️🇺🇦</h1>
+      <div class="description">
+        <p>
+          Movapp is a Ukrainian-focused free open-source language-learning application developed by volunteers at
+          <a href="https://cesko.digital/" target="_blank">Česko.Digital</a>.
+        </p>
+        <p>
+          Movapp je bezplatná open-source aplikace na učení jazyků zameřená na Ukrajinštinu vyvíjená dobrovolníky v
+          <a href="https://cesko.digital/" target="_blank">Česko.Digital</a>.
+        </p>
+        <p>
+          Movapp - безкоштовний open-source додаток для вивчення української мови, розроблений волонтерами в
+          <a href="https://cesko.digital/" target="_blank">Česko.Digital</a>.
+        </p>
       </div>
     </div>
   </body>
