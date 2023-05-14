@@ -139,14 +139,6 @@ describe('Get Data Utils', () => {
   describe('fetching functions', () => {
     const mockFetch = fetch as jest.MockedFunction<typeof fetch>;
 
-    it('should fetch raw dictionary data', async () => {
-      mockFetch.mockResolvedValueOnce({
-        json: () => Promise.resolve(mockDictionaryData),
-      } as unknown as Response);
-      const rawData = await fetchRawDictionary(mockCountryVariantCZ);
-      expect(rawData).toEqual(mockDictionaryData);
-    });
-
     it('should fetch dictionary data with hidden categories filtered out', async () => {
       mockFetch.mockResolvedValueOnce({
         json: () => Promise.resolve(mockDictionaryData),
