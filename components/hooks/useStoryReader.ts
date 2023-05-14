@@ -1,84 +1,93 @@
+import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
+
 import { PhraseInfo } from 'components/basecomponents/StoryText';
-import React from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
+
+import { Language } from 'utils/locales';
+
+// Keep setTimeout value below 951. It is the lowest value, that the browser on Apple devices know and that it can enable autoplay.
+const TIMOUT_DELAY = 500;
 
 export const useStoryReader = (id: string) => {
   const { currentLanguage } = useLanguage();
-  const [currentTime, setCurrentTime] = React.useState(0);
-  const [seekValue, setSeekValue] = React.useState(0);
-  const [isPlaying, setIsPlaying] = React.useState(false);
-  const [languagePlay, setLanguagePlay] = React.useState(currentLanguage);
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const [seekValue, setSeekValue] = useState<number>(0);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [languagePlay, setLanguagePlay] = useState<Language>(currentLanguage);
 
-  // using useRef to prevent keeping playing audio when changing route, see: https://stackoverflow.com/questions/37949895/stop-audio-on-route-change-in-react
-  const audio = React.useRef<HTMLAudioElement | null>(null);
+  const audio = useRef<HTMLAudioElement | null>(null);
   const source = `https://data.movapp.eu/bilingual-reading/${id}-${languagePlay}.mp3`;
 
-  const playStory = () => {
+  const playStory: VoidFunction = useCallback(() => {
     if (audio.current !== null) {
       setIsPlaying(true);
       audio.current.play();
     }
-  };
+  }, [audio]);
 
-  const pauseStory = () => {
+  const pauseStory: VoidFunction = useCallback(() => {
     if (audio.current !== null) {
       setIsPlaying(false);
       audio.current.pause();
     }
-  };
+  }, [audio]);
 
-  const stopStory = React.useCallback(() => {
+  const stopStory: VoidFunction = useCallback(() => {
+    pauseStory();
     if (audio.current !== null) {
-      pauseStory();
       audio.current.currentTime = 0;
     }
-  }, []);
+  }, [pauseStory]);
 
-  const playPhrase = React.useCallback((value: PhraseInfo) => {
-    const { time, language } = value;
+  const playPhrase: (value: PhraseInfo) => void = useCallback(
+    (value: PhraseInfo) => {
+      const { time, language } = value;
 
-    setLanguagePlay(language);
-    setSeekValue(time);
+      setLanguagePlay(language);
+      setSeekValue(time);
+      pauseStory(); // pause current audio if it's playing
 
-    // Keep setTimeout value below 951. It is the lowest value, that the browser on Apple devices know and that it can enable autoplay.
-    setTimeout(() => {
-      if (audio.current !== null) {
-        audio.current.currentTime = time;
-        playStory();
-      }
-    }, 500);
-  }, []);
-
-  React.useEffect(() => {
-    audio.current = new Audio(source);
-    return () => {
-      if (audio.current !== null) {
-        stopStory();
-      }
-    };
-  }, [languagePlay, id, source, stopStory]);
-
-  React.useEffect(() => {
-    audio.current = new Audio(source);
-    return () => {
-      audio.current = null;
-    };
-  }, [source]);
-
-  React.useEffect(() => {
-    if (audio.current !== null) {
-      audio.current.ontimeupdate = () => {
+      const timer = setTimeout(() => {
         if (audio.current !== null) {
-          const duration = audio.current.duration;
-          const actualTime = audio.current.currentTime;
-          setCurrentTime(actualTime);
-          setSeekValue(duration ? (actualTime / duration) * 100 : 0);
+          audio.current.currentTime = time;
+          playStory();
         }
-      };
-    }
-  });
+      }, TIMOUT_DELAY);
 
-  const time = `${Math.floor(currentTime / 60)}`.padStart(2, '0') + ':' + `${Math.floor(currentTime % 60)}`.padStart(2, '0');
+      return () => clearTimeout(timer);
+    },
+    [playStory, pauseStory]
+  );
+
+  useEffect(() => {
+    const handleTimeUpdate = () => {
+      if (audio.current === null) {
+        return;
+      }
+      const duration = audio.current.duration;
+      const actualTime = audio.current.currentTime;
+      setCurrentTime(actualTime);
+      setSeekValue(duration ? (actualTime / duration) * 100 : 0);
+    };
+
+    const handleAudioEnd = () => setIsPlaying(false);
+
+    audio.current = new Audio(source);
+    audio.current.ontimeupdate = handleTimeUpdate;
+    audio.current.onended = handleAudioEnd;
+
+    return () => {
+      stopStory();
+    };
+  }, [source, stopStory]);
+
+  const time = useMemo(() => {
+    return `${Math.floor(currentTime / 60)
+      .toString()
+      .padStart(2, '0')}:${Math.floor(currentTime % 60)
+      .toString()
+      .padStart(2, '0')}`;
+  }, [currentTime]);
 
   return {
     languagePlay,
