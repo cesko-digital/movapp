@@ -11,7 +11,7 @@ interface SearchInputProps {
   className?: string;
 }
 
-export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
+const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
   ({ hiddenLabel, id, label, resetInput, value, className, placeholder, setSearch }, ref): JSX.Element => {
     return (
       <div className={`relative ${className} transition duration-500 w-full`}>
@@ -39,3 +39,5 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
     );
   }
 );
+
+export default SearchInput;
