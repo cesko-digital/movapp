@@ -44,6 +44,7 @@ const mockCategoryData: CategoryDataObject = {
   description: 'description',
   phrases: ['testPhrase'],
   hidden: true,
+  metacategories: [],
 };
 
 const mockDictionaryData: DictionaryDataObject = {
