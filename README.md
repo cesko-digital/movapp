@@ -64,6 +64,8 @@ If you have questions, [write to us on Slack](https://cesko-digital.slack.com/ar
   ```
 - **Language variants**: We use the `NEXT_PUBLIC_COUNTRY_VARIANT` environment variable to decide whether to build the Czech, Slovak or Polish variant of the site. See `locales.ts` for more details. When making changes, check that your code works in all language variants. The merge request pipeline automatically deploys the preview of each language variant.
 
+- Language variant singpost is deployed separately from the main app using GitHub pages. See [docs/signpost-readme.md](docs/signpost-readme.md) for more details.
+
 - **Data management**:
 
   - We use [Airtable](https://airtable.com/appLciQqZNGDR3J6W?) for managing the site content (phrases, categories).
