@@ -7,7 +7,7 @@
     "forkids_memorygame": "Pexeso",
     "forkids_imagequiz": "Obrázkový kvíz",
     "wiki_link_name": "Wiki",
-    "exercises_link_name": "Cvičení",
+    "exercises_link_name": "Procvičování",
     "about_link_name": "O nás",
     "contacts_link_name": "Kontakty",
     "alphabet_link_name": "Abeceda"
@@ -68,7 +68,7 @@
     "results_subtitle": "Výsledky vyhledávání",
     "not_found_results": "Nic nenalezeno",
     "download_pdf": "Stáhnout v PDF",
-    "first_exercise":"Cvičení typu 1"
+    "first_exercise":"Procvičování"
   },
   "kids_page": {
     "downloadPDF": "Stáhnout v PDF",
@@ -186,7 +186,7 @@
   },
   "exercise_page": {
     "game_description": "Procvičte si slovíčka a fráze na nejrůznější témata. Nejprve si vyberte tematické okruhy, a můžete začít!",
-    "play_the_game": "Spustit cvičení",
+    "play_the_game": "Začít",
     "select_all": "Vybrat vše",
     "clear_all": "Zrušit výběr",
     "pick_random": "Vybrat náhodně",
