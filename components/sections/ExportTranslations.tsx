@@ -227,7 +227,12 @@ const ExportTranslations = ({ triggerLabel, category, customName }: ExportTransl
         <Separator />
         <div className="text-sm font-light">
           {t('export_translations.sharing_info')}:&nbsp;
-          <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" rel="noreferrer" className="underline">
+          <a
+            href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage}`}
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
             CC BY-NC 4.0
           </a>
           .
