@@ -6,7 +6,7 @@
     "forkids_memorygame": "Pexeso",
     "forkids_imagequiz": "Obrázkový kvíz",
     "wiki_link_name": "Wiki",
-    "exercises_link_name": "Cvičenia",
+    "exercises_link_name": "Precvičovanie",
     "about_link_name": "O nás",
     "contacts_link_name": "Kontakty",
     "alphabet_link_name": "Abeceda"
@@ -68,7 +68,8 @@
     "uk": "po ukrajinsky",
     "results_subtitle": "Výsledky vyhľadávania",
     "not_found_results": "Nič nenájdené",
-    "download_pdf": "Stiahnuť v PDF"
+    "download_pdf": "Stiahnuť v PDF",
+    "first_exercise":"Precvičovanie"
   },
   "kids_page": {
     "downloadPDF": "Stiahnuť v PDF",
@@ -171,7 +172,29 @@
     },
     "kids_page_imagequiz_description": {
       "sk": "Zahrajte si obrázkový kvíz s ukrajinskými slovíčkami"
+    },
+    "exercise_page_title": {
+      "sk":"Precvičte si ukrajinčinu."
+    },
+    "exercise_page_description": {
+      "sk":"Zlepšite vašu jazykovú úroveň. Ponúkame zdarma súbor cvičení na učenie jazyka. Opakujte si každý deň."
     }
+  },
+  "exercise_page": {
+    "game_description": "Precvičte si slovíčka a frázy na najrôznejšie témy. Najskôr si vyberte tematické okruhy a môžete začať!",
+    "play_the_game": "Spustiť cvičenie",
+    "select_all": "Vybrať všetko",
+    "clear_all": "Zrušiť výber",
+    "pick_random": "Vybrať náhodne",
+    "next": "Pokračovať",
+    "congratulations": "Gratulujeme!",
+    "you_have_finished": "Cvičenie ste úspešne zvládli. Teraz môžete pokračovať v precvičovaní alebo sa vrátiť späť na hlavnú stránku.",
+    "home": "Domov",
+    "exercise_audio_idenfification_hint":"Prehrajte zvuk a označte, čo počujete",
+    "exercise_text_idenfification_hint":"Vyberte jednu správnu odpoveď",
+    "write_us":"Napíšte nám",
+    "feedback":"Cvičenia postupne rozširujeme, dajte nám vedieť, ak ste objavili chybu, alebo máte nápad na zlepšenie.",
+    "size_setup":"Nastavte si dĺžku cvičenia"
   },
   "export_translations": {
     "download_phrases": "Stiahnuť frázy",
@@ -197,7 +220,7 @@
   },
   "utils": {
     "play": "prehrať",
-    "new_game": "Nová hra"
+    "new_game": "Nová hra"    
   },
   "apps": {
     "download_app": "Stiahnúť Movapp mobilnú aplikáciu",

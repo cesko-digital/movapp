@@ -1,10 +1,9 @@
 import React, { useEffect, useCallback } from 'react';
-import { Button } from 'components/basecomponents/Button';
 import { useTranslation } from 'next-i18next';
 import Card from './MemoryGameCard';
 import { useLanguage } from 'utils/useLanguageHook';
 import loaderStyles from './MemoryGameThemeLoader.module.css';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { useGameStore } from './gameStore';
 
 const MemoryGame = () => {
@@ -54,7 +53,9 @@ const MemoryGame = () => {
         ))}
       </div>
       <div className={styles.app}>
-        <Button ref={buttonRef} className={styles.newGameButton} text={t('utils.new_game')} onClick={restart} />
+        <button ref={buttonRef} className={styles.newGameButton} onClick={restart}>
+          {t('utils.new_game')}
+        </button>
         <div className={styles.board}>
           {cards.map((card) => (
             <Card

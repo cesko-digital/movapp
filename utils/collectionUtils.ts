@@ -10,3 +10,4 @@ export const shuffle = <T>(array: T[] = [], size: number): T[] => {
 };
 
 export const getRandomItem = <Type>(arr: Type[]): Type => arr[Math.floor(Math.random() * arr.length)];
+export const sortRandom = () => Math.random() - 0.5;

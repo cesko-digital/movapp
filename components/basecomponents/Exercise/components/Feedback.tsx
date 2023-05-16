@@ -1,8 +1,9 @@
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
-import { Modal } from './Modal';
-import Spinner from './Spinner/Spinner';
+import { Modal } from 'components/basecomponents/Modal';
+import Spinner from 'components/basecomponents/Spinner/Spinner';
+import { Button } from 'components/basecomponents/Button';
 
 const Feedback = () => {
   const { t } = useTranslation();
@@ -20,10 +21,11 @@ const Feedback = () => {
 
   return (
     <>
-      <div className="text-center">
-        <button onClick={() => setModalOpen(true)} className="border-2 border-black p-1 hover:border-primary-red mt-6">
-          {t('footer.feedback')}
-        </button>
+      <div className="text-center mt-10">
+        <p className="text-sm">{t('exercise_page.feedback')}</p>
+        <Button buttonStyle="primaryLight" onClick={() => setModalOpen(true)} className="mt-6">
+          {t('exercise_page.write_us')}
+        </Button>
       </div>
       <Modal closeModal={() => setModalOpen(false)} isOpen={modalOpen} unmount>
         <div className={`absolute flex justify-center items-center w-full h-full -z-10 top-0 left-0`}>

@@ -105,11 +105,11 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
             />
             <Button
               ref={searchButton}
-              className={`${
-                isSticky ? 'text-black bg-primary-yellow' : 'bg-primary-blue'
-              } ml-5 justify-self-center border-1 hidden self-center md:block `}
-              text={t('dictionary_page.search_button')}
-            />
+              className={`ml-5 justify-self-center border-1 hidden self-center md:block `}
+              buttonStyle={isSticky ? 'primaryLight' : 'primary'}
+            >
+              {t('dictionary_page.search_button')}
+            </Button>
           </div>
           <ExportTranslations
             category={categories}
@@ -142,6 +142,15 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                       >
                         <AiOutlineFilePdf className="w-5 h-5" />
                         {t('dictionary_page.download_pdf')}
+                      </TextLink>
+                      <TextLink
+                        href={{ pathname: `/exercise/${category.id}`, query: { quickStart: true } }}
+                        target="_blank"
+                        className="ml-3 inline-flex gap-x-1 items-center"
+                        locale={getCountryVariant()}
+                      >
+                        <AiOutlineFilePdf className="w-5 h-5" />
+                        {t('header.exercises_link_name')}
                       </TextLink>
                     </div>
                     <CategoryDictionary searchText={search} translations={category.translations} />

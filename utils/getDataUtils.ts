@@ -27,6 +27,7 @@ export interface CategoryDataObject {
   phrases: string[];
   hidden?: boolean;
   metaOnly?: boolean;
+  metacategories: string[];
 }
 
 export interface PhraseDataObject {
