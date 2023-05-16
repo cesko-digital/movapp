@@ -8,6 +8,7 @@ import SpeakerIcon from 'public/icons/speaker.svg';
 import SoundWaveIcon from 'public/icons/sound-wave.svg';
 import OpenBookIcon from 'public/icons/open-book.svg';
 import { useTranslation } from 'react-i18next';
+import { useDebug } from '../utils/useDebug';
 // import { usePendingStore } from '../ExerciseOrchestrator';
 
 /**
@@ -46,6 +47,7 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
   const mode = exercise.mode;
   const playAudio = exercise.playAudio;
   const { t } = useTranslation();
+  const debug = useDebug();
 
   useImperativeHandle(ref, () => exRef.current);
 
@@ -90,11 +92,13 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
 
   return (
     <div ref={exRef} className="flex flex-col items-center opacity-0 relative">
-      <div className="flex flex-col p-2 items-end absolute text-fuchsia-500 text-xs right-0 -top-10 opacity-50">
-        <span className="font-mono">level: {exercise.level}</span>
-        <span className="font-mono">mode: {exercise.mode}</span>
-        <span className="font-mono">status: {exercise.status}</span>
-      </div>
+      {debug && (
+        <div className="flex flex-col p-2 items-end absolute text-fuchsia-500 text-xs right-0 -top-10 opacity-50">
+          <span className="font-mono">level: {exercise.level}</span>
+          <span className="font-mono">mode: {exercise.mode}</span>
+          <span className="font-mono">status: {exercise.status}</span>
+        </div>
+      )}
       <div className="relative px-1.5 pt-6 pb-12 mb-6 border border-slate-300 shadow-lg shadow-slate-100 flex flex-col items-center w-full">
         <p className="mb-5 text-sm sm:text-base opacity-60">
           {exercise.mode === 'audio'

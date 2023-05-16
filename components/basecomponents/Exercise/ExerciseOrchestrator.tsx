@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
-import { ExerciseType, useExerciseStore, ExerciseStoreStatus, ExerciseStatus } from './exerciseStore';
+import { ExerciseType, useExerciseStore, ExerciseStoreStatus, ExerciseStatus, CONFIG_BASE } from './exerciseStore';
 import { ExerciseIdentification } from './ExerciseIdentification';
 import { CategoryDataObject } from 'utils/getDataUtils';
 import { ExerciseIdentificationComponent } from './components/ExerciseIdentificationComponent';
@@ -12,6 +12,7 @@ import { ActionButton } from './components/ActionButton';
 import Spinner from '../Spinner/Spinner';
 import { create } from 'zustand';
 import { animation } from './utils/animation';
+import { useDebug } from './utils/useDebug';
 
 const USE_METACATEGORIES = true;
 
@@ -83,6 +84,9 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
   const exerciseRef = useRef(null);
   const nextButtonRef = useRef(null);
   const exerciseStatus = exercise?.status;
+  const debug = useDebug();
+
+  const exerciseSizeList = debug ? CONFIG_BASE.debugSizeList : CONFIG_BASE.sizeList;
 
   useEffect(() => {
     setLang(lang);
@@ -160,7 +164,7 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
         <p className="text-sm sm:text-base text-center mb-3">{t('exercise_page.size_setup')}:</p>
         <div className="flex items-center justify-center">
           <div className="grid grid-cols-3 gap-4 mb-10 justify-stretch justify-items-stretch">
-            {[3, 5, 10].map((val) => (
+            {exerciseSizeList.map((val) => (
               <div key={val}>
                 <input
                   type="radio"

@@ -13,10 +13,10 @@ import * as R from 'ramda';
 
 /* eslint-disable no-console */
 
-const CONFIG_BASE = Object.freeze({
-  sizeDefault: 3,
-  sizeMin: 3,
-  sizeMax: 10,
+export const CONFIG_BASE = Object.freeze({
+  sizeDefault: 10,
+  sizeList: [10, 20, 30],
+  debugSizeList: [1, 5, 10],
   levelDefault: 0,
   levelMin: 0,
   levelMax: 1,
