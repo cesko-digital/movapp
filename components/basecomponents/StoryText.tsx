@@ -1,6 +1,6 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { Language, getCountryVariant } from 'utils/locales';
-import { StoryPhrase, STORIES } from './Story/storyStore';
+import { StoryPhrase } from './Story/storyStore';
 
 export type PhraseInfo = { language: Language; time: number };
 
@@ -18,7 +18,7 @@ const scrollToRef = (ref: MutableRefObject<HTMLParagraphElement | null>, div: Mu
   }
 };
 
-const StoryText = ({ textLanguage, audioLanguage, id, audio, onClick }: StoryTextProps): JSX.Element => {
+const StoryText = ({ textLanguage, audioLanguage, audio, onClick }: StoryTextProps): JSX.Element => {
   const phraseRef = useRef<HTMLParagraphElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mainLanguage = getCountryVariant();
