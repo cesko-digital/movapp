@@ -42,7 +42,7 @@ const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
         description={t(`seo.kids_page_storiesDescription.${getCountryVariant()}`)}
         image="https://www.movapp.cz/kids/hrad.png"
       />
-      {getCountryVariant() === 'cs' ? (
+      {['cs', 'sk'].includes(getCountryVariant()) ? (
         <>
           <p className="px-6 py-4 flex items-center overflow-hidden  md:w-4/5 m-auto">
             <Link href={`/`} className="mr-2 hover:text-primary-blue">
