@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FunctionComponent } from 'react';
 import { getCountryVariant, Language } from 'utils/locales';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -13,6 +13,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 
 interface StoriesProps {
   story: Story | undefined;
+  storyData: StoryPhrase[];
 }
 
 interface UrlParams extends ParsedUrlQuery {
@@ -30,19 +31,9 @@ const MOVAPP_TAGLINE: Record<string, string> = {
   uk: `Озвучення цієї та багатьох інших казок ви можете знайти на ${WEB_LINK['uk']}.`,
 };
 
-const StoryPage = ({ story }: StoriesProps): JSX.Element => {
+const StoryPage = ({ story, storyData }: StoriesProps): JSX.Element => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
-
-  const [storyData, setStoryData] = useState<StoryPhrase[]>([]);
-
-  useEffect(() => {
-    if (story) {
-      STORIES[story.slug](currentLanguage)
-        .then((data) => setStoryData(data))
-        .catch((err) => console.error(err));
-    }
-  }, [story, currentLanguage]);
 
   const StoryImage: FunctionComponent = () => {
     // NextImage does not work properly in PDFs, we use a regular <img> element instead
@@ -122,8 +113,15 @@ export const getStaticProps: GetStaticProps<StoriesProps, UrlParams> = async ({ 
     };
   }
 
+  let storyData: StoryPhrase[] = [];
+  try {
+    storyData = await STORIES[story.slug]((locale as Language) ?? 'cs');
+  } catch (err) {
+    console.error(err);
+  }
+
   return {
-    props: { story, ...(await serverSideTranslations(locale ?? 'cs', ['common'])) },
+    props: { story, storyData, ...(await serverSideTranslations(locale ?? 'cs', ['common'])) },
   };
 };
 
