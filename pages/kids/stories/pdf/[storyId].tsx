@@ -19,6 +19,17 @@ interface UrlParams extends ParsedUrlQuery {
   storyId: string;
 }
 
+// Constants
+const WEB_LINK: Record<string, string> = {
+  cs: '<a style="color: blue;margin-left: 4px;" href="https://movapp.cz/kids/stories">www.movapp.cz</a>',
+  uk: '<a style="color: blue;margin-left: 4px;" href="https://movapp.cz/uk/kids/stories">www.movapp.cz</a>',
+};
+
+const MOVAPP_TAGLINE: Record<string, string> = {
+  cs: `Nahrávku k téhle pohádce a mnohé další pohádky najdete na ${WEB_LINK['cs']}.`,
+  uk: `Озвучення цієї та багатьох інших казок ви можете знайти на ${WEB_LINK['uk']}.`,
+};
+
 const StoryPage = ({ story }: StoriesProps): JSX.Element => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
@@ -32,16 +43,6 @@ const StoryPage = ({ story }: StoriesProps): JSX.Element => {
         .catch((err) => console.error(err));
     }
   }, [story, currentLanguage]);
-
-  const WEB_LINK: Record<string, string> = {
-    cs: '<a style="color: blue;margin-left: 4px;" href="https://movapp.cz/kids/stories">www.movapp.cz</a>',
-    uk: '<a style="color: blue;margin-left: 4px;" href="https://movapp.cz/uk/kids/stories">www.movapp.cz</a>',
-  };
-
-  const MOVAPP_TAGLINE: Record<string, string> = {
-    cs: `Nahrávku k téhle pohádce a mnohé další pohádky najdete na ${WEB_LINK['cs']}.`,
-    uk: `Озвучення цієї та багатьох інших казок ви можете знайти на ${WEB_LINK['uk']}.`,
-  };
 
   const StoryImage: FunctionComponent = () => {
     // NextImage does not work properly in PDFs, we use a regular <img> element instead
@@ -71,7 +72,7 @@ const StoryPage = ({ story }: StoriesProps): JSX.Element => {
           ) : null}
           {story
             ? storyData.map((phrase: StoryPhrase, index: number) => (
-                <tr key={index} className="break-inside-avoid">
+                <tr key={phrase.start_cs} className="break-inside-avoid">
                   <td className="align-top p-2 max-w-[100px] text-gray-300">{index}</td>
                   <td className="align-top p-2"> {currentLanguage === 'cs' ? phrase.main : phrase.uk}</td>
                   <td className="align-top p-2" key={index}>
@@ -85,7 +86,7 @@ const StoryPage = ({ story }: StoriesProps): JSX.Element => {
         <div
           className="text-sm font-light mt-4 flex justify-center"
           dangerouslySetInnerHTML={{ __html: MOVAPP_TAGLINE[currentLanguage] }}
-        ></div>
+        />
       </div>
     </div>
   );
@@ -114,6 +115,12 @@ export const getStaticPaths: GetStaticPaths<UrlParams> = async () => {
 export const getStaticProps: GetStaticProps<StoriesProps, UrlParams> = async ({ params, locale }) => {
   const storyId = params?.storyId ?? '';
   const story = stories.find((s) => s.slug === storyId);
+
+  if (!story) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: { story, ...(await serverSideTranslations(locale ?? 'cs', ['common'])) },

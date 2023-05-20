@@ -50,3 +50,17 @@ h2 {
 .logo span {
   display: block !important;
 }
+
+/** Stories */
+.storyText {
+  @apply cursor-pointer text-left;
+  margin: 0 1.5rem 1rem;
+}
+
+.storyText-playing {
+  color: #013abd;
+}
+
+.storyText-played {
+  color: #64a5da;
+}
