@@ -50,11 +50,7 @@ const StoryText = ({ textLanguage, audioLanguage, audio, onClick }: StoryTextPro
   const played = (phrase: StoryPhrase) => {
     type ObjectKey = keyof typeof phrase;
     const end = `end_${audioLanguage}` as ObjectKey;
-    if (audio !== null) {
-      return audio?.currentTime >= phrase[end];
-    } else {
-      return false;
-    }
+    return audio !== null ? audio?.currentTime >= phrase[end] : false;
   };
 
   const handleClick = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {

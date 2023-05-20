@@ -85,7 +85,7 @@ const StoriesSection = ({ stories }: StoriesSectionProps) => {
 
     return (
       <>
-        <h2 className="text-primary-blue text-center">{t('titleKey', { titleKey, defaultValue: 'stories' })}</h2>
+        <h2 className="text-primary-blue text-center">{t(titleKey, { defaultValue: 'stories' })}</h2>
         {localizedStories.map((story) => renderStoryPanel(story))}
       </>
     );
