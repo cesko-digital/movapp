@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { Phrase_deprecated } from 'utils/Phrase_deprecated';
 import { getCountryVariant } from 'utils/locales';
 import SEO from 'components/basecomponents/SEO';

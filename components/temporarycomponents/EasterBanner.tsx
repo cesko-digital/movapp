@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import ColouredEggs from '../../public/icons/coloured-eggs.png';
 import EggsIcon from '../../public/icons/eggs-icon.svg';
 import DictionaryIcon from '../../public/icons/book.svg';
@@ -16,26 +16,20 @@ const EasterBanner = () => {
       <div className="grid md:grid-cols-3 gap-8">
         <div className="justify-self-center my-4 md:my-0">
           <Link href={`/dictionary#${dictionaryLinkTranslation}`}>
-
             <Image src={ColouredEggs} alt="Velikonoční vajíčka." width={256} height={194} />
-
           </Link>
         </div>
         <div className="homepage-box w-full group hover:text-primary-blue    pr-4 md:border-r-1 md:border-r-solid md:border-lime-400">
           <DictionaryIcon className="w-6 mb-2 group-hover:fill-primary-red" />
           <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
-            <Link href={`/dictionary#${dictionaryLinkTranslation}`}>
-              {t('easter_banner.box_easter_dictionary_title')}
-            </Link>
+            <Link href={`/dictionary#${dictionaryLinkTranslation}`}>{t('easter_banner.box_easter_dictionary_title')}</Link>
           </h2>
           <p>{t('easter_banner.box_easter_dictionary_description')}</p>
         </div>
         <div className="homepage-box w-full group hover:text-primary-blue    pr-4">
           <EggsIcon className="w-6 mb-2 group-hover:fill-primary-red" />
           <h2 className="text-lg mt-0 pb-1 inline-block border-b-1 border-b-solid border-b-primary-black">
-            <Link href={`/kids#${kidsLinkTranslation}`}>
-              {t('easter_banner.box_easter_kids_title')}
-            </Link>
+            <Link href={`/kids#${kidsLinkTranslation}`}>{t('easter_banner.box_easter_kids_title')}</Link>
           </h2>
           <p>{t('easter_banner.box_easter_kids_description')}</p>
         </div>

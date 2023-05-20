@@ -61,7 +61,8 @@
     "uk": "ukraiński",
     "results_subtitle": "Wyniki wyszukiwania",
     "not_found_results": "Nic nie znaleziono",
-    "download_pdf": "Pobierz w PDF"
+    "download_pdf": "Pobierz w PDF",
+    "first_exercise":"Ćwiczenia"
   },
   "kids_page": {
     "downloadPDF": "Pobierz w PDF",
@@ -164,7 +165,29 @@
     },
     "kids_page_imagequiz_description": {
       "pl": "Zagraj w obrazkowy quiz z ukraińskimi słówkami"
+    },
+    "exercise_page_title": {
+      "pl":"Przećwicz swój ukraiński."
+    },
+    "exercise_page_description": {
+      "pl":"Polepsz swoje umiejętności językowe. Oferujemy darmowy zestaw ćwiczeń do nauki języka. Powtarzaj codziennie."
     }
+  },
+  "exercise_page": {
+    "game_description": "Przećwicz słówka i zwroty na najróżniejsze tematy. Wybierz kategorie tematyczne i możesz zacząć!",
+    "play_the_game": "Zacznij ćwiczenie",
+    "select_all": "Zaznacz wszystkie",
+    "clear_all": "Wyczyść wszystkie",
+    "pick_random": "Wybierz losowo",
+    "next": "Kontynuuj",
+    "congratulations": "Gratulacje!",
+    "you_have_finished": "Ćwiczenie zostało ukończone pomyślnie. Teraz możesz ćwiczyć dalej, albo wrócić z powrotem na stronę główną.",
+    "home": "Z powrotem",
+    "exercise_audio_idenfification_hint":"Posłuchaj nagrania i zaznacz to, co słyszysz",
+    "exercise_text_idenfification_hint":"Wybierz jedną prawidłową odpowiedź",
+    "write_us":"Napisz do nas",
+    "feedback":"Zestaw ćwiczeń stopniowo poszerzamy. Daj nam wiedzieć, jeśli znajdziesz gdzieś błąd lub wpadniesz na pomysł, co możemy polepszyć.",
+    "size_setup":"Ustaw długość ćwiczenia"
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",
@@ -194,7 +217,7 @@
   },
   "utils": {
     "play": "odtwarzanie",
-    "new_game": "Nowa gra"
+    "new_game": "Nowa gra"    
   },
   "christmas_banner": {
     "christmas_dictionary_title": "Słowniczek bożonarodzeniowy",

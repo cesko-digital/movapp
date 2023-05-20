@@ -51,6 +51,13 @@ h2 {
   display: block !important;
 }
 
+.tap-transparent {
+-webkit-tap-highlight-color: transparent;
+}
+
+.button-shadow {
+  box-shadow: 3px 3px 6px 0px #0000003d;
+}
 /** Stories */
 .storyText {
   @apply cursor-pointer text-left;

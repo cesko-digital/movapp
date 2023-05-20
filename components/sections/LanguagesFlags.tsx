@@ -29,16 +29,15 @@ export const LanguagesFlags = () => {
         {flags
           .filter(({ country }) => country !== getCountryVariant())
           .map(({ svg, link, country, language }) => (
-            (<Link
+            <Link
               href={`https://${link}`}
               passHref={true}
               key={country}
-              className="mx-8 mb-6 flex flex-col items-center hover:cursor-pointer hover:scale-110 transition-all">
-
+              className="mx-8 mb-6 flex flex-col items-center hover:cursor-pointer hover:scale-110 transition-all"
+            >
               {svg}
               <p>{language}</p>
-
-            </Link>)
+            </Link>
           ))}
       </div>
     </div>

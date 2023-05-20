@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -32,14 +32,12 @@ export const MobileHeader = () => {
   return (
     <header className="md:hidden sticky top-0 h-14 bg-primary-blue z-10 w-full flex justify-between items-center px-2">
       <Link href={'/'} className="logo">
-
         <Image src={AppLogo} width={150} height={45} alt="Movapp logo" />
-
       </Link>
       <ul className="flex w-full justify-end pr-5 items-center">
         {['uk' as Language, getCountryVariant()].map((locale) => {
           return (
-            <li key={locale} className={`${currentLanguage === locale && 'text-primary-yellow'} text-white mx-2`}>
+            <li key={locale} className={`${currentLanguage === locale ? 'text-primary-yellow' : 'text-white'} mx-2`}>
               <Link href={router.asPath} locale={locale}>
                 {LOCALE_NAMES[locale]}
               </Link>
@@ -59,9 +57,7 @@ export const MobileHeader = () => {
               return (
                 <li key={index} className={`text-white text-center text-lg py-2 ${router.asPath.includes(link) && 'text-primary-yellow'}`}>
                   {submenu === undefined ? (
-                    <Link href={link}>
-                      {t(name)}
-                    </Link>
+                    <Link href={link}>{t(name)}</Link>
                   ) : (
                     <>
                       <button onClick={() => setShowDropdown(!showDropdown)}>{t(name)}</button>

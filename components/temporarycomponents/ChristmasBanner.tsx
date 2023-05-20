@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { getCountryVariant } from 'utils/locales';
 import { ChristmasBannerItem, ChristmasBannerItemProps } from './ChristmasBannerItem';
 import Christmas_Tree from 'public/christmas/christmas-tree.png';
@@ -54,9 +54,7 @@ const ChristmasBanner = () => {
             </div>
             <div className="text-[16px] leading-[19px] sm:text-[14px] sm:leading-[16px] text-center md:text-left md:w-[220px]">
               <Link href={OUR_TEAM_LINK} target="_blank" className="text-[#FAD741]">
-
                 {t(`christmas_banner.team`)}
-
               </Link>
               <span className="text-white ml-1">{t(`christmas_banner.wishing`)}</span>
             </div>
