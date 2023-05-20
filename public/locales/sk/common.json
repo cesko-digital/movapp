@@ -70,7 +70,7 @@
     "results_subtitle": "Výsledky vyhľadávania",
     "not_found_results": "Nič nenájdené",
     "download_pdf": "Stiahnuť v PDF",
-    "first_exercise":"Precvičovanie"
+    "first_exercise": "Precvičovanie"
   },
   "kids_page": {
     "downloadPDF": "Stiahnuť PDF",
@@ -79,7 +79,7 @@
     "ukrainianStories": "Ukrajinské ľudové rozprávky",
     "stories": "Rozprávky",
     "homepage": "Domovská stránka",
-    "downloadStory": "Rozprávku si môžete stiahnuť aj ako PDF súbor."
+    "downloadStory": "Rozprávku si môžete <0>stiahnuť aj ako PDF súbor</0>."
   },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> je projekt, ktorý vznikol v rámci iniciatívy <strong>Stojíme za Ukrajinou</strong> v komunite expertných dobrovoľníkov <strong>Česko.Digital.</strong>",
@@ -180,10 +180,10 @@
       "sk": "Zahrajte si obrázkový kvíz s ukrajinskými slovíčkami"
     },
     "exercise_page_title": {
-      "sk":"Precvičte si ukrajinčinu."
+      "sk": "Precvičte si ukrajinčinu."
     },
     "exercise_page_description": {
-      "sk":"Zlepšite vašu jazykovú úroveň. Ponúkame zdarma súbor cvičení na učenie jazyka. Opakujte si každý deň."
+      "sk": "Zlepšite vašu jazykovú úroveň. Ponúkame zdarma súbor cvičení na učenie jazyka. Opakujte si každý deň."
     }
   },
   "exercise_page": {
@@ -196,11 +196,11 @@
     "congratulations": "Gratulujeme!",
     "you_have_finished": "Cvičenie ste úspešne zvládli. Teraz môžete pokračovať v precvičovaní alebo sa vrátiť späť na hlavnú stránku.",
     "home": "Domov",
-    "exercise_audio_idenfification_hint":"Prehrajte zvuk a označte, čo počujete",
-    "exercise_text_idenfification_hint":"Vyberte jednu správnu odpoveď",
-    "write_us":"Napíšte nám",
-    "feedback":"Cvičenia postupne rozširujeme, dajte nám vedieť, ak ste objavili chybu, alebo máte nápad na zlepšenie.",
-    "size_setup":"Nastavte si dĺžku cvičenia"
+    "exercise_audio_idenfification_hint": "Prehrajte zvuk a označte, čo počujete",
+    "exercise_text_idenfification_hint": "Vyberte jednu správnu odpoveď",
+    "write_us": "Napíšte nám",
+    "feedback": "Cvičenia postupne rozširujeme, dajte nám vedieť, ak ste objavili chybu, alebo máte nápad na zlepšenie.",
+    "size_setup": "Nastavte si dĺžku cvičenia"
   },
   "export_translations": {
     "download_phrases": "Stiahnuť frázy",
@@ -226,7 +226,7 @@
   },
   "utils": {
     "play": "prehrať",
-    "new_game": "Nová hra"    
+    "new_game": "Nová hra"
   },
   "apps": {
     "download_app": "Stiahnúť Movapp mobilnú aplikáciu",
