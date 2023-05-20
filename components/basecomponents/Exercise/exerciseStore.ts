@@ -12,7 +12,6 @@ import { sortRandom, getRandomItem } from 'utils/collectionUtils';
 import * as R from 'ramda';
 
 /* eslint-disable no-console */
-
 export const CONFIG_BASE = Object.freeze({
   sizeDefault: 10,
   sizeList: [10, 20, 30],
@@ -113,8 +112,6 @@ export interface ExerciseStoreActions {
   home: () => void;
   nextExercise: () => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
-  getCategoryNames: () => { id: CategoryDataObject['id']; name: CategoryDataObject['name']['main'] }[];
-  getMetacategoryNames: () => { id: CategoryDataObject['id']; name: CategoryDataObject['name']['main'] }[];
   setLang: (lang: ExerciseStoreState['lang']) => void;
   setSize: (size: ExerciseStoreState['size']) => void;
   setLevel: (size: ExerciseStoreState['level']) => void;
@@ -238,19 +235,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     return phrases;
   };
 
-  const getCategoryNames = () => {
-    const dictionary = getDictionary();
-    return dictionary.categories
-      .filter((category) => !category.hidden)
-      .map((category) => ({ id: category.id, name: getCurrentLanguage() === 'uk' ? category.name.source : category.name.main }));
-  };
-
-  const getMetacategoryNames = () =>
-    getDictionary()
-      .categories.filter((category) => !category.hidden)
-      .filter(({ metacategories }) => metacategories.length > 0)
-      .map((category) => ({ id: category.id, name: getCurrentLanguage() === 'uk' ? category.name.source : category.name.main }));
-
   const getCurrentLanguage: ExerciseStoreUtils['getCurrentLanguage'] = () => get().lang.currentLanguage;
   const getOtherLanguage: ExerciseStoreUtils['getOtherLanguage'] = () => get().lang.otherLanguage;
 
@@ -366,26 +350,9 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       throw Error('None categories selected.');
     }
 
-    const processedCategories = categories
-      .map((categoryId) => {
-        const category = dictionary.categories.find(({ id }) => categoryId === id);
-        if (category === undefined) throw Error(`Can't find category with id ${categoryId}`);
-        // not a metacategory
-        if (category.metaOnly === undefined || category.metaOnly === false) return [categoryId];
-
-        return (
-          dictionary.categories
-            .filter(({ id }) => category.metacategories.includes(id))
-            // omit categories without phrases
-            .filter(({ phrases }) => phrases.length > 0)
-            // need only ids
-            .map(({ id }) => id)
-        );
-      })
-      .flat();
 
     // considering to not mix up categories for current exercise, so pick only one from the list
-    const phrases = getPhrases(dictionary, [getRandomItem(processedCategories)]);
+    const phrases = getPhrases(dictionary, [getRandomItem(categories)]);
     // mix categories together
     //const phrases = getPhrases(dictionary, categories);
 
@@ -463,8 +430,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     nextExercise,
     setLang: (lang) => set({ lang }),
     setCategories: (categories) => set({ categories }),
-    getCategoryNames,
-    getMetacategoryNames,
     setSize: (size) => set({ size }),
     setLevel: (val) => set({ level: val }),
   };

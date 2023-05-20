@@ -70,6 +70,8 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
   const counter = useExerciseStore((state) => state.counter);
   const size = useExerciseStore((state) => state.size);
 
+  const setCategories = useExerciseStore((state) => state.setCategories);
+
   const { t } = useTranslation();
   const exerciseRef = useRef(null);
   const nextButtonRef = useRef(null);
@@ -81,10 +83,13 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
 
   useEffect(() => {
     init(quickStart === true);
+    if (quickStart === true && categoryIds?.length) {
+      setCategories(categoryIds ?? []);
+    }
     return () => {
       cleanUp();
     };
-  }, [init, cleanUp, quickStart]);
+  }, [init, cleanUp, quickStart, categoryIds, setCategories]);
 
   // animate elements on Exercise.complete
   useEffect(() => {
@@ -98,9 +103,8 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
 
   if (status === ExerciseStoreStatus.initialized) {
     return (
-      // replace with start/setup screen component
       <AppContainer>
-        <ExerciseConfiguration categoryIds={categoryIds} />
+        <ExerciseConfiguration />
       </AppContainer>
     );
   }
