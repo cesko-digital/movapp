@@ -39,8 +39,6 @@ const ExerciseConfiguration: FunctionComponent = () => {
 
   const { t } = useTranslation();
 
-  // For navigating from Dictionary straight to Exercise, you can pass categoryIds as props
-
   const clickMetaCategory = (metaId: string) => {
     // Toggle selected metacategory
     let ids = [...selectedMetaIds];
