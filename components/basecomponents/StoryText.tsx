@@ -1,6 +1,7 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 import { Language, getCountryVariant } from 'utils/locales';
-import { StoryPhrase } from './Story/storyStore';
+import { StoryPhrase, getStoryData } from './Story/storyStore';
 
 export type PhraseInfo = { language: Language; time: number };
 
@@ -22,22 +23,26 @@ const StoryText = ({ textLanguage, audioLanguage, audio, onClick }: StoryTextPro
   const phraseRef = useRef<HTMLParagraphElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mainLanguage = getCountryVariant();
+  const {
+    query: { story },
+  } = useRouter();
+
+  const [storyData, setStoryData] = useState<StoryPhrase[]>([]);
+
+  useEffect(() => {
+    if (!story) return;
+    getStoryData(mainLanguage, String(story))
+      .then((data) => setStoryData(data))
+      .catch((err) => console.error(err));
+  }, [mainLanguage, story]);
 
   useEffect(() => {
     return scrollToRef(phraseRef, containerRef);
   }, [phraseRef?.current?.offsetTop]);
 
-  const [stories, setStories] = useState<StoryPhrase[]>([]);
-
-  useEffect(() => {
-    fetch(`/api/stories/${mainLanguage}`)
-      .then((response) => response.json()) // return the promise here
-      .then((data) => setStories(data))
-      .catch((err) => console.error(err));
-  }, [mainLanguage]);
-
   const playing = (phrase: StoryPhrase) => {
     type ObjectKey = keyof typeof phrase;
+    audioLanguage = audioLanguage === 'uk' ? 'uk' : 'cs';
     const start = `start_${audioLanguage}` as ObjectKey;
     const end = `end_${audioLanguage}` as ObjectKey;
     if (audio !== null) {
@@ -61,12 +66,12 @@ const StoryText = ({ textLanguage, audioLanguage, audio, onClick }: StoryTextPro
     onClick(phraseInfo);
   };
 
-  if (!stories) return <div>Loading...</div>;
+  if (storyData.length === 0) return <div>Loading...</div>;
 
   return (
     <div className="mt-4 md:flex bg-slate-100 divide-y-8 divide-white md:divide-y-0 md:w-1/2">
       <div className="max-h-[30vh] md:max-h-full overflow-y-scroll md:overflow-auto" ref={containerRef}>
-        {stories.map((phrase: StoryPhrase, index: number) => (
+        {storyData.map((phrase: StoryPhrase, index: number) => (
           <div key={phrase.start_cs} className="flex w-full">
             <p
               key={index}

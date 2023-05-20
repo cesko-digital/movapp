@@ -6,7 +6,7 @@ const stories = [
     country: 'CZ',
   },
   {
-    title: { cs: 'O dvanácti měsíčkách', uk: 'Дванадцять місяців', sk: 'Dvanásť mesiacov' },
+    title: { cs: 'O dvanácti měsíčkách', uk: 'Дванадцять місяців', sk: 'O dvanástich mesiačikoch' },
     slug: 'dvanact-mesicku',
     duration: '3 min',
     country: 'CZ',

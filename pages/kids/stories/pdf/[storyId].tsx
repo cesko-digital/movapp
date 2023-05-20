@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FunctionComponent } from 'react';
 import { getCountryVariant, Language } from 'utils/locales';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -22,6 +22,16 @@ interface UrlParams extends ParsedUrlQuery {
 const StoryPage = ({ story }: StoriesProps): JSX.Element => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
+
+  const [storyData, setStoryData] = useState<StoryPhrase[]>([]);
+
+  useEffect(() => {
+    if (story) {
+      STORIES[story.slug](currentLanguage)
+        .then((data) => setStoryData(data))
+        .catch((err) => console.error(err));
+    }
+  }, [story, currentLanguage]);
 
   const WEB_LINK: Record<string, string> = {
     cs: '<a style="color: blue;margin-left: 4px;" href="https://movapp.cz/kids/stories">www.movapp.cz</a>',
@@ -54,13 +64,13 @@ const StoryPage = ({ story }: StoriesProps): JSX.Element => {
         <table className="mt-8 text-xl font-medium">
           {story ? (
             <tr className="break-inside-avoid">
-              <td className="align-top p-2 min-w-[100px]"></td>
+              <td className="align-top p-2 min-w-[100px]" />
               <td className="align-top p-2 text-2xl font-bold">{currentLanguage === 'cs' ? story.title['cs'] : story.title['uk']}</td>
               <td className="align-top p-2 text-2xl font-bold">{currentLanguage === 'cs' ? story.title['uk'] : story.title['cs']}</td>
             </tr>
           ) : null}
           {story
-            ? STORIES[story.slug].map((phrase: StoryPhrase, index: number) => (
+            ? storyData.map((phrase: StoryPhrase, index: number) => (
                 <tr key={index} className="break-inside-avoid">
                   <td className="align-top p-2 max-w-[100px] text-gray-300">{index}</td>
                   <td className="align-top p-2"> {currentLanguage === 'cs' ? phrase.main : phrase.uk}</td>

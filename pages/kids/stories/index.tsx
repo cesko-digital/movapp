@@ -102,7 +102,7 @@ const StoriesSection = ({ stories }: StoriesSectionProps) => {
         <div className="min-h-screen m-auto py-10 px-2 sm:px-4">
           {storiesByCountry.CZ?.length > 0 && renderStoriesSection('cs', storiesByCountry.CZ, 'kids_page.czechStories')}
           {storiesByCountry.SK?.length > 0 && renderStoriesSection('sk', storiesByCountry.SK, 'kids_page.slovakStories')}
-          {storiesByCountry.UK?.length > 0 && renderStoriesSection('uk', storiesByCountry.UK, 'kids_page.ukrainianStories')}
+          {storiesByCountry.UA?.length > 0 && renderStoriesSection('uk', storiesByCountry.UA, 'kids_page.ukrainianStories')}
         </div>
       ) : (
         <Custom404 />
