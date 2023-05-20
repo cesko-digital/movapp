@@ -57,17 +57,21 @@ const StoryPage = ({ story, storyData }: StoriesProps): JSX.Element => {
           {story ? (
             <tr className="break-inside-avoid">
               <td className="align-top p-2 min-w-[100px]" />
-              <td className="align-top p-2 text-2xl font-bold">{currentLanguage === 'cs' ? story.title['cs'] : story.title['uk']}</td>
-              <td className="align-top p-2 text-2xl font-bold">{currentLanguage === 'cs' ? story.title['uk'] : story.title['cs']}</td>
+              <td className="align-top p-2 text-2xl font-bold">
+                {currentLanguage !== 'uk' ? story.title[currentLanguage] : story.title['uk']}
+              </td>
+              <td className="align-top p-2 text-2xl font-bold">
+                {currentLanguage === 'uk' ? story.title['uk'] : story.title[currentLanguage]}
+              </td>
             </tr>
           ) : null}
           {story
             ? storyData.map((phrase: StoryPhrase, index: number) => (
                 <tr key={phrase.start_cs} className="break-inside-avoid">
                   <td className="align-top p-2 max-w-[100px] text-gray-300">{index}</td>
-                  <td className="align-top p-2"> {currentLanguage === 'cs' ? phrase.main : phrase.uk}</td>
+                  <td className="align-top p-2"> {currentLanguage === 'uk' ? phrase.uk : phrase.main}</td>
                   <td className="align-top p-2" key={index}>
-                    {currentLanguage === 'cs' ? phrase.uk : phrase.main}
+                    {currentLanguage === 'uk' ? phrase.main : phrase.uk}
                   </td>
                 </tr>
               ))
