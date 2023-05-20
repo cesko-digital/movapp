@@ -28,25 +28,16 @@ export interface Story {
   country: string;
 }
 
-const getStoriesByCountry = (stories: Story[]) => {
-  return stories.reduce((acc, story) => {
-    const { country } = story;
-
-    if (!acc[country]) {
-      acc[country] = [];
-    }
-
-    acc[country].push(story);
-    return acc;
-  }, {} as { [key: string]: Story[] });
-};
 const StoriesSection = ({ stories }: StoriesSectionProps) => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
   const countryVariant = getCountryVariant();
   stories = stories.filter((story) => story.title[countryVariant]);
-  const storiesByCountry = getStoriesByCountry(stories);
+
+  // We want to have list of Ukrainian stories, then other stories
+  const storiesUA = stories.filter((story) => story.country === 'UA');
+  const storiesCEE = stories.filter((story) => story.country === 'CZ');
 
   const renderStoryPanel = (story: Story) => (
     <div className="h-42 m-auto my-8 flex bg-slate-50 rounded-2xl sm:w-3/5 xl:w-2/5 xxl:w-1/3" key={story.slug}>
@@ -100,9 +91,8 @@ const StoriesSection = ({ stories }: StoriesSectionProps) => {
       />
       {countryVariant === 'cs' || countryVariant === 'sk' ? (
         <div className="min-h-screen m-auto py-10 px-2 sm:px-4">
-          {storiesByCountry.CZ?.length > 0 && renderStoriesSection('cs', storiesByCountry.CZ, 'kids_page.czechStories')}
-          {storiesByCountry.SK?.length > 0 && renderStoriesSection('sk', storiesByCountry.SK, 'kids_page.slovakStories')}
-          {storiesByCountry.UA?.length > 0 && renderStoriesSection('uk', storiesByCountry.UA, 'kids_page.ukrainianStories')}
+          {storiesCEE.length > 0 && renderStoriesSection('cs', storiesCEE, 'kids_page.czechStories')}
+          {storiesUA.length > 0 && renderStoriesSection('uk', storiesUA, 'kids_page.ukrainianStories')}
         </div>
       ) : (
         <Custom404 />
