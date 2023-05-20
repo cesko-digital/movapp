@@ -9,11 +9,10 @@ import SoundWaveIcon from 'public/icons/sound-wave.svg';
 import OpenBookIcon from 'public/icons/open-book.svg';
 import { useTranslation } from 'react-i18next';
 import { useDebug } from '../utils/useDebug';
-// import { usePendingStore } from '../ExerciseOrchestrator';
 
 /**
  * Exercise component is UI for exercise object
- * It handles user intereactions. It inactivates certain controls at certain situations.
+ * It handles user interactions. It inactivates certain controls at certain situations.
  * It has set of prepared actions.
  * It is responsible for taking valid actions only.
  *
@@ -106,14 +105,17 @@ export const ExerciseIdentificationComponent = forwardRef(({ exercise }: Exercis
             : t('exercise_page.exercise_text_idenfification_hint')}
         </p>
         <div className="flex w-full items-center justify-center">
-          <h5 ref={mainTextRef} className={`text-xl sm:text-2xl text-center p-0 ${mode === 'audio' ? 'opacity-0' : ''}`}>
-            {exercise.getText()}
-          </h5>
-          <div ref={soundwaveRef} className={`absolute w-40 inline ${mode === 'text' ? 'opacity-0' : ''}`}>
-            <SoundWaveIcon className="inline h-auto" />
-          </div>
+          {mode === 'text' && (
+            <h5 ref={mainTextRef} className={`text-xl sm:text-2xl text-center p-0`}>
+              {exercise.getText()}
+            </h5>
+          )}
+          {mode === 'audio' && (
+            <div ref={soundwaveRef} className={`w-40 inline p-0}`}>
+              <SoundWaveIcon className="inline h-auto" />
+            </div>
+          )}
         </div>
-        {/* <div className={`absolute w-40 inline ${showText ? 'visible' : 'invisible'}`}></div> */}
         <div className={`grid grid-cols-3 gap-x-3 mb-5 mt-5`}>
           <div className={`w-12 h-12 relative`}>
             <div ref={speakerRef} className={`w-full h-full flex justify-center py-2 ${mode === 'text' ? 'opacity-0' : ''}`}>

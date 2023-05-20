@@ -32,7 +32,7 @@ const ExerciseComponent = ({ categoryId }: InferGetStaticPropsType<typeof getSta
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="flex flex-wrap justify-center min-h-screen m-auto">
-        <ExerciseOrchestrator categories={[categoryId]} quickStart={quickStart === 'true'} />
+        <ExerciseOrchestrator categoryIds={[categoryId]} quickStart={quickStart === 'true'} />
       </div>
     </div>
   );

@@ -1,20 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
-import { ExerciseType, useExerciseStore, ExerciseStoreStatus, ExerciseStatus, CONFIG_BASE } from './exerciseStore';
+import { ExerciseType, useExerciseStore, ExerciseStoreStatus, ExerciseStatus } from './exerciseStore';
 import { ExerciseIdentification } from './ExerciseIdentification';
-import { CategoryDataObject } from 'utils/getDataUtils';
 import { ExerciseIdentificationComponent } from './components/ExerciseIdentificationComponent';
 import BetaIcon from 'public/icons/beta.svg';
 import dynamic from 'next/dynamic';
 import { useTranslation } from 'react-i18next';
-import { Button } from '../Button';
 import { ActionButton } from './components/ActionButton';
 import Spinner from '../Spinner/Spinner';
 import { create } from 'zustand';
 import { animation } from './utils/animation';
-import { useDebug } from './utils/useDebug';
-
-const USE_METACATEGORIES = true;
+import ExerciseConfiguration from './ExerciseConfiguration';
 
 interface PendingStore {
   pending: boolean;
@@ -30,9 +26,6 @@ export const usePendingStore = create<PendingStore>((set) => ({
 const Feedback = dynamic(() => import('./components/Feedback'), {
   ssr: false,
 });
-
-const computeNewCategories = (categories: CategoryDataObject['id'][], id: CategoryDataObject['id']) =>
-  categories.includes(id) ? categories.filter((category) => category !== id) : [...categories, id];
 
 interface AppContainerProps {
   headerContent?: React.ReactNode;
@@ -60,42 +53,31 @@ const Loading = () => (
 );
 
 interface ExerciseOrchestratorProps {
-  categories?: string[];
+  categoryIds?: string[];
   quickStart?: boolean;
 }
 
 // warning: language switching triggers categories props change, probably because staticpaths/props, quickstart isn't change triggered
-export const ExerciseOrchestrator = ({ categories, quickStart = false }: ExerciseOrchestratorProps) => {
+export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: ExerciseOrchestratorProps) => {
   const lang = useLanguage();
   const init = useExerciseStore((state) => state.init);
   const cleanUp = useExerciseStore((state) => state.cleanUp);
   const setLang = useExerciseStore((state) => state.setLang);
-  const setCategories = useExerciseStore((state) => state.setCategories);
-  const getCategoryNames = useExerciseStore((state) => state.getCategoryNames);
-  const getMetacategoryNames = useExerciseStore((state) => state.getMetacategoryNames);
-  const selectedCategories = useExerciseStore((state) => state.categories);
+
   const status = useExerciseStore((state) => state.status);
   const exercise = useExerciseStore((state) => state.exercise);
   const restart = useExerciseStore((state) => state.restart);
   const counter = useExerciseStore((state) => state.counter);
   const size = useExerciseStore((state) => state.size);
-  const setSize = useExerciseStore((state) => state.setSize);
+
   const { t } = useTranslation();
   const exerciseRef = useRef(null);
   const nextButtonRef = useRef(null);
   const exerciseStatus = exercise?.status;
-  const debug = useDebug();
-
-  const exerciseSizeList = debug ? CONFIG_BASE.debugSizeList : CONFIG_BASE.sizeList;
 
   useEffect(() => {
     setLang(lang);
   }, [setLang, lang]);
-
-  useEffect(() => {
-    if (categories === undefined || categories.length === 0) return;
-    setCategories(categories);
-  }, [setCategories, categories]);
 
   useEffect(() => {
     init(quickStart === true);
@@ -112,76 +94,13 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
     }
   }, [exerciseStatus]);
 
-  // clear pending
-  // useEffect(() => {
-  //   setPending(false);
-  // }, [setPending, status]);
-
   if (status === ExerciseStoreStatus.uninitialized) return <Loading />;
 
   if (status === ExerciseStoreStatus.initialized) {
     return (
       // replace with start/setup screen component
       <AppContainer>
-        <p className="text-justify mb-5">{t('exercise_page.game_description')}</p>
-        {/* To-do make all these buttons outlined/secondary */}
-        {/* <div>
-          <ActionButton buttonStyle="primaryLight" className="mb-3" onClick={() => setCategories(getAllCategories().map((cat) => cat.id))}>
-            {t('exercise_page.select_all')}
-          </ActionButton>
-        </div>
-        <div>
-          <ActionButton buttonStyle="primaryLight" className="mb-3" onClick={() => setCategories([])}>
-            {t('exercise_page.clear_all')}
-          </ActionButton>
-        </div>
-        <div>
-          <ActionButton
-            buttonStyle="primaryLight"
-            className="mb-3"
-            onClick={() =>
-              setCategories(
-                getAllCategories()
-                  .map((cat) => cat.id)
-                  .filter(() => Math.random() > 0.5)
-              )
-            }
-          >
-            {t('exercise_page.pick_random')}
-          </ActionButton>
-        </div> */}
-        <div className="text-sm sm:text-base grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 px-6 justify-stretch justify-items-stretch">
-          {(USE_METACATEGORIES ? getMetacategoryNames() : getCategoryNames()).map(({ id, name }) => (
-            <Button
-              key={id}
-              buttonStyle={selectedCategories.includes(id) ? 'choiceCorrect' : 'choice'}
-              onClick={() => setCategories(computeNewCategories(selectedCategories, id))}
-            >
-              {name}
-            </Button>
-          ))}
-        </div>
-        <p className="text-sm sm:text-base text-center mb-3">{t('exercise_page.size_setup')}:</p>
-        <div className="flex items-center justify-center">
-          <div className="grid grid-cols-3 gap-4 mb-10 justify-stretch justify-items-stretch">
-            {exerciseSizeList.map((val) => (
-              <div key={val}>
-                <input
-                  type="radio"
-                  name="size"
-                  value={val}
-                  id={`size-option-${val}`}
-                  onChange={() => setSize(val)}
-                  checked={size === val}
-                />{' '}
-                <label htmlFor={`size-option-${val}`}>{val}</label>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="flex flex-col items-center mb-12">
-          <ActionButton action="start" disabled={selectedCategories === null || selectedCategories.length === 0} />
-        </div>
+        <ExerciseConfiguration categoryIds={categoryIds} />
       </AppContainer>
     );
   }
@@ -194,7 +113,6 @@ export const ExerciseOrchestrator = ({ categories, quickStart = false }: Exercis
         return (
           <AppContainer headerContent={`${counter}/${size}`}>
             <ExerciseIdentificationComponent ref={exerciseRef} key={exercise.id} exercise={exercise as ExerciseIdentification} />
-            {/* Todo: style this appropriately, but you always need a back button here */}
             <div className="flex justify-between w-full">
               <ActionButton buttonStyle="primaryLight" action="home" />
               <ActionButton
