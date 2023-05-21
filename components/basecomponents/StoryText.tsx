@@ -1,7 +1,6 @@
-import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/router';
-import { Language, getCountryVariant } from 'utils/locales';
-import { StoryPhrase, getStoryData } from './Story/storyStore';
+import React, { MutableRefObject, useEffect, useRef } from 'react';
+import { Language } from 'utils/locales';
+import { StoryPhrase } from './Story/storyStore';
 
 export type PhraseInfo = { language: Language; time: number };
 
@@ -11,6 +10,7 @@ interface StoryTextProps {
   audioLanguage: Language;
   id: string;
   onClick: ({ language, time }: PhraseInfo) => void;
+  phrases: StoryPhrase[];
 }
 
 const scrollToRef = (ref: MutableRefObject<HTMLParagraphElement | null>, div: MutableRefObject<HTMLDivElement | null>) => {
@@ -20,30 +20,16 @@ const scrollToRef = (ref: MutableRefObject<HTMLParagraphElement | null>, div: Mu
 };
 
 const getPosition = (phrase: StoryPhrase, audioLanguage: Language): { end: number; start: number } => {
-  type ObjectKey = keyof typeof phrase;
   const audioLanguageKey = audioLanguage === 'uk' ? 'uk' : 'cs';
-  const start = `start_${audioLanguageKey}` as ObjectKey;
-  const end = `end_${audioLanguageKey}` as ObjectKey;
+  const start = `start_${audioLanguageKey}` as const;
+  const end = `end_${audioLanguageKey}` as const;
 
   return { start: Number(phrase[start]), end: Number(phrase[end]) };
 };
 
-const StoryText = ({ textLanguage, audioLanguage, audio, onClick }: StoryTextProps): JSX.Element => {
+const StoryText = ({ textLanguage, audioLanguage, audio, onClick, phrases }: StoryTextProps): JSX.Element => {
   const phraseRef = useRef<HTMLParagraphElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const mainLanguage = getCountryVariant();
-  const {
-    query: { story },
-  } = useRouter();
-
-  const [storyData, setStoryData] = useState<StoryPhrase[]>([]);
-
-  useEffect(() => {
-    if (!story) return;
-    getStoryData(mainLanguage, String(story))
-      .then((data) => setStoryData(data))
-      .catch((err) => console.error(err));
-  }, [mainLanguage, story]);
 
   useEffect(() => {
     return scrollToRef(phraseRef, containerRef);
@@ -67,12 +53,10 @@ const StoryText = ({ textLanguage, audioLanguage, audio, onClick }: StoryTextPro
     };
   };
 
-  if (storyData.length === 0) return <div>Loading...</div>;
-
   return (
     <div className="mt-4 md:flex bg-slate-100 divide-y-8 divide-white md:divide-y-0 md:w-1/2">
       <div className="max-h-[30vh] md:max-h-full overflow-y-scroll md:overflow-auto" ref={containerRef}>
-        {storyData.map((phrase: StoryPhrase) => (
+        {phrases.map((phrase: StoryPhrase) => (
           <div key={phrase.start_cs} className="flex w-full">
             <p
               key={phrase.start_cs}

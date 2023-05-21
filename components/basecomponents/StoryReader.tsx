@@ -8,15 +8,17 @@ import { Flag } from './Flag';
 import StoryText from './StoryText';
 import { useStoryReader } from 'components/hooks/useStoryReader';
 import { Trans } from 'next-i18next';
+import { StoryPhrase } from './Story/storyStore';
 
 interface StoryReaderProps {
   titleCurrent: string;
   titleOther: string;
   id: string;
   country: string;
+  phrases: StoryPhrase[];
 }
 
-const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.Element => {
+const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps): JSX.Element => {
   const { currentLanguage } = useLanguage();
   const { audio, languagePlay, setLanguagePlay, setSeekValue, seekValue, stopStory, isPlaying, pauseStory, playStory, time, playPhrase } =
     useStoryReader(id);
@@ -109,6 +111,7 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
             }}
             audioLanguage={languagePlay}
             id={id}
+            phrases={phrases}
           />
         ))}
       </div>

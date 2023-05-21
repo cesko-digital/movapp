@@ -8,7 +8,7 @@ import stories from '../../../../data/stories';
 import { ParsedUrlQuery } from 'querystring';
 import PdfHeader from '../../../../components/basecomponents/PdfComponents/PdfHeader';
 import { Story } from '../index';
-import { StoryPhrase, STORIES } from '../../../../components/basecomponents/Story/storyStore';
+import { StoryPhrase, getStoryData } from '../../../../components/basecomponents/Story/storyStore';
 import { useLanguage } from 'utils/useLanguageHook';
 
 interface StoriesProps {
@@ -58,10 +58,10 @@ const StoryPage = ({ story, storyData }: StoriesProps): JSX.Element => {
             <tr className="break-inside-avoid">
               <td className="align-top p-2 min-w-[100px]" />
               <td className="align-top p-2 text-2xl font-bold">
-                {currentLanguage !== 'uk' ? story.title[currentLanguage] : story.title['uk']}
+                {currentLanguage === 'uk' ? story.title.uk : story.title[currentLanguage]}
               </td>
               <td className="align-top p-2 text-2xl font-bold">
-                {currentLanguage === 'uk' ? story.title['uk'] : story.title[currentLanguage]}
+                {currentLanguage === 'uk' ? story.title[currentLanguage] : story.title.uk}
               </td>
             </tr>
           ) : null}
@@ -119,7 +119,7 @@ export const getStaticProps: GetStaticProps<StoriesProps, UrlParams> = async ({ 
 
   let storyData: StoryPhrase[] = [];
   try {
-    storyData = await STORIES[story.slug]((locale as Language) ?? 'cs');
+    storyData = await getStoryData((locale as Language) ?? 'cs', story.slug);
   } catch (err) {
     console.error(err);
   }

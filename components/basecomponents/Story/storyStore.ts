@@ -29,8 +29,3 @@ export const getStoryData = async (language: Language, storySlug: string): Promi
   const storyData = await import(`../../../data/translations/${language}/pohadka_${storySlug}.json`);
   return storyData.default;
 };
-
-export const STORIES = STORY_SLUGS.reduce((stories, storySlug) => {
-  stories[storySlug] = async (language: Language) => await getStoryData(language, storySlug);
-  return stories;
-}, {} as Record<string, (language: Language) => Promise<StoryPhrase[]>>);
