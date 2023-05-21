@@ -26,6 +26,11 @@ export const getStoryData = async (language: Language, storySlug: string): Promi
     throw new Error(`Unknown story slug: ${storySlug}`);
   }
 
-  const storyData = await import(`../../../data/translations/${language}/pohadka_${storySlug}.json`);
-  return storyData.default;
+  try {
+    const storyData = await import(`../../../data/translations/${language}/pohadka_${storySlug}.json`);
+    return storyData.default;
+  } catch (e) {
+    console.info(`Story not available in this ${language}: ${storySlug}`);
+    return [];
+  }
 };
