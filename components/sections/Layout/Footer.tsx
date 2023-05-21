@@ -41,7 +41,7 @@ export const Footer = () => {
           </a>{' '}
           | {t('footer.licence_intro')}{' '}
           <a
-            href={'https://creativecommons.org/licenses/by-nc/4.0/'}
+            href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage}`}
             target={'_blank'}
             className="underline"
             rel="noopener"
