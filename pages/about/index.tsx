@@ -197,7 +197,13 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           <Trans
             i18nKey={'about_page.why_movapp_license'}
             t={t}
-            components={[<TextLink href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" key="creativecommons" />]}
+            components={[
+              <TextLink
+                href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage}`}
+                target="_blank"
+                key="creativecommons"
+              />,
+            ]}
           />
         </P>
 
