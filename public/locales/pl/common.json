@@ -61,7 +61,8 @@
     "uk": "ukraiński",
     "results_subtitle": "Wyniki wyszukiwania",
     "not_found_results": "Nic nie znaleziono",
-    "download_pdf": "Pobierz w PDF"
+    "download_pdf": "Pobierz w PDF",
+    "first_exercise":"Ćwiczenia"
   },
   "kids_page": {
     "downloadPDF": "Pobierz w PDF",
@@ -79,6 +80,8 @@
     "why_movapp_license": "Teksty, obrazy oraz pliki audio Movapp są pod <0>licencją CC BY-NC 4.0</0>. (Uznanie autorstwa - Użycie niekomercyjne 4.0), co znaczy, że możesz je wykorzystywać na własne potrzeby bez żadnych ograniczeń. Gdybyś chciał/a je dalej dystrybuować (w oryginalnej lub edytowanej wersji), możesz to robić tylko w celach niekomercyjnych, i z uznaniem oryginalnych autorów.",
     "why_movapp_origin": "Oryginalnymi autorkami <0>podstawowego zestawu słów i zwrotów</0> są Tereza Javornická i Yevheniia Valova (EDUA Group). Zestaw ten jest utrzymywany oraz dalej rozszerzany przez zespół Movapp.",
     "media_mentions_title": "Pisali o nas",
+    "conferences_title": "Konferencje i wykłady",
+    "conferences_description": "Prezentacja Movapp.cz na LUkrainian Conference na Lancaster University (Wielka Brytania). <br/>- <0>1st LUkrainian Conference (22. 07. 2022)</0><br/>- <1>4th LUkrainian Conference (13. 01. 2023)</1>",
     "our_team_title": "Nasz zespół",
     "our_team_current_title": "Aktualny skład",
     "our_team_spring_title": "Wiosenny skład",
@@ -162,7 +165,29 @@
     },
     "kids_page_imagequiz_description": {
       "pl": "Zagraj w obrazkowy quiz z ukraińskimi słówkami"
+    },
+    "exercise_page_title": {
+      "pl":"Przećwicz swój ukraiński."
+    },
+    "exercise_page_description": {
+      "pl":"Polepsz swoje umiejętności językowe. Oferujemy darmowy zestaw ćwiczeń do nauki języka. Powtarzaj codziennie."
     }
+  },
+  "exercise_page": {
+    "game_description": "Przećwicz słówka i zwroty na najróżniejsze tematy. Wybierz kategorie tematyczne i możesz zacząć!",
+    "play_the_game": "Zacznij ćwiczenie",
+    "select_all": "Zaznacz wszystkie",
+    "clear_all": "Wyczyść wszystkie",
+    "pick_random": "Wybierz losowo",
+    "next": "Kontynuuj",
+    "congratulations": "Gratulacje!",
+    "you_have_finished": "Ćwiczenie zostało ukończone pomyślnie. Teraz możesz ćwiczyć dalej, albo wrócić z powrotem na stronę główną.",
+    "home": "Z powrotem",
+    "exercise_audio_idenfification_hint":"Posłuchaj nagrania i zaznacz to, co słyszysz",
+    "exercise_text_idenfification_hint":"Wybierz jedną prawidłową odpowiedź",
+    "write_us":"Napisz do nas",
+    "feedback":"Zestaw ćwiczeń stopniowo poszerzamy. Daj nam wiedzieć, jeśli znajdziesz gdzieś błąd lub wpadniesz na pomysł, co możemy polepszyć.",
+    "size_setup":"Ustaw długość ćwiczenia"
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",
@@ -192,7 +217,7 @@
   },
   "utils": {
     "play": "odtwarzanie",
-    "new_game": "Nowa gra"
+    "new_game": "Nowa gra"    
   },
   "christmas_banner": {
     "christmas_dictionary_title": "Słowniczek bożonarodzeniowy",

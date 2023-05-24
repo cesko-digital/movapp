@@ -197,7 +197,13 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           <Trans
             i18nKey={'about_page.why_movapp_license'}
             t={t}
-            components={[<TextLink href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" key="creativecommons" />]}
+            components={[
+              <TextLink
+                href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage}`}
+                target="_blank"
+                key="creativecommons"
+              />,
+            ]}
           />
         </P>
 
@@ -271,6 +277,16 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
 
         <H2>{t('about_page.media_mentions_title')}</H2>
         <ArticlesList articles={articles} />
+
+        <H2>{t('about_page.conferences_title')}</H2>
+        <Trans
+          i18nKey={'about_page.conferences_description'}
+          t={t}
+          components={[
+            <TextLink href="https://www.youtube.com/watch?v=ThY0ZiWmBV8&t=2353s" target="_blank" key="first_conference" />,
+            <TextLink href="https://www.youtube.com/watch?v=3UC16MhE19k&t=1660s" target="_blank" key="second_conference" />,
+          ]}
+        />
 
         <H2>{t('about_page.support_us_title')}</H2>
         <Trans

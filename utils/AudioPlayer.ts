@@ -36,11 +36,15 @@ export class AudioPlayer {
     }
   };
 
-  playSrc = (src: string) => {
+  playSrc = (src: string, playbackRate = 1) => {
     this.currentAudio.pause();
     if (this.resolveCurrentAudio !== null) this.resolveCurrentAudio();
     this.currentAudio.src = src;
     this.currentAudio.load();
+
+    if (this.currentAudio.playbackRate !== undefined) {
+      this.currentAudio.playbackRate = playbackRate;
+    }
 
     return new Promise<void>((resolve) => {
       this.resolveCurrentAudio = resolve;

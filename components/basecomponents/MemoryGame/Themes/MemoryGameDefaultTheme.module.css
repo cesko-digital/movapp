@@ -1,4 +1,6 @@
 .newGameButton {
+  color: white;
+  border-radius: 0.5rem;
   background-color: #023abd;
   margin-bottom: 1.25rem;
   animation: unhide 0.7s 0.5s backwards;  

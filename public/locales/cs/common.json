@@ -7,7 +7,7 @@
     "forkids_memorygame": "Pexeso",
     "forkids_imagequiz": "Obrázkový kvíz",
     "wiki_link_name": "Wiki",
-    "exercises_link_name": "Cvičení",
+    "exercises_link_name": "Procvičování",
     "about_link_name": "O nás",
     "contacts_link_name": "Kontakty",
     "alphabet_link_name": "Abeceda"
@@ -67,7 +67,8 @@
     "uk": "ukrajinsky",
     "results_subtitle": "Výsledky vyhledávání",
     "not_found_results": "Nic nenalezeno",
-    "download_pdf": "Stáhnout v PDF"
+    "download_pdf": "Stáhnout v PDF",
+    "first_exercise":"Procvičování"
   },
   "kids_page": {
     "downloadPDF": "Stáhnout v PDF",
@@ -90,6 +91,8 @@
     "why_movapp_license": "Texty, obrázky a audiosoubory Movapp jsou pod <0>licencí CC BY-NC 4.0</0>. (Uveďte původ-Neužívejte komerčně 4.0), což znamená, že je můžete pro vlastní potřeby používat zcela bez omezení. Pokud byste je chtěli dále šířit (v původní nebo v upravené podobě), můžete tak dělat pouze nekomerčním způsobem a s uvedením původních autorů.",
     "why_movapp_origin": "Původní autorkou <0>základní sady slov a frází</0> je Tereza Javornická a Yevheniia Valova (EDUA Group). Tuto sadu udržuje a dále rozšiřuje tým Movapp.",
     "media_mentions_title": "Napsali o nás",
+    "conferences_title": "Konference a přednášky",
+    "conferences_description": "Prezentace Movapp.cz na LUkrainian Conference na Lancaster University (Velká Británie). <br/>- <0>1st LUkrainian Conference (22. 07. 2022)</0><br/>- <1>4th LUkrainian Conference (13. 01. 2023)</1>",
     "movapp_origin_title": "Vznik Movappu",
     "movapp_origin_description": "Movapp vznikl na jaře 2022 jako reakce dobrovolníků na válku na Ukrajině. Přečtěte si celý <0>příběh Movappu</0>, podívejte se, jak se projekt <1>měnil v čase</1>.",
     "our_team_title": "Náš tým",
@@ -105,8 +108,8 @@
     "our_partners_title": "Naši partneři",
     "how_to_find_us_title": "Jak nás najdete",
     "how_to_find_us_description": "Můžete nás hledat pomocí výrazů: <i>\"movapp\"</i>, <i>\"movaap\"</i> nebo <i>\"mova app\"</i>. Pokud o nás budete psát, používejte název Movapp.",
-    "support_us_title":"Podpořte nás",
-    "support_us_description":"- Řekněte o nás Ukrajincům ve vašem okolí (v práci, ve škole, nebo rodinám bydlícím ve vašem domě) - můžete vytisknout a dát jim tyhle <0>plakátky.</0> <br/> - Sledujte nás na sociálních sítích, viz. stránka <1>kontakty</1>, a pomozte nám je šířit. <br/> - Pokud máte více času (2 a více hodin týdně), můžete se k nám přidat. Podívejte se, jaké <2>dobrovolnické pozice</2> hledáme. Kontaktovat nás můžete <3>emailem</3> nebo na <4>Slacku Česko.Digital.</4>"
+    "support_us_title": "Podpořte nás",
+    "support_us_description": "- Řekněte o nás Ukrajincům ve vašem okolí (v práci, ve škole, nebo rodinám bydlícím ve vašem domě) - můžete vytisknout a dát jim tyhle <0>plakátky.</0> <br/> - Sledujte nás na sociálních sítích, viz. stránka <1>kontakty</1>, a pomozte nám je šířit. <br/> - Pokud máte více času (2 a více hodin týdně), můžete se k nám přidat. Podívejte se, jaké <2>dobrovolnické pozice</2> hledáme. Kontaktovat nás můžete <3>emailem</3> nebo na <4>Slacku Česko.Digital.</4>"
   },
   "contacts_page": {
     "title": "Kontakty",
@@ -175,7 +178,29 @@
     },
     "kids_page_imagequiz_description": {
       "cs": "Zahrajte si obrázkový kvíz s ukrajinskými slovíčky"
+    },
+    "exercise_page_title": {
+      "cs":"Procvičte si ukrajinštinu."
+    },
+    "exercise_page_description": {
+      "cs":"Zlepšete vaši jazykovou úroveň. Nabízíme zdarma sadu cvičení pro učení jazyka. Opakujte každý den."
     }
+  },
+  "exercise_page": {
+    "game_description": "Procvičte si slovíčka a fráze na nejrůznější témata. Nejprve si vyberte tematické okruhy, a můžete začít!",
+    "play_the_game": "Začít",
+    "select_all": "Vybrat vše",
+    "clear_all": "Zrušit výběr",
+    "pick_random": "Vybrat náhodně",
+    "next": "Pokračovat",
+    "congratulations": "Gratulujeme!",
+    "you_have_finished": "Cvičení jste úspěšně zvládli. Nyní můžete pokračovat v procvičování, nebo se vrátit zpět na hlavní stránku.",
+    "home": "Domů",    
+    "exercise_audio_idenfification_hint":"Přehrajte zvuk a označte, co slyšíte",
+    "exercise_text_idenfification_hint":"Vyberte jednu správnou odpověď",
+    "write_us":"Napište nám",
+    "feedback":"Cvičení postupně rozšiřujeme, dejte nám vědět, pokud jste nalezli chybu, anebo máte nápad na zlepšení.",
+    "size_setup":"Nastavte si délku cvičení"    
   },
   "export_translations": {
     "download_phrases": "Stáhnout fráze",
@@ -234,7 +259,7 @@
   "easter_banner": {
     "box_easter_dictionary_title": "Velikonoční slovníček",
     "box_easter_dictionary_description": "Hody, hody, doprovody, dejte vejce malovaný a naučte se velikonoční fráze.",
-    "box_easter_dictionary_anchor": {"cs":"velikonoce"},
+    "box_easter_dictionary_anchor": { "cs": "velikonoce" },
     "box_easter_kids_title": "Velikonoce pro děti",
     "box_easter_kids_description": "Zábavné obrázky a omalovánky s velikonoční tématikou.",
     "box_easter_kids_anchor": {

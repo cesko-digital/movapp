@@ -37,7 +37,7 @@ export const MobileHeader = () => {
       <ul className="flex w-full justify-end pr-5 items-center">
         {['uk' as Language, getCountryVariant()].map((locale) => {
           return (
-            <li key={locale} className={`${currentLanguage === locale && 'text-primary-yellow'} text-white mx-2`}>
+            <li key={locale} className={`${currentLanguage === locale ? 'text-primary-yellow' : 'text-white'} mx-2`}>
               <Link href={router.asPath} locale={locale}>
                 {LOCALE_NAMES[locale]}
               </Link>

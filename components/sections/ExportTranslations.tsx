@@ -216,18 +216,23 @@ const ExportTranslations = ({ triggerLabel, category, customName }: ExportTransl
 
         <div className="flex justify-evenly flex-wrap py-8">
           <a download={fileName} href={downloadLink}>
-            <Button text={t('export_translations.download_phrases')} className="my-2 bg-primary-blue" />
+            <Button className="my-2" buttonStyle="primary">
+              {t('export_translations.download_phrases')}
+            </Button>
           </a>
-          <Button
-            text={t('export_translations.copy_to_clipboard')}
-            onClick={() => navigator.clipboard.writeText(categories.flat().join(''))}
-            className="my-2 bg-primary-blue"
-          ></Button>
+          <Button onClick={() => navigator.clipboard.writeText(categories.flat().join(''))} className="my-2" buttonStyle="primary">
+            {t('export_translations.copy_to_clipboard')}
+          </Button>
         </div>
         <Separator />
         <div className="text-sm font-light">
           {t('export_translations.sharing_info')}:&nbsp;
-          <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.cs" target="_blank" rel="noreferrer" className="underline">
+          <a
+            href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage}`}
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
             CC BY-NC 4.0
           </a>
           .
