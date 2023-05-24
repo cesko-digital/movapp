@@ -1,6 +1,4 @@
 /// <reference types="Cypress" />
-/// <reference types="@cypress/xpath" />
-import { link } from 'fs';
 import { checkLink, checkVisibility } from '../support/cypressHelpers';
 
 describe('Test Movapp - Home page', () => {
@@ -43,26 +41,22 @@ describe('Test Movapp - Home page', () => {
   });
 
   it('Test of the footer of the page', function(){
-    cy.contains('facebook');
-    cy.xpath ("//a[contains(@href, 'facebook')]").click();
-    cy.contains('instagram');
-    cy.xpath ("//a[contains(@href, 'instagram')]").click();
-    cy.contains('twitter');
-    cy.xpath ("//a[contains(@href, 'twitter')]").click();
-    cy.contains('linkedin');
-    cy.xpath ("//a[contains(@href, 'linkedin')]").click();
-    cy.contains('telegram');
-    cy.xpath ("//a[contains(@href, 't.me')]").click();
-
+    cy.contains('facebook').should('have.attr', 'href').and('include', 'facebook');
+    cy.contains('instagram').should('have.attr', 'href').and('include', 'instagram');
+    cy.contains('twitter').should('have.attr', 'href').and('include', 'twitter');
+    cy.contains('linkedin').should('have.attr', 'href').and('include', 'linkedin');
+    cy.contains('telegram').should('have.attr', 'href').and('include', 't.me/movappcz');
+    
   
-    cy.xpath ("//a[contains(@href, 'pomahejukrajine')]").click();
-    cy.xpath ("//a[contains(@href, 'stojimezaukrajinou')]").click();
-    cy.xpath ("//a[contains(@href, 'cesko.digital')]").click();
+    cy.contains('Pomáhej Ukrajině').should('have.attr', 'href').and('include', 'pomahejukrajine');
+    cy.contains('Stojíme za Ukrajinou').should('have.attr', 'href').and('include', 'stojimezaukrajinou');
+    cy.contains('Česko.Digital').should('have.attr', 'href').and('include', 'cesko.digital');
 
     cy.contains('footer button', 'Našli jste chybu nebo máte návrh na zlepšení?').invoke('text').should('equal', 'Našli jste chybu nebo máte návrh na zlepšení?');
 
-    cy.xpath ("//a[contains(@href, 'github')]").click();
-    cy.xpath ("//a[contains(@href, 'creativecommons')]").click();
+    cy.contains('GitHub').should('have.attr', 'href').and('include', 'github');
+    cy.contains('CC BY-NC 4.0 Mezinárodní').should('have.attr', 'href').and('include', 'creativecommons');
+   
 
     
  
