@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import YoutubeLinkIcon from 'public/icons/youtube-link.svg';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { getCountryVariant } from 'utils/locales';
 import Lekarna_UK_mobile from 'public/youtubebanner/lekarna-uk--mobile.png';
 import Lekarna_CZ_mobile from 'public/youtubebanner/lekarna-cz--mobile.png';
