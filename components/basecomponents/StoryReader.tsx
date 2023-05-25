@@ -22,9 +22,8 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
     useStoryReader(id);
 
   const handleLanguageChange = (language: Language) => {
-    setSeekValue(0);
+    playPhrase({ language: language, time: audio.current?.currentTime ?? 0 });
     setLanguagePlay(language);
-    stopStory();
   };
 
   const locales = ['uk' as Language, getCountryVariant()];
