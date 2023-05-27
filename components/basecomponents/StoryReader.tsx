@@ -8,6 +8,7 @@ import { Flag } from './Flag';
 import StoryText from './StoryText';
 import { useStoryReader } from 'components/hooks/useStoryReader';
 import { Trans } from 'next-i18next';
+import { STORIES } from './Story/storyStore';
 
 interface StoryReaderProps {
   titleCurrent: string;
@@ -21,12 +22,18 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
   const { audio, languagePlay, setLanguagePlay, setSeekValue, seekValue, stopStory, isPlaying, pauseStory, playStory, time, playPhrase } =
     useStoryReader(id);
 
+  const locales = ['uk' as Language, getCountryVariant()];
+  const czechPhrases = STORIES[id].map((obj) => obj.start_cs); //getting all the start times from the czech and ukranian story
+  const ukranianPhrases = STORIES[id].map((obj) => obj.start_uk);
+  czechPhrases.unshift(0); //adding 0 to the start of the array, so that the audio can be played from the beginning as well
+  ukranianPhrases.unshift(0);
+
   const handleLanguageChange = (language: Language) => {
-    playPhrase({ language: language, time: audio.current?.currentTime ?? 0 });
+    const rightTimes = language === 'uk' ? ukranianPhrases : czechPhrases;
+    const beginningOfPhrase = rightTimes.reduce((prev, curr) => (curr <= (audio.current?.currentTime || 0) ? curr : prev)); //finding the beginning of the phrase that is currently playing
+    playPhrase({ language: language, time: beginningOfPhrase });
     setLanguagePlay(language);
   };
-
-  const locales = ['uk' as Language, getCountryVariant()];
 
   return (
     <div className="w-full">

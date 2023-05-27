@@ -31,7 +31,7 @@ const StoryText = ({ textLanguage, audioLanguage, id, audio, onClick }: StoryTex
     const start = `start_${audioLanguage}` as ObjectKey;
     const end = `end_${audioLanguage}` as ObjectKey;
     if (audio !== null) {
-      return audio?.currentTime > phrase[start] && audio?.currentTime < phrase[end];
+      return audio?.currentTime > Number(phrase[start]) && audio?.currentTime < Number(phrase[end]);
     } else {
       return false;
     }
@@ -41,7 +41,7 @@ const StoryText = ({ textLanguage, audioLanguage, id, audio, onClick }: StoryTex
     type ObjectKey = keyof typeof phrase;
     const end = `end_${audioLanguage}` as ObjectKey;
     if (audio !== null) {
-      return audio?.currentTime >= phrase[end];
+      return audio?.currentTime >= Number(phrase[end]);
     } else {
       return false;
     }
