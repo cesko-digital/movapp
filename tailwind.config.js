@@ -19,6 +19,7 @@ module.exports = {
         'primary-grey': '#F5F5F5',
         'primary-black': '#2D2D2D',
         'primary-green': '#91FF00',
+        'primary-light-blue': '#64A5DA',
       },
       borderWidth: {
         1: '1px',
@@ -27,11 +28,11 @@ module.exports = {
         'homepage-hero': "url('/icons/movapp-bg.svg')",
       },
       font: {
-        ['sans-pro']: "Source Sans Pro"
+        ['sans-pro']: 'Source Sans Pro',
       },
       scale: {
-        '110': '1.1',
-      }
+        110: '1.1',
+      },
     },
   },
   plugins: [],

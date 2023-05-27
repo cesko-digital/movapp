@@ -1,15 +1,15 @@
+import React from 'react';
+import { GetStaticProps } from 'next';
 import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
 import Image from 'next/legacy/image';
-import React from 'react';
+
 import SEO from 'components/basecomponents/SEO';
-import stories from '../../../data/stories';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import stories from 'data/stories';
 import { useLanguage } from 'utils/useLanguageHook';
 import { getCountryVariant } from 'utils/locales';
-import { GetStaticProps } from 'next';
-import Custom404 from '../../404';
-
+import Custom404 from 'pages/404';
 interface StoriesSectionProps {
   stories: Story[];
 }
@@ -17,7 +17,8 @@ interface StoriesSectionProps {
 export interface Language {
   cs: string;
   uk: string;
-  [index: string]: string;
+  sk?: string;
+  [index: string]: string | undefined;
 }
 
 export interface Story {
@@ -31,10 +32,14 @@ const StoriesSection = ({ stories }: StoriesSectionProps) => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
 
-  const stories_CZ = stories.filter((story) => story.country === 'CZ');
-  const stories_UK = stories.filter((story) => story.country === 'UA');
+  const countryVariant = getCountryVariant();
+  stories = stories.filter((story) => story.title[countryVariant]);
 
-  const storyPanel = (story: Story) => (
+  // We want to have list of Ukrainian stories, then other stories
+  const storiesUA = stories.filter((story) => story.country === 'UA');
+  const storiesCEE = stories.filter((story) => story.country === 'CZ');
+
+  const renderStoryPanel = (story: Story) => (
     <div className="h-42 m-auto my-8 flex bg-slate-50 rounded-2xl sm:w-3/5 xl:w-2/5 xxl:w-1/3" key={story.slug}>
       <Image src={`/kids/${story.slug}.jpg`} width="300" className="rounded-l-2xl" height="200" alt={story.title[currentLanguage]} />
       <div className="flex items-center xl:ml-6 w-full">
@@ -65,6 +70,18 @@ const StoriesSection = ({ stories }: StoriesSectionProps) => {
     </div>
   );
 
+  const renderStoriesSection = (language: string, stories: Story[], titleKey: string) => {
+    // Filter stories that have a title in the current language
+    const localizedStories = stories.filter((story) => story.title[language]);
+
+    return (
+      <>
+        <h2 className="text-primary-blue text-center">{t(titleKey, { defaultValue: 'stories' })}</h2>
+        {localizedStories.map((story) => renderStoryPanel(story))}
+      </>
+    );
+  };
+
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
       <SEO
@@ -72,12 +89,10 @@ const StoriesSection = ({ stories }: StoriesSectionProps) => {
         description={t(`seo.kids_page_storiesDescription.${getCountryVariant()}`)}
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
-      {getCountryVariant() === 'cs' ? (
+      {countryVariant === 'cs' || countryVariant === 'sk' ? (
         <div className="min-h-screen m-auto py-10 px-2 sm:px-4">
-          <h2 className="text-primary-blue text-center">{t('kids_page.czechStories')}</h2>
-          {stories_CZ.map((story) => storyPanel(story))}
-          <h2 className="text-primary-blue text-center mt-12">{t('kids_page.ukrainianStories')}</h2>
-          {stories_UK.map((story) => storyPanel(story))}
+          {storiesCEE.length > 0 && renderStoriesSection('cs', storiesCEE, 'kids_page.czechStories')}
+          {storiesUA.length > 0 && renderStoriesSection('uk', storiesUA, 'kids_page.ukrainianStories')}
         </div>
       ) : (
         <Custom404 />
