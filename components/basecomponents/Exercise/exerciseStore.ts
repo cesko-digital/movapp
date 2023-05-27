@@ -1,6 +1,5 @@
 import { fetchRawDictionary, DictionaryDataObject, Phrase, CategoryDataObject } from 'utils/getDataUtils';
 import { getCountryVariant, Language } from 'utils/locales';
-import { AudioPlayer } from 'utils/AudioPlayer';
 import { create } from 'zustand';
 import {
   createFactoryOfExerciseIdentification,
@@ -64,12 +63,8 @@ interface WithId {
   id: number;
 }
 
-const hasSameId = (id: WithId['id']) => (obj: WithId) => id === obj['id'];
-
 export interface Choice extends WithId {
-  select: () => void;
-  selected: boolean;
-  correct: boolean;
+  phrase: Phrase;
 }
 
 export interface ExerciseResult {
@@ -80,10 +75,9 @@ export interface Exercise extends WithId {
   type: ExerciseType;
   status: ExerciseStatus;
   choices: Choice[];
+  correctChoiceId: number;
   level: number;
-  resolve: () => boolean;
-  getResult: () => ExerciseResult;
-  completed: () => void;
+  result: ExerciseResult | null;
 }
 
 export enum ExerciseStoreStatus {
@@ -112,22 +106,18 @@ export interface ExerciseStoreActions {
   restart: () => void;
   home: () => void;
   nextExercise: () => void;
+  exerciseResolved: () => void;
+  exerciseCompleted: () => void;
+  setExerciseResult: (result: ExerciseResult) => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
-  getCategoryNames: () => { id: CategoryDataObject['id']; name: CategoryDataObject['name']['main'] }[];
-  getMetacategoryNames: () => { id: CategoryDataObject['id']; name: CategoryDataObject['name']['main'] }[];
   setLang: (lang: ExerciseStoreState['lang']) => void;
   setSize: (size: ExerciseStoreState['size']) => void;
   setLevel: (size: ExerciseStoreState['level']) => void;
+  uniqId: () => WithId['id'];
 }
 
 export interface ExerciseStoreUtils {
-  uniqId: () => WithId['id'];
-  selectChoice: (choiceId: Choice['id'], enableDeselect?: boolean) => void;
-  getCurrentLanguage: () => Language;
-  getOtherLanguage: () => Language;
-  getExercise: () => Exercise;
-  exerciseResolved: () => void;
-  exerciseCompleted: () => void;
+  uniqId: () => number;
   nextExercise: ExerciseStoreActions['nextExercise'];
   phraseFilters: {
     equalPhrase: (phraseA: Phrase) => (phraseB: Phrase) => boolean;
@@ -138,10 +128,32 @@ export interface ExerciseStoreUtils {
       config: { wordLimitMin: number; wordLimitMax: number; choiceLimit: number; levelMin: number }
     ) => Phrase[];
   };
-  resolveMethods: Record<string, (exercise: Exercise) => boolean>;
-  resultMethods: Record<string, (exercise: Exercise) => ExerciseResult>;
   getFallbackPhrases: () => Phrase[];
 }
+
+export const findById = <T>(idToSearch: number, obj: (WithId & T)[]): T => {
+  const result = obj.find(({ id }) => id === idToSearch);
+  if (result === undefined) throw Error(`choice doesn't not exists`);
+  return result;
+};
+
+export const resolveMethods: Record<string, (correctChoiceId: number, selectChoices: number[]) => boolean> = {
+  // anySelected: (choices) => !!choices.find((choice) => choice.selected),
+  oneCorrect: (correctChoiceId, selectedChoices) => selectedChoices.includes(correctChoiceId),
+  // allCorrect: (choices) => choices.every((choice) => choice.selected && choice.correct),
+};
+
+export const resultMethods: Record<string, (correctChoiceId: number, selectedChoiceId: number[]) => ExerciseResult> = {
+  selectedCorrect: (correctChoiceId, selectedChoiceIds) => ({
+    // (Math.max(0,selected correct - selected wrong) / all correct) * 100
+    score:
+      100 *
+      Math.max(
+        0,
+        selectedChoiceIds.filter((id) => correctChoiceId === id).length - selectedChoiceIds.filter((id) => correctChoiceId !== id).length
+      ),
+  }),
+};
 
 /** Describes complete state of the app, enables to save/restore app state */
 export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions>((set, get) => {
@@ -154,26 +166,20 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     };
   })();
 
-  const selectChoice: ExerciseStoreUtils['selectChoice'] = (choiceId, enableDeselect = false) => {
+  const setExerciseResult: ExerciseStoreActions['setExerciseResult'] = (result) => {
     const exercise = getExercise();
-    const choiceIndex = exercise.choices.findIndex(hasSameId(choiceId));
-    if (choiceIndex === -1) throw Error(`choice id ${choiceId} not found in  exercise`);
-    if (!enableDeselect && exercise.choices[choiceIndex].selected) {
-      console.log(`choice ${choiceId} already selected`);
-      return;
-    }
-    set(R.over(R.lensPath(['exercise', 'choices', choiceIndex, 'selected']), (val) => !val));
-    console.log(`selected choice ${choiceId} in exercise`);
+    if (exercise.status === ExerciseStatus.active) throw Error('invalid exercise status');
+    set({ exercise: { ...exercise, result } });
   };
 
-  const exerciseResolved: ExerciseStoreUtils['exerciseResolved'] = () => {
+  const exerciseResolved: ExerciseStoreActions['exerciseResolved'] = () => {
     if (getExercise().status !== ExerciseStatus.active) throw Error('invalid exercise status');
-    // if (getExercise().result === null) throw Error('exercise result is empty');
     set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.resolved));
   };
 
-  const exerciseCompleted: ExerciseStoreUtils['exerciseCompleted'] = () => {
+  const exerciseCompleted: ExerciseStoreActions['exerciseCompleted'] = () => {
     if (getExercise().status !== ExerciseStatus.resolved) throw Error('invalid exercise status');
+    if (getExercise().result === null) throw Error('exercise result is empty');
     console.log(`exercise completed`);
     /* set exercise status completed and save exercise */
     set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.completed));
@@ -198,7 +204,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     set((state) => ({ exercise: createNextExercise(), counter: state.counter + 1 }));
   };
 
-  const getExercise: ExerciseStoreUtils['getExercise'] = () => {
+  const getExercise = () => {
     const exercise = get().exercise;
     if (exercise === null) throw Error('active exercise is null');
     return exercise;
@@ -238,21 +244,8 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     return phrases;
   };
 
-  const getCategoryNames = () => {
-    const dictionary = getDictionary();
-    return dictionary.categories
-      .filter((category) => !category.hidden)
-      .map((category) => ({ id: category.id, name: getCurrentLanguage() === 'uk' ? category.name.source : category.name.main }));
-  };
-
-  const getMetacategoryNames = () =>
-    getDictionary()
-      .categories.filter((category) => !category.hidden)
-      .filter(({ metacategories }) => metacategories.length > 0)
-      .map((category) => ({ id: category.id, name: getCurrentLanguage() === 'uk' ? category.name.source : category.name.main }));
-
-  const getCurrentLanguage: ExerciseStoreUtils['getCurrentLanguage'] = () => get().lang.currentLanguage;
-  const getOtherLanguage: ExerciseStoreUtils['getOtherLanguage'] = () => get().lang.otherLanguage;
+  const getCurrentLanguage = () => get().lang.currentLanguage;
+  const getOtherLanguage = () => get().lang.otherLanguage;
 
   // new better phrase filter :-)
   const greatPhraseFilter: ExerciseStoreUtils['phraseFilters']['greatPhraseFilter'] = (level, phrases, fallbackPhrases, config) => {
@@ -311,41 +304,10 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     greatPhraseFilter,
   };
 
-  const resolveMethods: ExerciseStoreUtils['resolveMethods'] = {
-    anySelected: (exercise: Exercise) => !!exercise.choices.find((choice) => choice.selected),
-    oneCorrect: (exercise: Exercise) => !!exercise.choices.find((choice) => choice.correct)?.selected,
-    allCorrect: (exercise: Exercise) => exercise.choices.every((choice) => choice.selected && choice.correct),
-  };
-
-  const isCorrect = (obj: { correct: boolean }) => obj.correct;
-  const isSelected = (obj: { selected: boolean }) => obj.selected;
-
-  const resultMethods: ExerciseStoreUtils['resultMethods'] = {
-    selectedCorrect: (exercise: Exercise) => ({
-      // (Math.max(0,selected correct - selected wrong) / all correct) * 100
-      score:
-        (100 *
-          Math.max(
-            0,
-            exercise.choices.filter((choice) => isCorrect(choice) && isSelected(choice)).length -
-              exercise.choices.filter((choice) => !isCorrect(choice) && isSelected(choice)).length
-          )) /
-        exercise.choices.filter(isCorrect).length,
-    }),
-  };
-
   const utils: ExerciseStoreUtils = {
     uniqId,
-    getCurrentLanguage,
-    getOtherLanguage,
-    selectChoice,
-    getExercise,
-    exerciseResolved,
-    exerciseCompleted,
     nextExercise,
     phraseFilters,
-    resolveMethods,
-    resultMethods,
     getFallbackPhrases,
   };
 
@@ -366,26 +328,8 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       throw Error('None categories selected.');
     }
 
-    const processedCategories = categories
-      .map((categoryId) => {
-        const category = dictionary.categories.find(({ id }) => categoryId === id);
-        if (category === undefined) throw Error(`Can't find category with id ${categoryId}`);
-        // not a metacategory
-        if (category.metaOnly === undefined || category.metaOnly === false) return [categoryId];
-
-        return (
-          dictionary.categories
-            .filter(({ id }) => category.metacategories.includes(id))
-            // omit categories without phrases
-            .filter(({ phrases }) => phrases.length > 0)
-            // need only ids
-            .map(({ id }) => id)
-        );
-      })
-      .flat();
-
     // considering to not mix up categories for current exercise, so pick only one from the list
-    const phrases = getPhrases(dictionary, [getRandomItem(processedCategories)]);
+    const phrases = getPhrases(dictionary, [getRandomItem(categories)]);
     // mix categories together
     //const phrases = getPhrases(dictionary, categories);
 
@@ -402,7 +346,8 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     const exerciseList = history.filter(exerciseFilter[exerciseType]);
     if (exerciseList.length === 0) return get().level; // if has no exercise of same type return global level
     const exercise = exerciseList.slice(-1)[0];
-    const score = exercise.getResult().score;
+    if (exercise.result === null) throw Error('result is unexpectedly null');
+    const score = exercise.result.score;
     if (score < CONFIG_BASE.levelDownTresholdScore) return Math.max(CONFIG_BASE.levelMin, exercise.level - 1);
     if (score > CONFIG_BASE.levelDownTresholdScore && score < CONFIG_BASE.levelUpTresholdScore) return exercise.level;
     return Math.min(CONFIG_BASE.levelMax, exercise.level + 1);
@@ -461,15 +406,15 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         exercise: createNextExercise(),
       }),
     nextExercise,
+    exerciseResolved,
+    exerciseCompleted,
     setLang: (lang) => set({ lang }),
     setCategories: (categories) => set({ categories }),
-    getCategoryNames,
-    getMetacategoryNames,
     setSize: (size) => set({ size }),
     setLevel: (val) => set({ level: val }),
+    setExerciseResult,
+    uniqId,
   };
 });
 
 export const delay = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
-export const playAudio = (url: string) => AudioPlayer.getInstance().playSrc(url);
-export const playAudioSlow = (url: string) => AudioPlayer.getInstance().playSrc(url, 0.75);
