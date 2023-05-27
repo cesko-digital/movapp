@@ -52,22 +52,9 @@ h2 {
 }
 
 .tap-transparent {
--webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button-shadow {
   box-shadow: 3px 3px 6px 0px #0000003d;
-}
-/** Stories */
-.storyText {
-  @apply cursor-pointer text-left;
-  margin: 0 1.5rem 1rem;
-}
-
-.storyText-playing {
-  color: #013abd;
-}
-
-.storyText-played {
-  color: #64a5da;
 }

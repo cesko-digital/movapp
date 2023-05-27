@@ -57,17 +57,17 @@ const StoryText = ({ textLanguage, audioLanguage, audio, onClick, phrases }: Sto
     <div className="mt-4 md:flex bg-slate-100 divide-y-8 divide-white md:divide-y-0 md:w-1/2">
       <div className="max-h-[30vh] md:max-h-full overflow-y-scroll md:overflow-auto" ref={containerRef}>
         {phrases.map((phrase: StoryPhrase) => (
-          <div key={phrase.start_cs} className="flex w-full">
-            <p
-              key={phrase.start_cs}
-              onClick={handleClick(textLanguage === 'uk' ? phrase.start_uk.toString() : phrase.start_cs.toString())}
-              ref={playing(phrase) ? phraseRef : null}
-              id={textLanguage === 'uk' ? phrase.start_uk.toString() : phrase.start_cs.toString()}
-              className={`storyText ${playing(phrase) && 'storyText-playing'} ${played(phrase) && 'storyText-played'}`}
-            >
-              {textLanguage === 'uk' ? phrase.uk : phrase.main}
-            </p>
-          </div>
+          <p
+            key={phrase.start_cs}
+            onClick={handleClick(textLanguage === 'uk' ? phrase.start_uk.toString() : phrase.start_cs.toString())}
+            ref={playing(phrase) ? phraseRef : null}
+            id={textLanguage === 'uk' ? phrase.start_uk.toString() : phrase.start_cs.toString()}
+            className={`hover:cursor-pointer mx-6 my-4 text-left false false ${playing(phrase) && 'text-primary-blue'} ${
+              played(phrase) && 'text-primary-light-blue'
+            }`}
+          >
+            {textLanguage === 'uk' ? phrase.uk : phrase.main}
+          </p>
         ))}
       </div>
     </div>
