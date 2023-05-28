@@ -49,7 +49,7 @@ export const ExerciseAudioIdentificationComponent = forwardRef(
       <ExerciseContainer ref={exRef}>
         <Hint>{t('exercise_page.exercise_audio_idenfification_hint')}</Hint>
         <div className="flex w-full items-center justify-center">
-          <MainText invisible ref={mainTextRef}>
+          <MainText clasName={`opacity-0 ${status === ExerciseStatus.completed ? 'z-10' : ''}`} ref={mainTextRef}>
             {correctChoice.phrase.getTranslation(otherLanguage)}
           </MainText>
           <div ref={soundwaveRef} className={`absolute w-40 inline `}>

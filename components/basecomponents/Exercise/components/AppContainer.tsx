@@ -12,7 +12,7 @@ export const AppContainer: React.FunctionComponent<AppContainerProps> = ({ child
         <BetaIcon />
         <div>{headerContent}</div>
       </div>
-      <div className="px-5">{children}</div>
+      <div className="px-5 relative">{children}</div>
     </div>
   );
 };
