@@ -1,17 +1,29 @@
 import { useRef } from 'react';
 import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
+import { playAudio } from '../utils/playAudio';
 
 interface ChoiceProps {
   text: string;
+  audioUrl: string;
   className?: string;
   correct: boolean;
-  inactive?: boolean;
-  onClickStarted: () => void;
-  onClickFinished: () => void;
+  buttonsInactive: boolean;
+  setButtonsInactive: (val: boolean) => void;
+  playAudioOnly?: boolean;
+  onClick: () => void;
 }
 
-export const ChoiceComponent = ({ text, correct, className = '', inactive = false, onClickStarted, onClickFinished }: ChoiceProps) => {
+export const ChoiceComponent = ({
+  text,
+  audioUrl,
+  correct,
+  className = '',
+  buttonsInactive,
+  setButtonsInactive,
+  onClick,
+  playAudioOnly = false,
+}: ChoiceProps) => {
   const choiceRef = useRef(null);
 
   return (
@@ -20,12 +32,18 @@ export const ChoiceComponent = ({ text, correct, className = '', inactive = fals
       buttonStyle="choice"
       className={`${className}`}
       onClick={async () => {
-        if (inactive) return;
+        if (buttonsInactive) return;
         if (choiceRef.current === null) return;
-        onClickStarted();
+        setButtonsInactive(true);
+        playAudio(audioUrl);
         await animation.click(choiceRef.current).finished;
+        if (playAudioOnly) {
+          setButtonsInactive(false);
+          return;
+        }
         correct ? await animation.selectCorrect(choiceRef.current).finished : await animation.selectWrong(choiceRef.current).finished;
-        onClickFinished();
+        onClick();
+        setButtonsInactive(false);
       }}
     >
       {text}

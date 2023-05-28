@@ -1,47 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
-import { ExerciseType, useExerciseStore, ExerciseStoreStatus, ExerciseStatus } from './exerciseStore';
-import { ExerciseIdentificationComponent } from './components/ExerciseIdentificationComponent';
-import BetaIcon from 'public/icons/beta.svg';
+import { useExerciseStore, ExerciseStoreStatus, ExerciseStatus } from './exerciseStore';
+import { AppContainer } from './components/AppContainer';
 import dynamic from 'next/dynamic';
 import { useTranslation } from 'react-i18next';
 import { ActionButton } from './components/ActionButton';
 import Spinner from '../Spinner/Spinner';
-import { create } from 'zustand';
 import { animation } from './utils/animation';
 import ExerciseConfiguration from './ExerciseConfiguration';
-
-interface PendingStore {
-  pending: boolean;
-  setPending: (val: boolean) => void;
-}
-
-// global state of pending action, ActionButtons are disabled when pending is true
-export const usePendingStore = create<PendingStore>((set) => ({
-  pending: false,
-  setPending: (val) => set({ pending: val }),
-}));
+import { ExerciseDebugInfo } from './components/ExerciseDebugInfo';
+import { ExerciseComponentLoader } from './components/ExerciseComponentLoader';
 
 const Feedback = dynamic(() => import('./components/Feedback'), {
   ssr: false,
 });
-
-interface AppContainerProps {
-  headerContent?: React.ReactNode;
-  children: React.ReactNode;
-}
-
-const AppContainer: React.FunctionComponent<AppContainerProps> = ({ children, headerContent }) => {
-  return (
-    <div className="w-full sm:w-10/12 max-w-2xl bg-white">
-      <div className="flex items-center justify-between mt-3 mb-5 pr-5">
-        <BetaIcon />
-        <div>{headerContent}</div>
-      </div>
-      <div className="px-5">{children}</div>
-    </div>
-  );
-};
 
 const Loading = () => (
   <AppContainer>
@@ -109,40 +81,26 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
 
   if (status === ExerciseStoreStatus.active) {
     if (exercise === null) return <Loading />;
-    switch (exercise.type) {
-      case ExerciseType.audioIdentification:
-      case ExerciseType.textIdentification:
-        return (
-          <AppContainer headerContent={`${counter}/${size}`}>
-            <ExerciseIdentificationComponent
-              ref={exerciseRef}
-              key={exercise.id}
-              mode={exercise.type === ExerciseType.audioIdentification ? 'audio' : 'text'}
-              level={exercise.level}
-              choices={exercise.choices}
-              correctChoiceId={exercise.correctChoiceId}
-            />
-            <div className="flex justify-between w-full">
-              <ActionButton buttonStyle="primaryLight" action="home" />
-              <ActionButton
-                key={exercise.id}
-                ref={nextButtonRef}
-                action="nextExercise"
-                className={exercise.status === ExerciseStatus.completed ? 'visible' : 'invisible'}
-                // disabled={!(exercise.status === ExerciseStatus.completed)}
-                onClickAsync={async () => {
-                  if (exerciseRef.current === null || nextButtonRef.current === null) return;
-                  animation.diminish(nextButtonRef.current, 300);
-                  await animation.fade(exerciseRef.current, 300).finished;
-                }}
-              />
-            </div>
-          </AppContainer>
-        );
-      // TODO: add other types of exercises
-      default:
-        return <p>something went wrong...</p>;
-    }
+    return (
+      <AppContainer headerContent={`${counter}/${size}`}>
+        <ExerciseDebugInfo data={{ level: exercise.level, type: exercise.type, status: exercise.status }} />
+        <ExerciseComponentLoader ref={exerciseRef} exercise={exercise} />
+        <div className="flex justify-between w-full">
+          <ActionButton buttonStyle="primaryLight" action="home" />
+          <ActionButton
+            key={exercise.id}
+            ref={nextButtonRef}
+            action="nextExercise"
+            className={exercise.status === ExerciseStatus.completed ? 'visible' : 'invisible'}
+            onClickAsync={async () => {
+              if (exerciseRef.current === null || nextButtonRef.current === null) return;
+              animation.diminish(nextButtonRef.current, 300);
+              await animation.fade(exerciseRef.current, 300).finished;
+            }}
+          />
+        </div>
+      </AppContainer>
+    );
   }
 
   if (status === ExerciseStoreStatus.completed)

@@ -3,7 +3,7 @@ import { useRef, forwardRef, useImperativeHandle, useState, useEffect } from 're
 import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
 import { useTranslation } from 'react-i18next';
-import { usePendingStore } from '../ExerciseOrchestrator';
+import { usePendingStore } from '../pendingStore';
 
 interface ActionButtonProps extends React.ComponentProps<typeof Button> {
   inactive?: boolean;
