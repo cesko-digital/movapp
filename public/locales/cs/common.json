@@ -68,7 +68,7 @@
     "results_subtitle": "Výsledky vyhledávání",
     "not_found_results": "Nic nenalezeno",
     "download_pdf": "Stáhnout v PDF",
-    "first_exercise":"Procvičování"
+    "first_exercise": "Procvičování"
   },
   "kids_page": {
     "downloadPDF": "Stáhnout v PDF",
@@ -180,10 +180,10 @@
       "cs": "Zahrajte si obrázkový kvíz s ukrajinskými slovíčky"
     },
     "exercise_page_title": {
-      "cs":"Procvičte si ukrajinštinu."
+      "cs": "Procvičte si ukrajinštinu."
     },
     "exercise_page_description": {
-      "cs":"Zlepšete vaši jazykovou úroveň. Nabízíme zdarma sadu cvičení pro učení jazyka. Opakujte každý den."
+      "cs": "Zlepšete vaši jazykovou úroveň. Nabízíme zdarma sadu cvičení pro učení jazyka. Opakujte každý den."
     }
   },
   "exercise_page": {
@@ -195,12 +195,12 @@
     "next": "Pokračovat",
     "congratulations": "Gratulujeme!",
     "you_have_finished": "Cvičení jste úspěšně zvládli. Nyní můžete pokračovat v procvičování, nebo se vrátit zpět na hlavní stránku.",
-    "home": "Domů",    
-    "exercise_audio_idenfification_hint":"Přehrajte zvuk a označte, co slyšíte",
-    "exercise_text_idenfification_hint":"Vyberte jednu správnou odpověď",
-    "write_us":"Napište nám",
-    "feedback":"Cvičení postupně rozšiřujeme, dejte nám vědět, pokud jste nalezli chybu, anebo máte nápad na zlepšení.",
-    "size_setup":"Nastavte si délku cvičení"    
+    "home": "Domů",
+    "exercise_audio_idenfification_hint": "Přehrajte zvuk a označte, co slyšíte",
+    "exercise_text_idenfification_hint": "Vyberte jednu správnou odpověď",
+    "write_us": "Napište nám",
+    "feedback": "Cvičení postupně rozšiřujeme, dejte nám vědět, pokud jste nalezli chybu, anebo máte nápad na zlepšení.",
+    "size_setup": "Nastavte si délku cvičení"
   },
   "export_translations": {
     "download_phrases": "Stáhnout fráze",
@@ -265,5 +265,9 @@
     "box_easter_kids_anchor": {
       "cs": "kraslice"
     }
+  },
+  "kiosk": {
+    "stayOnPage": "Zůstat na stránce",
+    "stillHere": "Jste ještě tady?"
   }
 }

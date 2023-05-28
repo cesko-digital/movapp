@@ -11,7 +11,7 @@ const KioskHome: NextPage = () => {
       <div className="grid grid-cols-2 gap-6">
         <GameTile name="Slovíčka" image="slovicka.png" />
         <GameTile name="Pexeso" image="pexeso.png" />
-        <GameTile name="Rozpravky" image="pohadky.png" />
+        <GameTile name="Stories" image="pohadky.png" />
         <GameTile name="Obrazkovy kviz" image="kviz.png" />
       </div>
     </div>
