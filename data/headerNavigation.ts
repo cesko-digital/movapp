@@ -34,7 +34,7 @@ export const HEADER_NAVIGATION: HeaderNavItem[] = [
       {
         name: 'header.forkids_stories',
         link: '/kids/stories',
-        onlyForCountryVariants: ['cs'],
+        onlyForCountryVariants: ['cs', 'sk'],
       },
       {
         name: 'header.forkids_memorygame',

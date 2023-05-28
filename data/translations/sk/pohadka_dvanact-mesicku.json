@@ -1,0 +1,162 @@
+[
+    {
+      "main": "Bola raz jedna macocha, ktorá žila so svojou vlastnou dcérou Holenou a nevlastnou dcérou Maruškou.",
+      "uk": "Жила - була колись одна мачуха, яка жила зі своєю дочкою Голеною і падчеркою Марусею.",
+      "start_cs": 14.5205,
+      "end_cs": 22.608,
+      "start_uk": 14.7455,
+      "end_uk": 21.7205
+    },
+    {
+      "main": "Zatiaľ čo Holena nič nerobila, len oddychovala a parádila sa, Maruška sa starala o domácnosť i o zvieratá.",
+      "uk": "Поки Голена била байдики,  відпочивала і чепурилася, Маруся доглядала за будинком і тваринами.",
+      "start_cs": 22.608,
+      "end_cs": 31.7955,
+      "start_uk": 21.7205,
+      "end_uk": 29.733
+    },
+    {
+      "main": "Jedného zimného dňa si Marušku zavolala macocha a dala jej zvláštnu úlohu:",
+      "uk": "Одного зимового дня мачуха покликала Марусю і дала їй дивне завдання:",
+      "start_cs": 31.7955,
+      "end_cs": 37.508,
+      "start_uk": 29.733,
+      "end_uk": 35.108
+    },
+    {
+      "main": "„Holena si chce privoňať k fialkám. Prines jej kytičku fialiek. A varujem ťa, bez fialiek sa domov nevracaj!“",
+      "uk": "„Голена хоче понюхати фіалки. Принеси їй квіти. І щоб без фіалок додому не верталася!“",
+      "start_cs": 37.508,
+      "end_cs": 47.8705,
+      "start_uk": 35.108,
+      "end_uk": 44.4955
+    },
+    {
+      "main": "Maruška sa vydala na lúku, kde na jar zvyčajne kvitnú fialky.",
+      "uk": "Маруся попрямувала до лугу, де зазвичай навесні цвітуть фіалки.",
+      "start_cs": 47.8705,
+      "end_cs": 53.5705,
+      "start_uk": 44.4955,
+      "end_uk": 50.358
+    },
+    {
+      "main": "Ale pretože bola zima a všade bol sneh, Maruška tušila, že domov sa už nevráti.",
+      "uk": "Але була зима, довкола лежав сніг, і Маруся гадала, що додому таки не повернеться.",
+      "start_cs": 53.5705,
+      "end_cs": 60.708,
+      "start_uk": 50.358,
+      "end_uk": 57.858
+    },
+    {
+      "main": "Bola veľmi unavená a premrznutá, keď tu zrazu uvidela veľkú vatru.",
+      "uk": "Вона втомилась і змерзла, коли раптом побачила велике вогнище.",
+      "start_cs": 60.708,
+      "end_cs": 66.908,
+      "start_uk": 57.858,
+      "end_uk": 63.7955
+    },
+    {
+      "main": "Pristúpila až k nej, aby sa zohriala.",
+      "uk": "Вона підійшла до нього, щоб зігрітися.",
+      "start_cs": 66.908,
+      "end_cs": 71.133,
+      "start_uk": 63.7955,
+      "end_uk": 68.1205
+    },
+    {
+      "main": "Okolo vatry sedelo dvanásť mužov, dvanásť mesiačikov.",
+      "uk": "Навколо вогнища сиділо 12 чоловік, 12 місяців.",
+      "start_cs": 71.133,
+      "end_cs": 76.808,
+      "start_uk": 68.1205,
+      "end_uk": 74.3455
+    },
+    {
+      "main": "Najvyššie sedel Január.",
+      "uk": "На найвищому стільці сидів Січень.",
+      "start_cs": 76.808,
+      "end_cs": 80.283,
+      "start_uk": 74.3455,
+      "end_uk": 78.4205
+    },
+    {
+      "main": "Spýtal sa Marušky, čo robí v lese.",
+      "uk": "Він запитав Марусю, що вона шукає в лісі.",
+      "start_cs": 80.283,
+      "end_cs": 84.4455,
+      "start_uk": 78.4205,
+      "end_uk": 83.0705
+    },
+    {
+      "main": "Keď mu všetko rozpovedala, Január odovzdal vládu Marcu - a na chvíľu prišla jar.",
+      "uk": "Коли вона розповіла йому про все, Січень передав свою владу Березню - і на мить прийшла весна.",
+      "start_cs": 84.4455,
+      "end_cs": 91.608,
+      "start_uk": 83.0705,
+      "end_uk": 90.4705
+    },
+    {
+      "main": "Rozkvitli fialky, Maruška si z nich natrhala, poďakovala a bežala s kytičkou domov.",
+      "uk": "Фіалки зацвіли, Маруся зірвала їх, подякувала і з квітками побігла додому.",
+      "start_cs": 91.608,
+      "end_cs": 99.033,
+      "start_uk": 90.4705,
+      "end_uk": 97.683
+    },
+    {
+      "main": "Holena sa čudovala, odkiaľ Maruška priniesla fialky, ale hneď vymyslela novú úlohu.",
+      "uk": "Голена дивувалася, звідки Маруся принесла фіалки, та відразу вигадала нове завдання.",
+      "start_cs": 99.033,
+      "end_cs": 106.433,
+      "start_uk": 97.683,
+      "end_uk": 105.283
+    },
+    {
+      "main": "„Dala by som si lesné jahody. Prines mi z nich za hrsť. A varujem ťa, bez jahôd sa domov nevracaj!“",
+      "uk": "„Хочу лісової суниці. Принеси мені жменю. І щоб без суниці додому не верталася!“",
+      "start_cs": 106.433,
+      "end_cs": 116.1705,
+      "start_uk": 105.283,
+      "end_uk": 114.158
+    },
+    {
+      "main": "Tentoraz sa vlády pri vatre ujal Jún, a Maruška tak mohla domov priniesť plnú hrsť jahôd.",
+      "uk": "Цього разу біля вогнища головувати взявся Червень, тож Маруся змогла принести додому цілу жменю суниць.",
+      "start_cs": 116.1705,
+      "end_cs": 123.7205,
+      "start_uk": 114.158,
+      "end_uk": 122.2705
+    },
+    {
+      "main": "Holena sa rozzúrila a poslala Marušku po červené jablká.",
+      "uk": "Голена розлютилася і послала Марусю за червоними яблуками.",
+      "start_cs": 123.7205,
+      "end_cs": 129.2455,
+      "start_uk": 122.2705,
+      "end_uk": 127.933
+    },
+    {
+      "main": "Mesiačikovia Maruške znovu pomohli, keď sa vlády ujal September.",
+      "uk": "І знову місяці допомогли Марусі, бо головував Вересень.",
+      "start_cs": 129.2455,
+      "end_cs": 135.058,
+      "start_uk": 127.933,
+      "end_uk": 133.2205
+    },
+    {
+      "main": "Keď Holena uvidela jablká, nemohla uveriť vlastným očiam a spolu s macochou sa vydali hľadať svoje vlastné poklady.",
+      "uk": "Голена не могла повірити власним очам, коли побачила яблука, і разом з мачухою вирушила на пошуки  скарбів для себе.",
+      "start_cs": 135.058,
+      "end_cs": 144.2955,
+      "start_uk": 133.2205,
+      "end_uk": 142.433
+    },
+    {
+      "main": "Keďže však bola zlá a lenivá, nevedela poprosiť ani poďakovať, mesiačikovia jej nepomohli a Holena s macochou zamrzli v lese a domov sa už nikdy nevrátili.",
+      "uk": "Але вона була зла й ледача, не вміла просити й дякувати, і місяці їй не допомогли, і Голена з мачухою замерзли в лісі до смерті і додому так і не повернулися.",
+      "start_cs": 144.2955,
+      "end_cs": 154.3455,
+      "start_uk": 142.433,
+      "end_uk": 152.633
+    }
+  ]

@@ -11,16 +11,18 @@ import { ParsedUrlQuery } from 'querystring';
 import { Story } from './index';
 import { getCountryVariant, Language } from '../../../utils/locales';
 import Custom404 from '../../404';
+import { StoryPhrase, getStoryData } from '../../../components/basecomponents/Story/storyStore';
 
 interface StoriesProps {
   story: Story | undefined;
+  phrases: StoryPhrase[];
 }
 
 interface UrlParams extends ParsedUrlQuery {
   story: string;
 }
 
-const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
+const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
   const { currentLanguage, otherLanguage } = useLanguage();
   const { t } = useTranslation();
 
@@ -28,8 +30,12 @@ const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
     return 'Story not found';
   }
 
-  const title_current = story.title[currentLanguage];
-  const title_other = story.title[otherLanguage];
+  if (!story.title[currentLanguage] || !story.title[otherLanguage]) {
+    return null;
+  }
+
+  const title_current = story.title[currentLanguage] || '';
+  const title_other = story.title[otherLanguage] || '';
 
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -mt-2 md:p-12 w-full">
@@ -38,7 +44,7 @@ const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
         description={t(`seo.kids_page_storiesDescription.${getCountryVariant()}`)}
         image="https://www.movapp.cz/kids/hrad.png"
       />
-      {getCountryVariant() === 'cs' ? (
+      {['cs', 'sk'].includes(getCountryVariant()) ? (
         <>
           <p className="px-6 py-4 flex items-center overflow-hidden  md:w-4/5 m-auto">
             <Link href={`/`} className="mr-2 hover:text-primary-blue">
@@ -59,7 +65,7 @@ const StoriesContainer = ({ story }: StoriesProps): ReactNode => {
             </Link>
           </p>
           <div className="px-6 py-4 flex rounded-2xl overflow-hidden shadow-xl bg-white md:w-4/5 m-auto">
-            <StoryReader titleCurrent={title_current} titleOther={title_other} id={story.slug} country={story.country} />
+            <StoryReader titleCurrent={title_current} titleOther={title_other} id={story.slug} country={story.country} phrases={phrases} />
           </div>
         </>
       ) : (
@@ -91,8 +97,10 @@ export const getStaticProps: GetStaticProps<StoriesProps, UrlParams> = async ({ 
   const storyId = params?.story ?? '';
   const story = stories.find((s) => s.slug === storyId);
 
+  const phrases = await getStoryData((locale as Language) ?? 'cs', String(story?.slug));
+
   return {
-    props: { story, ...(await serverSideTranslations(locale ?? 'cs', ['common'])) },
+    props: { story, phrases, ...(await serverSideTranslations(locale ?? 'cs', ['common'])) },
   };
 };
 
