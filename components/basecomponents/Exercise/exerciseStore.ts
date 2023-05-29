@@ -2,7 +2,7 @@ import { fetchRawDictionary, DictionaryDataObject, Phrase, CategoryDataObject } 
 import { getCountryVariant, Language } from 'utils/locales';
 import { create } from 'zustand';
 import { createExercise } from './createExercise';
-import { getRandomItem } from 'utils/collectionUtils';
+// import { getRandomItem } from 'utils/collectionUtils';
 import * as R from 'ramda';
 import { CONFIG, CONFIG_BASE } from './exerciseStoreConfig';
 import { greatPhraseFilter } from './utils/phraseFilters';
@@ -178,9 +178,9 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     }
 
     // considering to not mix up categories for current exercise, so pick only one from the list
-    const phrases = getPhrases(dictionary, [getRandomItem(categories)]);
+    // const phrases = getPhrases(dictionary, [getRandomItem(categories)]);
     // mix categories together
-    //const phrases = getPhrases(dictionary, categories);
+    const phrases = getPhrases(dictionary, categories);
 
     const exerciseType = Math.random() > 0.5 ? ExerciseType.textIdentification : ExerciseType.audioIdentification;
     const level = computeLevelForNextExercise(exerciseType, get().history);
