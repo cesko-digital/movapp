@@ -49,7 +49,6 @@ export const CONFIG = Object.freeze([
 
 export enum ExerciseStatus {
   active = 'active',
-  resolved = 'resolved',
   completed = 'completed',
 }
 
@@ -106,9 +105,7 @@ export interface ExerciseStoreActions {
   restart: () => void;
   home: () => void;
   nextExercise: () => void;
-  exerciseResolved: () => void;
-  exerciseCompleted: () => void;
-  setExerciseResult: (result: ExerciseResult) => void;
+  exerciseCompleted: (result: ExerciseResult) => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
   setLang: (lang: ExerciseStoreState['lang']) => void;
   setSize: (size: ExerciseStoreState['size']) => void;
@@ -166,22 +163,12 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     };
   })();
 
-  const setExerciseResult: ExerciseStoreActions['setExerciseResult'] = (result) => {
+  const exerciseCompleted: ExerciseStoreActions['exerciseCompleted'] = (result: ExerciseResult) => {
     const exercise = getExercise();
-    if (exercise.status === ExerciseStatus.active) throw Error('invalid exercise status');
-    set({ exercise: { ...exercise, result } });
-  };
-
-  const exerciseResolved: ExerciseStoreActions['exerciseResolved'] = () => {
-    if (getExercise().status !== ExerciseStatus.active) throw Error('invalid exercise status');
-    set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.resolved));
-  };
-
-  const exerciseCompleted: ExerciseStoreActions['exerciseCompleted'] = () => {
-    if (getExercise().status !== ExerciseStatus.resolved) throw Error('invalid exercise status');
-    if (getExercise().result === null) throw Error('exercise result is empty');
+    if (exercise.status === ExerciseStatus.completed) throw Error('invalid exercise status');
     console.log(`exercise completed`);
     /* set exercise status completed and save exercise */
+    set({ exercise: { ...exercise, result } });
     set(R.over(R.lensPath(['exercise', 'status']), () => ExerciseStatus.completed));
     set((state) => ({
       history: [...state.history, getExercise()],
@@ -406,13 +393,11 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
         exercise: createNextExercise(),
       }),
     nextExercise,
-    exerciseResolved,
     exerciseCompleted,
     setLang: (lang) => set({ lang }),
     setCategories: (categories) => set({ categories }),
     setSize: (size) => set({ size }),
     setLevel: (val) => set({ level: val }),
-    setExerciseResult,
     uniqId,
   };
 });

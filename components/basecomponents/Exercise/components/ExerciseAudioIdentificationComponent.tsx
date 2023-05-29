@@ -26,9 +26,7 @@ export const ExerciseAudioIdentificationComponent = forwardRef(
     const { t } = useTranslation();
     const { otherLanguage } = useLanguage();
     const correctChoice = findById(correctChoiceId, choices);
-    const exerciseResolved = useExerciseStore((state) => state.exerciseResolved);
     const exerciseCompleted = useExerciseStore((state) => state.exerciseCompleted);
-    const setExerciseResult = useExerciseStore((state) => state.setExerciseResult);
 
     useImperativeHandle(ref, () => exRef.current);
 
@@ -68,10 +66,9 @@ export const ExerciseAudioIdentificationComponent = forwardRef(
           onChange={async (selectedChoiceIds) => {
             const resolved = resolveMethods.oneCorrect(correctChoiceId, selectedChoiceIds);
             if (resolved) {
-              exerciseResolved();
-              setExerciseResult(resultMethods.selectedCorrect(correctChoiceId, selectedChoiceIds));
+              const result = resultMethods.selectedCorrect(correctChoiceId, selectedChoiceIds);
               // await run effects
-              exerciseCompleted();
+              exerciseCompleted(result);
             } else {
               // await run effects
             }
