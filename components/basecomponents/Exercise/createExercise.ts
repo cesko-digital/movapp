@@ -1,7 +1,5 @@
 import { ExerciseType, Exercise, ExerciseStatus, ExerciseStoreUtils } from './exerciseStore';
 import { Phrase } from 'utils/getDataUtils';
-import { CONFIG } from './exerciseStoreConfig';
-import { greatPhraseFilter } from './utils/phraseFilters';
 
 /* eslint-disable no-console */
 
@@ -10,13 +8,12 @@ interface ExerciseIdentificationOptions {
 }
 
 const createExerciseIdentification = (
-  sourcePhrases: Phrase[],
-  { uniqId, getCurrentLanguage, getFallbackPhrases }: ExerciseStoreUtils,
+  phrases: Phrase[],
+  { uniqId }: ExerciseStoreUtils,
   { level = 0, mode = 'audio' }: ExerciseIdentificationOptions & { mode: 'audio' | 'text' }
 ): Exercise => {
   const exerciseId = uniqId();
-  const pickedPhrases = greatPhraseFilter(getCurrentLanguage, level, sourcePhrases, getFallbackPhrases(), CONFIG[level]);
-  const choices = pickedPhrases.sort(() => Math.random() - 0.5).map((phrase) => ({ id: uniqId(), phrase }));
+  const choices = phrases.sort(() => Math.random() - 0.5).map((phrase) => ({ id: uniqId(), phrase }));
 
   return {
     id: exerciseId,
@@ -45,14 +42,10 @@ const createExerciseTextIdentification = (
   return createExerciseIdentification(phrases, utils, { ...options, mode: 'text' });
 };
 
-export const createExercise = (
-  utils: ExerciseStoreUtils,
-  type: ExerciseType,
-  options: { level: number }
-): ((phrases: Phrase[]) => Exercise) => {
+export const createExercise = (utils: ExerciseStoreUtils, type: ExerciseType, options: { level: number }, phrases: Phrase[]) => {
   const list = {
-    [ExerciseType.audioIdentification]: (phrases: Phrase[]) => createExerciseAudioIdentification(phrases, utils, options),
-    [ExerciseType.textIdentification]: (phrases: Phrase[]) => createExerciseTextIdentification(phrases, utils, options),
+    [ExerciseType.audioIdentification]: () => createExerciseAudioIdentification(phrases, utils, options),
+    [ExerciseType.textIdentification]: () => createExerciseTextIdentification(phrases, utils, options),
   };
-  return list[type];
+  return list[type]();
 };

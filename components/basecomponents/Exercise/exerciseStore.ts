@@ -4,7 +4,8 @@ import { create } from 'zustand';
 import { createExercise } from './createExercise';
 import { getRandomItem } from 'utils/collectionUtils';
 import * as R from 'ramda';
-import { CONFIG_BASE } from './exerciseStoreConfig';
+import { CONFIG, CONFIG_BASE } from './exerciseStoreConfig';
+import { greatPhraseFilter } from './utils/phraseFilters';
 
 /* eslint-disable no-console */
 
@@ -81,8 +82,6 @@ export interface ExerciseStoreActions {
 
 export interface ExerciseStoreUtils {
   uniqId: () => number;
-  getCurrentLanguage: () => Language;
-  getFallbackPhrases: () => Phrase[];
 }
 
 /** Describes complete state of the app, enables to save/restore app state */
@@ -168,8 +167,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 
   const utils: ExerciseStoreUtils = {
     uniqId,
-    getCurrentLanguage,
-    getFallbackPhrases,
   };
 
   const createNextExercise = () => {
@@ -186,7 +183,9 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     //const phrases = getPhrases(dictionary, categories);
 
     const exerciseType = Math.random() > 0.5 ? ExerciseType.textIdentification : ExerciseType.audioIdentification;
-    return createExercise(utils, exerciseType, { level: computeLevelForNextExercise(exerciseType, get().history) })(phrases);
+    const level = computeLevelForNextExercise(exerciseType, get().history);
+    const filteredPhrases = greatPhraseFilter(getCurrentLanguage, level, phrases, getFallbackPhrases(), CONFIG[level]);
+    return createExercise(utils, exerciseType, { level }, filteredPhrases);
   };
 
   const computeLevelForNextExercise = (exerciseType: ExerciseType, history: Exercise[]) => {
