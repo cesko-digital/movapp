@@ -1,4 +1,4 @@
-import { Choice, ExerciseStatus, resolveMethods, resultMethods, useExerciseStore } from '../exerciseStore';
+import { Choice, ExerciseStatus, useExerciseStore } from '../exerciseStore';
 import React, { useRef, useEffect, useImperativeHandle, forwardRef } from 'react';
 import { animation } from '../utils/animation';
 import OpenBookIcon from 'public/icons/open-book.svg';
@@ -9,6 +9,8 @@ import { ChoiceListComponent } from './ChoiceListComponent';
 import { ExerciseContainer } from './ExerciseContainer';
 import { Hint } from './Hint';
 import { MainText } from './MainText';
+import { resolveMethods } from '../utils/resolveMethods';
+import { resultMethods } from '../utils/resultMethods';
 
 interface ExerciseIdentificationComponentProps {
   choices: Choice[];

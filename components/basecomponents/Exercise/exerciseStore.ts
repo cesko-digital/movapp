@@ -1,51 +1,12 @@
 import { fetchRawDictionary, DictionaryDataObject, Phrase, CategoryDataObject } from 'utils/getDataUtils';
 import { getCountryVariant, Language } from 'utils/locales';
 import { create } from 'zustand';
-import {
-  createFactoryOfExerciseIdentification,
-  ExerciseIdentificationOptions,
-  isExerciseAudioIdentification,
-  isExerciseTextIdentification,
-} from './ExerciseIdentification';
-import { sortRandom, getRandomItem } from 'utils/collectionUtils';
+import { createExercise } from './createExercise';
+import { getRandomItem } from 'utils/collectionUtils';
 import * as R from 'ramda';
+import { CONFIG_BASE } from './exerciseStoreConfig';
 
 /* eslint-disable no-console */
-
-export const CONFIG_BASE = Object.freeze({
-  sizeDefault: 10,
-  sizeList: [10, 20, 30],
-  debugSizeList: [1, 5, 10],
-  levelDefault: 0,
-  levelMin: 0,
-  levelMax: 1,
-  levelDownTresholdScore: 50,
-  levelUpTresholdScore: 100,
-});
-
-const CONFIG_LEVEL0 = Object.freeze({
-  wordLimitMin: 1,
-  wordLimitMax: 2,
-  choiceLimit: 4,
-});
-
-const CONFIG_LEVEL1 = Object.freeze({
-  wordLimitMin: 2,
-  wordLimitMax: 3,
-  choiceLimit: 5,
-});
-
-const CONFIG_LEVEL2 = Object.freeze({
-  wordLimitMin: 2,
-  wordLimitMax: 3,
-  choiceLimit: 8,
-});
-
-export const CONFIG = Object.freeze([
-  { ...CONFIG_BASE, ...CONFIG_LEVEL0 },
-  { ...CONFIG_BASE, ...CONFIG_LEVEL0, ...CONFIG_LEVEL1 },
-  { ...CONFIG_BASE, ...CONFIG_LEVEL0, ...CONFIG_LEVEL1, ...CONFIG_LEVEL2 },
-]);
 
 export enum ExerciseStatus {
   active = 'active',
@@ -55,12 +16,17 @@ export enum ExerciseStatus {
 export enum ExerciseType {
   textIdentification = 'textIdentification',
   audioIdentification = 'audioIdentification',
-  // TODO: add other types of exercises
 }
 
 interface WithId {
   id: number;
 }
+
+export const findById = <T>(idToSearch: number, obj: (WithId & T)[]): T => {
+  const result = obj.find(({ id }) => id === idToSearch);
+  if (result === undefined) throw Error(`item with id ${idToSearch} doesn't exists`);
+  return result;
+};
 
 export interface Choice extends WithId {
   phrase: Phrase;
@@ -115,42 +81,9 @@ export interface ExerciseStoreActions {
 
 export interface ExerciseStoreUtils {
   uniqId: () => number;
-  nextExercise: ExerciseStoreActions['nextExercise'];
-  phraseFilters: {
-    equalPhrase: (phraseA: Phrase) => (phraseB: Phrase) => boolean;
-    greatPhraseFilter: (
-      level: Exercise['level'],
-      phrases: Phrase[],
-      fallbackPhrases: Phrase[],
-      config: { wordLimitMin: number; wordLimitMax: number; choiceLimit: number; levelMin: number }
-    ) => Phrase[];
-  };
+  getCurrentLanguage: () => Language;
   getFallbackPhrases: () => Phrase[];
 }
-
-export const findById = <T>(idToSearch: number, obj: (WithId & T)[]): T => {
-  const result = obj.find(({ id }) => id === idToSearch);
-  if (result === undefined) throw Error(`choice doesn't not exists`);
-  return result;
-};
-
-export const resolveMethods: Record<string, (correctChoiceId: number, selectChoices: number[]) => boolean> = {
-  // anySelected: (choices) => !!choices.find((choice) => choice.selected),
-  oneCorrect: (correctChoiceId, selectedChoices) => selectedChoices.includes(correctChoiceId),
-  // allCorrect: (choices) => choices.every((choice) => choice.selected && choice.correct),
-};
-
-export const resultMethods: Record<string, (correctChoiceId: number, selectedChoiceId: number[]) => ExerciseResult> = {
-  selectedCorrect: (correctChoiceId, selectedChoiceIds) => ({
-    // (Math.max(0,selected correct - selected wrong) / all correct) * 100
-    score:
-      100 *
-      Math.max(
-        0,
-        selectedChoiceIds.filter((id) => correctChoiceId === id).length - selectedChoiceIds.filter((id) => correctChoiceId !== id).length
-      ),
-  }),
-};
 
 /** Describes complete state of the app, enables to save/restore app state */
 export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions>((set, get) => {
@@ -205,7 +138,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 
   const getPhrases = (dictionary: DictionaryDataObject, categories: CategoryDataObject['id'][]) => {
     const regex = /[\(,\/]/; // filter phrases containing ( or /
-    // TODO: maybe cache results
     return (
       dictionary.categories
         .filter(({ id }) => categories.includes(id))
@@ -234,77 +166,10 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
   const getCurrentLanguage = () => get().lang.currentLanguage;
   const getOtherLanguage = () => get().lang.otherLanguage;
 
-  // new better phrase filter :-)
-  const greatPhraseFilter: ExerciseStoreUtils['phraseFilters']['greatPhraseFilter'] = (level, phrases, fallbackPhrases, config) => {
-    // first it gets random number from range and then accept phrases that have this number of words (in current language)
-    const range = config.wordLimitMax - config.wordLimitMin;
-    // create Array of filters for all numbers in range
-    const filters: ((phrase: Phrase) => boolean)[] = Array(range + 1)
-      .fill(0)
-      .map((e, i) => i + config.wordLimitMin)
-      .map((e) => (phrase: Phrase) => phrase.getTranslation(getCurrentLanguage()).split(' ').length === e)
-      // shuffle filters
-      .sort(sortRandom);
-
-    const filterPhrases = (filters: ((phrase: Phrase) => boolean)[], phrases: Phrase[]) =>
-      filters
-        .map((filter) =>
-          phrases
-            .filter(filter)
-            .sort(sortRandom)
-            // remove duplicates
-            .filter((phrase, index, array) => array.findIndex(phraseFilters.equalPhrase(phrase)) === index)
-        )
-        .flat();
-
-    let filteredPhrases = filterPhrases(filters, phrases);
-
-    // if it fails then lower level
-    if (filteredPhrases.length < config.choiceLimit) {
-      // can't lower the level anymore
-      if (level === CONFIG_BASE.levelMin) {
-        // add fallback phrases
-        console.warn('using fallback Phrases');
-        const filteredFallbackPhrases = filterPhrases(filters, fallbackPhrases);
-        filteredPhrases = [...filteredPhrases, ...filteredFallbackPhrases];
-        if (filteredPhrases.length < config.choiceLimit) throw Error('Insuficient phrases to construct the Exercise');
-      } else {
-        // add phrases from lower level
-        filteredPhrases = [
-          ...filteredPhrases,
-          ...greatPhraseFilter(level - 1, phrases, fallbackPhrases, {
-            ...CONFIG[level - 1],
-            choiceLimit: config.choiceLimit, // keep current choice limit
-          }),
-        ];
-      }
-    }
-
-    // if it fails than tear your hair
-    if (filteredPhrases.length < config.choiceLimit) throw Error('Insuficient phrases to construct the Exercise');
-
-    return filteredPhrases.slice(0, config.choiceLimit).sort(sortRandom);
-  };
-
-  const phraseFilters: ExerciseStoreUtils['phraseFilters'] = {
-    equalPhrase: (a) => (b) => a.getTranslation().toLocaleLowerCase() === b.getTranslation().toLocaleLowerCase(),
-    greatPhraseFilter,
-  };
-
   const utils: ExerciseStoreUtils = {
     uniqId,
-    nextExercise,
-    phraseFilters,
+    getCurrentLanguage,
     getFallbackPhrases,
-  };
-
-  const createExercise = (type: ExerciseType, options: ExerciseIdentificationOptions): ((phrases: Phrase[]) => Exercise) => {
-    const list = {
-      [ExerciseType.audioIdentification]: createFactoryOfExerciseIdentification(utils, { ...options, mode: 'audio' }),
-      [ExerciseType.textIdentification]: createFactoryOfExerciseIdentification(utils, { ...options, mode: 'text' }),
-      // TODO: add other types of exercises
-    };
-    return list[type];
   };
 
   const createNextExercise = () => {
@@ -321,16 +186,12 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     //const phrases = getPhrases(dictionary, categories);
 
     const exerciseType = Math.random() > 0.5 ? ExerciseType.textIdentification : ExerciseType.audioIdentification;
-    return createExercise(exerciseType, { level: computeLevelForNextExercise(exerciseType, get().history) })(phrases);
-  };
-
-  const exerciseFilter: Record<ExerciseType, (ex: Exercise) => boolean> = {
-    audioIdentification: isExerciseAudioIdentification,
-    textIdentification: isExerciseTextIdentification,
+    return createExercise(utils, exerciseType, { level: computeLevelForNextExercise(exerciseType, get().history) })(phrases);
   };
 
   const computeLevelForNextExercise = (exerciseType: ExerciseType, history: Exercise[]) => {
-    const exerciseList = history.filter(exerciseFilter[exerciseType]);
+    // const exerciseList = history.filter(exerciseFilter[exerciseType]);
+    const exerciseList = history.filter(({ type }) => type === exerciseType);
     if (exerciseList.length === 0) return get().level; // if has no exercise of same type return global level
     const exercise = exerciseList.slice(-1)[0];
     if (exercise.result === null) throw Error('result is unexpectedly null');
@@ -401,5 +262,3 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     uniqId,
   };
 });
-
-export const delay = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
