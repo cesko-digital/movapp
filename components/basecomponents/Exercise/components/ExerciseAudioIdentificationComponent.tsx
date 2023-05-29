@@ -1,4 +1,4 @@
-import { Choice, ExerciseStatus } from '../exerciseStore';
+import { Choice, ExerciseStatus, resolveMethods, resultMethods, useExerciseStore } from '../exerciseStore';
 import React, { useRef, useEffect, useImperativeHandle, forwardRef } from 'react';
 import { animation } from '../utils/animation';
 import SoundWaveIcon from 'public/icons/sound-wave.svg';
@@ -26,6 +26,9 @@ export const ExerciseAudioIdentificationComponent = forwardRef(
     const { t } = useTranslation();
     const { otherLanguage } = useLanguage();
     const correctChoice = findById(correctChoiceId, choices);
+    const exerciseResolved = useExerciseStore((state) => state.exerciseResolved);
+    const exerciseCompleted = useExerciseStore((state) => state.exerciseCompleted);
+    const setExerciseResult = useExerciseStore((state) => state.setExerciseResult);
 
     useImperativeHandle(ref, () => exRef.current);
 
@@ -57,7 +60,23 @@ export const ExerciseAudioIdentificationComponent = forwardRef(
           </div>
         </div>
         <AudioControls AudioUrl={correctChoice.phrase.getSoundUrl(otherLanguage)} playOnMount />
-        <ChoiceListComponent choices={choices} correctChoiceId={correctChoiceId} status={status} />
+        <ChoiceListComponent
+          choices={choices}
+          correctChoiceId={correctChoiceId}
+          status={status}
+          disableSelect={status === ExerciseStatus.completed}
+          onChange={async (selectedChoiceIds) => {
+            const resolved = resolveMethods.oneCorrect(correctChoiceId, selectedChoiceIds);
+            if (resolved) {
+              exerciseResolved();
+              setExerciseResult(resultMethods.selectedCorrect(correctChoiceId, selectedChoiceIds));
+              // await run effects
+              exerciseCompleted();
+            } else {
+              // await run effects
+            }
+          }}
+        />
       </ExerciseContainer>
     );
   }

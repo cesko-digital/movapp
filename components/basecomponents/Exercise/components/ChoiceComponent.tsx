@@ -10,8 +10,8 @@ interface ChoiceProps {
   correct: boolean;
   buttonsInactive: boolean;
   setButtonsInactive: (val: boolean) => void;
-  playAudioOnly?: boolean;
-  onClick: () => void;
+  disableSelect?: boolean;
+  onClick: () => void | Promise<void>;
 }
 
 export const ChoiceComponent = ({
@@ -22,7 +22,7 @@ export const ChoiceComponent = ({
   buttonsInactive,
   setButtonsInactive,
   onClick,
-  playAudioOnly = false,
+  disableSelect = false,
 }: ChoiceProps) => {
   const choiceRef = useRef(null);
 
@@ -37,12 +37,12 @@ export const ChoiceComponent = ({
         setButtonsInactive(true);
         playAudio(audioUrl);
         await animation.click(choiceRef.current).finished;
-        if (playAudioOnly) {
+        if (disableSelect) {
           setButtonsInactive(false);
           return;
         }
         correct ? await animation.selectCorrect(choiceRef.current).finished : await animation.selectWrong(choiceRef.current).finished;
-        onClick();
+        await onClick();
         setButtonsInactive(false);
       }}
     >

@@ -1,4 +1,4 @@
-import { Choice, ExerciseStatus } from '../exerciseStore';
+import { Choice, ExerciseStatus, resolveMethods, resultMethods, useExerciseStore } from '../exerciseStore';
 import React, { useRef, useEffect, useImperativeHandle, forwardRef } from 'react';
 import { animation } from '../utils/animation';
 import OpenBookIcon from 'public/icons/open-book.svg';
@@ -29,6 +29,9 @@ export const ExerciseTextIdentificationComponent = forwardRef(
     const { t } = useTranslation();
     const { otherLanguage } = useLanguage();
     const correctChoice = findById(correctChoiceId, choices);
+    const exerciseResolved = useExerciseStore((state) => state.exerciseResolved);
+    const exerciseCompleted = useExerciseStore((state) => state.exerciseCompleted);
+    const setExerciseResult = useExerciseStore((state) => state.setExerciseResult);
 
     useImperativeHandle(ref, () => exRef.current);
 
@@ -68,7 +71,23 @@ export const ExerciseTextIdentificationComponent = forwardRef(
         <div ref={bookRef} className={`w-12 h-12 flex justify-center mb-5 mt-5`}>
           <OpenBookIcon className={`inline h-auto`} />
         </div>
-        <ChoiceListComponent choices={choices} correctChoiceId={correctChoiceId} status={status} />
+        <ChoiceListComponent
+          choices={choices}
+          correctChoiceId={correctChoiceId}
+          status={status}
+          disableSelect={status === ExerciseStatus.completed}
+          onChange={async (selectedChoiceIds) => {
+            const resolved = resolveMethods.oneCorrect(correctChoiceId, selectedChoiceIds);
+            if (resolved) {
+              exerciseResolved();
+              setExerciseResult(resultMethods.selectedCorrect(correctChoiceId, selectedChoiceIds));
+              // await run effects
+              exerciseCompleted();
+            } else {
+              // await run effects
+            }
+          }}
+        />
       </ExerciseContainer>
     );
   }

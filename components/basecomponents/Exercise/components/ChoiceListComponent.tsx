@@ -1,5 +1,5 @@
 import { useLanguage } from 'utils/useLanguageHook';
-import { Choice, ExerciseStatus, resolveMethods, resultMethods, useExerciseStore } from '../exerciseStore';
+import { Choice, ExerciseStatus } from '../exerciseStore';
 import { useState } from 'react';
 import { ChoiceComponent } from './ChoiceComponent';
 
@@ -7,13 +7,12 @@ interface ChoiceListComponentProps {
   choices: Choice[];
   correctChoiceId: number;
   status: ExerciseStatus;
+  onChange: (selectedChoiceIds: number[]) => void | Promise<void>;
+  disableSelect?: boolean;
 }
 
-export const ChoiceListComponent = ({ choices, correctChoiceId, status }: ChoiceListComponentProps) => {
+export const ChoiceListComponent = ({ choices, correctChoiceId, onChange, disableSelect = false }: ChoiceListComponentProps) => {
   const [buttonsInactive, setButtonsInactive] = useState(false);
-  const exerciseResolved = useExerciseStore((state) => state.exerciseResolved);
-  const exerciseCompleted = useExerciseStore((state) => state.exerciseCompleted);
-  const setExerciseResult = useExerciseStore((state) => state.setExerciseResult);
   const { currentLanguage, otherLanguage } = useLanguage();
   const [selectedChoiceIds, setSelectedChoiceIds] = useState<number[]>([]);
 
@@ -28,22 +27,14 @@ export const ChoiceListComponent = ({ choices, correctChoiceId, status }: Choice
           correct={id === correctChoiceId}
           buttonsInactive={buttonsInactive}
           setButtonsInactive={setButtonsInactive}
-          playAudioOnly={status === ExerciseStatus.completed}
+          disableSelect={disableSelect}
           onClick={async () => {
             if (selectedChoiceIds.includes(id)) {
               return;
             }
             const updatedSelectedIds = [...selectedChoiceIds, id];
             setSelectedChoiceIds(updatedSelectedIds);
-            const resolved = resolveMethods.oneCorrect(correctChoiceId, updatedSelectedIds);
-            if (resolved) {
-              exerciseResolved();
-              setExerciseResult(resultMethods.selectedCorrect(correctChoiceId, updatedSelectedIds));
-              // await run effects
-              exerciseCompleted();
-            } else {
-              // await run effects
-            }
+            await onChange(updatedSelectedIds);
           }}
         />
       ))}
