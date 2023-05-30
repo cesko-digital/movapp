@@ -42,8 +42,8 @@ const KidsDictionaryPage = ({ dictionary }: InferGetStaticPropsType<typeof getSt
                     <div className="border-black border-1 h-[840px] mb-2">
                       <PhraseImage phrase={phrase} />
                       <div className="p-2 h-[218px] border-t-black border-transparent border-1 flex flex-col items-center justify-center">
-                        <p className="text-6xl mb-4">{phrase.getTranslation(currentLanguage)}</p>
-                        <p className="text-6xl">{phrase.getTranslation(otherLanguage)}</p>
+                        <p className="text-6xl mb-4 text-center">{phrase.getTranslation(currentLanguage)}</p>
+                        <p className="text-6xl text-center">{phrase.getTranslation(otherLanguage)}</p>
                       </div>
                     </div>
                   </td>
@@ -61,8 +61,8 @@ const KidsDictionaryPage = ({ dictionary }: InferGetStaticPropsType<typeof getSt
                     <div className="border-black border-1 h-[840px] mb-2">
                       <PhraseImage phrase={phrase} />
                       <div className="p-2 h-[218px] border-t-black border-transparent border-1 flex flex-col items-center justify-center">
-                        <p className="text-6xl mb-4">{phrase.getTranslation(currentLanguage)}</p>
-                        <p className="text-6xl">{phrase.getTranslation(otherLanguage)}</p>
+                        <p className="text-6xl mb-4 text-center">{phrase.getTranslation(currentLanguage)}</p>
+                        <p className="text-6xl text-center">{phrase.getTranslation(otherLanguage)}</p>
                       </div>
                     </div>
                   </td>
