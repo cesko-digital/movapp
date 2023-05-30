@@ -23,10 +23,16 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
   const { audio, languagePlay, setLanguagePlay, setSeekValue, seekValue, stopStory, isPlaying, pauseStory, playStory, time, playPhrase } =
     useStoryReader(id);
 
+  const currentLanguageTimes = phrases.map((obj) => obj.start_cs); //getting all the start times from the current language and ukranian story
+  const ukranianTimes = phrases.map((obj) => obj.start_uk);
+  currentLanguageTimes.unshift(0); //adding 0 to the start of the array, so that the audio can be played from the beginning as well
+  ukranianTimes.unshift(0);
+
   const handleLanguageChange = (language: Language) => {
-    setSeekValue(0);
+    const rightTimes = language === 'uk' ? ukranianTimes : currentLanguageTimes;
+    const beginningOfPhrase = rightTimes.reduce((prev, curr) => (curr <= (audio.current?.currentTime || 0) ? curr : prev)); //finding the beginning of the phrase that is currently playing
+    playPhrase({ language: language, time: beginningOfPhrase });
     setLanguagePlay(language);
-    stopStory();
   };
 
   const locales = ['uk' as Language, getCountryVariant()];
