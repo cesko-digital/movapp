@@ -137,12 +137,15 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
 
   const getPhrases = (dictionary: DictionaryDataObject, categories: CategoryDataObject['id'][]) => {
     const regex = /[\(,\/]/; // filter phrases containing ( or /
+
+    const mergedPhraseIds = dictionary.categories
+      .filter(({ id }) => categories.includes(id))
+      .filter(({ phrases }) => phrases.length > 0)
+      .map(({ phrases }) => phrases)
+      .flat();
+
     return (
-      dictionary.categories
-        .filter(({ id }) => categories.includes(id))
-        .filter(({ phrases }) => phrases.length > 0)
-        .map(({ phrases }) => phrases)
-        .flat()
+      [...new Set(mergedPhraseIds)] // remove duplicate ids
         // create phrases
         .map((phraseId) => new Phrase(dictionary.phrases[phraseId]))
         // filter phrases
