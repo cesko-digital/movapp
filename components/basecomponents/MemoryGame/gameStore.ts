@@ -11,7 +11,7 @@ import { create } from 'zustand';
 //import anime from 'animejs';
 
 //choose which game theme should be default - 0 for Movapp, 1 for fairytale and 2 for Christmas
-const currentVersion: 0 | 1 | 2 = 0;
+const THEME_INDEX: 0 | 1 | 2 = 1;
 
 const addBackroundColor = (phrases: Phrase[]) =>
   phrases.map((item, i) => ({ ...item, color: `hsl(${(360 / phrases.length) * i},50%,50%)` }));
@@ -175,7 +175,7 @@ export const useGameStore = create<GameStore>((set, get) => {
     lang: { currentLanguage: getCountryVariant(), otherLanguage: 'uk' },
     _narrator: null,
     themes: [],
-    currentThemeIndex: currentVersion,
+    currentThemeIndex: THEME_INDEX,
     cards: [],
     selectedCards: { first: null, second: null },
     scene: Scene.init,
