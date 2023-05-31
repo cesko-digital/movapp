@@ -52,12 +52,12 @@ export const ExerciseAudioIdentificationComponent = forwardRef(
       <ExerciseContainer ref={exRef}>
         <Hint>{t('exercise_page.exercise_audio_idenfification_hint')}</Hint>
         <div className="flex w-full items-center justify-center">
-          <MainText clasName={`opacity-0 ${status === ExerciseStatus.completed ? 'z-10' : ''}`} ref={mainTextRef}>
-            {correctChoice.phrase.getTranslation(otherLanguage)}
-          </MainText>
-          <div ref={soundwaveRef} className={`absolute w-40 inline `}>
+          <div ref={soundwaveRef} className={`absolute w-40 inline select-none`}>
             <SoundWaveIcon className="inline h-auto" />
           </div>
+          <MainText clasName={`opacity-0 relative w-full ${status === ExerciseStatus.completed ? '' : 'select-none'}`} ref={mainTextRef}>
+            {correctChoice.phrase.getTranslation(otherLanguage)}
+          </MainText>
         </div>
         <AudioControls AudioUrl={correctChoice.phrase.getSoundUrl(otherLanguage)} playOnMount />
         <ChoiceListComponent
