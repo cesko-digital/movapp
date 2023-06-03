@@ -17,10 +17,11 @@ interface ExerciseIdentificationComponentProps {
   correctChoiceId: number;
   level: number;
   status: ExerciseStatus;
+  inverse?: boolean;
 }
 
 export const ExerciseTextIdentificationComponent = forwardRef(
-  ({ choices, correctChoiceId, status }: ExerciseIdentificationComponentProps, ref) => {
+  ({ choices, correctChoiceId, status, inverse = false }: ExerciseIdentificationComponentProps, ref) => {
     const exRef = useRef(null);
     const mainTextRef = useRef(null);
     const soundwaveRef = useRef(null);
@@ -29,7 +30,7 @@ export const ExerciseTextIdentificationComponent = forwardRef(
     const playSlowRef = useRef(null);
     const bookRef = useRef(null);
     const { t } = useTranslation();
-    const { otherLanguage } = useLanguage();
+    const { currentLanguage, otherLanguage } = useLanguage();
     const correctChoice = findById(correctChoiceId, choices);
     const exerciseCompleted = useExerciseStore((state) => state.exerciseCompleted);
 
@@ -66,12 +67,14 @@ export const ExerciseTextIdentificationComponent = forwardRef(
       <ExerciseContainer ref={exRef}>
         <Hint>{t('exercise_page.exercise_text_idenfification_hint')}</Hint>
         <div className="flex w-full items-center justify-center">
-          <MainText ref={mainTextRef}>{correctChoice.phrase.getTranslation(otherLanguage)}</MainText>
+          <MainText ref={mainTextRef}>{correctChoice.phrase.getTranslation(inverse ? currentLanguage : otherLanguage)}</MainText>
         </div>
         <div ref={bookRef} className={`w-12 h-12 flex justify-center mb-5 mt-5`}>
           <OpenBookIcon className={`inline h-auto`} />
         </div>
         <ChoiceListComponent
+          textLanguage={inverse ? 'other' : 'current'}
+          audioLanguage="other"
           choices={choices}
           correctChoiceId={correctChoiceId}
           status={status}

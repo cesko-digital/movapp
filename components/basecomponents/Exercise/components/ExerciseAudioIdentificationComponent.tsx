@@ -61,6 +61,8 @@ export const ExerciseAudioIdentificationComponent = forwardRef(
         </div>
         <AudioControls AudioUrl={correctChoice.phrase.getSoundUrl(otherLanguage)} playOnMount />
         <ChoiceListComponent
+          textLanguage="current"
+          audioLanguage="other"
           choices={choices}
           correctChoiceId={correctChoiceId}
           status={status}

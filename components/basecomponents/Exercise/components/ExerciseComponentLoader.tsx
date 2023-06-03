@@ -31,6 +31,18 @@ export const ExerciseComponentLoader = forwardRef(({ exercise }: ExerciseCompone
           status={exercise.status}
         />
       );
+    case ExerciseType.inverseTextIdentification:
+      return (
+        <ExerciseTextIdentificationComponent
+          ref={ref}
+          key={exercise.id}
+          level={exercise.level}
+          choices={exercise.choices}
+          correctChoiceId={exercise.correctChoiceId}
+          status={exercise.status}
+          inverse
+        />
+      );
     default:
       return <p>something went wrong...</p>;
   }

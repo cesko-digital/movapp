@@ -9,9 +9,18 @@ interface ChoiceListComponentProps {
   status: ExerciseStatus;
   onChange: (selectedChoiceIds: number[]) => void | Promise<void>;
   disableSelect?: boolean;
+  textLanguage: 'current' | 'other';
+  audioLanguage: 'current' | 'other';
 }
 
-export const ChoiceListComponent = ({ choices, correctChoiceId, onChange, disableSelect = false }: ChoiceListComponentProps) => {
+export const ChoiceListComponent = ({
+  choices,
+  correctChoiceId,
+  onChange,
+  disableSelect = false,
+  textLanguage,
+  audioLanguage,
+}: ChoiceListComponentProps) => {
   const [buttonsInactive, setButtonsInactive] = useState(false);
   const { currentLanguage, otherLanguage } = useLanguage();
   const [selectedChoiceIds, setSelectedChoiceIds] = useState<number[]>([]);
@@ -21,8 +30,8 @@ export const ChoiceListComponent = ({ choices, correctChoiceId, onChange, disabl
       {choices.map(({ id, phrase }) => (
         <ChoiceComponent
           key={id}
-          text={phrase.getTranslation(currentLanguage)}
-          audioUrl={phrase.getSoundUrl(otherLanguage)}
+          text={phrase.getTranslation(textLanguage === 'current' ? currentLanguage : otherLanguage)}
+          audioUrl={phrase.getSoundUrl(audioLanguage === 'current' ? currentLanguage : otherLanguage)}
           className="text-sm sm:text-base"
           correct={id === correctChoiceId}
           buttonsInactive={buttonsInactive}

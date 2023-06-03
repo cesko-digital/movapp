@@ -16,6 +16,7 @@ export enum ExerciseStatus {
 
 export enum ExerciseType {
   textIdentification = 'textIdentification',
+  inverseTextIdentification = 'inverseTextIdentification',
   audioIdentification = 'audioIdentification',
 }
 
@@ -185,9 +186,15 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     // mix categories together
     const phrases = getPhrases(dictionary, categories);
 
-    const exerciseType = Math.random() > 0.5 ? ExerciseType.textIdentification : ExerciseType.audioIdentification;
+    // const exerciseType = getRandomItem(Object.values(ExerciseType));
+    const exerciseTypeList = Object.values(ExerciseType);
+    const exerciseType = exerciseTypeList[get().history.length % exerciseTypeList.length]; // repeat types
     const level = computeLevelForNextExercise(exerciseType, get().history);
-    const filteredPhrases = greatPhraseFilter(getCurrentLanguage, level, phrases, getFallbackPhrases(), CONFIG[level]);
+    const filteredPhrases = greatPhraseFilter(getCurrentLanguage, level, phrases, getFallbackPhrases(), CONFIG[level]).slice(
+      0,
+      CONFIG[level].choiceLimit
+    );
+    // TODO: refactor greatPhrasefilter overcomplicated, take out usage of fallback phrases and leveldown phrases
     return createExercise(utils, exerciseType, { level }, filteredPhrases);
   };
 

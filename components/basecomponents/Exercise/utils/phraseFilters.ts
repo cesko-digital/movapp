@@ -1,5 +1,5 @@
 import { Phrase } from 'utils/getDataUtils';
-import { sortRandom } from 'utils/collectionUtils';
+import { shuffleArray } from 'utils/collectionUtils';
 import { CONFIG, CONFIG_BASE } from '../exerciseStoreConfig';
 import { Language } from 'utils/locales';
 
@@ -20,15 +20,15 @@ export const greatPhraseFilter: GreatPhraseFilter = (getCurrentLanguage, level, 
   // first it gets random number from range and then accept phrases that have this number of words (in current language)
   const range = config.wordLimitMax - config.wordLimitMin;
   // create Array of filters for all numbers in range
-  const filters: ((phrase: Phrase) => boolean)[] = Array(range + 1)
-    .fill(0)
-    .map((e, i) => i + config.wordLimitMin)
-    .map((e) => (phrase: Phrase) => phrase.getTranslation(getCurrentLanguage()).split(' ').length === e)
-    // shuffle filters
-    .sort(sortRandom);
+  const filters: ((phrase: Phrase) => boolean)[] = shuffleArray(
+    Array(range + 1)
+      .fill(0)
+      .map((e, i) => i + config.wordLimitMin)
+      .map((e) => (phrase: Phrase) => phrase.getTranslation(getCurrentLanguage()).split(' ').length === e)
+  );
 
   const filterPhrases = (filters: ((phrase: Phrase) => boolean)[], phrases: Phrase[]) =>
-    filters.map((filter) => phrases.filter(filter).sort(sortRandom)).flat();
+    filters.map((filter) => shuffleArray(phrases.filter(filter))).flat();
 
   let filteredPhrases = filterPhrases(filters, phrases);
 
@@ -58,7 +58,7 @@ export const greatPhraseFilter: GreatPhraseFilter = (getCurrentLanguage, level, 
 
   console.log(`${filteredPhrases.length} usable phrases`);
 
-  return filteredPhrases.slice(0, config.choiceLimit).sort(sortRandom);
+  return filteredPhrases;
 };
 
 export const equalPhrase: EqualPhrase = (a) => (b) => a.getTranslation().toLocaleLowerCase() === b.getTranslation().toLocaleLowerCase();
