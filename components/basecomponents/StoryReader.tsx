@@ -27,14 +27,21 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
     const ukCurrent = language === 'uk';
     const currentTime = audio.current?.currentTime || 0;
     if ((ukCurrent && currentTime < phrases[0].start_uk) || (!ukCurrent && currentTime < phrases[0].start_cs)) {
+      /*if this function is launched before the first phrase starts, which is usually at about fifteenth second, we want to
+      play the story from the beginning, and that is why we use this condition */
       playPhrase({ language: language, time: 0 });
     } else {
       const beginningOfPhrase = phrases.reduce((prev, curr) => {
         const currentStart = ukCurrent ? curr.start_cs : curr.start_uk;
-        return currentStart <= (audio.current?.currentTime || 0) ? curr : prev;
+        return currentStart <= (audio.current?.currentTime || 0) ? curr : prev; /*searching for the current phrase*/
       });
 
-      playPhrase({ language: language, time: ukCurrent ? beginningOfPhrase.start_uk : beginningOfPhrase.start_cs });
+      playPhrase({
+        language: language,
+        time: ukCurrent
+          ? beginningOfPhrase.start_uk
+          : beginningOfPhrase.start_cs /*phrase has to be played from the right time depending on the language */,
+      });
       setLanguagePlay(language);
     }
   };
