@@ -1,12 +1,20 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
-import MemoryGame from 'components/basecomponents/MemoryGame/MemoryGame';
+const MemoryGame = dynamic(() => import('components/basecomponents/MemoryGame/MemoryGame'), {
+  loading: () => <p>Loading...</p>,
+});
+const KidsDictionary = dynamic(() => import('components/basecomponents/Kiosk/KidsDictionary'), {
+  loading: () => <p>Loading...</p>,
+});
+
 import Image from 'next/image';
 import { getServerSideTranslations } from 'utils/localization';
 import { GAMES, Game as GameType } from 'data/kiosk-games';
 import { useInactivityTimeout } from 'utils/useInactivityModal';
 import InactivityModal from 'components/basecomponents/Kiosk/InactivityModal';
+import { Platform } from '@types';
 interface GamePageParams extends ParsedUrlQuery {
   name: string;
 }
@@ -19,13 +27,16 @@ const Game = ({ gameName }: GameProps) => {
   const router = useRouter();
 
   const COUNTDOWN_TIME = 30 * 1000; // How long should the countdown be
-  const INACTIVITY_TIME = 15 * 1000; // How long should the user be inactive before the countdown starts
+  const INACTIVITY_TIME = 5 * 60 * 1000; // How long should the user be inactive before the countdown starts
   const { showModal, stayOnPage } = useInactivityTimeout(INACTIVITY_TIME, COUNTDOWN_TIME, '/kiosk');
 
   let gameComponent;
   switch (gameName) {
     case 'pexeso':
       gameComponent = <MemoryGame />;
+      break;
+    case 'slovicka':
+      gameComponent = <KidsDictionary platform={Platform.KIOSK} />;
       break;
     default:
       gameComponent = <div>Game not implemented yet.</div>;
@@ -40,7 +51,7 @@ const Game = ({ gameName }: GameProps) => {
       >
         <Image src="/images/kiosk/arrow-back.svg" width={60} height={120} alt="Back" />
       </button>
-      <div className="grow">{gameComponent}</div>
+      <div className="flex justify-center grow">{gameComponent}</div>
       <InactivityModal show={showModal} stayOnPage={stayOnPage} countdownTime={COUNTDOWN_TIME} />
       <Image src="/images/movapp-logo-kiosk.svg" width={187} height={55} alt="Movapp logo" className="ml-6" />
     </div>
