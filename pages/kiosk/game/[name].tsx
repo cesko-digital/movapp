@@ -51,7 +51,9 @@ const Game = ({ gameName }: GameProps) => {
       >
         <Image src="/images/kiosk/arrow-back.svg" width={60} height={120} alt="Back" />
       </button>
-      <div className="flex justify-center grow">{gameComponent}</div>
+      <div className="movapp-kiosk-scrollbar grow h-screen overflow-scroll">
+        <div className="flex justify-center mb-10">{gameComponent}</div>
+      </div>
       <InactivityModal show={showModal} stayOnPage={stayOnPage} countdownTime={COUNTDOWN_TIME} />
       <Image src="/images/movapp-logo-kiosk.svg" width={187} height={55} alt="Movapp logo" className="ml-6" />
     </div>

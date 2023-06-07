@@ -5,29 +5,6 @@ import { Phrase } from '../../../utils/getDataUtils';
 import { useLanguage } from '../../../utils/useLanguageHook';
 import { useTranslation } from 'next-i18next';
 
-const renderDefaultImage = (phrase, imageUrl, id, current, other, t) => {
-  return (
-    <button
-      className="w-72 h-72 relative bg-white"
-      onClick={() => AudioPlayer.getInstance().playSrc(phrase.getSoundUrl(other))}
-      aria-label={t('utils.play') + ' ' + other}
-    >
-      <Image id={id} src={imageUrl ?? ''} layout="fill" sizes="20vw" objectFit="cover" alt={phrase.getTranslation(other)} />
-    </button>
-  );
-};
-const renderKioskImage = (phrase, imageUrl, id, current, other, t) => {
-  return (
-    <button
-      className="w-[400px] h-[280px] relative bg-white"
-      onClick={() => AudioPlayer.getInstance().playSrc(phrase.getSoundUrl(other))}
-      aria-label={t('utils.play') + ' ' + other}
-    >
-      <Image id={id} src={imageUrl ?? ''} layout="fill" sizes="20vw" alt={phrase.getTranslation(other)} />
-    </button>
-  );
-};
-
 type Props = {
   platform: Platform;
   phrase: Phrase;
@@ -36,18 +13,38 @@ type Props = {
 };
 
 const KioskDictionaryCardImage = ({ platform, phrase, imageUrl, id }: Props) => {
-  const { currentLanguage, otherLanguage } = useLanguage();
-  const current = phrase.getTranslation(currentLanguage);
-  const other = phrase.getTranslation(otherLanguage);
-
+  const { otherLanguage } = useLanguage();
   const { t } = useTranslation();
+
+  const renderDefaultImage = () => {
+    return (
+      <button
+        className="w-72 h-72 relative bg-white"
+        onClick={() => AudioPlayer.getInstance().playSrc(phrase.getSoundUrl(otherLanguage))}
+        aria-label={t('utils.play') + ' ' + otherLanguage}
+      >
+        <Image id={id} src={imageUrl ?? ''} layout="fill" sizes="20vw" objectFit="cover" alt={phrase.getTranslation(otherLanguage)} />
+      </button>
+    );
+  };
+  const renderKioskImage = () => {
+    return (
+      <button
+        className="w-[400px] h-[280px] relative bg-white"
+        onClick={() => AudioPlayer.getInstance().playSrc(phrase.getSoundUrl(otherLanguage))}
+        aria-label={t('utils.play') + ' ' + otherLanguage}
+      >
+        <Image id={id} src={imageUrl ?? ''} layout="fill" sizes="20vw" alt={phrase.getTranslation(otherLanguage)} />
+      </button>
+    );
+  };
 
   switch (platform) {
     case Platform.KIOSK:
-      return renderKioskImage(phrase, imageUrl, id, current, other, t);
+      return renderKioskImage();
     case Platform.WEB:
     default:
-      return renderDefaultImage(phrase, imageUrl, id, current, other, t);
+      return renderDefaultImage();
   }
 };
 

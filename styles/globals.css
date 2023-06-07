@@ -52,9 +52,31 @@ h2 {
 }
 
 .tap-transparent {
--webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button-shadow {
   box-shadow: 3px 3px 6px 0px #0000003d;
+}
+
+/* Custom Scrollbar */
+.movapp-kiosk-scrollbar::-webkit-scrollbar {
+  width: 30px;
+}
+
+/* Track */
+.movapp-kiosk-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.movapp-kiosk-scrollbar::-webkit-scrollbar-thumb {
+  background: #295f95;
+  border-radius: 50px;
+  height: 150px;
+}
+
+/* Handle on hover */
+.movapp-kiosk-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: transparent;
 }
