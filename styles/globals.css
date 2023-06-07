@@ -66,7 +66,8 @@ h2 {
 
 /* Track */
 .movapp-kiosk-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+  background: #b9dcff;
+  border-radius: 50px;
 }
 
 /* Handle */
@@ -78,5 +79,5 @@ h2 {
 
 /* Handle on hover */
 .movapp-kiosk-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: transparent;
+  background: #295f95;
 }
