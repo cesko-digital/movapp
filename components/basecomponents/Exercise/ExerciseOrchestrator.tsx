@@ -110,8 +110,8 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
           <h4 className="mb-8 font-bold p-0">{t('exercise_page.congratulations')}</h4>
           <p className="text-justify">{t('exercise_page.you_have_finished')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-stretch justify-items-stretch py-10">
-            <ActionButton onClickAsync={restart}>{t('exercise_page.next') || ''}</ActionButton>
-            <ActionButton action="home" />
+            <ActionButton onClickAsync={restart}>{t('exercise_page.restart') || ''}</ActionButton>
+            <ActionButton action="home">{t('exercise_page.change_settings') || ''}</ActionButton>
           </div>
         </div>
         <Feedback />
