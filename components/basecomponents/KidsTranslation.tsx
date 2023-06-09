@@ -1,5 +1,5 @@
 import { useTranslation, Trans } from 'next-i18next';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import PlayKidsIcon from '../../public/icons/play.svg';
 import { Language } from '../../utils/locales';
 import { AudioPlayer } from 'utils/AudioPlayer';
@@ -7,12 +7,15 @@ import { Flag } from './Flag';
 import styles from './KidsTranslation.module.css';
 import { Platform } from '@types';
 
+import { useAtom } from 'jotai';
+import { dictionaryAudioPlayAtom, dictionaryActivePhraseAtom } from 'components/basecomponents/Kiosk/atoms';
 interface KidsTranslationProps {
   translation: string;
   transcription: string;
   soundUrl: string;
   language: Language;
   renderFor?: Platform;
+  isActive?: boolean;
 }
 
 export const KidsTranslation = ({
@@ -21,16 +24,20 @@ export const KidsTranslation = ({
   language,
   soundUrl,
   renderFor = Platform.WEB,
+  isActive = false,
 }: KidsTranslationProps): JSX.Element => {
+  const [audioPlaying, setIsPlaying] = useAtom(dictionaryAudioPlayAtom);
+  const [activePhrase, setActivePhrase] = useAtom(dictionaryActivePhraseAtom);
   const { t } = useTranslation();
-  const [isPlaying, setIsPlaying] = useState(false);
   const handleClick = useCallback(async () => {
-    if (!isPlaying) {
-      setIsPlaying(true);
-      await AudioPlayer.getInstance().playSrc(soundUrl);
-      setIsPlaying(false);
+    if (audioPlaying) {
+      return;
     }
-  }, [isPlaying, soundUrl]);
+    setActivePhrase(translation);
+    setIsPlaying(true);
+    await AudioPlayer.getInstance().playSrc(soundUrl);
+    setIsPlaying(false);
+  }, [audioPlaying, soundUrl]);
 
   const renderDefault = () => {
     return (
@@ -48,7 +55,7 @@ export const KidsTranslation = ({
         <button onClick={handleClick} aria-label={`${t('utils.play')} ${translation}`}>
           <PlayKidsIcon
             className={`cursor-pointer active:scale-75 transition-all duration-300 w-14 ${styles.playIcon} ${
-              isPlaying ? styles.pulse : ''
+              activePhrase === translation && audioPlaying ? styles.pulse : ''
             }`}
           />
         </button>
@@ -57,15 +64,15 @@ export const KidsTranslation = ({
   };
 
   const renderForKiosk = () => {
-    const playButtonClasses = `flex flex-col grow justify-between items-center py-5 w-1/2 ${
-      language == 'uk' ? 'bg-[#FFF7D5]' : 'bg-[#FFE1DE]'
+    const playButtonClasses = `flex grow  ${language == 'uk' ? 'bg-[#FFF7D5]' : 'bg-[#FFE1DE]'} ${
+      isActive ? 'flex-row w-full justify-center items-center h-[122px]' : 'flex-col justify-between items-center py-5 w-1/2'
     }`;
     return (
       <div className={playButtonClasses} onClick={handleClick} aria-label={`${t('utils.play')} ${translation}`}>
-        <div className="flex items-center mb-2">
+        <div className="flex items-center mb-2 z-50">
           <Flag language={language} width={50} height={50} className={'mr-3'} />
         </div>
-        <p className="text-center font-semibold">{translation}</p>
+        <p className={`text-center font-semibold ${isActive ? 'text-2xl' : ''}`}>{translation}</p>
       </div>
     );
   };
