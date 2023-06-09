@@ -37,7 +37,7 @@ export const KidsTranslation = ({
     setIsPlaying(true);
     await AudioPlayer.getInstance().playSrc(soundUrl);
     setIsPlaying(false);
-  }, [audioPlaying, soundUrl]);
+  }, [audioPlaying, soundUrl, setIsPlaying, setActivePhrase, translation]);
 
   const renderDefault = () => {
     return (
@@ -64,7 +64,7 @@ export const KidsTranslation = ({
   };
 
   const renderForKiosk = () => {
-    const playButtonClasses = `flex grow  ${language == 'uk' ? 'bg-[#FFF7D5]' : 'bg-[#FFE1DE]'} ${
+    const playButtonClasses = `flex grow  ${language === 'uk' ? 'bg-[#FFF7D5]' : 'bg-[#FFE1DE]'} ${
       isActive ? 'flex-row w-full justify-center items-center h-[122px]' : 'flex-col justify-between items-center py-5 w-1/2'
     }`;
     return (

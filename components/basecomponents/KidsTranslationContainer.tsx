@@ -38,7 +38,7 @@ export const KidsTranslationsContainer = ({
   const isUkrainianActive = isPlaying && activePhrase === phrase.getTranslation('uk') && renderFor === Platform.KIOSK;
   const cardClasses = `max-w-sm rounded-2xl overflow-hidden shadow-xl m-5 md:m-8 bg-[#f7e06a] ${
     renderFor === Platform.KIOSK ? 'w-[400px]' : 'w-72 max-h-[34rem]'
-  } ${isCzechActive ? 'czech-sound !bg-kiosk-red' : ''} ${isUkrainianActive ? 'ukraine-sound !bg-kiosk-yellow' : ''} bg-white`;
+  } ${isCzechActive ? 'czech-sound !bg-kiosk-red' : ''} ${isUkrainianActive ? 'ukraine-sound !bg-kiosk-yellow' : ''}`;
   const buttonsWrapperClasses = `${renderFor === Platform.KIOSK ? 'flex flex-row justify-between' : 'px-6 py-4'}`;
 
   return (
@@ -46,7 +46,13 @@ export const KidsTranslationsContainer = ({
       {isCzechActive || isUkrainianActive ? (
         <div className={`absolute top-0 bottom-0 left-0 right-0 z-10 ${isCzechActive ? 'cz' : ''} ${isUkrainianActive ? 'uk' : ''}`} />
       ) : null}
-      <KioskDictionaryCardImage platform={renderFor} phrase={phrase} imageUrl={imageUrl} id={id} />
+      <KioskDictionaryCardImage
+        platform={renderFor}
+        phrase={phrase}
+        imageUrl={imageUrl}
+        id={id}
+        isActive={isCzechActive || isUkrainianActive}
+      />
       <div className={buttonsWrapperClasses}>
         {isCzechActive && (
           <KidsTranslation

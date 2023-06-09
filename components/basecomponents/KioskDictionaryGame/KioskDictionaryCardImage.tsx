@@ -13,9 +13,10 @@ type Props = {
   phrase: Phrase;
   imageUrl: string | null;
   id?: string;
+  isActive?: boolean;
 };
 
-const KioskDictionaryCardImage = ({ platform, phrase, imageUrl, id }: Props) => {
+const KioskDictionaryCardImage = ({ platform, phrase, imageUrl, id, isActive }: Props) => {
   const { otherLanguage } = useLanguage();
   const { t } = useTranslation();
 
@@ -36,7 +37,7 @@ const KioskDictionaryCardImage = ({ platform, phrase, imageUrl, id }: Props) => 
   const renderKioskImage = () => {
     return (
       <button
-        className="w-[400px] h-[280px] relative bg-transparent"
+        className={`w-[400px] h-[280px] relative ${isActive ? 'bg-transparent' : 'bg-white'}`}
         onClick={async () => {
           if (isPlaying) return;
           setActivePhrase(phrase.getTranslation(otherLanguage));
