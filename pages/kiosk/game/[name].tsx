@@ -61,9 +61,13 @@ const Game = ({ gameName }: GameProps) => {
 };
 
 export const getStaticPaths: GetStaticPaths<GamePageParams> = async () => {
-  const paths = GAMES.map((game: GameType) => ({
-    params: { name: game.name },
-  }));
+  const LANGUAGES = ['cs', 'uk']; // We support only these languages on kiosk
+  const paths = LANGUAGES.flatMap((locale) =>
+    GAMES.map((game: GameType) => ({
+      params: { name: game.name },
+      locale, // Include the locale in the path object
+    }))
+  );
 
   return { paths, fallback: false };
 };
