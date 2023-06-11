@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import { checkLink, checkVisibility } from '../support/cypressHelpers';
+import { checkHeaderLink, checkVisibility } from '../support/cypressHelpers';
 
 describe('Test Movapp - Home page', () => {
   beforeEach(() => {
@@ -17,12 +17,13 @@ describe('Test Movapp - Home page', () => {
   });
 
   it('Test that Nav bar has a correct sections', () => {
-    checkLink('Abeceda', '/alphabet');
-    checkLink('Slovníček', '/dictionary');
-    checkLink('Procvičování', '/exercise');
-    checkLink('Wiki', '/wiki');
-    checkLink('O nás', '/about');
-    checkLink('Kontakty', '/contacts');
+    checkHeaderLink('Abeceda', '/alphabet');
+    checkHeaderLink('Slovníček', '/dictionary');
+    checkHeaderLink('Procvičování', '/exercise');
+    checkHeaderLink('Wiki', '/wiki');
+    checkHeaderLink('O nás', '/about');
+    checkHeaderLink('Kontakty', '/contacts');
+    
 
     cy.contains('header button', 'Pro děti').invoke('text').should('equal', 'Pro děti');
   });
@@ -35,7 +36,7 @@ describe('Test Movapp - Home page', () => {
   });
 
   it('Test of languages of the page', () => {
-    cy.contains('Movapp mluví dalšími jazyky').should('be.visible');
+    cy.contains('h2', 'Movapp mluví dalšími jazyky').should('be.visible');
     cy.contains('Slovensky').should('be.visible');
     cy.contains('Polski').should('be.visible');
   });

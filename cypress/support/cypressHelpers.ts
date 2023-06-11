@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-export const checkLink = (text: string, href: string) => {
+export const checkHeaderLink = (text: string, href: string) => {
   cy.contains('header a', text)
     .should('be.visible')
     .and(($a) => {
