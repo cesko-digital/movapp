@@ -18,10 +18,11 @@ interface ExerciseAudioIdentificationComponentProps {
   correctChoiceId: number;
   level: number;
   status: ExerciseStatus;
+  choiceType: 'audio' | 'text';
 }
 
 export const ExerciseAudioIdentificationComponent = forwardRef(
-  ({ choices, correctChoiceId, status }: ExerciseAudioIdentificationComponentProps, ref) => {
+  ({ choices, correctChoiceId, status, choiceType }: ExerciseAudioIdentificationComponentProps, ref) => {
     const exRef = useRef(null);
     const mainTextRef = useRef(null);
     const soundwaveRef = useRef(null);
@@ -59,8 +60,9 @@ export const ExerciseAudioIdentificationComponent = forwardRef(
             {correctChoice.phrase.getTranslation(otherLanguage)}
           </MainText>
         </div>
-        <AudioControls AudioUrl={correctChoice.phrase.getSoundUrl(otherLanguage)} playOnMount />
+        <AudioControls className="mt-5 mb-5" AudioUrl={correctChoice.phrase.getSoundUrl(otherLanguage)} playOnMount />
         <ChoiceListComponent
+          choiceType={choiceType}
           textLanguage="current"
           audioLanguage="other"
           choices={choices}

@@ -14,7 +14,7 @@ const BUTTON_STYLE = {
   choiceCorrect: `${BASE_STYLE} text-black border border-slate-300 hover:border-slate-400 bg-primary-green`,
 };
 
-interface ButtonProps extends React.ComponentProps<'button'> {
+export interface ButtonProps extends React.ComponentProps<'button'> {
   buttonStyle?: keyof typeof BUTTON_STYLE;
   icon?: boolean | 'play' | 'playSlow';
   shadow?: boolean;

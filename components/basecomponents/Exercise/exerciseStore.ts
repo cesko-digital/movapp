@@ -18,6 +18,7 @@ export enum ExerciseType {
   textIdentification = 'textIdentification',
   inverseTextIdentification = 'inverseTextIdentification',
   audioIdentification = 'audioIdentification',
+  textIdentificationByAudio = 'textIdentificationByAudio',
 }
 
 interface WithId {

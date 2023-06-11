@@ -1,9 +1,9 @@
-import { useRef } from 'react';
-import { Button } from 'components/basecomponents/Button';
-import { animation } from '../utils/animation';
-import { playAudio } from '../utils/playAudio';
+import { AudioControls } from './AudioControls';
+import { ChoiceButton } from './ChoiceButton';
+import CheckIcon from 'public/icons/check.svg';
 
-interface ChoiceProps {
+export interface ChoiceProps {
+  type: 'text' | 'audio';
   text: string;
   audioUrl: string;
   className?: string;
@@ -14,39 +14,25 @@ interface ChoiceProps {
   onClick: () => void | Promise<void>;
 }
 
-export const ChoiceComponent = ({
-  text,
-  audioUrl,
-  correct,
-  className = '',
-  buttonsInactive,
-  setButtonsInactive,
-  onClick,
-  disableSelect = false,
-}: ChoiceProps) => {
-  const choiceRef = useRef(null);
+export const ChoiceComponent = ({ type, text, ...rest }: ChoiceProps) => {
+  if (type === 'audio')
+    return (
+      <AudioControls
+        AudioUrl={rest.audioUrl}
+        renderOptionalButton={() => (
+          <ChoiceButton {...rest} className="h-full" playAudioOnClick>
+            <CheckIcon className="inline h-auto" />
+          </ChoiceButton>
+        )}
+      />
+    );
 
-  return (
-    <Button
-      ref={choiceRef}
-      buttonStyle="choice"
-      className={`${className}`}
-      onClick={async () => {
-        if (buttonsInactive) return;
-        if (choiceRef.current === null) return;
-        setButtonsInactive(true);
-        playAudio(audioUrl);
-        await animation.click(choiceRef.current).finished;
-        if (disableSelect) {
-          setButtonsInactive(false);
-          return;
-        }
-        correct ? await animation.selectCorrect(choiceRef.current).finished : await animation.selectWrong(choiceRef.current).finished;
-        await onClick();
-        setButtonsInactive(false);
-      }}
-    >
-      {text}
-    </Button>
-  );
+  if (type === 'text')
+    return (
+      <ChoiceButton playAudioOnClick {...rest}>
+        {text}
+      </ChoiceButton>
+    );
+
+  return null;
 };

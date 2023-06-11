@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ChoiceComponent } from './ChoiceComponent';
 
 interface ChoiceListComponentProps {
+  choiceType: 'audio' | 'text';
   choices: Choice[];
   correctChoiceId: number;
   status: ExerciseStatus;
@@ -14,6 +15,7 @@ interface ChoiceListComponentProps {
 }
 
 export const ChoiceListComponent = ({
+  choiceType,
   choices,
   correctChoiceId,
   onChange,
@@ -26,9 +28,10 @@ export const ChoiceListComponent = ({
   const [selectedChoiceIds, setSelectedChoiceIds] = useState<number[]>([]);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 items-stretch justify-items-stretch gap-3">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-stretch justify-items-stretch gap-3 md:gap-x-10">
       {choices.map(({ id, phrase }) => (
         <ChoiceComponent
+          type={choiceType}
           key={id}
           text={phrase.getTranslation(textLanguage === 'current' ? currentLanguage : otherLanguage)}
           audioUrl={phrase.getSoundUrl(audioLanguage === 'current' ? currentLanguage : otherLanguage)}
