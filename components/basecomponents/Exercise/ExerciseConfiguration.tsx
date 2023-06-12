@@ -1,10 +1,11 @@
 import { FunctionComponent, useMemo, useState } from 'react';
-import { CONFIG_BASE, useExerciseStore } from './exerciseStore';
+import { useExerciseStore } from './exerciseStore';
 import { Button } from '../Button';
 import { useDebug } from './utils/useDebug';
 import { ActionButton } from './components/ActionButton';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../../../utils/useLanguageHook';
+import { CONFIG_BASE } from './exerciseStoreConfig';
 
 const removeDuplicates = (array: string[]) => {
   return [...new Set(array)];

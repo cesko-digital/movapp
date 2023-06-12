@@ -174,8 +174,8 @@
     }
   },
   "exercise_page": {
-    "game_description": "Przećwicz słówka i zwroty na najróżniejsze tematy. Wybierz kategorie tematyczne i możesz zacząć!",
-    "play_the_game": "Zacznij ćwiczenie",
+    "game_description": "Wybierz jeden lub więcej tematów i możesz zaczynać.",
+    "play_the_game": "Zacznij",
     "select_all": "Zaznacz wszystkie",
     "clear_all": "Wyczyść wszystkie",
     "pick_random": "Wybierz losowo",
@@ -183,11 +183,13 @@
     "congratulations": "Gratulacje!",
     "you_have_finished": "Ćwiczenie zostało ukończone pomyślnie. Teraz możesz ćwiczyć dalej, albo wrócić z powrotem na stronę główną.",
     "home": "Z powrotem",
-    "exercise_audio_idenfification_hint":"Posłuchaj nagrania i zaznacz to, co słyszysz",
-    "exercise_text_idenfification_hint":"Wybierz jedną prawidłową odpowiedź",
+    "exercise_audio_idenfification_hint":"Odsłuchaj nagranie i zaznacz usłyszaną odpowiedź",
+    "exercise_text_idenfification_hint":"Zaznacz usłyszaną odpowiedź",
     "write_us":"Napisz do nas",
     "feedback":"Zestaw ćwiczeń stopniowo poszerzamy. Daj nam wiedzieć, jeśli znajdziesz gdzieś błąd lub wpadniesz na pomysł, co możemy polepszyć.",
-    "size_setup":"Ustaw długość ćwiczenia"
+    "size_setup":"Ustaw długość ćwiczenia",
+    "restart":"Powtórz",
+    "change_settings":"Zmiana ustawień"
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",
