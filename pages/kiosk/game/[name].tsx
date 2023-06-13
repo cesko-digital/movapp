@@ -14,6 +14,8 @@ import { getServerSideTranslations } from 'utils/localization';
 import { GAMES, Game as GameType } from 'data/kiosk-games';
 import { useInactivityTimeout } from 'utils/useInactivityModal';
 import InactivityModal from 'components/basecomponents/Kiosk/InactivityModal';
+import { useSetAtom } from 'jotai';
+import { currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
 import { Platform } from '@types';
 interface GamePageParams extends ParsedUrlQuery {
   name: string;
@@ -26,6 +28,9 @@ interface GameProps {
 const Game = ({ gameName }: GameProps) => {
   const router = useRouter();
 
+  const setPlatform = useSetAtom(currentPlatformAtom);
+  setPlatform(Platform.KIOSK);
+
   const COUNTDOWN_TIME = 30 * 1000; // How long should the countdown be
   const INACTIVITY_TIME = 5 * 60 * 1000; // How long should the user be inactive before the countdown starts
   const { showModal, stayOnPage } = useInactivityTimeout(INACTIVITY_TIME, COUNTDOWN_TIME, '/kiosk');
@@ -36,7 +41,7 @@ const Game = ({ gameName }: GameProps) => {
       gameComponent = <MemoryGame />;
       break;
     case 'slovicka':
-      gameComponent = <KidsDictionary platform={Platform.KIOSK} />;
+      gameComponent = <KidsDictionary />;
       break;
     default:
       gameComponent = <div>Game not implemented yet.</div>;

@@ -10,6 +10,12 @@ export type TranslationId = TFuncKey<'common'>;
  */
 export type CountryVariant = 'cs' | 'sk' | 'pl';
 export type Language = CountryVariant | 'uk';
+export enum LanguageEnum {
+  CZECH = 'cs',
+  SLOVAK = 'sk',
+  POLISH = 'pl',
+  UKRAINIAN = 'uk',
+}
 
 /**
  * The country variant is chosen based on the NEXT_PUBLIC_COUNTRY_VARIANT environment variable.

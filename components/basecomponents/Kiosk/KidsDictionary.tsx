@@ -1,15 +1,14 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { DictionaryDataObject, fetchDictionary, getKidsCategory } from 'utils/getDataUtils';
+import { useMemo } from 'react';
 
+/** Components */
 import KidsDictionaryList from '../KidsDictionaryList';
-import { KidsDictionaryProps, Platform } from '@types';
 
-const KidsDictionary = ({ platform = Platform.WEB }: KidsDictionaryProps) => {
-  const [dictionary, setDictionary] = useState<DictionaryDataObject | null>(null);
+/** Hooks, Types, Utils */
+import { useFetchDictionary } from 'components/hooks/useFetchDictionary';
+import { getKidsCategory } from 'utils/getDataUtils';
 
-  useEffect(() => {
-    fetchDictionary().then((data) => setDictionary(data));
-  }, []);
+const KidsDictionary = () => {
+  const { dictionary, isLoading, error } = useFetchDictionary();
 
   const kidsCategory = useMemo(() => {
     if (!dictionary) {
@@ -18,15 +17,15 @@ const KidsDictionary = ({ platform = Platform.WEB }: KidsDictionaryProps) => {
     return getKidsCategory(dictionary);
   }, [dictionary]);
 
-  if (!dictionary || !kidsCategory) {
-    return <div>Loading...</div>;
+  if (isLoading) {
+    return <div>Nacitavam data...</div>;
   }
 
-  return (
-    <div className="grid grid-cols-3">
-      <KidsDictionaryList kidsCategory={kidsCategory} platform={platform} />
-    </div>
-  );
+  if (error) {
+    return <div>Chyba nacitani dat.</div>;
+  }
+
+  return <div className="grid grid-cols-3">{kidsCategory && <KidsDictionaryList kidsCategory={kidsCategory} />}</div>;
 };
 
 export default KidsDictionary;
