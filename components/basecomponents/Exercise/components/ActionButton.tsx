@@ -3,7 +3,8 @@ import { useRef, forwardRef, useImperativeHandle, useState, useEffect } from 're
 import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
 import { useTranslation } from 'react-i18next';
-import { usePendingStore } from '../ExerciseOrchestrator';
+import { usePendingStore } from '../pendingStore';
+import React from 'react';
 
 interface ActionButtonProps extends React.ComponentProps<typeof Button> {
   inactive?: boolean;
@@ -65,7 +66,7 @@ export const ActionButton = forwardRef(
         }}
         {...rest}
       >
-        {action ? labels[action] : children}
+        {React.Children.count(children) ? children : action ? labels[action] : children}
       </Button>
     );
   }

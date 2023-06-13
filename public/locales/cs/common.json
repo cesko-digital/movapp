@@ -74,6 +74,7 @@
     "downloadPDF": "Stáhnout v PDF",
     "playStory": "Přehrát a přečíst pohádku",
     "czechStories": "České lidové pohádky",
+    "slovakStories": "Slovenské lidové pohádky",
     "ukrainianStories": "Ukrajinské lidové pohádky",
     "stories": "Pohádky",
     "homepage": "Hlavní stránka",
@@ -187,7 +188,7 @@
     }
   },
   "exercise_page": {
-    "game_description": "Procvičte si slovíčka a fráze na nejrůznější témata. Nejprve si vyberte tematické okruhy, a můžete začít!",
+    "game_description": "Nejprve si vyberte jeden nebo více tematických okruhů a můžete začít.",
     "play_the_game": "Začít",
     "select_all": "Vybrat vše",
     "clear_all": "Zrušit výběr",
@@ -195,12 +196,14 @@
     "next": "Pokračovat",
     "congratulations": "Gratulujeme!",
     "you_have_finished": "Cvičení jste úspěšně zvládli. Nyní můžete pokračovat v procvičování, nebo se vrátit zpět na hlavní stránku.",
-    "home": "Domů",
-    "exercise_audio_idenfification_hint": "Přehrajte zvuk a označte, co slyšíte",
-    "exercise_text_idenfification_hint": "Vyberte jednu správnou odpověď",
-    "write_us": "Napište nám",
-    "feedback": "Cvičení postupně rozšiřujeme, dejte nám vědět, pokud jste nalezli chybu, anebo máte nápad na zlepšení.",
-    "size_setup": "Nastavte si délku cvičení"
+    "home": "Domů",    
+    "exercise_audio_idenfification_hint":"Přehrajte zvuk a označte, co znamená",
+    "exercise_text_idenfification_hint":"Označte, co znamená",
+    "write_us":"Napište nám",
+    "feedback":"Cvičení postupně rozšiřujeme, dejte nám vědět, pokud jste nalezli chybu, anebo máte nápad na zlepšení.",
+    "size_setup":"Nastavte si délku cvičení",
+    "restart":"Spustit znovu",
+    "change_settings":"Změnit nastavení"
   },
   "export_translations": {
     "download_phrases": "Stáhnout fráze",

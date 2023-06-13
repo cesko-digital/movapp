@@ -8,23 +8,42 @@ import { Flag } from './Flag';
 import StoryText from './StoryText';
 import { useStoryReader } from 'components/hooks/useStoryReader';
 import { Trans } from 'next-i18next';
+import { StoryPhrase } from './Story/storyStore';
 
 interface StoryReaderProps {
   titleCurrent: string;
   titleOther: string;
   id: string;
   country: string;
+  phrases: StoryPhrase[];
 }
 
-const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.Element => {
+const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps): JSX.Element => {
   const { currentLanguage } = useLanguage();
   const { audio, languagePlay, setLanguagePlay, setSeekValue, seekValue, stopStory, isPlaying, pauseStory, playStory, time, playPhrase } =
     useStoryReader(id);
 
   const handleLanguageChange = (language: Language) => {
-    setSeekValue(0);
-    setLanguagePlay(language);
-    stopStory();
+    const ukCurrent = language === 'uk';
+    const currentTime = audio.current?.currentTime || 0;
+    if ((ukCurrent && currentTime < phrases[0].start_uk) || (!ukCurrent && currentTime < phrases[0].start_cs)) {
+      /*if this function is launched before the first phrase starts, which is usually at about fifteenth second, we want to
+      play the story from the beginning, and that is why we use this condition */
+      playPhrase({ language: language, time: 0 });
+    } else {
+      const beginningOfPhrase = phrases.reduce((prev, curr) => {
+        const currentStart = ukCurrent ? curr.start_cs : curr.start_uk;
+        return currentStart <= (audio.current?.currentTime || 0) ? curr : prev; /*searching for the current phrase*/
+      });
+
+      playPhrase({
+        language: language,
+        time: ukCurrent
+          ? beginningOfPhrase.start_uk
+          : beginningOfPhrase.start_cs /*phrase has to be played from the right time depending on the language */,
+      });
+      setLanguagePlay(language);
+    }
   };
 
   const locales = ['uk' as Language, getCountryVariant()];
@@ -109,6 +128,7 @@ const StoryReader = ({ titleCurrent, titleOther, id }: StoryReaderProps): JSX.El
             }}
             audioLanguage={languagePlay}
             id={id}
+            phrases={phrases}
           />
         ))}
       </div>

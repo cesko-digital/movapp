@@ -21,6 +21,7 @@ module.exports = {
         'primary-green': '#91FF00',
         'kiosk-yellow': '#FFF7D4',
         'kiosk-red': '#FFE1DE',
+        'primary-light-blue': '#64A5DA',
       },
       borderWidth: {
         1: '1px',
