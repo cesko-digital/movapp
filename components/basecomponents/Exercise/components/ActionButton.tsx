@@ -4,6 +4,7 @@ import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
 import { useTranslation } from 'react-i18next';
 import { usePendingStore } from '../pendingStore';
+import { usePlausible } from 'next-plausible';
 import React from 'react';
 
 interface ActionButtonProps extends React.ComponentProps<typeof Button> {
@@ -11,13 +12,15 @@ interface ActionButtonProps extends React.ComponentProps<typeof Button> {
   action?: 'nextExercise' | 'home' | 'start';
   onClickAsync?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => Promise<void> | void;
   onClickFinished?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => Promise<void> | void;
+  exerciseLength: number;
 }
 
 export const ActionButton = forwardRef(
   (
-    { children, inactive = false, onClick, onClickAsync, onClickFinished, action, ...rest }: ActionButtonProps,
+    { children, inactive = false, onClick, onClickAsync, onClickFinished, action, exerciseLength, ...rest }: ActionButtonProps,
     ref: React.Ref<HTMLButtonElement | null>
   ) => {
+    const plausible = usePlausible();
     const btnRef = useRef(null);
     const { t } = useTranslation();
     const home = useExerciseStore((state) => state.home);
@@ -50,6 +53,7 @@ export const ActionButton = forwardRef(
         ref={btnRef}
         buttonStyle="primary"
         onClick={async (e) => {
+          plausible('TestEvent', { props: { length_of_exercise: exerciseLength } });
           if (pending || inactive || globalPending) return;
           if (btnRef.current === null) return;
           setPending(true);
