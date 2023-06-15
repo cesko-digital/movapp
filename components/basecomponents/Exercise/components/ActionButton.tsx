@@ -12,12 +12,13 @@ interface ActionButtonProps extends React.ComponentProps<typeof Button> {
   action?: 'nextExercise' | 'home' | 'start';
   onClickAsync?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => Promise<void> | void;
   onClickFinished?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => Promise<void> | void;
-  exerciseLength: number;
+  exerciseLength?: number;
+  isPlausible?: boolean;
 }
 
 export const ActionButton = forwardRef(
   (
-    { children, inactive = false, onClick, onClickAsync, onClickFinished, action, exerciseLength, ...rest }: ActionButtonProps,
+    { children, inactive = false, onClick, onClickAsync, onClickFinished, action, exerciseLength, isPlausible, ...rest }: ActionButtonProps,
     ref: React.Ref<HTMLButtonElement | null>
   ) => {
     const plausible = usePlausible();
@@ -53,7 +54,7 @@ export const ActionButton = forwardRef(
         ref={btnRef}
         buttonStyle="primary"
         onClick={async (e) => {
-          plausible('TestEvent', { props: { length_of_exercise: exerciseLength } });
+          isPlausible && plausible('TestEvent', { props: { length_of_exercise: exerciseLength } });
           if (pending || inactive || globalPending) return;
           if (btnRef.current === null) return;
           setPending(true);
