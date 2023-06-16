@@ -10,6 +10,10 @@ import { useStoryReader } from 'components/hooks/useStoryReader';
 import { Trans } from 'next-i18next';
 import { StoryPhrase } from './Story/storyStore';
 
+import { useAtomValue } from 'jotai';
+import { currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
+import { Platform } from '@types';
+
 interface StoryReaderProps {
   titleCurrent: string;
   titleOther: string;
@@ -20,6 +24,8 @@ interface StoryReaderProps {
 
 const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps): JSX.Element => {
   const { currentLanguage } = useLanguage();
+  const currentPlatform = useAtomValue(currentPlatformAtom);
+
   const { audio, languagePlay, setLanguagePlay, setSeekValue, seekValue, stopStory, isPlaying, pauseStory, playStory, time, playPhrase } =
     useStoryReader(id);
 
@@ -102,20 +108,22 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
           <p className="text-xl text-right">{time}</p>
         </div>
       </div>
-      <p className="text-base md:text-md mt-4">
-        <Trans
-          i18nKey={'kids_page.downloadStory'}
-          components={[
-            <a
-              key="download PDF"
-              className="underline text-primary-blue"
-              href={`/pdf/${id}-${currentLanguage}.pdf`}
-              rel="noreferrer"
-              target="_blank"
-            />,
-          ]}
-        />
-      </p>
+      {currentPlatform === Platform.WEB && (
+        <p className="text-base md:text-md mt-4">
+          <Trans
+            i18nKey={'kids_page.downloadStory'}
+            components={[
+              <a
+                key="download PDF"
+                className="underline text-primary-blue"
+                href={`/pdf/${id}-${currentLanguage}.pdf`}
+                rel="noreferrer"
+                target="_blank"
+              />,
+            ]}
+          />
+        </p>
+      )}
       <div className={`flex ${currentLanguage !== 'uk' ? 'flex-col-reverse md:flex-row-reverse' : 'flex-col md:flex-row'}`}>
         {locales.map((local) => (
           <StoryText

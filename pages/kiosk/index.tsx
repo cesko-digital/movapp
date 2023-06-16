@@ -15,6 +15,7 @@ const KioskHome: NextPage = () => {
       <div className="grid grid-cols-2 gap-6">
         <GameTile name="Slovíčka" image="slovicka.png" title={t('header.forkids_words')} />
         <GameTile name="Pexeso" image="pexeso.png" title={t('header.forkids_memorygame')} />
+        <GameTile name="Stories" image="pohadky.png" title={t('header.forkids_stories')} />
       </div>
     </div>
   );
