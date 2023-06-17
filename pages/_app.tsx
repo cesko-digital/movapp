@@ -28,7 +28,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   const { locales, asPath } = useRouter();
   const router = useRouter();
   return (
-    <PlausibleProvider trackLocalhost={true} domain={PLAUSIBLE_DOMAINS[getCountryVariant()]}>
+    <PlausibleProvider domain={PLAUSIBLE_DOMAINS[getCountryVariant()]}>
       <Head>
         <meta name="apple-itunes-app" content="app-id=1617768476" />
         <link rel="alternate" hrefLang="x-default" href={`https://www.movapp.cz${asPath}`} />

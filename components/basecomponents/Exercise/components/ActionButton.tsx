@@ -54,7 +54,7 @@ export const ActionButton = forwardRef(
         ref={btnRef}
         buttonStyle="primary"
         onClick={async (e) => {
-          isPlausible && plausible('TestEvent', { props: { length_of_exercise: exerciseLength } });
+          isPlausible && plausible('StartedExerciseEvent', { props: { length_of_exercise: exerciseLength } });
           if (pending || inactive || globalPending) return;
           if (btnRef.current === null) return;
           setPending(true);
@@ -62,7 +62,8 @@ export const ActionButton = forwardRef(
           if (onClick !== undefined) onClick(e);
           await animation.click(btnRef.current).finished;
           if (onClickAsync !== undefined) await onClickAsync(e);
-          if (action !== undefined) actions[action]();
+          if (action === 'nextExercise') actions['nextExercise'](plausible);
+          else if (action !== undefined) actions[action]();
           // prevent changing unmounted component
           if (mounted.current === false) return;
           setGlobalPending(false);
