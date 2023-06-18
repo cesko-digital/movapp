@@ -44,7 +44,7 @@ const MOVAPP_DATELINE: Record<Language, string> = {
  * @param filename The name of the generated PDF file.
  * @param footerLanguage Language of the footer
  */
-const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage: Language, footerTitle?: string) => {
+const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage: Language, footerTitle?: string, isLandscape = false) => {
   // Grab generated HTML
   const HTMLcontent = fs.readFileSync(`.next/server/pages/${path}.html`, 'utf8');
   // Include fonts and disable color printing strategy at the beginning, then compile all generated CSS
@@ -83,6 +83,7 @@ const exportPdf = async (path: string, filename: `${string}.pdf`, footerLanguage
       right: '10mm',
       bottom: '20mm',
     },
+    landscape: isLandscape,
     displayHeaderFooter: true,
     headerTemplate: '<div></div>',
     footerTemplate: `
@@ -140,11 +141,17 @@ const generateTalesPDFs = async (country: CountryVariant) => {
   }
 };
 
+const generateKidsDictionaryPdf = async (country: CountryVariant) => {
+  exportPdf(`${country}/kids/pdf/uk`, `omalovanky.pdf`, country, '', true);
+  exportPdf(`uk/kids/pdf/${country}`, `${country}-omalovanky.pdf`, 'uk', '', true);
+};
+
 const main = async () => {
   try {
     generateAlphabetPDFs(COUNTRY);
     generateDictionaryPDFs(COUNTRY);
     generateTalesPDFs(COUNTRY);
+    generateKidsDictionaryPdf(COUNTRY);
   } catch (error) {
     console.log(error);
   }
