@@ -82,7 +82,7 @@ const ExerciseConfiguration: FunctionComponent = () => {
         </div>
       </div>
       <div className="flex flex-col items-center mb-12">
-        <ActionButton action="start" disabled={selectedMetaIds.length === 0} />
+        <ActionButton isPlausible exerciseLength={size} action="start" disabled={selectedMetaIds.length === 0} />
       </div>
     </div>
   );
