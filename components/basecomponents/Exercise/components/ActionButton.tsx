@@ -54,7 +54,7 @@ export const ActionButton = forwardRef(
         ref={btnRef}
         buttonStyle="primary"
         onClick={async (e) => {
-          isPlausible && plausible('StartedExerciseEvent', { props: { length_of_exercise: exerciseLength } });
+          isPlausible && plausible('Exercise-Started', { props: { length: exerciseLength } });
           if (pending || inactive || globalPending) return;
           if (btnRef.current === null) return;
           setPending(true);
