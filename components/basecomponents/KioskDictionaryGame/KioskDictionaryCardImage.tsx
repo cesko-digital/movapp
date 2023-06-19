@@ -6,13 +6,21 @@ import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
 /** Hooks, Types, Utils */
-import { Platform, KioskDictionaryCardImageProps } from '@types';
+import { Platform } from '@types';
+import { Phrase } from 'utils/getDataUtils';
 import { AudioPlayer } from '../../../utils/AudioPlayer';
 import { useLanguage } from '../../../utils/useLanguageHook';
 import { dictionaryAudioPlayAtom, dictionaryActivePhraseAtom, currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
 
 const PLAY_ACTION_TRANSLATION_ID = 'utils.play';
 const IMAGE_SIZE = '20vw';
+
+type KioskDictionaryCardImageProps = {
+  phrase: Phrase;
+  imageUrl: string | null;
+  id?: string;
+  isActive?: boolean;
+};
 
 const KioskDictionaryCardImage = ({ phrase, imageUrl, id, isActive }: KioskDictionaryCardImageProps) => {
   const { otherLanguage } = useLanguage();

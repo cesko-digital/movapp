@@ -7,13 +7,21 @@ import KioskDictionaryCardImage from './KioskDictionaryGame/KioskDictionaryCardI
 
 /** Hooks, Types, Utils, etc. */
 import { useLanguage } from 'utils/useLanguageHook';
-import { Platform, KidsTranslationContainerProps } from '@types';
+import { Phrase } from 'utils/getDataUtils';
+import { Platform } from '@types';
 import { currentPlatformAtom, dictionaryAudioPlayAtom, dictionaryActivePhraseAtom } from './Kiosk/atoms';
 import { Language, LanguageEnum } from 'utils/locales';
 
 const ACTIVE_STYLE = {
   [LanguageEnum.CZECH]: 'shadow-czech transform rotate-[-5deg] !bg-kiosk-red',
   [LanguageEnum.UKRAINIAN]: 'shadow-ukraine transform rotate-[5deg] !bg-kiosk-yellow',
+};
+
+export type KidsTranslationContainerProps = {
+  phrase: Phrase;
+  imageUrl: string | null;
+  id?: string;
+  searchText?: string;
 };
 
 const KidsTranslationsContainer = ({ phrase, imageUrl, id }: KidsTranslationContainerProps): JSX.Element => {

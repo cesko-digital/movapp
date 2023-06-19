@@ -1,10 +1,8 @@
-import { useEffect } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import dynamic from 'next/dynamic';
 import { ParsedUrlQuery } from 'querystring';
 import stories from 'data/stories';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useSetAtom } from 'jotai';
 
 /** Components */
 const MemoryGame = dynamic(() => import('components/basecomponents/MemoryGame/MemoryGame'), {
@@ -17,12 +15,12 @@ import StoriesList from 'components/basecomponents/Story/StoriesList';
 
 /** Hooks, HOC, Utils, Types */
 import withKioskLayout from 'utils/hoc/withKioskLayout';
-import { Story, Platform } from '@types';
-import { currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
+import { Story } from '@types';
 import { getServerSideTranslations } from 'utils/localization';
 
 /** Data */
 import { GAMES, Game as GameType } from 'data/kiosk-games';
+import { usePlatformDetection } from 'utils/usePlatformDetection';
 
 interface GamePageParams extends ParsedUrlQuery {
   name: string;
@@ -34,12 +32,7 @@ interface GameProps {
 }
 
 const Game = ({ gameName, stories }: GameProps) => {
-  const setPlatform = useSetAtom(currentPlatformAtom);
-
-  // We are on kiosk, set platform once
-  useEffect(() => {
-    setPlatform(Platform.KIOSK);
-  }, []);
+  usePlatformDetection();
 
   switch (gameName) {
     case 'pexeso':

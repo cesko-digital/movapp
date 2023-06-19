@@ -8,13 +8,22 @@ import { AudioPlayer } from 'utils/AudioPlayer';
 
 /** Hooks, Types, Utils */
 import styles from './KidsTranslation.module.css';
-import { Platform, KidsTranslationProps } from '@types';
+import { Platform } from '@types';
+import { Language } from 'utils/locales';
 import { useAtom, useAtomValue } from 'jotai';
 import { dictionaryAudioPlayAtom, dictionaryActivePhraseAtom, currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
 
 const PLAY_ACTION_TRANSLATION_ID = 'utils.play';
 const KIOSK_BG_COLOR_UK = '#FFF7D5';
 const KIOSK_BG_COLOR_OTHER = '#FFE1DE';
+
+type KidsTranslationProps = {
+  translation: string;
+  transcription: string;
+  soundUrl: string;
+  language: Language;
+  isActive?: boolean;
+};
 
 export const KidsTranslation = ({
   transcription,

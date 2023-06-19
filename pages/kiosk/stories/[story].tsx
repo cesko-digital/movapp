@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
 import StoryReader from '../../../components/basecomponents/StoryReader';
 import stories from '../../../data/stories';
@@ -9,10 +9,7 @@ import { Story } from '@types';
 import { getCountryVariant, Language } from '../../../utils/locales';
 import Custom404 from '../../404';
 import { StoryPhrase, getStoryData } from '../../../components/basecomponents/Story/storyStore';
-import { useSetAtom } from 'jotai';
-import { currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
-import { Platform } from '@types';
-import { useRouter } from 'next/router';
+import { usePlatformDetection } from 'utils/usePlatformDetection';
 
 import withKioskLayout from 'utils/hoc/withKioskLayout';
 interface StoriesProps {
@@ -26,14 +23,8 @@ interface UrlParams extends ParsedUrlQuery {
 
 const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
   const { currentLanguage, otherLanguage } = useLanguage();
-  const setCurrentPlatform = useSetAtom(currentPlatformAtom);
-  const router = useRouter();
 
-  useEffect(() => {
-    if (router.asPath.includes('kiosk')) {
-      setCurrentPlatform(Platform.KIOSK);
-    }
-  }, [router.asPath, setCurrentPlatform]);
+  usePlatformDetection();
 
   if (!story) {
     return 'Story not found';
