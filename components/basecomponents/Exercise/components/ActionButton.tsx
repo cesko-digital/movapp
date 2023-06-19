@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { usePendingStore } from '../pendingStore';
 import { usePlausible } from 'next-plausible';
 import React from 'react';
+import { getCountryVariant } from 'utils/locales';
 
 interface ActionButtonProps extends React.ComponentProps<typeof Button> {
   inactive?: boolean;
@@ -54,7 +55,7 @@ export const ActionButton = forwardRef(
         ref={btnRef}
         buttonStyle="primary"
         onClick={async (e) => {
-          isPlausible && plausible('StartedExerciseEvent', { props: { length_of_exercise: exerciseLength } });
+          isPlausible && plausible('Exercise-Started', { props: { language: getCountryVariant(), length: exerciseLength } });
           if (pending || inactive || globalPending) return;
           if (btnRef.current === null) return;
           setPending(true);
