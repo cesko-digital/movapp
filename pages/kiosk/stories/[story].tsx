@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { useLanguage } from 'utils/useLanguageHook';
 import StoryReader from '../../../components/basecomponents/StoryReader';
 import stories from '../../../data/stories';
@@ -12,6 +12,7 @@ import { StoryPhrase, getStoryData } from '../../../components/basecomponents/St
 import { useSetAtom } from 'jotai';
 import { currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
 import { Platform } from '@types';
+import { useRouter } from 'next/router';
 
 import withKioskLayout from 'utils/hoc/withKioskLayout';
 interface StoriesProps {
@@ -26,6 +27,13 @@ interface UrlParams extends ParsedUrlQuery {
 const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
   const { currentLanguage, otherLanguage } = useLanguage();
   const setCurrentPlatform = useSetAtom(currentPlatformAtom);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.asPath.includes('kiosk')) {
+      setCurrentPlatform(Platform.KIOSK);
+    }
+  }, [router.asPath, setCurrentPlatform]);
 
   if (!story) {
     return 'Story not found';
@@ -37,7 +45,6 @@ const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
 
   const title_current = story.title[currentLanguage] || '';
   const title_other = story.title[otherLanguage] || '';
-  setCurrentPlatform(Platform.KIOSK);
 
   return (
     <>

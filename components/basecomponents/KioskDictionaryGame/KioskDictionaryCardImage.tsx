@@ -11,7 +11,7 @@ import { AudioPlayer } from '../../../utils/AudioPlayer';
 import { useLanguage } from '../../../utils/useLanguageHook';
 import { dictionaryAudioPlayAtom, dictionaryActivePhraseAtom, currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
 
-const PLAY_ACTION_LABEL = 'utils.play';
+const PLAY_ACTION_TRANSLATION_ID = 'utils.play';
 const IMAGE_SIZE = '20vw';
 
 const KioskDictionaryCardImage = ({ phrase, imageUrl, id, isActive }: KioskDictionaryCardImageProps) => {
@@ -41,7 +41,7 @@ const KioskDictionaryCardImage = ({ phrase, imageUrl, id, isActive }: KioskDicti
   const onClick = platform === Platform.KIOSK ? onClickKioskImage : onClickDefaultImage;
 
   return (
-    <button className={className} onClick={onClick} aria-label={`${t(PLAY_ACTION_LABEL)} ${otherLanguage}`}>
+    <button className={className} onClick={onClick} aria-label={`${t(PLAY_ACTION_TRANSLATION_ID)} ${otherLanguage}`}>
       <Image id={id} src={imageUrl ?? ''} layout="fill" sizes={IMAGE_SIZE} alt={phrase.getTranslation(otherLanguage)} />
     </button>
   );

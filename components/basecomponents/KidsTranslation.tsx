@@ -12,7 +12,7 @@ import { Platform, KidsTranslationProps } from '@types';
 import { useAtom, useAtomValue } from 'jotai';
 import { dictionaryAudioPlayAtom, dictionaryActivePhraseAtom, currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
 
-const PLAY_ACTION_LABEL = 'utils.play';
+const PLAY_ACTION_TRANSLATION_ID = 'utils.play';
 const KIOSK_BG_COLOR_UK = '#FFF7D5';
 const KIOSK_BG_COLOR_OTHER = '#FFE1DE';
 
@@ -51,7 +51,7 @@ export const KidsTranslation = ({
           <p className="self-start w-full font-semibold">{translation}</p>
           <p className="text-gray-500">{`[\u00A0${transcription}\u00A0]`}</p>
         </div>
-        <button onClick={handleClick} aria-label={`${t(PLAY_ACTION_LABEL)} ${translation}`}>
+        <button onClick={handleClick} aria-label={`${t(PLAY_ACTION_TRANSLATION_ID)} ${translation}`}>
           <PlayKidsIcon
             className={`cursor-pointer active:scale-75 transition-all duration-300 w-14 ${styles.playIcon} ${
               activePhrase === translation && audioPlaying ? styles.pulse : ''
@@ -67,7 +67,7 @@ export const KidsTranslation = ({
       isActive ? 'flex-row w-full justify-center items-center h-[122px]' : 'flex-col justify-between items-center py-5 w-1/2'
     }`;
     return (
-      <div className={playButtonClasses} onClick={handleClick} aria-label={`${t(PLAY_ACTION_LABEL)} ${translation}`}>
+      <div className={playButtonClasses} onClick={handleClick} aria-label={`${t(PLAY_ACTION_TRANSLATION_ID)} ${translation}`}>
         <div className="flex items-center mb-2 z-50">
           <Flag language={language} width={50} height={50} className={'mr-3'} />
         </div>

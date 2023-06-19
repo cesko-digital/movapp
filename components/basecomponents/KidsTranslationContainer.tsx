@@ -12,8 +12,8 @@ import { currentPlatformAtom, dictionaryAudioPlayAtom, dictionaryActivePhraseAto
 import { Language, LanguageEnum } from 'utils/locales';
 
 const ACTIVE_STYLE = {
-  [LanguageEnum.CZECH]: 'czech-sound !bg-kiosk-red',
-  [LanguageEnum.UKRAINIAN]: 'ukraine-sound !bg-kiosk-yellow',
+  [LanguageEnum.CZECH]: 'shadow-czech transform rotate-[-5deg] !bg-kiosk-red',
+  [LanguageEnum.UKRAINIAN]: 'shadow-ukraine transform rotate-[5deg] !bg-kiosk-yellow',
 };
 
 const KidsTranslationsContainer = ({ phrase, imageUrl, id }: KidsTranslationContainerProps): JSX.Element => {

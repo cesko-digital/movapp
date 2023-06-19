@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { DictionaryDataObject, fetchDictionary } from 'utils/getDataUtils';
-export const useFetchDictionary = () => {
+export const useDictionary = () => {
   const [dictionary, setDictionary] = useState<DictionaryDataObject | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<unknown>(null);

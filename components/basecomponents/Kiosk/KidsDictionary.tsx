@@ -4,11 +4,11 @@ import { useMemo } from 'react';
 import KidsDictionaryList from '../KidsDictionaryList';
 
 /** Hooks, Types, Utils */
-import { useFetchDictionary } from 'components/hooks/useFetchDictionary';
+import { useDictionary } from 'components/hooks/useDictionary';
 import { getKidsCategory } from 'utils/getDataUtils';
 
 const KidsDictionary = () => {
-  const { dictionary, isLoading, error } = useFetchDictionary();
+  const { dictionary, isLoading, error } = useDictionary();
 
   const kidsCategory = useMemo(() => {
     if (!dictionary) {
@@ -18,7 +18,7 @@ const KidsDictionary = () => {
   }, [dictionary]);
 
   if (isLoading) {
-    return <div>Nacitavam data...</div>;
+    return <div>Loading...</div>;
   }
 
   if (error) {

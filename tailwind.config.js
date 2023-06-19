@@ -11,6 +11,8 @@ module.exports = {
         xxl: ' 0px 8px 8px -4px rgba(16, 24, 40, 0.04), 0px 24px 48px -12px rgba(16, 24, 40, 0.25)',
         xxxl: '0px 8px 8px -4px rgba(16, 24, 40, 0.04), 0px 24px 48px -12px rgba(16, 24, 40, 0.25)',
         around: '5px 5px 12px rgba(16, 24, 40, 0.25)',
+        czech: '0px 0px 32px 6px #f4768d;',
+        ukraine: '0px 0px 32px 6px #ffd500',
       },
       colors: {
         'primary-blue': '#013ABD',

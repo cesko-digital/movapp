@@ -82,16 +82,6 @@ h2 {
   background: #295f95;
 }
 
-.czech-sound {
-  box-shadow: 0px 0px 32px 6px #f4768d;
-  transform: rotate(-5deg);
-}
-.ukraine-sound {
-  box-shadow: 0px 0px 32px 6px #ffd500;
-  transform: rotate(5deg);
-  transition: all 100ms ease-in-out;
-}
-
 .card-overlay.uk {
   background: rgba(255, 247, 212, 0.5);
 }
