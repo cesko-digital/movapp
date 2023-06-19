@@ -10,9 +10,9 @@ import { greatPhraseFilter } from './utils/phraseFilters';
 /* eslint-disable no-console */
 
 interface ExerciseLength {
+  language: Language;
   length: number;
   correct: number;
-  language: Language;
 }
 
 type Plausible = (eventName: string, props: { props: ExerciseLength }) => void;
@@ -131,7 +131,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       });
       const numberOfCorrectAnswers = correctAnswers.length;
       plausible('Exercise-Finished', {
-        props: { length: get().size, correct: numberOfCorrectAnswers, language: getCountryVariant() },
+        props: { language: getCountryVariant(), length: get().size, correct: numberOfCorrectAnswers },
       });
       set({ status: ExerciseStoreStatus.completed });
       return;
