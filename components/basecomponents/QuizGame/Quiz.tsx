@@ -13,6 +13,7 @@ import phrases_PL from 'components/basecomponents/MemoryGame/memory-game-pl.json
 import phrases_SK from 'components/basecomponents/MemoryGame/memory-game-sk.json';
 import { getCountryVariant } from 'utils/locales';
 import { Phrase_deprecated } from 'utils/Phrase_deprecated';
+import Confetti from './ConfetiAnimation';
 
 type QuizProps = {
   dictionary: DictionaryDataObject;
@@ -38,6 +39,7 @@ const Quiz: FC<QuizProps> = ({ dictionary }) => {
   const [correctIndex, setCorrectIndex] = useState(getRandomIndex);
   const { currentLanguage, otherLanguage } = useLanguage();
   const [disabled, setDisabled] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
     // force the state to only be set on the client-side, so no mismatches will occur.
@@ -53,6 +55,10 @@ const Quiz: FC<QuizProps> = ({ dictionary }) => {
   }, [correctIndex, playPhrase, randomPhrases]);
 
   const playSounds = async (phrase: Phrase, key: 'good' | 'wrong', sound: Sound.Match | Sound.DontMatch) => {
+    if (key === 'good') {
+      // Show confetti animation when the answer is correct
+      setShowConfetti(true);
+    }
     const narrationPhrase = narrationPhrases[key][getRandomIndex(narrationPhrases[key].length)];
     const player: AudioPlayer = AudioPlayer.getInstance();
     await player.playSrc(sound);
@@ -70,6 +76,7 @@ const Quiz: FC<QuizProps> = ({ dictionary }) => {
       await playSounds(phrase, 'wrong', Sound.DontMatch);
     }
     setDisabled(false);
+    setShowConfetti(false);
   };
 
   if (!randomPhrases?.[correctIndex]) {
@@ -99,6 +106,11 @@ const Quiz: FC<QuizProps> = ({ dictionary }) => {
           );
         })}
       </div>
+      {showConfetti && (
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <Confetti />
+        </div>
+      )}
     </div>
   );
 };

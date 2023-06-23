@@ -11,6 +11,7 @@ interface ImageContainerProps {
   correct: boolean;
   disabled: boolean;
 }
+
 const ImageContainer = ({ phrase, onClick, correct, disabled }: ImageContainerProps): JSX.Element => {
   const { otherLanguage } = useLanguage();
   const [className, setClassName] = useState('');
@@ -19,17 +20,16 @@ const ImageContainer = ({ phrase, onClick, correct, disabled }: ImageContainerPr
     <div
       className={`aspect-square w-full rounded-2xl overflow-hidden shadow-xl bg-white ${className}`}
       onClick={
-        !disabled
-          ? () => {
+        disabled
+          ? undefined
+          : () => {
               setClassName(correct ? styles.match : styles.dontMatch);
               onClick(phrase, correct);
             }
-          : undefined
       }
       onAnimationEnd={() => setClassName('')}
     >
       <button className={'w-full h-full relative'}>
-        {className === styles.match ? <Image src={'/images/126406-confetti.gif'} alt="" width={400} height={400} /> : null}
         <Image src={phrase.getImageUrl() ?? ''} layout="fill" sizes="33vw" objectFit="cover" alt={phrase.getTranslation(otherLanguage)} />
       </button>
     </div>
