@@ -16,6 +16,7 @@ const KioskHome: NextPage = () => {
         <GameTile name="Slovíčka" image="slovicka.png" title={t('header.forkids_words')} />
         <GameTile name="Pexeso" image="pexeso.png" title={t('header.forkids_memorygame')} />
         <GameTile name="Stories" image="pohadky.png" title={t('header.forkids_stories')} />
+        <GameTile name="Quiz" image="kviz.png" title={t('header.forkids_imagequiz')} />
       </div>
     </div>
   );
@@ -32,9 +33,3 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 };
 
 export default KioskHome;
-
-/* 
-Not implemented yet:
-        <GameTile name="Stories" image="pohadky.png" />
-        <GameTile name="Obrazkovy kviz" image="kviz.png" />
-        */
