@@ -22,7 +22,7 @@ const withKioskLayout = (Component: any) => {
         >
           <Image src="/images/kiosk/arrow-back.svg" width={60} height={120} alt="Back" />
         </button>
-        <div className="movapp-kiosk-scrollbar grow h-screen overflow-scroll">
+        <div className="movapp-kiosk-scrollbar grow h-screen overflow-x-scroll">
           <div className="flex justify-center mb-10">
             <Component {...props} />
           </div>

@@ -7,7 +7,6 @@ import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { DictionaryDataObject, fetchDictionary, getKidsCategory } from '../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../utils/localization';
-import { normalizeForId } from 'utils/textNormalizationUtils';
 import { useLanguage } from '../../utils/useLanguageHook';
 
 import KidsDictionaryList from 'components/basecomponents/KidsDictionaryList';
