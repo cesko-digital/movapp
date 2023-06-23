@@ -14,6 +14,8 @@ import phrases_SK from 'components/basecomponents/MemoryGame/memory-game-sk.json
 import { getCountryVariant } from 'utils/locales';
 import { Phrase_deprecated } from 'utils/Phrase_deprecated';
 import Confetti from './ConfetiAnimation';
+import { useAtomValue } from 'jotai';
+import { currentPlatformIsKiosk } from 'components/basecomponents/Kiosk/atoms';
 
 type QuizProps = {
   dictionary: DictionaryDataObject;
@@ -40,6 +42,7 @@ const Quiz: FC<QuizProps> = ({ dictionary }) => {
   const { currentLanguage, otherLanguage } = useLanguage();
   const [disabled, setDisabled] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const isKiosk = useAtomValue<boolean>(currentPlatformIsKiosk);
 
   useEffect(() => {
     // force the state to only be set on the client-side, so no mismatches will occur.
@@ -106,7 +109,7 @@ const Quiz: FC<QuizProps> = ({ dictionary }) => {
           );
         })}
       </div>
-      {showConfetti && (
+      {showConfetti && isKiosk && (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
           <Confetti />
         </div>
