@@ -10,9 +10,8 @@ import { useStoryReader } from 'components/hooks/useStoryReader';
 import { Trans } from 'next-i18next';
 import { StoryPhrase } from './Story/storyStore';
 
-import { useAtomValue } from 'jotai';
-import { currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
 import { Platform } from '@types';
+import { usePlatform } from 'utils/usePlatform';
 
 interface StoryReaderProps {
   titleCurrent: string;
@@ -24,7 +23,7 @@ interface StoryReaderProps {
 
 const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps): JSX.Element => {
   const { currentLanguage } = useLanguage();
-  const currentPlatform = useAtomValue(currentPlatformAtom);
+  const currentPlatform = usePlatform();
 
   const { audio, languagePlay, setLanguagePlay, setSeekValue, seekValue, stopStory, isPlaying, pauseStory, playStory, time, playPhrase } =
     useStoryReader(id);

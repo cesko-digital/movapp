@@ -9,7 +9,6 @@ import { Story } from '@types';
 import { getCountryVariant, Language } from '../../../utils/locales';
 import Custom404 from '../../404';
 import { StoryPhrase, getStoryData } from '../../../components/basecomponents/Story/storyStore';
-import { usePlatformDetection } from 'utils/usePlatformDetection';
 
 import withKioskLayout from 'utils/hoc/withKioskLayout';
 interface StoriesProps {
@@ -23,8 +22,6 @@ interface UrlParams extends ParsedUrlQuery {
 
 const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
   const { currentLanguage, otherLanguage } = useLanguage();
-
-  usePlatformDetection();
 
   if (!story) {
     return 'Story not found';

@@ -21,7 +21,6 @@ import { getServerSideTranslations } from 'utils/localization';
 
 /** Data */
 import { GAMES, Game as GameType } from 'data/kiosk-games';
-import { usePlatformDetection } from 'utils/usePlatformDetection';
 import Quiz from 'components/basecomponents/QuizGame/Quiz';
 
 interface GamePageParams extends ParsedUrlQuery {
@@ -35,8 +34,6 @@ interface GameProps {
 }
 
 const Game = ({ gameName, stories, dictionary }: GameProps) => {
-  usePlatformDetection();
-
   switch (gameName) {
     case 'pexeso':
       return <MemoryGame />;

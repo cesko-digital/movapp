@@ -9,8 +9,9 @@ import KioskDictionaryCardImage from './KioskDictionaryGame/KioskDictionaryCardI
 import { useLanguage } from 'utils/useLanguageHook';
 import { Phrase } from 'utils/getDataUtils';
 import { Platform } from '@types';
-import { currentPlatformAtom, dictionaryAudioPlayAtom, dictionaryActivePhraseAtom } from './Kiosk/atoms';
+import { dictionaryAudioPlayAtom, dictionaryActivePhraseAtom } from './Kiosk/atoms';
 import { Language } from 'utils/locales';
+import { usePlatform } from 'utils/usePlatform';
 
 export type KidsTranslationContainerProps = {
   phrase: Phrase;
@@ -22,7 +23,7 @@ export type KidsTranslationContainerProps = {
 const KidsTranslationsContainer = ({ phrase, imageUrl, id }: KidsTranslationContainerProps): JSX.Element => {
   const { currentLanguage, otherLanguage } = useLanguage();
 
-  const renderFor = useAtomValue<Platform>(currentPlatformAtom);
+  const renderFor = usePlatform();
   const isPlaying = useAtomValue(dictionaryAudioPlayAtom);
   const activePhrase = useAtomValue(dictionaryActivePhraseAtom);
 

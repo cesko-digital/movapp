@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { useAtomValue } from 'jotai';
 
 import { CountryVariant, getCountryVariant } from 'utils/locales';
 
@@ -9,8 +8,8 @@ import { CountryVariant, getCountryVariant } from 'utils/locales';
 import StoryCard from './StoryCard';
 
 import { useLanguage } from 'utils/useLanguageHook';
-import { currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
 import { Platform, Story } from '@types';
+import { usePlatform } from 'utils/usePlatform';
 
 type StoriesListProps = {
   stories: Story[];
@@ -20,7 +19,7 @@ const StoriesList = ({ stories }: StoriesListProps) => {
   const { currentLanguage } = useLanguage();
   const countryVariant: CountryVariant = getCountryVariant();
 
-  const currentPlatform = useAtomValue(currentPlatformAtom);
+  const currentPlatform = usePlatform();
 
   // We support only stories if there is title translated to current language
   const filteredStories = stories.filter((story) => story.title[countryVariant]);

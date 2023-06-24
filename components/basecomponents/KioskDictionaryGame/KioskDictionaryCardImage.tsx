@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useAtom, useAtomValue, useSetAtom } from 'jotai';
+import { useAtom, useSetAtom } from 'jotai';
 import { useTranslation } from 'next-i18next';
 
 /** Components */
@@ -10,7 +10,8 @@ import { Platform } from '@types';
 import { Phrase } from 'utils/getDataUtils';
 import { AudioPlayer } from '../../../utils/AudioPlayer';
 import { useLanguage } from '../../../utils/useLanguageHook';
-import { dictionaryAudioPlayAtom, dictionaryActivePhraseAtom, currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
+import { dictionaryAudioPlayAtom, dictionaryActivePhraseAtom } from 'components/basecomponents/Kiosk/atoms';
+import { usePlatform } from 'utils/usePlatform';
 
 const PLAY_ACTION_TRANSLATION_ID = 'utils.play';
 const IMAGE_SIZE = '20vw';
@@ -25,7 +26,7 @@ type KioskDictionaryCardImageProps = {
 const KioskDictionaryCardImage = ({ phrase, imageUrl, id, isActive }: KioskDictionaryCardImageProps) => {
   const { otherLanguage } = useLanguage();
   const { t } = useTranslation();
-  const platform = useAtomValue<Platform>(currentPlatformAtom);
+  const platform = usePlatform();
 
   const [isPlaying, setIsPlaying] = useAtom(dictionaryAudioPlayAtom);
   const setActivePhrase = useSetAtom(dictionaryActivePhraseAtom);

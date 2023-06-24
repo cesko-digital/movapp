@@ -10,9 +10,9 @@ import { AudioPlayer } from 'utils/AudioPlayer';
 import styles from './KidsTranslation.module.css';
 import { Platform } from '@types';
 import { Language } from 'utils/locales';
-import { useAtom, useAtomValue } from 'jotai';
-import { dictionaryAudioPlayAtom, dictionaryActivePhraseAtom, currentPlatformAtom } from 'components/basecomponents/Kiosk/atoms';
-
+import { useAtom } from 'jotai';
+import { dictionaryAudioPlayAtom, dictionaryActivePhraseAtom } from 'components/basecomponents/Kiosk/atoms';
+import { usePlatform } from 'utils/usePlatform';
 const PLAY_ACTION_TRANSLATION_ID = 'utils.play';
 const KIOSK_BG_COLOR_UK = '#FFF7D5';
 const KIOSK_BG_COLOR_OTHER = '#FFE1DE';
@@ -36,7 +36,7 @@ export const KidsTranslation = ({
 }: KidsTranslationProps): JSX.Element => {
   const [audioPlaying, setIsPlaying] = useAtom(dictionaryAudioPlayAtom);
   const [activePhrase, setActivePhrase] = useAtom(dictionaryActivePhraseAtom);
-  const renderFor = useAtomValue<Platform>(currentPlatformAtom);
+  const renderFor = usePlatform();
 
   const { t } = useTranslation();
   const handleClick = useCallback(async () => {
