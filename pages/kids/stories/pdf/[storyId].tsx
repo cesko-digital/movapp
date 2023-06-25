@@ -7,7 +7,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import stories from '../../../../data/stories';
 import { ParsedUrlQuery } from 'querystring';
 import PdfHeader from '../../../../components/basecomponents/PdfComponents/PdfHeader';
-import { Story } from '../index';
+import { Story } from '@types';
 import { StoryPhrase, getStoryData } from '../../../../components/basecomponents/Story/storyStore';
 import { useLanguage } from 'utils/useLanguageHook';
 
@@ -107,7 +107,7 @@ export const getStaticPaths: GetStaticPaths<UrlParams> = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<StoriesProps, UrlParams> = async ({ params, locale }) => {
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const storyId = params?.storyId ?? '';
   const story = stories.find((s) => s.slug === storyId);
 
