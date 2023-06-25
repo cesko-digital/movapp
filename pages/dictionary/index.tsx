@@ -17,6 +17,7 @@ import { getServerSideTranslations } from '../../utils/localization';
 import { TextLink } from '../../components/Typography';
 import { AiOutlineFilePdf } from 'react-icons/ai';
 import { getCategoryName, getCategoryId, getCategoryUkId } from '../../components/sections/Dictionary/dictionaryUtils';
+import { usePlausible } from 'next-plausible';
 
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
@@ -26,6 +27,7 @@ const ExportTranslations = dynamic(() => import('../../components/sections/Expor
 const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const categories = useMemo(() => getCategories(dictionary), [dictionary]);
   const allTranslations = useMemo(() => getAllPhrases(dictionary), [dictionary]);
+  const plausible = usePlausible();
 
   const [search, setSearch] = useState('');
   const [isSticky, setIsSticky] = useState(false);
@@ -147,6 +149,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                         href={{ pathname: `/exercise/${category.id}`, query: { quickStart: true } }}
                         target="_blank"
                         className="ml-3 inline-flex gap-x-1 items-center"
+                        onClick={() => plausible('Exercise-Started', { props: { language: currentLanguage, length: 10 } })}
                         locale={getCountryVariant()}
                       >
                         <AiOutlineFilePdf className="w-5 h-5" />
