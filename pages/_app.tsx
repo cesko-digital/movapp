@@ -18,6 +18,7 @@ import Head from 'next/head';
 import PlausibleProvider from 'next-plausible';
 import { CountryVariant, getCountryVariant } from '../utils/locales';
 
+import KioskLayout from './kiosk/KioskLayout';
 export const PLAUSIBLE_DOMAINS: Record<CountryVariant, string> = {
   cs: 'movapp.cz, all.movapp.eu',
   sk: 'sk.movapp.eu, all.movapp.eu',
@@ -27,6 +28,25 @@ export const PLAUSIBLE_DOMAINS: Record<CountryVariant, string> = {
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const { locales, asPath } = useRouter();
   const router = useRouter();
+
+  const wrapComponentWithLayout = () => {
+    if (router.asPath.includes('pdf')) {
+      return <Component {...pageProps} />;
+    } else if (router.asPath.includes('kiosk')) {
+      return (
+        <KioskLayout>
+          <Component {...pageProps} />
+        </KioskLayout>
+      );
+    } else {
+      return (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      );
+    }
+  };
+
   return (
     <PlausibleProvider domain={PLAUSIBLE_DOMAINS[getCountryVariant()]}>
       <Head>
@@ -36,13 +56,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           return <link key={index} rel="alternate" hrefLang={locale} href={`https://www.movapp.cz/${locale}${asPath}`} />;
         })}
       </Head>
-      {router.asPath.includes('pdf') ? (
-        <Component {...pageProps} />
-      ) : (
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      )}
+      {wrapComponentWithLayout()}
     </PlausibleProvider>
   );
 };

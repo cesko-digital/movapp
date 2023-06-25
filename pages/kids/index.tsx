@@ -1,16 +1,15 @@
 import { useTranslation } from 'next-i18next';
 import React, { useMemo } from 'react';
 import { Button } from '../../components/basecomponents/Button';
-import { KidsTranslationsContainer } from '../../components/basecomponents/KidsTranslationContainer';
 import { TranslationJSON } from 'utils/Phrase_deprecated';
 import SEO from 'components/basecomponents/SEO';
 import { getCountryVariant } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { DictionaryDataObject, fetchDictionary, getKidsCategory } from '../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../utils/localization';
-import { normalizeForId } from 'utils/textNormalizationUtils';
 import { useLanguage } from '../../utils/useLanguageHook';
 
+import KidsDictionaryList from 'components/basecomponents/KidsDictionaryList';
 export type KidsTranslation = TranslationJSON & { image: string };
 
 const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -33,16 +32,7 @@ const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticPro
         </a>
       </div>
       <div className="flex flex-wrap justify-center min-h-screen m-auto sm:py-10 px-2 sm:px-4">
-        {kidsCategory?.translations.map((phrase) => {
-          return (
-            <KidsTranslationsContainer
-              key={phrase.getTranslation('uk')}
-              id={normalizeForId(phrase.getTranslation(getCountryVariant()))}
-              imageUrl={phrase.getImageUrl()}
-              phrase={phrase}
-            />
-          );
-        })}
+        <KidsDictionaryList kidsCategory={kidsCategory} />
       </div>
     </div>
   );

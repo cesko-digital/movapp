@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}', './utils/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       boxShadow: {
@@ -11,6 +11,8 @@ module.exports = {
         xxl: ' 0px 8px 8px -4px rgba(16, 24, 40, 0.04), 0px 24px 48px -12px rgba(16, 24, 40, 0.25)',
         xxxl: '0px 8px 8px -4px rgba(16, 24, 40, 0.04), 0px 24px 48px -12px rgba(16, 24, 40, 0.25)',
         around: '5px 5px 12px rgba(16, 24, 40, 0.25)',
+        czech: '0px 0px 32px 6px #f4768d;',
+        ukraine: '0px 0px 32px 6px #ffd500',
       },
       colors: {
         'primary-blue': '#013ABD',
@@ -19,6 +21,8 @@ module.exports = {
         'primary-grey': '#F5F5F5',
         'primary-black': '#2D2D2D',
         'primary-green': '#91FF00',
+        'kiosk-yellow': '#FFF7D4',
+        'kiosk-red': '#FFE1DE',
         'primary-light-blue': '#64A5DA',
       },
       borderWidth: {

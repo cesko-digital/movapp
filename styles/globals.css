@@ -58,3 +58,33 @@ h2 {
 .button-shadow {
   box-shadow: 3px 3px 6px 0px #0000003d;
 }
+
+/* Custom Scrollbar */
+.movapp-kiosk-scrollbar::-webkit-scrollbar {
+  width: 30px;
+}
+
+/* Track */
+.movapp-kiosk-scrollbar::-webkit-scrollbar-track {
+  background: #b9dcff;
+  border-radius: 50px;
+}
+
+/* Handle */
+.movapp-kiosk-scrollbar::-webkit-scrollbar-thumb {
+  background: #295f95;
+  border-radius: 50px;
+  height: 150px;
+}
+
+/* Handle on hover */
+.movapp-kiosk-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #295f95;
+}
+
+.card-overlay.uk {
+  background: rgba(255, 247, 212, 0.5);
+}
+.card-overlay.cz {
+  background: rgba(255, 225, 222, 0.5);
+}

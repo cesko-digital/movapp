@@ -1,53 +1,96 @@
 import React from 'react';
-import Image from 'next/legacy/image';
-import { KidsTranslation } from './KidsTranslation';
-import { useLanguage } from 'utils/useLanguageHook';
-import { AudioPlayer } from 'utils/AudioPlayer';
-import { useTranslation } from 'next-i18next';
-import { Phrase } from '../../utils/getDataUtils';
+import { useAtomValue } from 'jotai';
 
-interface KidsTranslationContainerProps {
+/** Components */
+import { KidsTranslation } from './KidsTranslation';
+import KioskDictionaryCardImage from './KioskDictionaryGame/KioskDictionaryCardImage';
+
+/** Hooks, Types, Utils, etc. */
+import { useLanguage } from 'utils/useLanguageHook';
+import { Phrase } from 'utils/getDataUtils';
+import { Platform } from '@types';
+import { dictionaryAudioPlayAtom, dictionaryActivePhraseAtom } from './Kiosk/atoms';
+import { Language } from 'utils/locales';
+import { usePlatform } from 'utils/usePlatform';
+
+export type KidsTranslationContainerProps = {
   phrase: Phrase;
   imageUrl: string | null;
   id?: string;
   searchText?: string;
-}
+};
 
-/**
- *  Displays list of translations in opened collapse component
- *
- * @returns
- */
-export const KidsTranslationsContainer = ({ phrase, imageUrl, id }: KidsTranslationContainerProps): JSX.Element => {
+const KidsTranslationsContainer = ({ phrase, imageUrl, id }: KidsTranslationContainerProps): JSX.Element => {
   const { currentLanguage, otherLanguage } = useLanguage();
-  const { t } = useTranslation();
 
-  const currentTranslation = phrase.getTranslation(currentLanguage);
-  const otherTranslation = phrase.getTranslation(otherLanguage);
+  const renderFor = usePlatform();
+  const isPlaying = useAtomValue(dictionaryAudioPlayAtom);
+  const activePhrase = useAtomValue(dictionaryActivePhraseAtom);
+
+  const ACTIVE_STYLE = {
+    [currentLanguage]: 'shadow-czech transform rotate-[-5deg] !bg-kiosk-red',
+    [otherLanguage]: 'shadow-ukraine transform rotate-[5deg] !bg-kiosk-yellow',
+  };
+
+  const isActiveLanguage = (language: Language) =>
+    isPlaying && activePhrase === phrase.getTranslation(language) && renderFor === Platform.KIOSK;
+
+  const isActive = {
+    [currentLanguage]: isActiveLanguage(currentLanguage),
+    [otherLanguage]: isActiveLanguage(otherLanguage),
+  };
+
+  const cardClasses = [
+    'max-w-sm',
+    'rounded-2xl',
+    'overflow-hidden',
+    'shadow-xl',
+    'm-5',
+    'md:m-8',
+    'bg-[#f7e06a]',
+    renderFor === Platform.KIOSK ? 'w-[400px]' : 'w-72 max-h-[34rem]',
+    isActive[currentLanguage] ? ACTIVE_STYLE[currentLanguage] : '',
+    isActive[otherLanguage] ? ACTIVE_STYLE[otherLanguage] : '',
+  ].join(' ');
+
+  const renderKidsTranslation = (language: Language, isActive: boolean) => (
+    <KidsTranslation
+      language={language}
+      transcription={phrase.getTranscription(language)}
+      translation={phrase.getTranslation(language)}
+      soundUrl={phrase.getSoundUrl(language)}
+      isActive={isActive}
+    />
+  );
 
   return (
-    <div className="max-w-sm rounded-2xl overflow-hidden shadow-xl w-72 m-5 md:m-8 bg-[#f7e06a] max-h-[34rem]">
-      <button
-        className="w-72 h-72 relative bg-white"
-        onClick={() => AudioPlayer.getInstance().playSrc(phrase.getSoundUrl(otherLanguage))}
-        aria-label={t('utils.play') + ' ' + otherTranslation}
-      >
-        <Image id={id} src={imageUrl ?? ''} layout="fill" sizes="20vw" objectFit="cover" alt={phrase.getTranslation(otherLanguage)} />
-      </button>
-      <div className="px-6 py-4">
-        <KidsTranslation
-          language={currentLanguage}
-          transcription={phrase.getTranscription(currentLanguage)}
-          translation={currentTranslation}
-          soundUrl={phrase.getSoundUrl(currentLanguage)}
+    <div className={cardClasses} style={{ position: 'relative' }}>
+      {(isActive[currentLanguage] || isActive[otherLanguage]) && (
+        <div
+          className={`absolute top-0 bottom-0 left-0 right-0 z-10 ${isActive[currentLanguage] ? currentLanguage : ''} ${
+            isActive[otherLanguage] ? otherLanguage : ''
+          }`}
         />
-        <KidsTranslation
-          language={otherLanguage}
-          transcription={phrase.getTranscription(otherLanguage)}
-          translation={otherTranslation}
-          soundUrl={phrase.getSoundUrl(otherLanguage)}
-        />
+      )}
+      <KioskDictionaryCardImage
+        phrase={phrase}
+        imageUrl={imageUrl}
+        id={id}
+        isActive={isActive[currentLanguage] || isActive[otherLanguage]}
+      />
+      <div className={renderFor === Platform.KIOSK ? 'flex flex-row justify-between' : 'px-6 py-4'}>
+        {isActive[currentLanguage] && renderKidsTranslation(currentLanguage, true)}
+        {isActive[otherLanguage] && renderKidsTranslation(otherLanguage, true)}
+        {!isActive[currentLanguage] && !isActive[otherLanguage] && (
+          <>
+            {/* Not playing any sound, show both buttons */}
+            {renderKidsTranslation(currentLanguage, false)}
+            {renderKidsTranslation(otherLanguage, false)}
+          </>
+        )}
       </div>
     </div>
   );
 };
+
+export default KidsTranslationsContainer;
