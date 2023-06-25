@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { usePendingStore } from '../pendingStore';
 import { usePlausible } from 'next-plausible';
 import React from 'react';
-import { getCountryVariant } from 'utils/locales';
 
 interface ActionButtonProps extends React.ComponentProps<typeof Button> {
   inactive?: boolean;

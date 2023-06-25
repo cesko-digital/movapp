@@ -114,7 +114,7 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-stretch justify-items-stretch py-10">
             <ActionButton
               onClickAsync={() => {
-                plausible('Exercise-Started', { props: { language: lang, length: size } });
+                plausible('Exercise-Started', { props: { language: lang.currentLanguage, length: size } });
                 restart();
               }}
             >
