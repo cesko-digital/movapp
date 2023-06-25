@@ -130,6 +130,7 @@ const generateTalesPDFs = async (country: CountryVariant) => {
     'dvanact-mesicku',
     'cervena-karkulka',
     'velika-repa',
+    'tri-prasatka',
     'kolobok',
     'husy-lebedi',
     'ivasik-telesik',
