@@ -115,7 +115,7 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
             <ActionButton
               onClickAsync={() => {
                 plausible('Exercise-Started', { props: { language: lang, length: size } });
-                restart;
+                restart();
               }}
             >
               {t('exercise_page.restart') || ''}

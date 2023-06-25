@@ -149,11 +149,16 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                         href={{ pathname: `/exercise/${category.id}`, query: { quickStart: true } }}
                         target="_blank"
                         className="ml-3 inline-flex gap-x-1 items-center"
-                        onClick={() => plausible('Exercise-Started', { props: { language: currentLanguage, length: 10 } })}
                         locale={getCountryVariant()}
                       >
                         <AiOutlineFilePdf className="w-5 h-5" />
-                        {t('header.exercises_link_name')}
+                        <p
+                          onClick={() => {
+                            plausible('Exercise-Started', { props: { language: currentLanguage, length: 10 } });
+                          }}
+                        >
+                          {t('header.exercises_link_name')}
+                        </p>
                       </TextLink>
                     </div>
                     <CategoryDictionary searchText={search} translations={category.translations} />
