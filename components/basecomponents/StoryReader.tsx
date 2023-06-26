@@ -31,6 +31,12 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
   const handleLanguageChange = (language: Language) => {
     const ukCurrent = language === 'uk';
     const currentTime = audio.current?.currentTime || 0;
+
+    if (phrases.length === 0) {
+      console.log('No phrases provided to StoryReader.');
+      return;
+    }
+
     if ((ukCurrent && currentTime < phrases[0].start_uk) || (!ukCurrent && currentTime < phrases[0].start_cs)) {
       /*if this function is launched before the first phrase starts, which is usually at about fifteenth second, we want to
       play the story from the beginning, and that is why we use this condition */
