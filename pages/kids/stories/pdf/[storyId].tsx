@@ -110,6 +110,7 @@ export const getStaticPaths: GetStaticPaths<UrlParams> = async () => {
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const storyId = params?.storyId ?? '';
   const story = stories.find((s) => s.slug === storyId);
+  const storyLocale = getCountryVariant();
 
   if (!story) {
     return {
@@ -119,7 +120,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
 
   let storyData: StoryPhrase[] = [];
   try {
-    storyData = await getStoryData((locale as Language) ?? 'cs', story.slug);
+    storyData = await getStoryData(storyLocale ?? 'cs', String(story?.slug));
   } catch (err) {
     console.error(err);
   }
