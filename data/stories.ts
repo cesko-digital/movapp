@@ -1,3 +1,4 @@
+// If you add new story here, do not forget to add slug also to storyStore.ts and to exportPdfs.ts
 const stories = [
   {
     title: { cs: 'O perníkové chaloupce', uk: 'Прянична хатинка' },
@@ -21,6 +22,12 @@ const stories = [
     title: { cs: 'O veliké řepě', uk: 'Про велику ріпку' },
     slug: 'velika-repa',
     duration: '3 min',
+    country: 'CZ',
+  },
+  {
+    title: { cs: 'O třech prasátkách', uk: 'Троє поросят' },
+    slug: 'tri-prasatka',
+    duration: '4 min',
     country: 'CZ',
   },
   {

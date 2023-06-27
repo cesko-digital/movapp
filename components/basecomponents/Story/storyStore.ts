@@ -16,6 +16,7 @@ const STORY_SLUGS = [
   'dvanact-mesicku',
   'cervena-karkulka',
   'velika-repa',
+  'tri-prasatka',
   'kolobok',
   'husy-lebedi',
   'ivasik-telesik',
