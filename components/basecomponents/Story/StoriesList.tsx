@@ -30,7 +30,9 @@ const StoriesList = ({ stories }: StoriesListProps) => {
 
   const renderStoryPanel = (story: Story) => (
     <div className="h-42 m-auto my-8 flex bg-slate-50 rounded-2xl sm:w-3/5 xl:w-2/5 xxl:w-1/3" key={story.slug}>
-      <Image src={`/kids/${story.slug}.jpg`} width="300" className="rounded-l-2xl" height="200" alt={story.title[currentLanguage]} />
+      <div className="relative w-[105px] lg:h-[200px] lg:w-[300px]">
+        <Image src={`/kids/${story.slug}.jpg`} fill className="rounded-l-2xl" alt={story.title[currentLanguage]} />
+      </div>
       <div className="flex items-center xl:ml-6 w-full">
         <div className="w-3/5">
           <p className="my-4 mx-4 md:mx-8 text-sm lg:text-xl ">{story.title[currentLanguage]}</p>
