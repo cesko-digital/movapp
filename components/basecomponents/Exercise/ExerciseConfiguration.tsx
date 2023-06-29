@@ -6,6 +6,7 @@ import { ActionButton } from './components/ActionButton';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../../../utils/useLanguageHook';
 import { CONFIG_BASE } from './exerciseStoreConfig';
+import { usePlausible } from 'next-plausible';
 
 const removeDuplicates = (array: string[]) => {
   return [...new Set(array)];
@@ -20,6 +21,7 @@ const removeDuplicates = (array: string[]) => {
  */
 const ExerciseConfiguration: FunctionComponent = () => {
   const { currentLanguage } = useLanguage();
+  const plausible = usePlausible();
 
   // Categories passed  to Exercise store to be used for generating exercises
   const setCategories = useExerciseStore((state) => state.setCategories);
@@ -82,7 +84,13 @@ const ExerciseConfiguration: FunctionComponent = () => {
         </div>
       </div>
       <div className="flex flex-col items-center mb-12">
-        <ActionButton isPlausible exerciseLength={size} action="start" disabled={selectedMetaIds.length === 0} />
+        <ActionButton
+          onClick={() => {
+            plausible('Exercise-Started', { props: { language: currentLanguage, length: size } });
+          }}
+          action="start"
+          disabled={selectedMetaIds.length === 0}
+        />
       </div>
     </div>
   );

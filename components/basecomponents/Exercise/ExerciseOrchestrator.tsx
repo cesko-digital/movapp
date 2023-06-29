@@ -10,6 +10,7 @@ import { animation } from './utils/animation';
 import ExerciseConfiguration from './ExerciseConfiguration';
 import { ExerciseDebugInfo } from './components/ExerciseDebugInfo';
 import { ExerciseComponentLoader } from './components/ExerciseComponentLoader';
+import { usePlausible } from 'next-plausible';
 
 const Feedback = dynamic(() => import('./components/Feedback'), {
   ssr: false,
@@ -31,6 +32,7 @@ interface ExerciseOrchestratorProps {
 // warning: language switching triggers categories props change, probably because staticpaths/props, quickstart isn't change triggered
 export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: ExerciseOrchestratorProps) => {
   const lang = useLanguage();
+  const plausible = usePlausible();
   const init = useExerciseStore((state) => state.init);
   const cleanUp = useExerciseStore((state) => state.cleanUp);
   const setLang = useExerciseStore((state) => state.setLang);
@@ -110,7 +112,14 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
           <h4 className="mb-8 font-bold p-0">{t('exercise_page.congratulations')}</h4>
           <p className="text-justify">{t('exercise_page.you_have_finished')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-stretch justify-items-stretch py-10">
-            <ActionButton onClickAsync={restart}>{t('exercise_page.restart') || ''}</ActionButton>
+            <ActionButton
+              onClickAsync={() => {
+                plausible('Exercise-Started', { props: { language: lang.currentLanguage, length: size } });
+                restart();
+              }}
+            >
+              {t('exercise_page.restart') || ''}
+            </ActionButton>
             <ActionButton action="home">{t('exercise_page.change_settings') || ''}</ActionButton>
           </div>
         </div>
