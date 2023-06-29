@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { usePendingStore } from '../pendingStore';
 import { usePlausible } from 'next-plausible';
 import React from 'react';
+import { useLanguage } from 'utils/useLanguageHook';
 
 interface ActionButtonProps extends React.ComponentProps<typeof Button> {
   inactive?: boolean;
@@ -20,6 +21,7 @@ export const ActionButton = forwardRef(
     ref: React.Ref<HTMLButtonElement | null>
   ) => {
     const plausible = usePlausible();
+    const { currentLanguage } = useLanguage();
     const btnRef = useRef(null);
     const { t } = useTranslation();
     const home = useExerciseStore((state) => state.home);
@@ -59,7 +61,7 @@ export const ActionButton = forwardRef(
           if (onClick !== undefined) onClick(e);
           await animation.click(btnRef.current).finished;
           if (onClickAsync !== undefined) await onClickAsync(e);
-          if (action === 'nextExercise') actions['nextExercise'](plausible);
+          if (action === 'nextExercise') actions['nextExercise'](plausible, currentLanguage);
           else if (action !== undefined) actions[action]();
           // prevent changing unmounted component
           if (mounted.current === false) return;

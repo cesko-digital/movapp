@@ -81,7 +81,7 @@ export interface ExerciseStoreActions {
   start: () => void;
   restart: () => void;
   home: () => void;
-  nextExercise: (plausible: Plausible) => void;
+  nextExercise: (plausible: Plausible, language: Language) => void;
   exerciseCompleted: (result: ExerciseResult) => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
   setLang: (lang: ExerciseStoreState['lang']) => void;
@@ -117,7 +117,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     }));
   };
 
-  const nextExercise = (plausible: Plausible) => {
+  const nextExercise = (plausible: Plausible, language: Language) => {
     if (getExercise().status !== ExerciseStatus.completed) throw Error('invalid exercise status');
     if (get().status === ExerciseStoreStatus.completed) throw Error('invalid store status');
 
@@ -131,7 +131,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
       });
       const numberOfCorrectAnswers = correctAnswers.length;
       plausible('Exercise-Finished', {
-        props: { language: getCountryVariant(), length: get().size, correct: numberOfCorrectAnswers },
+        props: { language: language, length: get().size, correct: numberOfCorrectAnswers },
       });
       set({ status: ExerciseStoreStatus.completed });
       return;
