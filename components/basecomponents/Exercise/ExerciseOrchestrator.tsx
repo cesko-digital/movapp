@@ -36,6 +36,7 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
   const setLang = useExerciseStore((state) => state.setLang);
   const setCategories = useExerciseStore((state) => state.setCategories);
   const status = useExerciseStore((state) => state.status);
+  const history = useExerciseStore((state) => state.history);
   const exercise = useExerciseStore((state) => state.exercise);
   const restart = useExerciseStore((state) => state.restart);
   const counter = useExerciseStore((state) => state.counter);
@@ -93,6 +94,14 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
             action="nextExercise"
             className={exercise.status === ExerciseStatus.completed ? 'visible' : 'invisible'}
             onClickAsync={async () => {
+              const correctAnswers = history.filter((exercise) => {
+                return exercise.status === ExerciseStatus.completed && exercise.result?.score === 100;
+              });
+              const numberOfCorrectAnswers = correctAnswers.length;
+              plausible('Exercise-Finished', {
+                props: { language: lang.currentLanguage, length: size, correct: numberOfCorrectAnswers },
+              });
+
               if (exerciseRef.current === null || nextButtonRef.current === null) return;
               animation.diminish(nextButtonRef.current, 300);
               await animation.fade(exerciseRef.current, 300).finished;

@@ -5,7 +5,6 @@ import { animation } from '../utils/animation';
 import { useTranslation } from 'react-i18next';
 import { usePendingStore } from '../pendingStore';
 import React from 'react';
-import { useTracking } from 'utils/useTracking';
 
 interface ActionButtonProps extends React.ComponentProps<typeof Button> {
   inactive?: boolean;
@@ -19,7 +18,6 @@ export const ActionButton = forwardRef(
     { children, inactive = false, onClick, onClickAsync, onClickFinished, action, ...rest }: ActionButtonProps,
     ref: React.Ref<HTMLButtonElement | null>
   ) => {
-    const { lang, plausible } = useTracking();
     const btnRef = useRef(null);
     const { t } = useTranslation();
     const home = useExerciseStore((state) => state.home);
@@ -59,8 +57,7 @@ export const ActionButton = forwardRef(
           if (onClick !== undefined) onClick(e);
           await animation.click(btnRef.current).finished;
           if (onClickAsync !== undefined) await onClickAsync(e);
-          if (action === 'nextExercise') actions['nextExercise'](plausible, lang.currentLanguage);
-          else if (action !== undefined) actions[action]();
+          if (action !== undefined) actions[action]();
           // prevent changing unmounted component
           if (mounted.current === false) return;
           setGlobalPending(false);

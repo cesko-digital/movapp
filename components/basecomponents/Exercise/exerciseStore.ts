@@ -9,14 +9,6 @@ import { greatPhraseFilter } from './utils/phraseFilters';
 
 /* eslint-disable no-console */
 
-interface ExerciseLength {
-  language: Language;
-  length: number;
-  correct: number;
-}
-
-type Plausible = (eventName: string, props: { props: ExerciseLength }) => void;
-
 export enum ExerciseStatus {
   active = 'active',
   completed = 'completed',
@@ -81,7 +73,7 @@ export interface ExerciseStoreActions {
   start: () => void;
   restart: () => void;
   home: () => void;
-  nextExercise: (plausible: Plausible, language: Language) => void;
+  nextExercise: () => void;
   exerciseCompleted: (result: ExerciseResult) => void;
   setCategories: (categories: ExerciseStoreState['categories']) => void;
   setLang: (lang: ExerciseStoreState['lang']) => void;
@@ -117,7 +109,7 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     }));
   };
 
-  const nextExercise = (plausible: Plausible, language: Language) => {
+  const nextExercise = () => {
     if (getExercise().status !== ExerciseStatus.completed) throw Error('invalid exercise status');
     if (get().status === ExerciseStoreStatus.completed) throw Error('invalid store status');
 
@@ -125,14 +117,6 @@ export const useExerciseStore = create<ExerciseStoreState & ExerciseStoreActions
     if (get().history.length === get().size) {
       console.log(`congrats all exercises completed...`);
       console.log(get().history);
-      const exerciseHistory = get().history;
-      const correctAnswers = exerciseHistory.filter((exercise) => {
-        return exercise.status === ExerciseStatus.completed && exercise.result?.score === 100;
-      });
-      const numberOfCorrectAnswers = correctAnswers.length;
-      plausible('Exercise-Finished', {
-        props: { language: language, length: get().size, correct: numberOfCorrectAnswers },
-      });
       set({ status: ExerciseStoreStatus.completed });
       return;
     }
