@@ -4,9 +4,8 @@ import { Button } from '../Button';
 import { useDebug } from './utils/useDebug';
 import { ActionButton } from './components/ActionButton';
 import { useTranslation } from 'react-i18next';
-import { useLanguage } from '../../../utils/useLanguageHook';
 import { CONFIG_BASE } from './exerciseStoreConfig';
-import { usePlausible } from 'next-plausible';
+import { useTracking } from 'utils/useTracking';
 
 const removeDuplicates = (array: string[]) => {
   return [...new Set(array)];
@@ -20,8 +19,7 @@ const removeDuplicates = (array: string[]) => {
  * Exercise store only deals with categories, all complexity of mapping metacategories to categories is handled here.
  */
 const ExerciseConfiguration: FunctionComponent = () => {
-  const { currentLanguage } = useLanguage();
-  const plausible = usePlausible();
+  const { lang, plausible } = useTracking();
 
   // Categories passed  to Exercise store to be used for generating exercises
   const setCategories = useExerciseStore((state) => state.setCategories);
@@ -68,7 +66,7 @@ const ExerciseConfiguration: FunctionComponent = () => {
       <div className="text-sm sm:text-base grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 px-6 justify-stretch justify-items-stretch">
         {allMetaCategories?.map(({ id, name }) => (
           <Button key={id} buttonStyle={selectedMetaIds.includes(id) ? 'choiceCorrect' : 'choice'} onClick={() => clickMetaCategory(id)}>
-            {currentLanguage === 'uk' ? name.source : name.main}
+            {lang.currentLanguage === 'uk' ? name.source : name.main}
           </Button>
         ))}
       </div>
@@ -86,7 +84,7 @@ const ExerciseConfiguration: FunctionComponent = () => {
       <div className="flex flex-col items-center mb-12">
         <ActionButton
           onClick={() => {
-            plausible('Exercise-Started', { props: { language: currentLanguage, length: size } });
+            plausible('Exercise-Started', { props: { language: lang.currentLanguage, length: size } });
           }}
           action="start"
           disabled={selectedMetaIds.length === 0}

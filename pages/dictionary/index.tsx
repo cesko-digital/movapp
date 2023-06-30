@@ -5,7 +5,6 @@ import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
 import { Marker } from 'react-mark.js';
-import { useLanguage } from 'utils/useLanguageHook';
 import { normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
 import { getCountryVariant } from 'utils/locales';
@@ -17,7 +16,7 @@ import { getServerSideTranslations } from '../../utils/localization';
 import { TextLink } from '../../components/Typography';
 import { AiOutlineFilePdf } from 'react-icons/ai';
 import { getCategoryName, getCategoryId, getCategoryUkId } from '../../components/sections/Dictionary/dictionaryUtils';
-import { usePlausible } from 'next-plausible';
+import { useTracking } from 'utils/useTracking';
 
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
@@ -27,13 +26,12 @@ const ExportTranslations = dynamic(() => import('../../components/sections/Expor
 const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const categories = useMemo(() => getCategories(dictionary), [dictionary]);
   const allTranslations = useMemo(() => getAllPhrases(dictionary), [dictionary]);
-  const plausible = usePlausible();
+  const { lang, plausible } = useTracking();
 
   const [search, setSearch] = useState('');
   const [isSticky, setIsSticky] = useState(false);
 
   const { t } = useTranslation();
-  const { currentLanguage } = useLanguage();
 
   const searchContainer = useRef<HTMLDivElement | null>(null);
   const searchButton = useRef<HTMLButtonElement | null>(null);
@@ -123,10 +121,10 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
             <DictionarySearchResults search={search} results={filteredTranslations} />
           ) : (
             categories.map((category, index) => {
-              const categoryName = getCategoryName(category, currentLanguage);
-              const categoryPdfName = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
+              const categoryName = getCategoryName(category, lang.currentLanguage);
+              const categoryPdfName = lang.currentLanguage === 'uk' ? category.nameUk : category.nameMain;
               return (
-                <div key={category.nameMain} id={getCategoryId(category, currentLanguage)}>
+                <div key={category.nameMain} id={getCategoryId(category, lang.currentLanguage)}>
                   <Collapse
                     index={index}
                     id={getCategoryUkId(category)}
@@ -154,7 +152,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                         <AiOutlineFilePdf className="w-5 h-5" />
                         <p
                           onClick={() => {
-                            plausible('Exercise-Started', { props: { language: currentLanguage, length: 10 } });
+                            plausible('Exercise-Started', { props: { language: lang.currentLanguage, length: 10 } });
                           }}
                         >
                           {t('header.exercises_link_name')}

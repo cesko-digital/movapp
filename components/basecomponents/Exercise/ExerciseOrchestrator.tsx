@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { useLanguage } from 'utils/useLanguageHook';
 import { useExerciseStore, ExerciseStoreStatus, ExerciseStatus } from './exerciseStore';
 import { AppContainer } from './components/AppContainer';
 import dynamic from 'next/dynamic';
@@ -10,7 +9,7 @@ import { animation } from './utils/animation';
 import ExerciseConfiguration from './ExerciseConfiguration';
 import { ExerciseDebugInfo } from './components/ExerciseDebugInfo';
 import { ExerciseComponentLoader } from './components/ExerciseComponentLoader';
-import { usePlausible } from 'next-plausible';
+import { useTracking } from 'utils/useTracking';
 
 const Feedback = dynamic(() => import('./components/Feedback'), {
   ssr: false,
@@ -31,8 +30,7 @@ interface ExerciseOrchestratorProps {
 
 // warning: language switching triggers categories props change, probably because staticpaths/props, quickstart isn't change triggered
 export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: ExerciseOrchestratorProps) => {
-  const lang = useLanguage();
-  const plausible = usePlausible();
+  const { lang, plausible } = useTracking();
   const init = useExerciseStore((state) => state.init);
   const cleanUp = useExerciseStore((state) => state.cleanUp);
   const setLang = useExerciseStore((state) => state.setLang);
