@@ -9,6 +9,7 @@ import { animation } from './utils/animation';
 import ExerciseConfiguration from './ExerciseConfiguration';
 import { ExerciseDebugInfo } from './components/ExerciseDebugInfo';
 import { ExerciseComponentLoader } from './components/ExerciseComponentLoader';
+import { useLanguage } from 'utils/useLanguageHook';
 import { useTracking } from 'utils/useTracking';
 
 const Feedback = dynamic(() => import('./components/Feedback'), {
@@ -30,13 +31,13 @@ interface ExerciseOrchestratorProps {
 
 // warning: language switching triggers categories props change, probably because staticpaths/props, quickstart isn't change triggered
 export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: ExerciseOrchestratorProps) => {
-  const { lang, plausible } = useTracking();
+  const lang = useLanguage();
+  const plausible = useTracking();
   const init = useExerciseStore((state) => state.init);
   const cleanUp = useExerciseStore((state) => state.cleanUp);
   const setLang = useExerciseStore((state) => state.setLang);
   const setCategories = useExerciseStore((state) => state.setCategories);
   const status = useExerciseStore((state) => state.status);
-  const history = useExerciseStore((state) => state.history);
   const exercise = useExerciseStore((state) => state.exercise);
   const restart = useExerciseStore((state) => state.restart);
   const counter = useExerciseStore((state) => state.counter);
@@ -94,14 +95,6 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
             action="nextExercise"
             className={exercise.status === ExerciseStatus.completed ? 'visible' : 'invisible'}
             onClickAsync={async () => {
-              const correctAnswers = history.filter((exercise) => {
-                return exercise.status === ExerciseStatus.completed && exercise.result?.score === 100;
-              });
-              const numberOfCorrectAnswers = correctAnswers.length;
-              plausible('Exercise-Finished', {
-                props: { language: lang.currentLanguage, length: size, correct: numberOfCorrectAnswers },
-              });
-
               if (exerciseRef.current === null || nextButtonRef.current === null) return;
               animation.diminish(nextButtonRef.current, 300);
               await animation.fade(exerciseRef.current, 300).finished;
@@ -121,7 +114,6 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-stretch justify-items-stretch py-10">
             <ActionButton
               onClickAsync={() => {
-                plausible('Exercise-Started', { props: { language: lang.currentLanguage, length: size } });
                 restart();
               }}
             >
