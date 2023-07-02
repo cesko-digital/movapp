@@ -32,7 +32,6 @@ interface ExerciseOrchestratorProps {
 // warning: language switching triggers categories props change, probably because staticpaths/props, quickstart isn't change triggered
 export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: ExerciseOrchestratorProps) => {
   const lang = useLanguage();
-  const plausible = useTracking();
   const init = useExerciseStore((state) => state.init);
   const cleanUp = useExerciseStore((state) => state.cleanUp);
   const setLang = useExerciseStore((state) => state.setLang);
@@ -46,6 +45,7 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
   const exerciseRef = useRef(null);
   const nextButtonRef = useRef(null);
   const exerciseStatus = exercise?.status;
+  useTracking(); //the only place where we import the useTracking hook
 
   useEffect(() => {
     setLang(lang);
