@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { useLanguage } from 'utils/useLanguageHook';
 import { useExerciseStore, ExerciseStoreStatus, ExerciseStatus } from './exerciseStore';
 import { AppContainer } from './components/AppContainer';
 import dynamic from 'next/dynamic';
@@ -10,6 +9,8 @@ import { animation } from './utils/animation';
 import ExerciseConfiguration from './ExerciseConfiguration';
 import { ExerciseDebugInfo } from './components/ExerciseDebugInfo';
 import { ExerciseComponentLoader } from './components/ExerciseComponentLoader';
+import { useLanguage } from 'utils/useLanguageHook';
+import { useTracking } from './utils/useTracking';
 
 const Feedback = dynamic(() => import('./components/Feedback'), {
   ssr: false,
@@ -44,6 +45,7 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
   const exerciseRef = useRef(null);
   const nextButtonRef = useRef(null);
   const exerciseStatus = exercise?.status;
+  useTracking(); //the only place where we import the useTracking hook
 
   useEffect(() => {
     setLang(lang);
@@ -110,7 +112,13 @@ export const ExerciseOrchestrator = ({ categoryIds, quickStart = false }: Exerci
           <h4 className="mb-8 font-bold p-0">{t('exercise_page.congratulations')}</h4>
           <p className="text-justify">{t('exercise_page.you_have_finished')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-stretch justify-items-stretch py-10">
-            <ActionButton onClickAsync={restart}>{t('exercise_page.restart') || ''}</ActionButton>
+            <ActionButton
+              onClickAsync={() => {
+                restart();
+              }}
+            >
+              {t('exercise_page.restart') || ''}
+            </ActionButton>
             <ActionButton action="home">{t('exercise_page.change_settings') || ''}</ActionButton>
           </div>
         </div>

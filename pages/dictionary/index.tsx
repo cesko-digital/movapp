@@ -5,7 +5,6 @@ import { Button } from 'components/basecomponents/Button';
 import { Collapse } from 'components/basecomponents/Collapse';
 import { CategoryDictionary } from 'components/sections/CategoryDictionary';
 import { Marker } from 'react-mark.js';
-import { useLanguage } from 'utils/useLanguageHook';
 import { normalize } from 'utils/textNormalizationUtils';
 import { DictionarySearchResults } from 'components/sections/DictionarySearchResults';
 import { getCountryVariant } from 'utils/locales';
@@ -17,6 +16,7 @@ import { getServerSideTranslations } from '../../utils/localization';
 import { TextLink } from '../../components/Typography';
 import { AiOutlineFilePdf } from 'react-icons/ai';
 import { getCategoryName, getCategoryId, getCategoryUkId } from '../../components/sections/Dictionary/dictionaryUtils';
+import { useLanguage } from 'utils/useLanguageHook';
 
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
@@ -26,12 +26,12 @@ const ExportTranslations = dynamic(() => import('../../components/sections/Expor
 const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const categories = useMemo(() => getCategories(dictionary), [dictionary]);
   const allTranslations = useMemo(() => getAllPhrases(dictionary), [dictionary]);
+  const { currentLanguage } = useLanguage();
 
   const [search, setSearch] = useState('');
   const [isSticky, setIsSticky] = useState(false);
 
   const { t } = useTranslation();
-  const { currentLanguage } = useLanguage();
 
   const searchContainer = useRef<HTMLDivElement | null>(null);
   const searchButton = useRef<HTMLButtonElement | null>(null);

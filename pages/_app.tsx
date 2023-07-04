@@ -48,6 +48,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   };
 
   return (
+    // If you need to debug Plausible on localhost then add 'trackLocalhost' and 'enabled' attributes to PlausibleProvider:
+    // <PlausibleProvider ... trackLocalhost enabled>
+    // But never commit it into main branch!
+    // See docs https://www.npmjs.com/package/next-plausible for more
     <PlausibleProvider domain={PLAUSIBLE_DOMAINS[getCountryVariant()]}>
       <Head>
         <meta name="apple-itunes-app" content="app-id=1617768476" />

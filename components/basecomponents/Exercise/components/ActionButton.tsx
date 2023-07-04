@@ -4,25 +4,20 @@ import { Button } from 'components/basecomponents/Button';
 import { animation } from '../utils/animation';
 import { useTranslation } from 'react-i18next';
 import { usePendingStore } from '../pendingStore';
-import { usePlausible } from 'next-plausible';
 import React from 'react';
-import { getCountryVariant } from 'utils/locales';
 
 interface ActionButtonProps extends React.ComponentProps<typeof Button> {
   inactive?: boolean;
   action?: 'nextExercise' | 'home' | 'start';
   onClickAsync?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => Promise<void> | void;
   onClickFinished?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined) => Promise<void> | void;
-  exerciseLength?: number;
-  isPlausible?: boolean;
 }
 
 export const ActionButton = forwardRef(
   (
-    { children, inactive = false, onClick, onClickAsync, onClickFinished, action, exerciseLength, isPlausible, ...rest }: ActionButtonProps,
+    { children, inactive = false, onClick, onClickAsync, onClickFinished, action, ...rest }: ActionButtonProps,
     ref: React.Ref<HTMLButtonElement | null>
   ) => {
-    const plausible = usePlausible();
     const btnRef = useRef(null);
     const { t } = useTranslation();
     const home = useExerciseStore((state) => state.home);
@@ -55,7 +50,6 @@ export const ActionButton = forwardRef(
         ref={btnRef}
         buttonStyle="primary"
         onClick={async (e) => {
-          isPlausible && plausible('Exercise-Started', { props: { language: getCountryVariant(), length: exerciseLength } });
           if (pending || inactive || globalPending) return;
           if (btnRef.current === null) return;
           setPending(true);
@@ -63,8 +57,7 @@ export const ActionButton = forwardRef(
           if (onClick !== undefined) onClick(e);
           await animation.click(btnRef.current).finished;
           if (onClickAsync !== undefined) await onClickAsync(e);
-          if (action === 'nextExercise') actions['nextExercise'](plausible);
-          else if (action !== undefined) actions[action]();
+          if (action !== undefined) actions[action]();
           // prevent changing unmounted component
           if (mounted.current === false) return;
           setGlobalPending(false);

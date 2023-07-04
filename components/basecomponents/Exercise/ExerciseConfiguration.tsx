@@ -4,8 +4,8 @@ import { Button } from '../Button';
 import { useDebug } from './utils/useDebug';
 import { ActionButton } from './components/ActionButton';
 import { useTranslation } from 'react-i18next';
-import { useLanguage } from '../../../utils/useLanguageHook';
 import { CONFIG_BASE } from './exerciseStoreConfig';
+import { useLanguage } from 'utils/useLanguageHook';
 
 const removeDuplicates = (array: string[]) => {
   return [...new Set(array)];
@@ -19,12 +19,11 @@ const removeDuplicates = (array: string[]) => {
  * Exercise store only deals with categories, all complexity of mapping metacategories to categories is handled here.
  */
 const ExerciseConfiguration: FunctionComponent = () => {
-  const { currentLanguage } = useLanguage();
-
   // Categories passed  to Exercise store to be used for generating exercises
   const setCategories = useExerciseStore((state) => state.setCategories);
   const setSize = useExerciseStore((state) => state.setSize);
   const size = useExerciseStore((state) => state.size);
+  const { currentLanguage } = useLanguage();
 
   // User-selected metacategories, each metacategory contains multiple categories
   const [selectedMetaIds, setSelectedMetaIds] = useState<string[]>([]);
@@ -82,7 +81,7 @@ const ExerciseConfiguration: FunctionComponent = () => {
         </div>
       </div>
       <div className="flex flex-col items-center mb-12">
-        <ActionButton isPlausible exerciseLength={size} action="start" disabled={selectedMetaIds.length === 0} />
+        <ActionButton action="start" disabled={selectedMetaIds.length === 0} />
       </div>
     </div>
   );
