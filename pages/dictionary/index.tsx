@@ -26,7 +26,7 @@ const ExportTranslations = dynamic(() => import('../../components/sections/Expor
 const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const categories = useMemo(() => getCategories(dictionary), [dictionary]);
   const allTranslations = useMemo(() => getAllPhrases(dictionary), [dictionary]);
-  const lang = useLanguage();
+  const { currentLanguage } = useLanguage();
 
   const [search, setSearch] = useState('');
   const [isSticky, setIsSticky] = useState(false);
@@ -121,10 +121,10 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
             <DictionarySearchResults search={search} results={filteredTranslations} />
           ) : (
             categories.map((category, index) => {
-              const categoryName = getCategoryName(category, lang.currentLanguage);
-              const categoryPdfName = lang.currentLanguage === 'uk' ? category.nameUk : category.nameMain;
+              const categoryName = getCategoryName(category, currentLanguage);
+              const categoryPdfName = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
               return (
-                <div key={category.nameMain} id={getCategoryId(category, lang.currentLanguage)}>
+                <div key={category.nameMain} id={getCategoryId(category, currentLanguage)}>
                   <Collapse
                     index={index}
                     id={getCategoryUkId(category)}

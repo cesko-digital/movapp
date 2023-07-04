@@ -23,7 +23,7 @@ const ExerciseConfiguration: FunctionComponent = () => {
   const setCategories = useExerciseStore((state) => state.setCategories);
   const setSize = useExerciseStore((state) => state.setSize);
   const size = useExerciseStore((state) => state.size);
-  const lang = useLanguage();
+  const { currentLanguage } = useLanguage();
 
   // User-selected metacategories, each metacategory contains multiple categories
   const [selectedMetaIds, setSelectedMetaIds] = useState<string[]>([]);
@@ -65,7 +65,7 @@ const ExerciseConfiguration: FunctionComponent = () => {
       <div className="text-sm sm:text-base grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6 px-6 justify-stretch justify-items-stretch">
         {allMetaCategories?.map(({ id, name }) => (
           <Button key={id} buttonStyle={selectedMetaIds.includes(id) ? 'choiceCorrect' : 'choice'} onClick={() => clickMetaCategory(id)}>
-            {lang.currentLanguage === 'uk' ? name.source : name.main}
+            {currentLanguage === 'uk' ? name.source : name.main}
           </Button>
         ))}
       </div>

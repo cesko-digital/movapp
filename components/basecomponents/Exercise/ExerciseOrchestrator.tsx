@@ -10,7 +10,7 @@ import ExerciseConfiguration from './ExerciseConfiguration';
 import { ExerciseDebugInfo } from './components/ExerciseDebugInfo';
 import { ExerciseComponentLoader } from './components/ExerciseComponentLoader';
 import { useLanguage } from 'utils/useLanguageHook';
-import { useTracking } from 'utils/useTracking';
+import { useTracking } from './utils/useTracking';
 
 const Feedback = dynamic(() => import('./components/Feedback'), {
   ssr: false,
