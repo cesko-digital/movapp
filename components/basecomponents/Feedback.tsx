@@ -27,6 +27,7 @@ const Feedback = () => {
       </div>
       <Modal closeModal={() => setModalOpen(false)} isOpen={modalOpen} unmount>
         <div className="absolute flex justify-center items-center w-full h-full -z-50 top-0 left-0">
+          {/* style is on the spinner for iOS safari compatibility */}
           <Spinner style={{ zIndex: -50 }} />
         </div>
         <iframe className="airtable-embed" src={iframeSrc} frameBorder="0" width="100%" height="533" />
