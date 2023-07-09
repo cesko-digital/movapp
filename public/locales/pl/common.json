@@ -62,7 +62,7 @@
     "results_subtitle": "Wyniki wyszukiwania",
     "not_found_results": "Nic nie znaleziono",
     "download_pdf": "Pobierz w PDF",
-    "first_exercise":"Ćwiczenia"
+    "first_exercise": "Ćwiczenia"
   },
   "kids_page": {
     "downloadPDF": "Pobierz w PDF",
@@ -84,7 +84,8 @@
     "conferences_description": "Prezentacja Movapp.cz na LUkrainian Conference na Lancaster University (Wielka Brytania). <br/>- <0>1st LUkrainian Conference (22. 07. 2022)</0><br/>- <1>4th LUkrainian Conference (13. 01. 2023)</1>",
     "our_team_title": "Nasz zespół",
     "our_team_current_title": "Aktualny skład",
-    "our_team_spring_title": "Wiosenny skład",
+    "our_team_spring_title": "Wiosna 2022",
+    "our_team_autumn_title": "Jesień 2022",
     "our_team_description": "Głównymi członkami zespołu Movapp są: Martin Hassman, Oleg Antonyak, Tatiana Chytilová, Petr Illek, Valeriia Kuna i Monika Fabryová. Pomaga im szereg innych wolontariuszy.",
     "our_team_contact": "Chcesz nam pomóc z treścią, albo przyłączyć się w inny sposób? <br/> Szukasz do nas <0>kontaktu</0>?",
     "our_team_illustrators": "Autorkami ilustracji dla dzieci są: Alena Burneleit, Anna Lamberová, Lucie Lomová, Kateřina Vacková Mňuková i Marie Kraus.",
@@ -167,10 +168,10 @@
       "pl": "Zagraj w obrazkowy quiz z ukraińskimi słówkami"
     },
     "exercise_page_title": {
-      "pl":"Przećwicz swój ukraiński."
+      "pl": "Przećwicz swój ukraiński."
     },
     "exercise_page_description": {
-      "pl":"Polepsz swoje umiejętności językowe. Oferujemy darmowy zestaw ćwiczeń do nauki języka. Powtarzaj codziennie."
+      "pl": "Polepsz swoje umiejętności językowe. Oferujemy darmowy zestaw ćwiczeń do nauki języka. Powtarzaj codziennie."
     }
   },
   "exercise_page": {
@@ -183,13 +184,13 @@
     "congratulations": "Gratulacje!",
     "you_have_finished": "Ćwiczenie zostało ukończone pomyślnie. Teraz możesz ćwiczyć dalej, albo wrócić z powrotem na stronę główną.",
     "home": "Z powrotem",
-    "exercise_audio_idenfification_hint":"Odsłuchaj nagranie i zaznacz usłyszaną odpowiedź",
-    "exercise_text_idenfification_hint":"Zaznacz usłyszaną odpowiedź",
-    "write_us":"Napisz do nas",
-    "feedback":"Zestaw ćwiczeń stopniowo poszerzamy. Daj nam wiedzieć, jeśli znajdziesz gdzieś błąd lub wpadniesz na pomysł, co możemy polepszyć.",
-    "size_setup":"Ustaw długość ćwiczenia",
-    "restart":"Powtórz",
-    "change_settings":"Zmiana ustawień"
+    "exercise_audio_idenfification_hint": "Odsłuchaj nagranie i zaznacz usłyszaną odpowiedź",
+    "exercise_text_idenfification_hint": "Zaznacz usłyszaną odpowiedź",
+    "write_us": "Napisz do nas",
+    "feedback": "Zestaw ćwiczeń stopniowo poszerzamy. Daj nam wiedzieć, jeśli znajdziesz gdzieś błąd lub wpadniesz na pomysł, co możemy polepszyć.",
+    "size_setup": "Ustaw długość ćwiczenia",
+    "restart": "Powtórz",
+    "change_settings": "Zmiana ustawień"
   },
   "export_translations": {
     "download_phrases": "Pobierz zwroty",
@@ -219,7 +220,7 @@
   },
   "utils": {
     "play": "odtwarzanie",
-    "new_game": "Nowa gra"    
+    "new_game": "Nowa gra"
   },
   "christmas_banner": {
     "christmas_dictionary_title": "Słowniczek bożonarodzeniowy",
