@@ -15,6 +15,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getServerSideTranslations } from '../../utils/localization';
 import { TextLink } from '../../components/Typography';
 import { AiOutlineFilePdf } from 'react-icons/ai';
+import { BiExtension } from 'react-icons/bi';
 import { getCategoryName, getCategoryId, getCategoryUkId } from '../../components/sections/Dictionary/dictionaryUtils';
 import { useLanguage } from 'utils/useLanguageHook';
 
@@ -149,7 +150,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                         className="ml-3 inline-flex gap-x-1 items-center"
                         locale={getCountryVariant()}
                       >
-                        <AiOutlineFilePdf className="w-5 h-5" />
+                        <BiExtension className="w-5 h-5" />
                         {t('header.exercises_link_name')}
                       </TextLink>
                     </div>
