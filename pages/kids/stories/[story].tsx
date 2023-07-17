@@ -40,7 +40,7 @@ const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -mt-2 md:p-12 w-full">
       <SEO
-        title={t(`seo.kids_page_storiesTitle.${getCountryVariant()}`)}
+        title={`${title_current + ' - '}` + t(`seo.kids_page_storiesTitle.${getCountryVariant()}`)}
         description={t(`seo.kids_page_storiesDescription.${getCountryVariant()}`)}
         image="https://www.movapp.cz/kids/hrad.png"
       />
