@@ -4,7 +4,6 @@ export interface Story {
   slug: string;
   duration: string;
   country: string;
-  image: string;
 }
 
 /* ENUMS */
