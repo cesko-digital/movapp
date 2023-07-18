@@ -36,13 +36,14 @@ const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
 
   const title_current = story.title[currentLanguage] || '';
   const title_other = story.title[otherLanguage] || '';
+  const image_current_story = story.image || 'https://www.movapp.cz/kids/hrad.png';
 
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -mt-2 md:p-12 w-full">
       <SEO
         title={`${title_current + ' - '}` + t(`seo.kids_page_storiesTitle.${getCountryVariant()}`)}
         description={t(`seo.kids_page_storiesDescription.${getCountryVariant()}`)}
-        image="https://www.movapp.cz/kids/hrad.png"
+        image={`${image_current_story}`}
       />
       {['cs', 'sk'].includes(getCountryVariant()) ? (
         <>
