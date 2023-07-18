@@ -43,7 +43,7 @@ const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
       <SEO
         title={`${title_current + ' - '}` + t(`seo.kids_page_storiesTitle.${getCountryVariant()}`)}
         description={t(`seo.kids_page_storiesDescription.${getCountryVariant()}`)}
-        image={`https://www.movapp.cz/kids/ + ${image_current_story} + '.jpg'`}
+        image={`'https://www.movapp.cz/kids/' + ${image_current_story} + '.jpg'`}
       />
       {['cs', 'sk'].includes(getCountryVariant()) ? (
         <>
