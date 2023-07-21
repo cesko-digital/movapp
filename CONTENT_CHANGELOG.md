@@ -14,3 +14,4 @@
 2023-04-27  Unification of capital letters and points.
 2023-05-01	Fix sk dkg
 2023-05-16	Pronunciation enhancements
+2023-07-21	New content in shopping.
