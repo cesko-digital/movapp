@@ -314,6 +314,9 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         <H2>{t('about_page.how_to_find_us_title')}</H2>
         <Trans i18nKey={'about_page.how_to_find_us_description'} />
 
+        <H2>{t('about_page.how_we_prepared_content_title')}</H2>
+        <Trans i18nKey={'about_page.how_we_prepared_content_description'} />
+
         <H2>{t('about_page.stand_with_ukraine_title')}</H2>
         <Trans
           i18nKey={'about_page.stand_with_ukraine_description'}
