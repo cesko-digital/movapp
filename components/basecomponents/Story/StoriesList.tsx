@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import { CountryVariant, getCountryVariant } from 'utils/locales';
 
@@ -28,7 +28,7 @@ const StoriesList = ({ stories }: StoriesListProps) => {
   const storiesUA = filteredStories.filter((story) => story.country === 'UA');
   const storiesCEE = filteredStories.filter((story) => story.country === 'CZ');
 
-  const renderStoryPanel = (story: Story) => (
+  const RenderStoryPanel = ({ story }: { story: Story }) => (
     <div className="h-42 m-auto my-8 flex bg-slate-50 rounded-2xl sm:w-3/5 xl:w-2/5 xxl:w-1/3" key={story.slug}>
       <div className="relative w-[105px] lg:h-[200px] lg:w-[300px]">
         <Image src={`/kids/${story.slug}.jpg`} fill className="rounded-l-2xl" alt={story.title[currentLanguage]} />
@@ -61,7 +61,15 @@ const StoriesList = ({ stories }: StoriesListProps) => {
     </div>
   );
 
-  const renderStoriesSection = (language: string, stories: Story[], titleKey: string) => {
+  const RenderStoriesSection = ({
+    language,
+    stories,
+    titleKey,
+  }: {
+    language: string;
+    stories: Story[];
+    titleKey: 'kids_page.czechStories' | 'kids_page.ukrainianStories';
+  }) => {
     // Filter stories that have a title in the current language
     const localizedStories = stories.filter((story: Story) => story.title[language]);
 
@@ -69,9 +77,7 @@ const StoriesList = ({ stories }: StoriesListProps) => {
       <>
         {currentPlatform === Platform.KIOSK ? (
           <div className="flex flex-col">
-            <h2 className={`text-primary-blue text-center ${currentPlatform === Platform.KIOSK ? 'text-20' : ''}`}>
-              {t(titleKey, { defaultValue: 'stories' })}
-            </h2>
+            <h2 className={`text-primary-blue text-center ${currentPlatform === Platform.KIOSK ? 'text-20' : ''}`}>{t(titleKey)}</h2>
             <div className="grid grid-cols-3">
               {localizedStories.map((story) => (
                 <StoryCard story={story} key={story.slug} currentLanguage={currentLanguage} />
@@ -80,8 +86,10 @@ const StoriesList = ({ stories }: StoriesListProps) => {
           </div>
         ) : (
           <>
-            <h2 className={`text-primary-blue text-center`}>{t(titleKey, { defaultValue: 'stories' })}</h2>
-            {localizedStories.map((story) => renderStoryPanel(story))}
+            <h2 className={`text-primary-blue text-center`}>{t(titleKey)}</h2>
+            {localizedStories.map((story) => (
+              <RenderStoryPanel key={story.slug} story={story} />
+            ))}
           </>
         )}
       </>
@@ -89,8 +97,8 @@ const StoriesList = ({ stories }: StoriesListProps) => {
   };
   return (
     <div className="flex flex-col">
-      {storiesCEE.length > 0 && renderStoriesSection('cs', storiesCEE, 'kids_page.czechStories')}
-      {storiesUA.length > 0 && renderStoriesSection('uk', storiesUA, 'kids_page.ukrainianStories')}
+      {storiesCEE.length > 0 && <RenderStoriesSection language="cs" stories={storiesCEE} titleKey="kids_page.czechStories" />}
+      {storiesUA.length > 0 && <RenderStoriesSection language="uk" stories={storiesUA} titleKey="kids_page.ukrainianStories" />}
     </div>
   );
 };
