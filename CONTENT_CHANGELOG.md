@@ -15,3 +15,4 @@
 2023-05-01	Fix sk dkg
 2023-05-16	Pronunciation enhancements
 2023-07-21	New content in shopping.
+2023-07-27	Polish translation now 100%

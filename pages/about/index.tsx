@@ -245,7 +245,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             width="320"
             height="180"
             alt={t('about_page.our_team_current_title')}
-            className="hover:cursor-pointer"
+            className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
           />
         </a>
 
@@ -256,7 +256,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             width="320"
             height="180"
             alt={t('about_page.our_team_current_title')}
-            className="hover:cursor-pointer"
+            className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
           />
         </a>
 
@@ -268,7 +268,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             width="320"
             height="180"
             alt={t('about_page.our_team_spring_title')}
-            className="hover:cursor-pointer"
+            className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
           />
         </a>
 
