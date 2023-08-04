@@ -62,7 +62,7 @@ const StoriesList = ({ stories }: StoriesListProps) => {
       <>
         {currentPlatform === Platform.KIOSK ? (
           <div className="flex flex-col">
-            <h2 className={`text-primary-blue text-center ${currentPlatform === Platform.KIOSK ? 'text-20' : ''}`}>{t(titleKey)}</h2>
+            <h2 className={'text-primary-blue text-center text-20'}>{t(titleKey)}</h2>
             <div className="grid grid-cols-3">
               {localizedStories.map((story) => (
                 <StoryCard story={story} key={story.slug} currentLanguage={currentLanguage} />
