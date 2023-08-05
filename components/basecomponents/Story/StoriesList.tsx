@@ -26,20 +26,20 @@ const StoriesList = ({ stories }: StoriesListProps) => {
   const RenderStoryPanel = ({ story }: { story: Story }) => {
     return (
       <div className="max-w-[342px] sm:max-w-none h-[376px] mb-[32px] sm:w-[400px] sm:h-[400px] sm:mb-[48px] group">
-        <div className="rounded-t-2xl relative h-[300px] overflow-hidden">
-          <Link href={`/kids/stories/${story.slug}`}>
+        <Link href={`/kids/stories/${story.slug}`}>
+          <div className="rounded-t-2xl relative h-[300px] overflow-hidden">
             <Image
               src={`/kids/${story.slug}.jpg`}
               width={400}
               height={300}
-              className="w-full h-full object-cover rounded-t-2xl hover:scale-110 transition duration-200"
+              className="w-full h-full object-cover rounded-t-2xl group-hover:scale-110 transition duration-200"
               alt={story.title[currentLanguage]}
             />
-          </Link>
-        </div>
-        <p className="bg-[#FFFFFF] text-primary-blue text-center text-2xl rounded-b-2xl flex justify-center text-center h-[76px] sm:h-[100px] items-center">
-          {story.title[currentLanguage]}
-        </p>
+          </div>
+          <p className="bg-[#FFFFFF] text-primary-blue text-center text-2xl rounded-b-2xl flex justify-center text-center h-[76px] sm:h-[100px] items-center">
+            {story.title[currentLanguage]}
+          </p>
+        </Link>
       </div>
     );
   };
