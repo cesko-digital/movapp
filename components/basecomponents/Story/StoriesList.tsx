@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { CountryVariant, getCountryVariant } from 'utils/locales';
-import PlayIcon from 'public/icons/stories-play.svg';
 
 /** Components */
 import StoryCard from './StoryCard';
@@ -27,16 +26,15 @@ const StoriesList = ({ stories }: StoriesListProps) => {
   const RenderStoryPanel = ({ story }: { story: Story }) => {
     return (
       <div className="max-w-[342px] sm:max-w-none h-[376px] mb-[32px] sm:w-[400px] sm:h-[400px] sm:mb-[48px] group">
-        <div className="rounded-t-2xl relative h-[300px]">
-          <Image
-            src={`/kids/${story.slug}.jpg`}
-            width={400}
-            height={300}
-            className="w-full h-full object-cover rounded-t-2xl"
-            alt={story.title[currentLanguage]}
-          />
-          <Link href={`/kids/stories/${story.slug}`} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <PlayIcon className="w-full cursor-pointer w-[60px] h-[60px] sm:w-[74.57px] sm:h-[74.57px] group-hover:visible xl:invisible inline-block active:scale-125 active:fill-primary-yellow active:stroke-primary-yellow transition duration-100 fill-primary-blue stroke-primary-blue" />
+        <div className="rounded-t-2xl relative h-[300px] overflow-hidden">
+          <Link href={`/kids/stories/${story.slug}`}>
+            <Image
+              src={`/kids/${story.slug}.jpg`}
+              width={400}
+              height={300}
+              className="w-full h-full object-cover rounded-t-2xl hover:scale-110 transition duration-200"
+              alt={story.title[currentLanguage]}
+            />
           </Link>
         </div>
         <p className="bg-[#FFFFFF] text-primary-blue text-center text-2xl rounded-b-2xl flex justify-center text-center h-[76px] sm:h-[100px] items-center">
