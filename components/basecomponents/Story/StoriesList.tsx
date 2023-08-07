@@ -23,7 +23,7 @@ const StoriesList = ({ stories }: StoriesListProps) => {
   // We support only stories if there is title translated to current language
   const filteredStories = stories.filter((story) => story.title[countryVariant]);
 
-  const RenderStoryPanel = ({ story }: { story: Story }) => {
+  const RenderStoryPanel = ({ story, priority }: { story: Story; priority?: boolean }) => {
     return (
       <div className="max-w-[342px] sm:max-w-none h-[376px] mb-[32px] sm:w-[400px] sm:h-[400px] sm:mb-[48px] group">
         <Link href={`/kids/stories/${story.slug}`}>
@@ -34,6 +34,7 @@ const StoriesList = ({ stories }: StoriesListProps) => {
               height={300}
               className="w-full h-full object-cover rounded-t-2xl group-hover:scale-110 transition duration-200"
               alt={story.title[currentLanguage]}
+              priority={priority}
             />
           </div>
           <p className="bg-[#FFFFFF] text-primary-blue text-center text-2xl rounded-b-2xl flex justify-center text-center h-[76px] sm:h-[100px] items-center">
@@ -70,7 +71,8 @@ const StoriesList = ({ stories }: StoriesListProps) => {
         ) : (
           <div className="grid grid-cols-1 min-[900px]:grid-cols-2 xl:grid-cols-3 justify-items-center">
             {localizedStories.map((story) => {
-              return <RenderStoryPanel key={story.slug} story={story} />;
+              // If the story is the first one, we need to prirotize it, since its image has to be preloaded
+              return <RenderStoryPanel key={story.slug} story={story} priority={localizedStories[0] === story} />;
             })}
           </div>
         )}
