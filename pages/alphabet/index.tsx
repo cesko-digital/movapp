@@ -1,6 +1,6 @@
 import { useLanguage } from 'utils/useLanguageHook';
 import { Trans, useTranslation } from 'next-i18next';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AlphabetCard } from '../../components/basecomponents/AlphabetCard';
 import { LanguageSelect } from '../../components/basecomponents/LanguageSelect';
 import SEO from 'components/basecomponents/SEO';
@@ -8,6 +8,7 @@ import { getCountryVariant, Language } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { AlphabetDataObject, fetchAlphabetMain, fetchAlphabetUk } from '../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../utils/localization';
+import { usePlausible } from 'next-plausible';
 
 const countryVariant = getCountryVariant();
 
@@ -17,6 +18,11 @@ const AlphabetPage = ({ alphabetMain, alphabetUk }: InferGetStaticPropsType<type
   const [selectedAlphabet, setSelectedAlphabet] = useState<Language>(otherLanguage);
 
   const alphabet = selectedAlphabet === 'uk' ? alphabetUk : alphabetMain;
+  const plausible = usePlausible();
+
+  useEffect(() => {
+    plausible('TestEvent', { props: { path: `/pdf/${selectedAlphabet}Alphabet.pdf` } });
+  }, [plausible, selectedAlphabet]);
 
   return (
     <>
@@ -33,8 +39,10 @@ const AlphabetPage = ({ alphabetMain, alphabetUk }: InferGetStaticPropsType<type
                   key="download PDF"
                   className="underline text-primary-blue"
                   href={`/pdf/${selectedAlphabet}Alphabet.pdf`}
+                  onClick={() => plausible('TestEvent')}
                   rel="noreferrer"
                   target="_blank"
+
                 />,
               ]}
             />
