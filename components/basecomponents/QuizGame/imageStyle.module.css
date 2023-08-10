@@ -51,9 +51,29 @@
 }
 
 .match {
-  animation: dance 0.7s, shine 0.7s;
+  animation: dance 0.7s;
+}
+
+.match div:last-child {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  animation: shine 0.7s;
 }
 
 .dontMatch {
-  animation: shake 0.7s, shineRed 0.7s;
+  animation: shake 0.7s;
+}
+
+.dontMatch div:last-child {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  animation: shineRed 0.7s;
 }
