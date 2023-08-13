@@ -30,7 +30,7 @@ export const Header = () => {
               return (
                 <li
                   key={name}
-                  className={`${activePage && 'border-b-2 border-b-primary-yellow'} hover:text-primary-yellow text-white mx-2 `}
+                  className={`${activePage && 'border-b-2 border-b-primary-yellow'} hover:text-primary-yellow text-white mx-1 lg:mx-2 whitespace-nowrap`}
                 >
                   {submenu === undefined ? (
                     <Link href={link}>{t(name)}</Link>
