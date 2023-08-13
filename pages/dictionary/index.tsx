@@ -124,6 +124,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
             categories.map((category, index) => {
               const categoryName = getCategoryName(category, currentLanguage);
               const categoryPdfName = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
+
               return (
                 <div key={category.nameMain} id={getCategoryId(category, currentLanguage)}>
                   <Collapse

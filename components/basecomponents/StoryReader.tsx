@@ -9,7 +9,7 @@ import StoryText from './StoryText';
 import { useStoryReader } from 'components/hooks/useStoryReader';
 import { Trans } from 'next-i18next';
 import { StoryPhrase } from './Story/storyStore';
-
+import { usePlausible } from 'next-plausible';
 import { Platform } from '@types';
 import { usePlatform } from 'utils/usePlatform';
 
@@ -56,6 +56,7 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
     });
     setLanguagePlay(language);
   };
+  const plausible = usePlausible();
 
   const locales = ['uk' as Language, getCountryVariant()];
 
@@ -124,6 +125,7 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
                 href={`/pdf/${id}-${currentLanguage}.pdf`}
                 rel="noreferrer"
                 target="_blank"
+                onClick={() => plausible('TestEvent') + console.log('Story - Download PDF')}
               />,
             ]}
           />

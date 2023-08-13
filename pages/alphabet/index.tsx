@@ -8,6 +8,7 @@ import { getCountryVariant, Language } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { AlphabetDataObject, fetchAlphabetMain, fetchAlphabetUk } from '../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../utils/localization';
+import { usePlausible } from 'next-plausible';
 
 const countryVariant = getCountryVariant();
 
@@ -17,6 +18,7 @@ const AlphabetPage = ({ alphabetMain, alphabetUk }: InferGetStaticPropsType<type
   const [selectedAlphabet, setSelectedAlphabet] = useState<Language>(otherLanguage);
 
   const alphabet = selectedAlphabet === 'uk' ? alphabetUk : alphabetMain;
+  const plausible = usePlausible();
 
   return (
     <>
@@ -35,6 +37,7 @@ const AlphabetPage = ({ alphabetMain, alphabetUk }: InferGetStaticPropsType<type
                   href={`/pdf/${selectedAlphabet}Alphabet.pdf`}
                   rel="noreferrer"
                   target="_blank"
+                  onClick={() => plausible('TestEvent') + console.log('Alfabet - Download PDF')}
                 />,
               ]}
             />
