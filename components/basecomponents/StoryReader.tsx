@@ -57,6 +57,12 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
     setLanguagePlay(language);
   };
   const plausible = usePlausible();
+  const filePathStory = `/pdf/${id}-${currentLanguage}.pdf`;
+
+  const handleDownloadStory = () => {
+    console.log('Story - Download PDF')
+    plausible('TestEvent', { props: { language: currentLanguage, url: filePathStory, category: 'story' } });
+  };
 
   const locales = ['uk' as Language, getCountryVariant()];
 
@@ -122,10 +128,10 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
               <a
                 key="download PDF"
                 className="underline text-primary-blue"
-                href={`/pdf/${id}-${currentLanguage}.pdf`}
+                href={filePathStory}
                 rel="noreferrer"
                 target="_blank"
-                onClick={() => plausible('TestEvent') + console.log('Story - Download PDF')}
+                onClick={handleDownloadStory}
               />,
             ]}
           />

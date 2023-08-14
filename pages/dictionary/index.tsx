@@ -18,7 +18,7 @@ import { AiOutlineFilePdf } from 'react-icons/ai';
 import { BiExtension } from 'react-icons/bi';
 import { getCategoryName, getCategoryId, getCategoryUkId } from '../../components/sections/Dictionary/dictionaryUtils';
 import { useLanguage } from 'utils/useLanguageHook';
-
+import { usePlausible } from 'next-plausible';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
@@ -79,6 +79,8 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
     return uniqueMathces;
   }, [search, allTranslations]);
 
+  const plausible = usePlausible();
+
   return (
     <>
       <SEO
@@ -124,6 +126,12 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
             categories.map((category, index) => {
               const categoryName = getCategoryName(category, currentLanguage);
               const categoryPdfName = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
+              const filePathDictionary = `/pdf/${categoryPdfName}.pdf`;
+
+              const handleDownloadDictionary = () => {
+                console.log('Dictionary - Download PDF');
+                plausible('TestEvent', { props: { language: currentLanguage, url: filePathDictionary, category: 'dictionary' } });
+              };
 
               return (
                 <div key={category.nameMain} id={getCategoryId(category, currentLanguage)}>
@@ -134,10 +142,10 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                     ariaId={category.nameMain}
                     category={category}
                   >
-                    <div className="mb-4 mx-4">
+                    <div className="mb-4 mx-4" onClick={handleDownloadDictionary}>
                       <ExportTranslations category={category} />
                       <TextLink
-                        href={`/pdf/${categoryPdfName}.pdf`}
+                        href={filePathDictionary}
                         target="_blank"
                         className="ml-3 inline-flex gap-x-1 items-center"
                         locale={getCountryVariant()}

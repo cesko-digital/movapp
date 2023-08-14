@@ -18,7 +18,16 @@ const AlphabetPage = ({ alphabetMain, alphabetUk }: InferGetStaticPropsType<type
   const [selectedAlphabet, setSelectedAlphabet] = useState<Language>(otherLanguage);
 
   const alphabet = selectedAlphabet === 'uk' ? alphabetUk : alphabetMain;
+  
+  const { currentLanguage } = useLanguage();
+
   const plausible = usePlausible();
+  const filePathAlfabet = `/pdf/${selectedAlphabet}Alphabet.pdf`;
+
+  const handleDownloadAlfabet = () => {
+    console.log('Alphabet - Download PDF')
+    plausible('TestEvent', { props: { language: currentLanguage, url: filePathAlfabet, category: 'alphabet' } });
+  };
 
   return (
     <>
@@ -34,10 +43,10 @@ const AlphabetPage = ({ alphabetMain, alphabetUk }: InferGetStaticPropsType<type
                 <a
                   key="download PDF"
                   className="underline text-primary-blue"
-                  href={`/pdf/${selectedAlphabet}Alphabet.pdf`}
+                  href={filePathAlfabet}
                   rel="noreferrer"
                   target="_blank"
-                  onClick={() => plausible('TestEvent') + console.log('Alfabet - Download PDF')}
+                  onClick={handleDownloadAlfabet}
                 />,
               ]}
             />

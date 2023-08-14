@@ -22,6 +22,11 @@ const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticPro
 
   const plausible = usePlausible();
 
+  const handleDownloadPicture = () => {
+    console.log('Picture - Download PDF');
+    plausible('TestEvent', { props: { language: currentLanguage, url: pdfUrl, category: 'picture' } });
+  };
+
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
       <SEO
@@ -30,13 +35,7 @@ const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticPro
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="text-center sm:text-right pt-8 mr-0 sm:mr-16">
-        <a
-          href={pdfUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => plausible('TestEvent') + console.log('KidsCard - Download PDF')}
-          download
-        >
+        <a href={pdfUrl} target="_blank" rel="noopener noreferrer" onClick={handleDownloadPicture} download>
           <Button buttonStyle="primary">{t('kids_page.downloadPDF')}</Button>
         </a>
       </div>
