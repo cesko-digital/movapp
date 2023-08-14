@@ -18,14 +18,14 @@ const AlphabetPage = ({ alphabetMain, alphabetUk }: InferGetStaticPropsType<type
   const [selectedAlphabet, setSelectedAlphabet] = useState<Language>(otherLanguage);
 
   const alphabet = selectedAlphabet === 'uk' ? alphabetUk : alphabetMain;
-  
+
   const { currentLanguage } = useLanguage();
 
   const plausible = usePlausible();
   const filePathAlfabet = `/pdf/${selectedAlphabet}Alphabet.pdf`;
 
   const handleDownloadAlfabet = () => {
-    console.log('Alphabet - Download PDF')
+    console.log('Alphabet - Download PDF');
     plausible('TestEvent', { props: { language: currentLanguage, url: filePathAlfabet, category: 'alphabet' } });
   };
 

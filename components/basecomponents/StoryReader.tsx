@@ -60,7 +60,7 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
   const filePathStory = `/pdf/${id}-${currentLanguage}.pdf`;
 
   const handleDownloadStory = () => {
-    console.log('Story - Download PDF')
+    console.log('Story - Download PDF');
     plausible('TestEvent', { props: { language: currentLanguage, url: filePathStory, category: 'story' } });
   };
 
