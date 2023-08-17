@@ -52,7 +52,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     // <PlausibleProvider ... trackLocalhost enabled>
     // But never commit it into main branch!
     // See docs https://www.npmjs.com/package/next-plausible for more
-    <PlausibleProvider domain={PLAUSIBLE_DOMAINS[getCountryVariant()]} trackLocalhost enabled>
+    <PlausibleProvider domain={PLAUSIBLE_DOMAINS[getCountryVariant()]}>
       <Head>
         <meta name="apple-itunes-app" content="app-id=1617768476" />
         <link rel="alternate" hrefLang="x-default" href={`https://www.movapp.cz${asPath}`} />

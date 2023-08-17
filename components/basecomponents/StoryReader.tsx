@@ -12,6 +12,7 @@ import { StoryPhrase } from './Story/storyStore';
 import { usePlausible } from 'next-plausible';
 import { Platform } from '@types';
 import { usePlatform } from 'utils/usePlatform';
+import { handleDownloadPdfs } from 'utils/handleDownloadPdfs';
 
 interface StoryReaderProps {
   titleCurrent: string;
@@ -58,11 +59,6 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
   };
   const plausible = usePlausible();
   const filePathStory = `/pdf/${id}-${currentLanguage}.pdf`;
-
-  const handleDownloadStory = () => {
-    console.log('Story - Download PDF');
-    plausible('TestEvent', { props: { language: currentLanguage, url: filePathStory, category: 'story' } });
-  };
 
   const locales = ['uk' as Language, getCountryVariant()];
 
@@ -131,7 +127,9 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
                 href={filePathStory}
                 rel="noreferrer"
                 target="_blank"
-                onClick={handleDownloadStory}
+                onClick={() => {
+                  handleDownloadPdfs(plausible, currentLanguage, filePathStory, 'story');
+                }}
               />,
             ]}
           />

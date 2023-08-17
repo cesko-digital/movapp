@@ -8,9 +8,11 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { DictionaryDataObject, fetchDictionary, getKidsCategory } from '../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../utils/localization';
 import { useLanguage } from '../../utils/useLanguageHook';
+import { usePlausible } from 'next-plausible';
 
 import KidsDictionaryList from 'components/basecomponents/KidsDictionaryList';
-import { usePlausible } from 'next-plausible';
+import { handleDownloadPdfs } from 'utils/handleDownloadPdfs';
+
 export type KidsTranslation = TranslationJSON & { image: string };
 
 const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -22,11 +24,6 @@ const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticPro
 
   const plausible = usePlausible();
 
-  const handleDownloadPicture = () => {
-    console.log('Picture - Download PDF');
-    plausible('TestEvent', { props: { language: currentLanguage, url: pdfUrl, category: 'picture' } });
-  };
-
   return (
     <div className="bg-gradient-to-r from-[#fdf6d2] to-[#99bde4] -mb-8 -m-2">
       <SEO
@@ -35,7 +32,15 @@ const KidsSection = ({ dictionary }: InferGetStaticPropsType<typeof getStaticPro
         image="https://www.movapp.cz/icons/movapp-cover-kids.jpg"
       />
       <div className="text-center sm:text-right pt-8 mr-0 sm:mr-16">
-        <a href={pdfUrl} target="_blank" rel="noopener noreferrer" onClick={handleDownloadPicture} download>
+        <a
+          href={pdfUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            handleDownloadPdfs(plausible, currentLanguage, pdfUrl, 'picture');
+          }}
+          download
+        >
           <Button buttonStyle="primary">{t('kids_page.downloadPDF')}</Button>
         </a>
       </div>

@@ -19,6 +19,7 @@ import { BiExtension } from 'react-icons/bi';
 import { getCategoryName, getCategoryId, getCategoryUkId } from '../../components/sections/Dictionary/dictionaryUtils';
 import { useLanguage } from 'utils/useLanguageHook';
 import { usePlausible } from 'next-plausible';
+import { handleDownloadPdfs } from 'utils/handleDownloadPdfs';
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
@@ -128,11 +129,6 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
               const categoryPdfName = currentLanguage === 'uk' ? category.nameUk : category.nameMain;
               const filePathDictionary = `/pdf/${categoryPdfName}.pdf`;
 
-              const handleDownloadDictionary = () => {
-                console.log('Dictionary - Download PDF');
-                plausible('TestEvent', { props: { language: currentLanguage, url: filePathDictionary, category: 'dictionary' } });
-              };
-
               return (
                 <div key={category.nameMain} id={getCategoryId(category, currentLanguage)}>
                   <Collapse
@@ -142,7 +138,12 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                     ariaId={category.nameMain}
                     category={category}
                   >
-                    <div className="mb-4 mx-4" onClick={handleDownloadDictionary}>
+                    <div
+                      className="mb-4 mx-4"
+                      onClick={() => {
+                        handleDownloadPdfs(plausible, currentLanguage, filePathDictionary, 'dictionary');
+                      }}
+                    >
                       <ExportTranslations category={category} />
                       <TextLink
                         href={filePathDictionary}
