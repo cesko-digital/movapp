@@ -9,9 +9,10 @@ import StoryText from './StoryText';
 import { useStoryReader } from 'components/hooks/useStoryReader';
 import { Trans } from 'next-i18next';
 import { StoryPhrase } from './Story/storyStore';
-
+import { usePlausible } from 'next-plausible';
 import { Platform } from '@types';
 import { usePlatform } from 'utils/usePlatform';
+import { handleDownloadPdfs } from 'utils/handleDownloadPdfs';
 
 interface StoryReaderProps {
   titleCurrent: string;
@@ -56,6 +57,8 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
     });
     setLanguagePlay(language);
   };
+  const plausible = usePlausible();
+  const filePathStory = `/pdf/${id}-${currentLanguage}.pdf`;
 
   const locales = ['uk' as Language, getCountryVariant()];
 
@@ -121,9 +124,12 @@ const StoryReader = ({ titleCurrent, titleOther, id, phrases }: StoryReaderProps
               <a
                 key="download PDF"
                 className="underline text-primary-blue"
-                href={`/pdf/${id}-${currentLanguage}.pdf`}
+                href={filePathStory}
                 rel="noreferrer"
                 target="_blank"
+                onClick={() => {
+                  handleDownloadPdfs(plausible, currentLanguage, filePathStory, 'story');
+                }}
               />,
             ]}
           />

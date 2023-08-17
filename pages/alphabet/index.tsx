@@ -8,6 +8,8 @@ import { getCountryVariant, Language } from 'utils/locales';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { AlphabetDataObject, fetchAlphabetMain, fetchAlphabetUk } from '../../utils/getDataUtils';
 import { getServerSideTranslations } from '../../utils/localization';
+import { handleDownloadPdfs } from 'utils/handleDownloadPdfs';
+import { usePlausible } from 'next-plausible';
 
 const countryVariant = getCountryVariant();
 
@@ -17,6 +19,11 @@ const AlphabetPage = ({ alphabetMain, alphabetUk }: InferGetStaticPropsType<type
   const [selectedAlphabet, setSelectedAlphabet] = useState<Language>(otherLanguage);
 
   const alphabet = selectedAlphabet === 'uk' ? alphabetUk : alphabetMain;
+
+  const { currentLanguage } = useLanguage();
+
+  const plausible = usePlausible();
+  const filePathAlfabet = `/pdf/${selectedAlphabet}Alphabet.pdf`;
 
   return (
     <>
@@ -32,9 +39,12 @@ const AlphabetPage = ({ alphabetMain, alphabetUk }: InferGetStaticPropsType<type
                 <a
                   key="download PDF"
                   className="underline text-primary-blue"
-                  href={`/pdf/${selectedAlphabet}Alphabet.pdf`}
+                  href={filePathAlfabet}
                   rel="noreferrer"
                   target="_blank"
+                  onClick={() => {
+                    handleDownloadPdfs(plausible, currentLanguage, filePathAlfabet, 'alphabet');
+                  }}
                 />,
               ]}
             />
