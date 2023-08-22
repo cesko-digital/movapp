@@ -9,16 +9,16 @@ import { Language } from 'utils/locales';
 const TIMOUT_DELAY = 500;
 
 export const useStoryReader = (id: string) => {
-  const { currentLanguage } = useLanguage();
+  const { otherLanguage } = useLanguage();
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [seekValue, setSeekValue] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [languagePlay, setLanguagePlay] = useState<Language>(currentLanguage);
+  const [languagePlay, setLanguagePlay] = useState<Language>(otherLanguage);
 
   const audio = useRef<HTMLAudioElement | null>(null);
   const source = `https://data.movapp.eu/bilingual-reading/${id}-${languagePlay}.mp3`;
-
   const playStory: VoidFunction = useCallback(() => {
+    // console.dir(audio.current)
     if (audio.current !== null) {
       setIsPlaying(true);
       audio.current.play();
@@ -42,7 +42,6 @@ export const useStoryReader = (id: string) => {
   const playPhrase: (value: PhraseInfo) => void = useCallback(
     (value: PhraseInfo) => {
       const { time, language } = value;
-
       setLanguagePlay(language);
       setSeekValue(time);
       pauseStory(); // pause current audio if it's playing
