@@ -1,0 +1,162 @@
+[
+    {
+      "main": "Bolo raz jedno dievčatko, ktoré žilo so svojou mamičkou na okraji lesa. Volalo sa Červená čiapočka.",
+      "uk": "Жила-була дівчинка із матусею в хатинці на узліссі великого лісу. Її звали Червоною Шапочкою.",
+      "start_cs": 14.2455,
+      "end_cs": 23.1455,
+      "start_uk": 14.1205,
+      "end_uk": 22.883
+    },
+    {
+      "main": "Jedného dňa mamička povedala: „Červená čiapočka, dnes má stará mama narodeniny. Choď ju navštíviť. Dávaj si ale pozor - v lese je vlk!“",
+      "uk": "Одного дня мама каже їй: „Червона Шапочко, у бабусі сьогодні іменини. Біжи до неї в гості. Але пам'ятай: у лісі живе вовк!“",
+      "start_cs": 23.1455,
+      "end_cs": 35.583,
+      "start_uk": 22.883,
+      "end_uk": 35.2705
+    },
+    {
+      "main": "Červená čiapočka si do košíka zabalila koláč a kytičku, rozlúčila sa s mamičkou a vydala sa na cestu.",
+      "uk": "Червона Шапочка склала у кошик пиріг і букет квітів, попрощалась з матусею та вирушила в дорогу.",
+      "start_cs": 35.583,
+      "end_cs": 44.058,
+      "start_uk": 35.2705,
+      "end_uk": 43.208
+    },
+    {
+      "main": "Kráčala lesom, keď tu zrazu sa pred ňou zjavil veľký vlk. „Kamže ideš?“",
+      "uk": "Йде собі Червона Шапочка лісом, аж раптом їй назустріч великий вовк. „Куди ти йдеш?“",
+      "start_cs": 44.058,
+      "end_cs": 51.283,
+      "start_uk": 43.208,
+      "end_uk": 51.5455
+    },
+    {
+      "main": "Červená čiapočka vlkovi odpovedala: „Idem k starej mame, dnes má narodeniny. Nesiem jej koláč.“",
+      "uk": "Шапочка відповідає вовку: „Я йду до бабусі на іменини. Несу їй пиріг.“",
+      "start_cs": 51.283,
+      "end_cs": 60.2455,
+      "start_uk": 51.5455,
+      "end_uk": 59.058
+    },
+    {
+      "main": "Vlk sa otočil a odbehol do lesa. A lesom rovno k chalúpke starej mamy.",
+      "uk": "Вовк розвернувся та побіг назад у ліс. Він прямував до бабусиної хатинки.",
+      "start_cs": 60.2455,
+      "end_cs": 67.308,
+      "start_uk": 59.058,
+      "end_uk": 65.4205
+    },
+    {
+      "main": "Zaklopal na dvere a z chalúpky sa ozvala stará mama: „Kto je tam?“",
+      "uk": "Вовк постукав у двері, і з хатинки почувся бабусин голос: „Хто там?“",
+      "start_cs": 67.308,
+      "end_cs": 73.308,
+      "start_uk": 65.4205,
+      "end_uk": 72.0705
+    },
+    {
+      "main": "„To som ja, Červená čiapočka,“ ozval sa vlk tenkým hláskom.",
+      "uk": "„Це я, Червона Шапочка!“ - пропищав вовк тонесеньким голосом.",
+      "start_cs": 73.308,
+      "end_cs": 79.2455,
+      "start_uk": 72.0705,
+      "end_uk": 79.133
+    },
+    {
+      "main": "„Tak poď ďalej, Červená čiapočka, je otvorené,“ povedala stará mama.",
+      "uk": "„Так заходь, онученько, двері відчинені.“ - промовила бабуся.",
+      "start_cs": 79.2455,
+      "end_cs": 85.833,
+      "start_uk": 79.133,
+      "end_uk": 86.083
+    },
+    {
+      "main": "Vlk skočil do izby a ham - starú mamu zjedol.",
+      "uk": "Вовк заскочив до хатинки і - гам - з'їв бабусю.",
+      "start_cs": 85.833,
+      "end_cs": 90.7705,
+      "start_uk": 86.083,
+      "end_uk": 91.3705
+    },
+    {
+      "main": "Vliezol do jej postele, nasadil si jej okuliare a čakal na Červenú čiapočku.",
+      "uk": "Вовк заліз у бабусине ліжко, натягнув на себе її окуляри і став чекати на Шапочку. ",
+      "start_cs": 90.7705,
+      "end_cs": 97.683,
+      "start_uk": 91.3705,
+      "end_uk": 98.858
+    },
+    {
+      "main": "Keď Červená čiapočka prišla, prekvapene sa spýtala: „Stará mama, prečo máš také veľké uši?“",
+      "uk": "Коли Червона Шапочка прийшла, подивилась та й питає: „Бабусю, а чому у тебе такі великі вуха?“",
+      "start_cs": 97.683,
+      "end_cs": 105.783,
+      "start_uk": 98.858,
+      "end_uk": 107.1705
+    },
+    {
+      "main": "„Aby som ťa lepšie počula,“ povedal vlk tenkým hláskom.",
+      "uk": "„Щоб краще тебе чути!“, сказав вовк тоненьким голосом.",
+      "start_cs": 105.783,
+      "end_cs": 111.208,
+      "start_uk": 107.1705,
+      "end_uk": 112.758
+    },
+    {
+      "main": "„Prečo máš také veľké oči?“ - „Aby som ťa lepšie videla.“",
+      "uk": "„Чому у тебе такі великі вуха?“ - „Щоб краще тебе бачити!“",
+      "start_cs": 111.208,
+      "end_cs": 117.2955,
+      "start_uk": 112.758,
+      "end_uk": 119.033
+    },
+    {
+      "main": "„Prečo máš také veľké zuby?“ - „Aby som ťa mohol lepšie zjesť!“ A vlk zjedol aj ju.",
+      "uk": "„Чому у тебе такі великі зуби?“ - „Щоб з'їсти тебе!“ Та вовк проковтнув і її.",
+      "start_cs": 117.2955,
+      "end_cs": 126.133,
+      "start_uk": 119.033,
+      "end_uk": 127.533
+    },
+    {
+      "main": "Vlk s plným bruchom zaspal. A ako chrápal!",
+      "uk": "Після такого ситного обіду вовк одразу заснув. Аж захропів!",
+      "start_cs": 126.133,
+      "end_cs": 131.5705,
+      "start_uk": 127.533,
+      "end_uk": 134.1455
+    },
+    {
+      "main": "Chrápanie priviedlo do chalupy horára.",
+      "uk": "На звук вовчого хропіння до хатинки зайшов мисливець.",
+      "start_cs": 131.5705,
+      "end_cs": 135.7455,
+      "start_uk": 134.1455,
+      "end_uk": 139.3455
+    },
+    {
+      "main": "Vyslobodil starú mamu i Červenú čiapočku z vlkovho brucha. Brucho mu potom naplnil kameňmi.",
+      "uk": "Він витягнув Червону Шапочку та бабусю із вовчого живота, натомість поклав туди купу каміння ",
+      "start_cs": 135.7455,
+      "end_cs": 143.933,
+      "start_uk": 139.3455,
+      "end_uk": 146.3705
+    },
+    {
+      "main": "Vlk sa zobudil a bol veľmi smädný.",
+      "uk": "Вовк прокинувся від страшної спраги.",
+      "start_cs": 143.933,
+      "end_cs": 148.1705,
+      "start_uk": 146.3705,
+      "end_uk": 150.5455
+    },
+    {
+      "main": "Priplazil sa k studni, ťažké kamene ho prevážili a už nikdy sa zo studne nedostal von.",
+      "uk": "Він поповз до криниці, аж там - камені булькнули на дно разом із ним. Так він у криниці і лишився повік.",
+      "start_cs": 148.1705,
+      "end_cs": 153.558,
+      "start_uk": 150.5455,
+      "end_uk": 158.783
+    }
+]
