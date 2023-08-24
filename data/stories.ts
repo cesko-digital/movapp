@@ -7,6 +7,18 @@ const stories = [
     country: 'CZ',
   },
   {
+    title: { cs: 'O třech prasátkách', uk: 'Троє поросят' },
+    slug: 'tri-prasatka',
+    duration: '4 min',
+    country: 'CZ',
+  },
+  {
+    title: { cs: 'O veliké řepě', uk: 'Про велику ріпку' },
+    slug: 'velika-repa',
+    duration: '3 min',
+    country: 'CZ',
+  },
+  {
     title: { cs: 'O perníkové chaloupce', uk: 'Прянична хатинка' },
     slug: 'pernikova-chaloupka',
     duration: '3 min',
@@ -22,18 +34,6 @@ const stories = [
     title: { cs: 'O červené Karkulce', uk: 'Червона Шапочка', sk: 'O Červenej čiapočke' },
     slug: 'cervena-karkulka',
     duration: '3 min',
-    country: 'CZ',
-  },
-  {
-    title: { cs: 'O veliké řepě', uk: 'Про велику ріпку' },
-    slug: 'velika-repa',
-    duration: '3 min',
-    country: 'CZ',
-  },
-  {
-    title: { cs: 'O třech prasátkách', uk: 'Троє поросят' },
-    slug: 'tri-prasatka',
-    duration: '4 min',
     country: 'CZ',
   },
   {
