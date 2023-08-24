@@ -126,6 +126,7 @@ const generateDictionaryPDFs = async (country: CountryVariant) => {
 
 const generateTalesPDFs = async (country: CountryVariant) => {
   const stories: string[] = [
+    'zabi-princ',
     'pernikova-chaloupka',
     'dvanact-mesicku',
     'cervena-karkulka',
