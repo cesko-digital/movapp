@@ -12,6 +12,7 @@ export interface StoryPhrase {
 }
 
 const STORY_SLUGS = [
+  'zabi-princ',
   'pernikova-chaloupka',
   'dvanact-mesicku',
   'cervena-karkulka',
