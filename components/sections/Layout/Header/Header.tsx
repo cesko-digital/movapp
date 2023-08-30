@@ -38,7 +38,7 @@ export const Header = () => {
                     <div ref={ref}>
                       <button onClick={() => setShowDropdown(!showDropdown)}>{t(name)}</button>
                       <div
-                        className={`absolute z-10 ${showDropdown ? '' : 'hidden'} bg-white divide-y divide-gray-100 rounded shadow w-44`}
+                        className={`absolute z-10 ${showDropdown ? '' : 'hidden'} bg-white divide-y divide-gray-100 rounded shadow w-48`}
                       >
                         <ul className="py-1 text-sm text-gray-700">
                           {submenu
