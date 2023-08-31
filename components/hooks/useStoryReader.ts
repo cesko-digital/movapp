@@ -19,7 +19,6 @@ export const useStoryReader = (id: string) => {
   const [audioEnded, setAudioEnded] = useState(false);
   const [isFirstPlay, setIsFirstPlay] = useState(true);
   const [isFirstEnd, setIsFirstEnd] = useState(true);
-
   const currentPlatform = usePlatform();
   const kiosk = (currentPlatform === 'web' && false) || (currentPlatform !== 'web' && true);
 
@@ -92,7 +91,7 @@ export const useStoryReader = (id: string) => {
       // console.log('The end');
       setIsPlaying(false);
       setAudioEnded(true);
-       setIsFirstEnd(false);
+      setIsFirstEnd(false);
     };
 
     audio.current = new Audio(source);
@@ -108,8 +107,10 @@ export const useStoryReader = (id: string) => {
       if (audioEnded) {
         plausible('Story-Finished', { props: { story_audio_language: languagePlay, story_name: id, language, kiosk } });
       }
+      return;
     }
-  }, [isFirstEnd, audioEnded, plausible, languagePlay, language, id, kiosk]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFirstEnd, isFirstPlay, audioEnded, plausible, language, id, kiosk]);
 
   const time = useMemo(() => {
     return `${Math.floor(currentTime / 60)
