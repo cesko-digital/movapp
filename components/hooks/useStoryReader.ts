@@ -11,18 +11,20 @@ import { usePlatform } from 'utils/usePlatform';
 const TIMOUT_DELAY = 500;
 
 export const useStoryReader = (id: string) => {
-  const { otherLanguage } = useLanguage();
+  const { otherLanguage, currentLanguage } = useLanguage();
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [seekValue, setSeekValue] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [languagePlay, setLanguagePlay] = useState<Language>(otherLanguage);
   const [audioEnded, setAudioEnded] = useState(false);
   const [isFirstPlay, setIsFirstPlay] = useState(true);
+  const [isFirstEnd, setIsFirstEnd] = useState(true);
+
   const currentPlatform = usePlatform();
   const kiosk = (currentPlatform === 'web' && false) || (currentPlatform !== 'web' && true);
 
   const audio = useRef<HTMLAudioElement | null>(null);
-
+  const language = currentLanguage;
   const plausible = usePlausible();
   const source = `https://data.movapp.eu/bilingual-reading/${id}-${languagePlay}.mp3`;
 
@@ -31,7 +33,7 @@ export const useStoryReader = (id: string) => {
 
     if (isFirstPlay) {
       plausible('Story-Started', {
-        props: { languagePlay, story_name: id, kiosk },
+        props: { story_audio_language: languagePlay, story_name: id, language, kiosk },
       });
       setIsFirstPlay(false);
     }
@@ -40,7 +42,7 @@ export const useStoryReader = (id: string) => {
       setIsPlaying(true);
       audio.current.play();
     }
-  }, [audio, plausible, languagePlay, id, isFirstPlay, kiosk]);
+  }, [audio, plausible, languagePlay, language, id, isFirstPlay, kiosk]);
 
   const pauseStory: VoidFunction = useCallback(() => {
     if (audio.current !== null) {
@@ -90,6 +92,7 @@ export const useStoryReader = (id: string) => {
       // console.log('The end');
       setIsPlaying(false);
       setAudioEnded(true);
+       setIsFirstEnd(false);
     };
 
     audio.current = new Audio(source);
@@ -101,10 +104,12 @@ export const useStoryReader = (id: string) => {
   }, [source, stopStory]);
 
   useEffect(() => {
-    if (audioEnded) {
-      plausible('Story-Finished', { props: { languagePlay, story_name: id, kiosk } });
+    if (!isFirstEnd) {
+      if (audioEnded) {
+        plausible('Story-Finished', { props: { story_audio_language: languagePlay, story_name: id, language, kiosk } });
+      }
     }
-  });
+  }, [isFirstEnd, audioEnded, plausible, languagePlay, language, id, kiosk]);
 
   const time = useMemo(() => {
     return `${Math.floor(currentTime / 60)
