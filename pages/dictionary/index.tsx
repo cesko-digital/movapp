@@ -140,6 +140,7 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                   >
                     <div
                       className="mb-4 mx-4"
+                      // FIXME move handleDownloadPdfs to TextLink
                       onClick={() => {
                         handleDownloadPdfs(plausible, currentLanguage, filePathDictionary, 'dictionary');
                       }}
