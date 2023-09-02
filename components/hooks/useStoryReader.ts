@@ -1,8 +1,6 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
-
 import { PhraseInfo } from 'components/basecomponents/StoryText';
 import { useLanguage } from 'utils/useLanguageHook';
-
 import { Language } from 'utils/locales';
 import { usePlausible } from 'next-plausible';
 import { usePlatform } from 'utils/usePlatform';
@@ -16,32 +14,36 @@ export const useStoryReader = (id: string) => {
   const [seekValue, setSeekValue] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [languagePlay, setLanguagePlay] = useState<Language>(otherLanguage);
+
+  const shouldSendEventStoryStarted = useRef(true);
+  const shouldSendEventStoryFinished = useRef(true);
+
+  // const audioEnded = useRef(false);
   const [audioEnded, setAudioEnded] = useState(false);
-  const [isFirstPlay, setIsFirstPlay] = useState(true);
-  const [isFirstEnd, setIsFirstEnd] = useState(true);
+
   const currentPlatform = usePlatform();
-  const kiosk = (currentPlatform === 'web' && false) || (currentPlatform !== 'web' && true);
+  const kiosk = currentPlatform === 'kiosk';
 
   const audio = useRef<HTMLAudioElement | null>(null);
   const language = currentLanguage;
+
   const plausible = usePlausible();
+  // const plausible = (event, data) => console.log(event);
+
   const source = `https://data.movapp.eu/bilingual-reading/${id}-${languagePlay}.mp3`;
-
   const playStory: VoidFunction = useCallback(() => {
-    // console.log('Play');
-
-    if (isFirstPlay) {
+    if (shouldSendEventStoryStarted.current) {
       plausible('Story-Started', {
         props: { story_audio_language: languagePlay, story_name: id, language, kiosk },
       });
-      setIsFirstPlay(false);
+      shouldSendEventStoryStarted.current = false;
     }
 
     if (audio.current !== null) {
       setIsPlaying(true);
       audio.current.play();
     }
-  }, [audio, plausible, languagePlay, language, id, isFirstPlay, kiosk]);
+  }, [audio, plausible, languagePlay, language, id, kiosk]);
 
   const pauseStory: VoidFunction = useCallback(() => {
     if (audio.current !== null) {
@@ -88,10 +90,8 @@ export const useStoryReader = (id: string) => {
     };
 
     const handleAudioEnd = () => {
-      // console.log('The end');
       setIsPlaying(false);
       setAudioEnded(true);
-      setIsFirstEnd(false);
     };
 
     audio.current = new Audio(source);
@@ -101,16 +101,16 @@ export const useStoryReader = (id: string) => {
       stopStory();
     };
   }, [source, stopStory]);
+  // console.log(audioEnded, shouldSendEventStoryFinished.current);
 
   useEffect(() => {
-    if (!isFirstEnd) {
-      if (audioEnded) {
-        plausible('Story-Finished', { props: { story_audio_language: languagePlay, story_name: id, language, kiosk } });
-      }
-      return;
+    if (audioEnded && shouldSendEventStoryFinished.current) {
+      plausible('Story-Finished', { props: { story_audio_language: languagePlay, story_name: id, language, kiosk } });
+      shouldSendEventStoryFinished.current = false;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFirstEnd, isFirstPlay, audioEnded, plausible, language, id, kiosk]);
+  }, [audioEnded, language, id, kiosk, languagePlay, plausible]);
+
+  // console.log(shouldSendEventStoryFinished.current);
 
   const time = useMemo(() => {
     return `${Math.floor(currentTime / 60)
