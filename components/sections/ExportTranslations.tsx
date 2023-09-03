@@ -124,7 +124,7 @@ const ExportTranslations = ({ triggerLabel, category, customName }: ExportTransl
   const logExportEvent = () => {
     if (!enabledAnalytics) return false;
     console.log('Sending Export event');
-    plausible('Export', { props: { language: currentLanguage, section: triggerLabel ? 'all' : modalTitle } });
+    plausible('Export', { props: { language: currentLanguage, dictionary_section: triggerLabel ? 'all' : modalTitle } });
     setEnabledAnalytics(false);
   };
 

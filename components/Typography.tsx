@@ -12,9 +12,9 @@ type LinkTextProps = React.PropsWithChildren<LinkProps> & {
   className?: string;
 };
 
-const TextLink = ({ href, children, target, locale, className }: LinkTextProps) => {
+const TextLink = ({ href, children, target, locale, className, onClick }: LinkTextProps) => {
   return (
-    <Link locale={locale} href={href} target={target} className={`underline text-primary-blue ${className}`}>
+    <Link locale={locale} href={href} target={target} className={`underline text-primary-blue ${className}`} onClick={onClick}>
       {children}
     </Link>
   );
