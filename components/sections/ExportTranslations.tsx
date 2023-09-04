@@ -7,6 +7,7 @@ import { TiExport } from 'react-icons/ti';
 import { Category, Phrase } from '../../utils/getDataUtils';
 import { TranslationId } from '../../utils/locales';
 import { firstLetterToUpperCase } from 'utils/textNormalizationUtils';
+import { usePlausible } from 'next-plausible';
 
 const PREVIEW_PHRASES_COUNT = 3;
 const CUSTOM_SEPARATOR_MAX_LENGTH = 30;
@@ -75,6 +76,8 @@ const ExportTranslations = ({ triggerLabel, category, customName }: ExportTransl
   const [includeTranscriptions, setIncludeTranscriptions] = useState(false);
   const { currentLanguage, otherLanguage } = useLanguage();
   const { t } = useTranslation();
+  const [enabledAnalytics, setEnabledAnalytics] = useState<boolean>(true);
+  const plausible = usePlausible();
 
   const translSep = translationSeparator === TRANS_SEP_CUSTOM ? customTranslationSeparator : translationSeparator;
   const phraseSep = phraseSeparator === PHRASE_SEP_CUSTOM ? customPhraseSeparator : phraseSeparator;
@@ -118,6 +121,12 @@ const ExportTranslations = ({ triggerLabel, category, customName }: ExportTransl
 
   const modalTitle = createExportName();
   const fileName = `${firstLetterToUpperCase(modalTitle)}.txt`;
+  const logExportEvent = () => {
+    if (!enabledAnalytics) return false;
+    console.log('Sending Export event');
+    plausible('Export', { props: { language: currentLanguage, dictionary_section: triggerLabel ? 'all' : modalTitle } });
+    setEnabledAnalytics(false);
+  };
 
   return (
     <>
@@ -125,7 +134,14 @@ const ExportTranslations = ({ triggerLabel, category, customName }: ExportTransl
         <TiExport className="w-5 h-5" />
         <span>{triggerLabel ?? t('export_translations.export_phrases')}</span>
       </button>
-      <Modal closeModal={() => setIsModalOpen(false)} isOpen={isModalOpen} title={`${t('export_translations.export')} ${modalTitle}`}>
+      <Modal
+        closeModal={() => {
+          setIsModalOpen(false);
+          setEnabledAnalytics(true);
+        }}
+        isOpen={isModalOpen}
+        title={`${t('export_translations.export')} ${modalTitle}`}
+      >
         <p>{t('export_translations.subtitle_note')}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div>
@@ -215,12 +231,19 @@ const ExportTranslations = ({ triggerLabel, category, customName }: ExportTransl
         </div>
 
         <div className="flex justify-evenly flex-wrap py-8">
-          <a download={fileName} href={downloadLink}>
+          <a download={fileName} href={downloadLink} onClick={logExportEvent}>
             <Button className="my-2" buttonStyle="primary">
               {t('export_translations.download_phrases')}
             </Button>
           </a>
-          <Button onClick={() => navigator.clipboard.writeText(categories.flat().join(''))} className="my-2" buttonStyle="primary">
+          <Button
+            onClick={() => {
+              navigator.clipboard.writeText(categories.flat().join(''));
+              logExportEvent();
+            }}
+            className="my-2"
+            buttonStyle="primary"
+          >
             {t('export_translations.copy_to_clipboard')}
           </Button>
         </div>
