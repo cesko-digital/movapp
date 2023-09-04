@@ -17,8 +17,6 @@ export const useStoryReader = (id: string) => {
 
   const shouldSendEventStoryStarted = useRef(true);
   const shouldSendEventStoryFinished = useRef(true);
-
-  // const audioEnded = useRef(false);
   const [audioEnded, setAudioEnded] = useState(false);
 
   const currentPlatform = usePlatform();
@@ -101,7 +99,6 @@ export const useStoryReader = (id: string) => {
       stopStory();
     };
   }, [source, stopStory]);
-  // console.log(audioEnded, shouldSendEventStoryFinished.current);
 
   useEffect(() => {
     if (audioEnded && shouldSendEventStoryFinished.current) {
@@ -109,8 +106,6 @@ export const useStoryReader = (id: string) => {
       shouldSendEventStoryFinished.current = false;
     }
   }, [audioEnded, language, id, kiosk, languagePlay, plausible]);
-
-  // console.log(shouldSendEventStoryFinished.current);
 
   const time = useMemo(() => {
     return `${Math.floor(currentTime / 60)
