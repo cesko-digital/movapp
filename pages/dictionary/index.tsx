@@ -138,18 +138,16 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
                     ariaId={category.nameMain}
                     category={category}
                   >
-                    <div
-                      className="mb-4 mx-4"
-                      onClick={() => {
-                        handleDownloadPdfs(plausible, currentLanguage, filePathDictionary, 'dictionary');
-                      }}
-                    >
+                    <div className="mb-4 mx-4">
                       <ExportTranslations category={category} />
                       <TextLink
                         href={filePathDictionary}
                         target="_blank"
                         className="ml-3 inline-flex gap-x-1 items-center"
                         locale={getCountryVariant()}
+                        onClick={() => {
+                          handleDownloadPdfs(plausible, currentLanguage, filePathDictionary, 'dictionary');
+                        }}
                       >
                         <AiOutlineFilePdf className="w-5 h-5" />
                         {t('dictionary_page.download_pdf')}
