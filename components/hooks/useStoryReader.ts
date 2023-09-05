@@ -26,9 +26,8 @@ export const useStoryReader = (id: string) => {
   const language = currentLanguage;
 
   const plausible = usePlausible();
-  // const plausible = (event, data) => console.log(event);
-
   const source = `https://data.movapp.eu/bilingual-reading/${id}-${languagePlay}.mp3`;
+
   const playStory: VoidFunction = useCallback(() => {
     if (shouldSendEventStoryStarted.current) {
       plausible('Story-Started', {
