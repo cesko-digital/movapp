@@ -1,29 +1,46 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
-
 import { PhraseInfo } from 'components/basecomponents/StoryText';
 import { useLanguage } from 'utils/useLanguageHook';
-
 import { Language } from 'utils/locales';
+import { usePlausible } from 'next-plausible';
+import { usePlatform } from 'utils/usePlatform';
 
 // Keep setTimeout value below 951. It is the lowest value, that the browser on Apple devices know and that it can enable autoplay.
 const TIMOUT_DELAY = 500;
 
 export const useStoryReader = (id: string) => {
-  const { otherLanguage } = useLanguage();
+  const { otherLanguage, currentLanguage } = useLanguage();
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [seekValue, setSeekValue] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [languagePlay, setLanguagePlay] = useState<Language>(otherLanguage);
 
+  const shouldSendEventStoryStarted = useRef(true);
+  const shouldSendEventStoryFinished = useRef(true);
+  const [audioEnded, setAudioEnded] = useState(false);
+
+  const currentPlatform = usePlatform();
+  const kiosk = currentPlatform === 'kiosk';
+
   const audio = useRef<HTMLAudioElement | null>(null);
+  const language = currentLanguage;
+
+  const plausible = usePlausible();
   const source = `https://data.movapp.eu/bilingual-reading/${id}-${languagePlay}.mp3`;
+
   const playStory: VoidFunction = useCallback(() => {
-    // console.dir(audio.current)
+    if (shouldSendEventStoryStarted.current) {
+      plausible('Story-Started', {
+        props: { story_audio_language: languagePlay, story_name: id, language, kiosk },
+      });
+      shouldSendEventStoryStarted.current = false;
+    }
+
     if (audio.current !== null) {
       setIsPlaying(true);
       audio.current.play();
     }
-  }, [audio]);
+  }, [audio, plausible, languagePlay, language, id, kiosk]);
 
   const pauseStory: VoidFunction = useCallback(() => {
     if (audio.current !== null) {
@@ -69,16 +86,25 @@ export const useStoryReader = (id: string) => {
       setSeekValue(duration ? (actualTime / duration) * 100 : 0);
     };
 
-    const handleAudioEnd = () => setIsPlaying(false);
+    const handleAudioEnd = () => {
+      setIsPlaying(false);
+      setAudioEnded(true);
+    };
 
     audio.current = new Audio(source);
     audio.current.ontimeupdate = handleTimeUpdate;
     audio.current.onended = handleAudioEnd;
-
     return () => {
       stopStory();
     };
   }, [source, stopStory]);
+
+  useEffect(() => {
+    if (audioEnded && shouldSendEventStoryFinished.current) {
+      plausible('Story-Finished', { props: { story_audio_language: languagePlay, story_name: id, language, kiosk } });
+      shouldSendEventStoryFinished.current = false;
+    }
+  }, [audioEnded, language, id, kiosk, languagePlay, plausible]);
 
   const time = useMemo(() => {
     return `${Math.floor(currentTime / 60)
