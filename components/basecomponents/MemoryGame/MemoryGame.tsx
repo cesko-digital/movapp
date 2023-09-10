@@ -1,14 +1,11 @@
-import React, { useEffect, useCallback, useRef } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useTranslation } from 'next-i18next';
 import Card from './MemoryGameCard';
 import { useLanguage } from 'utils/useLanguageHook';
 import loaderStyles from './MemoryGameThemeLoader.module.css';
 import Image from 'next/legacy/image';
-import { useGameStore, Scene } from './gameStore';
-import { usePlausible } from 'next-plausible';
-import { usePlatform } from 'utils/usePlatform';
-import { Platform } from '@types';
-import { Card as CardT } from './gameStore';
+import { useGameStore } from './gameStore';
+import { useTracking } from './useTracking';
 
 const MemoryGame = () => {
   const { t } = useTranslation();
@@ -25,30 +22,9 @@ const MemoryGame = () => {
   const setButtonRef = useGameStore((state) => state.setButtonRef);
   const setCardFrontRef = useGameStore((state) => state.setCardFrontRef);
   const setCardBackRef = useGameStore((state) => state.setCardBackRef);
-  const selectCardFunc = useGameStore((state) => state.selectCard);
-  const currentThemeIndex = useGameStore((state) => state.currentThemeIndex);
-  const plausible = usePlausible();
-  const platform = usePlatform();
-  const isKiosk = platform === Platform.KIOSK;
-  const enabledAnalytics = useRef(true);
-  const selectCard = useCallback(
-    (card: CardT) => {
-      if (enabledAnalytics.current) {
-        console.log('Pexeso is started, sending to Plausible');
-        plausible('Pexeso-Started', { props: { language: lang.currentLanguage, theme: currentThemeIndex, kiosk: isKiosk } });
-        enabledAnalytics.current = false;
-      }
-      selectCardFunc(card);
-    },
-    [currentThemeIndex, isKiosk, lang.currentLanguage, plausible, selectCardFunc]
-  );
-  useEffect(() => {
-    if (scene === Scene.win) {
-      console.log('Pexeso is finished, sending to Plausible');
-      plausible('Pexeso-Finished', { props: { language: lang.currentLanguage, theme: currentThemeIndex, kiosk: isKiosk } });     
-    }
-  }, [currentThemeIndex, isKiosk, lang.currentLanguage, plausible, scene]);
+  const selectCard = useGameStore((state) => state.selectCard);
   const isSelected = useGameStore((state) => state.isSelected);
+  useTracking();
 
   const buttonRef = useCallback(
     (buttonNode) => {
@@ -73,27 +49,13 @@ const MemoryGame = () => {
     <div className={loaderStyles.app}>
       <div className={loaderStyles.themeNav}>
         {themes.map((theme, index) => (
-          <div
-            key={theme.id}
-            className={loaderStyles.themeButton}
-            onClick={() => {
-              changeTheme(index);
-              enabledAnalytics.current = true;
-            }}
-          >
+          <div key={theme.id} className={loaderStyles.themeButton} onClick={() => changeTheme(index)}>
             <Image src={theme.image} layout="fill" sizes="25vw" objectFit="cover" alt="card back" priority />
           </div>
         ))}
       </div>
       <div className={styles.app}>
-        <button
-          ref={buttonRef}
-          className={styles.newGameButton}
-          onClick={() => {
-            restart();
-            enabledAnalytics.current = true;
-          }}
-        >
+        <button ref={buttonRef} className={styles.newGameButton} onClick={restart}>
           {t('utils.new_game')}
         </button>
         <div className={styles.board}>
