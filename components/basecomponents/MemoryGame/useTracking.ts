@@ -10,8 +10,7 @@ import { useGameStore, Scene } from './gameStore';
 export const useTracking = () => {
   const scene = useGameStore((state) => state.scene);
   const currentThemeIndex = useGameStore((state) => state.currentThemeIndex);
-  const cards = useGameStore((state) => state.cards);
-  const isSelected = useGameStore((state) => state.isSelected);
+  const selectedCards = useGameStore((state) => state.selectedCards);
 
   const plausible = usePlausible();
   const platform = usePlatform();
@@ -21,13 +20,13 @@ export const useTracking = () => {
   const enabledAnalytics = useRef(true);
 
   useEffect(() => {
-    const selected = enabledAnalytics.current && cards.some((card) => isSelected(card.id));
+    const selected = enabledAnalytics.current && !!selectedCards.first;
     if (selected) {
       console.log('Pexeso is started, sending to Plausible');
       plausible('Pexeso-Started', { props: { language: currentLanguage, theme: currentThemeIndex, kiosk: isKiosk } });
       enabledAnalytics.current = false;
     }
-  }, [cards, currentLanguage, currentThemeIndex, isKiosk, isSelected, plausible]);
+  }, [currentLanguage, currentThemeIndex, isKiosk, plausible, selectedCards.first]);
 
   useEffect(() => {
     if (scene === Scene.win) {
