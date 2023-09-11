@@ -17,14 +17,13 @@ export const useTracking = () => {
   const isKiosk = platform === Platform.KIOSK;
   const { currentLanguage } = useLanguage();
 
-  const enabledAnalytics = useRef(true);
+  const enabledGameStartTracking = useRef(true);
 
   useEffect(() => {
-    const selected = enabledAnalytics.current && !!selectedCards.first;
-    if (selected) {
+    if (enabledGameStartTracking.current && !!selectedCards.first) {
       console.log('Pexeso is started, sending to Plausible');
       plausible('Pexeso-Started', { props: { language: currentLanguage, theme: currentThemeIndex, kiosk: isKiosk } });
-      enabledAnalytics.current = false;
+      enabledGameStartTracking.current = false;
     }
   }, [currentLanguage, currentThemeIndex, isKiosk, plausible, selectedCards.first]);
 
@@ -37,7 +36,7 @@ export const useTracking = () => {
 
   useEffect(() => {
     if (scene === Scene.begin) {
-      enabledAnalytics.current = true;
+      enabledGameStartTracking.current = true;
     }
   }, [scene]);
 };
