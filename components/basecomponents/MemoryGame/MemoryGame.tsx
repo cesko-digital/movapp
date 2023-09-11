@@ -5,6 +5,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 import loaderStyles from './MemoryGameThemeLoader.module.css';
 import Image from 'next/legacy/image';
 import { useGameStore } from './gameStore';
+import { useTracking } from './useTracking';
 
 const MemoryGame = () => {
   const { t } = useTranslation();
@@ -23,6 +24,7 @@ const MemoryGame = () => {
   const setCardBackRef = useGameStore((state) => state.setCardBackRef);
   const selectCard = useGameStore((state) => state.selectCard);
   const isSelected = useGameStore((state) => state.isSelected);
+  useTracking();
 
   const buttonRef = useCallback(
     (buttonNode) => {
