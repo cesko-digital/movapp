@@ -33,7 +33,7 @@ const MOVAPP_TAGLINE: Record<string, string> = {
 
 const StoryPage = ({ story, storyData }: StoriesProps): JSX.Element => {
   const { t } = useTranslation();
-  const { currentLanguage } = useLanguage();
+  const { currentLanguage, otherLanguage } = useLanguage();
 
   const StoryImage: FunctionComponent = () => {
     // NextImage does not work properly in PDFs, we use a regular <img> element instead
@@ -57,12 +57,8 @@ const StoryPage = ({ story, storyData }: StoriesProps): JSX.Element => {
           {story ? (
             <tr className="break-inside-avoid">
               <td className="align-top p-2 min-w-[100px]" />
-              <td className="align-top p-2 text-2xl font-bold">
-                {currentLanguage === 'uk' ? story.title.uk : story.title[currentLanguage]}
-              </td>
-              <td className="align-top p-2 text-2xl font-bold">
-                {currentLanguage === 'uk' ? story.title[currentLanguage] : story.title.uk}
-              </td>
+              <td className="align-top p-2 text-2xl font-bold">{story.title[currentLanguage]}</td>
+              <td className="align-top p-2 text-2xl font-bold">{story.title[otherLanguage]}</td>
             </tr>
           ) : null}
           {story
