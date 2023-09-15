@@ -9,6 +9,7 @@ import { ExerciseContainer } from './ExerciseContainer';
 import { resolveMethods } from '../utils/resolveMethods';
 import { resultMethods } from '../utils/resultMethods';
 import { TextIdentificationHeader } from './TextIdentificationHeader';
+import { AudioControls } from './AudioControls';
 
 interface ExerciseTextIdentificationComponentProps {
   choices: Choice[];
@@ -55,6 +56,9 @@ export const ExerciseTextIdentificationComponent = forwardRef(
           hint={t('exercise_page.exercise_text_idenfification_hint')}
           status={status}
         />
+        {status === ExerciseStatus.completed && (
+          <AudioControls className="mt-5 mb-5" AudioUrl={correctChoice.phrase.getSoundUrl(otherLanguage)} />
+        )}
         <ChoiceListComponent
           choiceType={choiceType}
           textLanguage={choiceTextLanguage}
