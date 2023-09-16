@@ -20,6 +20,8 @@ import { getCategoryName, getCategoryId, getCategoryUkId } from '../../component
 import { useLanguage } from 'utils/useLanguageHook';
 import { usePlausible } from 'next-plausible';
 import { handleDownloadPdfs } from 'utils/handleDownloadPdfs';
+import { useTracking } from './useTracking';
+
 // Disable ssr for this component to avoid Reference Error: Blob is not defined
 const ExportTranslations = dynamic(() => import('../../components/sections/ExportTranslations'), {
   ssr: false,
@@ -39,6 +41,8 @@ const Dictionary = ({ dictionary }: InferGetStaticPropsType<typeof getStaticProp
   const searchButton = useRef<HTMLButtonElement | null>(null);
 
   const isSearching = search.trim().length > 0;
+
+  useTracking(isSearching);
 
   // scrolls to top whenever user type in search input
   useEffect(() => {
