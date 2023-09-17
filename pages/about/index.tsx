@@ -8,6 +8,7 @@ import React, { useEffect } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
+import help from '../../public/icons/about/help-us.png';
 
 type Link = string;
 
@@ -182,146 +183,173 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
   return (
     <>
       <SEO title={t('seo.about_page_title')} description={t('seo.about_page_description')} />
-      <div className="max-w-7xl m-auto pb-6">
-        <h1 className="text-primary-blue">
-          <Trans className="block my-2">{t('about_page.title')}</Trans>
-        </h1>
-        <H2>{t('about_page.movapp_goal_title')}</H2>
-        {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
-        <H2>{t('about_page.why_movapp_title')}</H2>
-        <P>
-          <Trans i18nKey={'about_page.why_movapp_mova'} />
-        </P>
-        <P>{t('about_page.why_movapp_description')}</P>
-        <P>
-          <Trans
-            i18nKey={'about_page.why_movapp_license'}
-            t={t}
-            components={[
-              <TextLink
-                href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage}`}
-                target="_blank"
-                key="creativecommons"
-              />,
-            ]}
-          />
-        </P>
+      <div className="max-w-[1192px] m-auto ">
+        <div className="max-w-[780px] text-center mx-auto py-[124px]">
+          <h1 className="text-primary-blue whitespace-pre-line ">
+            <Trans className="block my-2">{t('about_page.title')}</Trans>
+          </h1>
+        </div>
+        {/* section main__________________________________________________________________*** */}
+        <section className=" columns-2 gap-[55px] auto-cols-min ">
+          <div className="mb-[80px] mt-0 display-flex">
+            <H2>{t('about_page.movapp_goal_title')}</H2>
+            {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
+          </div>
+          <div>
+            {currentLanguage.toString() === 'cs' || currentLanguage.toString() === 'uk' ? (
+              <>
+                <H2>{t('about_page.movapp_origin_title')}</H2>
+                <Trans
+                  components={[
+                    <TextLink href={currentLanguage.toString() === 'cs' ? '/wiki/pribeh' : '/wiki/istorija'} key="movapp_story" />,
+                    <TextLink
+                      href={currentLanguage.toString() === 'cs' ? '/wiki/vyvoj-titulni-stranky' : '/wiki/zminy-na-holovnii-storintsi'}
+                      key="movapp_page_changes"
+                    />,
+                  ]}
+                >
+                  {t('about_page.movapp_origin_description')}
+                </Trans>
+              </>
+            ) : null}
+          </div>
+          <div className="pt-[3px]">
+            <H2>{t('about_page.why_movapp_title')}</H2>
+            <P>
+              <Trans i18nKey={'about_page.why_movapp_mova'} />
+            </P>
 
-        <Trans
-          i18nKey={'about_page.why_movapp_origin'}
-          t={t}
-          components={[
-            <TextLink
-              href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw"
-              target="_blank"
-              key="drive.google.com"
-            />,
-          ]}
-        />
+            <P>{t('about_page.why_movapp_description')}</P>
 
-        {currentLanguage.toString() === 'cs' || currentLanguage.toString() === 'uk' ? (
-          <>
-            <H2>{t('about_page.movapp_origin_title')}</H2>
+            <P>
+              <Trans
+                i18nKey={'about_page.why_movapp_license'}
+                t={t}
+                components={[
+                  <TextLink
+                    href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage}`}
+                    target="_blank"
+                    key="creativecommons"
+                  />,
+                ]}
+              />
+            </P>
+
             <Trans
+              i18nKey={'about_page.why_movapp_origin'}
+              t={t}
               components={[
-                <TextLink href={currentLanguage.toString() === 'cs' ? '/wiki/pribeh' : '/wiki/istorija'} key="movapp_story" />,
                 <TextLink
-                  href={currentLanguage.toString() === 'cs' ? '/wiki/vyvoj-titulni-stranky' : '/wiki/zminy-na-holovnii-storintsi'}
-                  key="movapp_page_changes"
+                  href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw"
+                  target="_blank"
+                  key="drive.google.com"
                 />,
               ]}
-            >
-              {t('about_page.movapp_origin_description')}
-            </Trans>
-          </>
-        ) : null}
+            />
+          </div>
+        </section>
 
-        <H2>{t('about_page.our_team_title')}</H2>
+        {/* section about team _________________________________________________________*/}
+        <section className="mt-[124px]">
+          <div className="text-center mb-20">
+            <H2>{t('about_page.our_team_title')}</H2>
+          </div>
+          {/* slider start */}
+          <h3 className="mb-1 sm:my-4">{t('about_page.our_team_current_title')}</h3>
+          <a href="https://data.movapp.eu/images/team/large-team-summer-23.jpg" target="_blank" rel="noopener noreferrer">
+            <Image
+              src="https://data.movapp.eu/images/team/small-team-summer-23.jpg"
+              width="320"
+              height="180"
+              alt={t('about_page.our_team_current_title')}
+              className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
+            />
+          </a>
 
-        <h3 className="mb-1 sm:my-4">{t('about_page.our_team_current_title')}</h3>
-        <a href="https://data.movapp.eu/images/team/large-team-summer-23.jpg" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="https://data.movapp.eu/images/team/small-team-summer-23.jpg"
-            width="320"
-            height="180"
-            alt={t('about_page.our_team_current_title')}
-            className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
-          />
-        </a>
+          <h3 className="mb-1 sm:my-4">{t('about_page.our_team_autumn_title')}</h3>
+          <a href="https://data.movapp.eu/images/team/large-team-photo-autumn.jpg" target="_blank" rel="noopener noreferrer">
+            <Image
+              src="https://data.movapp.eu/images/team/small-team-photo-autumn.jpg"
+              width="320"
+              height="180"
+              alt={t('about_page.our_team_current_title')}
+              className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
+            />
+          </a>
 
-        <h3 className="mb-1 sm:my-4">{t('about_page.our_team_autumn_title')}</h3>
-        <a href="https://data.movapp.eu/images/team/large-team-photo-autumn.jpg" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="https://data.movapp.eu/images/team/small-team-photo-autumn.jpg"
-            width="320"
-            height="180"
-            alt={t('about_page.our_team_current_title')}
-            className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
-          />
-        </a>
+          <h3 className="mb-1 sm:my-4">{t('about_page.our_team_spring_title')}</h3>
 
-        <h3 className="mb-1 sm:my-4">{t('about_page.our_team_spring_title')}</h3>
+          <a href="https://data.movapp.eu/images/team/large-team-photo.jpg" target="_blank" rel="noopener noreferrer">
+            <Image
+              src="https://data.movapp.eu/images/team/small-team-photo.jpg"
+              width="320"
+              height="180"
+              alt={t('about_page.our_team_spring_title')}
+              className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
+            />
+          </a>
+          {/* sliser end */}
+          <section className="grid grid-cols-3 gap-14 mb-16">
+            {teams.map(({ team, members }) => (
+              <React.Fragment key={team[currentLanguage]}>
+                <div>
+                  <H2>{team[currentLanguage]}</H2>
+                  <P className="inline-block">{members}</P>
+                </div>
+              </React.Fragment>
+            ))}
+          </section>
 
-        <a href="https://data.movapp.eu/images/team/large-team-photo.jpg" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="https://data.movapp.eu/images/team/small-team-photo.jpg"
-            width="320"
-            height="180"
-            alt={t('about_page.our_team_spring_title')}
-            className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
-          />
-        </a>
+          {/* block */}
+          <div className="my-4 max-w-[900px] h-52 flex p-16 bg-white rounded-3xl shadow-[#F0F0F0] text-[30px]">
+            <div className="w-16 h-16 mr-16 ">
+              <Image src={help} width={64} height={64} alt="help us" />
+            </div>
+            <div>
+              <Trans
+                i18nKey={'about_page.our_team_contact'}
+                components={[<TextLink href={`/contacts`} locale={currentLanguage} target="_self" key="contacts" />]}
+              />
+            </div>
+          </div>
 
-        {teams.map(({ team, members }) => (
-          <React.Fragment key={team[currentLanguage]}>
-            <H2>{team[currentLanguage]}</H2>
-            <P className="inline-block">{members}</P>
-          </React.Fragment>
-        ))}
+          <H2>{t('about_page.media_mentions_title')}</H2>
+          <ArticlesList articles={articles} />
 
-        <div className="my-4">
+          <H2>{t('about_page.conferences_title')}</H2>
           <Trans
-            i18nKey={'about_page.our_team_contact'}
-            components={[<TextLink href={`/contacts`} locale={currentLanguage} target="_self" key="contacts" />]}
+            i18nKey={'about_page.conferences_description'}
+            t={t}
+            components={[
+              <TextLink href="https://www.youtube.com/watch?v=ThY0ZiWmBV8&t=2353s" target="_blank" key="first_conference" />,
+              <TextLink href="https://www.youtube.com/watch?v=3UC16MhE19k&t=1660s" target="_blank" key="second_conference" />,
+            ]}
           />
-        </div>
 
-        <H2>{t('about_page.media_mentions_title')}</H2>
-        <ArticlesList articles={articles} />
+          <H2>{t('about_page.support_us_title')}</H2>
+          <Trans
+            i18nKey={'about_page.support_us_description'}
+            components={[
+              <TextLink href={'https://drive.google.com/drive/folders/1milRfoG2fPsod7moVKeCPM9ikm00kXup'} target="_blank" key="plakatky" />,
+              <TextLink href={'/contacts'} key="kontakt" />,
+              <TextLink href={'https://cesko.digital/projects/movapp'} target="_blank" key="ceskodigital" />,
+              <TextLink href={'/contacts'} key="ceskodigital" />,
+              <TextLink href={'https://cesko.digital/join/form'} target="_blank" key="ceskodigital" />,
+            ]}
+          />
 
-        <H2>{t('about_page.conferences_title')}</H2>
-        <Trans
-          i18nKey={'about_page.conferences_description'}
-          t={t}
-          components={[
-            <TextLink href="https://www.youtube.com/watch?v=ThY0ZiWmBV8&t=2353s" target="_blank" key="first_conference" />,
-            <TextLink href="https://www.youtube.com/watch?v=3UC16MhE19k&t=1660s" target="_blank" key="second_conference" />,
-          ]}
-        />
+          <H2>{t('about_page.how_to_find_us_title')}</H2>
+          <Trans i18nKey={'about_page.how_to_find_us_description'} />
 
-        <H2>{t('about_page.support_us_title')}</H2>
-        <Trans
-          i18nKey={'about_page.support_us_description'}
-          components={[
-            <TextLink href={'https://drive.google.com/drive/folders/1milRfoG2fPsod7moVKeCPM9ikm00kXup'} target="_blank" key="plakatky" />,
-            <TextLink href={'/contacts'} key="kontakt" />,
-            <TextLink href={'https://cesko.digital/projects/movapp'} target="_blank" key="ceskodigital" />,
-            <TextLink href={'/contacts'} key="ceskodigital" />,
-            <TextLink href={'https://cesko.digital/join/form'} target="_blank" key="ceskodigital" />,
-          ]}
-        />
-
-        <H2>{t('about_page.how_to_find_us_title')}</H2>
-        <Trans i18nKey={'about_page.how_to_find_us_description'} />
-
-        <H2>{t('about_page.how_we_prepared_content_title')}</H2>
-        <Trans
-          i18nKey={'about_page.how_we_prepared_content_description'}
-          components={[
-            <TextLink href={'https://chat.openai.com/'} target="_blank" key="chatgpt" />,
-            <TextLink href={'https://azure.microsoft.com/en-us/products/cognitive-services/'} target="_blank" key="azuremicrosoft" />,
-          ]}
-        />
+          <H2>{t('about_page.how_we_prepared_content_title')}</H2>
+          <Trans
+            i18nKey={'about_page.how_we_prepared_content_description'}
+            components={[
+              <TextLink href={'https://chat.openai.com/'} target="_blank" key="chatgpt" />,
+              <TextLink href={'https://azure.microsoft.com/en-us/products/cognitive-services/'} target="_blank" key="azuremicrosoft" />,
+            ]}
+          />
+        </section>
 
         <H2>{t('about_page.stand_with_ukraine_title')}</H2>
         <Trans
