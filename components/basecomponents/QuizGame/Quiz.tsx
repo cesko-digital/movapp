@@ -11,7 +11,8 @@ import { DictionaryDataObject, getKidsCategory } from 'utils/getDataUtils';
 import Confetti from './ConfetiAnimation';
 import { usePlatform } from 'utils/usePlatform';
 import { Platform } from '@types';
-import { createNarrator, Category } from 'utils/narrator';
+import { Category } from 'utils/narrator';
+import useNarrator from 'utils/useNarrator';
 
 type QuizProps = {
   dictionary: DictionaryDataObject;
@@ -31,7 +32,7 @@ const Quiz: FC<QuizProps> = ({ dictionary }) => {
   const kidsCategory = useMemo(() => getKidsCategory(dictionary), [dictionary]);
   const [randomPhrases, setRandomPhrases] = useState<Phrase[]>();
   const [correctIndex, setCorrectIndex] = useState(getRandomIndex);
-  const { currentLanguage, otherLanguage } = useLanguage();
+  const { otherLanguage } = useLanguage();
   const [disabled, setDisabled] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const platform = usePlatform();
@@ -48,23 +49,7 @@ const Quiz: FC<QuizProps> = ({ dictionary }) => {
     if (randomPhrases?.[correctIndex]) playPhrase(randomPhrases[correctIndex]);
   }, [correctIndex, playPhrase, randomPhrases]);
 
-  const _narrator = useMemo(
-    () =>
-      createNarrator(
-        dictionary,
-        () => currentLanguage,
-        () => otherLanguage,
-        playAudio
-      ),
-    [currentLanguage, dictionary, otherLanguage]
-  );
-  const narrator = useCallback(
-    (category: Category) => {
-      if (_narrator === null) throw Error('narrator is not initialized');
-      return _narrator(category);
-    },
-    [_narrator]
-  );
+  const narrator = useNarrator(dictionary, playAudio);
 
   const playSounds = async (phrase: Phrase, correct: boolean) => {
     const [sound, category] = correct ? [Sound.Match, Category.good] : [Sound.DontMatch, Category.wrong];
