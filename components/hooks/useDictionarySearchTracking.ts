@@ -4,7 +4,7 @@ import { usePlausible } from 'next-plausible';
 
 /* eslint-disable no-console */
 
-export const useTracking = (isSearching: boolean) => {
+export const useDictionarySearchTracking = (isSearching: boolean) => {
   const plausible = usePlausible();
   const { currentLanguage } = useLanguage();
 
