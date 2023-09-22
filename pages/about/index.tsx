@@ -153,7 +153,7 @@ const Article = ({ article }: ArticleProps): JSX.Element => {
   }, [article.publishDate]);
 
   return (
-    <div className="w-full md:max-w-full md:flex p-2 md:p-4 bg-white border-b-1 border-b-primary-grey  shadow-md">
+    <div className="w-full md:max-w-full md:flex p-2 md:p-4 bg-white border-b-1 border-b-primary-grey shadow-md">
       <a className="hover:text-primary-blue mr-2" href={article.url}>
         {article.title}
       </a>
@@ -295,7 +295,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
 
         {/* write about us */}
         <section className="mt-16">
-          <div className="text-center mb-6">
+          <div className="text-center mb-14">
             <H2>{t('about_page.media_mentions_title')}</H2>
           </div>
           <ArticlesList articles={articles} />
