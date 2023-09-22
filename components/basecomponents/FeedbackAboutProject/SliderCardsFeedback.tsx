@@ -60,7 +60,7 @@ export const SliderCardsFeedbacks = (): JSX.Element => {
 
   return (
     <div className="relative group">
-      <div className="flex m-auto justify-center items-center max-w-[480px] h-[340px] shadow-[#F0F0F0] pt-6 pb-8 px-6 rounded-2xl gap-[42px]">
+      <div className="flex m-auto justify-center items-center max-w-[480px] h-[340px] shadow-[#F0F0F0] pt-6 pb-8 px-6 rounded-2xl gap-12">
         {displayedFeedbacks.map((feedbacks) => (
           <div key={feedbacks.id} className=" p-8 rounded-lg shadow-md max-w-[480px] bg-white ">
             <Image src={feedbacks.avatar} alt="avatar" />
@@ -73,13 +73,13 @@ export const SliderCardsFeedbacks = (): JSX.Element => {
       </div>
       {/* Left arrow */}
       {currentSlide !== 0 && (
-        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-white text-primary-blue shadow-md shadow-[#00000033] cursor-pointer">
+        <div className=" group-hover:block absolute top-[50%] translate-x-10 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-white text-primary-blue shadow-md shadow-[#00000033] cursor-pointer">
           <BsChevronLeft onClick={prevSlide} size={20} />
         </div>
       )}
       {/* Right arrow */}
       {currentSlide !== feedbacks.length - 3 && (
-        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-white text-primary-blue shadow-md shadow-[#00000033] cursor-pointer">
+        <div className=" group-hover:block absolute top-[50%] -translate-x-10 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-white text-primary-blue shadow-md shadow-[#00000033] cursor-pointer">
           <BsChevronRight onClick={nextSlide} size={20} />
         </div>
       )}
