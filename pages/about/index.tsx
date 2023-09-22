@@ -9,6 +9,8 @@ import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
 import help from '../../public/icons/about/help-us.png';
+import { SliderImageTeam } from 'components/basecomponents/SliderImageTeam';
+import { SliderCardsFeedbacks } from 'components/basecomponents/FeedbackAboutProject/SliderCardsFeedback';
 
 type Link = string;
 
@@ -151,7 +153,7 @@ const Article = ({ article }: ArticleProps): JSX.Element => {
   }, [article.publishDate]);
 
   return (
-    <div className="w-full md:max-w-full md:flex p-2 md:p-4 bg-white border-b-1 border-b-primary-grey">
+    <div className="w-full md:max-w-full md:flex p-2 md:p-4 bg-white border-b-1 border-b-primary-grey  shadow-md">
       <a className="hover:text-primary-blue mr-2" href={article.url}>
         {article.title}
       </a>
@@ -254,56 +256,25 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           <div className="text-center mb-20">
             <H2>{t('about_page.our_team_title')}</H2>
           </div>
-          {/* slider start */}
-          <h3 className="mb-1 sm:my-4">{t('about_page.our_team_current_title')}</h3>
-          <a href="https://data.movapp.eu/images/team/large-team-summer-23.jpg" target="_blank" rel="noopener noreferrer">
-            <Image
-              src="https://data.movapp.eu/images/team/small-team-summer-23.jpg"
-              width="320"
-              height="180"
-              alt={t('about_page.our_team_current_title')}
-              className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
-            />
-          </a>
 
-          <h3 className="mb-1 sm:my-4">{t('about_page.our_team_autumn_title')}</h3>
-          <a href="https://data.movapp.eu/images/team/large-team-photo-autumn.jpg" target="_blank" rel="noopener noreferrer">
-            <Image
-              src="https://data.movapp.eu/images/team/small-team-photo-autumn.jpg"
-              width="320"
-              height="180"
-              alt={t('about_page.our_team_current_title')}
-              className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
-            />
-          </a>
+          <SliderImageTeam />
+        </section>
+        <section className="grid grid-cols-3 gap-14 mb-16 mt-20">
+          {teams.map(({ team, members }) => (
+            <React.Fragment key={team[currentLanguage]}>
+              <div>
+                <H2>{team[currentLanguage]}</H2>
+                <P className="inline-block">{members}</P>
+              </div>
+            </React.Fragment>
+          ))}
+        </section>
 
-          <h3 className="mb-1 sm:my-4">{t('about_page.our_team_spring_title')}</h3>
-
-          <a href="https://data.movapp.eu/images/team/large-team-photo.jpg" target="_blank" rel="noopener noreferrer">
-            <Image
-              src="https://data.movapp.eu/images/team/small-team-photo.jpg"
-              width="320"
-              height="180"
-              alt={t('about_page.our_team_spring_title')}
-              className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 cursor-zoom-in"
-            />
-          </a>
-          {/* sliser end */}
-          <section className="grid grid-cols-3 gap-14 mb-16">
-            {teams.map(({ team, members }) => (
-              <React.Fragment key={team[currentLanguage]}>
-                <div>
-                  <H2>{team[currentLanguage]}</H2>
-                  <P className="inline-block">{members}</P>
-                </div>
-              </React.Fragment>
-            ))}
-          </section>
-
-          {/* block */}
-          <div className="my-4 max-w-[900px] h-52 flex p-16 bg-white rounded-3xl shadow-[#F0F0F0] text-[30px]">
-            <div className="w-16 h-16 mr-16 ">
-              <Image src={help} width={64} height={64} alt="help us" />
+        {/* inform-block */}
+        <section className="flex justify-center">
+          <div className="my-4 max-w-[900px] h-52 flex p-16 bg-white border-b-primary-grey rounded-3xl shadow-md text-[30px] align-middle items-center">
+            <div className="mr-16">
+              <Image src={help} alt="help us" />
             </div>
             <div>
               <Trans
@@ -312,35 +283,67 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
               />
             </div>
           </div>
+        </section>
 
-          <H2>{t('about_page.media_mentions_title')}</H2>
+        {/* feedback about us */}
+        <section className="max-w-[1185px] mt-[124px]">
+          <div className="text-center mb-16 ">
+            <H2>{t('about_page.said_about_us')}</H2>
+          </div>
+          <SliderCardsFeedbacks />
+        </section>
+
+        {/* write about us */}
+        <section className="mt-16">
+          <div className="text-center mb-6">
+            <H2>{t('about_page.media_mentions_title')}</H2>
+          </div>
           <ArticlesList articles={articles} />
+        </section>
 
-          <H2>{t('about_page.conferences_title')}</H2>
-          <Trans
-            i18nKey={'about_page.conferences_description'}
-            t={t}
-            components={[
-              <TextLink href="https://www.youtube.com/watch?v=ThY0ZiWmBV8&t=2353s" target="_blank" key="first_conference" />,
-              <TextLink href="https://www.youtube.com/watch?v=3UC16MhE19k&t=1660s" target="_blank" key="second_conference" />,
-            ]}
-          />
+        {/* discrube */}
+        <section className="mt-[124px] ">
+          <div className="columns-2 gap-[90px] mb-16 ">
+            <H2>{t('about_page.conferences_title')}</H2>
+            <Trans
+              i18nKey={'about_page.conferences_description'}
+              t={t}
+              components={[
+                <TextLink href="https://www.youtube.com/watch?v=ThY0ZiWmBV8&t=2353s" target="_blank" key="first_conference" />,
+                <TextLink href="https://www.youtube.com/watch?v=3UC16MhE19k&t=1660s" target="_blank" key="second_conference" />,
+              ]}
+            />
+            <H2>{t('about_page.support_us_title')}</H2>
+            <Trans
+              i18nKey={'about_page.support_us_description'}
+              components={[
+                <TextLink
+                  href={'https://drive.google.com/drive/folders/1milRfoG2fPsod7moVKeCPM9ikm00kXup'}
+                  target="_blank"
+                  key="plakatky"
+                />,
+                <TextLink href={'/contacts'} key="kontakt" />,
+                <TextLink href={'https://cesko.digital/projects/movapp'} target="_blank" key="ceskodigital" />,
+                <TextLink href={'/contacts'} key="ceskodigital" />,
+                <TextLink href={'https://cesko.digital/join/form'} target="_blank" key="ceskodigital" />,
+              ]}
+            />
+          </div>
+          <div className="columns-2 gap-[90px] mb-16 pt-[3px]">
+            <H2>{t('about_page.how_to_find_us_title')}</H2>
+            <Trans i18nKey={'about_page.how_to_find_us_description'} />
+            <div className="mt-10">
+              <H2>{t('about_page.stand_with_ukraine_title')}</H2>
+              <Trans
+                i18nKey={'about_page.stand_with_ukraine_description'}
+                components={[
+                  <TextLink href={NAVIGATION['stojimezaukrajinou'][currentLanguage]} target="_blank" key="stojimezaukrajinou" />,
+                ]}
+              />
+            </div>
+          </div>
 
-          <H2>{t('about_page.support_us_title')}</H2>
-          <Trans
-            i18nKey={'about_page.support_us_description'}
-            components={[
-              <TextLink href={'https://drive.google.com/drive/folders/1milRfoG2fPsod7moVKeCPM9ikm00kXup'} target="_blank" key="plakatky" />,
-              <TextLink href={'/contacts'} key="kontakt" />,
-              <TextLink href={'https://cesko.digital/projects/movapp'} target="_blank" key="ceskodigital" />,
-              <TextLink href={'/contacts'} key="ceskodigital" />,
-              <TextLink href={'https://cesko.digital/join/form'} target="_blank" key="ceskodigital" />,
-            ]}
-          />
-
-          <H2>{t('about_page.how_to_find_us_title')}</H2>
-          <Trans i18nKey={'about_page.how_to_find_us_description'} />
-
+          {/* not change */}
           <H2>{t('about_page.how_we_prepared_content_title')}</H2>
           <Trans
             i18nKey={'about_page.how_we_prepared_content_description'}
@@ -351,20 +354,28 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           />
         </section>
 
-        <H2>{t('about_page.stand_with_ukraine_title')}</H2>
-        <Trans
-          i18nKey={'about_page.stand_with_ukraine_description'}
-          components={[<TextLink href={NAVIGATION['stojimezaukrajinou'][currentLanguage]} target="_blank" key="stojimezaukrajinou" />]}
-        />
+        {/* Czech digital */}
+        <section className="mt-[124px] mb-12">
+          <div className="text-center">
+            <H2>{t('about_page.czech_digital_title')}</H2>
+          </div>
+          <div className="max-w-[547px] mx-auto">
+            <Trans
+              i18nKey={'about_page.czech_digital_description'}
+              components={[<TextLink href={NAVIGATION['cesko.digital'][currentLanguage]} target="_blank" key="cesko.digital" />]}
+            />
+          </div>
+        </section>
 
-        <H2>{t('about_page.czech_digital_title')}</H2>
-        <Trans
-          i18nKey={'about_page.czech_digital_description'}
-          components={[<TextLink href={NAVIGATION['cesko.digital'][currentLanguage]} target="_blank" key="cesko.digital" />]}
-        />
-
-        <H2>{t('about_page.our_partners_title')}</H2>
-        <PartnerList partners={partners} />
+        {/* partners */}
+        <section className="mb-[124px]">
+          <div className="text-center">
+            <H2>{t('about_page.our_partners_title')}</H2>
+          </div>
+          <div className="flex justify-center ">
+            <PartnerList partners={partners} />
+          </div>
+        </section>
       </div>
     </>
   );
