@@ -273,10 +273,9 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         {/* inform-block */}
         <section className="flex justify-center">
           <div className="my-4 max-w-[900px] h-52 flex p-16 bg-white border-b-primary-grey rounded-3xl shadow-md text-[30px] align-middle items-center">
-            <div className="mr-16">
-              <Image src={help} alt="help us" />
-            </div>
-            <div>
+            <Image src={help} alt="help" />
+
+            <div className="ml-16">
               <Trans
                 i18nKey={'about_page.our_team_contact'}
                 components={[<TextLink href={`/contacts`} locale={currentLanguage} target="_self" key="contacts" />]}
@@ -354,7 +353,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           />
         </section>
 
-        {/* Czech digital */}
+        {/* czech digital */}
         <section className="mt-[124px] mb-12">
           <div className="text-center">
             <H2>{t('about_page.czech_digital_title')}</H2>
