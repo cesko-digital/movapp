@@ -70,14 +70,14 @@ export const SliderCardsFeedbacks = (): JSX.Element => {
 
   return (
     <div className="relative group">
-      <div className="flex m-auto justify-center items-center shadow-[#F0F0F0] rounded-2xl gap-12">
+      <div className="md:flex sm:block  m-auto justify-center items-center shadow-[#F0F0F0] rounded-2xl xl:gap-12">
         {displayedFeedbacks.map((feedback, index) => (
-          <div key={feedback.id} className="pt-6 pb-8 px-6 rounded-lg shadow-md max-w-[480px] bg-white ">
+          <div key={feedback.id} className="pt-6 pb-8 mb-3 px-6 rounded-lg shadow-md xl:max-w-[480px] bg-white sm:max-w-[350px]">
             <Image src={feedback.avatar} alt="avatar" />
             <h3 className="mt-4 text-xl font-bold">{feedback.title}</h3>
             <p className="mb-4">{feedback.author}</p>
-            <p className="line-clamp-5 ">{feedback.text}</p>
-            <button className="text-primary-blue decor underline decoration-1 flex ml-[300px]" onClick={() => openModalForFeedback(index)}>
+            <p className="line-clamp-5 ">{feedback.text}...</p>
+            <button className="text-primary-blue decor underline decoration-1 flex" onClick={() => openModalForFeedback(index)}>
               Vice
             </button>
           </div>
@@ -99,14 +99,11 @@ export const SliderCardsFeedbacks = (): JSX.Element => {
           </div>
         )}
       </Modal>
-
-      {/* Left arrow */}
       {currentSlide !== 0 && (
         <div className=" group-hover:block absolute top-[50%] translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-white text-primary-blue shadow-md shadow-[#00000033] cursor-pointer">
           <BsChevronLeft onClick={prevSlide} size={20} />
         </div>
       )}
-      {/* Right arrow */}
       {currentSlide !== feedbacks.length - 3 && (
         <div className=" group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-white text-primary-blue shadow-md shadow-[#00000033] cursor-pointer">
           <BsChevronRight onClick={nextSlide} size={20} />

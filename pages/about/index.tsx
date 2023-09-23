@@ -185,14 +185,14 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
   return (
     <>
       <SEO title={t('seo.about_page_title')} description={t('seo.about_page_description')} />
-      <div className="max-w-[1192px] m-auto ">
+      <div className="max-w-7xl m-auto pb-6">
         <div className="max-w-[780px] text-center mx-auto py-[124px]">
           <h1 className="text-primary-blue whitespace-pre-line ">
             <Trans className="block my-2">{t('about_page.title')}</Trans>
           </h1>
         </div>
         {/* section main__________________________________________________________________*** */}
-        <section className=" columns-2 gap-[55px] auto-cols-min ">
+        <section className=" columns-2 gap-[55px] auto-cols-min px-4 md:text-sm">
           <div className="mb-[80px] mt-0 display-flex">
             <H2>{t('about_page.movapp_goal_title')}</H2>
             {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
@@ -251,15 +251,14 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           </div>
         </section>
 
-        {/* section about team _________________________________________________________*/}
-        <section className="mt-[124px]">
+        <section className="mt-[124px] px-4">
           <div className="text-center mb-20">
             <H2>{t('about_page.our_team_title')}</H2>
           </div>
 
           <SliderImageTeam />
         </section>
-        <section className="grid grid-cols-3 gap-14 mb-16 mt-20">
+        <section className="grid grid-cols-3 gap-14 mb-16 mt-20 px-4 md:text-sm">
           {teams.map(({ team, members }) => (
             <React.Fragment key={team[currentLanguage]}>
               <div>
@@ -270,12 +269,11 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           ))}
         </section>
 
-        {/* inform-block */}
-        <section className="flex justify-center">
-          <div className="my-4 max-w-[900px] h-52 flex p-16 bg-white border-b-primary-grey rounded-3xl shadow-md text-[30px] align-middle items-center">
+        <section className="flex justify-center px-4">
+          <div className="my-4 xl:max-w-[900px] md:max-w-[600px] h-52 flex p-16 bg-white border-b-primary-grey rounded-3xl shadow-md align-middle items-center">
             <Image src={help} alt="help" />
 
-            <div className="ml-16">
+            <div className="ml-16 xl:text-[30px] md:text-[24px] sm:text-[16px]">
               <Trans
                 i18nKey={'about_page.our_team_contact'}
                 components={[<TextLink href={`/contacts`} locale={currentLanguage} target="_self" key="contacts" />]}
@@ -284,15 +282,13 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           </div>
         </section>
 
-        {/* feedback about us */}
-        <section className="max-w-[1185px] mt-[124px]">
+        <section className="max-w-[1185px] mt-[124px] mx-auto">
           <div className="text-center mb-16 ">
             <H2>{t('about_page.said_about_us')}</H2>
           </div>
           <SliderCardsFeedbacks />
         </section>
 
-        {/* write about us */}
         <section className="mt-16">
           <div className="text-center mb-14">
             <H2>{t('about_page.media_mentions_title')}</H2>
@@ -300,8 +296,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           <ArticlesList articles={articles} />
         </section>
 
-        {/* discrube */}
-        <section className="mt-[124px] ">
+        <section className="mt-[124px] px-4 md:text-sm">
           <div className="columns-2 gap-[90px] mb-16 ">
             <H2>{t('about_page.conferences_title')}</H2>
             <Trans
@@ -342,7 +337,6 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             </div>
           </div>
 
-          {/* not change */}
           <H2>{t('about_page.how_we_prepared_content_title')}</H2>
           <Trans
             i18nKey={'about_page.how_we_prepared_content_description'}
@@ -353,7 +347,6 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           />
         </section>
 
-        {/* czech digital */}
         <section className="mt-[124px] mb-12">
           <div className="text-center">
             <H2>{t('about_page.czech_digital_title')}</H2>
@@ -366,7 +359,6 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           </div>
         </section>
 
-        {/* partners */}
         <section className="mb-[124px]">
           <div className="text-center">
             <H2>{t('about_page.our_partners_title')}</H2>
