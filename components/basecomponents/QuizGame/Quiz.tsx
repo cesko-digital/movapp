@@ -8,14 +8,11 @@ import { useLanguage } from 'utils/useLanguageHook';
 import { AudioPlayer } from 'utils/AudioPlayer';
 import { shuffle } from 'utils/collectionUtils';
 import { DictionaryDataObject, getKidsCategory } from 'utils/getDataUtils';
-import phrases_CS from 'components/basecomponents/MemoryGame/memory-game-cs.json';
-import phrases_PL from 'components/basecomponents/MemoryGame/memory-game-pl.json';
-import phrases_SK from 'components/basecomponents/MemoryGame/memory-game-sk.json';
-import { getCountryVariant } from 'utils/locales';
-import { Phrase_deprecated } from 'utils/Phrase_deprecated';
 import Confetti from './ConfetiAnimation';
 import { usePlatform } from 'utils/usePlatform';
 import { Platform } from '@types';
+import { Category } from 'utils/narrator';
+import useNarrator from 'utils/useNarrator';
 
 type QuizProps = {
   dictionary: DictionaryDataObject;
@@ -23,23 +20,19 @@ type QuizProps = {
 
 const CHOICES_COUNT = 3;
 const getRandomIndex = (len = CHOICES_COUNT) => Math.floor(Math.random() * len);
-const GAME_NARRATION_PHRASES = {
-  cs: phrases_CS,
-  sk: phrases_SK,
-  pl: phrases_PL,
-};
 
 enum Sound {
   Match = '/kids/memory-game/reward_sfx.mp3',
   DontMatch = '/kids/memory-game/card_flip.mp3',
 }
-const narrationPhrases = GAME_NARRATION_PHRASES[getCountryVariant()];
+
+const playAudio = (str: string) => AudioPlayer.getInstance().playSrc(str);
 
 const Quiz: FC<QuizProps> = ({ dictionary }) => {
   const kidsCategory = useMemo(() => getKidsCategory(dictionary), [dictionary]);
   const [randomPhrases, setRandomPhrases] = useState<Phrase[]>();
   const [correctIndex, setCorrectIndex] = useState(getRandomIndex);
-  const { currentLanguage, otherLanguage } = useLanguage();
+  const { otherLanguage } = useLanguage();
   const [disabled, setDisabled] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const platform = usePlatform();
@@ -50,34 +43,31 @@ const Quiz: FC<QuizProps> = ({ dictionary }) => {
     setRandomPhrases(shuffle(kidsCategory?.translations, CHOICES_COUNT));
   }, [dictionary, kidsCategory?.translations]);
 
-  const playPhrase = useCallback(
-    async (phrase: Phrase) => await AudioPlayer.getInstance().playSrc(phrase.getSoundUrl(otherLanguage)),
-    [otherLanguage]
-  );
+  const playPhrase = useCallback(async (phrase: Phrase) => await playAudio(phrase.getSoundUrl(otherLanguage)), [otherLanguage]);
+
   useEffect(() => {
     if (randomPhrases?.[correctIndex]) playPhrase(randomPhrases[correctIndex]);
   }, [correctIndex, playPhrase, randomPhrases]);
 
-  const playSounds = async (phrase: Phrase, key: 'good' | 'wrong', sound: Sound.Match | Sound.DontMatch) => {
-    if (key === 'good') {
-      // Show confetti animation when the answer is correct
-      setShowConfetti(true);
-    }
-    const narrationPhrase = narrationPhrases[key][getRandomIndex(narrationPhrases[key].length)];
-    const player: AudioPlayer = AudioPlayer.getInstance();
-    await player.playSrc(sound);
+  const narrator = useNarrator(dictionary, playAudio);
+
+  const playSounds = async (phrase: Phrase, correct: boolean) => {
+    const [sound, category] = correct ? [Sound.Match, Category.good] : [Sound.DontMatch, Category.wrong];
+    await playAudio(sound);
     await playPhrase(phrase);
-    return player.playTextToSpeech(new Phrase_deprecated(narrationPhrase).getTranslation(currentLanguage), currentLanguage);
+    return narrator(category).playCurrentLanguage();
   };
 
   const handleClick = async (phrase: Phrase, correct: boolean) => {
     setDisabled(true);
     if (correct) {
-      await playSounds(phrase, 'good', Sound.Match);
+      // Show confetti animation when the answer is correct
+      setShowConfetti(true);
+      await playSounds(phrase, correct);
       setRandomPhrases(shuffle(kidsCategory?.translations, CHOICES_COUNT));
       setCorrectIndex(getRandomIndex());
     } else {
-      await playSounds(phrase, 'wrong', Sound.DontMatch);
+      await playSounds(phrase, correct);
     }
     setDisabled(false);
     setShowConfetti(false);
