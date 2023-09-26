@@ -4,13 +4,14 @@ import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
 import { H2, TextLink, P } from 'components/Typography';
 import Image from 'next/image';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
 import help from '../../public/icons/about/help-us.png';
 import { SliderImageTeam } from 'components/basecomponents/SliderImageTeam';
-import { SliderCardsFeedbacks } from 'components/basecomponents/FeedbackAboutProject/SliderCardsFeedback';
+import { SliderFeedbacks } from 'components/basecomponents/FeedbackAboutProject/SliderFeedbacks';
+import { SliderFeedbacksSm } from 'components/basecomponents/FeedbackAboutProject/SLiderFeedbacksSm';
 
 type Link = string;
 
@@ -181,6 +182,22 @@ const ArticlesList = ({ articles }: ArticlesListProps): JSX.Element => {
 const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
+  const windowWidthRef = useRef<number>(0);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      windowWidthRef.current = window.innerWidth;
+      const handleResize = () => {
+        windowWidthRef.current = window.innerWidth;
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+  }, []);
 
   return (
     <>
@@ -286,7 +303,8 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           <div className="text-center mb-16 ">
             <H2>{t('about_page.said_about_us')}</H2>
           </div>
-          <SliderCardsFeedbacks />
+          {windowWidthRef.current <= 768 && <SliderFeedbacksSm />}
+          {windowWidthRef.current > 768 && <SliderFeedbacks />}
         </section>
 
         <section className="mt-16 p-4">
