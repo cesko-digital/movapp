@@ -153,7 +153,7 @@ const Article = ({ article }: ArticleProps): JSX.Element => {
   }, [article.publishDate]);
 
   return (
-    <div className="w-full md:max-w-full md:flex p-2 md:p-4 bg-white border-b-1 border-b-primary-grey shadow-md">
+    <div className="w-full md:max-w-full md:flex p-2 md:p-4 border-b-1">
       <a className="hover:text-primary-blue mr-2" href={article.url}>
         {article.title}
       </a>
@@ -185,14 +185,14 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
   return (
     <>
       <SEO title={t('seo.about_page_title')} description={t('seo.about_page_description')} />
-      <div className="max-w-7xl m-auto pb-6">
+      <div className="max-w-7xl m-auto pb-6 font-normal">
         <div className="max-w-[780px] text-center mx-auto md:py-[124px] py-20 px-4 ">
           <h1 className="text-primary-blue whitespace-pre-line ">
             <Trans className="block my-2">{t('about_page.title')}</Trans>
           </h1>
         </div>
 
-        <section className=" md:columns-2 md:gap-[55px] row-flow-col px-4 md:text-sm ">
+        <section className=" md:columns-2 md:gap-[55px] row-flow-col px-4 md:text-sm">
           <div className="md:mb-[80px] mt-0 display-flex">
             <H2>{t('about_page.movapp_goal_title')}</H2>
             {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
@@ -252,13 +252,13 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         </section>
 
         <section className="md:mt-[124px] mt-20 px-4">
-          <div className="text-center mb-20">
+          <div className="text-center mb-8">
             <H2>{t('about_page.our_team_title')}</H2>
           </div>
 
           <SliderImageTeam />
         </section>
-        <section className="md:grid md:grid-cols-3 md:gap-14 mb-16 md:mt-20 px-4 md:text-sm">
+        <section className="md:grid md:grid-cols-3 md:gap-14 mb-16 md:mt-20 px-4 md:text-sm font-normal">
           {teams.map(({ team, members }) => (
             <React.Fragment key={team[currentLanguage]}>
               <div>
@@ -293,7 +293,9 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           <div className="text-center mb-14">
             <H2>{t('about_page.media_mentions_title')}</H2>
           </div>
-          <ArticlesList articles={articles} />
+          <div className=" md:p-8 bg-white rounded-2xl  border-b-primary-grey shadow-md">
+            <ArticlesList articles={articles} />
+          </div>
         </section>
 
         <section className="md:mt-[124px] mt-20 px-4 md:text-sm">

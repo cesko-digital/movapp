@@ -27,20 +27,6 @@ const feedbacks = [
     author: 'Salome Engibaryan',
     text: '“Děkuji vám, protože společná řeč je dnes nesmírně důležitá! Moc se mi líbí, že je váš styl pozitivní. Formát her se líbí nejen dětem!"',
   },
-  // {
-  //   id: 4,
-  //   avatar: avatar,
-  //   title: '“Konečně je tady něco, co skutečně pomáhá”',
-  //   author: 'M.Koshir',
-  //   text: 'Váš web považuji za velký přínos k rozvoji komunikace s UKR komunitou.Konečně je tady něco, co skutečně pomáhá k snadné oboustranné komunikaci.Přes 20 let jsem klopotně hledal, jak přiblížit Ukrajincům v začátcích naši abecedu a nejobvyklejší životní situace.',
-  // },
-  // {
-  //   id: 5,
-  //   avatar: avatar,
-  //   title: '“Konečně je tady něco, co skutečně pomáhá”',
-  //   author: 'M.Stredny',
-  //   text: 'Váš web považuji za velký přínos k rozvoji komunikace s UKR komunitou.Konečně je tady něco, co skutečně pomáhá k snadné oboustranné komunikaci.Přes 20 let jsem klopotně hledal, jak přiblížit Ukrajincům v začátcích naši abecedu a nejobvyklejší životní situace.',
-  // },
 ];
 
 export const SliderCardsFeedbacks = (): JSX.Element => {
@@ -71,14 +57,14 @@ export const SliderCardsFeedbacks = (): JSX.Element => {
 
   return (
     <div className="relative group">
-      <div className="md:flex sm:block m-auto justify-center items-center shadow-[#F0F0F0] rounded-2xl xl:gap-12">
+      <div className="md:flex justify-center sm:block m-auto shadow-[#F0F0F0] rounded-2xl md:gap-12 gap-2">
         {displayedFeedbacks.map((feedback, index) => (
           <div
             key={feedback.id}
-            className="pt-6 pb-8 mb-3 px-6 rounded-lg shadow-md xl:max-w-[480px] bg-white sm:max-w-[350px] hover:-translate-y-1"
+            className="pt-6 pb-8 mb-3 px-6 rounded-[16px] shadow-md xl:max-w-[480px] bg-white sm:max-w-[350px] hover:-translate-y-1 font-normal"
           >
             <Image src={feedback.avatar} alt="avatar" width={64} height={64} />
-            <h3 className="mt-4 text-xl font-bold">{feedback.title}</h3>
+            <h3 className="mt-4 text-xl font-bold h-[56px]">{feedback.title}</h3>
             <p className="mb-4">{feedback.author}</p>
             <p className="line-clamp-5 ">{feedback.text}...</p>
             <button className="text-primary-blue decor underline decoration-1 flex" onClick={() => openModalForFeedback(index)}>
@@ -95,22 +81,22 @@ export const SliderCardsFeedbacks = (): JSX.Element => {
         isOpen={isModalOpen}
       >
         {activeFeedbackIndex !== null && (
-          <div key={displayedFeedbacks[activeFeedbackIndex].id} className="pt-6 pb-8 px-6 rounded-lg shadow-md bg-white ">
+          <div key={displayedFeedbacks[activeFeedbackIndex].id} className="pt-6 pb-8 px-6 rounded-lg bg-white ">
             <Image src={displayedFeedbacks[activeFeedbackIndex].avatar} alt="avatar" width={64} height={64} />
             <h3 className="mt-4 text-xl font-bold">{displayedFeedbacks[activeFeedbackIndex].title}</h3>
-            <p className="mb-4">{displayedFeedbacks[activeFeedbackIndex].author}</p>
+            <p className="mb-4 mt-2">{displayedFeedbacks[activeFeedbackIndex].author}</p>
             <p>{displayedFeedbacks[activeFeedbackIndex].text}</p>
           </div>
         )}
       </Modal>
       {currentSlide !== 0 && (
-        <div className=" group-hover:block absolute top-[50%] translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-white text-primary-blue shadow-md shadow-[#00000033] cursor-pointer">
-          <BsChevronLeft onClick={prevSlide} size={20} />
+        <div className=" group-hover:block absolute top-[50%] translate-x-0 translate-y-[-50%] left-5 text-4xl rounded-full p-2 bg-white text-primary-blue shadow-md shadow-[#00000033] cursor-pointer">
+          <BsChevronLeft onClick={prevSlide} size={30} />
         </div>
       )}
       {currentSlide !== feedbacks.length - 2 && (
-        <div className=" group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-white text-primary-blue shadow-md shadow-[#00000033] cursor-pointer">
-          <BsChevronRight onClick={nextSlide} size={20} />
+        <div className=" group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-4xl rounded-full p-2 bg-white text-primary-blue shadow-md shadow-[#00000033] cursor-pointer">
+          <BsChevronRight onClick={nextSlide} size={30} />
         </div>
       )}
     </div>

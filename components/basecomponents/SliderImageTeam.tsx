@@ -48,12 +48,12 @@ export const SliderImageTeam = (): JSX.Element => {
       </a>
       {currentIndex !== 0 && (
         <div className="group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-white text-primary-blue shadow-[#00000033] cursor-pointer">
-          <BsChevronLeft onClick={prevSlide} size={20} />
+          <BsChevronLeft onClick={prevSlide} size={25} />
         </div>
       )}
       {currentIndex !== slides.length - 1 && (
         <div className="group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-white text-primary-blue shadow-[#00000033] cursor-pointer">
-          <BsChevronRight onClick={nextSlide} size={20} />
+          <BsChevronRight onClick={nextSlide} size={25} />
         </div>
       )}
       <div className="flex mt-8 justify-center py-2 ">
