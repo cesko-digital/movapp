@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
+import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
 export const SliderImageTeam = (): JSX.Element => {
+  const { t } = useTranslation();
   const slides = [
     {
       url: 'https://data.movapp.eu/images/team/large-team-summer-23.jpg',
@@ -37,11 +40,12 @@ export const SliderImageTeam = (): JSX.Element => {
   };
 
   return (
-    <div className="max-w-[650px] h-[400px] w-full m-auto relative group mb-40 ">
-      <div
-        style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className="w-full h-full bg-center bg-contain duration-500 "
-      ></div>
+    <div className="max-w-[650px] m-auto relative group sm:mb-40 ">
+      <a href={slides[currentIndex].url} target="_blank" rel="noopener noreferrer">
+        <div className="hover:shadow-lg hover:-translate-y-1 hover:scale-110 duration-300 cursor-zoom-in">
+          <Image src={slides[currentIndex].url} width={640} height={400} alt={t('about_page.our_team_current_title')} />
+        </div>
+      </a>
       {currentIndex !== 0 && (
         <div className="group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-white text-primary-blue shadow-[#00000033] cursor-pointer">
           <BsChevronLeft onClick={prevSlide} size={20} />

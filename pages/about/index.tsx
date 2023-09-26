@@ -78,7 +78,7 @@ type PartnerListProps = {
 
 const PartnerList = ({ partners }: PartnerListProps) => {
   return (
-    <ul className="flex flex-wrap xl:space-x-5">
+    <ul className="flex flex-wrap xl:space-x-5 justify-center">
       {partners.map((partner) => (
         <li key={partner.title} className={'w-36 my-5 xl:my-0 md:w-40 h-20 relative'}>
           <a href={partner.url} target="_blank" rel="noopener">
@@ -186,14 +186,14 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
     <>
       <SEO title={t('seo.about_page_title')} description={t('seo.about_page_description')} />
       <div className="max-w-7xl m-auto pb-6">
-        <div className="max-w-[780px] text-center mx-auto py-[124px]">
+        <div className="max-w-[780px] text-center mx-auto md:py-[124px] py-20 px-4 ">
           <h1 className="text-primary-blue whitespace-pre-line ">
             <Trans className="block my-2">{t('about_page.title')}</Trans>
           </h1>
         </div>
-        {/* section main__________________________________________________________________*** */}
-        <section className=" columns-2 gap-[55px] auto-cols-min px-4 md:text-sm">
-          <div className="mb-[80px] mt-0 display-flex">
+
+        <section className=" md:columns-2 md:gap-[55px] row-flow-col px-4 md:text-sm ">
+          <div className="md:mb-[80px] mt-0 display-flex">
             <H2>{t('about_page.movapp_goal_title')}</H2>
             {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
           </div>
@@ -251,14 +251,14 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           </div>
         </section>
 
-        <section className="mt-[124px] px-4">
+        <section className="md:mt-[124px] mt-20 px-4">
           <div className="text-center mb-20">
             <H2>{t('about_page.our_team_title')}</H2>
           </div>
 
           <SliderImageTeam />
         </section>
-        <section className="grid grid-cols-3 gap-14 mb-16 mt-20 px-4 md:text-sm">
+        <section className="md:grid md:grid-cols-3 md:gap-14 mb-16 md:mt-20 px-4 md:text-sm">
           {teams.map(({ team, members }) => (
             <React.Fragment key={team[currentLanguage]}>
               <div>
@@ -270,10 +270,10 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         </section>
 
         <section className="flex justify-center px-4">
-          <div className="my-4 xl:max-w-[900px] md:max-w-[600px] h-52 flex p-16 bg-white border-b-primary-grey rounded-3xl shadow-md align-middle items-center">
+          <div className="my-4 place-content-around flex-wrap md:flex-nowrap xl:max-w-[900px] md:max-w-[600px] h-52 flex md:p-16  bg-white border-b-primary-grey rounded-3xl shadow-md align-middle items-center">
             <Image src={help} alt="help" />
 
-            <div className="ml-16 xl:text-[30px] md:text-[24px] sm:text-[16px]">
+            <div className="md:ml-16 xl:text-[30px] md:text-[24px] sm:text-[16px] p-4">
               <Trans
                 i18nKey={'about_page.our_team_contact'}
                 components={[<TextLink href={`/contacts`} locale={currentLanguage} target="_self" key="contacts" />]}
@@ -282,22 +282,22 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           </div>
         </section>
 
-        <section className="max-w-[1185px] mt-[124px] mx-auto">
+        <section className="max-w-[1185px] md:mt-[124px] mt-20 mx-auto p-4">
           <div className="text-center mb-16 ">
             <H2>{t('about_page.said_about_us')}</H2>
           </div>
           <SliderCardsFeedbacks />
         </section>
 
-        <section className="mt-16">
+        <section className="mt-16 p-4">
           <div className="text-center mb-14">
             <H2>{t('about_page.media_mentions_title')}</H2>
           </div>
           <ArticlesList articles={articles} />
         </section>
 
-        <section className="mt-[124px] px-4 md:text-sm">
-          <div className="columns-2 gap-[90px] mb-16 ">
+        <section className="md:mt-[124px] mt-20 px-4 md:text-sm">
+          <div className="md:columns-2 md:gap-[90px] md:mb-16 ">
             <H2>{t('about_page.conferences_title')}</H2>
             <Trans
               i18nKey={'about_page.conferences_description'}
@@ -323,7 +323,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
               ]}
             />
           </div>
-          <div className="columns-2 gap-[90px] mb-16 pt-[3px]">
+          <div className="md:columns-2 md:gap-[90px] md:mb-16 pt-[3px]">
             <H2>{t('about_page.how_to_find_us_title')}</H2>
             <Trans i18nKey={'about_page.how_to_find_us_description'} />
             <div className="mt-10">
@@ -351,7 +351,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           <div className="text-center">
             <H2>{t('about_page.czech_digital_title')}</H2>
           </div>
-          <div className="max-w-[547px] mx-auto">
+          <div className="max-w-[547px] mx-auto p-4">
             <Trans
               i18nKey={'about_page.czech_digital_description'}
               components={[<TextLink href={NAVIGATION['cesko.digital'][currentLanguage]} target="_blank" key="cesko.digital" />]}
