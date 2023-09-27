@@ -4,7 +4,7 @@ import { useLanguage } from 'utils/useLanguageHook';
 import SEO from 'components/basecomponents/SEO';
 import { H2, TextLink, P } from 'components/Typography';
 import Image from 'next/image';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { getServerSideTranslations } from 'utils/localization';
 import articles from '../../data/articles/articles.json';
@@ -179,26 +179,24 @@ const ArticlesList = ({ articles }: ArticlesListProps): JSX.Element => {
   );
 };
 
+
+
 const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
-  const windowWidthRef = useRef<number>(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      windowWidthRef.current = window.innerWidth;
-      const handleResize = () => {
-        windowWidthRef.current = window.innerWidth;
-      };
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
-      window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
 
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
-
   return (
     <>
       <SEO title={t('seo.about_page_title')} description={t('seo.about_page_description')} />
@@ -303,8 +301,8 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           <div className="text-center mb-16 ">
             <H2>{t('about_page.said_about_us')}</H2>
           </div>
-          {windowWidthRef.current <= 768 && <SliderFeedbacksSm />}
-          {windowWidthRef.current > 768 && <SliderFeedbacks />}
+          {windowWidth <= 768 && <SliderFeedbacksSm />}
+          {windowWidth > 768 && <SliderFeedbacks />}
         </section>
 
         <section className="mt-16 p-4">
