@@ -179,12 +179,10 @@ const ArticlesList = ({ articles }: ArticlesListProps): JSX.Element => {
   );
 };
 
-
-
 const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguage();
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -193,10 +191,13 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
 
     window.addEventListener('resize', handleResize);
 
+    handleResize();
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
   return (
     <>
       <SEO title={t('seo.about_page_title')} description={t('seo.about_page_description')} />
