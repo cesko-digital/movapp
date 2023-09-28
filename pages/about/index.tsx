@@ -208,12 +208,12 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           </h1>
         </div>
 
-        <section className=" md:columns-2 md:gap-[55px] row-flow-col px-4 md:text-sm">
+        <section className="md:columns-2 md:gap-[55px] px-4 md:text-sm">
           <div className="md:mb-[80px] mt-0 display-flex">
             <H2>{t('about_page.movapp_goal_title')}</H2>
             {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
           </div>
-          <div>
+          <div className="md:mb-8">
             {currentLanguage.toString() === 'cs' || currentLanguage.toString() === 'uk' ? (
               <>
                 <H2>{t('about_page.movapp_origin_title')}</H2>
@@ -299,7 +299,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         </section>
 
         <section className="max-w-[1185px] md:mt-[124px] mt-20 mx-auto p-4">
-          <div className="text-center mb-16 ">
+          <div className="text-center mb-14 ">
             <H2>{t('about_page.said_about_us')}</H2>
           </div>
           {windowWidth <= 768 && <SliderFeedbacksSm />}
@@ -315,55 +315,64 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           </div>
         </section>
 
-        <section className="md:mt-[124px] mt-20 px-4 md:text-sm">
-          <div className="md:columns-2 md:gap-[90px] md:mb-16 ">
-            <H2>{t('about_page.conferences_title')}</H2>
-            <Trans
-              i18nKey={'about_page.conferences_description'}
-              t={t}
-              components={[
-                <TextLink href="https://www.youtube.com/watch?v=ThY0ZiWmBV8&t=2353s" target="_blank" key="first_conference" />,
-                <TextLink href="https://www.youtube.com/watch?v=3UC16MhE19k&t=1660s" target="_blank" key="second_conference" />,
-              ]}
-            />
-            <H2>{t('about_page.support_us_title')}</H2>
-            <Trans
-              i18nKey={'about_page.support_us_description'}
-              components={[
-                <TextLink
-                  href={'https://drive.google.com/drive/folders/1milRfoG2fPsod7moVKeCPM9ikm00kXup'}
-                  target="_blank"
-                  key="plakatky"
-                />,
-                <TextLink href={'/contacts'} key="kontakt" />,
-                <TextLink href={'https://cesko.digital/projects/movapp'} target="_blank" key="ceskodigital" />,
-                <TextLink href={'/contacts'} key="ceskodigital" />,
-                <TextLink href={'https://cesko.digital/join/form'} target="_blank" key="ceskodigital" />,
-              ]}
-            />
-          </div>
-          <div className="md:columns-2 md:gap-[90px] md:mb-16 pt-[3px]">
-            <H2>{t('about_page.how_to_find_us_title')}</H2>
-            <Trans i18nKey={'about_page.how_to_find_us_description'} />
-            <div className="mt-10">
-              <H2>{t('about_page.stand_with_ukraine_title')}</H2>
-              <Trans
-                i18nKey={'about_page.stand_with_ukraine_description'}
-                components={[
-                  <TextLink href={NAVIGATION['stojimezaukrajinou'][currentLanguage]} target="_blank" key="stojimezaukrajinou" />,
-                ]}
-              />
+        <section className="md:mt-[124px] mt-20 px-4 md:text-sm ">
+          <div className="md:grid md:grid-cols-2 md:gap-[90px] md:mb-16">
+            <div>
+              <div className="xl:mb-[100px] md:mb-[170px]">
+                <H2>{t('about_page.conferences_title')}</H2>
+                <Trans
+                  i18nKey={'about_page.conferences_description'}
+                  t={t}
+                  components={[
+                    <TextLink href="https://www.youtube.com/watch?v=ThY0ZiWmBV8&t=2353s" target="_blank" key="first_conference" />,
+                    <TextLink href="https://www.youtube.com/watch?v=3UC16MhE19k&t=1660s" target="_blank" key="second_conference" />,
+                  ]}
+                />
+              </div>
+              <div>
+                <H2>{t('about_page.how_to_find_us_title')}</H2>
+                <Trans i18nKey={'about_page.how_to_find_us_description'} />
+              </div>
+            </div>
+            <div>
+              <div className="mb-12">
+                <H2>{t('about_page.support_us_title')}</H2>
+                <Trans
+                  i18nKey={'about_page.support_us_description'}
+                  components={[
+                    <TextLink
+                      href={'https://drive.google.com/drive/folders/1milRfoG2fPsod7moVKeCPM9ikm00kXup'}
+                      target="_blank"
+                      key="plakatky"
+                    />,
+                    <TextLink href={'/contacts'} key="kontakt" />,
+                    <TextLink href={'https://cesko.digital/projects/movapp'} target="_blank" key="ceskodigital" />,
+                    <TextLink href={'/contacts'} key="ceskodigital" />,
+                    <TextLink href={'https://cesko.digital/join/form'} target="_blank" key="ceskodigital" />,
+                  ]}
+                />
+              </div>
+              <div>
+                <H2>{t('about_page.stand_with_ukraine_title')}</H2>
+                <Trans
+                  i18nKey={'about_page.stand_with_ukraine_description'}
+                  components={[
+                    <TextLink href={NAVIGATION['stojimezaukrajinou'][currentLanguage]} target="_blank" key="stojimezaukrajinou" />,
+                  ]}
+                />
+              </div>
             </div>
           </div>
-
-          <H2>{t('about_page.how_we_prepared_content_title')}</H2>
-          <Trans
-            i18nKey={'about_page.how_we_prepared_content_description'}
-            components={[
-              <TextLink href={'https://chat.openai.com/'} target="_blank" key="chatgpt" />,
-              <TextLink href={'https://azure.microsoft.com/en-us/products/cognitive-services/'} target="_blank" key="azuremicrosoft" />,
-            ]}
-          />
+          <div>
+            <H2>{t('about_page.how_we_prepared_content_title')}</H2>
+            <Trans
+              i18nKey={'about_page.how_we_prepared_content_description'}
+              components={[
+                <TextLink href={'https://chat.openai.com/'} target="_blank" key="chatgpt" />,
+                <TextLink href={'https://azure.microsoft.com/en-us/products/cognitive-services/'} target="_blank" key="azuremicrosoft" />,
+              ]}
+            />
+          </div>
         </section>
 
         <section className="mt-[124px] mb-12">
