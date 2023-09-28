@@ -54,6 +54,13 @@ const nextConfig = {
         destination: '/dictionary#casopis_raketa_detem',
         permanent: true,
       },
+      {
+        source: '/cs/newsletter',
+        destination: 'https://airtable.com/appLciQqZNGDR3J6W/shrImIIFcXtg4JYLE',
+        locale: false,
+        basePath: false,
+        permanent: false,
+      }
     ];
   },
 };
