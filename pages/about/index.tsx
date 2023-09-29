@@ -318,10 +318,10 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           </div>
         </section>
 
-        <section className="md:mt-[124px] mt-20 px-4 md:text-sm ">
-          <div className="md:grid md:grid-cols-2 md:gap-[90px] md:mb-16">
+        <section className="md:mt-16 mt-20 px-4 md:text-sm ">
+          <div className="md:grid md:grid-cols-2 md:gap-[90px] md:mb-10">
             <div>
-              <div className="xl:mb-[100px] md:mb-[170px]">
+              <div className="md:mb-[30px]">
                 <H2>{t('about_page.conferences_title')}</H2>
                 <Trans
                   i18nKey={'about_page.conferences_description'}
@@ -355,17 +355,9 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
                   ]}
                 />
               </div>
-              <div>
-                <H2>{t('about_page.stand_with_ukraine_title')}</H2>
-                <Trans
-                  i18nKey={'about_page.stand_with_ukraine_description'}
-                  components={[
-                    <TextLink href={NAVIGATION['stojimezaukrajinou'][currentLanguage]} target="_blank" key="stojimezaukrajinou" />,
-                  ]}
-                />
-              </div>
             </div>
           </div>
+
           <div>
             <H2>{t('about_page.how_we_prepared_content_title')}</H2>
             <Trans
@@ -376,21 +368,30 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
               ]}
             />
           </div>
+
+          {/* 000000000000 */}
+          <div className="md:grid md:grid-cols-2 md:gap-[90px] md:mb-16">
+            <div>
+              <H2>{t('about_page.czech_digital_title')}</H2>
+              <Trans
+                i18nKey={'about_page.czech_digital_description'}
+                components={[<TextLink href={NAVIGATION['cesko.digital'][currentLanguage]} target="_blank" key="cesko.digital" />]}
+              />
+            </div>
+
+            <div>
+              <H2>{t('about_page.stand_with_ukraine_title')}</H2>
+              <Trans
+                i18nKey={'about_page.stand_with_ukraine_description'}
+                components={[
+                  <TextLink href={NAVIGATION['stojimezaukrajinou'][currentLanguage]} target="_blank" key="stojimezaukrajinou" />,
+                ]}
+              />
+            </div>
+          </div>
         </section>
 
-        <section className="mt-[124px] mb-12">
-          <div className="text-center">
-            <H2>{t('about_page.czech_digital_title')}</H2>
-          </div>
-          <div className="max-w-[547px] mx-auto p-4">
-            <Trans
-              i18nKey={'about_page.czech_digital_description'}
-              components={[<TextLink href={NAVIGATION['cesko.digital'][currentLanguage]} target="_blank" key="cesko.digital" />]}
-            />
-          </div>
-        </section>
-
-        <section className="mb-[124px]">
+        <section className="mb-[124px] mt-[124px] ">
           <div className="text-center">
             <H2>{t('about_page.our_partners_title')}</H2>
           </div>
