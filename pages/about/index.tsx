@@ -209,28 +209,31 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
         </div>
 
         <section className="md:columns-2 md:gap-[55px] px-4 md:text-sm">
-          <div className="md:mb-[80px] mt-0 display-flex">
-            <H2>{t('about_page.movapp_goal_title')}</H2>
-            {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
+          <div className="md:mb-[80px]">
+            <div className=" mt-0 mb-9 display-flex">
+              <H2>{t('about_page.movapp_goal_title')}</H2>
+              {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
+            </div>
+            <div className="md:mb-8">
+              {currentLanguage.toString() === 'cs' || currentLanguage.toString() === 'uk' ? (
+                <>
+                  <H2>{t('about_page.movapp_origin_title')}</H2>
+                  <Trans
+                    components={[
+                      <TextLink href={currentLanguage.toString() === 'cs' ? '/wiki/pribeh' : '/wiki/istorija'} key="movapp_story" />,
+                      <TextLink
+                        href={currentLanguage.toString() === 'cs' ? '/wiki/vyvoj-titulni-stranky' : '/wiki/zminy-na-holovnii-storintsi'}
+                        key="movapp_page_changes"
+                      />,
+                    ]}
+                  >
+                    {t('about_page.movapp_origin_description')}
+                  </Trans>
+                </>
+              ) : null}
+            </div>
           </div>
-          <div className="md:mb-8">
-            {currentLanguage.toString() === 'cs' || currentLanguage.toString() === 'uk' ? (
-              <>
-                <H2>{t('about_page.movapp_origin_title')}</H2>
-                <Trans
-                  components={[
-                    <TextLink href={currentLanguage.toString() === 'cs' ? '/wiki/pribeh' : '/wiki/istorija'} key="movapp_story" />,
-                    <TextLink
-                      href={currentLanguage.toString() === 'cs' ? '/wiki/vyvoj-titulni-stranky' : '/wiki/zminy-na-holovnii-storintsi'}
-                      key="movapp_page_changes"
-                    />,
-                  ]}
-                >
-                  {t('about_page.movapp_origin_description')}
-                </Trans>
-              </>
-            ) : null}
-          </div>
+
           <div className="pt-[3px]">
             <H2>{t('about_page.why_movapp_title')}</H2>
             <P>
