@@ -208,63 +208,65 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
           </h1>
         </div>
 
-        <section className="md:columns-2 md:gap-[55px] px-4 md:text-sm">
-          <div className="md:mb-[80px]">
-            <div className=" mt-0 mb-9 display-flex">
-              <H2>{t('about_page.movapp_goal_title')}</H2>
-              {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
+        <section className=" px-4 md:text-sm">
+          <div className="md:grid grid-flow-col gap-[90px]">
+            <div>
+              <div className=" mt-0 mb-9 display-flex">
+                <H2>{t('about_page.movapp_goal_title')}</H2>
+                {t(`about_page.movapp_goal_description.${getCountryVariant()}`)}
+              </div>
+              <div className="md:mb-8">
+                {currentLanguage.toString() === 'cs' || currentLanguage.toString() === 'uk' ? (
+                  <>
+                    <H2>{t('about_page.movapp_origin_title')}</H2>
+                    <Trans
+                      components={[
+                        <TextLink href={currentLanguage.toString() === 'cs' ? '/wiki/pribeh' : '/wiki/istorija'} key="movapp_story" />,
+                        <TextLink
+                          href={currentLanguage.toString() === 'cs' ? '/wiki/vyvoj-titulni-stranky' : '/wiki/zminy-na-holovnii-storintsi'}
+                          key="movapp_page_changes"
+                        />,
+                      ]}
+                    >
+                      {t('about_page.movapp_origin_description')}
+                    </Trans>
+                  </>
+                ) : null}
+              </div>
             </div>
-            <div className="md:mb-8">
-              {currentLanguage.toString() === 'cs' || currentLanguage.toString() === 'uk' ? (
-                <>
-                  <H2>{t('about_page.movapp_origin_title')}</H2>
-                  <Trans
-                    components={[
-                      <TextLink href={currentLanguage.toString() === 'cs' ? '/wiki/pribeh' : '/wiki/istorija'} key="movapp_story" />,
-                      <TextLink
-                        href={currentLanguage.toString() === 'cs' ? '/wiki/vyvoj-titulni-stranky' : '/wiki/zminy-na-holovnii-storintsi'}
-                        key="movapp_page_changes"
-                      />,
-                    ]}
-                  >
-                    {t('about_page.movapp_origin_description')}
-                  </Trans>
-                </>
-              ) : null}
-            </div>
-          </div>
-          <div className="pt-[3px]">
-            <H2>{t('about_page.why_movapp_title')}</H2>
-            <P>
-              <Trans i18nKey={'about_page.why_movapp_mova'} />
-            </P>
 
-            <P>{t('about_page.why_movapp_description')}</P>
+            <div className="pt-[3px]">
+              <H2>{t('about_page.why_movapp_title')}</H2>
+              <P>
+                <Trans i18nKey={'about_page.why_movapp_mova'} />
+              </P>
 
-            <P>
+              <P>{t('about_page.why_movapp_description')}</P>
+              <P>
+                <Trans
+                  i18nKey={'about_page.why_movapp_license'}
+                  t={t}
+                  components={[
+                    <TextLink
+                      href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage}`}
+                      target="_blank"
+                      key="creativecommons"
+                    />,
+                  ]}
+                />
+              </P>
               <Trans
-                i18nKey={'about_page.why_movapp_license'}
+                i18nKey={'about_page.why_movapp_origin'}
                 t={t}
                 components={[
                   <TextLink
-                    href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage}`}
+                    href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw"
                     target="_blank"
-                    key="creativecommons"
+                    key="drive.google.com"
                   />,
                 ]}
               />
-            </P>
-            <Trans
-              i18nKey={'about_page.why_movapp_origin'}
-              t={t}
-              components={[
-                <TextLink
-                  href="https://drive.google.com/drive/u/0/folders/129vObZ0vUHpDd07slIfaiAfKsEbx1mNw"
-                  target="_blank"
-                  key="drive.google.com"
-                />,
-              ]}
-            />
+            </div>
           </div>
         </section>
 
