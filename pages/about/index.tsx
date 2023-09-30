@@ -233,7 +233,6 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
               ) : null}
             </div>
           </div>
-
           <div className="pt-[3px]">
             <H2>{t('about_page.why_movapp_title')}</H2>
             <P>
@@ -255,7 +254,6 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
                 ]}
               />
             </P>
-
             <Trans
               i18nKey={'about_page.why_movapp_origin'}
               t={t}
