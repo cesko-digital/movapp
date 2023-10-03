@@ -1,4 +1,4 @@
-# Contributing to Movapp
+# Contributing to Movapp [Proposal]
 
 First off, thanks for taking the time to contribute! ❤️
 
