@@ -18,3 +18,4 @@
 2023-07-27	Polish translation now 100%
 2023-08-04	Add Geography and Space
 2023-08-09	More Polish categories
+2023-10-03	Transliteration contains punctiation
