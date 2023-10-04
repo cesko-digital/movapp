@@ -15,7 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Cache node modules
         id: cache
@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
-      
+
   lint:
     name: Run Lint
     needs: install_dependencies
@@ -39,7 +39,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Use cached node modules
         uses: actions/cache@v3
@@ -61,7 +61,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Use cached node modules
         uses: actions/cache@v3
@@ -83,7 +83,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Use cached node modules
         uses: actions/cache@v3
@@ -92,7 +92,7 @@ jobs:
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Build
-        run: npm run build
+        run: npm run ci:build
 
       - name: Start
         run: npm run start & npx wait-on --timeout 30000 http://localhost:3000
@@ -103,7 +103,7 @@ jobs:
           browser: chrome
           record: true
           parallel: true
-          wait-on: "http://localhost:3000"
+          wait-on: 'http://localhost:3000'
         env:
           # pass the Cypress Cloud record key as an environment variable
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
