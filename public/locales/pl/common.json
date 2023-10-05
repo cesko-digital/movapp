@@ -87,8 +87,9 @@
     "our_team_spring_title": "Wiosna 2022",
     "our_team_autumn_title": "Jesień 2022",
     "our_team_description": "Głównymi członkami zespołu Movapp są: Martin Hassman, Oleg Antonyak, Tatiana Chytilová, Petr Illek, Valeriia Kuna i Monika Fabryová. Pomaga im szereg innych wolontariuszy.",
-    "our_team_contact": "Chcesz nam pomóc z treścią, albo przyłączyć się w inny sposób? <br/> Szukasz do nas <0>kontaktu</0>?",
+    "our_team_contact": "Chcesz nam pomóc z treścią, albo przyłączyć się w inny sposób? Szukasz do nas <0>kontaktu</0>?",
     "our_team_illustrators": "Autorkami ilustracji dla dzieci są: Alena Burneleit, Anna Lamberová, Lucie Lomová, Kateřina Vacková Mňuková i Marie Kraus.",
+    "said_about_us": "Mówili o nas",
     "stand_with_ukraine_title": "Stojíme za Ukrajinou",
     "stand_with_ukraine_description": "<0>Stojíme za Ukrajinou</0> (Murem za Ukrainą) jest czeską inicjatywą wolontariuszy z przeróżnych organizacji i stowarzyszeń. Jesteśmy \"zwykłymi Kowalskimi\", którym nie jest obojętna sytuacja związana ze zbrojnym konfliktem prowadzonym przez Rosję przeciwko suwerennej, demokratycznej Ukrainie. Inicjatywa ta powstała naturalnie, pochodzi z długotrwałego wspierania Ukrainy po aneksji Krymu. Razem z eskalacją działań wojennych zaczęła być widoczna w przestrzeni publicznej 19 lutego 2022 roku, a od tego czasu organicznie rośnie.",
     "czech_digital_title": "Česko.Digital",
@@ -101,6 +102,16 @@
     "how_we_prepared_content_title": "Jak przygotowujemy treść do nauki języka?",
     "how_we_prepared_content_description": "Treść pojawiająca się na stronach Movapp jest tworzona przez wielu wolontariuszy, pomiędzy którymi znajdują się także profesjonaliści językowi. W tworzeniu tekstów jest czasami wykorzystywana również AI (sztuczna inteligencja, np. <0>ChatGPT</0>), teksty są ale zawsze sprawdzane przez native speakerów.Nagrania audio są generowane za pomocą <1>Azure Cognitive Services</1> i następnie sprawdzane przez native speakerów. W przypadku błędów, które program popełni, staramy się je rozwiązać. W niektórych przypadkach jest to skomplikowane i czasem nawet niemożliwe. Słabsze wsparcie języka ukraińskiego w Azure Cognitive Services powoduje sporadycznie błędny akcent oraz wymowę ukraińskiej spółgłoski <i>\"g\"</i> jako <i>\"h\"</i>. Jesteśmy świadomi tego problemu i szukamy rozwiązania. Jeśli jednak oprócz tego znajdziecie błąd (albo macie podejrzenie, że odkryliście błąd), prosimy o kontakt przez nasz formularz „Znaleźliście błąd lub macie propozycję dotyczące poprawy?” poniżej na naszej stronie internetowej. W ten sposób możecie również wy przyczynić się do poprawy Movapp. Dziękujemy!" 
   },
+  
+  "feedbacks-section": {
+    "id-1_title": "“W końcu jest coś, co naprawdę pomaga...”",
+    "id-1_text": "Uważam Państwa stronę za wielki wkład w rozwój komunikacji ze społecznością UKR. Wreszcie jest coś, co naprawdę pomaga ułatwić wzajemną komunikację. Od ponad 20 lat staram się znaleźć sposób jak na początek przybliżyć Ukraińcom nasz alfabet i najczęstsze sytuacje życiowe.",
+    "id-2_title": "“Prosta aplikacja, która może Ci pomóc...”",
+    "id-2_text": "Ta aplikacja jest praktycznym słownikiem różnych terminów, nauczycielem ukraińskiego alfabetu, a także świetnym sposobem na naukę języka ukraińskiego lub polskiego dla dzieci. (...) Jest ładnie zestawiony, więc ma to sens, bardzo dobrze się w nim porusza. (...) To wszystko taka fajna, prosta aplikacja, która może Ci bardzo pomóc, jeśli znajdziesz się w sytuacji, w której musisz porozmawiać z Ukrainką lub Ukraińcem, a także jeśli w odpowiedzi na obecny kryzys, lub nie tylko do tego, chcesz nauczyć się trochę ukraińskiego. Tak czy inaczej, miło jest mieć to w telefonie, na wszelki wypadek. Movapp, to moja wskazówka na dzisiaj.",
+    "id-3_title": "“Dziękuję, bo współny język jest dziś bardzo ważny!”",
+    "id-3_text": "“Dziękuję, bo wspólny język jest dziś bardzo ważny! Podoba mi się, że Państwa styl jest pozytywny. Format gier podoba się nie tylko dzieciom!”"
+  },
+
   "contacts_page": {
     "title": "Kontakty",
     "email_contact_title": "Email kontaktowy:",

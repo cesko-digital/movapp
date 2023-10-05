@@ -101,7 +101,8 @@
     "our_team_autumn_title": "Jeseň 2022",
     "our_team_description": "Kmeňovými členmi tímu Movapp.cz sú: Martin Hassman, Oleg Antonyak, Tatiana Chytilová, Petr Illek, Valeriia Kuna, Monika Fabryová, Juraj Uhlár, Bára Skálová, Tereza Javornická, Alena Burneleit, Anna Lamberová, Roman Žydyk a Martina Krejčí. A pomáha im veľa ďalších dobrovoľníkov.",
     "our_team_illustrators": "Autorkami ilustrácií pre deti sú: Alena Burneleit, Anna Lamberová, Lucie Lomová, Kateřina Vacková Mňuková a Marie Kraus.",
-    "our_team_contact": "Chcete nám pomôcť s obsahom, alebo sa inak zapojiť? <br/>Hľadáte na nás <0>kontakt</0>?",
+    "our_team_contact": "Chcete nám pomôcť s obsahom, alebo sa inak zapojiť? Hľadáte na nás <0>kontakt</0>?",
+    "said_about_us": "Povedali o nás",
     "stand_with_ukraine_title": "Stojíme za Ukrajinou",
     "stand_with_ukraine_description": "<0>Stojíme za Ukrajinou</0> je iniciatíva dobrovoľníkov, ktorá prepája organizácie a združenia. Sme bežní radoví občania, ktorým nie je ľahostajná súčasná situácia súvisiaca s vojnovým konfliktom, ktorý vedie Rusko proti suverénnej demokratickej Ukrajine. Táto iniciatíva vznikla prirodzene, vyrastá z dlhodobej podpory Ukrajiny po anexii Krymu, s eskaláciou napätia začala byť vo verejnom priestore zrejmá 19. februára 2022 a od tej doby organicky rastie.",
     "czech_digital_title": "Česko.Digital",
@@ -114,6 +115,16 @@
     "how_we_prepared_content_title": "Ako pripravujeme učebný jazykový obsah?",
     "how_we_prepared_content_description": "Obsah Movappu je tvorený mnohými dobrovoľníkmi, medzi ktorými sú aj jazykoví profesionáli. Pri tvorbe textov je niekedy využitá aj AI (umelá inteligencia, napr. <0>ChatGPT</0>), texty sú ale vždy kontrolované rodenými hovoriacimi. Audio nahrávky sú generované pomocou <1>Azure Cognitive Services</1> a následne kontrolované rodenými hovoriacimi. Tam, kde počítačová syntéza vykazuje nedostatky, sa ich snažíme vyriešiť. V niektorých prípadoch je to komplikované a niekedy dokonca nemožné. Slabšia podpora ukrajinčiny v Azure Cognitive Services spôsobuje občasný chybný prízvuk a výslovnosť ukrajinskej spoluhlásky <i>\"g\"</i> ako <i>\"h\"</i>. O tomto probléme vieme a hľadáme riešenie. Ak sa aj napriek tomu stane, že narazíte na chybu (alebo máte podozrenie, že ste chybu objavili), kontaktujte nás prostredníctvom nášho formulára „Našli ste chybu alebo máte návrh na zlepšenie?“ dole na našich stránkach. Aj vy tak môžete prispieť k zlepšeniu Movappu. Ďakujeme!"
   },
+
+  "feedbacks-section": {
+    "id-1_title": "“Konečne je tu niečo, čo skutočne pomáha...”",
+    "id-1_text": "Váš web považujem za veľký prínos k rozvoju komunikácie s UKR komunitou. Konečne je tu niečo, čo skutočne pomáha ľahkej obojstrannej komunikácii. Vyše 20 rokov som s námahou hľadal, ako priblížiť Ukrajincom v začiatkoch našu abecedu a najobvyklejšie životné situácie.",
+    "id-2_title": "“Jednoduchá aplikácia, ktorá vám môže dosť pomôcť...”",
+    "id-2_text": "Táto aplikácia je takým praktickým slovníčkom rôznych pojmov, učiteľkou ukrajinskej abecedy a tiež takou zábavnou formou na učenie ukrajinčiny alebo slovenčiny pre deti. (...) Je to pekne poskladané, takže to dáva zmysel, veľmi dobre sa v tom pohybuje. (...) Je to celé taká pekná, jednoduchá aplikácia, ktorá vám môže dosť pomôcť, ak ste v situácii, keď sa potrebujete dohovoriť s Ukrajinkou alebo Ukrajincom, a tiež pokiaľ sa v reakcii na tú aktuálnu krízu, alebo nielen na ňu, chcete priučiť trošku ukrajinčiny. Každopádne je fajn ju mať v telefóne, keby čokoľvek. Movapp, to je môj dnešný tip.",
+    "id-3_title": "“Ďakujem vám, pretože spoločná reč je dnes nesmierne dôležitá!”",
+    "id-3_text": "“Ďakujem vám, pretože spoločná reč je dnes nesmierne dôležitá! Veľmi sa mi páči, že je váš štýl pozitívny. Formát hier sa páči nielen deťom!”"
+  },
+
   "contacts_page": {
     "title": "Kontakty",
     "email_contact_title": "Kontaktný email:",
