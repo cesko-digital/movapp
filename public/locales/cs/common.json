@@ -104,6 +104,7 @@
     "our_team_illustrators": "Autorky ilustrací pro děti jsou: Alena Burneleit, Anna Lamberová, Lucie Lomová, Kateřina Vacková Mňuková, Marie Kraus a Eva Hanzalová.",
     "our_team_contact": "Chcete nám pomoci s obsahem, nebo se jinak zapojit? Hledáte na nás <0>kontakt</0>?",
     "said_about_us": "Řekli o nás",
+
     "stand_with_ukraine_title": "Stojíme za Ukrajinou",
     "stand_with_ukraine_description": "<0>Stojíme za Ukrajinou</0> je iniciativa dobrovolníků napříč organizacemi a spolky. Jsme běžní řadoví občané, kterým není lhostejná současná situace související s válečným konfliktem vedeným Ruskem proti suverénní demokratické Ukrajině. Tato iniciativa vznikla přirozeně, vyrůstá z dlouhodobé podpory Ukrajiny po anexi Krymu, s eskalací napětí začala být ve veřejném prostoru zřejmá 19. února 2022 a od té doby organicky roste.",
     "czech_digital_title": "Česko.Digital",
@@ -116,6 +117,16 @@
     "how_we_prepared_content_title": "Jak připravujeme učební jazykový obsah?",
     "how_we_prepared_content_description": "Obsah Movappu je tvořen řadou dobrovolníků, mezi kterými jsou i jazykoví profesionálové. Při tvorbě textů je místy využita i AI (umělá inteligence, např. <0>ChatGPT</0>), texty jsou ale vždy kontrolovány rodilými mluvčími. Audio nahrávky jsou generovány pomocí <1>Azure Cognitive Services</1> a následně kontrolovány rodilými mluvčími. Tam, kde počítačová syntéza vykazuje nedostatky, se je snažíme vyřešit. V některých případech je to komplikované a někdy dokonce nemožné. Slabší podpora ukrajinštiny v Azure Cognitive Services způsobuje občasný chybný přízvuk a výslovnost ukrajinské souhlásky <i>\"g\"</i> jako <i>\"h\"</i>. O tomto problému víme a hledáme řešení. Pokud se přesto stane, že narazíte na chybu (nebo máte podezření, že jste objevili chybu), kontaktujte nás prostřednictvím našeho formuláře „Našli jste chybu nebo máte návrh na zlepšení?“ dole na našich stránkách. I vy tak můžete přispět ke zlepšení Movappu. Děkujeme!"
   },
+
+  "feedbacks-section": {
+    "id-1_title": "“Konečně je tady něco, co skutečně pomáhá…”",
+    "id-1_text": "Váš web považuji za velký přínos k rozvoji komunikace s UKR komunitou. Konečně je tady něco, co skutečně pomáhá k snadné oboustranné komunikaci. Přes 20 let jsem klopotně hledal, jak přiblížit Ukrajincům v začátcích naši abecedu a nejobvyklejší životní situace.",
+    "id-2_title": "“Jednoduchá aplikace, která vám může dost pomoct…”",
+    "id-2_text": "Tato aplikace je takovým praktickým slovníčkem různých pojmů, učitelkou ukrajinské abecedy a taky takovou zábavnou formou pro učení ukrajinštiny nebo češtiny pro děti. (...) Je to hezky poskládané, takže to dává smysl, velmi dobře se v tom pohybuje. (...) Je to celé taková hezká, jednoduchá aplikace, která vám může dost pomoct, pokud jste v situaci, kdy potřebujete se domluvit s Ukrajinkou nebo Ukrajincem, a taky pokud se třeba v reakci na tu aktuální krizi, nebo nejen na ni, chcete přiučit trošku ukrajinštiny. Každopádně je fajn ji mít v telefonu, kdyby cokoliv. Movapp, to je můj dnešní tip.",
+    "id-3_title": "“Děkuji vám, protože společná řeč je dnes nesmírně důležitá!”",
+    "id-3_text": "“Děkuji vám, protože společná řeč je dnes nesmírně důležitá! Moc se mi líbí, že je váš styl pozitivní. Formát her se líbí nejen dětem!”"
+  },
+
   "contacts_page": {
     "title": "Kontakty",
     "email_contact_title": "Kontaktní email:",

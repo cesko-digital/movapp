@@ -369,7 +369,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
             />
           </div>
 
-          <div className="md:grid md:grid-cols-2 md:gap-[90px] md:mb-16">
+          <div className="md:grid md:grid-cols-2 md:gap-[90px] md:mb-16 mt-10">
             <div>
               <H2>{t('about_page.czech_digital_title')}</H2>
               <Trans

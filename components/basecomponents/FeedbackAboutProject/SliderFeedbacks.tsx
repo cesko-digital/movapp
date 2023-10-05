@@ -4,35 +4,37 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { Modal } from 'components/basecomponents/Modal';
-
-const feedbacks = [
-  {
-    id: 1,
-    avatar: avatar,
-    title: '“Konečně je tady něco, co skutečně pomáhá…”',
-    author: 'M.Poláček',
-    text: 'Váš web považuji za velký přínos k rozvoji komunikace s UKR komunitou. Konečně je tady něco, co skutečně pomáhá k snadné oboustranné komunikaci. Přes 20 let jsem klopotně hledal, jak přiblížit Ukrajincům v začátcích naši abecedu a nejobvyklejší životní situace.',
-  },
-  {
-    id: 2,
-    avatar: studio,
-    title: '“Jednoduchá aplikace, která vám může dost pomoct…”',
-    author: 'Vít Svoboda v podcastu Studio N',
-    text: 'Tato aplikace je takovým praktickým slovníčkem různých pojmů, učitelkou ukrajinské abecedy a taky takovou zábavnou formou pro učení ukrajinštiny nebo češtiny pro děti. (...) Je to hezky poskládané, takže to dává smysl, velmi dobře se v tom pohybuje. (...) Je to celé taková hezká, jednoduchá aplikace, která vám může dost pomoct, pokud jste v situaci, kdy potřebujete se domluvit s Ukrajinkou nebo Ukrajincem, a taky pokud se třeba v reakci na tu aktuální krizi, nebo nejen na ni, chcete přiučit trošku ukrajinštiny. Každopádně je fajn ji mít v telefonu, kdyby cokoliv. Movapp, to je můj dnešní tip.',
-  },
-  {
-    id: 3,
-    avatar: avatar,
-    title: '“Děkuji vám, protože společná řeč je dnes nesmírně důležitá!”',
-    author: 'Salome Engibaryan',
-    text: '“Děkuji vám, protože společná řeč je dnes nesmírně důležitá! Moc se mi líbí, že je váš styl pozitivní. Formát her se líbí nejen dětem!"',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 export const SliderFeedbacks = (): JSX.Element => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeFeedbackIndex, setActiveFeedbackIndex] = useState<number | null>(null);
+  const { t } = useTranslation();
+
+  const feedbacks = [
+    {
+      id: 1,
+      avatar: avatar,
+      author: 'M.Poláček',
+      title: t('feedbacks-section.id-1_title'),
+      text: t('feedbacks-section.id-1_text'),
+    },
+    {
+      id: 2,
+      avatar: studio,
+      author: 'Vít Svoboda v podcastu Studio N',
+      title: t('feedbacks-section.id-2_title'),
+      text: t('feedbacks-section.id-2_text'),
+    },
+    {
+      id: 3,
+      avatar: avatar,
+      author: 'Salome Engibaryan',
+      title: t('feedbacks-section.id-3_title'),
+      text: t('feedbacks-section.id-3_text'),
+    },
+  ];
 
   const prevSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === 0 ? feedbacks.length - 1 : prevSlide - 1));
