@@ -214,6 +214,10 @@ export const useGameStore = create<GameStore>((set, get) => {
     },
     selectCard: async (card: Card) => {
       try {
+        if (get().scene === Scene.winReward) {
+          _playAudio(card.sound);
+          return;
+        }
         if (get().controlsDisabled || isSelected(card.id) || card.flipped) return;
         disableControls();
 
