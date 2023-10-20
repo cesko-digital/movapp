@@ -18,13 +18,13 @@ const SITE_URLS = {
 };
 
 /** @type {Array<string>} */
-const PDF_LINKS = ['*/dictionary/pdf/*', '*/kids/stories/pdf/*', '*/alphabet/pdf/*'];
+const PDF_LINKS = ['/(pdf){2}|^(?!.*[.]pdf$).*$/'];
 
 /** @type {Object<string,Array<string>>}} */
 const EXCLUSIONS = {
-  cs: [...PDF_LINKS],
-  sk: ['/wiki*', '/uk/wiki*', ...PDF_LINKS],
-  pl: ['/wiki*', '/uk/wiki*', ...PDF_LINKS],
+  cs: ['/exercise/re*', '/uk/exercise/re*', ' /kiosk/*', '/uk/kiosk/*', ...PDF_LINKS],
+  sk: ['/wiki*', '/uk/wiki*', '/exercise/re*', '/uk/exercise/re*', ' /kiosk/*', '/uk/kiosk/*', ...PDF_LINKS],
+  pl: ['/wiki*', '/uk/wiki*', '/exercise/re*', '/uk/exercise/re*', ' /kiosk/*', '/uk/kiosk/*', ...PDF_LINKS],
 };
 
 /** @type {import('next-sitemap').IConfig} */
