@@ -79,7 +79,9 @@
     "ukrainianStories": "Ukrajinské ľudové rozprávky",
     "stories": "Rozprávky",
     "homepage": "Domovská stránka",
-    "downloadStory": "Rozprávku si môžete <0>stiahnuť aj ako PDF súbor</0>."
+    "downloadStory": "Rozprávku si môžete <0>stiahnuť aj ako PDF súbor</0>.",
+    "otherStories_title": "Ďalšie rozprávky",
+    "otherStories_btn_title": "Zobraziť všetky"
   },
   "about_page": {
     "title": "<strong>Movapp.cz</strong> je projekt, ktorý vznikol v rámci iniciatívy <strong>Stojíme za Ukrajinou</strong> v komunite expertných dobrovoľníkov <strong>Česko.Digital.</strong>",
