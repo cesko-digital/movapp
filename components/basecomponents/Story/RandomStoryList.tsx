@@ -4,7 +4,7 @@ import Image from 'next/image';
 import stories from '../../../data/stories';
 import { useLanguage } from 'utils/useLanguageHook';
 
-const maxAttempts = 2;
+const maxAttempts = 3;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const randomStories: any[] = [];
 const storiesCount = stories.length;

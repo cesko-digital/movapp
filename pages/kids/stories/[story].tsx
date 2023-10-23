@@ -72,7 +72,7 @@ const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
             <StoryReader titleCurrent={title_current} titleOther={title_other} id={story.slug} country={story.country} phrases={phrases} />
           </div>
           {/* other story */}
-          <div className="w-full block mt-16 m-auto mb-36 md:w-4/5">
+          <div className="block mt-16 m-auto mb-36 md:w-4/5">
             <div className="text-center  md:flex md:items-center">
               <H2>{t('kids_page.otherStories_title')}</H2>
               <Link
