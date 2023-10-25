@@ -18,13 +18,23 @@ const SITE_URLS = {
 };
 
 /** @type {Array<string>} */
-const PDF_LINKS = ['/(pdf){2}|^(?!.*[.]pdf$).*$/'];
+const PDF_LINKS = [
+  '/dictionary/pdf/*',
+  '/uk/dictionary/pdf/*',
+  '/kids/pdf/*',
+  '/uk/kids/pdf/*',
+  '/kids/stories/pdf/*',
+  '/uk/kids/stories/pdf/*',
+  '/alphabet/pdf/*',
+  '/uk/alphabet/pdf/*',
+  '/pdf/.gitkeep'
+];
 
 /** @type {Object<string,Array<string>>}} */
 const EXCLUSIONS = {
-  cs: ['/exercise/re*', '/uk/exercise/re*', ' /kiosk/*', '/uk/kiosk/*', ...PDF_LINKS],
-  sk: ['/wiki*', '/uk/wiki*', '/exercise/re*', '/uk/exercise/re*', ' /kiosk/*', '/uk/kiosk/*', ...PDF_LINKS],
-  pl: ['/wiki*', '/uk/wiki*', '/exercise/re*', '/uk/exercise/re*', ' /kiosk/*', '/uk/kiosk/*', ...PDF_LINKS],
+  cs: ['/exercise/re*', '/uk/exercise/re*', '/kiosk*', '/uk/kiosk*', ...PDF_LINKS],
+  sk: ['/wiki*', '/uk/wiki*', '/exercise/re*', '/uk/exercise/re*', '/kiosk*', '/uk/kiosk*', ...PDF_LINKS],
+  pl: ['/wiki*', '/uk/wiki*', '/exercise/re*', '/uk/exercise/re*', '/kiosk*', '/uk/kiosk*', ...PDF_LINKS],
 };
 
 /** @type {import('next-sitemap').IConfig} */
