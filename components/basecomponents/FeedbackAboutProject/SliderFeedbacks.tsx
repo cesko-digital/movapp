@@ -66,9 +66,9 @@ export const SliderFeedbacks = (): JSX.Element => {
             className="pt-6 pb-8 mb-3 px-6 rounded-[16px] shadow-md xl:max-w-[480px] bg-white sm:max-w-[350px] hover:-translate-y-1 font-normal"
           >
             <Image src={feedback.avatar} alt="avatar" width={64} height={64} />
-            <h3 className="mt-4 text-xl font-bold h-[56px]">{feedback.title}</h3>
+            {/* <h3 className="mt-4 text-xl font-bold h-[56px]">{feedback.title}</h3> */}
             <p className="mb-4">{feedback.author}</p>
-            <p className="line-clamp-5 ">{feedback.text}...</p>
+            {/* <p className="line-clamp-5 ">{feedback.text}...</p> */}
             <button className="text-primary-blue decor underline decoration-1 flex" onClick={() => openModalForFeedback(index)}>
               Vice
             </button>
