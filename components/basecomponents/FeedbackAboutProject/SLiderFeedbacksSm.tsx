@@ -15,7 +15,6 @@ type Feedback = {
   title: string;
   text: string;
 };
-// type I18nType = (key: string) => string;
 
 export const SliderFeedbacksSm = (): JSX.Element => {
   const { t } = useTranslation();
@@ -29,21 +28,21 @@ export const SliderFeedbacksSm = (): JSX.Element => {
     const feedback = [
       {
         id: 1,
-        avatar: avatar,
+        avatar: avatar.src,
         author: 'M.Poláček',
         title: t('feedbacks-section.id-1_title'),
         text: t('feedbacks-section.id-1_text'),
       },
       {
         id: 2,
-        avatar: studio,
+        avatar: studio.src,
         author: 'Vít Svoboda v podcastu Studio N',
         title: t('feedbacks-section.id-2_title'),
         text: t('feedbacks-section.id-2_text'),
       },
       {
         id: 3,
-        avatar: avatar,
+        avatar: avatar.src,
         author: 'Salome Engibaryan',
         title: t('feedbacks-section.id-3_title'),
         text: t('feedbacks-section.id-3_text'),
@@ -72,34 +71,11 @@ export const SliderFeedbacksSm = (): JSX.Element => {
     setIsModalOpen(true);
   };
 
-  // const a  = [
-  //   {
-  //     id: 1,
-  //     avatar: avatar,
-  //     author: 'M.Poláček',
-  //     title: t('feedbacks-section.id-1_title'),
-  //     text: t('feedbacks-section.id-1_text'),
-  //   },
-  //   {
-  //     id: 2,
-  //     avatar: studio,
-  //     author: 'Vít Svoboda v podcastu Studio N',
-  //     title: t('feedbacks-section.id-2_title'),
-  //     text: t('feedbacks-section.id-2_text'),
-  //   },
-  //   {
-  //     id: 3,
-  //     avatar: avatar,
-  //     author: 'Salome Engibaryan',
-  //     title: t('feedbacks-section.id-3_title'),
-  //     text: t('feedbacks-section.id-3_text'),
-  //   },]
-  // console.log(feedbacks);
   return (
     <div className="relative group">
       <div className=" max-w-[350px] m-auto shadow-[#F0F0F0] rounded-2xl">
         {loading ? (
-          <p>Загрузка данных...</p>
+          <p>Loading...</p>
         ) : (
           <div
             key={feedbacks[currentSlide].id}
