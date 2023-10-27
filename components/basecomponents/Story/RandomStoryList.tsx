@@ -21,6 +21,7 @@ for (let i = 0; i < maxAttempts && randomStories.length < 3; i++) {
 const RandomStoryList: React.FC = () => {
   const { currentLanguage } = useLanguage();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [randomStoriesArray, setRandomStoriesArray] = useState<any[]>([]);
 
   useEffect(() => {
@@ -28,26 +29,24 @@ const RandomStoryList: React.FC = () => {
   }, [randomStoriesArray]);
 
   return (
-    <div className="max-w-5xl mx-auto py-10">
-      <ul className="grid gap-4 px-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
+    <div className="w-full mx-auto py-10">
+      <ul className="grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 md:gap-6">
         {randomStoriesArray.map((story) => {
           return (
-            <li key={story.slug} className="mb-8 bg-white shadow-m w-[354px] h-[354px] rounded-[32px]">
-              <div>
-                <Image
-                  // className={`w-[354px] h-[266px] overflow-hidden rounded-t-[32px]`}
-                  className="w-auto h-auto object-cover max-h-[266px]"
-                  src={`/kids/${story.slug}.jpg`}
-                  alt={story.title[currentLanguage]}
-                  width={354}
-                  height={200}
-                />
-                <Link href={`/kids/stories/${story.slug}`}>
-                  <p className="bg-white h-[88px] font-bold text-xl text-center px-4 pt-4 pb-6 text-primary-blue rounded-b-[32px] flex items-center justify-center">
-                    {story.title[currentLanguage]}
-                  </p>
-                </Link>
-              </div>
+            <li key={story.slug} className="bg-white shadow-m rounded-[32px] text-center">
+              <Image
+                // className={`w-[354px] h-[266px] overflow-hidden rounded-t-[32px]`}
+                className="rounded-t-[32px]"
+                src={`/kids/${story.slug}.jpg`}
+                alt={story.title[currentLanguage]}
+                width={354}
+                height={266}
+              />
+              <Link href={`/kids/stories/${story.slug}`}>
+                <p className="bg-white h-[88px] font-bold text-xl text-center px-4 pt-4 pb-6 text-primary-blue rounded-b-[32px] flex items-center justify-center">
+                  {story.title[currentLanguage]}
+                </p>
+              </Link>
             </li>
           );
         })}
