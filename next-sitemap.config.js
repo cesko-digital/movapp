@@ -27,7 +27,6 @@ const PDF_LINKS = [
   '/uk/kids/stories/pdf/*',
   '/alphabet/pdf/*',
   '/uk/alphabet/pdf/*',
-  '/pdf/.gitkeep'
 ];
 
 /** @type {Object<string,Array<string>>}} */
@@ -54,7 +53,9 @@ module.exports = {
 
     // add pdf files to sitemap
     pdfFiles.forEach(async (file) => {
-      result.push(await config.transform(config, `${SITE_URLS[countryVariant]}/pdf/${encodeURIComponent(file)}`));
+      if (file !== '.gitkeep') {
+        result.push(await config.transform(config, `${SITE_URLS[countryVariant]}/pdf/${encodeURIComponent(file)}`));
+      }
     });
 
     return result;
