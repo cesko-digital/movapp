@@ -251,7 +251,7 @@ const ExportTranslations = ({ triggerLabel, category, customName }: ExportTransl
         <div className="text-sm font-light">
           {t('export_translations.sharing_info')}:&nbsp;
           <a
-            href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage}`}
+            href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage === 'sk' ? 'cs' : currentLanguage}`}
             target="_blank"
             rel="noreferrer"
             className="underline"
