@@ -248,7 +248,7 @@ const About: NextPage<{ teams: TeamSection[] }> = ({ teams }) => {
                   t={t}
                   components={[
                     <TextLink
-                      href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage}`}
+                      href={`https://creativecommons.org/licenses/by-nc/4.0/deed.${currentLanguage === 'sk' ? 'cs' : currentLanguage}`}
                       target="_blank"
                       key="creativecommons"
                     />,
