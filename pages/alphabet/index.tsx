@@ -27,7 +27,7 @@ const AlphabetPage = ({ alphabetMain, alphabetUk }: InferGetStaticPropsType<type
 
   return (
     <>
-      <SEO title={t('seo.alphabet_page_title')} description={t('seo.alphabet_page_description')} />
+      <SEO title={t(`seo.alphabet_page_title.${getCountryVariant()}`)} description={t('seo.alphabet_page_description')} />
       <div>
         <div className="max-w-7xl m-auto">
           <h1 className="text-primary-blue mb-3">{t(`alphabet_page.${selectedAlphabet}.name`)}</h1>

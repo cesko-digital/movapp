@@ -164,7 +164,9 @@
     "contacts_page_description": "Chcete sa stať členom tímu a pomáhať pri ďalšom rozvoji projektu?",
     "about_page_title": "O nás | sk.movapp.eu",
     "about_page_description": "Projekt vznikol v rámci iniciatívy Stojíme za Ukrajinou v komunite expertných dobrovoľníkov Česko.Digital.",
-    "alphabet_page_title": "Ukrajinská abeceda (cyrilika)",
+    "alphabet_page_title": {
+      "sk": "Ukrajinská abeceda (cyrilika)"
+    },
     "alphabet_page_description": "Naučte sa ukrajinskú abecedu. Nazýva sa aj ukrajinská cyrilika alebo ukrajinská azbuka. Obsahuje 33 znakov a apostrof.",
     "kids_page_title": {
       "sk": "Ilustrovaný ukrajinsko-slovenský slovníček pre deti | sk.movapp.eu"
