@@ -169,7 +169,9 @@
     "alphabet_page_title": {
       "cs":"Ukrajinská abeceda (cyrilice) se zvuky a příklady"
     },
-    "alphabet_page_description": "Naučte se ukrajinskou abecedu. Nazývá se také ukrajinská cyrilice nebo ukrajinská azbuka. Obsahuje 33 znaků a apostrof. Všechny znaky jsme pro vás namluvili a přidali jsme několik příkladů, aby se vám dobře učily.",
+    "alphabet_page_description": {
+      "cs": "Naučte se ukrajinskou abecedu. Nazývá se také ukrajinská cyrilice nebo ukrajinská azbuka. Obsahuje 33 znaků a apostrof. Všechny znaky jsme pro vás namluvili a přidali jsme několik příkladů, aby se vám dobře učily."
+    },
     "kids_page_title": {
       "cs": "Ilustrovaný ukrajinsko-český slovníček pro děti | Movapp.cz"
     },

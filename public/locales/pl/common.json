@@ -154,7 +154,9 @@
     "alphabet_page_title": {
       "pl": "Alfabet ukraiński (cyrilica)"
     },
-    "alphabet_page_description": "Naucz się ukraińskiego alfabetu. Nazywa się on także ukraińska cyrylica lub ukraińska azbuka. Zawiera 33 znaki i apostrof.",
+    "alphabet_page_description": {
+      "pl": "Naucz się ukraińskiego alfabetu. Nazywa się on także ukraińska cyrylica lub ukraińska azbuka. Zawiera 33 znaki i apostrof."
+    },
     "kids_page_title": {
       "pl": "Ilustrowany słownik ukraińsko-polski dla dzieci | pl.movapp.eu"
     },
