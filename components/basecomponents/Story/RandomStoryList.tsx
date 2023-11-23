@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -7,8 +6,8 @@ import stories from '../../../data/stories';
 import { useLanguage } from 'utils/useLanguageHook';
 
 const maxAttempts = 3;
-
-const randomStories: any[] = [''];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const randomStories: any[] = [];
 const storiesCount = stories.length;
 
 for (let i = 0; i < maxAttempts && randomStories.length < 3; i++) {
@@ -21,6 +20,8 @@ for (let i = 0; i < maxAttempts && randomStories.length < 3; i++) {
 
 const RandomStoryList: React.FC = () => {
   const { currentLanguage } = useLanguage();
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [randomStoriesArray, setRandomStoriesArray] = useState<any[]>([]);
 
   useEffect(() => {
@@ -34,8 +35,7 @@ const RandomStoryList: React.FC = () => {
           return (
             <li key={story.slug} className="bg-white shadow-m rounded-[32px] text-center">
               <Image
-                // className={`w-[354px] h-[266px] overflow-hidden rounded-t-[32px]`}
-                className="rounded-t-[32px]"
+                className="rounded-t-[32px] w-full"
                 src={`/kids/${story.slug}.jpg`}
                 alt={story.title[currentLanguage]}
                 width={354}
