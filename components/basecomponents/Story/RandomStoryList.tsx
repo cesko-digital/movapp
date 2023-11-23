@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import stories from '../../../data/stories';
 import { useLanguage } from 'utils/useLanguageHook';
+import { useRouter } from 'next/router';
 
 const maxAttempts = 3;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -20,7 +21,7 @@ for (let i = 0; i < maxAttempts && randomStories.length < 3; i++) {
 
 const RandomStoryList: React.FC = () => {
   const { currentLanguage } = useLanguage();
-
+  const router = useRouter();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [randomStoriesArray, setRandomStoriesArray] = useState<any[]>([]);
 
@@ -28,20 +29,24 @@ const RandomStoryList: React.FC = () => {
     setRandomStoriesArray(randomStories);
   }, [randomStoriesArray]);
 
+  const handleLinkClick = () => {
+    router.reload(); // Перезагрузить страницу
+  };
+
   return (
     <div className="w-full mx-auto py-10">
       <ul className="grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 md:gap-6">
         {randomStoriesArray.map((story) => {
           return (
-            <li key={story.slug} className="bg-white shadow-m rounded-[32px] text-center">
-              <Image
-                className="rounded-t-[32px] w-full"
-                src={`/kids/${story.slug}.jpg`}
-                alt={story.title[currentLanguage]}
-                width={354}
-                height={266}
-              />
-              <Link href={`/kids/stories/${story.slug}`}>
+            <li key={story.title[currentLanguage]} className="bg-white shadow-m rounded-[32px] text-center">
+              <Link href={`/kids/stories/${story.slug}`} onClick={handleLinkClick}>
+                <Image
+                  className="rounded-t-[32px] w-full"
+                  src={`/kids/${story.slug}.jpg`}
+                  alt={story.title[currentLanguage]}
+                  width={354}
+                  height={266}
+                />
                 <p className="bg-white h-[88px] font-bold text-xl text-center px-4 pt-4 pb-6 text-primary-blue rounded-b-[32px] flex items-center justify-center">
                   {story.title[currentLanguage]}
                 </p>
