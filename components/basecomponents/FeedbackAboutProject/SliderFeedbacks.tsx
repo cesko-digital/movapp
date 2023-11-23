@@ -1,10 +1,18 @@
 import avatar from '../../../public/icons/about/default_avatar.png';
 import studio from '../../../public/icons/about/Studio-N.png';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { Modal } from 'components/basecomponents/Modal';
 import { useTranslation } from 'react-i18next';
+
+type Feedback = {
+  id: number;
+  avatar: string;
+  author: string;
+  title: string;
+  text: string;
+};
 
 export const SliderFeedbacks = (): JSX.Element => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -12,29 +20,35 @@ export const SliderFeedbacks = (): JSX.Element => {
   const [activeFeedbackIndex, setActiveFeedbackIndex] = useState<number | null>(null);
   const { t } = useTranslation();
 
-  const feedbacks = [
-    {
-      id: 1,
-      avatar: avatar,
-      author: 'M.Poláček',
-      title: t('feedbacks-section.id-1_title'),
-      text: t('feedbacks-section.id-1_text'),
-    },
-    {
-      id: 2,
-      avatar: studio,
-      author: 'Vít Svoboda v podcastu Studio N',
-      title: t('feedbacks-section.id-2_title'),
-      text: t('feedbacks-section.id-2_text'),
-    },
-    {
-      id: 3,
-      avatar: avatar,
-      author: 'Salome Engibaryan',
-      title: t('feedbacks-section.id-3_title'),
-      text: t('feedbacks-section.id-3_text'),
-    },
-  ];
+  const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
+
+  useEffect(() => {
+    const feedback = [
+      {
+        id: 1,
+        avatar: avatar.src,
+        author: 'M.Poláček',
+        title: t('feedbacks-section.id-1_title'),
+        text: t('feedbacks-section.id-1_text'),
+      },
+      {
+        id: 2,
+        avatar: studio.src,
+        author: 'Vít Svoboda v podcastu Studio N',
+        title: t('feedbacks-section.id-2_title'),
+        text: t('feedbacks-section.id-2_text'),
+      },
+      {
+        id: 3,
+        avatar: avatar.src,
+        author: 'Salome Engibaryan',
+        title: t('feedbacks-section.id-3_title'),
+        text: t('feedbacks-section.id-3_text'),
+      },
+    ];
+
+    setFeedbacks(feedback);
+  }, [t]);
 
   const prevSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === 0 ? feedbacks.length - 1 : prevSlide - 1));
@@ -66,8 +80,8 @@ export const SliderFeedbacks = (): JSX.Element => {
             className="pt-6 pb-8 mb-3 px-6 rounded-[16px] shadow-md xl:max-w-[480px] bg-white sm:max-w-[350px] hover:-translate-y-1 font-normal"
           >
             <Image src={feedback.avatar} alt="avatar" width={64} height={64} />
-            <h3 className="mt-4 text-xl font-bold h-[56px]">{feedback.title}</h3>
-            <p className="mb-4">{feedback.author}</p>
+            <h4 className="mt-4 text-xl font-bold">{feedback.title}</h4>
+            <p className="mb-4 mt-2 text-base">{feedback.author}</p>
             <p className="line-clamp-5 ">{feedback.text}...</p>
             <button className="text-primary-blue decor underline decoration-1 flex" onClick={() => openModalForFeedback(index)}>
               Vice
@@ -85,8 +99,8 @@ export const SliderFeedbacks = (): JSX.Element => {
         {activeFeedbackIndex !== null && (
           <div key={displayedFeedbacks[activeFeedbackIndex].id} className="pt-6 pb-8 px-6 rounded-lg bg-white ">
             <Image src={displayedFeedbacks[activeFeedbackIndex].avatar} alt="avatar" width={64} height={64} />
-            <h3 className="mt-4 text-xl font-bold">{displayedFeedbacks[activeFeedbackIndex].title}</h3>
-            <p className="mb-4 mt-2">{displayedFeedbacks[activeFeedbackIndex].author}</p>
+            <h4 className="mt-4 text-xl font-bold">{displayedFeedbacks[activeFeedbackIndex].title}</h4>
+            <p className="mb-5 mt-3">{displayedFeedbacks[activeFeedbackIndex].author}</p>
             <p>{displayedFeedbacks[activeFeedbackIndex].text}</p>
           </div>
         )}
