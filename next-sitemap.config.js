@@ -18,13 +18,22 @@ const SITE_URLS = {
 };
 
 /** @type {Array<string>} */
-const PDF_LINKS = ['*/dictionary/pdf/*', '*/kids/stories/pdf/*', '*/alphabet/pdf/*'];
+const PDF_LINKS = [
+  '/dictionary/pdf/*',
+  '/uk/dictionary/pdf/*',
+  '/kids/pdf/*',
+  '/uk/kids/pdf/*',
+  '/kids/stories/pdf/*',
+  '/uk/kids/stories/pdf/*',
+  '/alphabet/pdf/*',
+  '/uk/alphabet/pdf/*',
+];
 
 /** @type {Object<string,Array<string>>}} */
 const EXCLUSIONS = {
-  cs: [...PDF_LINKS],
-  sk: ['/wiki*', '/uk/wiki*', ...PDF_LINKS],
-  pl: ['/wiki*', '/uk/wiki*', ...PDF_LINKS],
+  cs: ['/exercise/re*', '/uk/exercise/re*', '/kiosk*', '/uk/kiosk*', ...PDF_LINKS],
+  sk: ['/wiki*', '/uk/wiki*', '/exercise/re*', '/uk/exercise/re*', '/kiosk*', '/uk/kiosk*', ...PDF_LINKS],
+  pl: ['/wiki*', '/uk/wiki*', '/exercise/re*', '/uk/exercise/re*', '/kiosk*', '/uk/kiosk*', ...PDF_LINKS],
 };
 
 /** @type {import('next-sitemap').IConfig} */
@@ -44,7 +53,9 @@ module.exports = {
 
     // add pdf files to sitemap
     pdfFiles.forEach(async (file) => {
-      result.push(await config.transform(config, `${SITE_URLS[countryVariant]}/pdf/${encodeURIComponent(file)}`));
+      if (file !== '.gitkeep') {
+        result.push(await config.transform(config, `${SITE_URLS[countryVariant]}/pdf/${encodeURIComponent(file)}`));
+      }
     });
 
     return result;
