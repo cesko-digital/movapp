@@ -97,7 +97,9 @@
     "ukrainianStories": "Українські народні казки",
     "stories": "Казки",
     "homepage": "Домашня сторінка",
-    "downloadStory": "Можете завантажити казку <0>у форматі PDF.</0>"
+    "downloadStory": "Можете завантажити казку <0>у форматі PDF.</0>",
+    "otherStories_title": "Більше казок",
+    "otherStories_btn_title": "Показати усі"
   },
   "about_page": {
     "title": "<strong>Movapp.eu</strong> – це проект, який створено в рамках ініціативи <strong>Stojime za Ukrajinou</strong> в спільноті експертів-волонтерів <strong>Cesko.Digital.</strong>",

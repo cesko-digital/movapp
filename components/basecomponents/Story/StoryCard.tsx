@@ -18,7 +18,7 @@ const StoryCard = ({ story, currentLanguage }: StoryCardProps) => (
         height={280}
         alt={story.title[currentLanguage]}
       />
-      <p className="bg-white text-2xl text-center py-8 text-primary-blue">{story.title[currentLanguage]}</p>
+      <p className="bg-white text-2xl text-center py-8 text-primary-blue">{}</p>
     </Link>
   </div>
 );

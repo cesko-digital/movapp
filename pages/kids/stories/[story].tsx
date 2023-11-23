@@ -12,10 +12,13 @@ import { Story } from '@types';
 import { getCountryVariant, Language } from '../../../utils/locales';
 import Custom404 from '../../404';
 import { StoryPhrase, getStoryData } from '../../../components/basecomponents/Story/storyStore';
+import { H2 } from 'components/Typography';
+import RandomStoryCards from 'components/basecomponents/Story/RandomStoryList';
 
 interface StoriesProps {
   story: Story | undefined;
   phrases: StoryPhrase[];
+  stories: Story[];
 }
 
 interface UrlParams extends ParsedUrlQuery {
@@ -25,7 +28,6 @@ interface UrlParams extends ParsedUrlQuery {
 const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
   const { currentLanguage, otherLanguage } = useLanguage();
   const { t } = useTranslation();
-
   if (!story) {
     return 'Story not found';
   }
@@ -67,6 +69,19 @@ const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
           </p>
           <div className="px-6 py-4 flex rounded-2xl overflow-hidden shadow-xl bg-white md:w-4/5 m-auto">
             <StoryReader titleCurrent={title_current} titleOther={title_other} id={story.slug} country={story.country} phrases={phrases} />
+          </div>
+          {/* other story */}
+          <div className="block mt-16 m-auto mb-36 md:w-4/5">
+            <div className="text-center  md:flex md:items-center">
+              <H2>{t('kids_page.otherStories_title')}</H2>
+              <Link
+                href={`/kids/stories`}
+                className="w-44 h-10 flex items-center justify-center rounded-xl bg-primary-blue text-base text-white px-5 py-3 md:ml-auto mx-auto md:mx-0"
+              >
+                {t('kids_page.otherStories_btn_title')}
+              </Link>
+            </div>
+            <RandomStoryCards />
           </div>
         </>
       ) : (
