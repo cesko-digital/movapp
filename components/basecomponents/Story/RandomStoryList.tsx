@@ -16,9 +16,18 @@ const RandomStoryList: React.FC<RandomStoryListProps> = ({ currentStorySlug }) =
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [randomStoriesArray, setRandomStoriesArray] = useState<any[]>([]);
+  const language = currentLanguage;
 
   useEffect(() => {
-    const filteredStories = stories.filter((story) => story.title[currentLanguage]).filter((story) => story.slug !== currentStorySlug);
+    const filteredStories = stories.filter((story) => {
+      const isUkrainian = language === 'uk';
+      const hasTranslationSlovakian = story.title['uk'] && story.title['sk'];
+      const hasTranslationCzech = story.title['uk'] && story.title['cs'];
+      if (currentLanguage === 'sk') {
+        return (isUkrainian ? hasTranslationSlovakian : story.title[currentLanguage]) && story.slug !== currentStorySlug;
+      }
+      return (isUkrainian ? hasTranslationCzech : story.title[currentLanguage]) && story.slug !== currentStorySlug;
+    });
 
     const getRandomStories = () => {
       const maxAttempts = 3;
@@ -38,7 +47,7 @@ const RandomStoryList: React.FC<RandomStoryListProps> = ({ currentStorySlug }) =
     };
 
     getRandomStories();
-  }, [currentLanguage, router.query.slug, currentStorySlug]);
+  }, [currentLanguage, router.query.slug, currentStorySlug, language]);
 
   return (
     <div className="w-full mx-auto py-10">

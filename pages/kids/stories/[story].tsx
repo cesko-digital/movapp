@@ -15,7 +15,7 @@ import { StoryPhrase, getStoryData } from '../../../components/basecomponents/St
 import { H2 } from 'components/Typography';
 import RandomStoryList from 'components/basecomponents/Story/RandomStoryList';
 import { useRouter } from 'next/router';
-// import { useParams } from 'react-router-dom';
+
 interface StoriesProps {
   story: Story | undefined;
   phrases: StoryPhrase[];
@@ -53,7 +53,7 @@ const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
         description={t(`seo.kids_page_storiesDescription.${getCountryVariant()}`)}
         image={`https://www.movapp.cz/kids/${image_current_story}.jpg`}
       />
-      {['cs', 'sk'].includes(getCountryVariant()) ? (
+      {['cs', 'ua'].includes(getCountryVariant()) ? (
         <>
           <p className="px-6 py-4 flex items-center overflow-hidden  md:w-4/5 m-auto">
             <Link href={`/`} className="mr-2 hover:text-primary-blue">
@@ -88,6 +88,42 @@ const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
               </Link>
             </div>
             <RandomStoryList currentStorySlug={currentStorySlug} />
+          </div>
+        </>
+      ) : ['sk', 'ua'].includes(getCountryVariant()) ? (
+        <>
+          <p className="px-6 py-4 flex items-center overflow-hidden  md:w-4/5 m-auto">
+            <Link href={`/`} className="mr-2 hover:text-primary-blue">
+              {t('kids_page.homepage')}
+            </Link>{' '}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3 w-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+            </svg>{' '}
+            <Link href={`/kids/stories`} className="ml-2 hover:text-primary-blue">
+              {t('kids_page.stories')}
+            </Link>
+          </p>
+          <div className="px-6 py-4 flex rounded-2xl overflow-hidden shadow-xl bg-white md:w-4/5 m-auto">
+            <StoryReader titleCurrent={title_current} titleOther={title_other} id={story.slug} country={story.country} phrases={phrases} />
+          </div>
+          {/* other story */}
+          <div className="block mt-16 m-auto mb-36 md:w-4/5">
+            <div className="text-center  md:flex md:items-center">
+              <H2>{t('kids_page.otherStories_title')}</H2>
+              <Link
+                href={`/kids/stories`}
+                className="w-44 h-10 flex items-center justify-center rounded-xl bg-primary-blue text-base text-white px-5 py-3 md:ml-auto mx-auto md:mx-0"
+              >
+                {t('kids_page.otherStories_btn_title')}
+              </Link>
+            </div>
           </div>
         </>
       ) : (
