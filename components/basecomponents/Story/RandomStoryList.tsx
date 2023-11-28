@@ -6,40 +6,47 @@ import stories from '../../../data/stories';
 import { useLanguage } from 'utils/useLanguageHook';
 import { useRouter } from 'next/router';
 
-const maxAttempts = 3;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const randomStories: any[] = [];
-const storiesCount = stories.length;
+type RandomStoryListProps = {
+  currentStorySlug: string;
+};
 
-for (let i = 0; i < maxAttempts && randomStories.length < 3; i++) {
-  const randomIndex = Math.floor(Math.random() * storiesCount);
-  const randomStory = stories[randomIndex];
-  if (!randomStories.includes(randomStory)) {
-    randomStories.push(randomStory);
-  }
-}
-
-const RandomStoryList: React.FC = () => {
+const RandomStoryList: React.FC<RandomStoryListProps> = ({ currentStorySlug }) => {
   const { currentLanguage } = useLanguage();
   const router = useRouter();
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [randomStoriesArray, setRandomStoriesArray] = useState<any[]>([]);
 
   useEffect(() => {
-    setRandomStoriesArray(randomStories);
-  }, [randomStoriesArray]);
+    const filteredStories = stories.filter((story) => story.title[currentLanguage]).filter((story) => story.slug !== currentStorySlug);
 
-  const handleLinkClick = () => {
-    router.reload(); // Перезагрузить страницу
-  };
+    const getRandomStories = () => {
+      const maxAttempts = 3;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const randomStoriesArray: any[] = [];
+      const storiesCount = filteredStories.length;
+
+      for (let i = 0; i < maxAttempts && randomStoriesArray.length < 3; i++) {
+        const randomIndex = Math.floor(Math.random() * storiesCount);
+        const randomStory = filteredStories[randomIndex];
+        if (!randomStoriesArray.includes(randomStory)) {
+          randomStoriesArray.push(randomStory);
+        }
+      }
+
+      setRandomStoriesArray(randomStoriesArray);
+    };
+
+    getRandomStories();
+  }, [currentLanguage, router.query.slug, currentStorySlug]);
 
   return (
     <div className="w-full mx-auto py-10">
       <ul className="grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 md:gap-6">
         {randomStoriesArray.map((story) => {
           return (
-            <li key={story.title[currentLanguage]} className="bg-white shadow-m rounded-[32px] text-center">
-              <Link href={`/kids/stories/${story.slug}`} onClick={handleLinkClick}>
+            <li key={story.slug} className="bg-white shadow-m rounded-[32px] text-center">
+              <Link href={`/kids/stories/${story.slug}`}>
                 <Image
                   className="rounded-t-[32px] w-full"
                   src={`/kids/${story.slug}.jpg`}

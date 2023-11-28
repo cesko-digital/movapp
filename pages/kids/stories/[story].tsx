@@ -13,8 +13,9 @@ import { getCountryVariant, Language } from '../../../utils/locales';
 import Custom404 from '../../404';
 import { StoryPhrase, getStoryData } from '../../../components/basecomponents/Story/storyStore';
 import { H2 } from 'components/Typography';
-import RandomStoryCards from 'components/basecomponents/Story/RandomStoryList';
-
+import RandomStoryList from 'components/basecomponents/Story/RandomStoryList';
+import { useRouter } from 'next/router';
+// import { useParams } from 'react-router-dom';
 interface StoriesProps {
   story: Story | undefined;
   phrases: StoryPhrase[];
@@ -28,6 +29,11 @@ interface UrlParams extends ParsedUrlQuery {
 const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
   const { currentLanguage, otherLanguage } = useLanguage();
   const { t } = useTranslation();
+
+  const router = useRouter();
+
+  const currentStorySlug = router.query.story as string;
+
   if (!story) {
     return 'Story not found';
   }
@@ -81,7 +87,7 @@ const StoriesContainer = ({ story, phrases }: StoriesProps): ReactNode => {
                 {t('kids_page.otherStories_btn_title')}
               </Link>
             </div>
-            <RandomStoryCards />
+            <RandomStoryList currentStorySlug={currentStorySlug} />
           </div>
         </>
       ) : (
