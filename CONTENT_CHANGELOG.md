@@ -19,3 +19,5 @@
 2023-08-04	Add Geography and Space
 2023-08-09	More Polish categories
 2023-10-03	Transliteration contains punctiation
+2023-11-23	Add Math section
+2023-11-24	Fixes in Math section
