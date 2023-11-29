@@ -37,7 +37,7 @@ const StoriesList = ({ stories }: StoriesListProps) => {
               priority={priority}
             />
           </div>
-          <p className="bg-[#FFFFFF] text-primary-blue text-center text-2xl rounded-b-2xl flex justify-center text-center h-[76px] sm:h-[100px] items-center">
+          <p className="bg-[#FFFFFF] text-primary-blue text-2xl rounded-b-2xl flex justify-center text-center h-[76px] sm:h-[100px] items-center">
             {story.title[currentLanguage]}
           </p>
         </Link>
