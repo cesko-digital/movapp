@@ -1,5 +1,4 @@
-{
-    "timeline": [
+[
     {
       "main": "V chalúpke žila mama koza so svojimi tromi kozliatkami.",
       "uk": "Жила собі в хатинці мати-коза з козенятами.",
@@ -128,5 +127,4 @@
       "start_uk": 122.5705,
       "end_uk": 128.5705
     }
-    ]
-}
+]
