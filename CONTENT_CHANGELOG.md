@@ -22,4 +22,3 @@
 2023-11-23	Add Math section
 2023-11-24	Fixes in Math section
 2023-12-06	Add Smalltalk section
-
