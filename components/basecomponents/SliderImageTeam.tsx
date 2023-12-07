@@ -16,6 +16,9 @@ export const SliderImageTeam = (): JSX.Element => {
     {
       url: 'https://data.movapp.eu/images/team/large-team-photo.jpg',
     },
+    {
+      url: 'https://data.movapp.eu/images/team/large-team-photo-prosinec-23.jpg',
+    },
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
