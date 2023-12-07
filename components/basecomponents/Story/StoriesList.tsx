@@ -32,7 +32,7 @@ const StoriesList = ({ stories }: StoriesListProps) => {
               src={`/kids/${story.slug}.jpg`}
               width={400}
               height={300}
-              className="w-full h-full object-cover rounded-t-2xl group-hover:scale-110 transition duration-200"
+              className="h-full object-cover rounded-t-2xl group-hover:scale-110 transition duration-200"
               alt={story.title[currentLanguage]}
               priority={priority}
             />
