@@ -45,7 +45,7 @@ export const SliderImageTeam = (): JSX.Element => {
   return (
     <div className="max-w-[650px] m-auto relative group sm:mb-40 ">
       <a href={slides[currentIndex].url} target="_blank" rel="noopener noreferrer">
-        <div className="hover:shadow-lg hover:-translate-y-1 hover:scale-170 duration-300 cursor-zoom-in">
+        <div className="hover:shadow-lg hover:-translate-y-1 hover:scale-170 duration-300 cursor-zoom-in h-[400px]">
           <Image src={slides[currentIndex].url} width={640} height={400} alt={t('about_page.our_team_current_title')} />
         </div>
       </a>
