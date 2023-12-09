@@ -1,0 +1,154 @@
+﻿[
+    {
+      "main": "Bol raz jeden muž so ženou a mali dve deti, dcéru Maričku a syna Ivanka.",
+      "uk": "Жили-були чоловік із жінкою та мали вони двох діток, доньку Марічку та сина, Іванка.",
+      "start_cs": 14.1705,
+      "end_cs": 21.1205,
+      "start_uk": 13.7955,
+      "end_uk": 21.2705
+    },
+    {
+      "main": "Jedného dňa išli rodičia do mesta na trh a povedali Maričke, aby postrážila svojho mladšieho bračeka.",
+      "uk": "Одного дня батьки поїхали в місто на ярмарку і наказали Марічці слідкувати за молодшим братом.",
+      "start_cs": 21.1205,
+      "end_cs": 29.3455,
+      "start_uk": 21.2705,
+      "end_uk": 28.5955
+    },
+    {
+      "main": "Marička však bračeka posadila na lavičku na slniečku a utekala za kamarátkami.",
+      "uk": "Але Марічка братика посадила на лавку на сонечці, а сама побігла до подружок.",
+      "start_cs": 29.3455,
+      "end_cs": 36.083,
+      "start_uk": 28.5955,
+      "end_uk": 35.3205
+    },
+    {
+      "main": "Keď sa vrátila, Ivanka už nikde nenašla a tušila, že ho odniesli husi-labute za babou Jagou.",
+      "uk": "Коли повернулась, Іванка ніде не було, і дівчинка здогадалась, що його забрали гуси-лебеді до баби Яги.",
+      "start_cs": 36.083,
+      "end_cs": 44.708,
+      "start_uk": 35.3205,
+      "end_uk": 43.708
+    },
+    {
+      "main": "Marička sa ich vydala hľadať, ale nevedela, ktorým smerom má ísť.",
+      "uk": "Кинулась Марічка наздоганяти їх, але не знає, куди бігти.",
+      "start_cs": 44.708,
+      "end_cs": 51.033,
+      "start_uk": 43.708,
+      "end_uk": 49.558
+    },
+    {
+      "main": "Tu zrazu uvidelo dievčatko Piecku a spýtalo sa jej na cestu.",
+      "uk": "Побачила дівчинка Пічку і спитала у неї дороги.",
+      "start_cs": 51.033,
+      "end_cs": 56.5955,
+      "start_uk": 49.558,
+      "end_uk": 54.658
+    },
+    {
+      "main": "Piecka Maričku poprosila, či by z nej mohla vybrať koláče, aby sa nespálili. A ona jej potom ukáže cestu.",
+      "uk": "А Пічка попросила Марічку витягти пиріжки, щоб не згоріли, а тоді вона дівчинці дорогу підкаже.",
+      "start_cs": 56.5955,
+      "end_cs": 66.183,
+      "start_uk": 54.658,
+      "end_uk": 62.5955
+    },
+    {
+      "main": "Marička vytiahla koláče, Piecka jej ukázala cestu, a tak sestrička bežala za svojím bračekom.",
+      "uk": "Марічка пиріжки витягла, Пічка їй шлях вказала, тож побігла сестричка далі за братом.",
+      "start_cs": 66.183,
+      "end_cs": 74.233,
+      "start_uk": 62.5955,
+      "end_uk": 70.158
+    },
+    {
+      "main": "Zrazu zbadala Jabloň. Aj tej sa Marička spýtala, kam leteli husi-labute.",
+      "uk": "Аж бачить росте Яблуня, і у неї Марічка спитала, куди гуси-лебеді полетіли.",
+      "start_cs": 74.233,
+      "end_cs": 81.6955,
+      "start_uk": 70.158,
+      "end_uk": 77.008
+    },
+    {
+      "main": "Jabloň poprosila Maričku, aby z nej obrala zrelé jabĺčka. A až potom jej ukázala cestu.",
+      "uk": "Яблуня попросила Марічку струсити стиглі яблучка, і лише тоді їй дорогу підказала.",
+      "start_cs": 81.6955,
+      "end_cs": 90.158,
+      "start_uk": 77.008,
+      "end_uk": 84.383
+    },
+    {
+      "main": "Marička išla ďalej, uvidela mliečnu Riečku s kyslými brehmi a opýtala sa jej na cestu.",
+      "uk": "Прямує Марічка далі і бачить молочну Річку з киселевими берегами, і у неї дорогу питає.",
+      "start_cs": 90.158,
+      "end_cs": 97.758,
+      "start_uk": 84.383,
+      "end_uk": 91.7455
+    },
+    {
+      "main": "Riečka povedala, že jej ukáže cestu, ak Marička odsunie ťažký kameň z jej prúdu.",
+      "uk": "Річка промовила, що вкаже шлях, якщо Марічка їй важкий камінь з течії зсуне.",
+      "start_cs": 97.758,
+      "end_cs": 104.8705,
+      "start_uk": 91.7455,
+      "end_uk": 98.8205
+    },
+    {
+      "main": "Dievčatko odsunulo kameň palicou a Riečka jej ukázala cestu k chalupe baby Jagy.",
+      "uk": "Дівчинка палицею камінь зсунула, і Річка їй показала шлях до хати Баби Яги.",
+      "start_cs": 104.8705,
+      "end_cs": 111.883,
+      "start_uk": 98.8205,
+      "end_uk": 105.7205
+    },
+    {
+      "main": "Tam pri peci sedel Ivanko, tak ho Marička chytila a rozbehla sa s ním domov..",
+      "uk": "Там на припічку сидів Іванко, тож Марічка його вхопила і ну тікати додому.",
+      "start_cs": 111.883,
+      "end_cs": 118.458,
+      "start_uk": 105.7205,
+      "end_uk": 112.333
+    },
+    {
+      "main": "Baba Jaga zbadala, že chlapec je preč a chcela deti dobehnúť.",
+      "uk": "Побачила Баба Яга, що хлопчика немає і кинулась наздоганяти дітей.",
+      "start_cs": 118.458,
+      "end_cs": 124.183,
+      "start_uk": 112.333,
+      "end_uk": 118.583
+    },
+    {
+      "main": "Ale Maričku a jej bračeka ukryla Riečka pod svojím strmým brehom.",
+      "uk": "Але Марічку з братиком заховала під крутим берегом Річка.",
+      "start_cs": 124.183,
+      "end_cs": 130.083,
+      "start_uk": 118.583,
+      "end_uk": 123.883
+    },
+    {
+      "main": "A potom ich Jabloň zakryla konármi a Piecka ich tiež prichýlila, takže Baba Jaga nemohla deti nájsť a zjesť.",
+      "uk": "А потім їх і Яблуня вітами прикрила, і Пічка прихистила, тож не вдалося Бабі Язі дітей знайти та з'їсти.",
+      "start_cs": 130.083,
+      "end_cs": 138.8455,
+      "start_uk": 123.883,
+      "end_uk": 132.408
+    },
+    {
+      "main": "Marička sa poďakovala Riečke, Jabloni a Piecke a vrátila sa s bračekom domov.",
+      "uk": "Подякувала Марічка Річці, Яблуні та Пічці, повернулася додому з братиком.",
+      "start_cs": 138.8455,
+      "end_cs": 145.908,
+      "start_uk": 132.408,
+      "end_uk": 139.3455
+    },
+    {
+      "main": "Práve vtedy sa aj rodičia vrátili z trhu a priniesli deťom dobroty.",
+      "uk": "Аж тут і батьки з ярмарки повернулись і гостинці дітям привезли.",
+      "start_cs": 145.908,
+      "end_cs": 152.111,
+      "start_uk": 139.3455,
+      "end_uk": 145.670469
+    }
+]
