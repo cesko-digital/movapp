@@ -1,0 +1,154 @@
+﻿[
+    {
+      "main": "Bol raz jeden deduško a babička. Deduško babičku poprosil, aby mu upiekla pampúšik.",
+      "uk": "Жили-були дід і баба, і попросив дід бабу спекти колобок.",
+      "start_cs": 14.008,
+      "end_cs": 22.258,
+      "start_uk": 13.5955,
+      "end_uk": 19.1955
+    },
+    {
+      "main": "Babička našla múku, zamiesila cesto a upiekla pampúšik.",
+      "uk": "Баба знайшла борошно, намісила тісто і спекла колобок.",
+      "start_cs": 22.258,
+      "end_cs": 28.2205,
+      "start_uk": 19.1955,
+      "end_uk": 24.7705
+    },
+    {
+      "main": "Vybrala ho z pece a dala ho vychladnúť na okno.",
+      "uk": "Вона витягла його з печі і поставила на вікні, щоб вичахав.",
+      "start_cs": 28.2205,
+      "end_cs": 33.008,
+      "start_uk": 24.7705,
+      "end_uk": 30.3955
+    },
+    {
+      "main": "Pampúšik ležal a ležal na okne a zrazu zoskočil a kotúľal sa po cestičke.",
+      "uk": "Колобок лежав-лежав на вікні, а тоді зістрибнув і покотився доріжкою.",
+      "start_cs": 33.008,
+      "end_cs": 39.8705,
+      "start_uk": 30.3955,
+      "end_uk": 36.858
+    },
+    {
+      "main": "Kotúľa sa po cestičke, keď tu zrazu sa pred ním zjaví zajačik a vraví, že ho zje.",
+      "uk": "Котиться він доріжкою, а назустріч йому зайчик. І каже, що його з'їсть.",
+      "start_cs": 39.8705,
+      "end_cs": 47.208,
+      "start_uk": 36.858,
+      "end_uk": 44.408
+    },
+    {
+      "main": "Pampúšik poprosil zajačika, aby ho nezjedol. Namiesto toho mu zaspieval pesničku a utiekol.",
+      "uk": "Колобок попросив зайчика, щоб він його не їв, а натомість заспівав йому пісеньку і втік.",
+      "start_cs": 47.208,
+      "end_cs": 56.033,
+      "start_uk": 44.408,
+      "end_uk": 52.0205
+    },
+    {
+      "main": "Kotúľa sa pampúšik po cestičke ďalej, keď tu zrazu sa pred ním zjaví vlk. A tiež hovorí, že ho zje.",
+      "uk": "Котиться далі колобок доріжкою, аж назустріч йому вовк. І теж каже, що його з'їсть.",
+      "start_cs": 56.033,
+      "end_cs": 65.0455,
+      "start_uk": 52.0205,
+      "end_uk": 60.3205
+    },
+    {
+      "main": "Pampúšik poprosil vlka, aby ho nezjedol a ponúkol sa, že mu zaspieva pesničku.",
+      "uk": "Колобок благав вовка не їсти його і запропонував і йому заспівати пісеньку.",
+      "start_cs": 65.0455,
+      "end_cs": 72.108,
+      "start_uk": 60.3205,
+      "end_uk": 66.8455
+    },
+    {
+      "main": "Vlk súhlasil a pampúšik počas spievania utiekol.",
+      "uk": "Вовк погодився, а колобок поки співав свою пісеньку, то і втік.",
+      "start_cs": 72.108,
+      "end_cs": 77.3705,
+      "start_uk": 66.8455,
+      "end_uk": 73.1955
+    },
+    {
+      "main": "Kotúľa sa pampúšik po cestičke ďalej, keď tu zrazu sa pred ním zjaví medveď. A tiež hovorí, že ho zje.",
+      "uk": "Котиться далі колобок доріжкою, аж назустріч йому ведмідь. І теж обіцяє його з'їсти.",
+      "start_cs": 77.3705,
+      "end_cs": 86.4955,
+      "start_uk": 73.1955,
+      "end_uk": 81.3205
+    },
+    {
+      "main": "Pampúšik však poprosil medveďa, aby ho nezjedol, a aby si radšej vypočul pesničku o pampúšikovom dobrodružstve.",
+      "uk": "Але колобок попросив ведмедя не їсти його, а послухати пісеньку про пригоди колобка.",
+      "start_cs": 86.4955,
+      "end_cs": 95.4455,
+      "start_uk": 81.3205,
+      "end_uk": 88.4955
+    },
+    {
+      "main": "A znovu, kým pampúšik spieval, podarilo sa mu ujsť od medveďa.",
+      "uk": "І знову поки колобок співав, йому вдалося втекти від ведмедя.",
+      "start_cs": 95.4455,
+      "end_cs": 101.408,
+      "start_uk": 88.4955,
+      "end_uk": 94.3455
+    },
+    {
+      "main": "A tak sa pampúšik kotúľa ďalej po cestičke, keď tu zrazu sa pred ním zjaví líštička. Aj ona si chce pochutnať na pampúšikovi.",
+      "uk": "Тож покотився колобок далі доріжкою, аж назустріч йому лисичка. Вона теж хоче поласувати колобком.",
+      "start_cs": 101.408,
+      "end_cs": 111.7705,
+      "start_uk": 94.3455,
+      "end_uk": 103.4205
+    },
+    {
+      "main": "Ale pampúšik znova - prosí, aby ho nezjedla a radšej si vypočula pesničku.",
+      "uk": "Але колобок знову за своє - просить не їсти його, а послухати пісеньку.",
+      "start_cs": 111.7705,
+      "end_cs": 118.508,
+      "start_uk": 103.4205,
+      "end_uk": 109.8705
+    },
+    {
+      "main": "Líštička súhlasila, a tak pampúšik zasa začal spievať.",
+      "uk": "Лисичка погодилась, тож колобок вкотре заспівав.",
+      "start_cs": 118.508,
+      "end_cs": 124.158,
+      "start_uk": 109.8705,
+      "end_uk": 115.0455
+    },
+    {
+      "main": "Keď však pesnička skončila, poprosila líštička, aby jej tú krásnu pesničku, ktorá sa jej veľmi páčila, zaspieval ešte raz.",
+      "uk": "Але коли пісенька скінчилась, лисичка попросила повторити чудову пісеньку, яка їй дуже сподобалась.",
+      "start_cs": 124.158,
+      "end_cs": 134.3205,
+      "start_uk": 115.0455,
+      "end_uk": 123.358
+    },
+    {
+      "main": "Sťažovala sa však, že zle počuje, a požiadala pampúšika, aby si jej sadol na jazyk, aby ho lepšie počula.",
+      "uk": "Однак вона поскаржилась, що недочуває і попрохала колобка сісти їй на язик, щоб було краще чути. ",
+      "start_cs": 134.3205,
+      "end_cs": 142.833,
+      "start_uk": 123.358,
+      "end_uk": 131.5705
+    },
+    {
+      "main": "Pampúšik s radosťou skočil líštičke na jazyk a začal spievať...",
+      "uk": "Колобок радісно застрибнув лисичці на язик і почав співати...",
+      "start_cs": 142.833,
+      "end_cs": 148.708,
+      "start_uk": 131.5705,
+      "end_uk": 137.2205
+    },
+    {
+      "main": "A líška? Ham. Zjedla ho!",
+      "uk": "А лисичка його - гам - і з'їла!",
+      "start_cs": 148.708,
+      "end_cs": 152.1205,
+      "start_uk": 137.2205,
+      "end_uk": 140.208
+    }
+]

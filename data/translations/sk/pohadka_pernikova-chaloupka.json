@@ -1,0 +1,162 @@
+﻿[
+    {
+      "main": "Bol raz jeden otecko, ktorý mal dcérku Marienku a synčeka Janka.",
+      "uk": "Жив був один тато, який жив з донькою Маренкою та сином Єнічком.",
+      "start_cs": 14.3455,
+      "end_cs": 20.558,
+      "start_uk": 14.1705,
+      "end_uk": 20.258
+    },
+    {
+      "main": "Bývali v chalúpke uprostred lesa.",
+      "uk": "Жили вони в хатинці посеред лісу.",
+      "start_cs": 20.558,
+      "end_cs": 24.558,
+      "start_uk": 20.258,
+      "end_uk": 24.2205
+    },
+    {
+      "main": "Otecko pracoval ako drevorubač a deti s ním často chodili do lesa.",
+      "uk": "Татусь працював лісорубом, і діти часто ходили з ним до лісу, коли він працював.",
+      "start_cs": 24.558,
+      "end_cs": 30.408,
+      "start_uk": 24.2205,
+      "end_uk": 31.108
+    },
+    {
+      "main": "Kým on rúbal stromy, deti sa hrali v lese a pochutnávali si na lesných jahodách a čučoriedkach.",
+      "uk": "Поки він рубав дерева, діти гралися в лісі і ласували лісовою суницею та чорницею.",
+      "start_cs": 30.408,
+      "end_cs": 38.4955,
+      "start_uk": 31.108,
+      "end_uk": 38.3455
+    },
+    {
+      "main": "Jedného dňa sa zatúlali príliš ďaleko a nevedeli nájsť cestu domov.",
+      "uk": "Одного разу вони зайшли дуже далеко і не могли знайти дорогу додому.",
+      "start_cs": 38.4955,
+      "end_cs": 44.7455,
+      "start_uk": 38.3455,
+      "end_uk": 44.308
+    },
+    {
+      "main": "Blúdili lesom, volali na otca a plakali. Hľadali, ale nevedeli ho nájsť.",
+      "uk": "Вони блукали лісом, кликали тата, плакали. Шукали, але знайти не змогли.",
+      "start_cs": 44.7455,
+      "end_cs": 52.608,
+      "start_uk": 44.308,
+      "end_uk": 52.5205
+    },
+    {
+      "main": "Keď sa zotmelo, Janko vyliezol na strom a rozhliadol sa po lese.",
+      "uk": "Коли стало поночі, Єнічек виліз на дерево і подивився на ліс.",
+      "start_cs": 52.608,
+      "end_cs": 58.533,
+      "start_uk": 52.5205,
+      "end_uk": 58.608
+    },
+    {
+      "main": "V diaľke uvidel svetielko. „To bude určite naša chalúpka!“ zakričal Marienke.",
+      "uk": "Вдалині він побачив світло. - Мабуть, це наша хатинка! - закричав він Маренці.",
+      "start_cs": 58.533,
+      "end_cs": 66.9255,
+      "start_uk": 58.608,
+      "end_uk": 67.508
+    },
+    {
+      "main": "Deti sa vydali za svetlom a čoskoro naozaj prišli k chalúpke.",
+      "uk": "Діти попрямували за світлом і невдовзі дійшли до хатинки.",
+      "start_cs": 66.9255,
+      "end_cs": 72.6755,
+      "start_uk": 67.508,
+      "end_uk": 72.9705
+    },
+    {
+      "main": "Nebola to však ich chalúpka. Táto bola celá postavená z perníkov.",
+      "uk": "Але це була не їхня хатинка. Ця хатинка була повністю зроблена із пряника.",
+      "start_cs": 72.6755,
+      "end_cs": 79.438,
+      "start_uk": 72.9705,
+      "end_uk": 80.408
+    },
+    {
+      "main": "Deti sa potešili! Boli už hladné, a tak si z chalúpky opatrne zobrali kúsok perníka.",
+      "uk": "Діти зраділи! Вони вже були голодні, тому обережно відламали від хатинки шматок пряника.",
+      "start_cs": 79.438,
+      "end_cs": 87.6505,
+      "start_uk": 80.408,
+      "end_uk": 89.1455
+    },
+    {
+      "main": "Zrazu sa s buchnutím otvorili dvere. Deti sa naľakali.",
+      "uk": "Раптом з тріском відчинилися двері. Діти злякалися.",
+      "start_cs": 87.6505,
+      "end_cs": 93.738,
+      "start_uk": 89.1455,
+      "end_uk": 95.2705
+    },
+    {
+      "main": "Z chalúpky vyšla babička. Pozvala deti do chalúpky, ponúkla im jedlo a nocľah.",
+      "uk": "З хатинки вийшла бабуся. Вона запросила дітей до хатинки, пригостила їх їжею та запропонувала ночівлю.",
+      "start_cs": 93.738,
+      "end_cs": 101.513,
+      "start_uk": 95.2705,
+      "end_uk": 104.4955
+    },
+    {
+      "main": "Nebola to však dobrá babička, bola to zlá čarodejnica.",
+      "uk": "Але це не була добра бабуся, це була зла відьма.",
+      "start_cs": 101.513,
+      "end_cs": 106.9755,
+      "start_uk": 104.4955,
+      "end_uk": 109.4205
+    },
+    {
+      "main": "Zavrela deti do komory, aby si ich tam vykŕmila a potom ich mohla zjesť.",
+      "uk": "Вона зачинила дітей у погріб, щоб відгодувати їх  і потім  з'їсти.",
+      "start_cs": 106.9755,
+      "end_cs": 113.2755,
+      "start_uk": 109.4205,
+      "end_uk": 115.4705
+    },
+    {
+      "main": "Deťom sa podarilo preliezť okienkom a utiecť.",
+      "uk": "Дітям вдалося вибратися через вікно і втекти.",
+      "start_cs": 113.2755,
+      "end_cs": 118.238,
+      "start_uk": 115.4705,
+      "end_uk": 120.283
+    },
+    {
+      "main": "Bežali tmavým lesom, utekali a utekali, ako najrýchlejšie vedeli.",
+      "uk": "Вони бігли темним лісом, тікали і тікали, поки вистачало сил.",
+      "start_cs": 118.238,
+      "end_cs": 124.4505,
+      "start_uk": 120.283,
+      "end_uk": 126.483
+    },
+    {
+      "main": "Zrazu sa ocitli pred ďalšou chalúpkou. A bola to ich chalúpka!",
+      "uk": "Раптом вони опинилися перед іншою хатинкою. І це була їхня хатинка!",
+      "start_cs": 124.4505,
+      "end_cs": 131.0505,
+      "start_uk": 126.483,
+      "end_uk": 133.833
+    },
+    {
+      "main": "Z chalúpky vybehol otecko. Objal obe deti a všetci boli šťastní, že sa opäť našli.",
+      "uk": "З хатинки вибіг тато. Він обійняв обох дітей, і всі були раді, що вони знайшлися.",
+      "start_cs": 131.0505,
+      "end_cs": 139.1255,
+      "start_uk": 133.833,
+      "end_uk": 142.033
+    },
+    {
+      "main": "A už nikdy sa nespustili z očí.",
+      "uk": "І відтоді вони ніколи не випускали один одного з очей.",
+      "start_cs": 139.1255,
+      "end_cs": 141.2255,
+      "start_uk": 142.033,
+      "end_uk": 146.983
+    }
+]
